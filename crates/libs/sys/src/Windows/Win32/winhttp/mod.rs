@@ -213,7 +213,7 @@ pub type PWINHTTP_AUTOPROXY_OPTIONS = *mut WINHTTP_AUTOPROXY_OPTIONS;
 #[cfg(feature = "Win32_minwindef")]
 pub type PWINHTTP_CERTIFICATE_INFO = *mut WINHTTP_CERTIFICATE_INFO;
 pub type PWINHTTP_CONNECTION_GROUP = *mut WINHTTP_CONNECTION_GROUP;
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 pub type PWINHTTP_CONNECTION_INFO = *mut WINHTTP_CONNECTION_INFO;
 pub type PWINHTTP_CREDS = *mut WINHTTP_CREDS;
 pub type PWINHTTP_CREDS_EX = *mut WINHTTP_CREDS_EX;
@@ -416,21 +416,21 @@ pub struct WINHTTP_CONNECTION_GROUP {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
-    pub LocalAddress: super::ws2def::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::ws2::SOCKADDR_STORAGE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
-    pub LocalAddress: super::ws2def::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::ws2::SOCKADDR_STORAGE,
 }
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_MASK: u32 = 7;

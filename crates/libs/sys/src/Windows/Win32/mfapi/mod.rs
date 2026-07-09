@@ -152,10 +152,10 @@ windows_link::link!("mfplat.dll" "system" fn MFLockDXGIDeviceManager(presettoken
 windows_link::link!("mfplat.dll" "system" fn MFLockPlatform() -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFLockSharedWorkQueue(wszclass : windows_sys::core::PCWSTR, basepriority : i32, pdwtaskid : *mut u32, pid : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("mfplat.dll" "system" fn MFLockWorkQueue(dwworkqueue : u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_dxgiformat")]
-windows_link::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::dxgiformat::DXGI_FORMAT);
-#[cfg(feature = "Win32_dxgiformat")]
-windows_link::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::dxgiformat::DXGI_FORMAT) -> u32);
+#[cfg(feature = "Win32_dxgi")]
+windows_link::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::dxgi::DXGI_FORMAT);
+#[cfg(feature = "Win32_dxgi")]
+windows_link::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::dxgi::DXGI_FORMAT) -> u32);
 #[cfg(all(feature = "Win32_mfobjects", feature = "Win32_winnt"))]
 windows_link::link!("mfplat.dll" "system" fn MFPutWaitingWorkItem(hevent : super::winnt::HANDLE, priority : i32, presult : *mut core::ffi::c_void, pkey : *mut MFWORKITEM_KEY) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_mfobjects")]

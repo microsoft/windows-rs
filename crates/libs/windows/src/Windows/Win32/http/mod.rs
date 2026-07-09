@@ -177,7 +177,7 @@ pub unsafe fn HttpReceiveClientCertificate(requestqueuehandle: super::winnt::HAN
     windows_core::link!("httpapi.dll" "system" fn HttpReceiveClientCertificate(requestqueuehandle : super::winnt::HANDLE, connectionid : HTTP_CONNECTION_ID, flags : u32, sslclientcertinfo : *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize : u32, bytesreceived : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
     unsafe { HttpReceiveClientCertificate(requestqueuehandle, connectionid, flags, sslclientcertinfo as _, sslclientcertinfosize, bytesreceived.unwrap_or(core::mem::zeroed()) as _, overlapped as _) }
 }
-#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwinbase", feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn HttpReceiveHttpRequest(requestqueuehandle: super::winnt::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, requestbuffer: *mut HTTP_REQUEST, requestbufferlength: u32, bytesreturned: Option<*mut u32>, overlapped: *mut super::minwinbase::OVERLAPPED) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpReceiveHttpRequest(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, requestbuffer : *mut HTTP_REQUEST, requestbufferlength : u32, bytesreturned : *mut u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> u32);
@@ -806,7 +806,7 @@ pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: u32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: u32 = 2;
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1;
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 pub type HTTP_REQUEST = HTTP_REQUEST_V2;
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1;
 #[repr(C)]
@@ -962,7 +962,7 @@ pub struct HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
     pub TransportIdleConnectionTimeout: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
@@ -985,7 +985,7 @@ pub struct HTTP_REQUEST_V1 {
     pub pSslInfo: PHTTP_SSL_INFO,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_REQUEST_V2 {
     pub Base: HTTP_REQUEST_V1,
@@ -1118,20 +1118,20 @@ pub struct HTTP_SERVICE_CONFIG_CACHE_SET {
 }
 pub type HTTP_SERVICE_CONFIG_ID = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
-    pub pAddress: super::ws2def::PSOCKADDR,
+    pub pAddress: super::ws2::PSOCKADDR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
-    pub AddrList: [super::ws2def::SOCKADDR_STORAGE; 1],
+    pub AddrList: [super::ws2::SOCKADDR_STORAGE; 1],
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1149,13 +1149,13 @@ pub struct HTTP_SERVICE_CONFIG_SETTING_SET {
     pub ParamDesc: HTTP_SERVICE_CONFIG_SETTING_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    pub LocalAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1163,7 +1163,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1172,20 +1172,20 @@ pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1207,16 +1207,16 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
-    pub pIpPort: super::ws2def::PSOCKADDR,
+    pub pIpPort: super::ws2::PSOCKADDR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    pub IpPort: super::ws2def::SOCKADDR_STORAGE,
+    pub IpPort: super::ws2::SOCKADDR_STORAGE,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1266,7 +1266,7 @@ impl Default for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1274,7 +1274,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1283,34 +1283,34 @@ pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    pub IpPort: super::ws2def::SOCKADDR_STORAGE,
+    pub IpPort: super::ws2::SOCKADDR_STORAGE,
     pub Host: windows_core::PWSTR,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1318,7 +1318,7 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub dwToken: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
@@ -1327,20 +1327,20 @@ pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy)]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1456,11 +1456,11 @@ impl Default for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_TRANSPORT_ADDRESS {
-    pub pRemoteAddress: super::ws2def::PSOCKADDR,
-    pub pLocalAddress: super::ws2def::PSOCKADDR,
+    pub pRemoteAddress: super::ws2::PSOCKADDR,
+    pub pLocalAddress: super::ws2::PSOCKADDR,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2503,17 +2503,17 @@ impl Default for PHTTP_RAW_CONNECTION_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_REQUEST(pub *mut HTTP_REQUEST);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl PHTTP_REQUEST {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl Default for PHTTP_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2775,33 +2775,33 @@ impl Default for PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_REQUEST_V1(pub *mut HTTP_REQUEST_V1);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl PHTTP_REQUEST_V1 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl Default for PHTTP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_REQUEST_V2(pub *mut HTTP_REQUEST_V2);
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl PHTTP_REQUEST_V2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_minwindef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 impl Default for PHTTP_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3056,33 +3056,33 @@ impl Default for PHTTP_SERVICE_CONFIG_ID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM(pub *mut HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY(pub *mut HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3140,113 +3140,113 @@ impl Default for PHTTP_SERVICE_CONFIG_SETTING_SET {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_KEY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_KEY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_KEY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_KEY_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3278,145 +3278,145 @@ impl Default for PHTTP_SERVICE_CONFIG_SSL_PARAM_EX {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_QUERY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_QUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_QUERY_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_SET);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SET_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_KEY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3623,17 +3623,17 @@ impl Default for PHTTP_TLS_SESSION_TICKET_KEYS_PARAM {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHTTP_TRANSPORT_ADDRESS(pub *mut HTTP_TRANSPORT_ADDRESS);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PHTTP_TRANSPORT_ADDRESS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PHTTP_TRANSPORT_ADDRESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

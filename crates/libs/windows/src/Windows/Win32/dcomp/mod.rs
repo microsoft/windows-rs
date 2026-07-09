@@ -98,12 +98,12 @@ impl core::ops::Deref for IDCompositionAffineTransform2DEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionAffineTransform2DEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionAffineTransform2DEffect {
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::d2d1effects::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::d2d::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInterpolationMode)(windows_core::Interface::as_raw(self), interpolationmode) }
     }
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetBorderMode(&self, bordermode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetBorderMode(&self, bordermode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderMode)(windows_core::Interface::as_raw(self), bordermode) }
     }
     pub unsafe fn SetTransformMatrix(&self, transformmatrix: *const windows_numerics::Matrix3x2) -> windows_core::HRESULT {
@@ -134,13 +134,13 @@ impl IDCompositionAffineTransform2DEffect {
 #[doc(hidden)]
 pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetInterpolationMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetInterpolationMode: usize,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetBorderMode: usize,
     pub SetTransformMatrix: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Matrix3x2) -> windows_core::HRESULT,
     pub SetTransformMatrixElement: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, f32) -> windows_core::HRESULT,
@@ -154,26 +154,26 @@ pub struct IDCompositionAffineTransform2DEffect_Vtbl {
     #[cfg(not(feature = "Win32_dcompanimation"))]
     SetSharpness2: usize,
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 pub trait IDCompositionAffineTransform2DEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetInterpolationMode(&self, interpolationmode: super::d2d1effects::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::Result<()>;
-    fn SetBorderMode(&self, bordermode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::Result<()>;
+    fn SetInterpolationMode(&self, interpolationmode: super::d2d::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::Result<()>;
+    fn SetBorderMode(&self, bordermode: super::d2d::D2D1_BORDER_MODE) -> windows_core::Result<()>;
     fn SetTransformMatrix(&self, transformmatrix: *const windows_numerics::Matrix3x2) -> windows_core::Result<()>;
     fn SetTransformMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
     fn SetTransformMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<super::dcompanimation::IDCompositionAnimation>) -> windows_core::Result<()>;
     fn SetSharpness(&self, sharpness: f32) -> windows_core::Result<()>;
     fn SetSharpness2(&self, animation: windows_core::Ref<super::dcompanimation::IDCompositionAnimation>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 impl IDCompositionAffineTransform2DEffect_Vtbl {
     pub const fn new<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetInterpolationMode<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: super::d2d1effects::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetInterpolationMode<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interpolationmode: super::d2d::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionAffineTransform2DEffect_Impl::SetInterpolationMode(this, core::mem::transmute_copy(&interpolationmode)).into()
             }
         }
-        unsafe extern "system" fn SetBorderMode<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bordermode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBorderMode<Identity: IDCompositionAffineTransform2DEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bordermode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionAffineTransform2DEffect_Impl::SetBorderMode(this, core::mem::transmute_copy(&bordermode)).into()
@@ -224,7 +224,7 @@ impl IDCompositionAffineTransform2DEffect_Vtbl {
         iid == &<IDCompositionAffineTransform2DEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 impl windows_core::RuntimeName for IDCompositionAffineTransform2DEffect {}
 windows_core::imp::define_interface!(IDCompositionArithmeticCompositeEffect, IDCompositionArithmeticCompositeEffect_Vtbl, 0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
 impl core::ops::Deref for IDCompositionArithmeticCompositeEffect {
@@ -414,8 +414,8 @@ impl core::ops::Deref for IDCompositionBlendEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionBlendEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionBlendEffect {
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetMode(&self, mode: super::d2d1effects::D2D1_BLEND_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetMode(&self, mode: super::d2d::D2D1_BLEND_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), mode) }
     }
 }
@@ -423,19 +423,19 @@ impl IDCompositionBlendEffect {
 #[doc(hidden)]
 pub struct IDCompositionBlendEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_BLEND_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_BLEND_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetMode: usize,
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 pub trait IDCompositionBlendEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetMode(&self, mode: super::d2d1effects::D2D1_BLEND_MODE) -> windows_core::Result<()>;
+    fn SetMode(&self, mode: super::d2d::D2D1_BLEND_MODE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 impl IDCompositionBlendEffect_Vtbl {
     pub const fn new<Identity: IDCompositionBlendEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMode<Identity: IDCompositionBlendEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d1effects::D2D1_BLEND_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMode<Identity: IDCompositionBlendEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_BLEND_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionBlendEffect_Impl::SetMode(this, core::mem::transmute_copy(&mode)).into()
@@ -447,7 +447,7 @@ impl IDCompositionBlendEffect_Vtbl {
         iid == &<IDCompositionBlendEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 impl windows_core::RuntimeName for IDCompositionBlendEffect {}
 windows_core::imp::define_interface!(IDCompositionBrightnessEffect, IDCompositionBrightnessEffect_Vtbl, 0x6027496e_cb3a_49ab_934f_d798da4f7da6);
 impl core::ops::Deref for IDCompositionBrightnessEffect {
@@ -668,8 +668,8 @@ impl IDCompositionColorMatrixEffect {
     {
         unsafe { (windows_core::Interface::vtable(self).SetMatrixElement2)(windows_core::Interface::as_raw(self), row, column, animation.param().abi()) }
     }
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetAlphaMode(&self, mode: super::d2d1effects::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetAlphaMode(&self, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), mode) }
     }
     pub unsafe fn SetClampOutput(&self, clamp: bool) -> windows_core::HRESULT {
@@ -689,21 +689,21 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
     pub SetMatrixElement2: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_dcompanimation"))]
     SetMatrixElement2: usize,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetAlphaMode: usize,
     pub SetClampOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
 pub trait IDCompositionColorMatrixEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetMatrix(&self, matrix: *const super::dcommon::D2D_MATRIX_5X4_F) -> windows_core::Result<()>;
     fn SetMatrixElement(&self, row: i32, column: i32, value: f32) -> windows_core::Result<()>;
     fn SetMatrixElement2(&self, row: i32, column: i32, animation: windows_core::Ref<super::dcompanimation::IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetAlphaMode(&self, mode: super::d2d1effects::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::Result<()>;
+    fn SetAlphaMode(&self, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::Result<()>;
     fn SetClampOutput(&self, clamp: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
 impl IDCompositionColorMatrixEffect_Vtbl {
     pub const fn new<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetMatrix<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, matrix: *const super::dcommon::D2D_MATRIX_5X4_F) -> windows_core::HRESULT {
@@ -724,7 +724,7 @@ impl IDCompositionColorMatrixEffect_Vtbl {
                 IDCompositionColorMatrixEffect_Impl::SetMatrixElement2(this, core::mem::transmute_copy(&row), core::mem::transmute_copy(&column), core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaMode<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d1effects::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaMode<Identity: IDCompositionColorMatrixEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_COLORMATRIX_ALPHA_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionColorMatrixEffect_Impl::SetAlphaMode(this, core::mem::transmute_copy(&mode)).into()
@@ -749,7 +749,7 @@ impl IDCompositionColorMatrixEffect_Vtbl {
         iid == &<IDCompositionColorMatrixEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation"))]
 impl windows_core::RuntimeName for IDCompositionColorMatrixEffect {}
 windows_core::imp::define_interface!(IDCompositionCompositeEffect, IDCompositionCompositeEffect_Vtbl, 0x576616c0_a231_494d_a38d_00fd5ec4db46);
 impl core::ops::Deref for IDCompositionCompositeEffect {
@@ -760,8 +760,8 @@ impl core::ops::Deref for IDCompositionCompositeEffect {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionCompositeEffect, windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
 impl IDCompositionCompositeEffect {
-    #[cfg(feature = "Win32_d2d1_1")]
-    pub unsafe fn SetMode(&self, mode: super::d2d1_1::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetMode(&self, mode: super::d2d::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMode)(windows_core::Interface::as_raw(self), mode) }
     }
 }
@@ -769,19 +769,19 @@ impl IDCompositionCompositeEffect {
 #[doc(hidden)]
 pub struct IDCompositionCompositeEffect_Vtbl {
     pub base__: IDCompositionFilterEffect_Vtbl,
-    #[cfg(feature = "Win32_d2d1_1")]
-    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1_1::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1_1"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetMode: usize,
 }
-#[cfg(feature = "Win32_d2d1_1")]
+#[cfg(feature = "Win32_d2d")]
 pub trait IDCompositionCompositeEffect_Impl: IDCompositionFilterEffect_Impl {
-    fn SetMode(&self, mode: super::d2d1_1::D2D1_COMPOSITE_MODE) -> windows_core::Result<()>;
+    fn SetMode(&self, mode: super::d2d::D2D1_COMPOSITE_MODE) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d2d1_1")]
+#[cfg(feature = "Win32_d2d")]
 impl IDCompositionCompositeEffect_Vtbl {
     pub const fn new<Identity: IDCompositionCompositeEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetMode<Identity: IDCompositionCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d1_1::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMode<Identity: IDCompositionCompositeEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_COMPOSITE_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionCompositeEffect_Impl::SetMode(this, core::mem::transmute_copy(&mode)).into()
@@ -793,7 +793,7 @@ impl IDCompositionCompositeEffect_Vtbl {
         iid == &<IDCompositionCompositeEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d2d1_1")]
+#[cfg(feature = "Win32_d2d")]
 impl windows_core::RuntimeName for IDCompositionCompositeEffect {}
 windows_core::imp::define_interface!(IDCompositionDelegatedInkTrail, IDCompositionDelegatedInkTrail_Vtbl, 0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
 windows_core::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, windows_core::IUnknown);
@@ -813,8 +813,8 @@ impl IDCompositionDelegatedInkTrail {
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveTrailPoints)(windows_core::Interface::as_raw(self), generationid) }
     }
-    #[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
-    pub unsafe fn StartNewTrail(&self, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    pub unsafe fn StartNewTrail(&self, color: *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartNewTrail)(windows_core::Interface::as_raw(self), color) }
     }
 }
@@ -825,19 +825,19 @@ pub struct IDCompositionDelegatedInkTrail_Vtbl {
     pub AddTrailPoints: unsafe extern "system" fn(*mut core::ffi::c_void, *const DCompositionInkTrailPoint, u32, *mut u32) -> windows_core::HRESULT,
     pub AddTrailPointsWithPrediction: unsafe extern "system" fn(*mut core::ffi::c_void, *const DCompositionInkTrailPoint, u32, *const DCompositionInkTrailPoint, u32, *mut u32) -> windows_core::HRESULT,
     pub RemoveTrailPoints: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
-    pub StartNewTrail: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    pub StartNewTrail: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dxgi")))]
     StartNewTrail: usize,
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
 pub trait IDCompositionDelegatedInkTrail_Impl: windows_core::IUnknownImpl {
     fn AddTrailPoints(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32) -> windows_core::Result<u32>;
     fn AddTrailPointsWithPrediction(&self, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, predictedinkpoints: *const DCompositionInkTrailPoint, predictedinkpointscount: u32) -> windows_core::Result<u32>;
     fn RemoveTrailPoints(&self, generationid: u32) -> windows_core::Result<()>;
-    fn StartNewTrail(&self, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::Result<()>;
+    fn StartNewTrail(&self, color: *const super::d2d::D2D_COLOR_F) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
 impl IDCompositionDelegatedInkTrail_Vtbl {
     pub const fn new<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddTrailPoints<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inkpoints: *const DCompositionInkTrailPoint, inkpointscount: u32, generationid: *mut u32) -> windows_core::HRESULT {
@@ -870,7 +870,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
                 IDCompositionDelegatedInkTrail_Impl::RemoveTrailPoints(this, core::mem::transmute_copy(&generationid)).into()
             }
         }
-        unsafe extern "system" fn StartNewTrail<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT {
+        unsafe extern "system" fn StartNewTrail<Identity: IDCompositionDelegatedInkTrail_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionDelegatedInkTrail_Impl::StartNewTrail(this, core::mem::transmute_copy(&color)).into()
@@ -888,7 +888,7 @@ impl IDCompositionDelegatedInkTrail_Vtbl {
         iid == &<IDCompositionDelegatedInkTrail as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionDelegatedInkTrail {}
 windows_core::imp::define_interface!(IDCompositionDesktopDevice, IDCompositionDesktopDevice_Vtbl, 0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
 impl core::ops::Deref for IDCompositionDesktopDevice {
@@ -938,13 +938,13 @@ pub struct IDCompositionDesktopDevice_Vtbl {
     #[cfg(not(feature = "Win32_windef"))]
     CreateSurfaceFromHwnd: usize,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 pub trait IDCompositionDesktopDevice_Impl: IDCompositionDevice2_Impl {
     fn CreateTargetForHwnd(&self, hwnd: super::windef::HWND, topmost: windows_core::BOOL) -> windows_core::Result<IDCompositionTarget>;
     fn CreateSurfaceFromHandle(&self, handle: super::winnt::HANDLE) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateSurfaceFromHwnd(&self, hwnd: super::windef::HWND) -> windows_core::Result<windows_core::IUnknown>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 impl IDCompositionDesktopDevice_Vtbl {
     pub const fn new<Identity: IDCompositionDesktopDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateTargetForHwnd<Identity: IDCompositionDesktopDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hwnd: super::windef::HWND, topmost: windows_core::BOOL, target: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -994,7 +994,7 @@ impl IDCompositionDesktopDevice_Vtbl {
         iid == &<IDCompositionDesktopDevice as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for IDCompositionDesktopDevice {}
 windows_core::imp::define_interface!(IDCompositionDevice, IDCompositionDevice_Vtbl, 0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
 windows_core::imp::interface_hierarchy!(IDCompositionDevice, windows_core::IUnknown);
@@ -1005,7 +1005,7 @@ impl IDCompositionDevice {
     pub unsafe fn WaitForCommitCompletion(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForCommitCompletion)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon"))]
+    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), statistics as _) }
     }
@@ -1022,15 +1022,15 @@ impl IDCompositionDevice {
             (windows_core::Interface::vtable(self).CreateVisual)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1148,22 +1148,22 @@ pub struct IDCompositionDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon"))]
+    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon")))]
+    #[cfg(not(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi")))]
     GetFrameStatistics: usize,
     #[cfg(feature = "Win32_windef")]
     pub CreateTargetForHwnd: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_windef"))]
     CreateTargetForHwnd: usize,
     pub CreateVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateSurface: usize,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateVirtualSurface: usize,
     #[cfg(feature = "Win32_winnt")]
     pub CreateSurfaceFromHandle: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1192,15 +1192,15 @@ pub struct IDCompositionDevice_Vtbl {
     CreateAnimation: usize,
     pub CheckDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 pub trait IDCompositionDevice_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn WaitForCommitCompletion(&self) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, statistics: *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::Result<()>;
     fn CreateTargetForHwnd(&self, hwnd: super::windef::HWND, topmost: windows_core::BOOL) -> windows_core::Result<IDCompositionTarget>;
     fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual>;
-    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
+    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
+    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
     fn CreateSurfaceFromHandle(&self, handle: super::winnt::HANDLE) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateSurfaceFromHwnd(&self, hwnd: super::windef::HWND) -> windows_core::Result<windows_core::IUnknown>;
     fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform>;
@@ -1219,7 +1219,7 @@ pub trait IDCompositionDevice_Impl: windows_core::IUnknownImpl {
     fn CreateAnimation(&self) -> windows_core::Result<super::dcompanimation::IDCompositionAnimation>;
     fn CheckDeviceState(&self) -> windows_core::Result<windows_core::BOOL>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 impl IDCompositionDevice_Vtbl {
     pub const fn new<Identity: IDCompositionDevice_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Commit<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1264,7 +1264,7 @@ impl IDCompositionDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -1276,7 +1276,7 @@ impl IDCompositionDevice_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -1524,7 +1524,7 @@ impl IDCompositionDevice_Vtbl {
         iid == &<IDCompositionDevice as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for IDCompositionDevice {}
 windows_core::imp::define_interface!(IDCompositionDevice2, IDCompositionDevice2_Vtbl, 0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
 windows_core::imp::interface_hierarchy!(IDCompositionDevice2, windows_core::IUnknown);
@@ -1535,7 +1535,7 @@ impl IDCompositionDevice2 {
     pub unsafe fn WaitForCommitCompletion(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WaitForCommitCompletion)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon"))]
+    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
     pub unsafe fn GetFrameStatistics(&self, statistics: *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetFrameStatistics)(windows_core::Interface::as_raw(self), statistics as _) }
     }
@@ -1554,15 +1554,15 @@ impl IDCompositionDevice2 {
             (windows_core::Interface::vtable(self).CreateSurfaceFactory)(windows_core::Interface::as_raw(self), renderingdevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1660,19 +1660,19 @@ pub struct IDCompositionDevice2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Commit: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub WaitForCommitCompletion: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon"))]
+    #[cfg(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
     pub GetFrameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dcomptypes", feature = "Win32_dxgicommon")))]
+    #[cfg(not(all(feature = "Win32_dcomptypes", feature = "Win32_dxgi")))]
     GetFrameStatistics: usize,
     pub CreateVisual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateSurfaceFactory: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateSurface: usize,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateVirtualSurface: usize,
     pub CreateTranslateTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateScaleTransform: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -1692,15 +1692,15 @@ pub struct IDCompositionDevice2_Vtbl {
     #[cfg(not(feature = "Win32_dcompanimation"))]
     CreateAnimation: usize,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionDevice2_Impl: windows_core::IUnknownImpl {
     fn Commit(&self) -> windows_core::Result<()>;
     fn WaitForCommitCompletion(&self) -> windows_core::Result<()>;
     fn GetFrameStatistics(&self, statistics: *mut super::dcomptypes::DCOMPOSITION_FRAME_STATISTICS) -> windows_core::Result<()>;
     fn CreateVisual(&self) -> windows_core::Result<IDCompositionVisual2>;
     fn CreateSurfaceFactory(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDCompositionSurfaceFactory>;
-    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
+    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
+    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
     fn CreateTranslateTransform(&self) -> windows_core::Result<IDCompositionTranslateTransform>;
     fn CreateScaleTransform(&self) -> windows_core::Result<IDCompositionScaleTransform>;
     fn CreateRotateTransform(&self) -> windows_core::Result<IDCompositionRotateTransform>;
@@ -1716,7 +1716,7 @@ pub trait IDCompositionDevice2_Impl: windows_core::IUnknownImpl {
     fn CreateRectangleClip(&self) -> windows_core::Result<IDCompositionRectangleClip>;
     fn CreateAnimation(&self) -> windows_core::Result<super::dcompanimation::IDCompositionAnimation>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionDevice2_Vtbl {
     pub const fn new<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Commit<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1761,7 +1761,7 @@ impl IDCompositionDevice2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -1773,7 +1773,7 @@ impl IDCompositionDevice2_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionDevice2_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -1982,7 +1982,7 @@ impl IDCompositionDevice2_Vtbl {
         iid == &<IDCompositionDevice2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionDevice2 {}
 windows_core::imp::define_interface!(IDCompositionDevice3, IDCompositionDevice3_Vtbl, 0x0987cb06_f916_48bf_8d35_ce7641781bd9);
 impl core::ops::Deref for IDCompositionDevice3 {
@@ -2090,7 +2090,7 @@ pub struct IDCompositionDevice3_Vtbl {
     pub CreateArithmeticCompositeEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateAffineTransform2DEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionDevice3_Impl: IDCompositionDevice2_Impl {
     fn CreateGaussianBlurEffect(&self) -> windows_core::Result<IDCompositionGaussianBlurEffect>;
     fn CreateBrightnessEffect(&self) -> windows_core::Result<IDCompositionBrightnessEffect>;
@@ -2106,7 +2106,7 @@ pub trait IDCompositionDevice3_Impl: IDCompositionDevice2_Impl {
     fn CreateArithmeticCompositeEffect(&self) -> windows_core::Result<IDCompositionArithmeticCompositeEffect>;
     fn CreateAffineTransform2DEffect(&self) -> windows_core::Result<IDCompositionAffineTransform2DEffect>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionDevice3_Vtbl {
     pub const fn new<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateGaussianBlurEffect<Identity: IDCompositionDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, gaussianblureffect: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2286,7 +2286,7 @@ impl IDCompositionDevice3_Vtbl {
         iid == &<IDCompositionDevice3 as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionDevice3 {}
 windows_core::imp::define_interface!(IDCompositionDevice4, IDCompositionDevice4_Vtbl, 0x85fc5cca_2da6_494c_86b6_4a775c049b8a);
 impl core::ops::Deref for IDCompositionDevice4 {
@@ -2323,12 +2323,12 @@ pub struct IDCompositionDevice4_Vtbl {
     pub CheckCompositionTextureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub CreateCompositionTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionDevice4_Impl: IDCompositionDevice3_Impl {
     fn CheckCompositionTextureSupport(&self, renderingdevice: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<windows_core::BOOL>;
     fn CreateCompositionTexture(&self, d3dtexture: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDCompositionTexture>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionDevice4_Vtbl {
     pub const fn new<Identity: IDCompositionDevice4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CheckCompositionTextureSupport<Identity: IDCompositionDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, renderingdevice: *mut core::ffi::c_void, supportscompositiontextures: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -2365,7 +2365,7 @@ impl IDCompositionDevice4_Vtbl {
         iid == &<IDCompositionDevice4 as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID || iid == &<IDCompositionDevice3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionDevice4 {}
 windows_core::imp::define_interface!(IDCompositionDevice5, IDCompositionDevice5_Vtbl, 0x2c6bebfe_a603_472f_af34_d2443356e61b);
 impl core::ops::Deref for IDCompositionDevice5 {
@@ -2389,11 +2389,11 @@ pub struct IDCompositionDevice5_Vtbl {
     pub base__: IDCompositionDevice4_Vtbl,
     pub CreateDynamicTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionDevice5_Impl: IDCompositionDevice4_Impl {
     fn CreateDynamicTexture(&self) -> windows_core::Result<IDCompositionDynamicTexture>;
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionDevice5_Vtbl {
     pub const fn new<Identity: IDCompositionDevice5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateDynamicTexture<Identity: IDCompositionDevice5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compositiondynamictexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2414,7 +2414,7 @@ impl IDCompositionDevice5_Vtbl {
         iid == &<IDCompositionDevice5 as windows_core::Interface>::IID || iid == &<IDCompositionDevice2 as windows_core::Interface>::IID || iid == &<IDCompositionDevice3 as windows_core::Interface>::IID || iid == &<IDCompositionDevice4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionDevice5 {}
 windows_core::imp::define_interface!(IDCompositionDeviceDebug, IDCompositionDeviceDebug_Vtbl, 0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
 windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, windows_core::IUnknown);
@@ -2674,8 +2674,8 @@ impl IDCompositionGaussianBlurEffect {
     {
         unsafe { (windows_core::Interface::vtable(self).SetStandardDeviation2)(windows_core::Interface::as_raw(self), animation.param().abi()) }
     }
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetBorderMode(&self, mode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetBorderMode(&self, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBorderMode)(windows_core::Interface::as_raw(self), mode) }
     }
 }
@@ -2688,18 +2688,18 @@ pub struct IDCompositionGaussianBlurEffect_Vtbl {
     pub SetStandardDeviation2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_dcompanimation"))]
     SetStandardDeviation2: usize,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetBorderMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetBorderMode: usize,
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 pub trait IDCompositionGaussianBlurEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetStandardDeviation(&self, amount: f32) -> windows_core::Result<()>;
     fn SetStandardDeviation2(&self, animation: windows_core::Ref<super::dcompanimation::IDCompositionAnimation>) -> windows_core::Result<()>;
-    fn SetBorderMode(&self, mode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::Result<()>;
+    fn SetBorderMode(&self, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 impl IDCompositionGaussianBlurEffect_Vtbl {
     pub const fn new<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetStandardDeviation<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, amount: f32) -> windows_core::HRESULT {
@@ -2714,7 +2714,7 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
                 IDCompositionGaussianBlurEffect_Impl::SetStandardDeviation2(this, core::mem::transmute_copy(&animation)).into()
             }
         }
-        unsafe extern "system" fn SetBorderMode<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d1effects::D2D1_BORDER_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetBorderMode<Identity: IDCompositionGaussianBlurEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::d2d::D2D1_BORDER_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionGaussianBlurEffect_Impl::SetBorderMode(this, core::mem::transmute_copy(&mode)).into()
@@ -2731,7 +2731,7 @@ impl IDCompositionGaussianBlurEffect_Vtbl {
         iid == &<IDCompositionGaussianBlurEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1effects", feature = "Win32_dcompanimation"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcompanimation"))]
 impl windows_core::RuntimeName for IDCompositionGaussianBlurEffect {}
 windows_core::imp::define_interface!(IDCompositionHueRotationEffect, IDCompositionHueRotationEffect_Vtbl, 0x6db9f920_0770_4781_b0c6_381912f9d167);
 impl core::ops::Deref for IDCompositionHueRotationEffect {
@@ -5007,15 +5007,15 @@ impl windows_core::RuntimeName for IDCompositionSurface {}
 windows_core::imp::define_interface!(IDCompositionSurfaceFactory, IDCompositionSurfaceFactory_Vtbl, 0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
 windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, windows_core::IUnknown);
 impl IDCompositionSurfaceFactory {
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), width, height, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVirtualSurface)(windows_core::Interface::as_raw(self), initialwidth, initialheight, pixelformat, alphamode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5026,24 +5026,24 @@ impl IDCompositionSurfaceFactory {
 #[doc(hidden)]
 pub struct IDCompositionSurfaceFactory_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateSurface: usize,
-    #[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
-    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgiformat::DXGI_FORMAT, super::dxgi1_2::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVirtualSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::dxgi::DXGI_FORMAT, super::dxgi::DXGI_ALPHA_MODE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateVirtualSurface: usize,
 }
-#[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IDCompositionSurfaceFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
-    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
+    fn CreateSurface(&self, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionSurface>;
+    fn CreateVirtualSurface(&self, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<IDCompositionVirtualSurface>;
 }
-#[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl IDCompositionSurfaceFactory_Vtbl {
     pub const fn new<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, surface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionSurfaceFactory_Impl::CreateSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -5055,7 +5055,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgiformat::DXGI_FORMAT, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVirtualSurface<Identity: IDCompositionSurfaceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, initialwidth: u32, initialheight: u32, pixelformat: super::dxgi::DXGI_FORMAT, alphamode: super::dxgi::DXGI_ALPHA_MODE, virtualsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDCompositionSurfaceFactory_Impl::CreateVirtualSurface(this, core::mem::transmute_copy(&initialwidth), core::mem::transmute_copy(&initialheight), core::mem::transmute_copy(&pixelformat), core::mem::transmute_copy(&alphamode)) {
@@ -5077,7 +5077,7 @@ impl IDCompositionSurfaceFactory_Vtbl {
         iid == &<IDCompositionSurfaceFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgi1_2", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IDCompositionSurfaceFactory {}
 windows_core::imp::define_interface!(IDCompositionTableTransferEffect, IDCompositionTableTransferEffect_Vtbl, 0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
 impl core::ops::Deref for IDCompositionTableTransferEffect {
@@ -5383,12 +5383,12 @@ impl IDCompositionTexture {
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::dcommon::D2D_RECT_U) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSourceRect)(windows_core::Interface::as_raw(self), sourcerect) }
     }
-    #[cfg(feature = "Win32_dxgicommon")]
-    pub unsafe fn SetColorSpace(&self, colorspace: super::dxgicommon::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn SetColorSpace(&self, colorspace: super::dxgi::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetColorSpace)(windows_core::Interface::as_raw(self), colorspace) }
     }
-    #[cfg(feature = "Win32_dxgi1_2")]
-    pub unsafe fn SetAlphaMode(&self, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn SetAlphaMode(&self, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), alphamode) }
     }
     pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5403,24 +5403,24 @@ pub struct IDCompositionTexture_Vtbl {
     pub SetSourceRect: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::dcommon::D2D_RECT_U) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_dcommon"))]
     SetSourceRect: usize,
-    #[cfg(feature = "Win32_dxgicommon")]
-    pub SetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, super::dxgicommon::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgicommon"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub SetColorSpace: unsafe extern "system" fn(*mut core::ffi::c_void, super::dxgi::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     SetColorSpace: usize,
-    #[cfg(feature = "Win32_dxgi1_2")]
-    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgi1_2"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub SetAlphaMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::dxgi::DXGI_ALPHA_MODE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     SetAlphaMode: usize,
     pub GetAvailableFence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon"))]
+#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 pub trait IDCompositionTexture_Impl: windows_core::IUnknownImpl {
     fn SetSourceRect(&self, sourcerect: *const super::dcommon::D2D_RECT_U) -> windows_core::Result<()>;
-    fn SetColorSpace(&self, colorspace: super::dxgicommon::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
-    fn SetAlphaMode(&self, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
+    fn SetColorSpace(&self, colorspace: super::dxgi::DXGI_COLOR_SPACE_TYPE) -> windows_core::Result<()>;
+    fn SetAlphaMode(&self, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::Result<()>;
     fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon"))]
+#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 impl IDCompositionTexture_Vtbl {
     pub const fn new<Identity: IDCompositionTexture_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetSourceRect<Identity: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sourcerect: *const super::dcommon::D2D_RECT_U) -> windows_core::HRESULT {
@@ -5429,13 +5429,13 @@ impl IDCompositionTexture_Vtbl {
                 IDCompositionTexture_Impl::SetSourceRect(this, core::mem::transmute_copy(&sourcerect)).into()
             }
         }
-        unsafe extern "system" fn SetColorSpace<Identity: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::dxgicommon::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetColorSpace<Identity: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, colorspace: super::dxgi::DXGI_COLOR_SPACE_TYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTexture_Impl::SetColorSpace(this, core::mem::transmute_copy(&colorspace)).into()
             }
         }
-        unsafe extern "system" fn SetAlphaMode<Identity: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphamode: super::dxgi1_2::DXGI_ALPHA_MODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAlphaMode<Identity: IDCompositionTexture_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTexture_Impl::SetAlphaMode(this, core::mem::transmute_copy(&alphamode)).into()
@@ -5459,7 +5459,7 @@ impl IDCompositionTexture_Vtbl {
         iid == &<IDCompositionTexture as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi1_2", feature = "Win32_dxgicommon"))]
+#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionTexture {}
 windows_core::imp::define_interface!(IDCompositionTransform, IDCompositionTransform_Vtbl, 0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
 impl core::ops::Deref for IDCompositionTransform {
@@ -5748,8 +5748,8 @@ impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetSeed(&self, seed: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSeed)(windows_core::Interface::as_raw(self), seed) }
     }
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub unsafe fn SetNoise(&self, noise: super::d2d1effects::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_d2d")]
+    pub unsafe fn SetNoise(&self, noise: super::d2d::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetNoise)(windows_core::Interface::as_raw(self), noise) }
     }
     pub unsafe fn SetStitchable(&self, stitchable: bool) -> windows_core::HRESULT {
@@ -5765,23 +5765,23 @@ pub struct IDCompositionTurbulenceEffect_Vtbl {
     pub SetSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_numerics::Vector2) -> windows_core::HRESULT,
     pub SetNumOctaves: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetSeed: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d2d1effects")]
-    pub SetNoise: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d1effects::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d2d1effects"))]
+    #[cfg(feature = "Win32_d2d")]
+    pub SetNoise: unsafe extern "system" fn(*mut core::ffi::c_void, super::d2d::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d2d"))]
     SetNoise: usize,
     pub SetStitchable: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 pub trait IDCompositionTurbulenceEffect_Impl: IDCompositionFilterEffect_Impl {
     fn SetOffset(&self, offset: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetBaseFrequency(&self, frequency: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetSize(&self, size: *const windows_numerics::Vector2) -> windows_core::Result<()>;
     fn SetNumOctaves(&self, numoctaves: u32) -> windows_core::Result<()>;
     fn SetSeed(&self, seed: u32) -> windows_core::Result<()>;
-    fn SetNoise(&self, noise: super::d2d1effects::D2D1_TURBULENCE_NOISE) -> windows_core::Result<()>;
+    fn SetNoise(&self, noise: super::d2d::D2D1_TURBULENCE_NOISE) -> windows_core::Result<()>;
     fn SetStitchable(&self, stitchable: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 impl IDCompositionTurbulenceEffect_Vtbl {
     pub const fn new<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetOffset<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: *const windows_numerics::Vector2) -> windows_core::HRESULT {
@@ -5814,7 +5814,7 @@ impl IDCompositionTurbulenceEffect_Vtbl {
                 IDCompositionTurbulenceEffect_Impl::SetSeed(this, core::mem::transmute_copy(&seed)).into()
             }
         }
-        unsafe extern "system" fn SetNoise<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, noise: super::d2d1effects::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetNoise<Identity: IDCompositionTurbulenceEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, noise: super::d2d::D2D1_TURBULENCE_NOISE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionTurbulenceEffect_Impl::SetNoise(this, core::mem::transmute_copy(&noise)).into()
@@ -5841,7 +5841,7 @@ impl IDCompositionTurbulenceEffect_Vtbl {
         iid == &<IDCompositionTurbulenceEffect as windows_core::Interface>::IID || iid == &<IDCompositionEffect as windows_core::Interface>::IID || iid == &<IDCompositionFilterEffect as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d2d1effects")]
+#[cfg(feature = "Win32_d2d")]
 impl windows_core::RuntimeName for IDCompositionTurbulenceEffect {}
 windows_core::imp::define_interface!(IDCompositionVirtualSurface, IDCompositionVirtualSurface_Vtbl, 0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
 impl core::ops::Deref for IDCompositionVirtualSurface {
@@ -6310,7 +6310,7 @@ pub struct IDCompositionVisual3_Vtbl {
     pub SetTransform2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVisible: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionVisual3_Impl: IDCompositionVisualDebug_Impl {
     fn SetDepthMode(&self, mode: super::dcomptypes::DCOMPOSITION_DEPTH_MODE) -> windows_core::Result<()>;
     fn SetOffsetZ(&self, offsetz: f32) -> windows_core::Result<()>;
@@ -6321,7 +6321,7 @@ pub trait IDCompositionVisual3_Impl: IDCompositionVisualDebug_Impl {
     fn SetTransform2(&self, transform: windows_core::Ref<IDCompositionTransform3D>) -> windows_core::Result<()>;
     fn SetVisible(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionVisual3_Vtbl {
     pub const fn new<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetDepthMode<Identity: IDCompositionVisual3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: super::dcomptypes::DCOMPOSITION_DEPTH_MODE) -> windows_core::HRESULT {
@@ -6388,7 +6388,7 @@ impl IDCompositionVisual3_Vtbl {
         iid == &<IDCompositionVisual3 as windows_core::Interface>::IID || iid == &<IDCompositionVisual as windows_core::Interface>::IID || iid == &<IDCompositionVisual2 as windows_core::Interface>::IID || iid == &<IDCompositionVisualDebug as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionVisual3 {}
 windows_core::imp::define_interface!(IDCompositionVisualDebug, IDCompositionVisualDebug_Vtbl, 0xfed2b808_5eb4_43a0_aea3_35f65280f91b);
 impl core::ops::Deref for IDCompositionVisualDebug {
@@ -6399,8 +6399,8 @@ impl core::ops::Deref for IDCompositionVisualDebug {
 }
 windows_core::imp::interface_hierarchy!(IDCompositionVisualDebug, windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
 impl IDCompositionVisualDebug {
-    #[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
-    pub unsafe fn EnableHeatMap(&self, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    pub unsafe fn EnableHeatMap(&self, color: *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnableHeatMap)(windows_core::Interface::as_raw(self), color) }
     }
     pub unsafe fn DisableHeatMap(&self) -> windows_core::HRESULT {
@@ -6417,25 +6417,25 @@ impl IDCompositionVisualDebug {
 #[doc(hidden)]
 pub struct IDCompositionVisualDebug_Vtbl {
     pub base__: IDCompositionVisual2_Vtbl,
-    #[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype"))]
-    pub EnableHeatMap: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2dbasetypes", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dxgi"))]
+    pub EnableHeatMap: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dxgi")))]
     EnableHeatMap: usize,
     pub DisableHeatMap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnableRedrawRegions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DisableRedrawRegions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 pub trait IDCompositionVisualDebug_Impl: IDCompositionVisual2_Impl {
-    fn EnableHeatMap(&self, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::Result<()>;
+    fn EnableHeatMap(&self, color: *const super::d2d::D2D_COLOR_F) -> windows_core::Result<()>;
     fn DisableHeatMap(&self) -> windows_core::Result<()>;
     fn EnableRedrawRegions(&self) -> windows_core::Result<()>;
     fn DisableRedrawRegions(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl IDCompositionVisualDebug_Vtbl {
     pub const fn new<Identity: IDCompositionVisualDebug_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EnableHeatMap<Identity: IDCompositionVisualDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const super::d2dbasetypes::D2D_COLOR_F) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnableHeatMap<Identity: IDCompositionVisualDebug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, color: *const super::d2d::D2D_COLOR_F) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDCompositionVisualDebug_Impl::EnableHeatMap(this, core::mem::transmute_copy(&color)).into()
@@ -6471,5 +6471,5 @@ impl IDCompositionVisualDebug_Vtbl {
         iid == &<IDCompositionVisualDebug as windows_core::Interface>::IID || iid == &<IDCompositionVisual as windows_core::Interface>::IID || iid == &<IDCompositionVisual2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2dbasetypes", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgitype"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dcompanimation", feature = "Win32_dcomptypes", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IDCompositionVisualDebug {}

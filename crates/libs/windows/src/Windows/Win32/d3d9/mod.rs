@@ -58,8 +58,591 @@ pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> windows_core::Result<IDirect
         Direct3DCreate9Ex(sdkversion, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
+pub const D3D9_RESOURCE_PRIORITY_HIGH: u32 = 2684354560;
+pub const D3D9_RESOURCE_PRIORITY_LOW: u32 = 1342177280;
+pub const D3D9_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200;
+pub const D3D9_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640;
+pub const D3D9_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920;
 pub const D3D9b_SDK_VERSION: u32 = 31;
 pub const D3DADAPTER_DEFAULT: u32 = 0;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct D3DADAPTER_IDENTIFIER9 {
+    pub Driver: [i8; 512],
+    pub Description: [i8; 512],
+    pub DeviceName: [i8; 32],
+    pub DriverVersion: i64,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DeviceIdentifier: windows_core::GUID,
+    pub WHQLLevel: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for D3DADAPTER_IDENTIFIER9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DADAPTER_IDENTIFIER9 {
+    pub Driver: [i8; 512],
+    pub Description: [i8; 512],
+    pub DeviceName: [i8; 32],
+    pub DriverVersion: i64,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub SubSysId: u32,
+    pub Revision: u32,
+    pub DeviceIdentifier: windows_core::GUID,
+    pub WHQLLevel: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl Default for D3DADAPTER_IDENTIFIER9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct D3DAES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAES_CTR_IV {
+    pub IV: u64,
+    pub Count: u64,
+}
+pub type D3DAUTHENTICATEDCHANNELTYPE = i32;
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub DXVA2DecodeHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub DeviceHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub StartSequenceQuery: u32,
+    pub StartSequenceConfigure: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub Protections: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+}
+#[cfg(feature = "Win32_winnt")]
+impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+    pub ProcessHandle: super::winnt::HANDLE,
+    pub AllowAccess: windows_core::BOOL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
+    pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
+    pub EncryptionGuid: windows_core::GUID,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
+    pub omac: D3D_OMAC,
+    pub ConfigureType: windows_core::GUID,
+    pub hChannel: super::winnt::HANDLE,
+    pub SequenceNumber: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
+    pub omac: D3D_OMAC,
+    pub ConfigureType: windows_core::GUID,
+    pub hChannel: super::winnt::HANDLE,
+    pub SequenceNumber: u32,
+    pub ReturnCode: windows_core::HRESULT,
+}
+pub const D3DAUTHENTICATEDCHANNEL_D3D9: D3DAUTHENTICATEDCHANNELTYPE = 1;
+pub const D3DAUTHENTICATEDCHANNEL_DRIVER_HARDWARE: D3DAUTHENTICATEDCHANNELTYPE = 3;
+pub const D3DAUTHENTICATEDCHANNEL_DRIVER_SOFTWARE: D3DAUTHENTICATEDCHANNELTYPE = 2;
+pub type D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+    pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0,
+}
+impl Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
+    pub Anonymous: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0,
+    pub Value: u32,
+}
+impl Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DXVA2DecodeHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DXVA2DecodeHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub DeviceHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumEncryptionGuids: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub EncryptionGuidIndex: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub EncryptionGuidIndex: u32,
+    pub EncryptionGuid: windows_core::GUID,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub BusType: D3DBUSTYPE,
+    pub bAccessibleInContiguousBlocks: windows_core::BOOL,
+    pub bAccessibleInNonContiguousBlocks: windows_core::BOOL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub NumOutputIDs: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub OutputIDIndex: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Default)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub OutputIDIndex: u32,
+    pub OutputID: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub DeviceHandle: super::winnt::HANDLE,
+    pub CryptoSessionHandle: super::winnt::HANDLE,
+    pub OutputIDIndex: u32,
+    pub OutputID: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ProtectionFlags: D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS,
+}
+#[cfg(feature = "Win32_winnt")]
+impl Default for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumRestrictedSharedResourceProcesses: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
+    pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
+    pub ProcessIndex: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub ProcessIndex: u32,
+    pub ProcessIdentifer: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
+    pub ProcessHandle: super::winnt::HANDLE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub EncryptionGuid: windows_core::GUID,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
+    pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
+    pub NumUnrestrictedProtectedSharedResources: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
+    pub QueryType: windows_core::GUID,
+    pub hChannel: super::winnt::HANDLE,
+    pub SequenceNumber: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
+    pub omac: D3D_OMAC,
+    pub QueryType: windows_core::GUID,
+    pub hChannel: super::winnt::HANDLE,
+    pub SequenceNumber: u32,
+    pub ReturnCode: windows_core::HRESULT,
+}
+pub const D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION: windows_core::GUID = windows_core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
+pub const D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE: windows_core::GUID = windows_core::GUID::from_u128(0x41fff286_6ae0_4d43_9d55_a46e9efd158a);
+pub const D3DAUTHENTICATEDCONFIGURE_INITIALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
+pub const D3DAUTHENTICATEDCONFIGURE_PROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0x50455658_3f47_4362_bf99_bfdfcde9ed29);
+pub const D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
+pub const D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES: windows_core::GUID = windows_core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
+pub const D3DAUTHENTICATEDQUERY_CHANNELTYPE: windows_core::GUID = windows_core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
+pub const D3DAUTHENTICATEDQUERY_CRYPTOSESSION: windows_core::GUID = windows_core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
+pub const D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE: windows_core::GUID = windows_core::GUID::from_u128(0xec1791c7_dad3_4f15_9ec3_faa93d60d4f0);
+pub const D3DAUTHENTICATEDQUERY_DEVICEHANDLE: windows_core::GUID = windows_core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID: windows_core::GUID = windows_core::GUID::from_u128(0xf83a5958_e986_4bda_beb0_411f6a7a01b7);
+pub const D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT: windows_core::GUID = windows_core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
+pub const D3DAUTHENTICATEDQUERY_OUTPUTID: windows_core::GUID = windows_core::GUID::from_u128(0x839ddca3_9b4e_41e4_b053_892bd2a11ee7);
+pub const D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT: windows_core::GUID = windows_core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
+pub const D3DAUTHENTICATEDQUERY_PROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0xa84eb584_c495_48aa_b94d_8bd2d6fbce05);
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS: windows_core::GUID = windows_core::GUID::from_u128(0x649bbadb_f0f4_4639_a15b_24393fc3abac);
+pub const D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT: windows_core::GUID = windows_core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
+pub const D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT: windows_core::GUID = windows_core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
+pub type D3DBACKBUFFER_TYPE = i32;
+pub const D3DBACKBUFFER_TYPE_FORCE_DWORD: D3DBACKBUFFER_TYPE = 2147483647;
+pub const D3DBACKBUFFER_TYPE_LEFT: D3DBACKBUFFER_TYPE = 1;
+pub const D3DBACKBUFFER_TYPE_MONO: D3DBACKBUFFER_TYPE = 0;
+pub const D3DBACKBUFFER_TYPE_RIGHT: D3DBACKBUFFER_TYPE = 2;
+pub type D3DBASISTYPE = i32;
+pub const D3DBASIS_BEZIER: D3DBASISTYPE = 0;
+pub const D3DBASIS_BSPLINE: D3DBASISTYPE = 1;
+pub const D3DBASIS_CATMULL_ROM: D3DBASISTYPE = 2;
+pub const D3DBASIS_FORCE_DWORD: D3DBASISTYPE = 2147483647;
+pub type D3DBLEND = i32;
+pub type D3DBLENDOP = i32;
+pub const D3DBLENDOP_ADD: D3DBLENDOP = 1;
+pub const D3DBLENDOP_FORCE_DWORD: D3DBLENDOP = 2147483647;
+pub const D3DBLENDOP_MAX: D3DBLENDOP = 5;
+pub const D3DBLENDOP_MIN: D3DBLENDOP = 4;
+pub const D3DBLENDOP_REVSUBTRACT: D3DBLENDOP = 3;
+pub const D3DBLENDOP_SUBTRACT: D3DBLENDOP = 2;
+pub const D3DBLEND_BLENDFACTOR: D3DBLEND = 14;
+pub const D3DBLEND_BOTHINVSRCALPHA: D3DBLEND = 13;
+pub const D3DBLEND_BOTHSRCALPHA: D3DBLEND = 12;
+pub const D3DBLEND_DESTALPHA: D3DBLEND = 7;
+pub const D3DBLEND_DESTCOLOR: D3DBLEND = 9;
+pub const D3DBLEND_FORCE_DWORD: D3DBLEND = 2147483647;
+pub const D3DBLEND_INVBLENDFACTOR: D3DBLEND = 15;
+pub const D3DBLEND_INVDESTALPHA: D3DBLEND = 8;
+pub const D3DBLEND_INVDESTCOLOR: D3DBLEND = 10;
+pub const D3DBLEND_INVSRCALPHA: D3DBLEND = 6;
+pub const D3DBLEND_INVSRCCOLOR: D3DBLEND = 4;
+pub const D3DBLEND_INVSRCCOLOR2: D3DBLEND = 17;
+pub const D3DBLEND_ONE: D3DBLEND = 2;
+pub const D3DBLEND_SRCALPHA: D3DBLEND = 5;
+pub const D3DBLEND_SRCALPHASAT: D3DBLEND = 11;
+pub const D3DBLEND_SRCCOLOR: D3DBLEND = 3;
+pub const D3DBLEND_SRCCOLOR2: D3DBLEND = 16;
+pub const D3DBLEND_ZERO: D3DBLEND = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DBOX {
+    pub Left: u32,
+    pub Top: u32,
+    pub Right: u32,
+    pub Bottom: u32,
+    pub Front: u32,
+    pub Back: u32,
+}
+pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR: D3DBUSTYPE = 262144;
+pub const D3DBUSIMPL_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: D3DBUSTYPE = 327680;
+pub const D3DBUSIMPL_MODIFIER_INSIDE_OF_CHIPSET: D3DBUSTYPE = 65536;
+pub const D3DBUSIMPL_MODIFIER_NON_STANDARD: D3DBUSTYPE = -2147483648;
+pub const D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: D3DBUSTYPE = 131072;
+pub const D3DBUSIMPL_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: D3DBUSTYPE = 196608;
+pub type D3DBUSTYPE = i32;
+pub const D3DBUSTYPE_AGP: D3DBUSTYPE = 4;
+pub const D3DBUSTYPE_OTHER: D3DBUSTYPE = 0;
+pub const D3DBUSTYPE_PCI: D3DBUSTYPE = 1;
+pub const D3DBUSTYPE_PCIEXPRESS: D3DBUSTYPE = 3;
+pub const D3DBUSTYPE_PCIX: D3DBUSTYPE = 2;
+pub const D3DCAPS2_CANAUTOGENMIPMAP: u32 = 1073741824;
+pub const D3DCAPS2_CANCALIBRATEGAMMA: u32 = 1048576;
+pub const D3DCAPS2_CANMANAGERESOURCE: u32 = 268435456;
+pub const D3DCAPS2_CANSHARERESOURCE: u32 = 2147483648;
+pub const D3DCAPS2_DYNAMICTEXTURES: u32 = 536870912;
+pub const D3DCAPS2_FULLSCREENGAMMA: u32 = 131072;
+pub const D3DCAPS2_RESERVED: u32 = 33554432;
+pub const D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD: u32 = 32;
+pub const D3DCAPS3_COPY_TO_SYSTEMMEM: u32 = 512;
+pub const D3DCAPS3_COPY_TO_VIDMEM: u32 = 256;
+pub const D3DCAPS3_DXVAHD: u32 = 1024;
+pub const D3DCAPS3_DXVAHD_LIMITED: u32 = 2048;
+pub const D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION: u32 = 128;
+pub const D3DCAPS3_RESERVED: u32 = 2147483679;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCAPS9 {
+    pub DeviceType: D3DDEVTYPE,
+    pub AdapterOrdinal: u32,
+    pub Caps: u32,
+    pub Caps2: u32,
+    pub Caps3: u32,
+    pub PresentationIntervals: u32,
+    pub CursorCaps: u32,
+    pub DevCaps: u32,
+    pub PrimitiveMiscCaps: u32,
+    pub RasterCaps: u32,
+    pub ZCmpCaps: u32,
+    pub SrcBlendCaps: u32,
+    pub DestBlendCaps: u32,
+    pub AlphaCmpCaps: u32,
+    pub ShadeCaps: u32,
+    pub TextureCaps: u32,
+    pub TextureFilterCaps: u32,
+    pub CubeTextureFilterCaps: u32,
+    pub VolumeTextureFilterCaps: u32,
+    pub TextureAddressCaps: u32,
+    pub VolumeTextureAddressCaps: u32,
+    pub LineCaps: u32,
+    pub MaxTextureWidth: u32,
+    pub MaxTextureHeight: u32,
+    pub MaxVolumeExtent: u32,
+    pub MaxTextureRepeat: u32,
+    pub MaxTextureAspectRatio: u32,
+    pub MaxAnisotropy: u32,
+    pub MaxVertexW: f32,
+    pub GuardBandLeft: f32,
+    pub GuardBandTop: f32,
+    pub GuardBandRight: f32,
+    pub GuardBandBottom: f32,
+    pub ExtentsAdjust: f32,
+    pub StencilCaps: u32,
+    pub FVFCaps: u32,
+    pub TextureOpCaps: u32,
+    pub MaxTextureBlendStages: u32,
+    pub MaxSimultaneousTextures: u32,
+    pub VertexProcessingCaps: u32,
+    pub MaxActiveLights: u32,
+    pub MaxUserClipPlanes: u32,
+    pub MaxVertexBlendMatrices: u32,
+    pub MaxVertexBlendMatrixIndex: u32,
+    pub MaxPointSize: f32,
+    pub MaxPrimitiveCount: u32,
+    pub MaxVertexIndex: u32,
+    pub MaxStreams: u32,
+    pub MaxStreamStride: u32,
+    pub VertexShaderVersion: u32,
+    pub MaxVertexShaderConst: u32,
+    pub PixelShaderVersion: u32,
+    pub PixelShader1xMaxValue: f32,
+    pub DevCaps2: u32,
+    pub MaxNpatchTessellationLevel: f32,
+    pub Reserved5: u32,
+    pub MasterAdapterOrdinal: u32,
+    pub AdapterOrdinalInGroup: u32,
+    pub NumberOfAdaptersInGroup: u32,
+    pub DeclTypes: u32,
+    pub NumSimultaneousRTs: u32,
+    pub StretchRectFilterCaps: u32,
+    pub VS20Caps: D3DVSHADERCAPS2_0,
+    pub PS20Caps: D3DPSHADERCAPS2_0,
+    pub VertexTextureFilterCaps: u32,
+    pub MaxVShaderInstructionsExecuted: u32,
+    pub MaxPShaderInstructionsExecuted: u32,
+    pub MaxVertexShader30InstructionSlots: u32,
+    pub MaxPixelShader30InstructionSlots: u32,
+}
+pub const D3DCAPS_OVERLAY: u32 = 2048;
+pub const D3DCAPS_READ_SCANLINE: u32 = 131072;
+pub const D3DCLEAR_STENCIL: u32 = 4;
+pub const D3DCLEAR_TARGET: u32 = 1;
+pub const D3DCLEAR_ZBUFFER: u32 = 2;
+pub const D3DCLIPPLANE0: u32 = 1;
+pub const D3DCLIPPLANE1: u32 = 2;
+pub const D3DCLIPPLANE2: u32 = 4;
+pub const D3DCLIPPLANE3: u32 = 8;
+pub const D3DCLIPPLANE4: u32 = 16;
+pub const D3DCLIPPLANE5: u32 = 32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCLIPSTATUS9 {
+    pub ClipUnion: u32,
+    pub ClipIntersection: u32,
+}
+pub type D3DCMPFUNC = i32;
+pub const D3DCMP_ALWAYS: D3DCMPFUNC = 8;
+pub const D3DCMP_EQUAL: D3DCMPFUNC = 3;
+pub const D3DCMP_FORCE_DWORD: D3DCMPFUNC = 2147483647;
+pub const D3DCMP_GREATER: D3DCMPFUNC = 5;
+pub const D3DCMP_GREATEREQUAL: D3DCMPFUNC = 7;
+pub const D3DCMP_LESS: D3DCMPFUNC = 2;
+pub const D3DCMP_LESSEQUAL: D3DCMPFUNC = 4;
+pub const D3DCMP_NEVER: D3DCMPFUNC = 1;
+pub const D3DCMP_NOTEQUAL: D3DCMPFUNC = 6;
+pub const D3DCOLORWRITEENABLE_ALPHA: u32 = 8;
+pub const D3DCOLORWRITEENABLE_BLUE: u32 = 4;
+pub const D3DCOLORWRITEENABLE_GREEN: u32 = 2;
+pub const D3DCOLORWRITEENABLE_RED: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCOMPOSERECTDESC {
+    pub X: u16,
+    pub Y: u16,
+    pub Width: u16,
+    pub Height: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCOMPOSERECTDESTINATION {
+    pub SrcRectIndex: u16,
+    pub Reserved: u16,
+    pub X: i16,
+    pub Y: i16,
+}
+pub type D3DCOMPOSERECTSOP = i32;
+pub const D3DCOMPOSERECTS_AND: D3DCOMPOSERECTSOP = 3;
+pub const D3DCOMPOSERECTS_COPY: D3DCOMPOSERECTSOP = 1;
+pub const D3DCOMPOSERECTS_FORCE_DWORD: D3DCOMPOSERECTSOP = 2147483647;
+pub const D3DCOMPOSERECTS_MAXNUMRECTS: u32 = 65535;
+pub const D3DCOMPOSERECTS_NEG: D3DCOMPOSERECTSOP = 4;
+pub const D3DCOMPOSERECTS_OR: D3DCOMPOSERECTSOP = 2;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct D3DCONTENTPROTECTIONCAPS {
+    pub Caps: u32,
+    pub KeyExchangeType: windows_core::GUID,
+    pub BufferAlignmentStart: u32,
+    pub BlockAlignmentSize: u32,
+    pub ProtectedMemorySize: u64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DCONTENTPROTECTIONCAPS {
+    pub Caps: u32,
+    pub KeyExchangeType: windows_core::GUID,
+    pub BufferAlignmentStart: u32,
+    pub BlockAlignmentSize: u32,
+    pub ProtectedMemorySize: u64,
+}
+pub const D3DCONVOLUTIONMONO_MAXHEIGHT: u32 = 7;
+pub const D3DCONVOLUTIONMONO_MAXWIDTH: u32 = 7;
+pub const D3DCPCAPS_CONTENTKEY: u32 = 16;
+pub const D3DCPCAPS_ENCRYPTEDREADBACK: u32 = 64;
+pub const D3DCPCAPS_ENCRYPTEDREADBACKKEY: u32 = 128;
+pub const D3DCPCAPS_ENCRYPTSLICEDATAONLY: u32 = 512;
+pub const D3DCPCAPS_FRESHENSESSIONKEY: u32 = 32;
+pub const D3DCPCAPS_HARDWARE: u32 = 2;
+pub const D3DCPCAPS_PARTIALDECRYPTION: u32 = 8;
+pub const D3DCPCAPS_PROTECTIONALWAYSON: u32 = 4;
+pub const D3DCPCAPS_SEQUENTIAL_CTR_IV: u32 = 256;
+pub const D3DCPCAPS_SOFTWARE: u32 = 1;
 pub const D3DCREATE_ADAPTERGROUP_DEVICE: u32 = 512;
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT: u32 = 256;
 pub const D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX: u32 = 1024;
@@ -74,7 +657,242 @@ pub const D3DCREATE_NOWINDOWCHANGES: u32 = 2048;
 pub const D3DCREATE_PUREDEVICE: u32 = 16;
 pub const D3DCREATE_SCREENSAVER: u32 = 268435456;
 pub const D3DCREATE_SOFTWARE_VERTEXPROCESSING: u32 = 32;
+pub const D3DCRYPTOTYPE_AES128_CTR: windows_core::GUID = windows_core::GUID::from_u128(0x9b6bd711_4f74_41c9_9e7b_0be2d7d93b4f);
+pub const D3DCRYPTOTYPE_PROPRIETARY: windows_core::GUID = windows_core::GUID::from_u128(0xab4e9afd_1d1c_46e6_a72f_0869917b0de8);
+pub const D3DCS_ALL: u32 = 4095;
+pub const D3DCS_BACK: u32 = 32;
+pub const D3DCS_BOTTOM: u32 = 8;
+pub const D3DCS_FRONT: u32 = 16;
+pub const D3DCS_LEFT: u32 = 1;
+pub const D3DCS_PLANE0: u32 = 64;
+pub const D3DCS_PLANE1: u32 = 128;
+pub const D3DCS_PLANE2: u32 = 256;
+pub const D3DCS_PLANE3: u32 = 512;
+pub const D3DCS_PLANE4: u32 = 1024;
+pub const D3DCS_PLANE5: u32 = 2048;
+pub const D3DCS_RIGHT: u32 = 2;
+pub const D3DCS_TOP: u32 = 4;
+pub type D3DCUBEMAP_FACES = i32;
+pub const D3DCUBEMAP_FACE_FORCE_DWORD: D3DCUBEMAP_FACES = 2147483647;
+pub const D3DCUBEMAP_FACE_NEGATIVE_X: D3DCUBEMAP_FACES = 1;
+pub const D3DCUBEMAP_FACE_NEGATIVE_Y: D3DCUBEMAP_FACES = 3;
+pub const D3DCUBEMAP_FACE_NEGATIVE_Z: D3DCUBEMAP_FACES = 5;
+pub const D3DCUBEMAP_FACE_POSITIVE_X: D3DCUBEMAP_FACES = 0;
+pub const D3DCUBEMAP_FACE_POSITIVE_Y: D3DCUBEMAP_FACES = 2;
+pub const D3DCUBEMAP_FACE_POSITIVE_Z: D3DCUBEMAP_FACES = 4;
+pub type D3DCULL = i32;
+pub const D3DCULL_CCW: D3DCULL = 3;
+pub const D3DCULL_CW: D3DCULL = 2;
+pub const D3DCULL_FORCE_DWORD: D3DCULL = 2147483647;
+pub const D3DCULL_NONE: D3DCULL = 1;
+pub const D3DCURSORCAPS_COLOR: u32 = 1;
+pub const D3DCURSORCAPS_LOWRES: u32 = 2;
 pub const D3DCURSOR_IMMEDIATE_UPDATE: u32 = 1;
+pub type D3DDEBUGMONITORTOKENS = i32;
+pub type D3DDECLMETHOD = i32;
+pub const D3DDECLMETHOD_CROSSUV: D3DDECLMETHOD = 3;
+pub const D3DDECLMETHOD_DEFAULT: D3DDECLMETHOD = 0;
+pub const D3DDECLMETHOD_LOOKUP: D3DDECLMETHOD = 5;
+pub const D3DDECLMETHOD_LOOKUPPRESAMPLED: D3DDECLMETHOD = 6;
+pub const D3DDECLMETHOD_PARTIALU: D3DDECLMETHOD = 1;
+pub const D3DDECLMETHOD_PARTIALV: D3DDECLMETHOD = 2;
+pub const D3DDECLMETHOD_UV: D3DDECLMETHOD = 4;
+pub type D3DDECLTYPE = i32;
+pub const D3DDECLTYPE_D3DCOLOR: D3DDECLTYPE = 4;
+pub const D3DDECLTYPE_DEC3N: D3DDECLTYPE = 14;
+pub const D3DDECLTYPE_FLOAT1: D3DDECLTYPE = 0;
+pub const D3DDECLTYPE_FLOAT16_2: D3DDECLTYPE = 15;
+pub const D3DDECLTYPE_FLOAT16_4: D3DDECLTYPE = 16;
+pub const D3DDECLTYPE_FLOAT2: D3DDECLTYPE = 1;
+pub const D3DDECLTYPE_FLOAT3: D3DDECLTYPE = 2;
+pub const D3DDECLTYPE_FLOAT4: D3DDECLTYPE = 3;
+pub const D3DDECLTYPE_SHORT2: D3DDECLTYPE = 6;
+pub const D3DDECLTYPE_SHORT2N: D3DDECLTYPE = 9;
+pub const D3DDECLTYPE_SHORT4: D3DDECLTYPE = 7;
+pub const D3DDECLTYPE_SHORT4N: D3DDECLTYPE = 10;
+pub const D3DDECLTYPE_UBYTE4: D3DDECLTYPE = 5;
+pub const D3DDECLTYPE_UBYTE4N: D3DDECLTYPE = 8;
+pub const D3DDECLTYPE_UDEC3: D3DDECLTYPE = 13;
+pub const D3DDECLTYPE_UNUSED: D3DDECLTYPE = 17;
+pub const D3DDECLTYPE_USHORT2N: D3DDECLTYPE = 11;
+pub const D3DDECLTYPE_USHORT4N: D3DDECLTYPE = 12;
+pub type D3DDECLUSAGE = i32;
+pub const D3DDECLUSAGE_BINORMAL: D3DDECLUSAGE = 7;
+pub const D3DDECLUSAGE_BLENDINDICES: D3DDECLUSAGE = 2;
+pub const D3DDECLUSAGE_BLENDWEIGHT: D3DDECLUSAGE = 1;
+pub const D3DDECLUSAGE_COLOR: D3DDECLUSAGE = 10;
+pub const D3DDECLUSAGE_DEPTH: D3DDECLUSAGE = 12;
+pub const D3DDECLUSAGE_FOG: D3DDECLUSAGE = 11;
+pub const D3DDECLUSAGE_NORMAL: D3DDECLUSAGE = 3;
+pub const D3DDECLUSAGE_POSITION: D3DDECLUSAGE = 0;
+pub const D3DDECLUSAGE_POSITIONT: D3DDECLUSAGE = 9;
+pub const D3DDECLUSAGE_PSIZE: D3DDECLUSAGE = 4;
+pub const D3DDECLUSAGE_SAMPLE: D3DDECLUSAGE = 13;
+pub const D3DDECLUSAGE_TANGENT: D3DDECLUSAGE = 6;
+pub const D3DDECLUSAGE_TESSFACTOR: D3DDECLUSAGE = 8;
+pub const D3DDECLUSAGE_TEXCOORD: D3DDECLUSAGE = 5;
+pub type D3DDEGREETYPE = i32;
+pub const D3DDEGREE_CUBIC: D3DDEGREETYPE = 3;
+pub const D3DDEGREE_FORCE_DWORD: D3DDEGREETYPE = 2147483647;
+pub const D3DDEGREE_LINEAR: D3DDEGREETYPE = 1;
+pub const D3DDEGREE_QUADRATIC: D3DDEGREETYPE = 2;
+pub const D3DDEGREE_QUINTIC: D3DDEGREETYPE = 5;
+pub const D3DDEVCAPS2_ADAPTIVETESSNPATCH: u32 = 8;
+pub const D3DDEVCAPS2_ADAPTIVETESSRTPATCH: u32 = 4;
+pub const D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES: u32 = 16;
+pub const D3DDEVCAPS2_DMAPNPATCH: u32 = 2;
+pub const D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH: u32 = 32;
+pub const D3DDEVCAPS2_STREAMOFFSET: u32 = 1;
+pub const D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET: u32 = 64;
+pub const D3DDEVCAPS_CANBLTSYSTONONLOCAL: u32 = 131072;
+pub const D3DDEVCAPS_CANRENDERAFTERFLIP: u32 = 2048;
+pub const D3DDEVCAPS_DRAWPRIMITIVES2: u32 = 8192;
+pub const D3DDEVCAPS_DRAWPRIMITIVES2EX: u32 = 32768;
+pub const D3DDEVCAPS_DRAWPRIMTLVERTEX: u32 = 1024;
+pub const D3DDEVCAPS_EXECUTESYSTEMMEMORY: u32 = 16;
+pub const D3DDEVCAPS_EXECUTEVIDEOMEMORY: u32 = 32;
+pub const D3DDEVCAPS_HWRASTERIZATION: u32 = 524288;
+pub const D3DDEVCAPS_HWTRANSFORMANDLIGHT: u32 = 65536;
+pub const D3DDEVCAPS_NPATCHES: u32 = 16777216;
+pub const D3DDEVCAPS_PUREDEVICE: u32 = 1048576;
+pub const D3DDEVCAPS_QUINTICRTPATCHES: u32 = 2097152;
+pub const D3DDEVCAPS_RTPATCHES: u32 = 4194304;
+pub const D3DDEVCAPS_RTPATCHHANDLEZERO: u32 = 8388608;
+pub const D3DDEVCAPS_SEPARATETEXTUREMEMORIES: u32 = 16384;
+pub const D3DDEVCAPS_TEXTURENONLOCALVIDMEM: u32 = 4096;
+pub const D3DDEVCAPS_TEXTURESYSTEMMEMORY: u32 = 256;
+pub const D3DDEVCAPS_TEXTUREVIDEOMEMORY: u32 = 512;
+pub const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: u32 = 64;
+pub const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: u32 = 128;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVICE_CREATION_PARAMETERS {
+    pub AdapterOrdinal: u32,
+    pub DeviceType: D3DDEVTYPE,
+    pub hFocusWindow: super::windef::HWND,
+    pub BehaviorFlags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3D9BANDWIDTHTIMINGS {
+    pub MaxBandwidthUtilized: f32,
+    pub FrontEndUploadMemoryUtilizedPercent: f32,
+    pub VertexRateUtilizedPercent: f32,
+    pub TriangleSetupRateUtilizedPercent: f32,
+    pub FillRateUtilizedPercent: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3D9CACHEUTILIZATION {
+    pub TextureCacheHitRate: f32,
+    pub PostTransformVertexCacheHitRate: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3D9INTERFACETIMINGS {
+    pub WaitingForGPUToUseApplicationResourceTimePercent: f32,
+    pub WaitingForGPUToAcceptMoreCommandsTimePercent: f32,
+    pub WaitingForGPUToStayWithinLatencyTimePercent: f32,
+    pub WaitingForGPUExclusiveResourceTimePercent: f32,
+    pub WaitingForGPUOtherTimePercent: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3D9PIPELINETIMINGS {
+    pub VertexProcessingTimePercent: f32,
+    pub PixelProcessingTimePercent: f32,
+    pub OtherGPUProcessingTimePercent: f32,
+    pub GPUIdleTimePercent: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3D9STAGETIMINGS {
+    pub MemoryProcessingPercent: f32,
+    pub ComputationProcessingPercent: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_D3DVERTEXSTATS {
+    pub NumRenderedTriangles: u32,
+    pub NumExtraClippingTriangles: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DDEVINFO_RESOURCEMANAGER {
+    pub stats: [D3DRESOURCESTATS; 8],
+}
+impl Default for D3DDEVINFO_RESOURCEMANAGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDEVINFO_VCACHE {
+    pub Pattern: u32,
+    pub OptMethod: u32,
+    pub CacheSize: u32,
+    pub MagicNumber: u32,
+}
+pub type D3DDEVTYPE = i32;
+pub const D3DDEVTYPE_FORCE_DWORD: D3DDEVTYPE = 2147483647;
+pub const D3DDEVTYPE_HAL: D3DDEVTYPE = 1;
+pub const D3DDEVTYPE_NULLREF: D3DDEVTYPE = 4;
+pub const D3DDEVTYPE_REF: D3DDEVTYPE = 2;
+pub const D3DDEVTYPE_SW: D3DDEVTYPE = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDISPLAYMODE {
+    pub Width: u32,
+    pub Height: u32,
+    pub RefreshRate: u32,
+    pub Format: D3DFORMAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDISPLAYMODEEX {
+    pub Size: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub RefreshRate: u32,
+    pub Format: D3DFORMAT,
+    pub ScanLineOrdering: D3DSCANLINEORDERING,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DDISPLAYMODEFILTER {
+    pub Size: u32,
+    pub Format: D3DFORMAT,
+    pub ScanLineOrdering: D3DSCANLINEORDERING,
+}
+pub type D3DDISPLAYROTATION = i32;
+pub const D3DDISPLAYROTATION_180: D3DDISPLAYROTATION = 3;
+pub const D3DDISPLAYROTATION_270: D3DDISPLAYROTATION = 4;
+pub const D3DDISPLAYROTATION_90: D3DDISPLAYROTATION = 2;
+pub const D3DDISPLAYROTATION_IDENTITY: D3DDISPLAYROTATION = 1;
+pub const D3DDMAPSAMPLER: u32 = 256;
+pub const D3DDMT_DISABLE: D3DDEBUGMONITORTOKENS = 1;
+pub const D3DDMT_ENABLE: D3DDEBUGMONITORTOKENS = 0;
+pub const D3DDMT_FORCE_DWORD: D3DDEBUGMONITORTOKENS = 2147483647;
+pub const D3DDP_MAXTEXCOORD: u32 = 8;
+pub const D3DDTCAPS_DEC3N: u32 = 128;
+pub const D3DDTCAPS_FLOAT16_2: u32 = 256;
+pub const D3DDTCAPS_FLOAT16_4: u32 = 512;
+pub const D3DDTCAPS_SHORT2N: u32 = 4;
+pub const D3DDTCAPS_SHORT4N: u32 = 8;
+pub const D3DDTCAPS_UBYTE4: u32 = 1;
+pub const D3DDTCAPS_UBYTE4N: u32 = 2;
+pub const D3DDTCAPS_UDEC3: u32 = 64;
+pub const D3DDTCAPS_USHORT2N: u32 = 16;
+pub const D3DDTCAPS_USHORT4N: u32 = 32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DENCRYPTED_BLOCK_INFO {
+    pub NumEncryptedBytesAtBeginning: u32,
+    pub NumBytesInSkipPattern: u32,
+    pub NumBytesInEncryptPattern: u32,
+}
 pub const D3DENUM_NO_DRIVERVERSION: u32 = 4;
 pub const D3DENUM_WHQL_LEVEL: u32 = 2;
 pub const D3DERR_CANNOTPROTECTCONTENT: i32 = -2005530499;
@@ -106,7 +924,376 @@ pub const D3DERR_UNSUPPORTEDOVERLAYFORMAT: i32 = -2005530500;
 pub const D3DERR_UNSUPPORTEDTEXTUREFILTER: i32 = -2005530590;
 pub const D3DERR_WASSTILLDRAWING: i32 = -2005532132;
 pub const D3DERR_WRONGTEXTUREFORMAT: i32 = -2005530600;
+pub type D3DFILLMODE = i32;
+pub const D3DFILL_FORCE_DWORD: D3DFILLMODE = 2147483647;
+pub const D3DFILL_POINT: D3DFILLMODE = 1;
+pub const D3DFILL_SOLID: D3DFILLMODE = 3;
+pub const D3DFILL_WIREFRAME: D3DFILLMODE = 2;
+pub const D3DFMT_A1: D3DFORMAT = 118;
+pub const D3DFMT_A16B16G16R16: D3DFORMAT = 36;
+pub const D3DFMT_A16B16G16R16F: D3DFORMAT = 113;
+pub const D3DFMT_A1R5G5B5: D3DFORMAT = 25;
+pub const D3DFMT_A1_SURFACE_MAXHEIGHT: u32 = 2048;
+pub const D3DFMT_A1_SURFACE_MAXWIDTH: u32 = 8192;
+pub const D3DFMT_A2B10G10R10: D3DFORMAT = 31;
+pub const D3DFMT_A2B10G10R10_XR_BIAS: D3DFORMAT = 119;
+pub const D3DFMT_A2R10G10B10: D3DFORMAT = 35;
+pub const D3DFMT_A2W10V10U10: D3DFORMAT = 67;
+pub const D3DFMT_A32B32G32R32F: D3DFORMAT = 116;
+pub const D3DFMT_A4L4: D3DFORMAT = 52;
+pub const D3DFMT_A4R4G4B4: D3DFORMAT = 26;
+pub const D3DFMT_A8: D3DFORMAT = 28;
+pub const D3DFMT_A8B8G8R8: D3DFORMAT = 32;
+pub const D3DFMT_A8L8: D3DFORMAT = 51;
+pub const D3DFMT_A8P8: D3DFORMAT = 40;
+pub const D3DFMT_A8R3G3B2: D3DFORMAT = 29;
+pub const D3DFMT_A8R8G8B8: D3DFORMAT = 21;
+pub const D3DFMT_BINARYBUFFER: D3DFORMAT = 199;
+pub const D3DFMT_CxV8U8: D3DFORMAT = 117;
+pub const D3DFMT_D15S1: D3DFORMAT = 73;
+pub const D3DFMT_D16: D3DFORMAT = 80;
+pub const D3DFMT_D16_LOCKABLE: D3DFORMAT = 70;
+pub const D3DFMT_D24FS8: D3DFORMAT = 83;
+pub const D3DFMT_D24S8: D3DFORMAT = 75;
+pub const D3DFMT_D24X4S4: D3DFORMAT = 79;
+pub const D3DFMT_D24X8: D3DFORMAT = 77;
+pub const D3DFMT_D32: D3DFORMAT = 71;
+pub const D3DFMT_D32F_LOCKABLE: D3DFORMAT = 82;
+pub const D3DFMT_D32_LOCKABLE: D3DFORMAT = 84;
+pub const D3DFMT_DXT1: D3DFORMAT = 827611204;
+pub const D3DFMT_DXT2: D3DFORMAT = 844388420;
+pub const D3DFMT_DXT3: D3DFORMAT = 861165636;
+pub const D3DFMT_DXT4: D3DFORMAT = 877942852;
+pub const D3DFMT_DXT5: D3DFORMAT = 894720068;
+pub const D3DFMT_FORCE_DWORD: D3DFORMAT = 2147483647;
+pub const D3DFMT_G16R16: D3DFORMAT = 34;
+pub const D3DFMT_G16R16F: D3DFORMAT = 112;
+pub const D3DFMT_G32R32F: D3DFORMAT = 115;
+pub const D3DFMT_G8R8_G8B8: D3DFORMAT = 1111970375;
+pub const D3DFMT_INDEX16: D3DFORMAT = 101;
+pub const D3DFMT_INDEX32: D3DFORMAT = 102;
+pub const D3DFMT_L16: D3DFORMAT = 81;
+pub const D3DFMT_L6V5U5: D3DFORMAT = 61;
+pub const D3DFMT_L8: D3DFORMAT = 50;
+pub const D3DFMT_MULTI2_ARGB8: D3DFORMAT = 827606349;
+pub const D3DFMT_P8: D3DFORMAT = 41;
+pub const D3DFMT_Q16W16V16U16: D3DFORMAT = 110;
+pub const D3DFMT_Q8W8V8U8: D3DFORMAT = 63;
+pub const D3DFMT_R16F: D3DFORMAT = 111;
+pub const D3DFMT_R32F: D3DFORMAT = 114;
+pub const D3DFMT_R3G3B2: D3DFORMAT = 27;
+pub const D3DFMT_R5G6B5: D3DFORMAT = 23;
+pub const D3DFMT_R8G8B8: D3DFORMAT = 20;
+pub const D3DFMT_R8G8_B8G8: D3DFORMAT = 1195525970;
+pub const D3DFMT_S8_LOCKABLE: D3DFORMAT = 85;
+pub const D3DFMT_UNKNOWN: D3DFORMAT = 0;
+pub const D3DFMT_UYVY: D3DFORMAT = 1498831189;
+pub const D3DFMT_V16U16: D3DFORMAT = 64;
+pub const D3DFMT_V8U8: D3DFORMAT = 60;
+pub const D3DFMT_VERTEXDATA: D3DFORMAT = 100;
+pub const D3DFMT_X1R5G5B5: D3DFORMAT = 24;
+pub const D3DFMT_X4R4G4B4: D3DFORMAT = 30;
+pub const D3DFMT_X8B8G8R8: D3DFORMAT = 33;
+pub const D3DFMT_X8L8V8U8: D3DFORMAT = 62;
+pub const D3DFMT_X8R8G8B8: D3DFORMAT = 22;
+pub const D3DFMT_YUY2: D3DFORMAT = 844715353;
+pub type D3DFOGMODE = i32;
+pub const D3DFOG_EXP: D3DFOGMODE = 1;
+pub const D3DFOG_EXP2: D3DFOGMODE = 2;
+pub const D3DFOG_FORCE_DWORD: D3DFOGMODE = 2147483647;
+pub const D3DFOG_LINEAR: D3DFOGMODE = 3;
+pub const D3DFOG_NONE: D3DFOGMODE = 0;
+pub type D3DFORMAT = i32;
+pub const D3DFVFCAPS_DONOTSTRIPELEMENTS: u32 = 524288;
+pub const D3DFVFCAPS_PSIZE: u32 = 1048576;
+pub const D3DFVFCAPS_TEXCOORDCOUNTMASK: u32 = 65535;
+pub const D3DFVF_DIFFUSE: u32 = 64;
+pub const D3DFVF_LASTBETA_D3DCOLOR: u32 = 32768;
+pub const D3DFVF_LASTBETA_UBYTE4: u32 = 4096;
+pub const D3DFVF_NORMAL: u32 = 16;
+pub const D3DFVF_POSITION_MASK: u32 = 16398;
+pub const D3DFVF_PSIZE: u32 = 32;
+pub const D3DFVF_RESERVED0: u32 = 1;
+pub const D3DFVF_RESERVED2: u32 = 24576;
+pub const D3DFVF_SPECULAR: u32 = 128;
+pub const D3DFVF_TEX0: u32 = 0;
+pub const D3DFVF_TEX1: u32 = 256;
+pub const D3DFVF_TEX2: u32 = 512;
+pub const D3DFVF_TEX3: u32 = 768;
+pub const D3DFVF_TEX4: u32 = 1024;
+pub const D3DFVF_TEX5: u32 = 1280;
+pub const D3DFVF_TEX6: u32 = 1536;
+pub const D3DFVF_TEX7: u32 = 1792;
+pub const D3DFVF_TEX8: u32 = 2048;
+pub const D3DFVF_TEXCOUNT_MASK: u32 = 3840;
+pub const D3DFVF_TEXCOUNT_SHIFT: u32 = 8;
+pub const D3DFVF_TEXTUREFORMAT1: u32 = 3;
+pub const D3DFVF_TEXTUREFORMAT2: u32 = 0;
+pub const D3DFVF_TEXTUREFORMAT3: u32 = 1;
+pub const D3DFVF_TEXTUREFORMAT4: u32 = 2;
+pub const D3DFVF_XYZ: u32 = 2;
+pub const D3DFVF_XYZB1: u32 = 6;
+pub const D3DFVF_XYZB2: u32 = 8;
+pub const D3DFVF_XYZB3: u32 = 10;
+pub const D3DFVF_XYZB4: u32 = 12;
+pub const D3DFVF_XYZB5: u32 = 14;
+pub const D3DFVF_XYZRHW: u32 = 4;
+pub const D3DFVF_XYZW: u32 = 16386;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DGAMMARAMP {
+    pub red: [u16; 256],
+    pub green: [u16; 256],
+    pub blue: [u16; 256],
+}
+impl Default for D3DGAMMARAMP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3DGETDATA_FLUSH: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DINDEXBUFFER_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Size: u32,
+}
+pub const D3DISSUE_BEGIN: u32 = 2;
+pub const D3DISSUE_END: u32 = 1;
+pub const D3DKEYEXCHANGE_DXVA: windows_core::GUID = windows_core::GUID::from_u128(0x43d3775c_38e5_4924_8d86_d3fccf153e9b);
+pub const D3DKEYEXCHANGE_RSAES_OAEP: windows_core::GUID = windows_core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
+#[repr(C)]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DLIGHT9 {
+    pub Type: D3DLIGHTTYPE,
+    pub Diffuse: super::dxgi::D3DCOLORVALUE,
+    pub Specular: super::dxgi::D3DCOLORVALUE,
+    pub Ambient: super::dxgi::D3DCOLORVALUE,
+    pub Position: super::dsound::D3DVECTOR,
+    pub Direction: super::dsound::D3DVECTOR,
+    pub Range: f32,
+    pub Falloff: f32,
+    pub Attenuation0: f32,
+    pub Attenuation1: f32,
+    pub Attenuation2: f32,
+    pub Theta: f32,
+    pub Phi: f32,
+}
+pub type D3DLIGHTTYPE = i32;
+pub const D3DLIGHT_DIRECTIONAL: D3DLIGHTTYPE = 3;
+pub const D3DLIGHT_FORCE_DWORD: D3DLIGHTTYPE = 2147483647;
+pub const D3DLIGHT_POINT: D3DLIGHTTYPE = 1;
+pub const D3DLIGHT_SPOT: D3DLIGHTTYPE = 2;
+pub const D3DLINECAPS_ALPHACMP: u32 = 8;
+pub const D3DLINECAPS_ANTIALIAS: u32 = 32;
+pub const D3DLINECAPS_BLEND: u32 = 4;
+pub const D3DLINECAPS_FOG: u32 = 16;
+pub const D3DLINECAPS_TEXTURE: u32 = 1;
+pub const D3DLINECAPS_ZTEST: u32 = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DLOCKED_BOX {
+    pub RowPitch: i32,
+    pub SlicePitch: i32,
+    pub pBits: *mut core::ffi::c_void,
+}
+impl Default for D3DLOCKED_BOX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3DLOCKED_RECT {
+    pub Pitch: i32,
+    pub pBits: *mut core::ffi::c_void,
+}
+impl Default for D3DLOCKED_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3DLOCK_DISCARD: u32 = 8192;
+pub const D3DLOCK_DONOTWAIT: u32 = 16384;
+pub const D3DLOCK_NOOVERWRITE: u32 = 4096;
+pub const D3DLOCK_NOSYSLOCK: u32 = 2048;
+pub const D3DLOCK_NO_DIRTY_UPDATE: u32 = 32768;
+pub const D3DLOCK_READONLY: u32 = 16;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DMATERIAL9 {
+    pub Diffuse: super::dxgi::D3DCOLORVALUE,
+    pub Ambient: super::dxgi::D3DCOLORVALUE,
+    pub Specular: super::dxgi::D3DCOLORVALUE,
+    pub Emissive: super::dxgi::D3DCOLORVALUE,
+    pub Power: f32,
+}
+pub type D3DMATERIALCOLORSOURCE = i32;
+pub const D3DMAX30SHADERINSTRUCTIONS: u32 = 32768;
+pub const D3DMAXUSERCLIPPLANES: u32 = 32;
+pub const D3DMCS_COLOR1: D3DMATERIALCOLORSOURCE = 1;
+pub const D3DMCS_COLOR2: D3DMATERIALCOLORSOURCE = 2;
+pub const D3DMCS_FORCE_DWORD: D3DMATERIALCOLORSOURCE = 2147483647;
+pub const D3DMCS_MATERIAL: D3DMATERIALCOLORSOURCE = 0;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct D3DMEMORYPRESSURE {
+    pub BytesEvictedFromProcess: u64,
+    pub SizeOfInefficientAllocation: u64,
+    pub LevelOfEfficiency: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DMEMORYPRESSURE {
+    pub BytesEvictedFromProcess: u64,
+    pub SizeOfInefficientAllocation: u64,
+    pub LevelOfEfficiency: u32,
+}
+pub const D3DMIN30SHADERINSTRUCTIONS: u32 = 512;
+pub const D3DMP_16: D3DSHADER_MIN_PRECISION = 1;
+pub const D3DMP_2_8: D3DSHADER_MIN_PRECISION = 2;
+pub const D3DMP_DEFAULT: D3DSHADER_MIN_PRECISION = 0;
+pub const D3DMULTISAMPLE_10_SAMPLES: D3DMULTISAMPLE_TYPE = 10;
+pub const D3DMULTISAMPLE_11_SAMPLES: D3DMULTISAMPLE_TYPE = 11;
+pub const D3DMULTISAMPLE_12_SAMPLES: D3DMULTISAMPLE_TYPE = 12;
+pub const D3DMULTISAMPLE_13_SAMPLES: D3DMULTISAMPLE_TYPE = 13;
+pub const D3DMULTISAMPLE_14_SAMPLES: D3DMULTISAMPLE_TYPE = 14;
+pub const D3DMULTISAMPLE_15_SAMPLES: D3DMULTISAMPLE_TYPE = 15;
+pub const D3DMULTISAMPLE_16_SAMPLES: D3DMULTISAMPLE_TYPE = 16;
+pub const D3DMULTISAMPLE_2_SAMPLES: D3DMULTISAMPLE_TYPE = 2;
+pub const D3DMULTISAMPLE_3_SAMPLES: D3DMULTISAMPLE_TYPE = 3;
+pub const D3DMULTISAMPLE_4_SAMPLES: D3DMULTISAMPLE_TYPE = 4;
+pub const D3DMULTISAMPLE_5_SAMPLES: D3DMULTISAMPLE_TYPE = 5;
+pub const D3DMULTISAMPLE_6_SAMPLES: D3DMULTISAMPLE_TYPE = 6;
+pub const D3DMULTISAMPLE_7_SAMPLES: D3DMULTISAMPLE_TYPE = 7;
+pub const D3DMULTISAMPLE_8_SAMPLES: D3DMULTISAMPLE_TYPE = 8;
+pub const D3DMULTISAMPLE_9_SAMPLES: D3DMULTISAMPLE_TYPE = 9;
+pub const D3DMULTISAMPLE_FORCE_DWORD: D3DMULTISAMPLE_TYPE = 2147483647;
+pub const D3DMULTISAMPLE_NONE: D3DMULTISAMPLE_TYPE = 0;
+pub const D3DMULTISAMPLE_NONMASKABLE: D3DMULTISAMPLE_TYPE = 1;
+pub type D3DMULTISAMPLE_TYPE = i32;
 pub const D3DOK_NOAUTOGEN: u32 = 141953135;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DOVERLAYCAPS {
+    pub Caps: u32,
+    pub MaxOverlayDisplayWidth: u32,
+    pub MaxOverlayDisplayHeight: u32,
+}
+pub const D3DOVERLAYCAPS_FULLRANGERGB: u32 = 1;
+pub const D3DOVERLAYCAPS_LIMITEDRANGERGB: u32 = 2;
+pub const D3DOVERLAYCAPS_STRETCHX: u32 = 64;
+pub const D3DOVERLAYCAPS_STRETCHY: u32 = 128;
+pub const D3DOVERLAYCAPS_YCbCr_BT601: u32 = 4;
+pub const D3DOVERLAYCAPS_YCbCr_BT601_xvYCC: u32 = 16;
+pub const D3DOVERLAYCAPS_YCbCr_BT709: u32 = 8;
+pub const D3DOVERLAYCAPS_YCbCr_BT709_xvYCC: u32 = 32;
+pub type D3DPATCHEDGESTYLE = i32;
+pub const D3DPATCHEDGE_CONTINUOUS: D3DPATCHEDGESTYLE = 1;
+pub const D3DPATCHEDGE_DISCRETE: D3DPATCHEDGESTYLE = 0;
+pub const D3DPATCHEDGE_FORCE_DWORD: D3DPATCHEDGESTYLE = 2147483647;
+pub const D3DPBLENDCAPS_BLENDFACTOR: u32 = 8192;
+pub const D3DPBLENDCAPS_BOTHINVSRCALPHA: u32 = 4096;
+pub const D3DPBLENDCAPS_BOTHSRCALPHA: u32 = 2048;
+pub const D3DPBLENDCAPS_DESTALPHA: u32 = 64;
+pub const D3DPBLENDCAPS_DESTCOLOR: u32 = 256;
+pub const D3DPBLENDCAPS_INVDESTALPHA: u32 = 128;
+pub const D3DPBLENDCAPS_INVDESTCOLOR: u32 = 512;
+pub const D3DPBLENDCAPS_INVSRCALPHA: u32 = 32;
+pub const D3DPBLENDCAPS_INVSRCCOLOR: u32 = 8;
+pub const D3DPBLENDCAPS_INVSRCCOLOR2: u32 = 32768;
+pub const D3DPBLENDCAPS_ONE: u32 = 2;
+pub const D3DPBLENDCAPS_SRCALPHA: u32 = 16;
+pub const D3DPBLENDCAPS_SRCALPHASAT: u32 = 1024;
+pub const D3DPBLENDCAPS_SRCCOLOR: u32 = 4;
+pub const D3DPBLENDCAPS_SRCCOLOR2: u32 = 16384;
+pub const D3DPBLENDCAPS_ZERO: u32 = 1;
+pub const D3DPCMPCAPS_ALWAYS: u32 = 128;
+pub const D3DPCMPCAPS_EQUAL: u32 = 4;
+pub const D3DPCMPCAPS_GREATER: u32 = 16;
+pub const D3DPCMPCAPS_GREATEREQUAL: u32 = 64;
+pub const D3DPCMPCAPS_LESS: u32 = 2;
+pub const D3DPCMPCAPS_LESSEQUAL: u32 = 8;
+pub const D3DPCMPCAPS_NEVER: u32 = 1;
+pub const D3DPCMPCAPS_NOTEQUAL: u32 = 32;
+pub const D3DPMISCCAPS_BLENDOP: u32 = 2048;
+pub const D3DPMISCCAPS_CLIPPLANESCALEDPOINTS: u32 = 256;
+pub const D3DPMISCCAPS_CLIPTLVERTS: u32 = 512;
+pub const D3DPMISCCAPS_COLORWRITEENABLE: u32 = 128;
+pub const D3DPMISCCAPS_CULLCCW: u32 = 64;
+pub const D3DPMISCCAPS_CULLCW: u32 = 32;
+pub const D3DPMISCCAPS_CULLNONE: u32 = 16;
+pub const D3DPMISCCAPS_FOGANDSPECULARALPHA: u32 = 65536;
+pub const D3DPMISCCAPS_FOGVERTEXCLAMPED: u32 = 1048576;
+pub const D3DPMISCCAPS_INDEPENDENTWRITEMASKS: u32 = 16384;
+pub const D3DPMISCCAPS_MASKZ: u32 = 2;
+pub const D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS: u32 = 262144;
+pub const D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING: u32 = 524288;
+pub const D3DPMISCCAPS_NULLREFERENCE: u32 = 4096;
+pub const D3DPMISCCAPS_PERSTAGECONSTANT: u32 = 32768;
+pub const D3DPMISCCAPS_POSTBLENDSRGBCONVERT: u32 = 2097152;
+pub const D3DPMISCCAPS_SEPARATEALPHABLEND: u32 = 131072;
+pub const D3DPMISCCAPS_TSSARGTEMP: u32 = 1024;
+pub type D3DPOOL = i32;
+pub const D3DPOOL_DEFAULT: D3DPOOL = 0;
+pub const D3DPOOL_FORCE_DWORD: D3DPOOL = 2147483647;
+pub const D3DPOOL_MANAGED: D3DPOOL = 1;
+pub const D3DPOOL_SCRATCH: D3DPOOL = 3;
+pub const D3DPOOL_SYSTEMMEM: D3DPOOL = 2;
+pub const D3DPRASTERCAPS_ANISOTROPY: u32 = 131072;
+pub const D3DPRASTERCAPS_COLORPERSPECTIVE: u32 = 4194304;
+pub const D3DPRASTERCAPS_DEPTHBIAS: u32 = 67108864;
+pub const D3DPRASTERCAPS_DITHER: u32 = 1;
+pub const D3DPRASTERCAPS_FOGRANGE: u32 = 65536;
+pub const D3DPRASTERCAPS_FOGTABLE: u32 = 256;
+pub const D3DPRASTERCAPS_FOGVERTEX: u32 = 128;
+pub const D3DPRASTERCAPS_MIPMAPLODBIAS: u32 = 8192;
+pub const D3DPRASTERCAPS_MULTISAMPLE_TOGGLE: u32 = 134217728;
+pub const D3DPRASTERCAPS_SCISSORTEST: u32 = 16777216;
+pub const D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS: u32 = 33554432;
+pub const D3DPRASTERCAPS_WBUFFER: u32 = 262144;
+pub const D3DPRASTERCAPS_WFOG: u32 = 1048576;
+pub const D3DPRASTERCAPS_ZBUFFERLESSHSR: u32 = 32768;
+pub const D3DPRASTERCAPS_ZFOG: u32 = 2097152;
+pub const D3DPRASTERCAPS_ZTEST: u32 = 16;
+pub const D3DPRESENTFLAG_DEVICECLIP: u32 = 4;
+pub const D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL: u32 = 2;
+pub const D3DPRESENTFLAG_LOCKABLE_BACKBUFFER: u32 = 1;
+pub const D3DPRESENTFLAG_NOAUTOROTATE: u32 = 32;
+pub const D3DPRESENTFLAG_OVERLAY_LIMITEDRGB: u32 = 128;
+pub const D3DPRESENTFLAG_OVERLAY_YCbCr_BT709: u32 = 256;
+pub const D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC: u32 = 512;
+pub const D3DPRESENTFLAG_RESTRICTED_CONTENT: u32 = 1024;
+pub const D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 2048;
+pub const D3DPRESENTFLAG_UNPRUNEDMODE: u32 = 64;
+pub const D3DPRESENTFLAG_VIDEO: u32 = 16;
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Default)]
+pub struct D3DPRESENTSTATS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DPRESENTSTATS {
+    pub PresentCount: u32,
+    pub PresentRefreshCount: u32,
+    pub SyncRefreshCount: u32,
+    pub SyncQPCTime: i64,
+    pub SyncGPUTime: i64,
+}
 pub const D3DPRESENT_BACK_BUFFERS_MAX: u32 = 3;
 pub const D3DPRESENT_BACK_BUFFERS_MAX_EX: u32 = 30;
 pub const D3DPRESENT_DONOTFLIP: u32 = 4;
@@ -114,15 +1301,849 @@ pub const D3DPRESENT_DONOTWAIT: u32 = 1;
 pub const D3DPRESENT_FLIPRESTART: u32 = 8;
 pub const D3DPRESENT_FORCEIMMEDIATE: u32 = 256;
 pub const D3DPRESENT_HIDEOVERLAY: u32 = 64;
+pub const D3DPRESENT_INTERVAL_DEFAULT: u32 = 0;
+pub const D3DPRESENT_INTERVAL_FOUR: u32 = 8;
+pub const D3DPRESENT_INTERVAL_IMMEDIATE: u32 = 2147483648;
+pub const D3DPRESENT_INTERVAL_ONE: u32 = 1;
+pub const D3DPRESENT_INTERVAL_THREE: u32 = 4;
+pub const D3DPRESENT_INTERVAL_TWO: u32 = 2;
 pub const D3DPRESENT_LINEAR_CONTENT: u32 = 2;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DPRESENT_PARAMETERS {
+    pub BackBufferWidth: u32,
+    pub BackBufferHeight: u32,
+    pub BackBufferFormat: D3DFORMAT,
+    pub BackBufferCount: u32,
+    pub MultiSampleType: D3DMULTISAMPLE_TYPE,
+    pub MultiSampleQuality: u32,
+    pub SwapEffect: D3DSWAPEFFECT,
+    pub hDeviceWindow: super::windef::HWND,
+    pub Windowed: windows_core::BOOL,
+    pub EnableAutoDepthStencil: windows_core::BOOL,
+    pub AutoDepthStencilFormat: D3DFORMAT,
+    pub Flags: u32,
+    pub FullScreen_RefreshRateInHz: u32,
+    pub PresentationInterval: u32,
+}
+pub const D3DPRESENT_RATE_DEFAULT: u32 = 0;
 pub const D3DPRESENT_UPDATECOLORKEY: u32 = 128;
 pub const D3DPRESENT_UPDATEOVERLAYONLY: u32 = 32;
 pub const D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR: u32 = 16;
+pub type D3DPRIMITIVETYPE = i32;
+pub const D3DPS20CAPS_ARBITRARYSWIZZLE: u32 = 1;
+pub const D3DPS20CAPS_GRADIENTINSTRUCTIONS: u32 = 2;
+pub const D3DPS20CAPS_NODEPENDENTREADLIMIT: u32 = 8;
+pub const D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT: u32 = 16;
+pub const D3DPS20CAPS_PREDICATION: u32 = 4;
+pub const D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24;
+pub const D3DPS20_MAX_NUMINSTRUCTIONSLOTS: u32 = 512;
+pub const D3DPS20_MAX_NUMTEMPS: u32 = 32;
+pub const D3DPS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4;
+pub const D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0;
+pub const D3DPS20_MIN_NUMINSTRUCTIONSLOTS: u32 = 96;
+pub const D3DPS20_MIN_NUMTEMPS: u32 = 12;
+pub const D3DPS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 0;
+pub const D3DPSHADECAPS_ALPHAGOURAUDBLEND: u32 = 16384;
+pub const D3DPSHADECAPS_COLORGOURAUDRGB: u32 = 8;
+pub const D3DPSHADECAPS_FOGGOURAUD: u32 = 524288;
+pub const D3DPSHADECAPS_SPECULARGOURAUDRGB: u32 = 512;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DPSHADERCAPS2_0 {
+    pub Caps: u32,
+    pub DynamicFlowControlDepth: i32,
+    pub NumTemps: i32,
+    pub StaticFlowControlDepth: i32,
+    pub NumInstructionSlots: i32,
+}
+pub const D3DPTADDRESSCAPS_BORDER: u32 = 8;
+pub const D3DPTADDRESSCAPS_CLAMP: u32 = 4;
+pub const D3DPTADDRESSCAPS_INDEPENDENTUV: u32 = 16;
+pub const D3DPTADDRESSCAPS_MIRROR: u32 = 2;
+pub const D3DPTADDRESSCAPS_MIRRORONCE: u32 = 32;
+pub const D3DPTADDRESSCAPS_WRAP: u32 = 1;
+pub const D3DPTEXTURECAPS_ALPHA: u32 = 4;
+pub const D3DPTEXTURECAPS_ALPHAPALETTE: u32 = 128;
+pub const D3DPTEXTURECAPS_CUBEMAP: u32 = 2048;
+pub const D3DPTEXTURECAPS_CUBEMAP_POW2: u32 = 131072;
+pub const D3DPTEXTURECAPS_MIPCUBEMAP: u32 = 65536;
+pub const D3DPTEXTURECAPS_MIPMAP: u32 = 16384;
+pub const D3DPTEXTURECAPS_MIPVOLUMEMAP: u32 = 32768;
+pub const D3DPTEXTURECAPS_NONPOW2CONDITIONAL: u32 = 256;
+pub const D3DPTEXTURECAPS_NOPROJECTEDBUMPENV: u32 = 2097152;
+pub const D3DPTEXTURECAPS_PERSPECTIVE: u32 = 1;
+pub const D3DPTEXTURECAPS_POW2: u32 = 2;
+pub const D3DPTEXTURECAPS_PROJECTED: u32 = 1024;
+pub const D3DPTEXTURECAPS_SQUAREONLY: u32 = 32;
+pub const D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE: u32 = 64;
+pub const D3DPTEXTURECAPS_VOLUMEMAP: u32 = 8192;
+pub const D3DPTEXTURECAPS_VOLUMEMAP_POW2: u32 = 262144;
+pub const D3DPTFILTERCAPS_CONVOLUTIONMONO: u32 = 262144;
+pub const D3DPTFILTERCAPS_MAGFANISOTROPIC: u32 = 67108864;
+pub const D3DPTFILTERCAPS_MAGFGAUSSIANQUAD: u32 = 268435456;
+pub const D3DPTFILTERCAPS_MAGFLINEAR: u32 = 33554432;
+pub const D3DPTFILTERCAPS_MAGFPOINT: u32 = 16777216;
+pub const D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD: u32 = 134217728;
+pub const D3DPTFILTERCAPS_MINFANISOTROPIC: u32 = 1024;
+pub const D3DPTFILTERCAPS_MINFGAUSSIANQUAD: u32 = 4096;
+pub const D3DPTFILTERCAPS_MINFLINEAR: u32 = 512;
+pub const D3DPTFILTERCAPS_MINFPOINT: u32 = 256;
+pub const D3DPTFILTERCAPS_MINFPYRAMIDALQUAD: u32 = 2048;
+pub const D3DPTFILTERCAPS_MIPFLINEAR: u32 = 131072;
+pub const D3DPTFILTERCAPS_MIPFPOINT: u32 = 65536;
+pub const D3DPT_FORCE_DWORD: D3DPRIMITIVETYPE = 2147483647;
+pub const D3DPT_LINELIST: D3DPRIMITIVETYPE = 2;
+pub const D3DPT_LINESTRIP: D3DPRIMITIVETYPE = 3;
+pub const D3DPT_POINTLIST: D3DPRIMITIVETYPE = 1;
+pub const D3DPT_TRIANGLEFAN: D3DPRIMITIVETYPE = 6;
+pub const D3DPT_TRIANGLELIST: D3DPRIMITIVETYPE = 4;
+pub const D3DPT_TRIANGLESTRIP: D3DPRIMITIVETYPE = 5;
+pub const D3DPV_DONOTCOPYDATA: u32 = 1;
+pub type D3DQUERYTYPE = i32;
+pub const D3DQUERYTYPE_BANDWIDTHTIMINGS: D3DQUERYTYPE = 17;
+pub const D3DQUERYTYPE_CACHEUTILIZATION: D3DQUERYTYPE = 18;
+pub const D3DQUERYTYPE_EVENT: D3DQUERYTYPE = 8;
+pub const D3DQUERYTYPE_INTERFACETIMINGS: D3DQUERYTYPE = 14;
+pub const D3DQUERYTYPE_MEMORYPRESSURE: D3DQUERYTYPE = 19;
+pub const D3DQUERYTYPE_OCCLUSION: D3DQUERYTYPE = 9;
+pub const D3DQUERYTYPE_PIPELINETIMINGS: D3DQUERYTYPE = 13;
+pub const D3DQUERYTYPE_PIXELTIMINGS: D3DQUERYTYPE = 16;
+pub const D3DQUERYTYPE_RESOURCEMANAGER: D3DQUERYTYPE = 5;
+pub const D3DQUERYTYPE_TIMESTAMP: D3DQUERYTYPE = 10;
+pub const D3DQUERYTYPE_TIMESTAMPDISJOINT: D3DQUERYTYPE = 11;
+pub const D3DQUERYTYPE_TIMESTAMPFREQ: D3DQUERYTYPE = 12;
+pub const D3DQUERYTYPE_VCACHE: D3DQUERYTYPE = 4;
+pub const D3DQUERYTYPE_VERTEXSTATS: D3DQUERYTYPE = 6;
+pub const D3DQUERYTYPE_VERTEXTIMINGS: D3DQUERYTYPE = 15;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DRANGE {
+    pub Offset: u32,
+    pub Size: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DRASTER_STATUS {
+    pub InVBlank: windows_core::BOOL,
+    pub ScanLine: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DRECT {
+    pub x1: i32,
+    pub y1: i32,
+    pub x2: i32,
+    pub y2: i32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DRECTPATCH_INFO {
+    pub StartVertexOffsetWidth: u32,
+    pub StartVertexOffsetHeight: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub Stride: u32,
+    pub Basis: D3DBASISTYPE,
+    pub Degree: D3DDEGREETYPE,
+}
+pub type D3DRENDERSTATETYPE = i32;
+pub const D3DRENDERSTATE_WRAPBIAS: u32 = 128;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DRESOURCESTATS {
+    pub bThrashing: windows_core::BOOL,
+    pub ApproxBytesDownloaded: u32,
+    pub NumEvicts: u32,
+    pub NumVidCreates: u32,
+    pub LastPri: u32,
+    pub NumUsed: u32,
+    pub NumUsedInVidMem: u32,
+    pub WorkingSet: u32,
+    pub WorkingSetBytes: u32,
+    pub TotalManaged: u32,
+    pub TotalBytes: u32,
+}
+pub type D3DRESOURCETYPE = i32;
+pub const D3DRS_ADAPTIVETESS_W: D3DRENDERSTATETYPE = 183;
+pub const D3DRS_ADAPTIVETESS_X: D3DRENDERSTATETYPE = 180;
+pub const D3DRS_ADAPTIVETESS_Y: D3DRENDERSTATETYPE = 181;
+pub const D3DRS_ADAPTIVETESS_Z: D3DRENDERSTATETYPE = 182;
+pub const D3DRS_ALPHABLENDENABLE: D3DRENDERSTATETYPE = 27;
+pub const D3DRS_ALPHAFUNC: D3DRENDERSTATETYPE = 25;
+pub const D3DRS_ALPHAREF: D3DRENDERSTATETYPE = 24;
+pub const D3DRS_ALPHATESTENABLE: D3DRENDERSTATETYPE = 15;
+pub const D3DRS_AMBIENT: D3DRENDERSTATETYPE = 139;
+pub const D3DRS_AMBIENTMATERIALSOURCE: D3DRENDERSTATETYPE = 147;
+pub const D3DRS_ANTIALIASEDLINEENABLE: D3DRENDERSTATETYPE = 176;
+pub const D3DRS_BLENDFACTOR: D3DRENDERSTATETYPE = 193;
+pub const D3DRS_BLENDOP: D3DRENDERSTATETYPE = 171;
+pub const D3DRS_BLENDOPALPHA: D3DRENDERSTATETYPE = 209;
+pub const D3DRS_CCW_STENCILFAIL: D3DRENDERSTATETYPE = 186;
+pub const D3DRS_CCW_STENCILFUNC: D3DRENDERSTATETYPE = 189;
+pub const D3DRS_CCW_STENCILPASS: D3DRENDERSTATETYPE = 188;
+pub const D3DRS_CCW_STENCILZFAIL: D3DRENDERSTATETYPE = 187;
+pub const D3DRS_CLIPPING: D3DRENDERSTATETYPE = 136;
+pub const D3DRS_CLIPPLANEENABLE: D3DRENDERSTATETYPE = 152;
+pub const D3DRS_COLORVERTEX: D3DRENDERSTATETYPE = 141;
+pub const D3DRS_COLORWRITEENABLE: D3DRENDERSTATETYPE = 168;
+pub const D3DRS_COLORWRITEENABLE1: D3DRENDERSTATETYPE = 190;
+pub const D3DRS_COLORWRITEENABLE2: D3DRENDERSTATETYPE = 191;
+pub const D3DRS_COLORWRITEENABLE3: D3DRENDERSTATETYPE = 192;
+pub const D3DRS_CULLMODE: D3DRENDERSTATETYPE = 22;
+pub const D3DRS_DEBUGMONITORTOKEN: D3DRENDERSTATETYPE = 165;
+pub const D3DRS_DEPTHBIAS: D3DRENDERSTATETYPE = 195;
+pub const D3DRS_DESTBLEND: D3DRENDERSTATETYPE = 20;
+pub const D3DRS_DESTBLENDALPHA: D3DRENDERSTATETYPE = 208;
+pub const D3DRS_DIFFUSEMATERIALSOURCE: D3DRENDERSTATETYPE = 145;
+pub const D3DRS_DITHERENABLE: D3DRENDERSTATETYPE = 26;
+pub const D3DRS_EMISSIVEMATERIALSOURCE: D3DRENDERSTATETYPE = 148;
+pub const D3DRS_ENABLEADAPTIVETESSELLATION: D3DRENDERSTATETYPE = 184;
+pub const D3DRS_FILLMODE: D3DRENDERSTATETYPE = 8;
+pub const D3DRS_FOGCOLOR: D3DRENDERSTATETYPE = 34;
+pub const D3DRS_FOGDENSITY: D3DRENDERSTATETYPE = 38;
+pub const D3DRS_FOGENABLE: D3DRENDERSTATETYPE = 28;
+pub const D3DRS_FOGEND: D3DRENDERSTATETYPE = 37;
+pub const D3DRS_FOGSTART: D3DRENDERSTATETYPE = 36;
+pub const D3DRS_FOGTABLEMODE: D3DRENDERSTATETYPE = 35;
+pub const D3DRS_FOGVERTEXMODE: D3DRENDERSTATETYPE = 140;
+pub const D3DRS_FORCE_DWORD: D3DRENDERSTATETYPE = 2147483647;
+pub const D3DRS_INDEXEDVERTEXBLENDENABLE: D3DRENDERSTATETYPE = 167;
+pub const D3DRS_LASTPIXEL: D3DRENDERSTATETYPE = 16;
+pub const D3DRS_LIGHTING: D3DRENDERSTATETYPE = 137;
+pub const D3DRS_LOCALVIEWER: D3DRENDERSTATETYPE = 142;
+pub const D3DRS_MAXTESSELLATIONLEVEL: D3DRENDERSTATETYPE = 179;
+pub const D3DRS_MINTESSELLATIONLEVEL: D3DRENDERSTATETYPE = 178;
+pub const D3DRS_MULTISAMPLEANTIALIAS: D3DRENDERSTATETYPE = 161;
+pub const D3DRS_MULTISAMPLEMASK: D3DRENDERSTATETYPE = 162;
+pub const D3DRS_NORMALDEGREE: D3DRENDERSTATETYPE = 173;
+pub const D3DRS_NORMALIZENORMALS: D3DRENDERSTATETYPE = 143;
+pub const D3DRS_PATCHEDGESTYLE: D3DRENDERSTATETYPE = 163;
+pub const D3DRS_POINTSCALEENABLE: D3DRENDERSTATETYPE = 157;
+pub const D3DRS_POINTSCALE_A: D3DRENDERSTATETYPE = 158;
+pub const D3DRS_POINTSCALE_B: D3DRENDERSTATETYPE = 159;
+pub const D3DRS_POINTSCALE_C: D3DRENDERSTATETYPE = 160;
+pub const D3DRS_POINTSIZE: D3DRENDERSTATETYPE = 154;
+pub const D3DRS_POINTSIZE_MAX: D3DRENDERSTATETYPE = 166;
+pub const D3DRS_POINTSIZE_MIN: D3DRENDERSTATETYPE = 155;
+pub const D3DRS_POINTSPRITEENABLE: D3DRENDERSTATETYPE = 156;
+pub const D3DRS_POSITIONDEGREE: D3DRENDERSTATETYPE = 172;
+pub const D3DRS_RANGEFOGENABLE: D3DRENDERSTATETYPE = 48;
+pub const D3DRS_SCISSORTESTENABLE: D3DRENDERSTATETYPE = 174;
+pub const D3DRS_SEPARATEALPHABLENDENABLE: D3DRENDERSTATETYPE = 206;
+pub const D3DRS_SHADEMODE: D3DRENDERSTATETYPE = 9;
+pub const D3DRS_SLOPESCALEDEPTHBIAS: D3DRENDERSTATETYPE = 175;
+pub const D3DRS_SPECULARENABLE: D3DRENDERSTATETYPE = 29;
+pub const D3DRS_SPECULARMATERIALSOURCE: D3DRENDERSTATETYPE = 146;
+pub const D3DRS_SRCBLEND: D3DRENDERSTATETYPE = 19;
+pub const D3DRS_SRCBLENDALPHA: D3DRENDERSTATETYPE = 207;
+pub const D3DRS_SRGBWRITEENABLE: D3DRENDERSTATETYPE = 194;
+pub const D3DRS_STENCILENABLE: D3DRENDERSTATETYPE = 52;
+pub const D3DRS_STENCILFAIL: D3DRENDERSTATETYPE = 53;
+pub const D3DRS_STENCILFUNC: D3DRENDERSTATETYPE = 56;
+pub const D3DRS_STENCILMASK: D3DRENDERSTATETYPE = 58;
+pub const D3DRS_STENCILPASS: D3DRENDERSTATETYPE = 55;
+pub const D3DRS_STENCILREF: D3DRENDERSTATETYPE = 57;
+pub const D3DRS_STENCILWRITEMASK: D3DRENDERSTATETYPE = 59;
+pub const D3DRS_STENCILZFAIL: D3DRENDERSTATETYPE = 54;
+pub const D3DRS_TEXTUREFACTOR: D3DRENDERSTATETYPE = 60;
+pub const D3DRS_TWEENFACTOR: D3DRENDERSTATETYPE = 170;
+pub const D3DRS_TWOSIDEDSTENCILMODE: D3DRENDERSTATETYPE = 185;
+pub const D3DRS_VERTEXBLEND: D3DRENDERSTATETYPE = 151;
+pub const D3DRS_WRAP0: D3DRENDERSTATETYPE = 128;
+pub const D3DRS_WRAP1: D3DRENDERSTATETYPE = 129;
+pub const D3DRS_WRAP10: D3DRENDERSTATETYPE = 200;
+pub const D3DRS_WRAP11: D3DRENDERSTATETYPE = 201;
+pub const D3DRS_WRAP12: D3DRENDERSTATETYPE = 202;
+pub const D3DRS_WRAP13: D3DRENDERSTATETYPE = 203;
+pub const D3DRS_WRAP14: D3DRENDERSTATETYPE = 204;
+pub const D3DRS_WRAP15: D3DRENDERSTATETYPE = 205;
+pub const D3DRS_WRAP2: D3DRENDERSTATETYPE = 130;
+pub const D3DRS_WRAP3: D3DRENDERSTATETYPE = 131;
+pub const D3DRS_WRAP4: D3DRENDERSTATETYPE = 132;
+pub const D3DRS_WRAP5: D3DRENDERSTATETYPE = 133;
+pub const D3DRS_WRAP6: D3DRENDERSTATETYPE = 134;
+pub const D3DRS_WRAP7: D3DRENDERSTATETYPE = 135;
+pub const D3DRS_WRAP8: D3DRENDERSTATETYPE = 198;
+pub const D3DRS_WRAP9: D3DRENDERSTATETYPE = 199;
+pub const D3DRS_ZENABLE: D3DRENDERSTATETYPE = 7;
+pub const D3DRS_ZFUNC: D3DRENDERSTATETYPE = 23;
+pub const D3DRS_ZWRITEENABLE: D3DRENDERSTATETYPE = 14;
+pub const D3DRTYPECOUNT: u32 = 8;
+pub const D3DRTYPE_CUBETEXTURE: D3DRESOURCETYPE = 5;
+pub const D3DRTYPE_FORCE_DWORD: D3DRESOURCETYPE = 2147483647;
+pub const D3DRTYPE_INDEXBUFFER: D3DRESOURCETYPE = 7;
+pub const D3DRTYPE_SURFACE: D3DRESOURCETYPE = 1;
+pub const D3DRTYPE_TEXTURE: D3DRESOURCETYPE = 3;
+pub const D3DRTYPE_VERTEXBUFFER: D3DRESOURCETYPE = 6;
+pub const D3DRTYPE_VOLUME: D3DRESOURCETYPE = 2;
+pub const D3DRTYPE_VOLUMETEXTURE: D3DRESOURCETYPE = 4;
+pub type D3DSAMPLERSTATETYPE = i32;
+pub type D3DSAMPLER_TEXTURE_TYPE = i32;
+pub const D3DSAMP_ADDRESSU: D3DSAMPLERSTATETYPE = 1;
+pub const D3DSAMP_ADDRESSV: D3DSAMPLERSTATETYPE = 2;
+pub const D3DSAMP_ADDRESSW: D3DSAMPLERSTATETYPE = 3;
+pub const D3DSAMP_BORDERCOLOR: D3DSAMPLERSTATETYPE = 4;
+pub const D3DSAMP_DMAPOFFSET: D3DSAMPLERSTATETYPE = 13;
+pub const D3DSAMP_ELEMENTINDEX: D3DSAMPLERSTATETYPE = 12;
+pub const D3DSAMP_FORCE_DWORD: D3DSAMPLERSTATETYPE = 2147483647;
+pub const D3DSAMP_MAGFILTER: D3DSAMPLERSTATETYPE = 5;
+pub const D3DSAMP_MAXANISOTROPY: D3DSAMPLERSTATETYPE = 10;
+pub const D3DSAMP_MAXMIPLEVEL: D3DSAMPLERSTATETYPE = 9;
+pub const D3DSAMP_MINFILTER: D3DSAMPLERSTATETYPE = 6;
+pub const D3DSAMP_MIPFILTER: D3DSAMPLERSTATETYPE = 7;
+pub const D3DSAMP_MIPMAPLODBIAS: D3DSAMPLERSTATETYPE = 8;
+pub const D3DSAMP_SRGBTEXTURE: D3DSAMPLERSTATETYPE = 11;
+pub const D3DSBT_ALL: D3DSTATEBLOCKTYPE = 1;
+pub const D3DSBT_FORCE_DWORD: D3DSTATEBLOCKTYPE = 2147483647;
+pub const D3DSBT_PIXELSTATE: D3DSTATEBLOCKTYPE = 2;
+pub const D3DSBT_VERTEXSTATE: D3DSTATEBLOCKTYPE = 3;
+pub type D3DSCANLINEORDERING = i32;
+pub const D3DSCANLINEORDERING_INTERLACED: D3DSCANLINEORDERING = 2;
+pub const D3DSCANLINEORDERING_PROGRESSIVE: D3DSCANLINEORDERING = 1;
+pub const D3DSCANLINEORDERING_UNKNOWN: D3DSCANLINEORDERING = 0;
 pub const D3DSGR_CALIBRATE: u32 = 1;
 pub const D3DSGR_NO_CALIBRATION: u32 = 0;
+pub type D3DSHADEMODE = i32;
+pub const D3DSHADER_ADDRESSMODE_MASK: u32 = 8192;
+pub const D3DSHADER_ADDRESSMODE_SHIFT: u32 = 13;
+pub type D3DSHADER_ADDRESSMODE_TYPE = i32;
+pub const D3DSHADER_ADDRMODE_ABSOLUTE: D3DSHADER_ADDRESSMODE_TYPE = 0;
+pub const D3DSHADER_ADDRMODE_FORCE_DWORD: D3DSHADER_ADDRESSMODE_TYPE = 2147483647;
+pub const D3DSHADER_ADDRMODE_RELATIVE: D3DSHADER_ADDRESSMODE_TYPE = 8192;
+pub type D3DSHADER_COMPARISON = i32;
+pub const D3DSHADER_COMPARISON_MASK: u32 = 458752;
+pub const D3DSHADER_COMPARISON_SHIFT: u32 = 16;
+pub type D3DSHADER_INSTRUCTION_OPCODE_TYPE = i32;
+pub const D3DSHADER_INSTRUCTION_PREDICATED: u32 = 268435456;
+pub type D3DSHADER_MIN_PRECISION = i32;
+pub type D3DSHADER_MISCTYPE_OFFSETS = i32;
+pub type D3DSHADER_PARAM_REGISTER_TYPE = i32;
+pub type D3DSHADER_PARAM_SRCMOD_TYPE = i32;
+pub const D3DSHADE_FLAT: D3DSHADEMODE = 1;
+pub const D3DSHADE_FORCE_DWORD: D3DSHADEMODE = 2147483647;
+pub const D3DSHADE_GOURAUD: D3DSHADEMODE = 2;
+pub const D3DSHADE_PHONG: D3DSHADEMODE = 3;
+pub const D3DSIO_ABS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 35;
+pub const D3DSIO_ADD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 2;
+pub const D3DSIO_BEM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 89;
+pub const D3DSIO_BREAK: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 44;
+pub const D3DSIO_BREAKC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 45;
+pub const D3DSIO_BREAKP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 96;
+pub const D3DSIO_CALL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 25;
+pub const D3DSIO_CALLNZ: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 26;
+pub const D3DSIO_CMP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 88;
+pub const D3DSIO_CND: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 80;
+pub const D3DSIO_COMMENT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 65534;
+pub const D3DSIO_CRS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 33;
+pub const D3DSIO_DCL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 31;
+pub const D3DSIO_DEF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 81;
+pub const D3DSIO_DEFB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 47;
+pub const D3DSIO_DEFI: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 48;
+pub const D3DSIO_DP2ADD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 90;
+pub const D3DSIO_DP3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 8;
+pub const D3DSIO_DP4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 9;
+pub const D3DSIO_DST: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 17;
+pub const D3DSIO_DSX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 91;
+pub const D3DSIO_DSY: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 92;
+pub const D3DSIO_ELSE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 42;
+pub const D3DSIO_END: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 65535;
+pub const D3DSIO_ENDIF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 43;
+pub const D3DSIO_ENDLOOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 29;
+pub const D3DSIO_ENDREP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 39;
+pub const D3DSIO_EXP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 14;
+pub const D3DSIO_EXPP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 78;
+pub const D3DSIO_FORCE_DWORD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 2147483647;
+pub const D3DSIO_FRC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 19;
+pub const D3DSIO_IF: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 40;
+pub const D3DSIO_IFC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 41;
+pub const D3DSIO_LABEL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 30;
+pub const D3DSIO_LIT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 16;
+pub const D3DSIO_LOG: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 15;
+pub const D3DSIO_LOGP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 79;
+pub const D3DSIO_LOOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 27;
+pub const D3DSIO_LRP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 18;
+pub const D3DSIO_M3x2: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 24;
+pub const D3DSIO_M3x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 23;
+pub const D3DSIO_M3x4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 22;
+pub const D3DSIO_M4x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 21;
+pub const D3DSIO_M4x4: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 20;
+pub const D3DSIO_MAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 4;
+pub const D3DSIO_MAX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 11;
+pub const D3DSIO_MIN: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 10;
+pub const D3DSIO_MOV: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 1;
+pub const D3DSIO_MOVA: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 46;
+pub const D3DSIO_MUL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 5;
+pub const D3DSIO_NOP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 0;
+pub const D3DSIO_NRM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 36;
+pub const D3DSIO_PHASE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 65533;
+pub const D3DSIO_POW: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 32;
+pub const D3DSIO_RCP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 6;
+pub const D3DSIO_REP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 38;
+pub const D3DSIO_RESERVED0: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 75;
+pub const D3DSIO_RET: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 28;
+pub const D3DSIO_RSQ: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 7;
+pub const D3DSIO_SETP: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 94;
+pub const D3DSIO_SGE: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 13;
+pub const D3DSIO_SGN: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 34;
+pub const D3DSIO_SINCOS: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 37;
+pub const D3DSIO_SLT: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 12;
+pub const D3DSIO_SUB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 3;
+pub const D3DSIO_TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 66;
+pub const D3DSIO_TEXBEM: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 67;
+pub const D3DSIO_TEXBEML: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 68;
+pub const D3DSIO_TEXCOORD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 64;
+pub const D3DSIO_TEXDEPTH: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 87;
+pub const D3DSIO_TEXDP3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 85;
+pub const D3DSIO_TEXDP3TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 83;
+pub const D3DSIO_TEXKILL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 65;
+pub const D3DSIO_TEXLDD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 93;
+pub const D3DSIO_TEXLDL: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 95;
+pub const D3DSIO_TEXM3x2DEPTH: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 84;
+pub const D3DSIO_TEXM3x2PAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 71;
+pub const D3DSIO_TEXM3x2TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 72;
+pub const D3DSIO_TEXM3x3: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 86;
+pub const D3DSIO_TEXM3x3PAD: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 73;
+pub const D3DSIO_TEXM3x3SPEC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 76;
+pub const D3DSIO_TEXM3x3TEX: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 74;
+pub const D3DSIO_TEXM3x3VSPEC: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 77;
+pub const D3DSIO_TEXREG2AR: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 69;
+pub const D3DSIO_TEXREG2GB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 70;
+pub const D3DSIO_TEXREG2RGB: D3DSHADER_INSTRUCTION_OPCODE_TYPE = 82;
+pub const D3DSI_COISSUE: u32 = 1073741824;
+pub const D3DSI_COMMENTSIZE_MASK: u32 = 2147418112;
+pub const D3DSI_COMMENTSIZE_SHIFT: u32 = 16;
+pub const D3DSI_INSTLENGTH_MASK: u32 = 251658240;
+pub const D3DSI_INSTLENGTH_SHIFT: u32 = 24;
+pub const D3DSI_OPCODE_MASK: u32 = 65535;
+pub const D3DSI_TEXLD_BIAS: u32 = 131072;
+pub const D3DSI_TEXLD_PROJECT: u32 = 65536;
+pub const D3DSMO_FACE: D3DSHADER_MISCTYPE_OFFSETS = 1;
+pub const D3DSMO_POSITION: D3DSHADER_MISCTYPE_OFFSETS = 0;
+pub const D3DSPC_EQ: D3DSHADER_COMPARISON = 2;
+pub const D3DSPC_GE: D3DSHADER_COMPARISON = 3;
+pub const D3DSPC_GT: D3DSHADER_COMPARISON = 1;
+pub const D3DSPC_LE: D3DSHADER_COMPARISON = 6;
+pub const D3DSPC_LT: D3DSHADER_COMPARISON = 4;
+pub const D3DSPC_NE: D3DSHADER_COMPARISON = 5;
+pub const D3DSPC_RESERVED0: D3DSHADER_COMPARISON = 0;
+pub const D3DSPC_RESERVED1: D3DSHADER_COMPARISON = 7;
+pub const D3DSPDM_MSAMPCENTROID: u32 = 4194304;
+pub const D3DSPDM_NONE: u32 = 0;
+pub const D3DSPDM_PARTIALPRECISION: u32 = 2097152;
+pub const D3DSPDM_SATURATE: u32 = 1048576;
 pub const D3DSPD_IUNKNOWN: u32 = 1;
+pub const D3DSPR_ADDR: D3DSHADER_PARAM_REGISTER_TYPE = 3;
+pub const D3DSPR_ATTROUT: D3DSHADER_PARAM_REGISTER_TYPE = 5;
+pub const D3DSPR_COLOROUT: D3DSHADER_PARAM_REGISTER_TYPE = 8;
+pub const D3DSPR_CONST: D3DSHADER_PARAM_REGISTER_TYPE = 2;
+pub const D3DSPR_CONST2: D3DSHADER_PARAM_REGISTER_TYPE = 11;
+pub const D3DSPR_CONST3: D3DSHADER_PARAM_REGISTER_TYPE = 12;
+pub const D3DSPR_CONST4: D3DSHADER_PARAM_REGISTER_TYPE = 13;
+pub const D3DSPR_CONSTBOOL: D3DSHADER_PARAM_REGISTER_TYPE = 14;
+pub const D3DSPR_CONSTINT: D3DSHADER_PARAM_REGISTER_TYPE = 7;
+pub const D3DSPR_DEPTHOUT: D3DSHADER_PARAM_REGISTER_TYPE = 9;
+pub const D3DSPR_FORCE_DWORD: D3DSHADER_PARAM_REGISTER_TYPE = 2147483647;
+pub const D3DSPR_INPUT: D3DSHADER_PARAM_REGISTER_TYPE = 1;
+pub const D3DSPR_LABEL: D3DSHADER_PARAM_REGISTER_TYPE = 18;
+pub const D3DSPR_LOOP: D3DSHADER_PARAM_REGISTER_TYPE = 15;
+pub const D3DSPR_MISCTYPE: D3DSHADER_PARAM_REGISTER_TYPE = 17;
+pub const D3DSPR_OUTPUT: D3DSHADER_PARAM_REGISTER_TYPE = 6;
+pub const D3DSPR_PREDICATE: D3DSHADER_PARAM_REGISTER_TYPE = 19;
+pub const D3DSPR_RASTOUT: D3DSHADER_PARAM_REGISTER_TYPE = 4;
+pub const D3DSPR_SAMPLER: D3DSHADER_PARAM_REGISTER_TYPE = 10;
+pub const D3DSPR_TEMP: D3DSHADER_PARAM_REGISTER_TYPE = 0;
+pub const D3DSPR_TEMPFLOAT16: D3DSHADER_PARAM_REGISTER_TYPE = 16;
+pub const D3DSPR_TEXCRDOUT: D3DSHADER_PARAM_REGISTER_TYPE = 6;
+pub const D3DSPR_TEXTURE: D3DSHADER_PARAM_REGISTER_TYPE = 3;
+pub const D3DSPSM_ABS: D3DSHADER_PARAM_SRCMOD_TYPE = 184549376;
+pub const D3DSPSM_ABSNEG: D3DSHADER_PARAM_SRCMOD_TYPE = 201326592;
+pub const D3DSPSM_BIAS: D3DSHADER_PARAM_SRCMOD_TYPE = 33554432;
+pub const D3DSPSM_BIASNEG: D3DSHADER_PARAM_SRCMOD_TYPE = 50331648;
+pub const D3DSPSM_COMP: D3DSHADER_PARAM_SRCMOD_TYPE = 100663296;
+pub const D3DSPSM_DW: D3DSHADER_PARAM_SRCMOD_TYPE = 167772160;
+pub const D3DSPSM_DZ: D3DSHADER_PARAM_SRCMOD_TYPE = 150994944;
+pub const D3DSPSM_FORCE_DWORD: D3DSHADER_PARAM_SRCMOD_TYPE = 2147483647;
+pub const D3DSPSM_NEG: D3DSHADER_PARAM_SRCMOD_TYPE = 16777216;
+pub const D3DSPSM_NONE: D3DSHADER_PARAM_SRCMOD_TYPE = 0;
+pub const D3DSPSM_NOT: D3DSHADER_PARAM_SRCMOD_TYPE = 218103808;
+pub const D3DSPSM_SIGN: D3DSHADER_PARAM_SRCMOD_TYPE = 67108864;
+pub const D3DSPSM_SIGNNEG: D3DSHADER_PARAM_SRCMOD_TYPE = 83886080;
+pub const D3DSPSM_X2: D3DSHADER_PARAM_SRCMOD_TYPE = 117440512;
+pub const D3DSPSM_X2NEG: D3DSHADER_PARAM_SRCMOD_TYPE = 134217728;
+pub const D3DSP_DCL_USAGEINDEX_MASK: u32 = 983040;
+pub const D3DSP_DCL_USAGEINDEX_SHIFT: u32 = 16;
+pub const D3DSP_DCL_USAGE_MASK: u32 = 15;
+pub const D3DSP_DCL_USAGE_SHIFT: u32 = 0;
+pub const D3DSP_DSTMOD_MASK: u32 = 15728640;
+pub const D3DSP_DSTMOD_SHIFT: u32 = 20;
+pub const D3DSP_DSTSHIFT_MASK: u32 = 251658240;
+pub const D3DSP_DSTSHIFT_SHIFT: u32 = 24;
+pub const D3DSP_MIN_PRECISION_MASK: u32 = 49152;
+pub const D3DSP_MIN_PRECISION_SHIFT: u32 = 14;
+pub const D3DSP_NOSWIZZLE: u32 = 14942208;
+pub const D3DSP_OPCODESPECIFICCONTROL_MASK: u32 = 16711680;
+pub const D3DSP_OPCODESPECIFICCONTROL_SHIFT: u32 = 16;
+pub const D3DSP_REGNUM_MASK: u32 = 2047;
+pub const D3DSP_REGTYPE_MASK: u32 = 1879048192;
+pub const D3DSP_REGTYPE_MASK2: u32 = 6144;
+pub const D3DSP_REGTYPE_SHIFT: u32 = 28;
+pub const D3DSP_REGTYPE_SHIFT2: u32 = 8;
+pub const D3DSP_REPLICATEALPHA: u32 = 16711680;
+pub const D3DSP_REPLICATEBLUE: u32 = 11141120;
+pub const D3DSP_REPLICATEGREEN: u32 = 5570560;
+pub const D3DSP_REPLICATERED: u32 = 0;
+pub const D3DSP_SRCMOD_MASK: u32 = 251658240;
+pub const D3DSP_SRCMOD_SHIFT: u32 = 24;
+pub const D3DSP_SWIZZLE_MASK: u32 = 16711680;
+pub const D3DSP_SWIZZLE_SHIFT: u32 = 16;
+pub const D3DSP_TEXTURETYPE_MASK: u32 = 2013265920;
+pub const D3DSP_TEXTURETYPE_SHIFT: u32 = 27;
+pub const D3DSP_WRITEMASK_0: u32 = 65536;
+pub const D3DSP_WRITEMASK_1: u32 = 131072;
+pub const D3DSP_WRITEMASK_2: u32 = 262144;
+pub const D3DSP_WRITEMASK_3: u32 = 524288;
+pub const D3DSP_WRITEMASK_ALL: u32 = 983040;
+pub const D3DSRO_FOG: D3DVS_RASTOUT_OFFSETS = 1;
+pub const D3DSRO_FORCE_DWORD: D3DVS_RASTOUT_OFFSETS = 2147483647;
+pub const D3DSRO_POINT_SIZE: D3DVS_RASTOUT_OFFSETS = 2;
+pub const D3DSRO_POSITION: D3DVS_RASTOUT_OFFSETS = 0;
+pub type D3DSTATEBLOCKTYPE = i32;
+pub const D3DSTENCILCAPS_DECR: u32 = 128;
+pub const D3DSTENCILCAPS_DECRSAT: u32 = 16;
+pub const D3DSTENCILCAPS_INCR: u32 = 64;
+pub const D3DSTENCILCAPS_INCRSAT: u32 = 8;
+pub const D3DSTENCILCAPS_INVERT: u32 = 32;
+pub const D3DSTENCILCAPS_KEEP: u32 = 1;
+pub const D3DSTENCILCAPS_REPLACE: u32 = 4;
+pub const D3DSTENCILCAPS_TWOSIDED: u32 = 256;
+pub const D3DSTENCILCAPS_ZERO: u32 = 2;
+pub type D3DSTENCILOP = i32;
+pub const D3DSTENCILOP_DECR: D3DSTENCILOP = 8;
+pub const D3DSTENCILOP_DECRSAT: D3DSTENCILOP = 5;
+pub const D3DSTENCILOP_FORCE_DWORD: D3DSTENCILOP = 2147483647;
+pub const D3DSTENCILOP_INCR: D3DSTENCILOP = 7;
+pub const D3DSTENCILOP_INCRSAT: D3DSTENCILOP = 4;
+pub const D3DSTENCILOP_INVERT: D3DSTENCILOP = 6;
+pub const D3DSTENCILOP_KEEP: D3DSTENCILOP = 1;
+pub const D3DSTENCILOP_REPLACE: D3DSTENCILOP = 3;
+pub const D3DSTENCILOP_ZERO: D3DSTENCILOP = 2;
+pub const D3DSTREAMSOURCE_INDEXEDDATA: u32 = 1073741824;
+pub const D3DSTREAMSOURCE_INSTANCEDATA: i32 = -2147483648;
+pub const D3DSTT_2D: D3DSAMPLER_TEXTURE_TYPE = 268435456;
+pub const D3DSTT_CUBE: D3DSAMPLER_TEXTURE_TYPE = 402653184;
+pub const D3DSTT_FORCE_DWORD: D3DSAMPLER_TEXTURE_TYPE = 2147483647;
+pub const D3DSTT_UNKNOWN: D3DSAMPLER_TEXTURE_TYPE = 0;
+pub const D3DSTT_VOLUME: D3DSAMPLER_TEXTURE_TYPE = 536870912;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DSURFACE_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub MultiSampleType: D3DMULTISAMPLE_TYPE,
+    pub MultiSampleQuality: u32,
+    pub Width: u32,
+    pub Height: u32,
+}
+pub type D3DSWAPEFFECT = i32;
+pub const D3DSWAPEFFECT_COPY: D3DSWAPEFFECT = 3;
+pub const D3DSWAPEFFECT_DISCARD: D3DSWAPEFFECT = 1;
+pub const D3DSWAPEFFECT_FLIP: D3DSWAPEFFECT = 2;
+pub const D3DSWAPEFFECT_FLIPEX: D3DSWAPEFFECT = 5;
+pub const D3DSWAPEFFECT_FORCE_DWORD: D3DSWAPEFFECT = 2147483647;
+pub const D3DSWAPEFFECT_OVERLAY: D3DSWAPEFFECT = 4;
+pub const D3DTADDRESS_BORDER: D3DTEXTUREADDRESS = 4;
+pub const D3DTADDRESS_CLAMP: D3DTEXTUREADDRESS = 3;
+pub const D3DTADDRESS_FORCE_DWORD: D3DTEXTUREADDRESS = 2147483647;
+pub const D3DTADDRESS_MIRROR: D3DTEXTUREADDRESS = 2;
+pub const D3DTADDRESS_MIRRORONCE: D3DTEXTUREADDRESS = 5;
+pub const D3DTADDRESS_WRAP: D3DTEXTUREADDRESS = 1;
+pub const D3DTA_ALPHAREPLICATE: u32 = 32;
+pub const D3DTA_COMPLEMENT: u32 = 16;
+pub const D3DTA_CONSTANT: u32 = 6;
+pub const D3DTA_CURRENT: u32 = 1;
+pub const D3DTA_DIFFUSE: u32 = 0;
+pub const D3DTA_SELECTMASK: u32 = 15;
+pub const D3DTA_SPECULAR: u32 = 4;
+pub const D3DTA_TEMP: u32 = 5;
+pub const D3DTA_TEXTURE: u32 = 2;
+pub const D3DTA_TFACTOR: u32 = 3;
+pub const D3DTEXF_ANISOTROPIC: D3DTEXTUREFILTERTYPE = 3;
+pub const D3DTEXF_CONVOLUTIONMONO: D3DTEXTUREFILTERTYPE = 8;
+pub const D3DTEXF_FORCE_DWORD: D3DTEXTUREFILTERTYPE = 2147483647;
+pub const D3DTEXF_GAUSSIANQUAD: D3DTEXTUREFILTERTYPE = 7;
+pub const D3DTEXF_LINEAR: D3DTEXTUREFILTERTYPE = 2;
+pub const D3DTEXF_NONE: D3DTEXTUREFILTERTYPE = 0;
+pub const D3DTEXF_POINT: D3DTEXTUREFILTERTYPE = 1;
+pub const D3DTEXF_PYRAMIDALQUAD: D3DTEXTUREFILTERTYPE = 6;
+pub const D3DTEXOPCAPS_ADD: u32 = 64;
+pub const D3DTEXOPCAPS_ADDSIGNED: u32 = 128;
+pub const D3DTEXOPCAPS_ADDSIGNED2X: u32 = 256;
+pub const D3DTEXOPCAPS_ADDSMOOTH: u32 = 1024;
+pub const D3DTEXOPCAPS_BLENDCURRENTALPHA: u32 = 32768;
+pub const D3DTEXOPCAPS_BLENDDIFFUSEALPHA: u32 = 2048;
+pub const D3DTEXOPCAPS_BLENDFACTORALPHA: u32 = 8192;
+pub const D3DTEXOPCAPS_BLENDTEXTUREALPHA: u32 = 4096;
+pub const D3DTEXOPCAPS_BLENDTEXTUREALPHAPM: u32 = 16384;
+pub const D3DTEXOPCAPS_BUMPENVMAP: u32 = 2097152;
+pub const D3DTEXOPCAPS_BUMPENVMAPLUMINANCE: u32 = 4194304;
+pub const D3DTEXOPCAPS_DISABLE: u32 = 1;
+pub const D3DTEXOPCAPS_DOTPRODUCT3: u32 = 8388608;
+pub const D3DTEXOPCAPS_LERP: u32 = 33554432;
+pub const D3DTEXOPCAPS_MODULATE: u32 = 8;
+pub const D3DTEXOPCAPS_MODULATE2X: u32 = 16;
+pub const D3DTEXOPCAPS_MODULATE4X: u32 = 32;
+pub const D3DTEXOPCAPS_MODULATEALPHA_ADDCOLOR: u32 = 131072;
+pub const D3DTEXOPCAPS_MODULATECOLOR_ADDALPHA: u32 = 262144;
+pub const D3DTEXOPCAPS_MODULATEINVALPHA_ADDCOLOR: u32 = 524288;
+pub const D3DTEXOPCAPS_MODULATEINVCOLOR_ADDALPHA: u32 = 1048576;
+pub const D3DTEXOPCAPS_MULTIPLYADD: u32 = 16777216;
+pub const D3DTEXOPCAPS_PREMODULATE: u32 = 65536;
+pub const D3DTEXOPCAPS_SELECTARG1: u32 = 2;
+pub const D3DTEXOPCAPS_SELECTARG2: u32 = 4;
+pub const D3DTEXOPCAPS_SUBTRACT: u32 = 512;
+pub type D3DTEXTUREADDRESS = i32;
+pub type D3DTEXTUREFILTERTYPE = i32;
+pub type D3DTEXTUREOP = i32;
+pub type D3DTEXTURESTAGESTATETYPE = i32;
+pub type D3DTEXTURETRANSFORMFLAGS = i32;
+pub const D3DTOP_ADD: D3DTEXTUREOP = 7;
+pub const D3DTOP_ADDSIGNED: D3DTEXTUREOP = 8;
+pub const D3DTOP_ADDSIGNED2X: D3DTEXTUREOP = 9;
+pub const D3DTOP_ADDSMOOTH: D3DTEXTUREOP = 11;
+pub const D3DTOP_BLENDCURRENTALPHA: D3DTEXTUREOP = 16;
+pub const D3DTOP_BLENDDIFFUSEALPHA: D3DTEXTUREOP = 12;
+pub const D3DTOP_BLENDFACTORALPHA: D3DTEXTUREOP = 14;
+pub const D3DTOP_BLENDTEXTUREALPHA: D3DTEXTUREOP = 13;
+pub const D3DTOP_BLENDTEXTUREALPHAPM: D3DTEXTUREOP = 15;
+pub const D3DTOP_BUMPENVMAP: D3DTEXTUREOP = 22;
+pub const D3DTOP_BUMPENVMAPLUMINANCE: D3DTEXTUREOP = 23;
+pub const D3DTOP_DISABLE: D3DTEXTUREOP = 1;
+pub const D3DTOP_DOTPRODUCT3: D3DTEXTUREOP = 24;
+pub const D3DTOP_FORCE_DWORD: D3DTEXTUREOP = 2147483647;
+pub const D3DTOP_LERP: D3DTEXTUREOP = 26;
+pub const D3DTOP_MODULATE: D3DTEXTUREOP = 4;
+pub const D3DTOP_MODULATE2X: D3DTEXTUREOP = 5;
+pub const D3DTOP_MODULATE4X: D3DTEXTUREOP = 6;
+pub const D3DTOP_MODULATEALPHA_ADDCOLOR: D3DTEXTUREOP = 18;
+pub const D3DTOP_MODULATECOLOR_ADDALPHA: D3DTEXTUREOP = 19;
+pub const D3DTOP_MODULATEINVALPHA_ADDCOLOR: D3DTEXTUREOP = 20;
+pub const D3DTOP_MODULATEINVCOLOR_ADDALPHA: D3DTEXTUREOP = 21;
+pub const D3DTOP_MULTIPLYADD: D3DTEXTUREOP = 25;
+pub const D3DTOP_PREMODULATE: D3DTEXTUREOP = 17;
+pub const D3DTOP_SELECTARG1: D3DTEXTUREOP = 2;
+pub const D3DTOP_SELECTARG2: D3DTEXTUREOP = 3;
+pub const D3DTOP_SUBTRACT: D3DTEXTUREOP = 10;
+pub type D3DTRANSFORMSTATETYPE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DTRIPATCH_INFO {
+    pub StartVertexOffset: u32,
+    pub NumVertices: u32,
+    pub Basis: D3DBASISTYPE,
+    pub Degree: D3DDEGREETYPE,
+}
+pub const D3DTSS_ALPHAARG0: D3DTEXTURESTAGESTATETYPE = 27;
+pub const D3DTSS_ALPHAARG1: D3DTEXTURESTAGESTATETYPE = 5;
+pub const D3DTSS_ALPHAARG2: D3DTEXTURESTAGESTATETYPE = 6;
+pub const D3DTSS_ALPHAOP: D3DTEXTURESTAGESTATETYPE = 4;
+pub const D3DTSS_BUMPENVLOFFSET: D3DTEXTURESTAGESTATETYPE = 23;
+pub const D3DTSS_BUMPENVLSCALE: D3DTEXTURESTAGESTATETYPE = 22;
+pub const D3DTSS_BUMPENVMAT00: D3DTEXTURESTAGESTATETYPE = 7;
+pub const D3DTSS_BUMPENVMAT01: D3DTEXTURESTAGESTATETYPE = 8;
+pub const D3DTSS_BUMPENVMAT10: D3DTEXTURESTAGESTATETYPE = 9;
+pub const D3DTSS_BUMPENVMAT11: D3DTEXTURESTAGESTATETYPE = 10;
+pub const D3DTSS_COLORARG0: D3DTEXTURESTAGESTATETYPE = 26;
+pub const D3DTSS_COLORARG1: D3DTEXTURESTAGESTATETYPE = 2;
+pub const D3DTSS_COLORARG2: D3DTEXTURESTAGESTATETYPE = 3;
+pub const D3DTSS_COLOROP: D3DTEXTURESTAGESTATETYPE = 1;
+pub const D3DTSS_CONSTANT: D3DTEXTURESTAGESTATETYPE = 32;
+pub const D3DTSS_FORCE_DWORD: D3DTEXTURESTAGESTATETYPE = 2147483647;
+pub const D3DTSS_RESULTARG: D3DTEXTURESTAGESTATETYPE = 28;
+pub const D3DTSS_TCI_CAMERASPACENORMAL: u32 = 65536;
+pub const D3DTSS_TCI_CAMERASPACEPOSITION: u32 = 131072;
+pub const D3DTSS_TCI_CAMERASPACEREFLECTIONVECTOR: u32 = 196608;
+pub const D3DTSS_TCI_PASSTHRU: u32 = 0;
+pub const D3DTSS_TCI_SPHEREMAP: u32 = 262144;
+pub const D3DTSS_TEXCOORDINDEX: D3DTEXTURESTAGESTATETYPE = 11;
+pub const D3DTSS_TEXTURETRANSFORMFLAGS: D3DTEXTURESTAGESTATETYPE = 24;
+pub const D3DTS_FORCE_DWORD: D3DTRANSFORMSTATETYPE = 2147483647;
+pub const D3DTS_PROJECTION: D3DTRANSFORMSTATETYPE = 3;
+pub const D3DTS_TEXTURE0: D3DTRANSFORMSTATETYPE = 16;
+pub const D3DTS_TEXTURE1: D3DTRANSFORMSTATETYPE = 17;
+pub const D3DTS_TEXTURE2: D3DTRANSFORMSTATETYPE = 18;
+pub const D3DTS_TEXTURE3: D3DTRANSFORMSTATETYPE = 19;
+pub const D3DTS_TEXTURE4: D3DTRANSFORMSTATETYPE = 20;
+pub const D3DTS_TEXTURE5: D3DTRANSFORMSTATETYPE = 21;
+pub const D3DTS_TEXTURE6: D3DTRANSFORMSTATETYPE = 22;
+pub const D3DTS_TEXTURE7: D3DTRANSFORMSTATETYPE = 23;
+pub const D3DTS_VIEW: D3DTRANSFORMSTATETYPE = 2;
+pub const D3DTS_WORLD: u32 = 256;
+pub const D3DTS_WORLD1: u32 = 257;
+pub const D3DTS_WORLD2: u32 = 258;
+pub const D3DTS_WORLD3: u32 = 259;
+pub const D3DTTFF_COUNT1: D3DTEXTURETRANSFORMFLAGS = 1;
+pub const D3DTTFF_COUNT2: D3DTEXTURETRANSFORMFLAGS = 2;
+pub const D3DTTFF_COUNT3: D3DTEXTURETRANSFORMFLAGS = 3;
+pub const D3DTTFF_COUNT4: D3DTEXTURETRANSFORMFLAGS = 4;
+pub const D3DTTFF_DISABLE: D3DTEXTURETRANSFORMFLAGS = 0;
+pub const D3DTTFF_FORCE_DWORD: D3DTEXTURETRANSFORMFLAGS = 2147483647;
+pub const D3DTTFF_PROJECTED: D3DTEXTURETRANSFORMFLAGS = 256;
+pub const D3DUSAGE_AUTOGENMIPMAP: u32 = 1024;
+pub const D3DUSAGE_DEPTHSTENCIL: u32 = 2;
+pub const D3DUSAGE_DMAP: u32 = 16384;
+pub const D3DUSAGE_DONOTCLIP: u32 = 32;
+pub const D3DUSAGE_DYNAMIC: u32 = 512;
+pub const D3DUSAGE_NONSECURE: u32 = 8388608;
+pub const D3DUSAGE_NPATCHES: u32 = 256;
+pub const D3DUSAGE_POINTS: u32 = 64;
+pub const D3DUSAGE_QUERY_FILTER: u32 = 131072;
+pub const D3DUSAGE_QUERY_LEGACYBUMPMAP: u32 = 32768;
+pub const D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING: u32 = 524288;
+pub const D3DUSAGE_QUERY_SRGBREAD: u32 = 65536;
+pub const D3DUSAGE_QUERY_SRGBWRITE: u32 = 262144;
+pub const D3DUSAGE_QUERY_VERTEXTEXTURE: u32 = 1048576;
+pub const D3DUSAGE_QUERY_WRAPANDMIP: u32 = 2097152;
+pub const D3DUSAGE_RENDERTARGET: u32 = 1;
+pub const D3DUSAGE_RESTRICTED_CONTENT: u32 = 2048;
+pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE: u32 = 8192;
+pub const D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER: u32 = 4096;
+pub const D3DUSAGE_RTPATCHES: u32 = 128;
+pub const D3DUSAGE_SOFTWAREPROCESSING: u32 = 16;
+pub const D3DUSAGE_TEXTAPI: u32 = 268435456;
+pub const D3DUSAGE_WRITEONLY: u32 = 8;
+pub const D3DVBF_0WEIGHTS: D3DVERTEXBLENDFLAGS = 256;
+pub const D3DVBF_1WEIGHTS: D3DVERTEXBLENDFLAGS = 1;
+pub const D3DVBF_2WEIGHTS: D3DVERTEXBLENDFLAGS = 2;
+pub const D3DVBF_3WEIGHTS: D3DVERTEXBLENDFLAGS = 3;
+pub const D3DVBF_DISABLE: D3DVERTEXBLENDFLAGS = 0;
+pub const D3DVBF_FORCE_DWORD: D3DVERTEXBLENDFLAGS = 2147483647;
+pub const D3DVBF_TWEENING: D3DVERTEXBLENDFLAGS = 255;
+pub type D3DVERTEXBLENDFLAGS = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DVERTEXBUFFER_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Size: u32,
+    pub FVF: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DVERTEXELEMENT9 {
+    pub Stream: u16,
+    pub Offset: u16,
+    pub Type: u8,
+    pub Method: u8,
+    pub Usage: u8,
+    pub UsageIndex: u8,
+}
+pub const D3DVERTEXTEXTURESAMPLER0: u32 = 257;
+pub const D3DVERTEXTEXTURESAMPLER1: u32 = 258;
+pub const D3DVERTEXTEXTURESAMPLER2: u32 = 259;
+pub const D3DVERTEXTEXTURESAMPLER3: u32 = 260;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DVIEWPORT9 {
+    pub X: u32,
+    pub Y: u32,
+    pub Width: u32,
+    pub Height: u32,
+    pub MinZ: f32,
+    pub MaxZ: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DVOLUME_DESC {
+    pub Format: D3DFORMAT,
+    pub Type: D3DRESOURCETYPE,
+    pub Usage: u32,
+    pub Pool: D3DPOOL,
+    pub Width: u32,
+    pub Height: u32,
+    pub Depth: u32,
+}
+pub const D3DVS20CAPS_PREDICATION: u32 = 1;
+pub const D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH: u32 = 24;
+pub const D3DVS20_MAX_NUMTEMPS: u32 = 32;
+pub const D3DVS20_MAX_STATICFLOWCONTROLDEPTH: u32 = 4;
+pub const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0;
+pub const D3DVS20_MIN_NUMTEMPS: u32 = 12;
+pub const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3DVSHADERCAPS2_0 {
+    pub Caps: u32,
+    pub DynamicFlowControlDepth: i32,
+    pub NumTemps: i32,
+    pub StaticFlowControlDepth: i32,
+}
+pub const D3DVS_ADDRESSMODE_MASK: u32 = 8192;
+pub const D3DVS_ADDRESSMODE_SHIFT: u32 = 13;
+pub type D3DVS_ADDRESSMODE_TYPE = i32;
+pub const D3DVS_ADDRMODE_ABSOLUTE: D3DVS_ADDRESSMODE_TYPE = 0;
+pub const D3DVS_ADDRMODE_FORCE_DWORD: D3DVS_ADDRESSMODE_TYPE = 2147483647;
+pub const D3DVS_ADDRMODE_RELATIVE: D3DVS_ADDRESSMODE_TYPE = 8192;
+pub const D3DVS_NOSWIZZLE: u32 = 14942208;
+pub type D3DVS_RASTOUT_OFFSETS = i32;
+pub const D3DVS_SWIZZLE_MASK: u32 = 16711680;
+pub const D3DVS_SWIZZLE_SHIFT: u32 = 16;
+pub const D3DVS_W_W: u32 = 12582912;
+pub const D3DVS_W_X: u32 = 0;
+pub const D3DVS_W_Y: u32 = 4194304;
+pub const D3DVS_W_Z: u32 = 8388608;
+pub const D3DVS_X_W: u32 = 196608;
+pub const D3DVS_X_X: u32 = 0;
+pub const D3DVS_X_Y: u32 = 65536;
+pub const D3DVS_X_Z: u32 = 131072;
+pub const D3DVS_Y_W: u32 = 786432;
+pub const D3DVS_Y_X: u32 = 0;
+pub const D3DVS_Y_Y: u32 = 262144;
+pub const D3DVS_Y_Z: u32 = 524288;
+pub const D3DVS_Z_W: u32 = 3145728;
+pub const D3DVS_Z_X: u32 = 0;
+pub const D3DVS_Z_Y: u32 = 1048576;
+pub const D3DVS_Z_Z: u32 = 2097152;
+pub const D3DVTXPCAPS_DIRECTIONALLIGHTS: u32 = 8;
+pub const D3DVTXPCAPS_LOCALVIEWER: u32 = 32;
+pub const D3DVTXPCAPS_MATERIALSOURCE7: u32 = 2;
+pub const D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER: u32 = 512;
+pub const D3DVTXPCAPS_POSITIONALLIGHTS: u32 = 16;
+pub const D3DVTXPCAPS_TEXGEN: u32 = 1;
+pub const D3DVTXPCAPS_TEXGEN_SPHEREMAP: u32 = 256;
+pub const D3DVTXPCAPS_TWEENING: u32 = 64;
+pub const D3DWRAPCOORD_0: u32 = 1;
+pub const D3DWRAPCOORD_1: u32 = 2;
+pub const D3DWRAPCOORD_2: u32 = 4;
+pub const D3DWRAPCOORD_3: u32 = 8;
+pub const D3DWRAP_U: u32 = 1;
+pub const D3DWRAP_V: u32 = 2;
+pub const D3DWRAP_W: u32 = 4;
+pub type D3DZBUFFERTYPE = i32;
+pub const D3DZB_FALSE: D3DZBUFFERTYPE = 0;
+pub const D3DZB_FORCE_DWORD: D3DZBUFFERTYPE = 2147483647;
+pub const D3DZB_TRUE: D3DZBUFFERTYPE = 1;
+pub const D3DZB_USEW: D3DZBUFFERTYPE = 2;
+pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4;
 pub const D3D_OK: u32 = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D_OMAC {
+    pub Omac: [u8; 16],
+}
+impl Default for D3D_OMAC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D_OMAC_SIZE: u32 = 16;
 pub const D3D_SDK_VERSION: u32 = 32;
+pub const DIRECT3D_VERSION: u32 = 2304;
 windows_core::imp::define_interface!(IDirect3D9, IDirect3D9_Vtbl, 0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
 windows_core::imp::interface_hierarchy!(IDirect3D9, windows_core::IUnknown);
 impl IDirect3D9 {
@@ -141,61 +2162,51 @@ impl IDirect3D9 {
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
+    pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterIdentifier)(windows_core::Interface::as_raw(self), adapter, flags, pidentifier as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32 {
+    pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterModeCount)(windows_core::Interface::as_raw(self), adapter, format) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAdapterModes)(windows_core::Interface::as_raw(self), adapter, format, mode, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAdapterDisplayMode)(windows_core::Interface::as_raw(self), adapter, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: bool) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceType(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.into()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceFormat)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: bool, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32> {
+    pub unsafe fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: bool, multisampletype: D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.into(), multisampletype, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDepthStencilMatch)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, rendertargetformat, depthstencilformat) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceFormatConversion)(windows_core::Interface::as_raw(self), adapter, devicetype, sourceformat, targetformat) }
     }
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+    pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceCaps)(windows_core::Interface::as_raw(self), adapter, devicetype, pcaps as _) }
     }
     #[cfg(feature = "Win32_windef")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::windef::HMONITOR {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterMonitor)(windows_core::Interface::as_raw(self), adapter) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn CreateDevice(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow, behaviorflags, ppresentationparameters as _, core::mem::transmute(ppreturneddeviceinterface)) }
     }
 }
@@ -208,76 +2219,46 @@ pub struct IDirect3D9_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterIdentifier: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterModeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DFORMAT) -> u32,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterModeCount: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub EnumAdapterModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DFORMAT, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    EnumAdapterModes: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterDisplayMode: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, u32, super::d3d9types::D3DRESOURCETYPE, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceFormat: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceMultiSampleType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, windows_core::BOOL, super::d3d9types::D3DMULTISAMPLE_TYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceMultiSampleType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDepthStencilMatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDepthStencilMatch: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceFormatConversion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceFormatConversion: usize,
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types")))]
-    GetDeviceCaps: usize,
+    pub GetAdapterIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT,
+    pub GetAdapterModeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT) -> u32,
+    pub EnumAdapterModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    pub GetAdapterDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    pub CheckDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, windows_core::BOOL) -> windows_core::HRESULT,
+    pub CheckDeviceFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, u32, D3DRESOURCETYPE, D3DFORMAT) -> windows_core::HRESULT,
+    pub CheckDeviceMultiSampleType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, windows_core::BOOL, D3DMULTISAMPLE_TYPE, *mut u32) -> windows_core::HRESULT,
+    pub CheckDepthStencilMatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT) -> windows_core::HRESULT,
+    pub CheckDeviceFormatConversion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT) -> windows_core::HRESULT,
+    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, *mut D3DCAPS9) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_windef")]
     pub GetAdapterMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> super::windef::HMONITOR,
     #[cfg(not(feature = "Win32_windef"))]
     GetAdapterMonitor: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::windef::HWND, u32, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, super::windef::HWND, u32, *mut D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     CreateDevice: usize,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 pub trait IDirect3D9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn RegisterSoftwareDevice(&self, pinitializefunction: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterCount(&self) -> u32;
-    fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::Result<()>;
-    fn GetAdapterModeCount(&self, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32;
-    fn EnumAdapterModes(&self, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn CheckDeviceType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CheckDeviceFormat(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: windows_core::BOOL, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32>;
-    fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn GetDeviceCaps(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::Result<()>;
+    fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::Result<()>;
+    fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32;
+    fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn CheckDeviceType(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: windows_core::BOOL, multisampletype: D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32>;
+    fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
     fn GetAdapterMonitor(&self, adapter: u32) -> super::windef::HMONITOR;
-    fn CreateDevice(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9>) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl IDirect3D9_Vtbl {
     pub const fn new<Identity: IDirect3D9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -310,19 +2291,19 @@ impl IDirect3D9_Vtbl {
                 IDirect3D9_Impl::GetAdapterCount(this)
             }
         }
-        unsafe extern "system" fn GetAdapterIdentifier<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterIdentifier<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::GetAdapterIdentifier(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pidentifier)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterModeCount<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32 {
+        unsafe extern "system" fn GetAdapterModeCount<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: D3DFORMAT) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::GetAdapterModeCount(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&format))
             }
         }
-        unsafe extern "system" fn EnumAdapterModes<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapterModes<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: D3DFORMAT, mode: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9_Impl::EnumAdapterModes(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&format), core::mem::transmute_copy(&mode)) {
@@ -334,7 +2315,7 @@ impl IDirect3D9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAdapterDisplayMode<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterDisplayMode<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9_Impl::GetAdapterDisplayMode(this, core::mem::transmute_copy(&adapter)) {
@@ -346,19 +2327,19 @@ impl IDirect3D9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CheckDeviceType<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceType<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::CheckDeviceType(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devtype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&backbufferformat), core::mem::transmute_copy(&bwindowed)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceFormat<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceFormat<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::CheckDeviceFormat(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&rtype), core::mem::transmute_copy(&checkformat)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceMultiSampleType<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: windows_core::BOOL, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceMultiSampleType<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: windows_core::BOOL, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9_Impl::CheckDeviceMultiSampleType(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&surfaceformat), core::mem::transmute_copy(&windowed), core::mem::transmute_copy(&multisampletype)) {
@@ -370,19 +2351,19 @@ impl IDirect3D9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CheckDepthStencilMatch<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDepthStencilMatch<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::CheckDepthStencilMatch(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&depthstencilformat)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceFormatConversion<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceFormatConversion<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::CheckDeviceFormatConversion(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&sourceformat), core::mem::transmute_copy(&targetformat)).into()
             }
         }
-        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::GetDeviceCaps(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&pcaps)).into()
@@ -394,7 +2375,7 @@ impl IDirect3D9_Vtbl {
                 IDirect3D9_Impl::GetAdapterMonitor(this, core::mem::transmute_copy(&adapter))
             }
         }
-        unsafe extern "system" fn CreateDevice<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: IDirect3D9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9_Impl::CreateDevice(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&hfocuswindow), core::mem::transmute_copy(&behaviorflags), core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&ppreturneddeviceinterface)).into()
@@ -425,7 +2406,7 @@ impl IDirect3D9_Vtbl {
         iid == &<IDirect3D9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl windows_core::RuntimeName for IDirect3D9 {}
 windows_core::imp::define_interface!(IDirect3D9Ex, IDirect3D9Ex_Vtbl, 0x02177241_69fc_400c_8ff1_93a44df6861d);
 impl core::ops::Deref for IDirect3D9Ex {
@@ -451,77 +2432,64 @@ impl IDirect3D9Ex {
     pub unsafe fn GetAdapterCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
+    pub unsafe fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterIdentifier)(windows_core::Interface::as_raw(self), adapter, flags, pidentifier as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32 {
+    pub unsafe fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterModeCount)(windows_core::Interface::as_raw(self), adapter, format) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAdapterModes)(windows_core::Interface::as_raw(self), adapter, format, mode, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAdapterDisplayMode)(windows_core::Interface::as_raw(self), adapter, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: bool) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceType(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceType)(windows_core::Interface::as_raw(self), adapter, devtype, adapterformat, backbufferformat, bwindowed.into()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceFormat)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, usage, rtype, checkformat) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: bool, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32> {
+    pub unsafe fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: bool, multisampletype: D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckDeviceMultiSampleType)(windows_core::Interface::as_raw(self), adapter, devicetype, surfaceformat, windowed.into(), multisampletype, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDepthStencilMatch)(windows_core::Interface::as_raw(self), adapter, devicetype, adapterformat, rendertargetformat, depthstencilformat) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceFormatConversion)(windows_core::Interface::as_raw(self), adapter, devicetype, sourceformat, targetformat) }
     }
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+    pub unsafe fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceCaps)(windows_core::Interface::as_raw(self), adapter, devicetype, pcaps as _) }
     }
     #[cfg(feature = "Win32_windef")]
     pub unsafe fn GetAdapterMonitor(&self, adapter: u32) -> super::windef::HMONITOR {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterMonitor)(windows_core::Interface::as_raw(self), adapter) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn CreateDevice(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow, behaviorflags, ppresentationparameters as _, core::mem::transmute(ppreturneddeviceinterface)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER) -> u32 {
+    pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterModeCountEx)(windows_core::Interface::as_raw(self), adapter, pfilter) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT {
+    pub unsafe fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumAdapterModesEx)(windows_core::Interface::as_raw(self), adapter, pfilter, mode, pmode as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+    pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAdapterDisplayModeEx)(windows_core::Interface::as_raw(self), adapter, pmode as _, protation as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn CreateDeviceEx(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn CreateDeviceEx(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut Option<IDirect3DDevice9Ex>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDeviceEx)(windows_core::Interface::as_raw(self), adapter, devicetype, hfocuswindow, behaviorflags, ppresentationparameters as _, pfullscreendisplaymode as _, core::mem::transmute(ppreturneddeviceinterface)) }
     }
     #[cfg(feature = "Win32_winnt")]
@@ -541,101 +2509,62 @@ pub struct IDirect3D9Ex_Vtbl {
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub RegisterSoftwareDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetAdapterCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterIdentifier: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterModeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DFORMAT) -> u32,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterModeCount: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub EnumAdapterModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DFORMAT, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    EnumAdapterModes: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterDisplayMode: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, u32, super::d3d9types::D3DRESOURCETYPE, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceFormat: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceMultiSampleType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, windows_core::BOOL, super::d3d9types::D3DMULTISAMPLE_TYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceMultiSampleType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDepthStencilMatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDepthStencilMatch: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CheckDeviceFormatConversion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::d3d9types::D3DFORMAT, super::d3d9types::D3DFORMAT) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CheckDeviceFormatConversion: usize,
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types")))]
-    GetDeviceCaps: usize,
+    pub GetAdapterIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT,
+    pub GetAdapterModeCount: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT) -> u32,
+    pub EnumAdapterModes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DFORMAT, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    pub GetAdapterDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    pub CheckDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, windows_core::BOOL) -> windows_core::HRESULT,
+    pub CheckDeviceFormat: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, u32, D3DRESOURCETYPE, D3DFORMAT) -> windows_core::HRESULT,
+    pub CheckDeviceMultiSampleType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, windows_core::BOOL, D3DMULTISAMPLE_TYPE, *mut u32) -> windows_core::HRESULT,
+    pub CheckDepthStencilMatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT, D3DFORMAT) -> windows_core::HRESULT,
+    pub CheckDeviceFormatConversion: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, D3DFORMAT, D3DFORMAT) -> windows_core::HRESULT,
+    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, *mut D3DCAPS9) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_windef")]
     pub GetAdapterMonitor: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> super::windef::HMONITOR,
     #[cfg(not(feature = "Win32_windef"))]
     GetAdapterMonitor: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::windef::HWND, u32, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, super::windef::HWND, u32, *mut D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     CreateDevice: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterModeCountEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DDISPLAYMODEFILTER) -> u32,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterModeCountEx: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub EnumAdapterModesEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DDISPLAYMODEFILTER, u32, *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    EnumAdapterModesEx: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAdapterDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODEEX, *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAdapterDisplayModeEx: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, super::windef::HWND, u32, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut super::d3d9types::D3DDISPLAYMODEEX, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub GetAdapterModeCountEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DDISPLAYMODEFILTER) -> u32,
+    pub EnumAdapterModesEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DDISPLAYMODEFILTER, u32, *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT,
+    pub GetAdapterDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, super::windef::HWND, u32, *mut D3DPRESENT_PARAMETERS, *mut D3DDISPLAYMODEEX, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     CreateDeviceEx: usize,
     #[cfg(feature = "Win32_winnt")]
     pub GetAdapterLUID: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::winnt::LUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_winnt"))]
     GetAdapterLUID: usize,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
 pub trait IDirect3D9Ex_Impl: IDirect3D9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn RegisterSoftwareDevice(&self, pinitializefunction: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetAdapterCount(&self) -> u32;
-    fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::Result<()>;
-    fn GetAdapterModeCount(&self, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32;
-    fn EnumAdapterModes(&self, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn CheckDeviceType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CheckDeviceFormat(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: windows_core::BOOL, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32>;
-    fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::Result<()>;
-    fn GetDeviceCaps(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::Result<()>;
+    fn GetAdapterIdentifier(&self, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::Result<()>;
+    fn GetAdapterModeCount(&self, adapter: u32, format: D3DFORMAT) -> u32;
+    fn EnumAdapterModes(&self, adapter: u32, format: D3DFORMAT, mode: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn GetAdapterDisplayMode(&self, adapter: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn CheckDeviceType(&self, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CheckDeviceFormat(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn CheckDeviceMultiSampleType(&self, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: windows_core::BOOL, multisampletype: D3DMULTISAMPLE_TYPE) -> windows_core::Result<u32>;
+    fn CheckDepthStencilMatch(&self, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn CheckDeviceFormatConversion(&self, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::Result<()>;
+    fn GetDeviceCaps(&self, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
     fn GetAdapterMonitor(&self, adapter: u32) -> super::windef::HMONITOR;
-    fn CreateDevice(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9>) -> windows_core::Result<()>;
-    fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER) -> u32;
-    fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::Result<()>;
-    fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::Result<()>;
-    fn CreateDeviceEx(&self, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9Ex>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9>) -> windows_core::Result<()>;
+    fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32;
+    fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()>;
+    fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: windows_core::OutRef<IDirect3DDevice9Ex>) -> windows_core::Result<()>;
     fn GetAdapterLUID(&self, adapter: u32) -> windows_core::Result<super::winnt::LUID>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
 impl IDirect3D9Ex_Vtbl {
     pub const fn new<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -668,19 +2597,19 @@ impl IDirect3D9Ex_Vtbl {
                 IDirect3D9Ex_Impl::GetAdapterCount(this)
             }
         }
-        unsafe extern "system" fn GetAdapterIdentifier<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, flags: u32, pidentifier: *mut super::d3d9types::D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterIdentifier<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, flags: u32, pidentifier: *mut D3DADAPTER_IDENTIFIER9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::GetAdapterIdentifier(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pidentifier)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterModeCount<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: super::d3d9types::D3DFORMAT) -> u32 {
+        unsafe extern "system" fn GetAdapterModeCount<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: D3DFORMAT) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::GetAdapterModeCount(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&format))
             }
         }
-        unsafe extern "system" fn EnumAdapterModes<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: super::d3d9types::D3DFORMAT, mode: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapterModes<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, format: D3DFORMAT, mode: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9Ex_Impl::EnumAdapterModes(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&format), core::mem::transmute_copy(&mode)) {
@@ -692,7 +2621,7 @@ impl IDirect3D9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetAdapterDisplayMode<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterDisplayMode<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9Ex_Impl::GetAdapterDisplayMode(this, core::mem::transmute_copy(&adapter)) {
@@ -704,19 +2633,19 @@ impl IDirect3D9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CheckDeviceType<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, backbufferformat: super::d3d9types::D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceType<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: D3DDEVTYPE, adapterformat: D3DFORMAT, backbufferformat: D3DFORMAT, bwindowed: windows_core::BOOL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CheckDeviceType(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devtype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&backbufferformat), core::mem::transmute_copy(&bwindowed)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceFormat<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, usage: u32, rtype: super::d3d9types::D3DRESOURCETYPE, checkformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceFormat<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, usage: u32, rtype: D3DRESOURCETYPE, checkformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CheckDeviceFormat(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&rtype), core::mem::transmute_copy(&checkformat)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceMultiSampleType<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, surfaceformat: super::d3d9types::D3DFORMAT, windowed: windows_core::BOOL, multisampletype: super::d3d9types::D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceMultiSampleType<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, surfaceformat: D3DFORMAT, windowed: windows_core::BOOL, multisampletype: D3DMULTISAMPLE_TYPE, pqualitylevels: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3D9Ex_Impl::CheckDeviceMultiSampleType(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&surfaceformat), core::mem::transmute_copy(&windowed), core::mem::transmute_copy(&multisampletype)) {
@@ -728,19 +2657,19 @@ impl IDirect3D9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CheckDepthStencilMatch<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, adapterformat: super::d3d9types::D3DFORMAT, rendertargetformat: super::d3d9types::D3DFORMAT, depthstencilformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDepthStencilMatch<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, adapterformat: D3DFORMAT, rendertargetformat: D3DFORMAT, depthstencilformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CheckDepthStencilMatch(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&adapterformat), core::mem::transmute_copy(&rendertargetformat), core::mem::transmute_copy(&depthstencilformat)).into()
             }
         }
-        unsafe extern "system" fn CheckDeviceFormatConversion<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, sourceformat: super::d3d9types::D3DFORMAT, targetformat: super::d3d9types::D3DFORMAT) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceFormatConversion<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, sourceformat: D3DFORMAT, targetformat: D3DFORMAT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CheckDeviceFormatConversion(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&sourceformat), core::mem::transmute_copy(&targetformat)).into()
             }
         }
-        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::GetDeviceCaps(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&pcaps)).into()
@@ -752,31 +2681,31 @@ impl IDirect3D9Ex_Vtbl {
                 IDirect3D9Ex_Impl::GetAdapterMonitor(this, core::mem::transmute_copy(&adapter))
             }
         }
-        unsafe extern "system" fn CreateDevice<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDevice<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CreateDevice(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&hfocuswindow), core::mem::transmute_copy(&behaviorflags), core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&ppreturneddeviceinterface)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterModeCountEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER) -> u32 {
+        unsafe extern "system" fn GetAdapterModeCountEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::GetAdapterModeCountEx(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&pfilter))
             }
         }
-        unsafe extern "system" fn EnumAdapterModesEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pfilter: *const super::d3d9types::D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT {
+        unsafe extern "system" fn EnumAdapterModesEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::EnumAdapterModesEx(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&mode), core::mem::transmute_copy(&pmode)).into()
             }
         }
-        unsafe extern "system" fn GetAdapterDisplayModeEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAdapterDisplayModeEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::GetAdapterDisplayModeEx(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&pmode), core::mem::transmute_copy(&protation)).into()
             }
         }
-        unsafe extern "system" fn CreateDeviceEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: super::d3d9types::D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDeviceEx<Identity: IDirect3D9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: super::windef::HWND, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9Ex_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devicetype), core::mem::transmute_copy(&hfocuswindow), core::mem::transmute_copy(&behaviorflags), core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&pfullscreendisplaymode), core::mem::transmute_copy(&ppreturneddeviceinterface)).into()
@@ -824,7 +2753,7 @@ impl IDirect3D9Ex_Vtbl {
         iid == &<IDirect3D9Ex as windows_core::Interface>::IID || iid == &<IDirect3D9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for IDirect3D9Ex {}
 windows_core::imp::define_interface!(IDirect3D9ExOverlayExtension, IDirect3D9ExOverlayExtension_Vtbl, 0x187aeb13_aaf5_4c59_876d_e059088c0df8);
 windows_core::imp::interface_hierarchy!(IDirect3D9ExOverlayExtension, windows_core::IUnknown);
@@ -838,8 +2767,7 @@ impl IDirect3D9ExOverlayExtension {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub unsafe fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::d3d9types::D3DFORMAT, pdisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, displayrotation: super::d3d9types::D3DDISPLAYROTATION, poverlaycaps: *mut super::d3d9caps::D3DOVERLAYCAPS) -> windows_core::HRESULT {
+    pub unsafe fn CheckDeviceOverlayType(&self, adapter: u32, devtype: D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: D3DFORMAT, pdisplaymode: *mut D3DDISPLAYMODEEX, displayrotation: D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceOverlayType)(windows_core::Interface::as_raw(self), adapter, devtype, overlaywidth, overlayheight, overlayformat, pdisplaymode as _, displayrotation, poverlaycaps as _) }
     }
 }
@@ -850,19 +2778,14 @@ pub struct IDirect3D9ExOverlayExtension_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub CheckDeviceOverlayType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DDEVTYPE, u32, u32, super::d3d9types::D3DFORMAT, *mut super::d3d9types::D3DDISPLAYMODEEX, super::d3d9types::D3DDISPLAYROTATION, *mut super::d3d9caps::D3DOVERLAYCAPS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types")))]
-    CheckDeviceOverlayType: usize,
+    pub CheckDeviceOverlayType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DDEVTYPE, u32, u32, D3DFORMAT, *mut D3DDISPLAYMODEEX, D3DDISPLAYROTATION, *mut D3DOVERLAYCAPS) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
 pub trait IDirect3D9ExOverlayExtension_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
-    fn CheckDeviceOverlayType(&self, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::d3d9types::D3DFORMAT, pdisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, displayrotation: super::d3d9types::D3DDISPLAYROTATION, poverlaycaps: *mut super::d3d9caps::D3DOVERLAYCAPS) -> windows_core::Result<()>;
+    fn CheckDeviceOverlayType(&self, adapter: u32, devtype: D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: D3DFORMAT, pdisplaymode: *mut D3DDISPLAYMODEEX, displayrotation: D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
 impl IDirect3D9ExOverlayExtension_Vtbl {
     pub const fn new<Identity: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -883,7 +2806,7 @@ impl IDirect3D9ExOverlayExtension_Vtbl {
                 IDirect3D9ExOverlayExtension_Impl::Release(this)
             }
         }
-        unsafe extern "system" fn CheckDeviceOverlayType<Identity: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: super::d3d9types::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::d3d9types::D3DFORMAT, pdisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX, displayrotation: super::d3d9types::D3DDISPLAYROTATION, poverlaycaps: *mut super::d3d9caps::D3DOVERLAYCAPS) -> windows_core::HRESULT {
+        unsafe extern "system" fn CheckDeviceOverlayType<Identity: IDirect3D9ExOverlayExtension_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, adapter: u32, devtype: D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: D3DFORMAT, pdisplaymode: *mut D3DDISPLAYMODEEX, displayrotation: D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3D9ExOverlayExtension_Impl::CheckDeviceOverlayType(this, core::mem::transmute_copy(&adapter), core::mem::transmute_copy(&devtype), core::mem::transmute_copy(&overlaywidth), core::mem::transmute_copy(&overlayheight), core::mem::transmute_copy(&overlayformat), core::mem::transmute_copy(&pdisplaymode), core::mem::transmute_copy(&displayrotation), core::mem::transmute_copy(&poverlaycaps)).into()
@@ -901,7 +2824,6 @@ impl IDirect3D9ExOverlayExtension_Vtbl {
         iid == &<IDirect3D9ExOverlayExtension as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
 impl windows_core::RuntimeName for IDirect3D9ExOverlayExtension {}
 windows_core::imp::define_interface!(IDirect3DAuthenticatedChannel9, IDirect3DAuthenticatedChannel9_Vtbl, 0xff24beee_da21_4beb_98b5_d2f899f98af9);
 windows_core::imp::interface_hierarchy!(IDirect3DAuthenticatedChannel9, windows_core::IUnknown);
@@ -933,8 +2855,8 @@ impl IDirect3DAuthenticatedChannel9 {
     pub unsafe fn Query(&self, inputsize: u32, pinput: *const core::ffi::c_void, outputsize: u32, poutput: *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), inputsize, pinput, outputsize, poutput as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn Configure(&self, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut super::d3d9types::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn Configure(&self, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), inputsize, pinput, poutput as _) }
     }
 }
@@ -949,12 +2871,12 @@ pub struct IDirect3DAuthenticatedChannel9_Vtbl {
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub NegotiateKeyExchange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Query: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, *mut super::d3d9types::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub Configure: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     Configure: usize,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 pub trait IDirect3DAuthenticatedChannel9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -963,9 +2885,9 @@ pub trait IDirect3DAuthenticatedChannel9_Impl: windows_core::IUnknownImpl {
     fn GetCertificate(&self, certifactesize: u32) -> windows_core::Result<u8>;
     fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Query(&self, inputsize: u32, pinput: *const core::ffi::c_void, outputsize: u32, poutput: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Configure(&self, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut super::d3d9types::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::Result<()>;
+    fn Configure(&self, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 impl IDirect3DAuthenticatedChannel9_Vtbl {
     pub const fn new<Identity: IDirect3DAuthenticatedChannel9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DAuthenticatedChannel9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1022,7 +2944,7 @@ impl IDirect3DAuthenticatedChannel9_Vtbl {
                 IDirect3DAuthenticatedChannel9_Impl::Query(this, core::mem::transmute_copy(&inputsize), core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&outputsize), core::mem::transmute_copy(&poutput)).into()
             }
         }
-        unsafe extern "system" fn Configure<Identity: IDirect3DAuthenticatedChannel9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut super::d3d9types::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT {
+        unsafe extern "system" fn Configure<Identity: IDirect3DAuthenticatedChannel9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inputsize: u32, pinput: *const core::ffi::c_void, poutput: *mut D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DAuthenticatedChannel9_Impl::Configure(this, core::mem::transmute_copy(&inputsize), core::mem::transmute_copy(&pinput), core::mem::transmute_copy(&poutput)).into()
@@ -1044,7 +2966,7 @@ impl IDirect3DAuthenticatedChannel9_Vtbl {
         iid == &<IDirect3DAuthenticatedChannel9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 impl windows_core::RuntimeName for IDirect3DAuthenticatedChannel9 {}
 windows_core::imp::define_interface!(IDirect3DBaseTexture9, IDirect3DBaseTexture9_Vtbl, 0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
 impl core::ops::Deref for IDirect3DBaseTexture9 {
@@ -1090,8 +3012,7 @@ impl IDirect3DBaseTexture9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
@@ -1103,12 +3024,10 @@ impl IDirect3DBaseTexture9 {
     pub unsafe fn GetLevelCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLevelCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoGenFilterType)(windows_core::Interface::as_raw(self), filtertype) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         unsafe { (windows_core::Interface::vtable(self).GetAutoGenFilterType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
@@ -1131,24 +3050,14 @@ pub struct IDirect3DBaseTexture9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub SetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetAutoGenFilterType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAutoGenFilterType: usize,
+    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DBaseTexture9_Impl: IDirect3DResource9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1160,15 +3069,14 @@ pub trait IDirect3DBaseTexture9_Impl: IDirect3DResource9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn SetLOD(&self, lodnew: u32) -> u32;
     fn GetLOD(&self) -> u32;
     fn GetLevelCount(&self) -> u32;
-    fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
-    fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE;
+    fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
     fn GenerateMipSubLevels(&self);
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DBaseTexture9_Vtbl {
     pub const fn new<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1237,7 +3145,7 @@ impl IDirect3DBaseTexture9_Vtbl {
                 IDirect3DBaseTexture9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DBaseTexture9_Impl::GetType(this)
@@ -1261,13 +3169,13 @@ impl IDirect3DBaseTexture9_Vtbl {
                 IDirect3DBaseTexture9_Impl::GetLevelCount(this)
             }
         }
-        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DBaseTexture9_Impl::SetAutoGenFilterType(this, core::mem::transmute_copy(&filtertype)).into()
             }
         }
-        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DBaseTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DBaseTexture9_Impl::GetAutoGenFilterType(this)
@@ -1304,7 +3212,6 @@ impl IDirect3DBaseTexture9_Vtbl {
         iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DBaseTexture9 {}
 windows_core::imp::define_interface!(IDirect3DCryptoSession9, IDirect3DCryptoSession9_Vtbl, 0xfa0ab799_7a9c_48ca_8c5b_237e71a54434);
 windows_core::imp::interface_hierarchy!(IDirect3DCryptoSession9, windows_core::IUnknown);
@@ -1340,8 +3247,7 @@ impl IDirect3DCryptoSession9 {
     {
         unsafe { (windows_core::Interface::vtable(self).EncryptionBlt)(windows_core::Interface::as_raw(self), psrcsurface.param().abi(), pdstsurface.param().abi(), dstsurfacesize, piv as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DecryptionBlt<P0, P1>(&self, psrcsurface: P0, pdstsurface: P1, srcsurfacesize: u32, pencryptedblockinfo: *mut super::d3d9types::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn DecryptionBlt<P0, P1>(&self, psrcsurface: P0, pdstsurface: P1, srcsurfacesize: u32, pencryptedblockinfo: *mut D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirect3DSurface9>,
         P1: windows_core::Param<IDirect3DSurface9>,
@@ -1378,16 +3284,12 @@ pub struct IDirect3DCryptoSession9_Vtbl {
     pub GetCertificate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
     pub NegotiateKeyExchange: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EncryptionBlt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DecryptionBlt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut super::d3d9types::D3DENCRYPTED_BLOCK_INFO, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DecryptionBlt: usize,
+    pub DecryptionBlt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut D3DENCRYPTED_BLOCK_INFO, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSurfacePitch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub StartSessionKeyRefresh: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub FinishSessionKeyRefresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetEncryptionBltKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DCryptoSession9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1396,13 +3298,12 @@ pub trait IDirect3DCryptoSession9_Impl: windows_core::IUnknownImpl {
     fn GetCertificate(&self, certifactesize: u32) -> windows_core::Result<u8>;
     fn NegotiateKeyExchange(&self, datasize: u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn EncryptionBlt(&self, psrcsurface: windows_core::Ref<IDirect3DSurface9>, pdstsurface: windows_core::Ref<IDirect3DSurface9>, dstsurfacesize: u32, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn DecryptionBlt(&self, psrcsurface: windows_core::Ref<IDirect3DSurface9>, pdstsurface: windows_core::Ref<IDirect3DSurface9>, srcsurfacesize: u32, pencryptedblockinfo: *mut super::d3d9types::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn DecryptionBlt(&self, psrcsurface: windows_core::Ref<IDirect3DSurface9>, pdstsurface: windows_core::Ref<IDirect3DSurface9>, srcsurfacesize: u32, pencryptedblockinfo: *mut D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetSurfacePitch(&self, psrcsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<u32>;
     fn StartSessionKeyRefresh(&self, prandomnumber: *mut core::ffi::c_void, randomnumbersize: u32) -> windows_core::Result<()>;
     fn FinishSessionKeyRefresh(&self) -> windows_core::Result<()>;
     fn GetEncryptionBltKey(&self, preadbackkey: *mut core::ffi::c_void, keysize: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DCryptoSession9_Vtbl {
     pub const fn new<Identity: IDirect3DCryptoSession9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DCryptoSession9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1459,7 +3360,7 @@ impl IDirect3DCryptoSession9_Vtbl {
                 IDirect3DCryptoSession9_Impl::EncryptionBlt(this, core::mem::transmute_copy(&psrcsurface), core::mem::transmute_copy(&pdstsurface), core::mem::transmute_copy(&dstsurfacesize), core::mem::transmute_copy(&piv)).into()
             }
         }
-        unsafe extern "system" fn DecryptionBlt<Identity: IDirect3DCryptoSession9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcsurface: *mut core::ffi::c_void, pdstsurface: *mut core::ffi::c_void, srcsurfacesize: u32, pencryptedblockinfo: *mut super::d3d9types::D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DecryptionBlt<Identity: IDirect3DCryptoSession9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrcsurface: *mut core::ffi::c_void, pdstsurface: *mut core::ffi::c_void, srcsurfacesize: u32, pencryptedblockinfo: *mut D3DENCRYPTED_BLOCK_INFO, pcontentkey: *mut core::ffi::c_void, piv: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCryptoSession9_Impl::DecryptionBlt(this, core::mem::transmute_copy(&psrcsurface), core::mem::transmute_copy(&pdstsurface), core::mem::transmute_copy(&srcsurfacesize), core::mem::transmute_copy(&pencryptedblockinfo), core::mem::transmute_copy(&pcontentkey), core::mem::transmute_copy(&piv)).into()
@@ -1515,7 +3416,6 @@ impl IDirect3DCryptoSession9_Vtbl {
         iid == &<IDirect3DCryptoSession9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DCryptoSession9 {}
 windows_core::imp::define_interface!(IDirect3DCubeTexture9, IDirect3DCubeTexture9_Vtbl, 0xfff32f81_d953_473a_9223_93d652aba93f);
 impl core::ops::Deref for IDirect3DCubeTexture9 {
@@ -1561,8 +3461,7 @@ impl IDirect3DCubeTexture9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
@@ -1574,12 +3473,10 @@ impl IDirect3DCubeTexture9 {
     pub unsafe fn GetLevelCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLevelCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoGenFilterType)(windows_core::Interface::as_raw(self), filtertype) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         unsafe { (windows_core::Interface::vtable(self).GetAutoGenFilterType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
@@ -1587,27 +3484,24 @@ impl IDirect3DCubeTexture9 {
             (windows_core::Interface::vtable(self).GenerateMipSubLevels)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLevelDesc)(windows_core::Interface::as_raw(self), level, pdesc as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetCubeMapSurface(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<IDirect3DSurface9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCubeMapSurface)(windows_core::Interface::as_raw(self), facetype, level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn LockRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockRect)(windows_core::Interface::as_raw(self), facetype, level, plockedrect as _, prect, flags) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn UnlockRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32) -> windows_core::HRESULT {
+    pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockRect)(windows_core::Interface::as_raw(self), facetype, level) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn AddDirtyRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDirtyRect)(windows_core::Interface::as_raw(self), facetype, pdirtyrect) }
     }
 }
@@ -1625,44 +3519,26 @@ pub struct IDirect3DCubeTexture9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub SetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetAutoGenFilterType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAutoGenFilterType: usize,
+    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetLevelDesc: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetCubeMapSurface: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DCUBEMAP_FACES, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetCubeMapSurface: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DCUBEMAP_FACES, u32, *mut super::d3d9types::D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DSURFACE_DESC) -> windows_core::HRESULT,
+    pub GetCubeMapSurface: unsafe extern "system" fn(*mut core::ffi::c_void, D3DCUBEMAP_FACES, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, D3DCUBEMAP_FACES, u32, *mut D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     LockRect: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub UnlockRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DCUBEMAP_FACES, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    UnlockRect: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub AddDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DCUBEMAP_FACES, *const super::windef::RECT) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub UnlockRect: unsafe extern "system" fn(*mut core::ffi::c_void, D3DCUBEMAP_FACES, u32) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub AddDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, D3DCUBEMAP_FACES, *const super::windef::RECT) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     AddDirtyRect: usize,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 pub trait IDirect3DCubeTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -1674,20 +3550,20 @@ pub trait IDirect3DCubeTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn SetLOD(&self, lodnew: u32) -> u32;
     fn GetLOD(&self) -> u32;
     fn GetLevelCount(&self) -> u32;
-    fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
-    fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE;
+    fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
     fn GenerateMipSubLevels(&self);
-    fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::Result<()>;
-    fn GetCubeMapSurface(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<IDirect3DSurface9>;
-    fn LockRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
-    fn UnlockRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<()>;
-    fn AddDirtyRect(&self, facetype: super::d3d9types::D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::Result<()>;
+    fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::Result<()>;
+    fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<IDirect3DSurface9>;
+    fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
+    fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> windows_core::Result<()>;
+    fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl IDirect3DCubeTexture9_Vtbl {
     pub const fn new<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1756,7 +3632,7 @@ impl IDirect3DCubeTexture9_Vtbl {
                 IDirect3DCubeTexture9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::GetType(this)
@@ -1780,13 +3656,13 @@ impl IDirect3DCubeTexture9_Vtbl {
                 IDirect3DCubeTexture9_Impl::GetLevelCount(this)
             }
         }
-        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::SetAutoGenFilterType(this, core::mem::transmute_copy(&filtertype)).into()
             }
         }
-        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::GetAutoGenFilterType(this)
@@ -1798,13 +3674,13 @@ impl IDirect3DCubeTexture9_Vtbl {
                 IDirect3DCubeTexture9_Impl::GenerateMipSubLevels(this);
             }
         }
-        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::GetLevelDesc(this, core::mem::transmute_copy(&level), core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn GetCubeMapSurface<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32, ppcubemapsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCubeMapSurface<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: D3DCUBEMAP_FACES, level: u32, ppcubemapsurface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DCubeTexture9_Impl::GetCubeMapSurface(this, core::mem::transmute_copy(&facetype), core::mem::transmute_copy(&level)) {
@@ -1816,19 +3692,19 @@ impl IDirect3DCubeTexture9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LockRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::LockRect(this, core::mem::transmute_copy(&facetype), core::mem::transmute_copy(&level), core::mem::transmute_copy(&plockedrect), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn UnlockRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: super::d3d9types::D3DCUBEMAP_FACES, level: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn UnlockRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: D3DCUBEMAP_FACES, level: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::UnlockRect(this, core::mem::transmute_copy(&facetype), core::mem::transmute_copy(&level)).into()
             }
         }
-        unsafe extern "system" fn AddDirtyRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: super::d3d9types::D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddDirtyRect<Identity: IDirect3DCubeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::windef::RECT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DCubeTexture9_Impl::AddDirtyRect(this, core::mem::transmute_copy(&facetype), core::mem::transmute_copy(&pdirtyrect)).into()
@@ -1864,7 +3740,7 @@ impl IDirect3DCubeTexture9_Vtbl {
         iid == &<IDirect3DCubeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl windows_core::RuntimeName for IDirect3DCubeTexture9 {}
 windows_core::imp::define_interface!(IDirect3DDevice9, IDirect3DDevice9_Vtbl, 0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9, windows_core::IUnknown);
@@ -1893,19 +3769,17 @@ impl IDirect3DDevice9 {
             (windows_core::Interface::vtable(self).GetDirect3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub unsafe fn GetDeviceCaps(&self, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+    pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), iswapchain, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn GetCreationParameters(&self) -> windows_core::Result<super::d3d9types::D3DDEVICE_CREATION_PARAMETERS> {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn GetCreationParameters(&self) -> windows_core::Result<D3DDEVICE_CREATION_PARAMETERS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1925,8 +3799,8 @@ impl IDirect3DDevice9 {
     pub unsafe fn ShowCursor(&self, bshow: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).ShowCursor)(windows_core::Interface::as_raw(self), bshow.into()) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(windows_core::Interface::as_raw(self), ppresentationparameters as _, core::mem::transmute(pswapchain)) }
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> windows_core::Result<IDirect3DSwapChain9> {
@@ -1938,23 +3812,21 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberOfSwapChains)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn Reset(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), ppresentationparameters as _) }
     }
     #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
     pub unsafe fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride, pdirtyregion) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBackBuffer)(windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS> {
+    pub unsafe fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<D3DRASTER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRasterStatus)(windows_core::Interface::as_raw(self), iswapchain, &mut result__).map(|| result__)
@@ -1963,44 +3835,42 @@ impl IDirect3DDevice9 {
     pub unsafe fn SetDialogBoxMode(&self, benabledialogs: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.into()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP) {
+    pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         unsafe {
             (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp);
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP) {
+    pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         unsafe {
             (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, pramp as _);
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateTexture)(windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, core::mem::transmute(pptexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: *mut Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateVolumeTexture)(windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, core::mem::transmute(ppvolumetexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: *mut Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateCubeTexture)(windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, core::mem::transmute(ppcubetexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: *mut Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateVertexBuffer)(windows_core::Interface::as_raw(self), length, usage, fvf, pool, core::mem::transmute(ppvertexbuffer), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: *mut Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateIndexBuffer)(windows_core::Interface::as_raw(self), length, usage, format, pool, core::mem::transmute(ppindexbuffer), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateRenderTarget(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into(), core::mem::transmute(ppsurface), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into(), core::mem::transmute(ppsurface), psharedhandle as _) }
     }
     #[cfg(feature = "Win32_windef")]
@@ -2031,8 +3901,8 @@ impl IDirect3DDevice9 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn StretchRect<P0, P2>(&self, psourcesurface: P0, psourcerect: *const super::windef::RECT, pdestsurface: P2, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn StretchRect<P0, P2>(&self, psourcesurface: P0, psourcerect: *const super::windef::RECT, pdestsurface: P2, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirect3DSurface9>,
         P2: windows_core::Param<IDirect3DSurface9>,
@@ -2046,8 +3916,8 @@ impl IDirect3DDevice9 {
     {
         unsafe { (windows_core::Interface::vtable(self).ColorFill)(windows_core::Interface::as_raw(self), psurface.param().abi(), prect, color) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateOffscreenPlainSurface)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle as _) }
     }
     pub unsafe fn SetRenderTarget<P1>(&self, rendertargetindex: u32, prendertarget: P1) -> windows_core::HRESULT
@@ -2080,44 +3950,39 @@ impl IDirect3DDevice9 {
     pub unsafe fn EndScene(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndScene)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound"))]
-    pub unsafe fn Clear(&self, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dsound")]
+    pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), state, pmatrix) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), state, pmatrix as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn MultiplyTransform(&self, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MultiplyTransform)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetViewport(&self, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+    pub unsafe fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetViewport)(windows_core::Interface::as_raw(self), pviewport) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetViewport(&self, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+    pub unsafe fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), pviewport as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub unsafe fn SetMaterial(&self, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaterial)(windows_core::Interface::as_raw(self), pmaterial) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub unsafe fn GetMaterial(&self, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMaterial)(windows_core::Interface::as_raw(self), pmaterial as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub unsafe fn SetLight(&self, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLight)(windows_core::Interface::as_raw(self), index, param1) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub unsafe fn GetLight(&self, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLight)(windows_core::Interface::as_raw(self), index, param1 as _) }
     }
     pub unsafe fn LightEnable(&self, index: u32, enable: bool) -> windows_core::HRESULT {
@@ -2138,19 +4003,16 @@ impl IDirect3DDevice9 {
             (windows_core::Interface::vtable(self).GetClipPlane)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRenderState)(windows_core::Interface::as_raw(self), state, value) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetRenderState(&self, state: D3DRENDERSTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRenderState)(windows_core::Interface::as_raw(self), state, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateStateBlock(&self, r#type: super::d3d9types::D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9> {
+    pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStateBlock)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2165,12 +4027,10 @@ impl IDirect3DDevice9 {
             (windows_core::Interface::vtable(self).EndStateBlock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetClipStatus(&self, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+    pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipStatus)(windows_core::Interface::as_raw(self), pclipstatus) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetClipStatus(&self) -> windows_core::Result<super::d3d9types::D3DCLIPSTATUS9> {
+    pub unsafe fn GetClipStatus(&self) -> windows_core::Result<D3DCLIPSTATUS9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClipStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2188,26 +4048,22 @@ impl IDirect3DDevice9 {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.param().abi()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, value) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSamplerState)(windows_core::Interface::as_raw(self), sampler, r#type, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSamplerState)(windows_core::Interface::as_raw(self), sampler, r#type, value) }
     }
     pub unsafe fn ValidateDevice(&self) -> windows_core::Result<u32> {
@@ -2259,20 +4115,16 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetNPatchMode(&self) -> f32 {
         unsafe { (windows_core::Interface::vtable(self).GetNPatchMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawPrimitive(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawPrimitive)(windows_core::Interface::as_raw(self), primitivetype, startvertex, primitivecount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawIndexedPrimitive(&self, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexedPrimitive)(windows_core::Interface::as_raw(self), param0, basevertexindex, minvertexindex, numvertices, startindex, primcount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawPrimitiveUP)(windows_core::Interface::as_raw(self), primitivetype, primitivecount, pvertexstreamzerodata, vertexstreamzerostride) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexedPrimitiveUP)(windows_core::Interface::as_raw(self), primitivetype, minvertexindex, numvertices, primitivecount, pindexdata, indexdataformat, pvertexstreamzerodata, vertexstreamzerostride) }
     }
     pub unsafe fn ProcessVertices<P3, P4>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P3, pvertexdecl: P4, flags: u32) -> windows_core::HRESULT
@@ -2282,8 +4134,7 @@ impl IDirect3DDevice9 {
     {
         unsafe { (windows_core::Interface::vtable(self).ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.param().abi(), pvertexdecl.param().abi(), flags) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
+    pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVertexDeclaration)(windows_core::Interface::as_raw(self), pvertexelements, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2412,19 +4263,16 @@ impl IDirect3DDevice9 {
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut windows_core::BOOL, boolcount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelShaderConstantB)(windows_core::Interface::as_raw(self), startregister, pconstantdata as _, boolcount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT {
+    pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawRectPatch)(windows_core::Interface::as_raw(self), handle, pnumsegs, prectpatchinfo) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT {
+    pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawTriPatch)(windows_core::Interface::as_raw(self), handle, pnumsegs, ptripatchinfo) }
     }
     pub unsafe fn DeletePatch(&self, handle: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeletePatch)(windows_core::Interface::as_raw(self), handle) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateQuery(&self, r#type: super::d3d9types::D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9> {
+    pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateQuery)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2442,79 +4290,61 @@ pub struct IDirect3DDevice9_Vtbl {
     pub GetAvailableTextureMem: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub EvictManagedResources: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDirect3D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types")))]
-    GetDeviceCaps: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayMode: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub GetCreationParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DCAPS9) -> windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub GetCreationParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     GetCreationParameters: usize,
     pub SetCursorProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCursorPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32),
     pub ShowCursor: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub CreateAdditionalSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub CreateAdditionalSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     CreateAdditionalSwapChain: usize,
     pub GetSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumberOfSwapChains: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     Reset: usize,
     #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, *const super::windef::RECT, super::windef::HWND, *const super::wingdi::RGNDATA) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
     Present: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetBackBuffer: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRasterStatus: usize,
+    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DRASTER_STATUS) -> windows_core::HRESULT,
     pub SetDialogBoxMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const super::d3d9types::D3DGAMMARAMP),
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetGammaRamp: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DGAMMARAMP),
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetGammaRamp: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3DGAMMARAMP),
+    pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DGAMMARAMP),
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateVolumeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateVolumeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateVolumeTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateCubeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateCubeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateCubeTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateVertexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateVertexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateVertexBuffer: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateIndexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateIndexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateIndexBuffer: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateRenderTarget: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateDepthStencilSurface: usize,
     #[cfg(feature = "Win32_windef")]
     pub UpdateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::POINT) -> windows_core::HRESULT,
@@ -2523,17 +4353,17 @@ pub struct IDirect3DDevice9_Vtbl {
     pub UpdateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRenderTargetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFrontBufferData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub StretchRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::RECT, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub StretchRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::RECT, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     StretchRect: usize,
     #[cfg(all(feature = "Win32_dsound", feature = "Win32_windef"))]
     pub ColorFill: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, super::dsound::D3DCOLOR) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_windef")))]
     ColorFill: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateOffscreenPlainSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateOffscreenPlainSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateOffscreenPlainSurface: usize,
     pub SetRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2541,90 +4371,48 @@ pub struct IDirect3DDevice9_Vtbl {
     pub GetDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound"))]
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DRECT, u32, super::dsound::D3DCOLOR, f32, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound")))]
+    #[cfg(feature = "Win32_dsound")]
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DRECT, u32, super::dsound::D3DCOLOR, f32, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dsound"))]
     Clear: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    MultiplyTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetViewport: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetViewport: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype")))]
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DVIEWPORT9) -> windows_core::HRESULT,
+    pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVIEWPORT9) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_dxgi")]
+    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DMATERIAL9) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     SetMaterial: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub GetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DMATERIAL9) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetMaterial: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub SetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub SetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DLIGHT9) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_dxgi")))]
     SetLight: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub GetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub GetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DLIGHT9) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_dxgi")))]
     GetLight: usize,
     pub LightEnable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLightEnable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClipPlane: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32) -> windows_core::HRESULT,
     pub GetClipPlane: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DRENDERSTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetRenderState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DRENDERSTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRenderState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DSTATEBLOCKTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateStateBlock: usize,
+    pub SetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, D3DRENDERSTATETYPE, u32) -> windows_core::HRESULT,
+    pub GetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, D3DRENDERSTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub CreateStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, D3DSTATEBLOCKTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetClipStatus: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetClipStatus: usize,
+    pub SetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DCLIPSTATUS9) -> windows_core::HRESULT,
+    pub GetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DCLIPSTATUS9) -> windows_core::HRESULT,
     pub GetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DTEXTURESTAGESTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetTextureStageState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DTEXTURESTAGESTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetTextureStageState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DSAMPLERSTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetSamplerState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DSAMPLERSTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetSamplerState: usize,
+    pub GetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DTEXTURESTAGESTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub SetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DTEXTURESTAGESTATETYPE, u32) -> windows_core::HRESULT,
+    pub GetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DSAMPLERSTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub SetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DSAMPLERSTATETYPE, u32) -> windows_core::HRESULT,
     pub ValidateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_wingdi")]
     pub SetPaletteEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
@@ -2648,27 +4436,12 @@ pub struct IDirect3DDevice9_Vtbl {
     pub GetSoftwareVertexProcessing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub SetNPatchMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetNPatchMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawPrimitive: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawIndexedPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, i32, u32, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawIndexedPrimitive: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawPrimitiveUP: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawIndexedPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, u32, u32, *const core::ffi::c_void, super::d3d9types::D3DFORMAT, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawIndexedPrimitiveUP: usize,
+    pub DrawPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, u32) -> windows_core::HRESULT,
+    pub DrawIndexedPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, i32, u32, u32, u32, u32) -> windows_core::HRESULT,
+    pub DrawPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub DrawIndexedPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, u32, u32, *const core::ffi::c_void, D3DFORMAT, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ProcessVertices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DVERTEXELEMENT9, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateVertexDeclaration: usize,
+    pub CreateVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DVERTEXELEMENT9, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFVF: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -2697,21 +4470,12 @@ pub struct IDirect3DDevice9_Vtbl {
     pub GetPixelShaderConstantI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32, u32) -> windows_core::HRESULT,
     pub SetPixelShaderConstantB: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::BOOL, u32) -> windows_core::HRESULT,
     pub GetPixelShaderConstantB: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawRectPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawRectPatch: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawTriPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawTriPatch: usize,
+    pub DrawRectPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const D3DRECTPATCH_INFO) -> windows_core::HRESULT,
+    pub DrawTriPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const D3DTRIPATCH_INFO) -> windows_core::HRESULT,
     pub DeletePatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateQuery: usize,
+    pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -2720,69 +4484,69 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn GetAvailableTextureMem(&self) -> u32;
     fn EvictManagedResources(&self) -> windows_core::Result<()>;
     fn GetDirect3D(&self) -> windows_core::Result<IDirect3D9>;
-    fn GetDeviceCaps(&self, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::Result<()>;
-    fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn GetCreationParameters(&self) -> windows_core::Result<super::d3d9types::D3DDEVICE_CREATION_PARAMETERS>;
+    fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
+    fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn GetCreationParameters(&self) -> windows_core::Result<D3DDEVICE_CREATION_PARAMETERS>;
     fn SetCursorProperties(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn SetCursorPosition(&self, x: i32, y: i32, flags: u32);
     fn ShowCursor(&self, bshow: windows_core::BOOL) -> windows_core::BOOL;
-    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: windows_core::OutRef<IDirect3DSwapChain9>) -> windows_core::Result<()>;
+    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: windows_core::OutRef<IDirect3DSwapChain9>) -> windows_core::Result<()>;
     fn GetSwapChain(&self, iswapchain: u32) -> windows_core::Result<IDirect3DSwapChain9>;
     fn GetNumberOfSwapChains(&self) -> u32;
-    fn Reset(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
+    fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
     fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA) -> windows_core::Result<()>;
-    fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
-    fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS>;
+    fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
+    fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<D3DRASTER_STATUS>;
     fn SetDialogBoxMode(&self, benabledialogs: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP);
-    fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP);
-    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: windows_core::OutRef<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: windows_core::OutRef<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: windows_core::OutRef<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: windows_core::OutRef<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: windows_core::OutRef<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateRenderTarget(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP);
+    fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP);
+    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: windows_core::OutRef<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: windows_core::OutRef<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: windows_core::OutRef<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: windows_core::OutRef<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: windows_core::OutRef<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
     fn UpdateSurface(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestinationsurface: windows_core::Ref<IDirect3DSurface9>, pdestpoint: *const super::windef::POINT) -> windows_core::Result<()>;
     fn UpdateTexture(&self, psourcetexture: windows_core::Ref<IDirect3DBaseTexture9>, pdestinationtexture: windows_core::Ref<IDirect3DBaseTexture9>) -> windows_core::Result<()>;
     fn GetRenderTargetData(&self, prendertarget: windows_core::Ref<IDirect3DSurface9>, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetFrontBufferData(&self, iswapchain: u32, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn StretchRect(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestsurface: windows_core::Ref<IDirect3DSurface9>, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn StretchRect(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestsurface: windows_core::Ref<IDirect3DSurface9>, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
     fn ColorFill(&self, psurface: windows_core::Ref<IDirect3DSurface9>, prect: *const super::windef::RECT, color: super::dsound::D3DCOLOR) -> windows_core::Result<()>;
-    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
     fn SetRenderTarget(&self, rendertargetindex: u32, prendertarget: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self, rendertargetindex: u32) -> windows_core::Result<IDirect3DSurface9>;
     fn SetDepthStencilSurface(&self, pnewzstencil: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetDepthStencilSurface(&self) -> windows_core::Result<IDirect3DSurface9>;
     fn BeginScene(&self) -> windows_core::Result<()>;
     fn EndScene(&self) -> windows_core::Result<()>;
-    fn Clear(&self, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::Result<()>;
-    fn SetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn GetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn MultiplyTransform(&self, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn SetViewport(&self, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::Result<()>;
-    fn GetViewport(&self, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::Result<()>;
-    fn SetMaterial(&self, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::Result<()>;
-    fn GetMaterial(&self, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::Result<()>;
-    fn SetLight(&self, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::Result<()>;
-    fn GetLight(&self, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::Result<()>;
+    fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::Result<()>;
+    fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::Result<()>;
+    fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> windows_core::Result<()>;
+    fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> windows_core::Result<()>;
+    fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> windows_core::Result<()>;
+    fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> windows_core::Result<()>;
+    fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> windows_core::Result<()>;
     fn LightEnable(&self, index: u32, enable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetLightEnable(&self, index: u32) -> windows_core::Result<windows_core::BOOL>;
     fn SetClipPlane(&self, index: u32, pplane: *const f32) -> windows_core::Result<()>;
     fn GetClipPlane(&self, index: u32) -> windows_core::Result<f32>;
-    fn SetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::Result<()>;
-    fn GetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE) -> windows_core::Result<u32>;
-    fn CreateStateBlock(&self, r#type: super::d3d9types::D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9>;
+    fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetRenderState(&self, state: D3DRENDERSTATETYPE) -> windows_core::Result<u32>;
+    fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9>;
     fn BeginStateBlock(&self) -> windows_core::Result<()>;
     fn EndStateBlock(&self) -> windows_core::Result<IDirect3DStateBlock9>;
-    fn SetClipStatus(&self, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::Result<()>;
-    fn GetClipStatus(&self) -> windows_core::Result<super::d3d9types::D3DCLIPSTATUS9>;
+    fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::Result<()>;
+    fn GetClipStatus(&self) -> windows_core::Result<D3DCLIPSTATUS9>;
     fn GetTexture(&self, stage: u32) -> windows_core::Result<IDirect3DBaseTexture9>;
     fn SetTexture(&self, stage: u32, ptexture: windows_core::Ref<IDirect3DBaseTexture9>) -> windows_core::Result<()>;
-    fn GetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32>;
-    fn SetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::Result<()>;
-    fn GetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE) -> windows_core::Result<u32>;
-    fn SetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32>;
+    fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE) -> windows_core::Result<u32>;
+    fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::Result<()>;
     fn ValidateDevice(&self) -> windows_core::Result<u32>;
     fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::wingdi::PALETTEENTRY) -> windows_core::Result<()>;
     fn GetPaletteEntries(&self, palettenumber: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
@@ -2794,12 +4558,12 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn GetSoftwareVertexProcessing(&self) -> windows_core::BOOL;
     fn SetNPatchMode(&self, nsegments: f32) -> windows_core::Result<()>;
     fn GetNPatchMode(&self) -> f32;
-    fn DrawPrimitive(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::Result<()>;
-    fn DrawIndexedPrimitive(&self, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::Result<()>;
-    fn DrawPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
-    fn DrawIndexedPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
+    fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::Result<()>;
+    fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::Result<()>;
+    fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
+    fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
     fn ProcessVertices(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: windows_core::Ref<IDirect3DVertexBuffer9>, pvertexdecl: windows_core::Ref<IDirect3DVertexDeclaration9>, flags: u32) -> windows_core::Result<()>;
-    fn CreateVertexDeclaration(&self, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9>;
+    fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9>;
     fn SetVertexDeclaration(&self, pdecl: windows_core::Ref<IDirect3DVertexDeclaration9>) -> windows_core::Result<()>;
     fn GetVertexDeclaration(&self) -> windows_core::Result<IDirect3DVertexDeclaration9>;
     fn SetFVF(&self, fvf: u32) -> windows_core::Result<()>;
@@ -2828,12 +4592,12 @@ pub trait IDirect3DDevice9_Impl: windows_core::IUnknownImpl {
     fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> windows_core::Result<()>;
     fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const windows_core::BOOL, boolcount: u32) -> windows_core::Result<()>;
     fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut windows_core::BOOL, boolcount: u32) -> windows_core::Result<()>;
-    fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::Result<()>;
-    fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::Result<()>;
+    fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::Result<()>;
+    fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::Result<()>;
     fn DeletePatch(&self, handle: u32) -> windows_core::Result<()>;
-    fn CreateQuery(&self, r#type: super::d3d9types::D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9>;
+    fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 impl IDirect3DDevice9_Vtbl {
     pub const fn new<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2884,13 +4648,13 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetDeviceCaps(this, core::mem::transmute_copy(&pcaps)).into()
             }
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetDisplayMode(this, core::mem::transmute_copy(&iswapchain)) {
@@ -2902,7 +4666,7 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCreationParameters<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut super::d3d9types::D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCreationParameters<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetCreationParameters(this) {
@@ -2932,7 +4696,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::ShowCursor(this, core::mem::transmute_copy(&bshow))
             }
         }
-        unsafe extern "system" fn CreateAdditionalSwapChain<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAdditionalSwapChain<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateAdditionalSwapChain(this, core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&pswapchain)).into()
@@ -2956,7 +4720,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::GetNumberOfSwapChains(this)
             }
         }
-        unsafe extern "system" fn Reset<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::Reset(this, core::mem::transmute_copy(&ppresentationparameters)).into()
@@ -2968,7 +4732,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::Present(this, core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&hdestwindowoverride), core::mem::transmute_copy(&pdirtyregion)).into()
             }
         }
-        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetBackBuffer(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&ibackbuffer), core::mem::transmute_copy(&r#type)) {
@@ -2980,7 +4744,7 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, prasterstatus: *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetRasterStatus(this, core::mem::transmute_copy(&iswapchain)) {
@@ -2998,55 +4762,55 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::SetDialogBoxMode(this, core::mem::transmute_copy(&benabledialogs)).into()
             }
         }
-        unsafe extern "system" fn SetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP) {
+        unsafe extern "system" fn SetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pramp));
             }
         }
-        unsafe extern "system" fn GetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP) {
+        unsafe extern "system" fn GetGammaRamp<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pramp));
             }
         }
-        unsafe extern "system" fn CreateTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateTexture(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&pptexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateVolumeTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVolumeTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateVolumeTexture(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppvolumetexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateCubeTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCubeTexture<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateCubeTexture(this, core::mem::transmute_copy(&edgelength), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppcubetexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateVertexBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVertexBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateVertexBuffer(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&fvf), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppvertexbuffer), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateIndexBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIndexBuffer<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateIndexBuffer(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppindexbuffer), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateRenderTarget<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateRenderTarget<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateRenderTarget(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&lockable), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateDepthStencilSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDepthStencilSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateDepthStencilSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&discard), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
@@ -3076,7 +4840,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pdestsurface)).into()
             }
         }
-        unsafe extern "system" fn StretchRect<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::windef::RECT, pdestsurface: *mut core::ffi::c_void, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn StretchRect<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::windef::RECT, pdestsurface: *mut core::ffi::c_void, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::StretchRect(this, core::mem::transmute_copy(&psourcesurface), core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestsurface), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&filter)).into()
@@ -3088,7 +4852,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::ColorFill(this, core::mem::transmute_copy(&psurface), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&color)).into()
             }
         }
-        unsafe extern "system" fn CreateOffscreenPlainSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateOffscreenPlainSurface<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::CreateOffscreenPlainSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
@@ -3142,61 +4906,61 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::EndScene(this).into()
             }
         }
-        unsafe extern "system" fn Clear<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clear<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::Clear(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&color), core::mem::transmute_copy(&z), core::mem::transmute_copy(&stencil)).into()
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::MultiplyTransform(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
-        unsafe extern "system" fn SetViewport<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetViewport<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *const D3DVIEWPORT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetViewport(this, core::mem::transmute_copy(&pviewport)).into()
             }
         }
-        unsafe extern "system" fn GetViewport<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetViewport<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *mut D3DVIEWPORT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetViewport(this, core::mem::transmute_copy(&pviewport)).into()
             }
         }
-        unsafe extern "system" fn SetMaterial<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaterial<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *const D3DMATERIAL9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetMaterial(this, core::mem::transmute_copy(&pmaterial)).into()
             }
         }
-        unsafe extern "system" fn GetMaterial<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaterial<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *mut D3DMATERIAL9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetMaterial(this, core::mem::transmute_copy(&pmaterial)).into()
             }
         }
-        unsafe extern "system" fn SetLight<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLight<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *const D3DLIGHT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetLight(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&param1)).into()
             }
         }
-        unsafe extern "system" fn GetLight<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLight<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *mut D3DLIGHT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::GetLight(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&param1)).into()
@@ -3238,13 +5002,13 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRenderState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRenderState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetRenderState(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetRenderState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DRENDERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRenderState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DRENDERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetRenderState(this, core::mem::transmute_copy(&state)) {
@@ -3256,7 +5020,7 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateStateBlock<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::d3d9types::D3DSTATEBLOCKTYPE, ppsb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateStateBlock<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3DSTATEBLOCKTYPE, ppsb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::CreateStateBlock(this, core::mem::transmute_copy(&r#type)) {
@@ -3286,13 +5050,13 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetClipStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClipStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetClipStatus(this, core::mem::transmute_copy(&pclipstatus)).into()
             }
         }
-        unsafe extern "system" fn GetClipStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *mut super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClipStatus<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *mut D3DCLIPSTATUS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetClipStatus(this) {
@@ -3322,7 +5086,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::SetTexture(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&ptexture)).into()
             }
         }
-        unsafe extern "system" fn GetTextureStageState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTextureStageState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetTextureStageState(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&r#type)) {
@@ -3334,13 +5098,13 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTextureStageState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTextureStageState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetTextureStageState(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetSamplerState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSamplerState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::GetSamplerState(this, core::mem::transmute_copy(&sampler), core::mem::transmute_copy(&r#type)) {
@@ -3352,7 +5116,7 @@ impl IDirect3DDevice9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSamplerState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSamplerState<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::SetSamplerState(this, core::mem::transmute_copy(&sampler), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
@@ -3448,25 +5212,25 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::GetNPatchMode(this)
             }
         }
-        unsafe extern "system" fn DrawPrimitive<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawPrimitive<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawPrimitive(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&startvertex), core::mem::transmute_copy(&primitivecount)).into()
             }
         }
-        unsafe extern "system" fn DrawIndexedPrimitive<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawIndexedPrimitive<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawIndexedPrimitive(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&basevertexindex), core::mem::transmute_copy(&minvertexindex), core::mem::transmute_copy(&numvertices), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&primcount)).into()
             }
         }
-        unsafe extern "system" fn DrawPrimitiveUP<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawPrimitiveUP<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawPrimitiveUP(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&primitivecount), core::mem::transmute_copy(&pvertexstreamzerodata), core::mem::transmute_copy(&vertexstreamzerostride)).into()
             }
         }
-        unsafe extern "system" fn DrawIndexedPrimitiveUP<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawIndexedPrimitiveUP<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawIndexedPrimitiveUP(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&minvertexindex), core::mem::transmute_copy(&numvertices), core::mem::transmute_copy(&primitivecount), core::mem::transmute_copy(&pindexdata), core::mem::transmute_copy(&indexdataformat), core::mem::transmute_copy(&pvertexstreamzerodata), core::mem::transmute_copy(&vertexstreamzerostride)).into()
@@ -3478,7 +5242,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::ProcessVertices(this, core::mem::transmute_copy(&srcstartindex), core::mem::transmute_copy(&destindex), core::mem::transmute_copy(&vertexcount), core::mem::transmute_copy(&pdestbuffer), core::mem::transmute_copy(&pvertexdecl), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn CreateVertexDeclaration<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVertexDeclaration<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexelements: *const D3DVERTEXELEMENT9, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::CreateVertexDeclaration(this, core::mem::transmute_copy(&pvertexelements)) {
@@ -3706,13 +5470,13 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::GetPixelShaderConstantB(this, core::mem::transmute_copy(&startregister), core::mem::transmute_copy(&pconstantdata), core::mem::transmute_copy(&boolcount)).into()
             }
         }
-        unsafe extern "system" fn DrawRectPatch<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawRectPatch<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawRectPatch(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&pnumsegs), core::mem::transmute_copy(&prectpatchinfo)).into()
             }
         }
-        unsafe extern "system" fn DrawTriPatch<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawTriPatch<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9_Impl::DrawTriPatch(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&pnumsegs), core::mem::transmute_copy(&ptripatchinfo)).into()
@@ -3724,7 +5488,7 @@ impl IDirect3DDevice9_Vtbl {
                 IDirect3DDevice9_Impl::DeletePatch(this, core::mem::transmute_copy(&handle)).into()
             }
         }
-        unsafe extern "system" fn CreateQuery<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::d3d9types::D3DQUERYTYPE, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateQuery<Identity: IDirect3DDevice9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3DQUERYTYPE, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9_Impl::CreateQuery(this, core::mem::transmute_copy(&r#type)) {
@@ -3863,7 +5627,7 @@ impl IDirect3DDevice9_Vtbl {
         iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for IDirect3DDevice9 {}
 windows_core::imp::define_interface!(IDirect3DDevice9Ex, IDirect3DDevice9Ex_Vtbl, 0xb18b10ce_2649_405a_870f_95f777d4313a);
 impl core::ops::Deref for IDirect3DDevice9Ex {
@@ -3898,19 +5662,17 @@ impl IDirect3DDevice9Ex {
             (windows_core::Interface::vtable(self).GetDirect3D)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub unsafe fn GetDeviceCaps(&self, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+    pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceCaps)(windows_core::Interface::as_raw(self), pcaps as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), iswapchain, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn GetCreationParameters(&self) -> windows_core::Result<super::d3d9types::D3DDEVICE_CREATION_PARAMETERS> {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn GetCreationParameters(&self) -> windows_core::Result<D3DDEVICE_CREATION_PARAMETERS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCreationParameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3930,8 +5692,8 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn ShowCursor(&self, bshow: bool) -> windows_core::BOOL {
         unsafe { (windows_core::Interface::vtable(self).ShowCursor)(windows_core::Interface::as_raw(self), bshow.into()) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut Option<IDirect3DSwapChain9>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(windows_core::Interface::as_raw(self), ppresentationparameters as _, core::mem::transmute(pswapchain)) }
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> windows_core::Result<IDirect3DSwapChain9> {
@@ -3943,23 +5705,21 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberOfSwapChains)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn Reset(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), ppresentationparameters as _) }
     }
     #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
     pub unsafe fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride, pdirtyregion) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBackBuffer)(windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS> {
+    pub unsafe fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<D3DRASTER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRasterStatus)(windows_core::Interface::as_raw(self), iswapchain, &mut result__).map(|| result__)
@@ -3968,44 +5728,42 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn SetDialogBoxMode(&self, benabledialogs: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetDialogBoxMode)(windows_core::Interface::as_raw(self), benabledialogs.into()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP) {
+    pub unsafe fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
         unsafe {
             (windows_core::Interface::vtable(self).SetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, flags, pramp);
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP) {
+    pub unsafe fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
         unsafe {
             (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), iswapchain, pramp as _);
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut Option<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateTexture)(windows_core::Interface::as_raw(self), width, height, levels, usage, format, pool, core::mem::transmute(pptexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: *mut Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut Option<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateVolumeTexture)(windows_core::Interface::as_raw(self), width, height, depth, levels, usage, format, pool, core::mem::transmute(ppvolumetexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: *mut Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut Option<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateCubeTexture)(windows_core::Interface::as_raw(self), edgelength, levels, usage, format, pool, core::mem::transmute(ppcubetexture), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: *mut Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut Option<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateVertexBuffer)(windows_core::Interface::as_raw(self), length, usage, fvf, pool, core::mem::transmute(ppvertexbuffer), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: *mut Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut Option<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateIndexBuffer)(windows_core::Interface::as_raw(self), length, usage, format, pool, core::mem::transmute(ppindexbuffer), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateRenderTarget(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateRenderTarget)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into(), core::mem::transmute(ppsurface), psharedhandle as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilSurface)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into(), core::mem::transmute(ppsurface), psharedhandle as _) }
     }
     #[cfg(feature = "Win32_windef")]
@@ -4036,8 +5794,8 @@ impl IDirect3DDevice9Ex {
     {
         unsafe { (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), iswapchain, pdestsurface.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn StretchRect<P0, P2>(&self, psourcesurface: P0, psourcerect: *const super::windef::RECT, pdestsurface: P2, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn StretchRect<P0, P2>(&self, psourcesurface: P0, psourcerect: *const super::windef::RECT, pdestsurface: P2, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirect3DSurface9>,
         P2: windows_core::Param<IDirect3DSurface9>,
@@ -4051,8 +5809,8 @@ impl IDirect3DDevice9Ex {
     {
         unsafe { (windows_core::Interface::vtable(self).ColorFill)(windows_core::Interface::as_raw(self), psurface.param().abi(), prect, color) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateOffscreenPlainSurface)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle as _) }
     }
     pub unsafe fn SetRenderTarget<P1>(&self, rendertargetindex: u32, prendertarget: P1) -> windows_core::HRESULT
@@ -4085,44 +5843,39 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn EndScene(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndScene)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound"))]
-    pub unsafe fn Clear(&self, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dsound")]
+    pub unsafe fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self), count, prects, flags, color, z, stencil) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), state, pmatrix) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), state, pmatrix as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn MultiplyTransform(&self, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+    pub unsafe fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MultiplyTransform)(windows_core::Interface::as_raw(self), param0, param1) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetViewport(&self, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+    pub unsafe fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetViewport)(windows_core::Interface::as_raw(self), pviewport) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetViewport(&self, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+    pub unsafe fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetViewport)(windows_core::Interface::as_raw(self), pviewport as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub unsafe fn SetMaterial(&self, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetMaterial)(windows_core::Interface::as_raw(self), pmaterial) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub unsafe fn GetMaterial(&self, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetMaterial)(windows_core::Interface::as_raw(self), pmaterial as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub unsafe fn SetLight(&self, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub unsafe fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLight)(windows_core::Interface::as_raw(self), index, param1) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub unsafe fn GetLight(&self, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub unsafe fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLight)(windows_core::Interface::as_raw(self), index, param1 as _) }
     }
     pub unsafe fn LightEnable(&self, index: u32, enable: bool) -> windows_core::HRESULT {
@@ -4143,19 +5896,16 @@ impl IDirect3DDevice9Ex {
             (windows_core::Interface::vtable(self).GetClipPlane)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetRenderState)(windows_core::Interface::as_raw(self), state, value) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetRenderState(&self, state: D3DRENDERSTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRenderState)(windows_core::Interface::as_raw(self), state, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateStateBlock(&self, r#type: super::d3d9types::D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9> {
+    pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStateBlock)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4170,12 +5920,10 @@ impl IDirect3DDevice9Ex {
             (windows_core::Interface::vtable(self).EndStateBlock)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetClipStatus(&self, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+    pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetClipStatus)(windows_core::Interface::as_raw(self), pclipstatus) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetClipStatus(&self) -> windows_core::Result<super::d3d9types::D3DCLIPSTATUS9> {
+    pub unsafe fn GetClipStatus(&self) -> windows_core::Result<D3DCLIPSTATUS9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClipStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4193,26 +5941,22 @@ impl IDirect3DDevice9Ex {
     {
         unsafe { (windows_core::Interface::vtable(self).SetTexture)(windows_core::Interface::as_raw(self), stage, ptexture.param().abi()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTextureStageState)(windows_core::Interface::as_raw(self), stage, r#type, value) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE) -> windows_core::Result<u32> {
+    pub unsafe fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSamplerState)(windows_core::Interface::as_raw(self), sampler, r#type, &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
+    pub unsafe fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSamplerState)(windows_core::Interface::as_raw(self), sampler, r#type, value) }
     }
     pub unsafe fn ValidateDevice(&self) -> windows_core::Result<u32> {
@@ -4264,20 +6008,16 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetNPatchMode(&self) -> f32 {
         unsafe { (windows_core::Interface::vtable(self).GetNPatchMode)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawPrimitive(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawPrimitive)(windows_core::Interface::as_raw(self), primitivetype, startvertex, primitivecount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawIndexedPrimitive(&self, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexedPrimitive)(windows_core::Interface::as_raw(self), param0, basevertexindex, minvertexindex, numvertices, startindex, primcount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawPrimitiveUP)(windows_core::Interface::as_raw(self), primitivetype, primitivecount, pvertexstreamzerodata, vertexstreamzerostride) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+    pub unsafe fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawIndexedPrimitiveUP)(windows_core::Interface::as_raw(self), primitivetype, minvertexindex, numvertices, primitivecount, pindexdata, indexdataformat, pvertexstreamzerodata, vertexstreamzerostride) }
     }
     pub unsafe fn ProcessVertices<P3, P4>(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: P3, pvertexdecl: P4, flags: u32) -> windows_core::HRESULT
@@ -4287,8 +6027,7 @@ impl IDirect3DDevice9Ex {
     {
         unsafe { (windows_core::Interface::vtable(self).ProcessVertices)(windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.param().abi(), pvertexdecl.param().abi(), flags) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
+    pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVertexDeclaration)(windows_core::Interface::as_raw(self), pvertexelements, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4417,19 +6156,16 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut windows_core::BOOL, boolcount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPixelShaderConstantB)(windows_core::Interface::as_raw(self), startregister, pconstantdata as _, boolcount) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT {
+    pub unsafe fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawRectPatch)(windows_core::Interface::as_raw(self), handle, pnumsegs, prectpatchinfo) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT {
+    pub unsafe fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DrawTriPatch)(windows_core::Interface::as_raw(self), handle, pnumsegs, ptripatchinfo) }
     }
     pub unsafe fn DeletePatch(&self, handle: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeletePatch)(windows_core::Interface::as_raw(self), handle) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn CreateQuery(&self, r#type: super::d3d9types::D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9> {
+    pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateQuery)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4438,8 +6174,7 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetConvolutionMonoKernel)(windows_core::Interface::as_raw(self), width, height, rows as _, columns as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn ComposeRects<P0, P1, P2, P4>(&self, psrc: P0, pdst: P1, psrcrectdescs: P2, numrects: u32, pdstrectdescs: P4, operation: super::d3d9types::D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::HRESULT
+    pub unsafe fn ComposeRects<P0, P1, P2, P4>(&self, psrc: P0, pdst: P1, psrcrectdescs: P2, numrects: u32, pdstrectdescs: P4, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IDirect3DSurface9>,
         P1: windows_core::Param<IDirect3DSurface9>,
@@ -4480,24 +6215,23 @@ impl IDirect3DDevice9Ex {
     pub unsafe fn CheckDeviceState(&self, hdestinationwindow: super::windef::HWND) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CheckDeviceState)(windows_core::Interface::as_raw(self), hdestinationwindow) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateRenderTargetEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateRenderTargetEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateRenderTargetEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, lockable.into(), core::mem::transmute(ppsurface), psharedhandle as _, usage) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(windows_core::Interface::as_raw(self), width, height, format, pool, core::mem::transmute(ppsurface), psharedhandle as _, usage) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: bool, ppsurface: *mut Option<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(windows_core::Interface::as_raw(self), width, height, format, multisample, multisamplequality, discard.into(), core::mem::transmute(ppsurface), psharedhandle as _, usage) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn ResetEx(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetEx)(windows_core::Interface::as_raw(self), ppresentationparameters as _, pfullscreendisplaymode as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+    pub unsafe fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayModeEx)(windows_core::Interface::as_raw(self), iswapchain, pmode as _, protation as _) }
     }
 }
@@ -4512,79 +6246,61 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub GetAvailableTextureMem: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub EvictManagedResources: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDirect3D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types"))]
-    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types")))]
-    GetDeviceCaps: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayMode: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub GetCreationParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub GetDeviceCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DCAPS9) -> windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub GetCreationParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     GetCreationParameters: usize,
     pub SetCursorProperties: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetCursorPosition: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, u32),
     pub ShowCursor: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::BOOL,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub CreateAdditionalSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub CreateAdditionalSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     CreateAdditionalSwapChain: usize,
     pub GetSwapChain: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNumberOfSwapChains: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     Reset: usize,
     #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
     pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, *const super::windef::RECT, super::windef::HWND, *const super::wingdi::RGNDATA) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
     Present: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetBackBuffer: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRasterStatus: usize,
+    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DRASTER_STATUS) -> windows_core::HRESULT,
     pub SetDialogBoxMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const super::d3d9types::D3DGAMMARAMP),
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetGammaRamp: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DGAMMARAMP),
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetGammaRamp: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3DGAMMARAMP),
+    pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DGAMMARAMP),
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateVolumeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateVolumeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateVolumeTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateCubeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateCubeTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateCubeTexture: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateVertexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateVertexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateVertexBuffer: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateIndexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateIndexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateIndexBuffer: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateRenderTarget: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateDepthStencilSurface: usize,
     #[cfg(feature = "Win32_windef")]
     pub UpdateSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::POINT) -> windows_core::HRESULT,
@@ -4593,17 +6309,17 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub UpdateTexture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRenderTargetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetFrontBufferData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub StretchRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::RECT, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub StretchRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, *mut core::ffi::c_void, *const super::windef::RECT, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     StretchRect: usize,
     #[cfg(all(feature = "Win32_dsound", feature = "Win32_windef"))]
     pub ColorFill: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECT, super::dsound::D3DCOLOR) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_windef")))]
     ColorFill: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateOffscreenPlainSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateOffscreenPlainSurface: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateOffscreenPlainSurface: usize,
     pub SetRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetRenderTarget: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -4611,90 +6327,48 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub GetDepthStencilSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndScene: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound"))]
-    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DRECT, u32, super::dsound::D3DCOLOR, f32, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound")))]
+    #[cfg(feature = "Win32_dsound")]
+    pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DRECT, u32, super::dsound::D3DCOLOR, f32, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dsound"))]
     Clear: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    MultiplyTransform: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetViewport: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetViewport: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype")))]
+    pub SetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub GetTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub MultiplyTransform: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTRANSFORMSTATETYPE, *const windows_numerics::Matrix4x4) -> windows_core::HRESULT,
+    pub SetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DVIEWPORT9) -> windows_core::HRESULT,
+    pub GetViewport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVIEWPORT9) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_dxgi")]
+    pub SetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DMATERIAL9) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     SetMaterial: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype"))]
-    pub GetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dxgitype")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetMaterial: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DMATERIAL9) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetMaterial: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub SetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub SetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3DLIGHT9) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_dxgi")))]
     SetLight: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype"))]
-    pub GetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype")))]
+    #[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi"))]
+    pub GetLight: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DLIGHT9) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_dsound", feature = "Win32_dxgi")))]
     GetLight: usize,
     pub LightEnable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::BOOL) -> windows_core::HRESULT,
     pub GetLightEnable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetClipPlane: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32) -> windows_core::HRESULT,
     pub GetClipPlane: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DRENDERSTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetRenderState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DRENDERSTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRenderState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DSTATEBLOCKTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateStateBlock: usize,
+    pub SetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, D3DRENDERSTATETYPE, u32) -> windows_core::HRESULT,
+    pub GetRenderState: unsafe extern "system" fn(*mut core::ffi::c_void, D3DRENDERSTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub CreateStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, D3DSTATEBLOCKTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub BeginStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EndStateBlock: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetClipStatus: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetClipStatus: usize,
+    pub SetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DCLIPSTATUS9) -> windows_core::HRESULT,
+    pub GetClipStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DCLIPSTATUS9) -> windows_core::HRESULT,
     pub GetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetTexture: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DTEXTURESTAGESTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetTextureStageState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DTEXTURESTAGESTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetTextureStageState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DSAMPLERSTATETYPE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetSamplerState: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DSAMPLERSTATETYPE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetSamplerState: usize,
+    pub GetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DTEXTURESTAGESTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub SetTextureStageState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DTEXTURESTAGESTATETYPE, u32) -> windows_core::HRESULT,
+    pub GetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DSAMPLERSTATETYPE, *mut u32) -> windows_core::HRESULT,
+    pub SetSamplerState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DSAMPLERSTATETYPE, u32) -> windows_core::HRESULT,
     pub ValidateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_wingdi")]
     pub SetPaletteEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
@@ -4718,27 +6392,12 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub GetSoftwareVertexProcessing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
     pub SetNPatchMode: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub GetNPatchMode: unsafe extern "system" fn(*mut core::ffi::c_void) -> f32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawPrimitive: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawIndexedPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, i32, u32, u32, u32, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawIndexedPrimitive: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawPrimitiveUP: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawIndexedPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DPRIMITIVETYPE, u32, u32, u32, *const core::ffi::c_void, super::d3d9types::D3DFORMAT, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawIndexedPrimitiveUP: usize,
+    pub DrawPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, u32) -> windows_core::HRESULT,
+    pub DrawIndexedPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, i32, u32, u32, u32, u32) -> windows_core::HRESULT,
+    pub DrawPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub DrawIndexedPrimitiveUP: unsafe extern "system" fn(*mut core::ffi::c_void, D3DPRIMITIVETYPE, u32, u32, u32, *const core::ffi::c_void, D3DFORMAT, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub ProcessVertices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DVERTEXELEMENT9, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateVertexDeclaration: usize,
+    pub CreateVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DVERTEXELEMENT9, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetVertexDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetFVF: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -4767,24 +6426,12 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub GetPixelShaderConstantI: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut i32, u32) -> windows_core::HRESULT,
     pub SetPixelShaderConstantB: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::BOOL, u32) -> windows_core::HRESULT,
     pub GetPixelShaderConstantB: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut windows_core::BOOL, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawRectPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawRectPatch: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub DrawTriPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    DrawTriPatch: usize,
+    pub DrawRectPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const D3DRECTPATCH_INFO) -> windows_core::HRESULT,
+    pub DrawTriPatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const f32, *const D3DTRIPATCH_INFO) -> windows_core::HRESULT,
     pub DeletePatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    CreateQuery: usize,
+    pub CreateQuery: unsafe extern "system" fn(*mut core::ffi::c_void, D3DQUERYTYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetConvolutionMonoKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut f32, *mut f32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub ComposeRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, super::d3d9types::D3DCOMPOSERECTSOP, i32, i32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    ComposeRects: usize,
+    pub ComposeRects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, D3DCOMPOSERECTSOP, i32, i32) -> windows_core::HRESULT,
     #[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
     pub PresentEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::windef::RECT, *const super::windef::RECT, super::windef::HWND, *const super::wingdi::RGNDATA, u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
@@ -4799,28 +6446,25 @@ pub struct IDirect3DDevice9Ex_Vtbl {
     pub CheckDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_windef"))]
     CheckDeviceState: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateRenderTargetEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateRenderTargetEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateRenderTargetEx: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateOffscreenPlainSurfaceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateOffscreenPlainSurfaceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DPOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateOffscreenPlainSurfaceEx: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateDepthStencilSurfaceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, super::d3d9types::D3DFORMAT, super::d3d9types::D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateDepthStencilSurfaceEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, D3DFORMAT, D3DMULTISAMPLE_TYPE, u32, windows_core::BOOL, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateDepthStencilSurfaceEx: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub ResetEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS, *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub ResetEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS, *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     ResetEx: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DDISPLAYMODEEX, *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayModeEx: usize,
+    pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -4829,69 +6473,69 @@ pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn GetAvailableTextureMem(&self) -> u32;
     fn EvictManagedResources(&self) -> windows_core::Result<()>;
     fn GetDirect3D(&self) -> windows_core::Result<IDirect3D9>;
-    fn GetDeviceCaps(&self, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::Result<()>;
-    fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
-    fn GetCreationParameters(&self) -> windows_core::Result<super::d3d9types::D3DDEVICE_CREATION_PARAMETERS>;
+    fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> windows_core::Result<()>;
+    fn GetDisplayMode(&self, iswapchain: u32) -> windows_core::Result<D3DDISPLAYMODE>;
+    fn GetCreationParameters(&self) -> windows_core::Result<D3DDEVICE_CREATION_PARAMETERS>;
     fn SetCursorProperties(&self, xhotspot: u32, yhotspot: u32, pcursorbitmap: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn SetCursorPosition(&self, x: i32, y: i32, flags: u32);
     fn ShowCursor(&self, bshow: windows_core::BOOL) -> windows_core::BOOL;
-    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: windows_core::OutRef<IDirect3DSwapChain9>) -> windows_core::Result<()>;
+    fn CreateAdditionalSwapChain(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: windows_core::OutRef<IDirect3DSwapChain9>) -> windows_core::Result<()>;
     fn GetSwapChain(&self, iswapchain: u32) -> windows_core::Result<IDirect3DSwapChain9>;
     fn GetNumberOfSwapChains(&self) -> u32;
-    fn Reset(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
+    fn Reset(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
     fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA) -> windows_core::Result<()>;
-    fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
-    fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS>;
+    fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
+    fn GetRasterStatus(&self, iswapchain: u32) -> windows_core::Result<D3DRASTER_STATUS>;
     fn SetDialogBoxMode(&self, benabledialogs: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP);
-    fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP);
-    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: windows_core::OutRef<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: windows_core::OutRef<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: windows_core::OutRef<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: windows_core::OutRef<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: windows_core::OutRef<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateRenderTarget(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn SetGammaRamp(&self, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP);
+    fn GetGammaRamp(&self, iswapchain: u32, pramp: *mut D3DGAMMARAMP);
+    fn CreateTexture(&self, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: windows_core::OutRef<IDirect3DTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateVolumeTexture(&self, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: windows_core::OutRef<IDirect3DVolumeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateCubeTexture(&self, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: windows_core::OutRef<IDirect3DCubeTexture9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateVertexBuffer(&self, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: windows_core::OutRef<IDirect3DVertexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateIndexBuffer(&self, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: windows_core::OutRef<IDirect3DIndexBuffer9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateRenderTarget(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateDepthStencilSurface(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
     fn UpdateSurface(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestinationsurface: windows_core::Ref<IDirect3DSurface9>, pdestpoint: *const super::windef::POINT) -> windows_core::Result<()>;
     fn UpdateTexture(&self, psourcetexture: windows_core::Ref<IDirect3DBaseTexture9>, pdestinationtexture: windows_core::Ref<IDirect3DBaseTexture9>) -> windows_core::Result<()>;
     fn GetRenderTargetData(&self, prendertarget: windows_core::Ref<IDirect3DSurface9>, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetFrontBufferData(&self, iswapchain: u32, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn StretchRect(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestsurface: windows_core::Ref<IDirect3DSurface9>, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn StretchRect(&self, psourcesurface: windows_core::Ref<IDirect3DSurface9>, psourcerect: *const super::windef::RECT, pdestsurface: windows_core::Ref<IDirect3DSurface9>, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
     fn ColorFill(&self, psurface: windows_core::Ref<IDirect3DSurface9>, prect: *const super::windef::RECT, color: super::dsound::D3DCOLOR) -> windows_core::Result<()>;
-    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn CreateOffscreenPlainSurface(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
     fn SetRenderTarget(&self, rendertargetindex: u32, prendertarget: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetRenderTarget(&self, rendertargetindex: u32) -> windows_core::Result<IDirect3DSurface9>;
     fn SetDepthStencilSurface(&self, pnewzstencil: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
     fn GetDepthStencilSurface(&self) -> windows_core::Result<IDirect3DSurface9>;
     fn BeginScene(&self) -> windows_core::Result<()>;
     fn EndScene(&self) -> windows_core::Result<()>;
-    fn Clear(&self, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::Result<()>;
-    fn SetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn GetTransform(&self, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn MultiplyTransform(&self, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
-    fn SetViewport(&self, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::Result<()>;
-    fn GetViewport(&self, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::Result<()>;
-    fn SetMaterial(&self, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::Result<()>;
-    fn GetMaterial(&self, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::Result<()>;
-    fn SetLight(&self, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::Result<()>;
-    fn GetLight(&self, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::Result<()>;
+    fn Clear(&self, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::Result<()>;
+    fn SetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn GetTransform(&self, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::Result<()>;
+    fn SetViewport(&self, pviewport: *const D3DVIEWPORT9) -> windows_core::Result<()>;
+    fn GetViewport(&self, pviewport: *mut D3DVIEWPORT9) -> windows_core::Result<()>;
+    fn SetMaterial(&self, pmaterial: *const D3DMATERIAL9) -> windows_core::Result<()>;
+    fn GetMaterial(&self, pmaterial: *mut D3DMATERIAL9) -> windows_core::Result<()>;
+    fn SetLight(&self, index: u32, param1: *const D3DLIGHT9) -> windows_core::Result<()>;
+    fn GetLight(&self, index: u32, param1: *mut D3DLIGHT9) -> windows_core::Result<()>;
     fn LightEnable(&self, index: u32, enable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetLightEnable(&self, index: u32) -> windows_core::Result<windows_core::BOOL>;
     fn SetClipPlane(&self, index: u32, pplane: *const f32) -> windows_core::Result<()>;
     fn GetClipPlane(&self, index: u32) -> windows_core::Result<f32>;
-    fn SetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::Result<()>;
-    fn GetRenderState(&self, state: super::d3d9types::D3DRENDERSTATETYPE) -> windows_core::Result<u32>;
-    fn CreateStateBlock(&self, r#type: super::d3d9types::D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9>;
+    fn SetRenderState(&self, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetRenderState(&self, state: D3DRENDERSTATETYPE) -> windows_core::Result<u32>;
+    fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> windows_core::Result<IDirect3DStateBlock9>;
     fn BeginStateBlock(&self) -> windows_core::Result<()>;
     fn EndStateBlock(&self) -> windows_core::Result<IDirect3DStateBlock9>;
-    fn SetClipStatus(&self, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::Result<()>;
-    fn GetClipStatus(&self) -> windows_core::Result<super::d3d9types::D3DCLIPSTATUS9>;
+    fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::Result<()>;
+    fn GetClipStatus(&self) -> windows_core::Result<D3DCLIPSTATUS9>;
     fn GetTexture(&self, stage: u32) -> windows_core::Result<IDirect3DBaseTexture9>;
     fn SetTexture(&self, stage: u32, ptexture: windows_core::Ref<IDirect3DBaseTexture9>) -> windows_core::Result<()>;
-    fn GetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32>;
-    fn SetTextureStageState(&self, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::Result<()>;
-    fn GetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE) -> windows_core::Result<u32>;
-    fn SetSamplerState(&self, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE) -> windows_core::Result<u32>;
+    fn SetTextureStageState(&self, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::Result<()>;
+    fn GetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE) -> windows_core::Result<u32>;
+    fn SetSamplerState(&self, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::Result<()>;
     fn ValidateDevice(&self) -> windows_core::Result<u32>;
     fn SetPaletteEntries(&self, palettenumber: u32, pentries: *const super::wingdi::PALETTEENTRY) -> windows_core::Result<()>;
     fn GetPaletteEntries(&self, palettenumber: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
@@ -4903,12 +6547,12 @@ pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn GetSoftwareVertexProcessing(&self) -> windows_core::BOOL;
     fn SetNPatchMode(&self, nsegments: f32) -> windows_core::Result<()>;
     fn GetNPatchMode(&self) -> f32;
-    fn DrawPrimitive(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::Result<()>;
-    fn DrawIndexedPrimitive(&self, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::Result<()>;
-    fn DrawPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
-    fn DrawIndexedPrimitiveUP(&self, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
+    fn DrawPrimitive(&self, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::Result<()>;
+    fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::Result<()>;
+    fn DrawPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
+    fn DrawIndexedPrimitiveUP(&self, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::Result<()>;
     fn ProcessVertices(&self, srcstartindex: u32, destindex: u32, vertexcount: u32, pdestbuffer: windows_core::Ref<IDirect3DVertexBuffer9>, pvertexdecl: windows_core::Ref<IDirect3DVertexDeclaration9>, flags: u32) -> windows_core::Result<()>;
-    fn CreateVertexDeclaration(&self, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9>;
+    fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> windows_core::Result<IDirect3DVertexDeclaration9>;
     fn SetVertexDeclaration(&self, pdecl: windows_core::Ref<IDirect3DVertexDeclaration9>) -> windows_core::Result<()>;
     fn GetVertexDeclaration(&self) -> windows_core::Result<IDirect3DVertexDeclaration9>;
     fn SetFVF(&self, fvf: u32) -> windows_core::Result<()>;
@@ -4937,12 +6581,12 @@ pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn GetPixelShaderConstantI(&self, startregister: u32, pconstantdata: *mut i32, vector4icount: u32) -> windows_core::Result<()>;
     fn SetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *const windows_core::BOOL, boolcount: u32) -> windows_core::Result<()>;
     fn GetPixelShaderConstantB(&self, startregister: u32, pconstantdata: *mut windows_core::BOOL, boolcount: u32) -> windows_core::Result<()>;
-    fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::Result<()>;
-    fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::Result<()>;
+    fn DrawRectPatch(&self, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::Result<()>;
+    fn DrawTriPatch(&self, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::Result<()>;
     fn DeletePatch(&self, handle: u32) -> windows_core::Result<()>;
-    fn CreateQuery(&self, r#type: super::d3d9types::D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9>;
+    fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> windows_core::Result<IDirect3DQuery9>;
     fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> windows_core::Result<()>;
-    fn ComposeRects(&self, psrc: windows_core::Ref<IDirect3DSurface9>, pdst: windows_core::Ref<IDirect3DSurface9>, psrcrectdescs: windows_core::Ref<IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: windows_core::Ref<IDirect3DVertexBuffer9>, operation: super::d3d9types::D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>;
+    fn ComposeRects(&self, psrc: windows_core::Ref<IDirect3DSurface9>, pdst: windows_core::Ref<IDirect3DSurface9>, psrcrectdescs: windows_core::Ref<IDirect3DVertexBuffer9>, numrects: u32, pdstrectdescs: windows_core::Ref<IDirect3DVertexBuffer9>, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::Result<()>;
     fn PresentEx(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>;
     fn GetGPUThreadPriority(&self) -> windows_core::Result<i32>;
     fn SetGPUThreadPriority(&self, priority: i32) -> windows_core::Result<()>;
@@ -4951,13 +6595,13 @@ pub trait IDirect3DDevice9Ex_Impl: IDirect3DDevice9_Impl {
     fn SetMaximumFrameLatency(&self, maxlatency: u32) -> windows_core::Result<()>;
     fn GetMaximumFrameLatency(&self) -> windows_core::Result<u32>;
     fn CheckDeviceState(&self, hdestinationwindow: super::windef::HWND) -> windows_core::Result<()>;
-    fn CreateRenderTargetEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
-    fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
-    fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
-    fn ResetEx(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::Result<()>;
-    fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::Result<()>;
+    fn CreateRenderTargetEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn CreateDepthStencilSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: windows_core::OutRef<IDirect3DSurface9>, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::Result<()>;
+    fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::Result<()>;
+    fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 impl IDirect3DDevice9Ex_Vtbl {
     pub const fn new<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5008,13 +6652,13 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaps: *mut super::d3d9caps::D3DCAPS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceCaps<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcaps: *mut D3DCAPS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetDeviceCaps(this, core::mem::transmute_copy(&pcaps)).into()
             }
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetDisplayMode(this, core::mem::transmute_copy(&iswapchain)) {
@@ -5026,7 +6670,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetCreationParameters<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut super::d3d9types::D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetCreationParameters<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetCreationParameters(this) {
@@ -5056,7 +6700,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::ShowCursor(this, core::mem::transmute_copy(&bshow))
             }
         }
-        unsafe extern "system" fn CreateAdditionalSwapChain<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAdditionalSwapChain<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pswapchain: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateAdditionalSwapChain(this, core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&pswapchain)).into()
@@ -5080,7 +6724,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::GetNumberOfSwapChains(this)
             }
         }
-        unsafe extern "system" fn Reset<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn Reset<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::Reset(this, core::mem::transmute_copy(&ppresentationparameters)).into()
@@ -5092,7 +6736,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::Present(this, core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&hdestwindowoverride), core::mem::transmute_copy(&pdirtyregion)).into()
             }
         }
-        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetBackBuffer(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&ibackbuffer), core::mem::transmute_copy(&r#type)) {
@@ -5104,7 +6748,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, prasterstatus: *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, prasterstatus: *mut D3DRASTER_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetRasterStatus(this, core::mem::transmute_copy(&iswapchain)) {
@@ -5122,55 +6766,55 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::SetDialogBoxMode(this, core::mem::transmute_copy(&benabledialogs)).into()
             }
         }
-        unsafe extern "system" fn SetGammaRamp<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, flags: u32, pramp: *const super::d3d9types::D3DGAMMARAMP) {
+        unsafe extern "system" fn SetGammaRamp<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, flags: u32, pramp: *const D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&pramp));
             }
         }
-        unsafe extern "system" fn GetGammaRamp<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pramp: *mut super::d3d9types::D3DGAMMARAMP) {
+        unsafe extern "system" fn GetGammaRamp<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pramp: *mut D3DGAMMARAMP) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetGammaRamp(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pramp));
             }
         }
-        unsafe extern "system" fn CreateTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, pptexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, pptexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateTexture(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&pptexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateVolumeTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppvolumetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVolumeTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, depth: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppvolumetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateVolumeTexture(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&depth), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppvolumetexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateCubeTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edgelength: u32, levels: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppcubetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCubeTexture<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, edgelength: u32, levels: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppcubetexture: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateCubeTexture(this, core::mem::transmute_copy(&edgelength), core::mem::transmute_copy(&levels), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppcubetexture), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateVertexBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, fvf: u32, pool: super::d3d9types::D3DPOOL, ppvertexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVertexBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, fvf: u32, pool: D3DPOOL, ppvertexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateVertexBuffer(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&fvf), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppvertexbuffer), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateIndexBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppindexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateIndexBuffer<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, length: u32, usage: u32, format: D3DFORMAT, pool: D3DPOOL, ppindexbuffer: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateIndexBuffer(this, core::mem::transmute_copy(&length), core::mem::transmute_copy(&usage), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppindexbuffer), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateRenderTarget<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateRenderTarget<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateRenderTarget(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&lockable), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
             }
         }
-        unsafe extern "system" fn CreateDepthStencilSurface<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDepthStencilSurface<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateDepthStencilSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&discard), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
@@ -5200,7 +6844,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pdestsurface)).into()
             }
         }
-        unsafe extern "system" fn StretchRect<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::windef::RECT, pdestsurface: *mut core::ffi::c_void, pdestrect: *const super::windef::RECT, filter: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn StretchRect<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psourcesurface: *mut core::ffi::c_void, psourcerect: *const super::windef::RECT, pdestsurface: *mut core::ffi::c_void, pdestrect: *const super::windef::RECT, filter: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::StretchRect(this, core::mem::transmute_copy(&psourcesurface), core::mem::transmute_copy(&psourcerect), core::mem::transmute_copy(&pdestsurface), core::mem::transmute_copy(&pdestrect), core::mem::transmute_copy(&filter)).into()
@@ -5212,7 +6856,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::ColorFill(this, core::mem::transmute_copy(&psurface), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&color)).into()
             }
         }
-        unsafe extern "system" fn CreateOffscreenPlainSurface<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateOffscreenPlainSurface<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateOffscreenPlainSurface(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle)).into()
@@ -5266,61 +6910,61 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::EndScene(this).into()
             }
         }
-        unsafe extern "system" fn Clear<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, prects: *const super::d3d9types::D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn Clear<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, prects: *const D3DRECT, flags: u32, color: super::dsound::D3DCOLOR, z: f32, stencil: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::Clear(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&prects), core::mem::transmute_copy(&flags), core::mem::transmute_copy(&color), core::mem::transmute_copy(&z), core::mem::transmute_copy(&stencil)).into()
             }
         }
-        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DTRANSFORMSTATETYPE, pmatrix: *mut windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetTransform(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&pmatrix)).into()
             }
         }
-        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::d3d9types::D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
+        unsafe extern "system" fn MultiplyTransform<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DTRANSFORMSTATETYPE, param1: *const windows_numerics::Matrix4x4) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::MultiplyTransform(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
             }
         }
-        unsafe extern "system" fn SetViewport<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *const super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetViewport<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *const D3DVIEWPORT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetViewport(this, core::mem::transmute_copy(&pviewport)).into()
             }
         }
-        unsafe extern "system" fn GetViewport<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *mut super::d3d9types::D3DVIEWPORT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetViewport<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pviewport: *mut D3DVIEWPORT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetViewport(this, core::mem::transmute_copy(&pviewport)).into()
             }
         }
-        unsafe extern "system" fn SetMaterial<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *const super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetMaterial<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *const D3DMATERIAL9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetMaterial(this, core::mem::transmute_copy(&pmaterial)).into()
             }
         }
-        unsafe extern "system" fn GetMaterial<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *mut super::d3d9types::D3DMATERIAL9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetMaterial<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmaterial: *mut D3DMATERIAL9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetMaterial(this, core::mem::transmute_copy(&pmaterial)).into()
             }
         }
-        unsafe extern "system" fn SetLight<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *const super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLight<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *const D3DLIGHT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetLight(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&param1)).into()
             }
         }
-        unsafe extern "system" fn GetLight<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *mut super::d3d9types::D3DLIGHT9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLight<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32, param1: *mut D3DLIGHT9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetLight(this, core::mem::transmute_copy(&index), core::mem::transmute_copy(&param1)).into()
@@ -5362,13 +7006,13 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetRenderState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetRenderState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DRENDERSTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetRenderState(this, core::mem::transmute_copy(&state), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetRenderState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: super::d3d9types::D3DRENDERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRenderState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, state: D3DRENDERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetRenderState(this, core::mem::transmute_copy(&state)) {
@@ -5380,7 +7024,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CreateStateBlock<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::d3d9types::D3DSTATEBLOCKTYPE, ppsb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateStateBlock<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3DSTATEBLOCKTYPE, ppsb: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::CreateStateBlock(this, core::mem::transmute_copy(&r#type)) {
@@ -5410,13 +7054,13 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetClipStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *const super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetClipStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *const D3DCLIPSTATUS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetClipStatus(this, core::mem::transmute_copy(&pclipstatus)).into()
             }
         }
-        unsafe extern "system" fn GetClipStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *mut super::d3d9types::D3DCLIPSTATUS9) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetClipStatus<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pclipstatus: *mut D3DCLIPSTATUS9) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetClipStatus(this) {
@@ -5446,7 +7090,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::SetTexture(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&ptexture)).into()
             }
         }
-        unsafe extern "system" fn GetTextureStageState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTextureStageState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetTextureStageState(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&r#type)) {
@@ -5458,13 +7102,13 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTextureStageState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: super::d3d9types::D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTextureStageState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stage: u32, r#type: D3DTEXTURESTAGESTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetTextureStageState(this, core::mem::transmute_copy(&stage), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn GetSamplerState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetSamplerState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: D3DSAMPLERSTATETYPE, pvalue: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::GetSamplerState(this, core::mem::transmute_copy(&sampler), core::mem::transmute_copy(&r#type)) {
@@ -5476,7 +7120,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSamplerState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: super::d3d9types::D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSamplerState<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sampler: u32, r#type: D3DSAMPLERSTATETYPE, value: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::SetSamplerState(this, core::mem::transmute_copy(&sampler), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&value)).into()
@@ -5572,25 +7216,25 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::GetNPatchMode(this)
             }
         }
-        unsafe extern "system" fn DrawPrimitive<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawPrimitive<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, startvertex: u32, primitivecount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawPrimitive(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&startvertex), core::mem::transmute_copy(&primitivecount)).into()
             }
         }
-        unsafe extern "system" fn DrawIndexedPrimitive<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::d3d9types::D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawIndexedPrimitive<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: D3DPRIMITIVETYPE, basevertexindex: i32, minvertexindex: u32, numvertices: u32, startindex: u32, primcount: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawIndexedPrimitive(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&basevertexindex), core::mem::transmute_copy(&minvertexindex), core::mem::transmute_copy(&numvertices), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&primcount)).into()
             }
         }
-        unsafe extern "system" fn DrawPrimitiveUP<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawPrimitiveUP<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, primitivecount: u32, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawPrimitiveUP(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&primitivecount), core::mem::transmute_copy(&pvertexstreamzerodata), core::mem::transmute_copy(&vertexstreamzerostride)).into()
             }
         }
-        unsafe extern "system" fn DrawIndexedPrimitiveUP<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: super::d3d9types::D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: super::d3d9types::D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawIndexedPrimitiveUP<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, primitivetype: D3DPRIMITIVETYPE, minvertexindex: u32, numvertices: u32, primitivecount: u32, pindexdata: *const core::ffi::c_void, indexdataformat: D3DFORMAT, pvertexstreamzerodata: *const core::ffi::c_void, vertexstreamzerostride: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawIndexedPrimitiveUP(this, core::mem::transmute_copy(&primitivetype), core::mem::transmute_copy(&minvertexindex), core::mem::transmute_copy(&numvertices), core::mem::transmute_copy(&primitivecount), core::mem::transmute_copy(&pindexdata), core::mem::transmute_copy(&indexdataformat), core::mem::transmute_copy(&pvertexstreamzerodata), core::mem::transmute_copy(&vertexstreamzerostride)).into()
@@ -5602,7 +7246,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::ProcessVertices(this, core::mem::transmute_copy(&srcstartindex), core::mem::transmute_copy(&destindex), core::mem::transmute_copy(&vertexcount), core::mem::transmute_copy(&pdestbuffer), core::mem::transmute_copy(&pvertexdecl), core::mem::transmute_copy(&flags)).into()
             }
         }
-        unsafe extern "system" fn CreateVertexDeclaration<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexelements: *const super::d3d9types::D3DVERTEXELEMENT9, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateVertexDeclaration<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvertexelements: *const D3DVERTEXELEMENT9, ppdecl: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::CreateVertexDeclaration(this, core::mem::transmute_copy(&pvertexelements)) {
@@ -5830,13 +7474,13 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::GetPixelShaderConstantB(this, core::mem::transmute_copy(&startregister), core::mem::transmute_copy(&pconstantdata), core::mem::transmute_copy(&boolcount)).into()
             }
         }
-        unsafe extern "system" fn DrawRectPatch<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const super::d3d9types::D3DRECTPATCH_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawRectPatch<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, prectpatchinfo: *const D3DRECTPATCH_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawRectPatch(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&pnumsegs), core::mem::transmute_copy(&prectpatchinfo)).into()
             }
         }
-        unsafe extern "system" fn DrawTriPatch<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const super::d3d9types::D3DTRIPATCH_INFO) -> windows_core::HRESULT {
+        unsafe extern "system" fn DrawTriPatch<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handle: u32, pnumsegs: *const f32, ptripatchinfo: *const D3DTRIPATCH_INFO) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::DrawTriPatch(this, core::mem::transmute_copy(&handle), core::mem::transmute_copy(&pnumsegs), core::mem::transmute_copy(&ptripatchinfo)).into()
@@ -5848,7 +7492,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::DeletePatch(this, core::mem::transmute_copy(&handle)).into()
             }
         }
-        unsafe extern "system" fn CreateQuery<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: super::d3d9types::D3DQUERYTYPE, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateQuery<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3DQUERYTYPE, ppquery: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DDevice9Ex_Impl::CreateQuery(this, core::mem::transmute_copy(&r#type)) {
@@ -5866,7 +7510,7 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::SetConvolutionMonoKernel(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&rows), core::mem::transmute_copy(&columns)).into()
             }
         }
-        unsafe extern "system" fn ComposeRects<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrc: *mut core::ffi::c_void, pdst: *mut core::ffi::c_void, psrcrectdescs: *mut core::ffi::c_void, numrects: u32, pdstrectdescs: *mut core::ffi::c_void, operation: super::d3d9types::D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ComposeRects<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psrc: *mut core::ffi::c_void, pdst: *mut core::ffi::c_void, psrcrectdescs: *mut core::ffi::c_void, numrects: u32, pdstrectdescs: *mut core::ffi::c_void, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::ComposeRects(this, core::mem::transmute_copy(&psrc), core::mem::transmute_copy(&pdst), core::mem::transmute_copy(&psrcrectdescs), core::mem::transmute_copy(&numrects), core::mem::transmute_copy(&pdstrectdescs), core::mem::transmute_copy(&operation), core::mem::transmute_copy(&xoffset), core::mem::transmute_copy(&yoffset)).into()
@@ -5932,31 +7576,31 @@ impl IDirect3DDevice9Ex_Vtbl {
                 IDirect3DDevice9Ex_Impl::CheckDeviceState(this, core::mem::transmute_copy(&hdestinationwindow)).into()
             }
         }
-        unsafe extern "system" fn CreateRenderTargetEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateRenderTargetEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateRenderTargetEx(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&lockable), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle), core::mem::transmute_copy(&usage)).into()
             }
         }
-        unsafe extern "system" fn CreateOffscreenPlainSurfaceEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, pool: super::d3d9types::D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateOffscreenPlainSurfaceEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateOffscreenPlainSurfaceEx(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&pool), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle), core::mem::transmute_copy(&usage)).into()
             }
         }
-        unsafe extern "system" fn CreateDepthStencilSurfaceEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: super::d3d9types::D3DFORMAT, multisample: super::d3d9types::D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateDepthStencilSurfaceEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: windows_core::BOOL, ppsurface: *mut *mut core::ffi::c_void, psharedhandle: *mut super::winnt::HANDLE, usage: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::CreateDepthStencilSurfaceEx(this, core::mem::transmute_copy(&width), core::mem::transmute_copy(&height), core::mem::transmute_copy(&format), core::mem::transmute_copy(&multisample), core::mem::transmute_copy(&multisamplequality), core::mem::transmute_copy(&discard), core::mem::transmute_copy(&ppsurface), core::mem::transmute_copy(&psharedhandle), core::mem::transmute_copy(&usage)).into()
             }
         }
-        unsafe extern "system" fn ResetEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut super::d3d9types::D3DDISPLAYMODEEX) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResetEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::ResetEx(this, core::mem::transmute_copy(&ppresentationparameters), core::mem::transmute_copy(&pfullscreendisplaymode)).into()
             }
         }
-        unsafe extern "system" fn GetDisplayModeEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayModeEx<Identity: IDirect3DDevice9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Ex_Impl::GetDisplayModeEx(this, core::mem::transmute_copy(&iswapchain), core::mem::transmute_copy(&pmode), core::mem::transmute_copy(&protation)).into()
@@ -6104,7 +7748,7 @@ impl IDirect3DDevice9Ex_Vtbl {
         iid == &<IDirect3DDevice9Ex as windows_core::Interface>::IID || iid == &<IDirect3DDevice9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_dsound", feature = "Win32_dxgitype", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dsound", feature = "Win32_dxgi", feature = "Win32_windef", feature = "Win32_wingdi", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for IDirect3DDevice9Ex {}
 windows_core::imp::define_interface!(IDirect3DDevice9Video, IDirect3DDevice9Video_Vtbl, 0x26dc4561_a1ee_4ae7_96da_118a36c0ec95);
 windows_core::imp::interface_hierarchy!(IDirect3DDevice9Video, windows_core::IUnknown);
@@ -6118,12 +7762,11 @@ impl IDirect3DDevice9Video {
     pub unsafe fn Release(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9caps")]
-    pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut super::d3d9caps::D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT {
+    pub unsafe fn GetContentProtectionCaps(&self, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContentProtectionCaps)(windows_core::Interface::as_raw(self), pcryptotype, pdecodeprofile, pcaps as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: super::d3d9types::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut Option<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_winnt")]
+    pub unsafe fn CreateAuthenticatedChannel(&self, channeltype: D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut Option<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateAuthenticatedChannel)(windows_core::Interface::as_raw(self), channeltype, core::mem::transmute(ppauthenticatedchannel), pchannelhandle as _) }
     }
     #[cfg(feature = "Win32_winnt")]
@@ -6138,29 +7781,26 @@ pub struct IDirect3DDevice9Video_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9caps")]
-    pub GetContentProtectionCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut super::d3d9caps::D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9caps"))]
-    GetContentProtectionCaps: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_winnt"))]
-    pub CreateAuthenticatedChannel: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DAUTHENTICATEDCHANNELTYPE, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_winnt")))]
+    pub GetContentProtectionCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_winnt")]
+    pub CreateAuthenticatedChannel: unsafe extern "system" fn(*mut core::ffi::c_void, D3DAUTHENTICATEDCHANNELTYPE, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_winnt"))]
     CreateAuthenticatedChannel: usize,
     #[cfg(feature = "Win32_winnt")]
     pub CreateCryptoSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
     #[cfg(not(feature = "Win32_winnt"))]
     CreateCryptoSession: usize,
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 pub trait IDirect3DDevice9Video_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
-    fn GetContentProtectionCaps(&self, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut super::d3d9caps::D3DCONTENTPROTECTIONCAPS) -> windows_core::Result<()>;
-    fn CreateAuthenticatedChannel(&self, channeltype: super::d3d9types::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: windows_core::OutRef<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
+    fn GetContentProtectionCaps(&self, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::Result<()>;
+    fn CreateAuthenticatedChannel(&self, channeltype: D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: windows_core::OutRef<IDirect3DAuthenticatedChannel9>, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
     fn CreateCryptoSession(&self, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, ppcryptosession: windows_core::OutRef<IDirect3DCryptoSession9>, pcryptohandle: *mut super::winnt::HANDLE) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 impl IDirect3DDevice9Video_Vtbl {
     pub const fn new<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6181,13 +7821,13 @@ impl IDirect3DDevice9Video_Vtbl {
                 IDirect3DDevice9Video_Impl::Release(this)
             }
         }
-        unsafe extern "system" fn GetContentProtectionCaps<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut super::d3d9caps::D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetContentProtectionCaps<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcryptotype: *const windows_core::GUID, pdecodeprofile: *const windows_core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Video_Impl::GetContentProtectionCaps(this, core::mem::transmute_copy(&pcryptotype), core::mem::transmute_copy(&pdecodeprofile), core::mem::transmute_copy(&pcaps)).into()
             }
         }
-        unsafe extern "system" fn CreateAuthenticatedChannel<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channeltype: super::d3d9types::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut *mut core::ffi::c_void, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateAuthenticatedChannel<Identity: IDirect3DDevice9Video_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channeltype: D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut *mut core::ffi::c_void, pchannelhandle: *mut super::winnt::HANDLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DDevice9Video_Impl::CreateAuthenticatedChannel(this, core::mem::transmute_copy(&channeltype), core::mem::transmute_copy(&ppauthenticatedchannel), core::mem::transmute_copy(&pchannelhandle)).into()
@@ -6213,7 +7853,7 @@ impl IDirect3DDevice9Video_Vtbl {
         iid == &<IDirect3DDevice9Video as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9caps", feature = "Win32_d3d9types", feature = "Win32_winnt"))]
+#[cfg(feature = "Win32_winnt")]
 impl windows_core::RuntimeName for IDirect3DDevice9Video {}
 windows_core::imp::define_interface!(IDirect3DIndexBuffer9, IDirect3DIndexBuffer9_Vtbl, 0x7c9dd65e_d3f7_4529_acee_785830acde35);
 impl core::ops::Deref for IDirect3DIndexBuffer9 {
@@ -6259,8 +7899,7 @@ impl IDirect3DIndexBuffer9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
@@ -6269,8 +7908,7 @@ impl IDirect3DIndexBuffer9 {
     pub unsafe fn Unlock(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DINDEXBUFFER_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
 }
@@ -6288,18 +7926,11 @@ pub struct IDirect3DIndexBuffer9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DINDEXBUFFER_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDesc: usize,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DINDEXBUFFER_DESC) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DIndexBuffer9_Impl: IDirect3DResource9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6311,12 +7942,11 @@ pub trait IDirect3DIndexBuffer9_Impl: IDirect3DResource9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut core::ffi::c_void, flags: u32) -> windows_core::Result<()>;
     fn Unlock(&self) -> windows_core::Result<()>;
-    fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DINDEXBUFFER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DIndexBuffer9_Vtbl {
     pub const fn new<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6385,7 +8015,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
                 IDirect3DIndexBuffer9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DIndexBuffer9_Impl::GetType(this)
@@ -6403,7 +8033,7 @@ impl IDirect3DIndexBuffer9_Vtbl {
                 IDirect3DIndexBuffer9_Impl::Unlock(this).into()
             }
         }
-        unsafe extern "system" fn GetDesc<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut super::d3d9types::D3DINDEXBUFFER_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDesc<Identity: IDirect3DIndexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3DINDEXBUFFER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DIndexBuffer9_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
@@ -6431,7 +8061,6 @@ impl IDirect3DIndexBuffer9_Vtbl {
         iid == &<IDirect3DIndexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DIndexBuffer9 {}
 windows_core::imp::define_interface!(IDirect3DPixelShader9, IDirect3DPixelShader9_Vtbl, 0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
 windows_core::imp::interface_hierarchy!(IDirect3DPixelShader9, windows_core::IUnknown);
@@ -6542,8 +8171,7 @@ impl IDirect3DQuery9 {
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DQUERYTYPE {
+    pub unsafe fn GetType(&self) -> D3DQUERYTYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetDataSize(&self) -> u32 {
@@ -6564,26 +8192,21 @@ pub struct IDirect3DQuery9_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DQUERYTYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DQUERYTYPE,
     pub GetDataSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Issue: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DQuery9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn GetDevice(&self) -> windows_core::Result<IDirect3DDevice9>;
-    fn GetType(&self) -> super::d3d9types::D3DQUERYTYPE;
+    fn GetType(&self) -> D3DQUERYTYPE;
     fn GetDataSize(&self) -> u32;
     fn Issue(&self, dwissueflags: u32) -> windows_core::Result<()>;
     fn GetData(&self, pdata: *mut core::ffi::c_void, dwsize: u32, dwgetdataflags: u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DQuery9_Vtbl {
     pub const fn new<Identity: IDirect3DQuery9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DQuery9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6616,7 +8239,7 @@ impl IDirect3DQuery9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DQuery9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DQUERYTYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DQuery9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DQUERYTYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DQuery9_Impl::GetType(this)
@@ -6656,7 +8279,6 @@ impl IDirect3DQuery9_Vtbl {
         iid == &<IDirect3DQuery9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DQuery9 {}
 windows_core::imp::define_interface!(IDirect3DResource9, IDirect3DResource9_Vtbl, 0x05eec05d_8f7d_4362_b999_d1baf357c704);
 windows_core::imp::interface_hierarchy!(IDirect3DResource9, windows_core::IUnknown);
@@ -6696,8 +8318,7 @@ impl IDirect3DResource9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
 }
@@ -6715,12 +8336,8 @@ pub struct IDirect3DResource9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DResource9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -6732,9 +8349,8 @@ pub trait IDirect3DResource9_Impl: windows_core::IUnknownImpl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DResource9_Vtbl {
     pub const fn new<Identity: IDirect3DResource9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6803,7 +8419,7 @@ impl IDirect3DResource9_Vtbl {
                 IDirect3DResource9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DResource9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DResource9_Impl::GetType(this)
@@ -6828,7 +8444,6 @@ impl IDirect3DResource9_Vtbl {
         iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DResource9 {}
 windows_core::imp::define_interface!(IDirect3DStateBlock9, IDirect3DStateBlock9_Vtbl, 0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
 windows_core::imp::interface_hierarchy!(IDirect3DStateBlock9, windows_core::IUnknown);
@@ -6977,19 +8592,17 @@ impl IDirect3DSurface9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), riid, ppcontainer as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn LockRect(&self, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockRect)(windows_core::Interface::as_raw(self), plockedrect as _, prect, flags) }
     }
     pub unsafe fn UnlockRect(&self) -> windows_core::HRESULT {
@@ -7021,18 +8634,12 @@ pub struct IDirect3DSurface9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub GetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDesc: usize,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DSURFACE_DESC) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_windef")]
+    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     LockRect: usize,
     pub UnlockRect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_windef")]
@@ -7044,7 +8651,7 @@ pub struct IDirect3DSurface9_Vtbl {
     #[cfg(not(feature = "Win32_windef"))]
     ReleaseDC: usize,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 pub trait IDirect3DSurface9_Impl: IDirect3DResource9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -7056,15 +8663,15 @@ pub trait IDirect3DSurface9_Impl: IDirect3DResource9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::Result<()>;
-    fn LockRect(&self, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> windows_core::Result<()>;
+    fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
     fn UnlockRect(&self) -> windows_core::Result<()>;
     fn GetDC(&self) -> windows_core::Result<super::windef::HDC>;
     fn ReleaseDC(&self, hdc: super::windef::HDC) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl IDirect3DSurface9_Vtbl {
     pub const fn new<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7133,7 +8740,7 @@ impl IDirect3DSurface9_Vtbl {
                 IDirect3DSurface9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSurface9_Impl::GetType(this)
@@ -7145,13 +8752,13 @@ impl IDirect3DSurface9_Vtbl {
                 IDirect3DSurface9_Impl::GetContainer(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcontainer)).into()
             }
         }
-        unsafe extern "system" fn GetDesc<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDesc<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSurface9_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn LockRect<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockRect<Identity: IDirect3DSurface9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSurface9_Impl::LockRect(this, core::mem::transmute_copy(&plockedrect), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&flags)).into()
@@ -7206,7 +8813,7 @@ impl IDirect3DSurface9_Vtbl {
         iid == &<IDirect3DSurface9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl windows_core::RuntimeName for IDirect3DSurface9 {}
 windows_core::imp::define_interface!(IDirect3DSwapChain9, IDirect3DSwapChain9_Vtbl, 0x794950f2_adfc_458a_905e_10a10b0b503b);
 windows_core::imp::interface_hierarchy!(IDirect3DSwapChain9, windows_core::IUnknown);
@@ -7230,22 +8837,19 @@ impl IDirect3DSwapChain9 {
     {
         unsafe { (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.param().abi()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBackBuffer)(windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRasterStatus(&self) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS> {
+    pub unsafe fn GetRasterStatus(&self) -> windows_core::Result<D3DRASTER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRasterStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayMode(&self) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetDisplayMode(&self) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7257,8 +8861,8 @@ impl IDirect3DSwapChain9 {
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPresentParameters)(windows_core::Interface::as_raw(self), ppresentationparameters as _) }
     }
 }
@@ -7274,38 +8878,29 @@ pub struct IDirect3DSwapChain9_Vtbl {
     #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
     Present: usize,
     pub GetFrontBufferData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetBackBuffer: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRasterStatus: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayMode: usize,
+    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DRASTER_STATUS) -> windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub GetPresentParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub GetPresentParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     GetPresentParameters: usize,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 pub trait IDirect3DSwapChain9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>;
     fn GetFrontBufferData(&self, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn GetBackBuffer(&self, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
-    fn GetRasterStatus(&self) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS>;
-    fn GetDisplayMode(&self) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
+    fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
+    fn GetRasterStatus(&self) -> windows_core::Result<D3DRASTER_STATUS>;
+    fn GetDisplayMode(&self) -> windows_core::Result<D3DDISPLAYMODE>;
     fn GetDevice(&self) -> windows_core::Result<IDirect3DDevice9>;
-    fn GetPresentParameters(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 impl IDirect3DSwapChain9_Vtbl {
     pub const fn new<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7338,7 +8933,7 @@ impl IDirect3DSwapChain9_Vtbl {
                 IDirect3DSwapChain9_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&pdestsurface)).into()
             }
         }
-        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9_Impl::GetBackBuffer(this, core::mem::transmute_copy(&ibackbuffer), core::mem::transmute_copy(&r#type)) {
@@ -7350,7 +8945,7 @@ impl IDirect3DSwapChain9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterstatus: *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterstatus: *mut D3DRASTER_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9_Impl::GetRasterStatus(this) {
@@ -7362,7 +8957,7 @@ impl IDirect3DSwapChain9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9_Impl::GetDisplayMode(this) {
@@ -7386,7 +8981,7 @@ impl IDirect3DSwapChain9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPresentParameters<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresentParameters<Identity: IDirect3DSwapChain9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSwapChain9_Impl::GetPresentParameters(this, core::mem::transmute_copy(&ppresentationparameters)).into()
@@ -7410,7 +9005,7 @@ impl IDirect3DSwapChain9_Vtbl {
         iid == &<IDirect3DSwapChain9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 impl windows_core::RuntimeName for IDirect3DSwapChain9 {}
 windows_core::imp::define_interface!(IDirect3DSwapChain9Ex, IDirect3DSwapChain9Ex_Vtbl, 0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
 impl core::ops::Deref for IDirect3DSwapChain9Ex {
@@ -7440,22 +9035,19 @@ impl IDirect3DSwapChain9Ex {
     {
         unsafe { (windows_core::Interface::vtable(self).GetFrontBufferData)(windows_core::Interface::as_raw(self), pdestsurface.param().abi()) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
+    pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBackBuffer)(windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetRasterStatus(&self) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS> {
+    pub unsafe fn GetRasterStatus(&self) -> windows_core::Result<D3DRASTER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRasterStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayMode(&self) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE> {
+    pub unsafe fn GetDisplayMode(&self) -> windows_core::Result<D3DDISPLAYMODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDisplayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7467,8 +9059,8 @@ impl IDirect3DSwapChain9Ex {
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPresentParameters)(windows_core::Interface::as_raw(self), ppresentationparameters as _) }
     }
     pub unsafe fn GetLastPresentCount(&self) -> windows_core::Result<u32> {
@@ -7477,12 +9069,10 @@ impl IDirect3DSwapChain9Ex {
             (windows_core::Interface::vtable(self).GetLastPresentCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut super::d3d9types::D3DPRESENTSTATS) -> windows_core::HRESULT {
+    pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPresentStats)(windows_core::Interface::as_raw(self), ppresentationstatistics as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDisplayModeEx(&self, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+    pub unsafe fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayModeEx)(windows_core::Interface::as_raw(self), pmode as _, protation as _) }
     }
 }
@@ -7498,50 +9088,35 @@ pub struct IDirect3DSwapChain9Ex_Vtbl {
     #[cfg(not(all(feature = "Win32_windef", feature = "Win32_wingdi")))]
     Present: usize,
     pub GetFrontBufferData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::d3d9types::D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetBackBuffer: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetRasterStatus: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayMode: usize,
+    pub GetBackBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3DBACKBUFFER_TYPE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetRasterStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DRASTER_STATUS) -> windows_core::HRESULT,
+    pub GetDisplayMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDISPLAYMODE) -> windows_core::HRESULT,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub GetPresentParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub GetPresentParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     GetPresentParameters: usize,
     pub GetLastPresentCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetPresentStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DPRESENTSTATS) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetPresentStats: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DDISPLAYMODEEX, *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDisplayModeEx: usize,
+    pub GetPresentStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DPRESENTSTATS) -> windows_core::HRESULT,
+    pub GetDisplayModeEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DDISPLAYMODEEX, *mut D3DDISPLAYROTATION) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 pub trait IDirect3DSwapChain9Ex_Impl: IDirect3DSwapChain9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn Present(&self, psourcerect: *const super::windef::RECT, pdestrect: *const super::windef::RECT, hdestwindowoverride: super::windef::HWND, pdirtyregion: *const super::wingdi::RGNDATA, dwflags: u32) -> windows_core::Result<()>;
     fn GetFrontBufferData(&self, pdestsurface: windows_core::Ref<IDirect3DSurface9>) -> windows_core::Result<()>;
-    fn GetBackBuffer(&self, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
-    fn GetRasterStatus(&self) -> windows_core::Result<super::d3d9types::D3DRASTER_STATUS>;
-    fn GetDisplayMode(&self) -> windows_core::Result<super::d3d9types::D3DDISPLAYMODE>;
+    fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> windows_core::Result<IDirect3DSurface9>;
+    fn GetRasterStatus(&self) -> windows_core::Result<D3DRASTER_STATUS>;
+    fn GetDisplayMode(&self) -> windows_core::Result<D3DDISPLAYMODE>;
     fn GetDevice(&self) -> windows_core::Result<IDirect3DDevice9>;
-    fn GetPresentParameters(&self, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
+    fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::Result<()>;
     fn GetLastPresentCount(&self) -> windows_core::Result<u32>;
-    fn GetPresentStats(&self, ppresentationstatistics: *mut super::d3d9types::D3DPRESENTSTATS) -> windows_core::Result<()>;
-    fn GetDisplayModeEx(&self, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::Result<()>;
+    fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> windows_core::Result<()>;
+    fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 impl IDirect3DSwapChain9Ex_Vtbl {
     pub const fn new<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7574,7 +9149,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
                 IDirect3DSwapChain9Ex_Impl::GetFrontBufferData(this, core::mem::transmute_copy(&pdestsurface)).into()
             }
         }
-        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ibackbuffer: u32, r#type: super::d3d9types::D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBackBuffer<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE, ppbackbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9Ex_Impl::GetBackBuffer(this, core::mem::transmute_copy(&ibackbuffer), core::mem::transmute_copy(&r#type)) {
@@ -7586,7 +9161,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterstatus: *mut super::d3d9types::D3DRASTER_STATUS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetRasterStatus<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prasterstatus: *mut D3DRASTER_STATUS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9Ex_Impl::GetRasterStatus(this) {
@@ -7598,7 +9173,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut super::d3d9types::D3DDISPLAYMODE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayMode<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut D3DDISPLAYMODE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IDirect3DSwapChain9Ex_Impl::GetDisplayMode(this) {
@@ -7622,7 +9197,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPresentParameters<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut super::d3d9types::D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresentParameters<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSwapChain9Ex_Impl::GetPresentParameters(this, core::mem::transmute_copy(&ppresentationparameters)).into()
@@ -7640,13 +9215,13 @@ impl IDirect3DSwapChain9Ex_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetPresentStats<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationstatistics: *mut super::d3d9types::D3DPRESENTSTATS) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetPresentStats<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppresentationstatistics: *mut D3DPRESENTSTATS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSwapChain9Ex_Impl::GetPresentStats(this, core::mem::transmute_copy(&ppresentationstatistics)).into()
             }
         }
-        unsafe extern "system" fn GetDisplayModeEx<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut super::d3d9types::D3DDISPLAYMODEEX, protation: *mut super::d3d9types::D3DDISPLAYROTATION) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDisplayModeEx<Identity: IDirect3DSwapChain9Ex_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DSwapChain9Ex_Impl::GetDisplayModeEx(this, core::mem::transmute_copy(&pmode), core::mem::transmute_copy(&protation)).into()
@@ -7673,7 +9248,7 @@ impl IDirect3DSwapChain9Ex_Vtbl {
         iid == &<IDirect3DSwapChain9Ex as windows_core::Interface>::IID || iid == &<IDirect3DSwapChain9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef", feature = "Win32_wingdi"))]
+#[cfg(all(feature = "Win32_windef", feature = "Win32_wingdi"))]
 impl windows_core::RuntimeName for IDirect3DSwapChain9Ex {}
 windows_core::imp::define_interface!(IDirect3DTexture9, IDirect3DTexture9_Vtbl, 0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
 impl core::ops::Deref for IDirect3DTexture9 {
@@ -7719,8 +9294,7 @@ impl IDirect3DTexture9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
@@ -7732,12 +9306,10 @@ impl IDirect3DTexture9 {
     pub unsafe fn GetLevelCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLevelCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoGenFilterType)(windows_core::Interface::as_raw(self), filtertype) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         unsafe { (windows_core::Interface::vtable(self).GetAutoGenFilterType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
@@ -7745,8 +9317,7 @@ impl IDirect3DTexture9 {
             (windows_core::Interface::vtable(self).GenerateMipSubLevels)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLevelDesc)(windows_core::Interface::as_raw(self), level, pdesc as _) }
     }
     pub unsafe fn GetSurfaceLevel(&self, level: u32) -> windows_core::Result<IDirect3DSurface9> {
@@ -7755,8 +9326,8 @@ impl IDirect3DTexture9 {
             (windows_core::Interface::vtable(self).GetSurfaceLevel)(windows_core::Interface::as_raw(self), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockRect)(windows_core::Interface::as_raw(self), level, plockedrect as _, prect, flags) }
     }
     pub unsafe fn UnlockRect(&self, level: u32) -> windows_core::HRESULT {
@@ -7781,30 +9352,18 @@ pub struct IDirect3DTexture9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub SetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetAutoGenFilterType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAutoGenFilterType: usize,
+    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetLevelDesc: usize,
+    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DSURFACE_DESC) -> windows_core::HRESULT,
     pub GetSurfaceLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
-    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d3d9types", feature = "Win32_windef")))]
+    #[cfg(feature = "Win32_windef")]
+    pub LockRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DLOCKED_RECT, *const super::windef::RECT, u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_windef"))]
     LockRect: usize,
     pub UnlockRect: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "Win32_windef")]
@@ -7812,7 +9371,7 @@ pub struct IDirect3DTexture9_Vtbl {
     #[cfg(not(feature = "Win32_windef"))]
     AddDirtyRect: usize,
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 pub trait IDirect3DTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -7824,20 +9383,20 @@ pub trait IDirect3DTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn SetLOD(&self, lodnew: u32) -> u32;
     fn GetLOD(&self) -> u32;
     fn GetLevelCount(&self) -> u32;
-    fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
-    fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE;
+    fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
     fn GenerateMipSubLevels(&self);
-    fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::Result<()>;
+    fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::Result<()>;
     fn GetSurfaceLevel(&self, level: u32) -> windows_core::Result<IDirect3DSurface9>;
-    fn LockRect(&self, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
+    fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::Result<()>;
     fn UnlockRect(&self, level: u32) -> windows_core::Result<()>;
     fn AddDirtyRect(&self, pdirtyrect: *const super::windef::RECT) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl IDirect3DTexture9_Vtbl {
     pub const fn new<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -7906,7 +9465,7 @@ impl IDirect3DTexture9_Vtbl {
                 IDirect3DTexture9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DTexture9_Impl::GetType(this)
@@ -7930,13 +9489,13 @@ impl IDirect3DTexture9_Vtbl {
                 IDirect3DTexture9_Impl::GetLevelCount(this)
             }
         }
-        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DTexture9_Impl::SetAutoGenFilterType(this, core::mem::transmute_copy(&filtertype)).into()
             }
         }
-        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DTexture9_Impl::GetAutoGenFilterType(this)
@@ -7948,7 +9507,7 @@ impl IDirect3DTexture9_Vtbl {
                 IDirect3DTexture9_Impl::GenerateMipSubLevels(this);
             }
         }
-        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut super::d3d9types::D3DSURFACE_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut D3DSURFACE_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DTexture9_Impl::GetLevelDesc(this, core::mem::transmute_copy(&level), core::mem::transmute_copy(&pdesc)).into()
@@ -7966,7 +9525,7 @@ impl IDirect3DTexture9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LockRect<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, plockedrect: *mut super::d3d9types::D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockRect<Identity: IDirect3DTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::windef::RECT, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DTexture9_Impl::LockRect(this, core::mem::transmute_copy(&level), core::mem::transmute_copy(&plockedrect), core::mem::transmute_copy(&prect), core::mem::transmute_copy(&flags)).into()
@@ -8014,7 +9573,7 @@ impl IDirect3DTexture9_Vtbl {
         iid == &<IDirect3DTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3d9types", feature = "Win32_windef"))]
+#[cfg(feature = "Win32_windef")]
 impl windows_core::RuntimeName for IDirect3DTexture9 {}
 windows_core::imp::define_interface!(IDirect3DVertexBuffer9, IDirect3DVertexBuffer9_Vtbl, 0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
 impl core::ops::Deref for IDirect3DVertexBuffer9 {
@@ -8060,8 +9619,7 @@ impl IDirect3DVertexBuffer9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut core::ffi::c_void, flags: u32) -> windows_core::HRESULT {
@@ -8070,8 +9628,7 @@ impl IDirect3DVertexBuffer9 {
     pub unsafe fn Unlock(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Unlock)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
 }
@@ -8089,18 +9646,11 @@ pub struct IDirect3DVertexBuffer9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDesc: usize,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DVertexBuffer9_Impl: IDirect3DResource9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -8112,12 +9662,11 @@ pub trait IDirect3DVertexBuffer9_Impl: IDirect3DResource9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut core::ffi::c_void, flags: u32) -> windows_core::Result<()>;
     fn Unlock(&self) -> windows_core::Result<()>;
-    fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DVERTEXBUFFER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DVertexBuffer9_Vtbl {
     pub const fn new<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8186,7 +9735,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
                 IDirect3DVertexBuffer9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVertexBuffer9_Impl::GetType(this)
@@ -8204,7 +9753,7 @@ impl IDirect3DVertexBuffer9_Vtbl {
                 IDirect3DVertexBuffer9_Impl::Unlock(this).into()
             }
         }
-        unsafe extern "system" fn GetDesc<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut super::d3d9types::D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDesc<Identity: IDirect3DVertexBuffer9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3DVERTEXBUFFER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVertexBuffer9_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
@@ -8232,7 +9781,6 @@ impl IDirect3DVertexBuffer9_Vtbl {
         iid == &<IDirect3DVertexBuffer9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DVertexBuffer9 {}
 windows_core::imp::define_interface!(IDirect3DVertexDeclaration9, IDirect3DVertexDeclaration9_Vtbl, 0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
 windows_core::imp::interface_hierarchy!(IDirect3DVertexDeclaration9, windows_core::IUnknown);
@@ -8252,8 +9800,7 @@ impl IDirect3DVertexDeclaration9 {
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDeclaration(&self, pelement: *mut super::d3d9types::D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::HRESULT {
+    pub unsafe fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeclaration)(windows_core::Interface::as_raw(self), pelement as _, pnumelements as _) }
     }
 }
@@ -8265,20 +9812,15 @@ pub struct IDirect3DVertexDeclaration9_Vtbl {
     pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DVERTEXELEMENT9, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDeclaration: usize,
+    pub GetDeclaration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVERTEXELEMENT9, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DVertexDeclaration9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
     fn Release(&self) -> u32;
     fn GetDevice(&self) -> windows_core::Result<IDirect3DDevice9>;
-    fn GetDeclaration(&self, pelement: *mut super::d3d9types::D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::Result<()>;
+    fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DVertexDeclaration9_Vtbl {
     pub const fn new<Identity: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8311,7 +9853,7 @@ impl IDirect3DVertexDeclaration9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn GetDeclaration<Identity: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut super::d3d9types::D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeclaration<Identity: IDirect3DVertexDeclaration9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVertexDeclaration9_Impl::GetDeclaration(this, core::mem::transmute_copy(&pelement), core::mem::transmute_copy(&pnumelements)).into()
@@ -8330,7 +9872,6 @@ impl IDirect3DVertexDeclaration9_Vtbl {
         iid == &<IDirect3DVertexDeclaration9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DVertexDeclaration9 {}
 windows_core::imp::define_interface!(IDirect3DVertexShader9, IDirect3DVertexShader9_Vtbl, 0xefc5557e_6265_4613_8a94_43857889eb36);
 windows_core::imp::interface_hierarchy!(IDirect3DVertexShader9, windows_core::IUnknown);
@@ -8453,12 +9994,10 @@ impl IDirect3DVolume9 {
     pub unsafe fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetContainer)(windows_core::Interface::as_raw(self), riid, ppcontainer as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DVOLUME_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn LockBox(&self, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::HRESULT {
+    pub unsafe fn LockBox(&self, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockBox)(windows_core::Interface::as_raw(self), plockedvolume as _, pbox, flags) }
     }
     pub unsafe fn UnlockBox(&self) -> windows_core::HRESULT {
@@ -8477,17 +10016,10 @@ pub struct IDirect3DVolume9_Vtbl {
     pub GetPrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub FreePrivateData: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
     pub GetContainer: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetDesc: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub LockBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3d9types::D3DLOCKED_BOX, *const super::d3d9types::D3DBOX, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    LockBox: usize,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DVOLUME_DESC) -> windows_core::HRESULT,
+    pub LockBox: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3DLOCKED_BOX, *const D3DBOX, u32) -> windows_core::HRESULT,
     pub UnlockBox: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DVolume9_Impl: windows_core::IUnknownImpl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -8497,11 +10029,10 @@ pub trait IDirect3DVolume9_Impl: windows_core::IUnknownImpl {
     fn GetPrivateData(&self, refguid: *const windows_core::GUID, pdata: *mut core::ffi::c_void, psizeofdata: *mut u32) -> windows_core::Result<()>;
     fn FreePrivateData(&self, refguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetContainer(&self, riid: *const windows_core::GUID, ppcontainer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDesc(&self, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::Result<()>;
-    fn LockBox(&self, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3DVOLUME_DESC) -> windows_core::Result<()>;
+    fn LockBox(&self, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::Result<()>;
     fn UnlockBox(&self) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DVolume9_Vtbl {
     pub const fn new<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8558,13 +10089,13 @@ impl IDirect3DVolume9_Vtbl {
                 IDirect3DVolume9_Impl::GetContainer(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppcontainer)).into()
             }
         }
-        unsafe extern "system" fn GetDesc<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDesc<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3DVOLUME_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolume9_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
             }
         }
-        unsafe extern "system" fn LockBox<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockBox<Identity: IDirect3DVolume9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolume9_Impl::LockBox(this, core::mem::transmute_copy(&plockedvolume), core::mem::transmute_copy(&pbox), core::mem::transmute_copy(&flags)).into()
@@ -8595,7 +10126,6 @@ impl IDirect3DVolume9_Vtbl {
         iid == &<IDirect3DVolume9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DVolume9 {}
 windows_core::imp::define_interface!(IDirect3DVolumeTexture9, IDirect3DVolumeTexture9_Vtbl, 0x2518526c_e789_4111_a7b9_47ef328d13e6);
 impl core::ops::Deref for IDirect3DVolumeTexture9 {
@@ -8641,8 +10171,7 @@ impl IDirect3DVolumeTexture9 {
             (windows_core::Interface::vtable(self).PreLoad)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE {
+    pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
@@ -8654,12 +10183,10 @@ impl IDirect3DVolumeTexture9 {
     pub unsafe fn GetLevelCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetLevelCount)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAutoGenFilterType)(windows_core::Interface::as_raw(self), filtertype) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
         unsafe { (windows_core::Interface::vtable(self).GetAutoGenFilterType)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GenerateMipSubLevels(&self) {
@@ -8667,8 +10194,7 @@ impl IDirect3DVolumeTexture9 {
             (windows_core::Interface::vtable(self).GenerateMipSubLevels)(windows_core::Interface::as_raw(self));
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT {
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetLevelDesc)(windows_core::Interface::as_raw(self), level, pdesc as _) }
     }
     pub unsafe fn GetVolumeLevel(&self, level: u32) -> windows_core::Result<IDirect3DVolume9> {
@@ -8677,15 +10203,13 @@ impl IDirect3DVolumeTexture9 {
             (windows_core::Interface::vtable(self).GetVolumeLevel)(windows_core::Interface::as_raw(self), level, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::HRESULT {
+    pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).LockBox)(windows_core::Interface::as_raw(self), level, plockedvolume as _, pbox, flags) }
     }
     pub unsafe fn UnlockBox(&self, level: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnlockBox)(windows_core::Interface::as_raw(self), level) }
     }
-    #[cfg(feature = "Win32_d3d9types")]
-    pub unsafe fn AddDirtyBox(&self, pdirtybox: *const super::d3d9types::D3DBOX) -> windows_core::HRESULT {
+    pub unsafe fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AddDirtyBox)(windows_core::Interface::as_raw(self), pdirtybox) }
     }
 }
@@ -8703,38 +10227,19 @@ pub struct IDirect3DVolumeTexture9_Vtbl {
     pub SetPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetPriority: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub PreLoad: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetType: usize,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DRESOURCETYPE,
     pub SetLOD: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
     pub GetLOD: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetLevelCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    SetAutoGenFilterType: usize,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetAutoGenFilterType: usize,
+    pub SetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void, D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT,
+    pub GetAutoGenFilterType: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE,
     pub GenerateMipSubLevels: unsafe extern "system" fn(*mut core::ffi::c_void),
-    #[cfg(feature = "Win32_d3d9types")]
-    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    GetLevelDesc: usize,
+    pub GetLevelDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DVOLUME_DESC) -> windows_core::HRESULT,
     pub GetVolumeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub LockBox: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut super::d3d9types::D3DLOCKED_BOX, *const super::d3d9types::D3DBOX, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    LockBox: usize,
+    pub LockBox: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3DLOCKED_BOX, *const D3DBOX, u32) -> windows_core::HRESULT,
     pub UnlockBox: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_d3d9types")]
-    pub AddDirtyBox: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::d3d9types::D3DBOX) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_d3d9types"))]
-    AddDirtyBox: usize,
+    pub AddDirtyBox: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3DBOX) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_d3d9types")]
 pub trait IDirect3DVolumeTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn AddRef(&self) -> u32;
@@ -8746,20 +10251,19 @@ pub trait IDirect3DVolumeTexture9_Impl: IDirect3DBaseTexture9_Impl {
     fn SetPriority(&self, prioritynew: u32) -> u32;
     fn GetPriority(&self) -> u32;
     fn PreLoad(&self);
-    fn GetType(&self) -> super::d3d9types::D3DRESOURCETYPE;
+    fn GetType(&self) -> D3DRESOURCETYPE;
     fn SetLOD(&self, lodnew: u32) -> u32;
     fn GetLOD(&self) -> u32;
     fn GetLevelCount(&self) -> u32;
-    fn SetAutoGenFilterType(&self, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
-    fn GetAutoGenFilterType(&self) -> super::d3d9types::D3DTEXTUREFILTERTYPE;
+    fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::Result<()>;
+    fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
     fn GenerateMipSubLevels(&self);
-    fn GetLevelDesc(&self, level: u32, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::Result<()>;
+    fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> windows_core::Result<()>;
     fn GetVolumeLevel(&self, level: u32) -> windows_core::Result<IDirect3DVolume9>;
-    fn LockBox(&self, level: u32, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::Result<()>;
+    fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::Result<()>;
     fn UnlockBox(&self, level: u32) -> windows_core::Result<()>;
-    fn AddDirtyBox(&self, pdirtybox: *const super::d3d9types::D3DBOX) -> windows_core::Result<()>;
+    fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl IDirect3DVolumeTexture9_Vtbl {
     pub const fn new<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn QueryInterface<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8828,7 +10332,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
                 IDirect3DVolumeTexture9_Impl::PreLoad(this);
             }
         }
-        unsafe extern "system" fn GetType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DRESOURCETYPE {
+        unsafe extern "system" fn GetType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DRESOURCETYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::GetType(this)
@@ -8852,13 +10356,13 @@ impl IDirect3DVolumeTexture9_Vtbl {
                 IDirect3DVolumeTexture9_Impl::GetLevelCount(this)
             }
         }
-        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: super::d3d9types::D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAutoGenFilterType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, filtertype: D3DTEXTUREFILTERTYPE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::SetAutoGenFilterType(this, core::mem::transmute_copy(&filtertype)).into()
             }
         }
-        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3d9types::D3DTEXTUREFILTERTYPE {
+        unsafe extern "system" fn GetAutoGenFilterType<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3DTEXTUREFILTERTYPE {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::GetAutoGenFilterType(this)
@@ -8870,7 +10374,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
                 IDirect3DVolumeTexture9_Impl::GenerateMipSubLevels(this);
             }
         }
-        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut super::d3d9types::D3DVOLUME_DESC) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetLevelDesc<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, pdesc: *mut D3DVOLUME_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::GetLevelDesc(this, core::mem::transmute_copy(&level), core::mem::transmute_copy(&pdesc)).into()
@@ -8888,7 +10392,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn LockBox<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, plockedvolume: *mut super::d3d9types::D3DLOCKED_BOX, pbox: *const super::d3d9types::D3DBOX, flags: u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn LockBox<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::LockBox(this, core::mem::transmute_copy(&level), core::mem::transmute_copy(&plockedvolume), core::mem::transmute_copy(&pbox), core::mem::transmute_copy(&flags)).into()
@@ -8900,7 +10404,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
                 IDirect3DVolumeTexture9_Impl::UnlockBox(this, core::mem::transmute_copy(&level)).into()
             }
         }
-        unsafe extern "system" fn AddDirtyBox<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirtybox: *const super::d3d9types::D3DBOX) -> windows_core::HRESULT {
+        unsafe extern "system" fn AddDirtyBox<Identity: IDirect3DVolumeTexture9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdirtybox: *const D3DBOX) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirect3DVolumeTexture9_Impl::AddDirtyBox(this, core::mem::transmute_copy(&pdirtybox)).into()
@@ -8936,9 +10440,69 @@ impl IDirect3DVolumeTexture9_Vtbl {
         iid == &<IDirect3DVolumeTexture9 as windows_core::Interface>::IID || iid == &<IDirect3DResource9 as windows_core::Interface>::IID || iid == &<IDirect3DBaseTexture9 as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_d3d9types")]
 impl windows_core::RuntimeName for IDirect3DVolumeTexture9 {}
 pub const IID_HelperName: windows_core::GUID = windows_core::GUID::from_u128(0xe4a36723_fdfe_4b22_b146_3c04c07f4cc8);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPD3DDEVINFO_D3DVERTEXSTATS(pub *mut D3DDEVINFO_D3DVERTEXSTATS);
+impl LPD3DDEVINFO_D3DVERTEXSTATS {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPD3DDEVINFO_D3DVERTEXSTATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPD3DDEVINFO_RESOURCEMANAGER(pub *mut D3DDEVINFO_RESOURCEMANAGER);
+impl LPD3DDEVINFO_RESOURCEMANAGER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPD3DDEVINFO_RESOURCEMANAGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPD3DDEVINFO_VCACHE(pub *mut D3DDEVINFO_VCACHE);
+impl LPD3DDEVINFO_VCACHE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPD3DDEVINFO_VCACHE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPD3DVERTEXELEMENT9(pub *mut D3DVERTEXELEMENT9);
+impl LPD3DVERTEXELEMENT9 {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl Default for LPD3DVERTEXELEMENT9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const MAXD3DDECLLENGTH: u32 = 64;
+pub const MAXD3DDECLMETHOD: u32 = 6;
+pub const MAXD3DDECLTYPE: u32 = 17;
+pub const MAXD3DDECLUSAGE: u32 = 13;
+pub const MAXD3DDECLUSAGEINDEX: u32 = 15;
+pub const MAX_DEVICE_IDENTIFIER_STRING: u32 = 512;
+pub const PROCESSIDTYPE_DWM: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 1;
+pub const PROCESSIDTYPE_HANDLE: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 2;
+pub const PROCESSIDTYPE_UNKNOWN: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE = 0;
 pub const S_NOT_RESIDENT: u32 = 141953141;
 pub const S_PRESENT_MODE_CHANGED: u32 = 141953143;
 pub const S_PRESENT_OCCLUDED: u32 = 141953144;

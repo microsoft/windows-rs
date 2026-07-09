@@ -60,10 +60,10 @@ windows_link::link!("ole32.dll" "system" fn CoMarshalInterThreadInterfaceInStrea
 windows_link::link!("ole32.dll" "system" fn CoMarshalInterface(pstm : *mut core::ffi::c_void, riid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwdestcontext : u32, pvdestcontext : *const core::ffi::c_void, mshlflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "Win32_objidlbase", feature = "Win32_wtypesbase"))]
 windows_link::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut super::objidlbase::SOLE_AUTHENTICATION_SERVICE) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_rpcdce")]
-windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::rpcdce::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_rpcdce")]
-windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_rpc")]
+windows_link::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::rpc::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_rpc")]
+windows_link::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_sys::core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_objidlbase")]
 windows_link::link!("ole32.dll" "system" fn CoRegisterActivationFilter(pactivationfilter : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoRegisterClassObject(rclsid : *const windows_sys::core::GUID, punk : *mut core::ffi::c_void, dwclscontext : u32, flags : u32, lpdwregister : *mut u32) -> windows_sys::core::HRESULT);
@@ -79,8 +79,8 @@ windows_link::link!("ole32.dll" "system" fn CoRevertToSelf() -> windows_sys::cor
 windows_link::link!("ole32.dll" "system" fn CoRevokeClassObject(dwregister : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-com-l1-1-3.dll" "system" fn CoRevokeDeviceCatalog(cookie : CO_DEVICE_CATALOG_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSetCancelObject(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_wtypesbase"))]
-windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : *const super::wtypesbase::OLECHAR, dwauthnlevel : u32, dwimplevel : u32, pauthinfo : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dwcapabilities : u32) -> windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
+windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : *const super::wtypesbase::OLECHAR, dwauthnlevel : u32, dwimplevel : u32, pauthinfo : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dwcapabilities : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : *mut core::ffi::c_void, ppoldobject : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);

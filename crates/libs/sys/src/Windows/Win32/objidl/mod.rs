@@ -105,27 +105,27 @@ impl Default for FORMATETC {
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for GDI_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union GDI_OBJECT_0 {
     pub hBitmap: super::wtypes::wireHBITMAP,
     pub hPalette: super::wtypes::wireHPALETTE,
     pub hGeneric: super::wtypes::wireHGLOBAL,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for GDI_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -197,7 +197,7 @@ impl Default for RemSNB {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
@@ -205,9 +205,9 @@ pub struct RemSTGMEDIUM {
     pub pData: u32,
     pub pUnkForRelease: u32,
     pub cbData: u32,
-    pub data: [super::rpcndr::byte; 1],
+    pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for RemSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -311,20 +311,20 @@ impl Default for userSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for userSTGMEDIUM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: super::wtypes::wireHMETAFILEPICT,
@@ -335,7 +335,7 @@ pub union userSTGMEDIUM_0_0 {
     pub pstm: *mut super::wtypesbase::BYTE_BLOB,
     pub pstg: *mut super::wtypesbase::BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for userSTGMEDIUM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

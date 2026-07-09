@@ -2434,7 +2434,7 @@ impl windows_core::RuntimeName for IWICD3DTextureSource {}
 windows_core::imp::define_interface!(IWICDdsDecoder, IWICDdsDecoder_Vtbl, 0x409cd537_8532_40cb_9774_e2feb2df4e9c);
 windows_core::imp::interface_hierarchy!(IWICDdsDecoder, windows_core::IUnknown);
 impl IWICDdsDecoder {
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), pparameters as _) }
     }
@@ -2449,18 +2449,18 @@ impl IWICDdsDecoder {
 #[doc(hidden)]
 pub struct IWICDdsDecoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetParameters: usize,
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IWICDdsDecoder_Impl: windows_core::IUnknownImpl {
     fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::Result<()>;
     fn GetFrame(&self, arrayindex: u32, miplevel: u32, sliceindex: u32) -> windows_core::Result<IWICBitmapFrameDecode>;
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl IWICDdsDecoder_Vtbl {
     pub const fn new<Identity: IWICDdsDecoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetParameters<Identity: IWICDdsDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
@@ -2491,16 +2491,16 @@ impl IWICDdsDecoder_Vtbl {
         iid == &<IWICDdsDecoder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IWICDdsDecoder {}
 windows_core::imp::define_interface!(IWICDdsEncoder, IWICDdsEncoder_Vtbl, 0x5cacdb4c_407e_41b3_b936_d0f010cd6732);
 windows_core::imp::interface_hierarchy!(IWICDdsEncoder, windows_core::IUnknown);
 impl IWICDdsEncoder {
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn SetParameters(&self, pparameters: *const WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), pparameters) }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), pparameters as _) }
     }
@@ -2512,23 +2512,23 @@ impl IWICDdsEncoder {
 #[doc(hidden)]
 pub struct IWICDdsEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub SetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     SetParameters: usize,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsParameters) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetParameters: usize,
     pub CreateNewFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IWICDdsEncoder_Impl: windows_core::IUnknownImpl {
     fn SetParameters(&self, pparameters: *const WICDdsParameters) -> windows_core::Result<()>;
     fn GetParameters(&self, pparameters: *mut WICDdsParameters) -> windows_core::Result<()>;
     fn CreateNewFrame(&self, ppiframeencode: windows_core::OutRef<IWICBitmapFrameEncode>, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl IWICDdsEncoder_Vtbl {
     pub const fn new<Identity: IWICDdsEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetParameters<Identity: IWICDdsEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pparameters: *const WICDdsParameters) -> windows_core::HRESULT {
@@ -2560,7 +2560,7 @@ impl IWICDdsEncoder_Vtbl {
         iid == &<IWICDdsEncoder as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IWICDdsEncoder {}
 windows_core::imp::define_interface!(IWICDdsFrameDecode, IWICDdsFrameDecode_Vtbl, 0x3d4c0c61_18a4_41e4_bd80_481a4fc9f464);
 windows_core::imp::interface_hierarchy!(IWICDdsFrameDecode, windows_core::IUnknown);
@@ -2568,7 +2568,7 @@ impl IWICDdsFrameDecode {
     pub unsafe fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSizeInBlocks)(windows_core::Interface::as_raw(self), pwidthinblocks as _, pheightinblocks as _) }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetFormatInfo(&self) -> windows_core::Result<WICDdsFormatInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2587,19 +2587,19 @@ impl IWICDdsFrameDecode {
 pub struct IWICDdsFrameDecode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetSizeInBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetFormatInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICDdsFormatInfo) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetFormatInfo: usize,
     pub CopyBlocks: unsafe extern "system" fn(*mut core::ffi::c_void, *const WICRect, u32, u32, *mut u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IWICDdsFrameDecode_Impl: windows_core::IUnknownImpl {
     fn GetSizeInBlocks(&self, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::Result<()>;
     fn GetFormatInfo(&self) -> windows_core::Result<WICDdsFormatInfo>;
     fn CopyBlocks(&self, prcboundsinblocks: *const WICRect, cbstride: u32, cbbuffersize: u32) -> windows_core::Result<u8>;
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl IWICDdsFrameDecode_Vtbl {
     pub const fn new<Identity: IWICDdsFrameDecode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetSizeInBlocks<Identity: IWICDdsFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwidthinblocks: *mut u32, pheightinblocks: *mut u32) -> windows_core::HRESULT {
@@ -2643,7 +2643,7 @@ impl IWICDdsFrameDecode_Vtbl {
         iid == &<IWICDdsFrameDecode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IWICDdsFrameDecode {}
 windows_core::imp::define_interface!(IWICDevelopRaw, IWICDevelopRaw_Vtbl, 0xfbec5e44_f7be_4b65_b7f8_c0c81fef026d);
 impl core::ops::Deref for IWICDevelopRaw {
@@ -3666,26 +3666,26 @@ impl windows_core::RuntimeName for IWICFormatConverterInfo {}
 windows_core::imp::define_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x04c75bf8_3ce1_473b_acc5_3cc4f5e94999);
 windows_core::imp::interface_hierarchy!(IWICImageEncoder, windows_core::IUnknown);
 impl IWICImageEncoder {
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub unsafe fn WriteFrame<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::d2d1::ID2D1Image>,
+        P0: windows_core::Param<super::d2d::ID2D1Image>,
         P1: windows_core::Param<IWICBitmapFrameEncode>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteFrame)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters) }
     }
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub unsafe fn WriteFrameThumbnail<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::d2d1::ID2D1Image>,
+        P0: windows_core::Param<super::d2d::ID2D1Image>,
         P1: windows_core::Param<IWICBitmapFrameEncode>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteFrameThumbnail)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters) }
     }
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub unsafe fn WriteThumbnail<P0, P1>(&self, pimage: P0, pencoder: P1, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::d2d1::ID2D1Image>,
+        P0: windows_core::Param<super::d2d::ID2D1Image>,
         P1: windows_core::Param<IWICBitmapEncoder>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteThumbnail)(windows_core::Interface::as_raw(self), pimage.param().abi(), pencoder.param().abi(), pimageparameters) }
@@ -3695,26 +3695,26 @@ impl IWICImageEncoder {
 #[doc(hidden)]
 pub struct IWICImageEncoder_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub WriteFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
     WriteFrame: usize,
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub WriteFrameThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
     WriteFrameThumbnail: usize,
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
     pub WriteThumbnail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const WICImageParameters) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi")))]
     WriteThumbnail: usize,
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 pub trait IWICImageEncoder_Impl: windows_core::IUnknownImpl {
-    fn WriteFrame(&self, pimage: windows_core::Ref<super::d2d1::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
-    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<super::d2d1::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
-    fn WriteThumbnail(&self, pimage: windows_core::Ref<super::d2d1::ID2D1Image>, pencoder: windows_core::Ref<IWICBitmapEncoder>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
+    fn WriteFrame(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
+    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pframeencode: windows_core::Ref<IWICBitmapFrameEncode>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
+    fn WriteThumbnail(&self, pimage: windows_core::Ref<super::d2d::ID2D1Image>, pencoder: windows_core::Ref<IWICBitmapEncoder>, pimageparameters: *const WICImageParameters) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 impl IWICImageEncoder_Vtbl {
     pub const fn new<Identity: IWICImageEncoder_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteFrame<Identity: IWICImageEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pimage: *mut core::ffi::c_void, pframeencode: *mut core::ffi::c_void, pimageparameters: *const WICImageParameters) -> windows_core::HRESULT {
@@ -3746,7 +3746,7 @@ impl IWICImageEncoder_Vtbl {
         iid == &<IWICImageEncoder as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 impl windows_core::RuntimeName for IWICImageEncoder {}
 windows_core::imp::define_interface!(IWICImagingFactory, IWICImagingFactory_Vtbl, 0xec5ec8a9_c395_4314_9c77_54d7a935ff70);
 windows_core::imp::interface_hierarchy!(IWICImagingFactory, windows_core::IUnknown);
@@ -4348,10 +4348,10 @@ impl core::ops::Deref for IWICImagingFactory2 {
 }
 windows_core::imp::interface_hierarchy!(IWICImagingFactory2, windows_core::IUnknown, IWICImagingFactory);
 impl IWICImagingFactory2 {
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1"))]
+    #[cfg(feature = "Win32_d2d")]
     pub unsafe fn CreateImageEncoder<P0>(&self, pd2ddevice: P0) -> windows_core::Result<IWICImageEncoder>
     where
-        P0: windows_core::Param<super::d2d1_1::ID2D1Device>,
+        P0: windows_core::Param<super::d2d::ID2D1Device>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4363,16 +4363,16 @@ impl IWICImagingFactory2 {
 #[doc(hidden)]
 pub struct IWICImagingFactory2_Vtbl {
     pub base__: IWICImagingFactory_Vtbl,
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1"))]
+    #[cfg(feature = "Win32_d2d")]
     pub CreateImageEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1")))]
+    #[cfg(not(feature = "Win32_d2d"))]
     CreateImageEncoder: usize,
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 pub trait IWICImagingFactory2_Impl: IWICImagingFactory_Impl {
-    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<super::d2d1_1::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
+    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<super::d2d::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 impl IWICImagingFactory2_Vtbl {
     pub const fn new<Identity: IWICImagingFactory2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateImageEncoder<Identity: IWICImagingFactory2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pd2ddevice: *mut core::ffi::c_void, ppwicimageencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4393,7 +4393,7 @@ impl IWICImagingFactory2_Vtbl {
         iid == &<IWICImagingFactory2 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for IWICImagingFactory2 {}
 windows_core::imp::define_interface!(IWICImagingFactory3, IWICImagingFactory3_Vtbl, 0x489b3d8b_624a_4258_b678_7eece70f299d);
 impl core::ops::Deref for IWICImagingFactory3 {
@@ -4417,11 +4417,11 @@ pub struct IWICImagingFactory3_Vtbl {
     pub base__: IWICImagingFactory2_Vtbl,
     pub CreateBitmapToneMapper: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 pub trait IWICImagingFactory3_Impl: IWICImagingFactory2_Impl {
     fn CreateBitmapToneMapper(&self) -> windows_core::Result<IWICBitmapToneMapper>;
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 impl IWICImagingFactory3_Vtbl {
     pub const fn new<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateBitmapToneMapper<Identity: IWICImagingFactory3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pptonemapper: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -4442,7 +4442,7 @@ impl IWICImagingFactory3_Vtbl {
         iid == &<IWICImagingFactory3 as windows_core::Interface>::IID || iid == &<IWICImagingFactory as windows_core::Interface>::IID || iid == &<IWICImagingFactory2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_d2d1_1", feature = "Win32_objidlbase", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_objidlbase", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for IWICImagingFactory3 {}
 windows_core::imp::define_interface!(IWICJpegFrameDecode, IWICJpegFrameDecode_Vtbl, 0x8939f66e_c46a_4c21_a9d1_98b327ce1679);
 windows_core::imp::interface_hierarchy!(IWICJpegFrameDecode, windows_core::IUnknown);
@@ -4459,16 +4459,16 @@ impl IWICJpegFrameDecode {
     pub unsafe fn ClearIndexing(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ClearIndexing)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQuantizationTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable as _) }
     }
     pub unsafe fn GetFrameHeader(&self, pframeheader: *mut WICJpegFrameHeader) -> windows_core::HRESULT {
@@ -4491,37 +4491,37 @@ pub struct IWICJpegFrameDecode_Vtbl {
     pub DoesSupportIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
     pub SetIndexing: unsafe extern "system" fn(*mut core::ffi::c_void, WICJpegIndexingOptions, u32) -> windows_core::HRESULT,
     pub ClearIndexing: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetAcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetDcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetQuantizationTable: usize,
     pub GetFrameHeader: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WICJpegFrameHeader) -> windows_core::HRESULT,
     pub GetScanHeader: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut WICJpegScanHeader) -> windows_core::HRESULT,
     pub CopyScan: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
     pub CopyMinimalStream: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut u8, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IWICJpegFrameDecode_Impl: windows_core::IUnknownImpl {
     fn DoesSupportIndexing(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalintervalsize: u32) -> windows_core::Result<()>;
     fn ClearIndexing(&self) -> windows_core::Result<()>;
-    fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
-    fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::Result<()>;
-    fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::Result<()>;
+    fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
+    fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::Result<()>;
+    fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::Result<()>;
     fn GetFrameHeader(&self, pframeheader: *mut WICJpegFrameHeader) -> windows_core::Result<()>;
     fn GetScanHeader(&self, scanindex: u32, pscanheader: *mut WICJpegScanHeader) -> windows_core::Result<()>;
     fn CopyScan(&self, scanindex: u32, scanoffset: u32, cbscandata: u32, pbscandata: *mut u8, pcbscandataactual: *mut u32) -> windows_core::Result<()>;
     fn CopyMinimalStream(&self, streamoffset: u32, cbstreamdata: u32, pbstreamdata: *mut u8, pcbstreamdataactual: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 impl IWICJpegFrameDecode_Vtbl {
     pub const fn new<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DoesSupportIndexing<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfindexingsupported: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -4548,19 +4548,19 @@ impl IWICJpegFrameDecode_Vtbl {
                 IWICJpegFrameDecode_Impl::ClearIndexing(this).into()
             }
         }
-        unsafe extern "system" fn GetAcHuffmanTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAcHuffmanTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameDecode_Impl::GetAcHuffmanTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pachuffmantable)).into()
             }
         }
-        unsafe extern "system" fn GetDcHuffmanTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDcHuffmanTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameDecode_Impl::GetDcHuffmanTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pdchuffmantable)).into()
             }
         }
-        unsafe extern "system" fn GetQuantizationTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetQuantizationTable<Identity: IWICJpegFrameDecode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameDecode_Impl::GetQuantizationTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pquantizationtable)).into()
@@ -4608,21 +4608,21 @@ impl IWICJpegFrameDecode_Vtbl {
         iid == &<IWICJpegFrameDecode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IWICJpegFrameDecode {}
 windows_core::imp::define_interface!(IWICJpegFrameEncode, IWICJpegFrameEncode_Vtbl, 0x2f0c601f_d2c6_468c_abfa_49495d983ed1);
 windows_core::imp::interface_hierarchy!(IWICJpegFrameEncode, windows_core::IUnknown);
 impl IWICJpegFrameEncode {
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pachuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDcHuffmanTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pdchuffmantable as _) }
     }
-    #[cfg(feature = "Win32_dxgitype")]
-    pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetQuantizationTable)(windows_core::Interface::as_raw(self), scanindex, tableindex, pquantizationtable as _) }
     }
     pub unsafe fn WriteScan(&self, cbscandata: u32, pbscandata: *const u8) -> windows_core::HRESULT {
@@ -4633,43 +4633,43 @@ impl IWICJpegFrameEncode {
 #[doc(hidden)]
 pub struct IWICJpegFrameEncode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetAcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetAcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetDcHuffmanTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetDcHuffmanTable: usize,
-    #[cfg(feature = "Win32_dxgitype")]
-    pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_dxgitype"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetQuantizationTable: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetQuantizationTable: usize,
     pub WriteScan: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8) -> windows_core::HRESULT,
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 pub trait IWICJpegFrameEncode_Impl: windows_core::IUnknownImpl {
-    fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
-    fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::Result<()>;
-    fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::Result<()>;
+    fn GetAcHuffmanTable(&self, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::Result<()>;
+    fn GetDcHuffmanTable(&self, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::Result<()>;
+    fn GetQuantizationTable(&self, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::Result<()>;
     fn WriteScan(&self, cbscandata: u32, pbscandata: *const u8) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 impl IWICJpegFrameEncode_Vtbl {
     pub const fn new<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetAcHuffmanTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgitype::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetAcHuffmanTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pachuffmantable: *mut super::dxgi::DXGI_JPEG_AC_HUFFMAN_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameEncode_Impl::GetAcHuffmanTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pachuffmantable)).into()
             }
         }
-        unsafe extern "system" fn GetDcHuffmanTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgitype::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDcHuffmanTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pdchuffmantable: *mut super::dxgi::DXGI_JPEG_DC_HUFFMAN_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameEncode_Impl::GetDcHuffmanTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pdchuffmantable)).into()
             }
         }
-        unsafe extern "system" fn GetQuantizationTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgitype::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetQuantizationTable<Identity: IWICJpegFrameEncode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, scanindex: u32, tableindex: u32, pquantizationtable: *mut super::dxgi::DXGI_JPEG_QUANTIZATION_TABLE) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWICJpegFrameEncode_Impl::GetQuantizationTable(this, core::mem::transmute_copy(&scanindex), core::mem::transmute_copy(&tableindex), core::mem::transmute_copy(&pquantizationtable)).into()
@@ -4693,7 +4693,7 @@ impl IWICJpegFrameEncode_Vtbl {
         iid == &<IWICJpegFrameEncode as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_dxgitype")]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for IWICJpegFrameEncode {}
 windows_core::imp::define_interface!(IWICMetadataQueryReader, IWICMetadataQueryReader_Vtbl, 0x30989668_e1c9_4597_b395_458eedb808df);
 windows_core::imp::interface_hierarchy!(IWICMetadataQueryReader, windows_core::IUnknown);
@@ -5785,16 +5785,16 @@ pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1;
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICDdsFormatInfo {
-    pub DxgiFormat: super::dxgiformat::DXGI_FORMAT,
+    pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub BytesPerBlock: u32,
     pub BlockWidth: u32,
     pub BlockHeight: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICDdsParameters {
     pub Width: u32,
@@ -5802,7 +5802,7 @@ pub struct WICDdsParameters {
     pub Depth: u32,
     pub MipLevels: u32,
     pub ArraySize: u32,
-    pub DxgiFormat: super::dxgiformat::DXGI_FORMAT,
+    pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub Dimension: WICDdsDimension,
     pub AlphaMode: WICDdsAlphaMode,
 }
@@ -5875,7 +5875,7 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WICImageParameters {
     pub PixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,

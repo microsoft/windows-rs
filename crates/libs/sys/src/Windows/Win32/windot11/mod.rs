@@ -38,7 +38,7 @@ impl Default for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -47,7 +47,7 @@ pub struct DOT11_AP_JOIN_REQUEST {
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -63,9 +63,9 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub uBeaconSize: u32,
     pub uIHVDataOffset: u32,
     pub uIHVDataSize: u32,
-    pub AuthAlgo: super::wlantypes::DOT11_AUTH_ALGORITHM,
-    pub UnicastCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
-    pub MulticastCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub AuthAlgo: super::wlan::DOT11_AUTH_ALGORITHM,
+    pub UnicastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub uActivePhyListOffset: u32,
     pub uActivePhyListSize: u32,
     pub bFourAddressSupported: bool,
@@ -74,10 +74,10 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub DSInfo: DOT11_DS_INFO,
     pub uEncapTableOffset: u32,
     pub uEncapTableSize: u32,
-    pub MulticastMgmtCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub MulticastMgmtCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub uAssocComebackTime: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -140,16 +140,16 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
 }
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
-    pub SSID: super::wlantypes::DOT11_SSID,
+    pub SSID: super::wlan::DOT11_SSID,
     pub uIHVDataOffset: u32,
     pub uIHVDataSize: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_ASSOCIATION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -188,15 +188,15 @@ pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0;
 pub const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
 pub const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
-    pub AlgorithmIds: [super::wlantypes::DOT11_AUTH_ALGORITHM; 1],
+    pub AlgorithmIds: [super::wlan::DOT11_AUTH_ALGORITHM; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_AUTH_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -205,15 +205,15 @@ impl Default for DOT11_AUTH_ALGORITHM_LIST {
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1;
 pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
-    pub AuthCipherPairs: [super::wlantypes::DOT11_AUTH_CIPHER_PAIR; 1],
+    pub AuthCipherPairs: [super::wlan::DOT11_AUTH_CIPHER_PAIR; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -281,32 +281,32 @@ impl Default for DOT11_BSSID_LIST {
 }
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_BSS_DESCRIPTION {
     pub uReserved: u32,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
-    pub dot11BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub usBeaconPeriod: u16,
     pub ullTimestamp: u64,
     pub usCapabilityInformation: u16,
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_BSS_DESCRIPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
-    pub dot11BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub lRSSI: i32,
     pub uLinkQuality: u32,
     pub bInRegDomain: bool,
@@ -317,7 +317,7 @@ pub struct DOT11_BSS_ENTRY {
     pub uBufferLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_BSS_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -389,15 +389,15 @@ pub struct DOT11_CHANNEL_HINT {
     pub uChannelNumber: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
-    pub AlgorithmIds: [super::wlantypes::DOT11_CIPHER_ALGORITHM; 1],
+    pub AlgorithmIds: [super::wlan::DOT11_CIPHER_ALGORITHM; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_CIPHER_ALGORITHM_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -405,19 +405,19 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uKeyIndex: u32,
-    pub AlgorithmId: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub AlgorithmId: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub MacAddr: DOT11_MAC_ADDRESS,
     pub bDelete: bool,
     pub bStatic: bool,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -425,18 +425,18 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 }
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
-    pub AlgorithmId: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub AlgorithmId: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub Direction: DOT11_DIRECTION,
     pub bDelete: bool,
     pub bStatic: bool,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -454,15 +454,15 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
 }
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
-    pub BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub BSSType: super::wlan::DOT11_BSS_TYPE,
     pub AdhocBSSID: DOT11_MAC_ADDRESS,
-    pub AdhocSSID: super::wlantypes::DOT11_SSID,
+    pub AdhocSSID: super::wlan::DOT11_SSID,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_CONNECTION_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -689,7 +689,7 @@ pub const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2;
 pub const DOT11_EXEMPT_UNICAST: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -703,11 +703,11 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
-    pub pInfraSupportedUcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pInfraSupportedUcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub uInfraNumSupportedMcastAlgoPairs: u32,
-    pub pInfraSupportedMcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pInfraSupportedMcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_EXTAP_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -721,7 +721,7 @@ pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1;
 pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -741,25 +741,25 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: PDOT11_COUNTRY_OR_REGION_STRING,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
-    pub pInfraSupportedUcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pInfraSupportedUcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub uInfraNumSupportedMcastAlgoPairs: u32,
-    pub pInfraSupportedMcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pInfraSupportedMcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub uAdhocNumSupportedUcastAlgoPairs: u32,
-    pub pAdhocSupportedUcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pAdhocSupportedUcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub uAdhocNumSupportedMcastAlgoPairs: u32,
-    pub pAdhocSupportedMcastAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pAdhocSupportedMcastAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub bAutoPowerSaveMode: bool,
     pub uMaxNetworkOffloadListSize: u32,
     pub bMFPCapable: bool,
     pub uInfraNumSupportedMcastMgmtAlgoPairs: u32,
-    pub pInfraSupportedMcastMgmtAlgoPairs: super::wlantypes::PDOT11_AUTH_CIPHER_PAIR,
+    pub pInfraSupportedMcastMgmtAlgoPairs: super::wlan::PDOT11_AUTH_CIPHER_PAIR,
     pub bNeighborReportSupported: bool,
     pub bAPChannelReportSupported: bool,
     pub bActionFramesSupported: bool,
     pub bANQPQueryOffloadSupported: bool,
     pub bHESSIDConnectionSupported: bool,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_EXTSTA_ATTRIBUTES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -951,7 +951,7 @@ pub struct DOT11_IBSS_PARAMS {
 }
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -964,15 +964,15 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub uAssocReqSize: u32,
     pub uAssocRespOffset: u32,
     pub uAssocRespSize: u32,
-    pub AuthAlgo: super::wlantypes::DOT11_AUTH_ALGORITHM,
-    pub UnicastCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
-    pub MulticastCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub AuthAlgo: super::wlan::DOT11_AUTH_ALGORITHM,
+    pub UnicastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub uActivePhyListOffset: u32,
     pub uActivePhyListSize: u32,
     pub uBeaconOffset: u32,
     pub uBeaconSize: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1092,7 +1092,7 @@ pub struct DOT11_IV48_COUNTER {
     pub usIV16Counter: u16,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
@@ -1448,22 +1448,22 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uMaxAuthKeyMappingLength: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_OFFLOAD_NETWORK {
-    pub Ssid: super::wlantypes::DOT11_SSID,
-    pub UnicastCipher: super::wlantypes::DOT11_CIPHER_ALGORITHM,
-    pub AuthAlgo: super::wlantypes::DOT11_AUTH_ALGORITHM,
+    pub Ssid: super::wlan::DOT11_SSID,
+    pub UnicastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
+    pub AuthAlgo: super::wlan::DOT11_AUTH_ALGORITHM,
     pub Dot11ChannelHints: [DOT11_CHANNEL_HINT; 4],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_OFFLOAD_NETWORK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1474,7 +1474,7 @@ pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub uNumOfEntries: u32,
     pub offloadNetworkList: [DOT11_OFFLOAD_NETWORK; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1535,14 +1535,14 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: DOT11_MAC_ADDRESS,
     pub usCapabilityInformation: u16,
-    pub AuthAlgo: super::wlantypes::DOT11_AUTH_ALGORITHM,
-    pub UnicastCipherAlgo: super::wlantypes::DOT11_CIPHER_ALGORITHM,
-    pub MulticastCipherAlgo: super::wlantypes::DOT11_CIPHER_ALGORITHM,
+    pub AuthAlgo: super::wlan::DOT11_AUTH_ALGORITHM,
+    pub UnicastCipherAlgo: super::wlan::DOT11_CIPHER_ALGORITHM,
+    pub MulticastCipherAlgo: super::wlan::DOT11_CIPHER_ALGORITHM,
     pub bWpsEnabled: bool,
     pub usListenInterval: u16,
     pub ucSupportedRates: [u8; 255],
@@ -1552,14 +1552,14 @@ pub struct DOT11_PEER_INFO {
     pub liAssociationUpTime: i64,
     pub Statistics: DOT11_PEER_STATISTICS,
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_PEER_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -1567,7 +1567,7 @@ pub struct DOT11_PEER_INFO_LIST {
     pub uTotalNumOfEntries: u32,
     pub PeerInfo: [DOT11_PEER_INFO; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_PEER_INFO_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2216,15 +2216,15 @@ pub const DOT11_ROAMING_REASON_BETTER_AP_FOUND: u32 = 11;
 pub const DOT11_ROAMING_REASON_IHV_END: i32 = -1;
 pub const DOT11_ROAMING_REASON_IHV_START: i32 = -2147483648;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub AdhocBSSID: DOT11_MAC_ADDRESS,
-    pub AdhocSSID: super::wlantypes::DOT11_SSID,
+    pub AdhocSSID: super::wlan::DOT11_SSID,
     pub uRoamingReason: DOT11_ASSOC_STATUS,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_ROAMING_START_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2239,12 +2239,12 @@ pub struct DOT11_RSSI_RANGE {
     pub uRSSIMax: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_SCAN_REQUEST {
-    pub dot11BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
-    pub dot11SSID: super::wlantypes::DOT11_SSID,
+    pub dot11SSID: super::wlan::DOT11_SSID,
     pub dot11ScanType: DOT11_SCAN_TYPE,
     pub bRestrictedScan: bool,
     pub bUseRequestIE: bool,
@@ -2256,17 +2256,17 @@ pub struct DOT11_SCAN_REQUEST {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_SCAN_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_SCAN_REQUEST_V2 {
-    pub dot11BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
     pub dot11ScanType: DOT11_SCAN_TYPE,
     pub bRestrictedScan: bool,
@@ -2281,7 +2281,7 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub uIEsLength: u32,
     pub ucBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_SCAN_REQUEST_V2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2289,7 +2289,7 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
 }
 pub type DOT11_SCAN_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2304,7 +2304,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2334,7 +2334,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2352,7 +2352,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2360,7 +2360,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2378,7 +2378,7 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2411,7 +2411,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
@@ -2424,7 +2424,7 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2454,15 +2454,15 @@ pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1;
 pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 12;
 #[repr(C)]
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 #[derive(Clone, Copy)]
 pub struct DOT11_SSID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
-    pub SSIDs: [super::wlantypes::DOT11_SSID; 1],
+    pub SSIDs: [super::wlan::DOT11_SSID; 1],
 }
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 impl Default for DOT11_SSID_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2470,7 +2470,7 @@ impl Default for DOT11_SSID_LIST {
 }
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy, Default)]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
@@ -2881,13 +2881,13 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64;
 pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128;
 pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uPhyId: u32,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
-    pub dot11BSSType: super::wlantypes::DOT11_BSS_TYPE,
+    pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub TransmitterAddress: DOT11_MAC_ADDRESS,
     pub lRSSI: i32,
     pub uLinkQuality: u32,
@@ -2901,7 +2901,7 @@ pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uProbeResponseIEsOffset: u32,
     pub uProbeResponseIEsLength: u32,
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_WFD_DEVICE_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2960,14 +2960,14 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: DOT11_MAC_ADDRESS,
     pub ucBitmask: u8,
-    pub GroupSSID: super::wlantypes::DOT11_SSID,
+    pub GroupSSID: super::wlan::DOT11_SSID,
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3006,13 +3006,13 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2;
 pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 #[derive(Clone, Copy)]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: DOT11_MAC_ADDRESS,
-    pub SSID: super::wlantypes::DOT11_SSID,
+    pub SSID: super::wlan::DOT11_SSID,
 }
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 impl Default for DOT11_WFD_GROUP_ID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3470,21 +3470,21 @@ pub type PDOT11_ADDITIONAL_IE = *mut DOT11_ADDITIONAL_IE;
 #[cfg(all(feature = "Win32_objectheader", feature = "Win32_winnt"))]
 pub type PDOT11_ANQP_QUERY_COMPLETE_PARAMETERS = *mut DOT11_ANQP_QUERY_COMPLETE_PARAMETERS;
 pub type PDOT11_ANQP_QUERY_RESULT = *mut DOT11_ANQP_QUERY_RESULT;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_AP_JOIN_REQUEST = *mut DOT11_AP_JOIN_REQUEST;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_ASSOCIATION_COMPLETION_PARAMETERS = *mut DOT11_ASSOCIATION_COMPLETION_PARAMETERS;
 pub type PDOT11_ASSOCIATION_INFO_EX = *mut DOT11_ASSOCIATION_INFO_EX;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_ASSOCIATION_INFO_LIST = *mut DOT11_ASSOCIATION_INFO_LIST;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_ASSOCIATION_PARAMS = *mut DOT11_ASSOCIATION_PARAMS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_ASSOCIATION_START_PARAMETERS = *mut DOT11_ASSOCIATION_START_PARAMETERS;
 pub type PDOT11_ASSOCIATION_STATE = *mut DOT11_ASSOCIATION_STATE;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_AUTH_ALGORITHM_LIST = *mut DOT11_AUTH_ALGORITHM_LIST;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_AUTH_CIPHER_PAIR_LIST = *mut DOT11_AUTH_CIPHER_PAIR_LIST;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_AVAILABLE_CHANNEL_LIST = *mut DOT11_AVAILABLE_CHANNEL_LIST;
@@ -3494,9 +3494,9 @@ pub type PDOT11_BAND = *mut DOT11_BAND;
 pub type PDOT11_BSSID_CANDIDATE = *mut DOT11_BSSID_CANDIDATE;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_BSSID_LIST = *mut DOT11_BSSID_LIST;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_BSS_DESCRIPTION = *mut DOT11_BSS_DESCRIPTION;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_BSS_ENTRY = *mut DOT11_BSS_ENTRY;
 pub type PDOT11_BSS_ENTRY_PHY_SPECIFIC_INFO = *mut DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO;
 #[cfg(feature = "Win32_objectheader")]
@@ -3504,15 +3504,15 @@ pub type PDOT11_BYTE_ARRAY = *mut DOT11_BYTE_ARRAY;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_CAN_SUSTAIN_AP_PARAMETERS = *mut DOT11_CAN_SUSTAIN_AP_PARAMETERS;
 pub type PDOT11_CHANNEL_HINT = *mut DOT11_CHANNEL_HINT;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_CIPHER_ALGORITHM_LIST = *mut DOT11_CIPHER_ALGORITHM_LIST;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_CIPHER_DEFAULT_KEY_VALUE = *mut DOT11_CIPHER_DEFAULT_KEY_VALUE;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_CIPHER_KEY_MAPPING_KEY_VALUE = *mut DOT11_CIPHER_KEY_MAPPING_KEY_VALUE;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_CONNECTION_COMPLETION_PARAMETERS = *mut DOT11_CONNECTION_COMPLETION_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_CONNECTION_START_PARAMETERS = *mut DOT11_CONNECTION_START_PARAMETERS;
 pub type PDOT11_COUNTERS_ENTRY = *mut DOT11_COUNTERS_ENTRY;
 pub type PDOT11_COUNTRY_OR_REGION_STRING = *mut DOT11_COUNTRY_OR_REGION_STRING;
@@ -3539,13 +3539,13 @@ pub type PDOT11_DIVERSITY_SUPPORT = *mut DOT11_DIVERSITY_SUPPORT;
 pub type PDOT11_DS_INFO = *mut DOT11_DS_INFO;
 pub type PDOT11_ENCAP_ENTRY = *mut DOT11_ENCAP_ENTRY;
 pub type PDOT11_ERP_PHY_ATTRIBUTES = *mut DOT11_ERP_PHY_ATTRIBUTES;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_EXTAP_ATTRIBUTES = *mut DOT11_EXTAP_ATTRIBUTES;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_EXTAP_RECV_CONTEXT = *mut DOT11_EXTSTA_RECV_CONTEXT;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_EXTAP_SEND_CONTEXT = *mut DOT11_EXTSTA_SEND_CONTEXT;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_EXTSTA_ATTRIBUTES = *mut DOT11_EXTSTA_ATTRIBUTES;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_EXTSTA_CAPABILITY = *mut DOT11_EXTSTA_CAPABILITY;
@@ -3567,7 +3567,7 @@ pub type PDOT11_HOP_ALGO_ADOPTED = *mut DOT11_HOP_ALGO_ADOPTED;
 pub type PDOT11_HRDSSS_PHY_ATTRIBUTES = *mut DOT11_HRDSSS_PHY_ATTRIBUTES;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_IBSS_PARAMS = *mut DOT11_IBSS_PARAMS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS = *mut DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_INCOMING_ASSOC_DECISION = *mut DOT11_INCOMING_ASSOC_DECISION;
@@ -3582,7 +3582,7 @@ pub type PDOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITAT
 #[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
 pub type PDOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS = *mut DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS;
 pub type PDOT11_IV48_COUNTER = *mut DOT11_IV48_COUNTER;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_JOIN_REQUEST = *mut DOT11_JOIN_REQUEST;
 pub type PDOT11_KEY_ALGO_BIP = *mut DOT11_KEY_ALGO_BIP;
 pub type PDOT11_KEY_ALGO_BIP_GMAC_256 = *mut DOT11_KEY_ALGO_BIP_GMAC_256;
@@ -3622,18 +3622,18 @@ pub type PDOT11_MULTI_DOMAIN_CAPABILITY_ENTRY = *mut DOT11_MULTI_DOMAIN_CAPABILI
 pub type PDOT11_NIC_SPECIFIC_EXTENSION = *mut DOT11_NIC_SPECIFIC_EXTENSION;
 pub type PDOT11_OFDM_PHY_ATTRIBUTES = *mut DOT11_OFDM_PHY_ATTRIBUTES;
 pub type PDOT11_OFFLOAD_CAPABILITY = *mut DOT11_OFFLOAD_CAPABILITY;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_OFFLOAD_NETWORK = *mut DOT11_OFFLOAD_NETWORK;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_OFFLOAD_NETWORK_LIST_INFO = *mut DOT11_OFFLOAD_NETWORK_LIST_INFO;
 #[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
 pub type PDOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS = *mut DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS;
 pub type PDOT11_OFFLOAD_TYPE = *mut DOT11_OFFLOAD_TYPE;
 pub type PDOT11_OPERATION_MODE_CAPABILITY = *mut DOT11_OPERATION_MODE_CAPABILITY;
 pub type PDOT11_OPTIONAL_CAPABILITY = *mut DOT11_OPTIONAL_CAPABILITY;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_PEER_INFO = *mut DOT11_PEER_INFO;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_PEER_INFO_LIST = *mut DOT11_PEER_INFO_LIST;
 pub type PDOT11_PEER_STATISTICS = *mut DOT11_PEER_STATISTICS;
 pub type PDOT11_PER_MSDU_COUNTERS = *mut DOT11_PER_MSDU_COUNTERS;
@@ -3701,31 +3701,31 @@ pub type PDOT11_RESET_REQUEST = *mut DOT11_RESET_REQUEST;
 pub type PDOT11_RESET_TYPE = *mut DOT11_RESET_TYPE;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_ROAMING_COMPLETION_PARAMETERS = *mut DOT11_ROAMING_COMPLETION_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_ROAMING_START_PARAMETERS = *mut DOT11_ROAMING_START_PARAMETERS;
 pub type PDOT11_RSSI_RANGE = *mut DOT11_RSSI_RANGE;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_SCAN_REQUEST = *mut DOT11_SCAN_REQUEST;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_SCAN_REQUEST_V2 = *mut DOT11_SCAN_REQUEST_V2;
 pub type PDOT11_SCAN_TYPE = *mut DOT11_SCAN_TYPE;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_SEND_INVITATION_REQUEST_PARAMETERS = *mut DOT11_SEND_INVITATION_REQUEST_PARAMETERS;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_SEND_INVITATION_RESPONSE_PARAMETERS = *mut DOT11_SEND_INVITATION_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS = *mut DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS;
-#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlantypes"))]
+#[cfg(all(feature = "Win32_objectheader", feature = "Win32_wlan"))]
 pub type PDOT11_SSID_LIST = *mut DOT11_SSID_LIST;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_START_REQUEST = *mut DOT11_START_REQUEST;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_STATISTICS = *mut DOT11_STATISTICS;
@@ -3772,7 +3772,7 @@ pub type PDOT11_WFD_CHANNEL = *mut DOT11_WFD_CHANNEL;
 pub type PDOT11_WFD_CONFIGURATION_TIMEOUT = *mut DOT11_WFD_CONFIGURATION_TIMEOUT;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_WFD_DEVICE_CAPABILITY_CONFIG = *mut DOT11_WFD_DEVICE_CAPABILITY_CONFIG;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_WFD_DEVICE_ENTRY = *mut DOT11_WFD_DEVICE_ENTRY;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_WFD_DEVICE_INFO = *mut DOT11_WFD_DEVICE_INFO;
@@ -3781,13 +3781,13 @@ pub type PDOT11_WFD_DEVICE_LISTEN_CHANNEL = *mut DOT11_WFD_DEVICE_LISTEN_CHANNEL
 pub type PDOT11_WFD_DEVICE_TYPE = *mut DOT11_WFD_DEVICE_TYPE;
 #[cfg(all(feature = "Win32_objectheader", feature = "Win32_types"))]
 pub type PDOT11_WFD_DISCOVER_COMPLETE_PARAMETERS = *mut DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_WFD_DISCOVER_DEVICE_FILTER = *mut DOT11_WFD_DISCOVER_DEVICE_FILTER;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_WFD_DISCOVER_REQUEST = *mut DOT11_WFD_DISCOVER_REQUEST;
 pub type PDOT11_WFD_DISCOVER_TYPE = *mut DOT11_WFD_DISCOVER_TYPE;
 pub type PDOT11_WFD_GO_INTENT = *mut DOT11_WFD_GO_INTENT;
-#[cfg(feature = "Win32_wlantypes")]
+#[cfg(feature = "Win32_wlan")]
 pub type PDOT11_WFD_GROUP_ID = *mut DOT11_WFD_GROUP_ID;
 #[cfg(feature = "Win32_objectheader")]
 pub type PDOT11_WFD_GROUP_JOIN_PARAMETERS = *mut DOT11_WFD_GROUP_JOIN_PARAMETERS;

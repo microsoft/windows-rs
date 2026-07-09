@@ -97,82 +97,82 @@ pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super:
     windows_core::link!("iphlpapi.dll" "system" fn ConvertLengthToIpv4Mask(masklength : u32, mask : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { ConvertLengthToIpv4Mask(masklength, mask as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { CreateAnycastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn CreateFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn CreateFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { CreateFlVirtualInterface(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { CreateIpForwardEntry2(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { CreateIpNetEntry2(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_in6addr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_in6addr", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: Option<*const super::ws2ipdef::SOCKADDR_IN6_LH>, sourceaddresscount: u32, destinationaddresslist: *const super::ws2ipdef::SOCKADDR_IN6_LH, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut super::ws2ipdef::PSOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::ws2ipdef::SOCKADDR_IN6_LH, sourceaddresscount : u32, destinationaddresslist : *const super::ws2ipdef::SOCKADDR_IN6_LH, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut super::ws2ipdef::PSOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> super::bcrypt::NTSTATUS);
+pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: Option<*const super::ws2::SOCKADDR_IN6_LH>, sourceaddresscount: u32, destinationaddresslist: *const super::ws2::SOCKADDR_IN6_LH, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut super::ws2::PSOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::ws2::SOCKADDR_IN6_LH, sourceaddresscount : u32, destinationaddresslist : *const super::ws2::SOCKADDR_IN6_LH, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut super::ws2::PSOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { CreateSortedAddressPairs(sourceaddresslist.unwrap_or(core::mem::zeroed()) as _, sourceaddresscount, destinationaddresslist, destinationaddresscount, addresssortoptions, sortedaddresspairlist as _, sortedaddresspaircount as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn CreateUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { CreateUnicastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { DeleteAnycastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn DeleteFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn DeleteFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { DeleteFlVirtualInterface(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { DeleteIpForwardEntry2(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { DeleteIpNetEntry2(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn DeleteUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { DeleteUnicastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn FlushIpNetTable2(family: super::ws2def::ADDRESS_FAMILY, interfaceindex: super::ifdef::NET_IFINDEX) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn FlushIpNetTable2(family : super::ws2def::ADDRESS_FAMILY, interfaceindex : super::ifdef::NET_IFINDEX) -> super::bcrypt::NTSTATUS);
+pub unsafe fn FlushIpNetTable2(family: super::ws2::ADDRESS_FAMILY, interfaceindex: super::ifdef::NET_IFINDEX) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn FlushIpNetTable2(family : super::ws2::ADDRESS_FAMILY, interfaceindex : super::ifdef::NET_IFINDEX) -> super::bcrypt::NTSTATUS);
     unsafe { FlushIpNetTable2(family, interfaceindex) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn FlushIpPathTable(family: super::ws2def::ADDRESS_FAMILY) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn FlushIpPathTable(family : super::ws2def::ADDRESS_FAMILY) -> super::bcrypt::NTSTATUS);
+pub unsafe fn FlushIpPathTable(family: super::ws2::ADDRESS_FAMILY) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn FlushIpPathTable(family : super::ws2::ADDRESS_FAMILY) -> super::bcrypt::NTSTATUS);
     unsafe { FlushIpPathTable(family) }
 }
 #[inline]
@@ -190,28 +190,28 @@ pub unsafe fn FreeMibTable(memory: *const core::ffi::c_void) {
     windows_core::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const core::ffi::c_void));
     unsafe { FreeMibTable(memory) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetAnycastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetAnycastIpAddressTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetAnycastIpAddressTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetAnycastIpAddressTable(family, table as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetBestInterfaceEx(destinationaddress: *const super::ws2def::SOCKADDR, bestifindex: *mut u32) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(destinationaddress : *const super::ws2def::SOCKADDR, bestifindex : *mut u32) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetBestInterfaceEx(destinationaddress: *const super::ws2::SOCKADDR, bestifindex: *mut u32) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(destinationaddress : *const super::ws2::SOCKADDR, bestifindex : *mut u32) -> super::bcrypt::NTSTATUS);
     unsafe { GetBestInterfaceEx(destinationaddress, bestifindex as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetBestRoute2(interfaceluid: Option<*const super::ifdef::NET_LUID>, interfaceindex: super::ifdef::NET_IFINDEX, sourceaddress: Option<*const super::ws2ipdef::SOCKADDR_INET>, destinationaddress: *const super::ws2ipdef::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::ws2ipdef::SOCKADDR_INET) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::ifdef::NET_LUID, interfaceindex : super::ifdef::NET_IFINDEX, sourceaddress : *const super::ws2ipdef::SOCKADDR_INET, destinationaddress : *const super::ws2ipdef::SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::ws2ipdef::SOCKADDR_INET) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetBestRoute2(interfaceluid: Option<*const super::ifdef::NET_LUID>, interfaceindex: super::ifdef::NET_IFINDEX, sourceaddress: Option<*const super::ws2::SOCKADDR_INET>, destinationaddress: *const super::ws2::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::ws2::SOCKADDR_INET) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::ifdef::NET_LUID, interfaceindex : super::ifdef::NET_IFINDEX, sourceaddress : *const super::ws2::SOCKADDR_INET, destinationaddress : *const super::ws2::SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::ws2::SOCKADDR_INET) -> super::bcrypt::NTSTATUS);
     unsafe { GetBestRoute2(interfaceluid.unwrap_or(core::mem::zeroed()) as _, interfaceindex, sourceaddress.unwrap_or(core::mem::zeroed()) as _, destinationaddress, addresssortoptions, bestroute as _, bestsourceaddress as _) }
 }
 #[cfg(feature = "Win32_ifdef")]
@@ -237,16 +237,16 @@ pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::bcrypt::NTST
     windows_core::link!("iphlpapi.dll" "system" fn GetDnsSettings(settings : *mut DNS_SETTINGS) -> super::bcrypt::NTSTATUS);
     unsafe { GetDnsSettings(settings as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetFlVirtualInterface(row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterface(row : *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetFlVirtualInterface(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetFlVirtualInterfaceTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterfaceTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetFlVirtualInterfaceTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterfaceTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetFlVirtualInterfaceTable(family, table as _) }
 }
 #[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_ntddndis"))]
@@ -291,58 +291,58 @@ pub unsafe fn GetInvertedIfStackTable(table: *mut PMIB_INVERTEDIFSTACK_TABLE) ->
     windows_core::link!("iphlpapi.dll" "system" fn GetInvertedIfStackTable(table : *mut PMIB_INVERTEDIFSTACK_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetInvertedIfStackTable(table as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardEntry2(row : *mut MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpForwardEntry2(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetIpForwardTable2(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_IPFORWARD_TABLE2) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardTable2(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_IPFORWARD_TABLE2) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetIpForwardTable2(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_IPFORWARD_TABLE2) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardTable2(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_IPFORWARD_TABLE2) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpForwardTable2(family, table as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetIpInterfaceTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_IPINTERFACE_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_IPINTERFACE_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetIpInterfaceTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_IPINTERFACE_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_IPINTERFACE_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpInterfaceTable(family, table as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpNetEntry2(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetIpNetTable2(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_IPNET_TABLE2) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetTable2(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_IPNET_TABLE2) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetIpNetTable2(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_IPNET_TABLE2) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetTable2(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_IPNET_TABLE2) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpNetTable2(family, table as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: super::ifdef::NET_IFINDEX, addressfamily: super::ws2def::ADDRESS_FAMILY, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex : super::ifdef::NET_IFINDEX, addressfamily : super::ws2def::ADDRESS_FAMILY, bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: super::ifdef::NET_IFINDEX, addressfamily: super::ws2::ADDRESS_FAMILY, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex : super::ifdef::NET_IFINDEX, addressfamily : super::ws2::ADDRESS_FAMILY, bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetIpPathEntry(row : *mut MIB_IPPATH_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpPathEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetIpPathTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_IPPATH_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_IPPATH_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetIpPathTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_IPPATH_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_IPPATH_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetIpPathTable(family, table as _) }
 }
 #[cfg(all(feature = "Win32_ifdef", feature = "Win32_winnt"))]
@@ -351,16 +351,16 @@ pub unsafe fn GetJobCompartmentId(jobhandle: super::winnt::HANDLE) -> super::ifd
     windows_core::link!("iphlpapi.dll" "system" fn GetJobCompartmentId(jobhandle : super::winnt::HANDLE) -> super::ifdef::NET_IF_COMPARTMENT_ID);
     unsafe { GetJobCompartmentId(jobhandle) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressEntry(row : *mut MIB_MULTICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetMulticastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetMulticastIpAddressTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetMulticastIpAddressTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetMulticastIpAddressTable(family, table as _) }
 }
 #[cfg(all(feature = "Win32_bcrypt", feature = "Win32_nldef"))]
@@ -393,46 +393,46 @@ pub unsafe fn GetTeredoPort(port: *mut u16) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetTeredoPort(port : *mut u16) -> super::bcrypt::NTSTATUS);
     unsafe { GetTeredoPort(port as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { GetUnicastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn GetUnicastIpAddressTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn GetUnicastIpAddressTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::bcrypt::NTSTATUS);
     unsafe { GetUnicastIpAddressTable(family, table as _) }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn InitializeFlVirtualInterfaceEntry(row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) {
     windows_core::link!("iphlpapi.dll" "C" fn InitializeFlVirtualInterfaceEntry(row : *mut MIB_FL_VIRTUAL_INTERFACE_ROW));
     unsafe { InitializeFlVirtualInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn InitializeIpForwardEntry(row: *mut MIB_IPFORWARD_ROW2) {
     windows_core::link!("iphlpapi.dll" "system" fn InitializeIpForwardEntry(row : *mut MIB_IPFORWARD_ROW2));
     unsafe { InitializeIpForwardEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn InitializeIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) {
     windows_core::link!("iphlpapi.dll" "system" fn InitializeIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW));
     unsafe { InitializeIpInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) {
     windows_core::link!("iphlpapi.dll" "system" fn InitializeUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW));
     unsafe { InitializeUnicastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn NotifyIpInterfaceChange(family: super::ws2def::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::ws2def::ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn NotifyIpInterfaceChange(family: super::ws2::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::ws2::ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyIpInterfaceChange(family, callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
 #[cfg(all(feature = "Win32_bcrypt", feature = "Win32_nldef", feature = "Win32_winnt"))]
@@ -441,16 +441,16 @@ pub unsafe fn NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVIT
     windows_core::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyNetworkConnectivityHintChange(callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2(addressfamily: super::ws2def::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::ws2def::ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn NotifyRouteChange2(addressfamily: super::ws2::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::ws2::ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyRouteChange2(addressfamily, callback, callercontext, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::ws2def::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const core::ffi::c_void, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::ws2def::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::ws2::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const core::ffi::c_void, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::ws2::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyStableUnicastIpAddressTable(family, table as _, callercallback, callercontext, notificationhandle as _) }
 }
 #[cfg(all(feature = "Win32_bcrypt", feature = "Win32_winnt"))]
@@ -459,16 +459,16 @@ pub unsafe fn NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, cal
     windows_core::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyTeredoPortChange(callback, callercontext, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange(family: super::ws2def::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::ws2def::ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
+pub unsafe fn NotifyUnicastIpAddressChange(family: super::ws2::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::ws2::ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { NotifyUnicastIpAddressChange(family, callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
-pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: Option<*const super::ws2ipdef::SOCKADDR_INET>) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::ws2ipdef::SOCKADDR_INET) -> super::bcrypt::NTSTATUS);
+pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: Option<*const super::ws2::SOCKADDR_INET>) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::ws2::SOCKADDR_INET) -> super::bcrypt::NTSTATUS);
     unsafe { ResolveIpNetEntry2(row as _, sourceaddress.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef"))]
@@ -489,7 +489,7 @@ pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::bcrypt::NT
     windows_core::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *const DNS_SETTINGS) -> super::bcrypt::NTSTATUS);
     unsafe { SetDnsSettings(settings) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn SetFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::bcrypt::NTSTATUS);
@@ -501,19 +501,19 @@ pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *
     windows_core::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : windows_core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS);
     unsafe { SetInterfaceDnsSettings(core::mem::transmute(interface), settings) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetIpForwardEntry2(route : *const MIB_IPFORWARD_ROW2) -> super::bcrypt::NTSTATUS);
     unsafe { SetIpForwardEntry2(route) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::bcrypt::NTSTATUS);
     unsafe { SetIpInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::bcrypt::NTSTATUS);
@@ -540,7 +540,7 @@ pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: super::ifde
     windows_core::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : super::ifdef::NET_IF_COMPARTMENT_ID) -> super::bcrypt::NTSTATUS);
     unsafe { SetSessionCompartmentId(sessionid, compartmentid) }
 }
-#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_bcrypt", feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::bcrypt::NTSTATUS);
@@ -751,51 +751,51 @@ pub const DnsServerDotProperty: DNS_SERVER_PROPERTY_TYPE = 2;
 pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = 0;
 pub const IF_NAMESIZE: u32 = 256;
 #[repr(C)]
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct IP_ADDRESS_PREFIX {
-    pub Prefix: super::ws2ipdef::SOCKADDR_INET,
+    pub Prefix: super::ws2::SOCKADDR_INET,
     pub PrefixLength: u8,
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for IP_ADDRESS_PREFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_ROW {
-    pub Address: super::ws2ipdef::SOCKADDR_INET,
+    pub Address: super::ws2::SOCKADDR_INET,
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
-    pub ScopeId: super::ws2def::SCOPE_ID,
+    pub ScopeId: super::ws2::SCOPE_ID,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_ANYCASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_ANYCASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_ANYCASTIPADDRESS_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_ANYCASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_FL_VIRTUAL_INTERFACE_ROW {
-    pub Family: super::ws2def::ADDRESS_FAMILY,
+    pub Family: super::ws2::ADDRESS_FAMILY,
     pub IfLuid: super::ifdef::IF_LUID,
     pub VirtualIfId: u32,
     pub CompartmentGuid: windows_core::GUID,
@@ -822,20 +822,20 @@ pub struct MIB_FL_VIRTUAL_INTERFACE_ROW {
     pub OutFlsnpiClientClonedPackets: u64,
     pub OutFlsnpiClientClonedPacketsForNbSplit: u64,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl Default for MIB_FL_VIRTUAL_INTERFACE_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_FL_VIRTUAL_INTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_FL_VIRTUAL_INTERFACE_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl Default for MIB_FL_VIRTUAL_INTERFACE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -956,13 +956,13 @@ impl Default for MIB_INVERTEDIFSTACK_TABLE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_ROW2 {
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
     pub DestinationPrefix: IP_ADDRESS_PREFIX,
-    pub NextHop: super::ws2ipdef::SOCKADDR_INET,
+    pub NextHop: super::ws2::SOCKADDR_INET,
     pub SitePrefixLength: u8,
     pub ValidLifetime: u32,
     pub PreferredLifetime: u32,
@@ -975,30 +975,30 @@ pub struct MIB_IPFORWARD_ROW2 {
     pub Age: u32,
     pub Origin: super::nldef::NL_ROUTE_ORIGIN,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPFORWARD_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPFORWARD_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPFORWARD_ROW2; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPFORWARD_TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_ROW {
-    pub Family: super::ws2def::ADDRESS_FAMILY,
+    pub Family: super::ws2::ADDRESS_FAMILY,
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
     pub MaxReassemblySize: u32,
@@ -1034,30 +1034,30 @@ pub struct MIB_IPINTERFACE_ROW {
     pub ReceiveOffload: super::nldef::NL_INTERFACE_OFFLOAD_ROD,
     pub DisableDefaultRoutes: bool,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPINTERFACE_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPINTERFACE_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPINTERFACE_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPINTERFACE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPNET_ROW2 {
-    pub Address: super::ws2ipdef::SOCKADDR_INET,
+    pub Address: super::ws2::SOCKADDR_INET,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub PhysicalAddress: [u8; 32],
@@ -1066,66 +1066,66 @@ pub struct MIB_IPNET_ROW2 {
     pub Anonymous: MIB_IPNET_ROW2_0,
     pub ReachabilityTime: MIB_IPNET_ROW2_1,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPNET_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPNET_ROW2_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: bool,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPNET_ROW2_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPNET_TABLE2 {
     pub NumEntries: u32,
     pub Table: [MIB_IPNET_ROW2; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_IPNET_TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPPATH_ROW {
-    pub Source: super::ws2ipdef::SOCKADDR_INET,
-    pub Destination: super::ws2ipdef::SOCKADDR_INET,
+    pub Source: super::ws2::SOCKADDR_INET,
+    pub Destination: super::ws2::SOCKADDR_INET,
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
-    pub CurrentNextHop: super::ws2ipdef::SOCKADDR_INET,
+    pub CurrentNextHop: super::ws2::SOCKADDR_INET,
     pub PathMtu: u32,
     pub RttMean: u32,
     pub RttDeviation: u32,
@@ -1134,33 +1134,33 @@ pub struct MIB_IPPATH_ROW {
     pub LinkTransmitSpeed: u64,
     pub LinkReceiveSpeed: u64,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_IPPATH_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_IPPATH_ROW_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_IPPATH_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IPPATH_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_IPPATH_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1174,28 +1174,28 @@ pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub OutboundBandwidthInformation: super::nldef::NL_BANDWIDTH_INFORMATION,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_ROW {
-    pub Address: super::ws2ipdef::SOCKADDR_INET,
+    pub Address: super::ws2::SOCKADDR_INET,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
     pub InterfaceLuid: super::ifdef::NET_LUID,
-    pub ScopeId: super::ws2def::SCOPE_ID,
+    pub ScopeId: super::ws2::SCOPE_ID,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_MULTICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_MULTICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_MULTICASTIPADDRESS_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for MIB_MULTICASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1203,10 +1203,10 @@ impl Default for MIB_MULTICASTIPADDRESS_TABLE {
 }
 pub type MIB_NOTIFICATION_TYPE = i32;
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_ROW {
-    pub Address: super::ws2ipdef::SOCKADDR_INET,
+    pub Address: super::ws2::SOCKADDR_INET,
     pub InterfaceLuid: super::ifdef::NET_LUID,
     pub InterfaceIndex: super::ifdef::NET_IFINDEX,
     pub PrefixOrigin: super::nldef::NL_PREFIX_ORIGIN,
@@ -1216,23 +1216,23 @@ pub struct MIB_UNICASTIPADDRESS_ROW {
     pub OnLinkPrefixLength: u8,
     pub SkipAsSource: bool,
     pub DadState: super::nldef::NL_DAD_STATE,
-    pub ScopeId: super::ws2def::SCOPE_ID,
+    pub ScopeId: super::ws2::SCOPE_ID,
     pub CreationTimeStamp: i64,
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_UNICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[derive(Clone, Copy)]
 pub struct MIB_UNICASTIPADDRESS_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_UNICASTIPADDRESS_ROW; 1],
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for MIB_UNICASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1255,85 +1255,85 @@ pub const NetFlIsolationModeVsid: NET_FL_ISOLATION_MODE = 2;
 pub const NetFlVirtualInterfaceOriginApi: NET_FL_VIRTUAL_INTERFACE_ORIGIN = 1;
 pub const NetFlVirtualInterfaceOriginDefault: NET_FL_VIRTUAL_INTERFACE_ORIGIN = 2;
 pub const NetFlVirtualInterfaceOriginOid: NET_FL_VIRTUAL_INTERFACE_ORIGIN = 0;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPFORWARD_ROW2, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIP_ADDRESS_PREFIX(pub *mut IP_ADDRESS_PREFIX);
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PIP_ADDRESS_PREFIX {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PIP_ADDRESS_PREFIX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_ANYCASTIPADDRESS_ROW(pub *mut MIB_ANYCASTIPADDRESS_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_ANYCASTIPADDRESS_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_ANYCASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_ANYCASTIPADDRESS_TABLE(pub *mut MIB_ANYCASTIPADDRESS_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_ANYCASTIPADDRESS_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_ANYCASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_FL_VIRTUAL_INTERFACE_ROW(pub *mut MIB_FL_VIRTUAL_INTERFACE_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl PMIB_FL_VIRTUAL_INTERFACE_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl Default for PMIB_FL_VIRTUAL_INTERFACE_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_FL_VIRTUAL_INTERFACE_TABLE(pub *mut MIB_FL_VIRTUAL_INTERFACE_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl PMIB_FL_VIRTUAL_INTERFACE_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ws2"))]
 impl Default for PMIB_FL_VIRTUAL_INTERFACE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1461,129 +1461,129 @@ impl Default for PMIB_INVERTEDIFSTACK_TABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPFORWARD_ROW2(pub *mut MIB_IPFORWARD_ROW2);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPFORWARD_ROW2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPFORWARD_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPFORWARD_TABLE2(pub *mut MIB_IPFORWARD_TABLE2);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPFORWARD_TABLE2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPFORWARD_TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPINTERFACE_ROW(pub *mut MIB_IPINTERFACE_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPINTERFACE_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPINTERFACE_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPINTERFACE_TABLE(pub *mut MIB_IPINTERFACE_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPINTERFACE_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPINTERFACE_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNET_ROW2(pub *mut MIB_IPNET_ROW2);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPNET_ROW2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPNET_ROW2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPNET_TABLE2(pub *mut MIB_IPNET_TABLE2);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_IPNET_TABLE2 {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_IPNET_TABLE2 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPPATH_ROW(pub *mut MIB_IPPATH_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_IPPATH_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_IPPATH_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_IPPATH_TABLE(pub *mut MIB_IPPATH_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_IPPATH_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_IPPATH_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1605,33 +1605,33 @@ impl Default for PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_MULTICASTIPADDRESS_ROW(pub *mut MIB_MULTICASTIPADDRESS_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_MULTICASTIPADDRESS_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_MULTICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_MULTICASTIPADDRESS_TABLE(pub *mut MIB_MULTICASTIPADDRESS_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl PMIB_MULTICASTIPADDRESS_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_ws2"))]
 impl Default for PMIB_MULTICASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1650,33 +1650,33 @@ impl Default for PMIB_NOTIFICATION_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_UNICASTIPADDRESS_ROW(pub *mut MIB_UNICASTIPADDRESS_ROW);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_UNICASTIPADDRESS_ROW {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_UNICASTIPADDRESS_ROW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIB_UNICASTIPADDRESS_TABLE(pub *mut MIB_UNICASTIPADDRESS_TABLE);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl PMIB_UNICASTIPADDRESS_TABLE {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 impl Default for PMIB_UNICASTIPADDRESS_TABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1684,8 +1684,8 @@ impl Default for PMIB_UNICASTIPADDRESS_TABLE {
 }
 #[cfg(feature = "Win32_nldef")]
 pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, connectivityhint: super::nldef::NL_NETWORK_CONNECTIVITY_HINT)>;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 pub type PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, addresstable: *const MIB_UNICASTIPADDRESS_TABLE)>;
 pub type PTEREDO_PORT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, port: u16, notificationtype: MIB_NOTIFICATION_TYPE)>;
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2def", feature = "Win32_ws2ipdef"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_in6addr", feature = "Win32_inaddr", feature = "Win32_nldef", feature = "Win32_ws2"))]
 pub type PUNICAST_IPADDRESS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_UNICASTIPADDRESS_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;

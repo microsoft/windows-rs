@@ -6391,12 +6391,12 @@ pub struct ITransactionLocal_Vtbl {
     pub GetOptionsObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartTransaction: unsafe extern "system" fn(*mut core::ffi::c_void, super::transact::ISOLEVEL, u32, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_transact"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
 pub trait ITransactionLocal_Impl: super::transact::ITransaction_Impl {
     fn GetOptionsObject(&self) -> windows_core::Result<super::transact::ITransactionOptions>;
     fn StartTransaction(&self, isolevel: super::transact::ISOLEVEL, isoflags: u32, potheroptions: windows_core::Ref<super::transact::ITransactionOptions>, pultransactionlevel: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_transact"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
 impl ITransactionLocal_Vtbl {
     pub const fn new<Identity: ITransactionLocal_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetOptionsObject<Identity: ITransactionLocal_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppoptions: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6427,7 +6427,7 @@ impl ITransactionLocal_Vtbl {
         iid == &<ITransactionLocal as windows_core::Interface>::IID || iid == &<super::transact::ITransaction as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_transact"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_transact"))]
 impl windows_core::RuntimeName for ITransactionLocal {}
 windows_core::imp::define_interface!(ITransactionObject, ITransactionObject_Vtbl, 0x0c733a60_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(ITransactionObject, windows_core::IUnknown);

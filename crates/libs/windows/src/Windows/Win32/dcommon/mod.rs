@@ -5,10 +5,10 @@ pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
 pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = 2;
 pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
-    pub format: super::dxgiformat::DXGI_FORMAT,
+    pub format: super::dxgi::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
 }
 #[repr(C)]

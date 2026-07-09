@@ -8,15 +8,15 @@ windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCompileFromFile(pfilenam
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : u32, pshaderdata : *const D3D_SHADER_DATA, uflags : u32, ppcompresseddata : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateBlob(size : usize, ppblob : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateFunctionLinkingGraph(uflags : u32, ppfunctionlinkinggraph : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateLinker(pplinker : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDecompressShaders(psrcdata : *const core::ffi::c_void, srcdatasize : usize, unumshaders : u32, ustartindex : u32, pindices : *const u32, uflags : u32, ppshaders : *mut *mut core::ffi::c_void, ptotalshaders : *mut u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, szcomments : windows_sys::core::PCSTR, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_d3d10effect", feature = "Win32_d3dcommon"))]
+#[cfg(all(feature = "Win32_d3d10", feature = "Win32_d3dcommon"))]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble10Effect(peffect : *mut core::ffi::c_void, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassembleRegion(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, szcomments : windows_sys::core::PCSTR, startbyteoffset : usize, numinsts : usize, pfinishbyteoffset : *mut usize, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
@@ -31,7 +31,7 @@ windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetInputSignatureBlob(ps
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetOutputSignatureBlob(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ppsignatureblob : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> windows_sys::core::HRESULT);
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DLoadModule(psrcdata : *const core::ffi::c_void, cbsrcdatasize : usize, ppmodule : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_d3dcommon")]
 windows_link::link!("d3dcompiler_47.dll" "system" fn D3DPreprocess(psrcdata : *const core::ffi::c_void, srcdatasize : usize, psourcename : windows_sys::core::PCSTR, pdefines : *const super::d3dcommon::D3D_SHADER_MACRO, pinclude : *mut core::ffi::c_void, ppcodetext : *mut *mut core::ffi::c_void, pperrormsgs : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);

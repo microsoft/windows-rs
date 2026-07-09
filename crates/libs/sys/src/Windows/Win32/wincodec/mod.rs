@@ -326,16 +326,16 @@ pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1;
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsFormatInfo {
-    pub DxgiFormat: super::dxgiformat::DXGI_FORMAT,
+    pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub BytesPerBlock: u32,
     pub BlockWidth: u32,
     pub BlockHeight: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Default)]
 pub struct WICDdsParameters {
     pub Width: u32,
@@ -343,7 +343,7 @@ pub struct WICDdsParameters {
     pub Depth: u32,
     pub MipLevels: u32,
     pub ArraySize: u32,
-    pub DxgiFormat: super::dxgiformat::DXGI_FORMAT,
+    pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub Dimension: WICDdsDimension,
     pub AlphaMode: WICDdsAlphaMode,
 }
@@ -416,7 +416,7 @@ pub const WICHeifOrientation: WICHeifProperties = 1;
 pub type WICHeifProperties = i32;
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgiformat"))]
+#[cfg(all(feature = "Win32_dcommon", feature = "Win32_dxgi"))]
 #[derive(Clone, Copy, Default)]
 pub struct WICImageParameters {
     pub PixelFormat: super::dcommon::D2D1_PIXEL_FORMAT,

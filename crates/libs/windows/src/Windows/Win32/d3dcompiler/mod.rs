@@ -52,18 +52,18 @@ pub unsafe fn D3DCreateBlob(size: usize) -> windows_core::Result<super::d3dcommo
         D3DCreateBlob(size, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 #[inline]
-pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> windows_core::Result<super::d3d11shader::ID3D11FunctionLinkingGraph> {
+pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> windows_core::Result<super::d3d11::ID3D11FunctionLinkingGraph> {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCreateFunctionLinkingGraph(uflags : u32, ppfunctionlinkinggraph : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         D3DCreateFunctionLinkingGraph(uflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 #[inline]
-pub unsafe fn D3DCreateLinker() -> windows_core::Result<super::d3d11shader::ID3D11Linker> {
+pub unsafe fn D3DCreateLinker() -> windows_core::Result<super::d3d11::ID3D11Linker> {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCreateLinker(pplinker : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -88,11 +88,11 @@ where
         D3DDisassemble(psrcdata, srcdatasize, flags, szcomments.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
-#[cfg(all(feature = "Win32_d3d10effect", feature = "Win32_d3dcommon"))]
+#[cfg(all(feature = "Win32_d3d10", feature = "Win32_d3dcommon"))]
 #[inline]
 pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: u32) -> windows_core::Result<super::d3dcommon::ID3D10Blob>
 where
-    P0: windows_core::Param<super::d3d10effect::ID3D10Effect>,
+    P0: windows_core::Param<super::d3d10::ID3D10Effect>,
 {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble10Effect(peffect : *mut core::ffi::c_void, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
@@ -159,9 +159,9 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, 
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> windows_core::HRESULT);
     unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptotalinsts.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_d3d11shader")]
+#[cfg(feature = "Win32_d3d11")]
 #[inline]
-pub unsafe fn D3DLoadModule(psrcdata: *const core::ffi::c_void, cbsrcdatasize: usize) -> windows_core::Result<super::d3d11shader::ID3D11Module> {
+pub unsafe fn D3DLoadModule(psrcdata: *const core::ffi::c_void, cbsrcdatasize: usize) -> windows_core::Result<super::d3d11::ID3D11Module> {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DLoadModule(psrcdata : *const core::ffi::c_void, cbsrcdatasize : usize, ppmodule : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();

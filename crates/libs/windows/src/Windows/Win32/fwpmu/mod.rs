@@ -166,10 +166,10 @@ pub unsafe fn FwpmEngineGetSecurityInfo0(enginehandle: super::winnt::HANDLE, sec
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { FwpmEngineGetSecurityInfo0(enginehandle, securityinfo, sidowner as _, sidgroup as _, dacl as _, sacl as _, securitydescriptor as _) }
 }
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn FwpmEngineOpen0(servername: Option<*const u16>, authnservice: u32, authidentity: Option<*const super::rpcdce::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const super::fwpmtypes::FWPM_SESSION0>, enginehandle: *mut super::winnt::HANDLE) -> u32 {
-    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : *const u16, authnservice : u32, authidentity : *const super::rpcdce::SEC_WINNT_AUTH_IDENTITY_W, session : *const super::fwpmtypes::FWPM_SESSION0, enginehandle : *mut super::winnt::HANDLE) -> u32);
+pub unsafe fn FwpmEngineOpen0(servername: Option<*const u16>, authnservice: u32, authidentity: Option<*const super::rpc::SEC_WINNT_AUTH_IDENTITY_W>, session: Option<*const super::fwpmtypes::FWPM_SESSION0>, enginehandle: *mut super::winnt::HANDLE) -> u32 {
+    windows_core::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : *const u16, authnservice : u32, authidentity : *const super::rpc::SEC_WINNT_AUTH_IDENTITY_W, session : *const super::fwpmtypes::FWPM_SESSION0, enginehandle : *mut super::winnt::HANDLE) -> u32);
     unsafe { FwpmEngineOpen0(servername.unwrap_or(core::mem::zeroed()) as _, authnservice, authidentity.unwrap_or(core::mem::zeroed()) as _, session.unwrap_or(core::mem::zeroed()) as _, enginehandle as _) }
 }
 #[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]

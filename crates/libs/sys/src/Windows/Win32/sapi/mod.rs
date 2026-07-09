@@ -823,7 +823,7 @@ pub type SPNOTIFYCALLBACK = Option<unsafe extern "system" fn(wparam: super::minw
 pub type SPPARTOFSPEECH = i32;
 pub type SPPHONEID = u16;
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASE {
     pub Base: SPPHRASE_53,
@@ -853,7 +853,7 @@ impl Default for SPPHRASEELEMENT {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASEPROPERTY {
     pub pszName: windows_sys::core::PCWSTR,
@@ -867,31 +867,31 @@ pub struct SPPHRASEPROPERTY {
     pub SREngineConfidence: f32,
     pub Confidence: i8,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SPPHRASEPROPERTY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SPPHRASEPROPERTY_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy, Default)]
 pub struct SPPHRASEPROPERTY_0_0 {
-    pub bType: super::rpcndr::byte,
-    pub bReserved: super::rpcndr::byte,
+    pub bType: super::rpc::byte,
+    pub bReserved: super::rpc::byte,
     pub usArrayIndex: u16,
 }
 pub type SPPHRASEPROPERTYUNIONTYPE = i32;
@@ -927,7 +927,7 @@ impl Default for SPPHRASERULE {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
@@ -948,21 +948,21 @@ pub struct SPPHRASE_50 {
     pub ulSREnginePrivateDataSize: u32,
     pub pSREnginePrivateData: *const u8,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SPPHRASE_50 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SPPHRASE_53 {
     pub Base: SPPHRASE_50,
     pub pSML: windows_sys::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SPPHRASE_53 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

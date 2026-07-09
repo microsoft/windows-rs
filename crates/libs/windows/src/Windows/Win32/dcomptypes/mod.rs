@@ -66,11 +66,11 @@ pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = 3;
 pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1;
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgicommon")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,
-    pub currentCompositionRate: super::dxgicommon::DXGI_RATIONAL,
+    pub currentCompositionRate: super::dxgi::DXGI_RATIONAL,
     pub currentTime: i64,
     pub timeFrequency: i64,
     pub nextEstimatedFrameTime: i64,

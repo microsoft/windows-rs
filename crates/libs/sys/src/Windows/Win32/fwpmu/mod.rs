@@ -54,8 +54,8 @@ windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineClose0(enginehandle : s
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineGetOption0(enginehandle : super::winnt::HANDLE, option : super::fwpmtypes::FWPM_ENGINE_OPTION, value : *mut *mut super::fwptypes::FWP_VALUE0) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineGetSecurityInfo0(enginehandle : super::winnt::HANDLE, securityinfo : super::winnt::SECURITY_INFORMATION, sidowner : *mut super::winnt::PSID, sidgroup : *mut super::winnt::PSID, dacl : *mut super::winnt::PACL, sacl : *mut super::winnt::PACL, securitydescriptor : *mut super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : *const u16, authnservice : u32, authidentity : *const super::rpcdce::SEC_WINNT_AUTH_IDENTITY_W, session : *const super::fwpmtypes::FWPM_SESSION0, enginehandle : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineOpen0(servername : *const u16, authnservice : u32, authidentity : *const super::rpc::SEC_WINNT_AUTH_IDENTITY_W, session : *const super::fwpmtypes::FWPM_SESSION0, enginehandle : *mut super::winnt::HANDLE) -> u32);
 #[cfg(all(feature = "Win32_fwpmtypes", feature = "Win32_fwptypes", feature = "Win32_winnt"))]
 windows_link::link!("fwpuclnt.dll" "system" fn FwpmEngineSetOption0(enginehandle : super::winnt::HANDLE, option : super::fwpmtypes::FWPM_ENGINE_OPTION, newvalue : *const super::fwptypes::FWP_VALUE0) -> u32);
 #[cfg(feature = "Win32_winnt")]

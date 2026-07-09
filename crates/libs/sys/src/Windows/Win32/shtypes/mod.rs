@@ -147,5 +147,5 @@ pub const STRRET_OFFSET: STRRET_TYPE = 1;
 pub type STRRET_TYPE = i32;
 pub const STRRET_WSTR: STRRET_TYPE = 0;
 pub type TASKOWNERID = windows_sys::core::GUID;
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
 pub type wirePIDL = *mut super::wtypesbase::BYTE_BLOB;

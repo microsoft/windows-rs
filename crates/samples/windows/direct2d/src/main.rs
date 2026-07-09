@@ -1,16 +1,10 @@
 fn main() -> windows::core::Result<()> {
     use windows::Win32::combaseapi::*;
-    use windows::Win32::d2d1::*;
-    use windows::Win32::d2d1_1::*;
-    use windows::Win32::d2d1effects::*;
-    use windows::Win32::d2dbasetypes::*;
+    use windows::Win32::d2d::*;
     use windows::Win32::d3d11::*;
     use windows::Win32::d3dcommon::*;
     use windows::Win32::dcommon::*;
     use windows::Win32::dxgi::*;
-    use windows::Win32::dxgi1_2::*;
-    use windows::Win32::dxgicommon::*;
-    use windows::Win32::dxgiformat::*;
     use windows::Win32::minwindef::*;
     use windows::Win32::objbase::*;
     use windows::Win32::profileapi::*;

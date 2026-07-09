@@ -57,6 +57,7 @@ pub const CLSID_D3D12DeviceFactory: windows_core::GUID = windows_core::GUID::fro
 pub const CLSID_D3D12DeviceRemovedExtendedData: windows_core::GUID = windows_core::GUID::from_u128(0x4a75bbc4_9ff4_4ad8_9f18_abae84dc5ff2);
 pub const CLSID_D3D12SDKConfiguration: windows_core::GUID = windows_core::GUID::from_u128(0x7cda6aca_a03e_49c8_9458_0334d20e07ce);
 pub const CLSID_D3D12Tools: windows_core::GUID = windows_core::GUID::from_u128(0xe38216b1_3c8c_4833_aa09_0a06b65d96c8);
+pub type D3D12MessageFunc = Option<unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: windows_core::PCSTR, pcontext: *mut core::ffi::c_void)>;
 pub const D3D12_16BIT_INDEX_STRIP_CUT_VALUE: u32 = 65535;
 pub const D3D12_32BIT_INDEX_STRIP_CUT_VALUE: u32 = 4294967295;
 pub const D3D12_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255;
@@ -296,6 +297,8 @@ pub type D3D12_BARRIER_TYPE = i32;
 pub const D3D12_BARRIER_TYPE_BUFFER: D3D12_BARRIER_TYPE = 2;
 pub const D3D12_BARRIER_TYPE_GLOBAL: D3D12_BARRIER_TYPE = 0;
 pub const D3D12_BARRIER_TYPE_TEXTURE: D3D12_BARRIER_TYPE = 1;
+pub type D3D12_BITSTREAM_ENCRYPTION_TYPE = i32;
+pub const D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE: D3D12_BITSTREAM_ENCRYPTION_TYPE = 0;
 pub type D3D12_BLEND = i32;
 pub const D3D12_BLEND_ALPHA_FACTOR: D3D12_BLEND = 20;
 pub const D3D12_BLEND_BLEND_FACTOR: D3D12_BLEND = 14;
@@ -402,7 +405,7 @@ pub type D3D12_BUFFER_UAV_FLAGS = u32;
 pub const D3D12_BUFFER_UAV_FLAG_NONE: D3D12_BUFFER_UAV_FLAGS = 0;
 pub const D3D12_BUFFER_UAV_FLAG_RAW: D3D12_BUFFER_UAV_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     pub DestAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
@@ -410,14 +413,14 @@ pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     pub SourceAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
     pub ScratchAccelerationStructureData: D3D12_GPU_VIRTUAL_ADDRESS,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     pub Type: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE,
@@ -426,14 +429,14 @@ pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     pub DescsLayout: D3D12_ELEMENTS_LAYOUT,
     pub Anonymous: D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub InstanceDescs: D3D12_GPU_VIRTUAL_ADDRESS,
@@ -441,7 +444,7 @@ pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub ppGeometryDescs: *const *const D3D12_RAYTRACING_GEOMETRY_DESC,
     pub pOpacityMicromapArrayDesc: *const D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_DESC,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -464,31 +467,35 @@ impl Default for D3D12_CACHED_PIPELINE_STATE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_d3dcommon")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D12_CBUFFER_TYPE(pub super::d3dcommon::D3D_CBUFFER_TYPE);
 pub const D3D12_CENTER_MULTISAMPLE_PATTERN: D3D12_STANDARD_MULTISAMPLE_QUALITY_LEVELS = -2;
 pub type D3D12_CLEAR_FLAGS = u32;
 pub const D3D12_CLEAR_FLAG_DEPTH: D3D12_CLEAR_FLAGS = 1;
 pub const D3D12_CLEAR_FLAG_STENCIL: D3D12_CLEAR_FLAGS = 2;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_CLEAR_VALUE {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub Anonymous: D3D12_CLEAR_VALUE_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_CLEAR_VALUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_CLEAR_VALUE_0 {
     pub Color: [f32; 4],
     pub DepthStencil: D3D12_DEPTH_STENCIL_VALUE,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_CLEAR_VALUE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -732,6 +739,41 @@ pub type D3D12_CULL_MODE = i32;
 pub const D3D12_CULL_MODE_BACK: D3D12_CULL_MODE = 3;
 pub const D3D12_CULL_MODE_FRONT: D3D12_CULL_MODE = 2;
 pub const D3D12_CULL_MODE_NONE: D3D12_CULL_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
+    pub ShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
+}
+pub const D3D12_DEBUG_COMMAND_LIST_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE = 0;
+pub type D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE = i32;
+pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_ALL_BYTECODE: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 2;
+pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_DISABLED: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 0;
+pub type D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = i32;
+pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE_DEFAULT: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 1;
+pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_WHEN_HASH_BYPASSED: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
+    pub MaxMessagesPerCommandList: u32,
+    pub DefaultShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
+    pub PipelineStateCreateFlags: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_DEBUG_DEVICE_GPU_SLOWDOWN_PERFORMANCE_FACTOR {
+    pub SlowdownFactor: f32,
+}
+pub const D3D12_DEBUG_DEVICE_PARAMETER_BYTECODE_VALIDATION_MODE: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = 3;
+pub const D3D12_DEBUG_DEVICE_PARAMETER_FEATURE_FLAGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = 0;
+pub const D3D12_DEBUG_DEVICE_PARAMETER_GPU_BASED_VALIDATION_SETTINGS: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = 1;
+pub const D3D12_DEBUG_DEVICE_PARAMETER_GPU_SLOWDOWN_PERFORMANCE_FACTOR: D3D12_DEBUG_DEVICE_PARAMETER_TYPE = 2;
+pub type D3D12_DEBUG_DEVICE_PARAMETER_TYPE = i32;
+pub type D3D12_DEBUG_FEATURE = u32;
+pub const D3D12_DEBUG_FEATURE_ALLOW_BEHAVIOR_CHANGING_DEBUG_AIDS: D3D12_DEBUG_FEATURE = 1;
+pub const D3D12_DEBUG_FEATURE_CONSERVATIVE_RESOURCE_STATE_TRACKING: D3D12_DEBUG_FEATURE = 2;
+pub const D3D12_DEBUG_FEATURE_DISABLE_VIRTUALIZED_BUNDLES_VALIDATION: D3D12_DEBUG_FEATURE = 4;
+pub const D3D12_DEBUG_FEATURE_EMULATE_WINDOWS7: D3D12_DEBUG_FEATURE = 8;
+pub const D3D12_DEBUG_FEATURE_NONE: D3D12_DEBUG_FEATURE = 0;
 pub const D3D12_DEFAULT_DEPTH_BIAS: u32 = 0;
 pub const D3D12_DEFAULT_MAX_ANISOTROPY: u32 = 16;
 pub const D3D12_DEFAULT_MSAA_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 4194304;
@@ -806,10 +848,10 @@ pub struct D3D12_DEPTH_STENCIL_DESC2 {
     pub DepthBoundsTestEnable: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_FORMAT {
-    pub DepthStencilFormat: super::dxgiformat::DXGI_FORMAT,
+    pub DepthStencilFormat: super::dxgi::DXGI_FORMAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -818,22 +860,22 @@ pub struct D3D12_DEPTH_STENCIL_VALUE {
     pub Stencil: u8,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_DEPTH_STENCIL_VIEW_DESC {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D12_DSV_DIMENSION,
     pub Flags: D3D12_DSV_FLAGS,
     pub Anonymous: D3D12_DEPTH_STENCIL_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_DEPTH_STENCIL_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D12_TEX1D_DSV,
@@ -843,7 +885,7 @@ pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D12_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_DSV,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1556,17 +1598,17 @@ impl Default for D3D12_FEATURE_DATA_FEATURE_LEVELS {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_INFO {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub PlaneCount: u8,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_SUPPORT {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub Support1: D3D12_FORMAT_SUPPORT1,
     pub Support2: D3D12_FORMAT_SUPPORT2,
 }
@@ -1582,19 +1624,19 @@ pub struct D3D12_FEATURE_DATA_HARDWARE_COPY {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub SampleCount: u32,
     pub Flags: D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS,
     pub NumQualityLevels: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub DestHeapProperties: D3D12_HEAP_PROPERTIES,
     pub Supported: windows_core::BOOL,
@@ -1683,6 +1725,763 @@ pub struct D3D12_FEATURE_DATA_SHADER_MODEL {
 pub struct D3D12_FEATURE_DATA_TIGHT_ALIGNMENT {
     pub SupportTier: D3D12_TIGHT_ALIGNMENT_TIER,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
+    pub IOCoherent: windows_core::BOOL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
+    pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
+    pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
+    pub Protected: windows_core::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub DecodeSample: D3D12_VIDEO_SAMPLE,
+    pub OutputFormat: D3D12_VIDEO_FORMAT,
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub SupportFlags: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS,
+    pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub FormatCount: u32,
+    pub pOutputFormats: *mut super::dxgi::DXGI_FORMAT,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub FormatCount: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
+    pub NodeIndex: u32,
+    pub DecodeProfile: windows_core::GUID,
+    pub Width: u32,
+    pub Height: u32,
+    pub DecodeFormat: super::dxgi::DXGI_FORMAT,
+    pub Components: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS,
+    pub BinCount: u32,
+    pub CounterBitDepth: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+    pub NodeIndex: u32,
+    pub ProfileCount: u32,
+    pub pProfiles: *mut windows_core::GUID,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
+    pub NodeIndex: u32,
+    pub ProfileCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
+    pub NodeIndex: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub Width: u32,
+    pub Height: u32,
+    pub DecodeFormat: super::dxgi::DXGI_FORMAT,
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub SupportFlags: D3D12_VIDEO_DECODE_SUPPORT_FLAGS,
+    pub ConfigurationFlags: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS,
+    pub DecodeTier: D3D12_VIDEO_DECODE_TIER,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub IsSupported: windows_core::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub CodecSupportLimits: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub PictureSupport: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+    pub MapSourcePreferenceRanking: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub FrameResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub CodecSupport: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
+    pub IsSupported: windows_core::BOOL,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub SubregionMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub IsSupported: windows_core::BOOL,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+    pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
+    pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC1,
+    pub IsSupported: windows_core::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub IsSupported: windows_core::BOOL,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub IntraRefreshMode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub IsSupported: windows_core::BOOL,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub BidirectionalRefFrameEnabled: windows_core::BOOL,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+    pub MaxMotionHints: u32,
+    pub MinDeviation: u32,
+    pub MaxDeviation: u32,
+    pub MapSourcePreferenceRanking: u32,
+    pub MotionUnitPrecisionSupport: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub ResolutionRatiosCount: u32,
+    pub IsSupported: windows_core::BOOL,
+    pub MinResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxResolutionSupported: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub ResolutionWidthMultipleRequirement: u32,
+    pub ResolutionHeightMultipleRequirement: u32,
+    pub pResolutionRatios: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub ResolutionRatiosCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub MinSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub MaxSupportedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub IsSupported: windows_core::BOOL,
+    pub MapSourcePreferenceRanking: u32,
+    pub BlockSize: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_QPMAP_INPUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+    pub DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+    pub MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+    pub Pow2DownscaleFactor: u32,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub RateControlMode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+    pub IsSupported: windows_core::BOOL,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS {
+    pub DirtyRegionsSupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
+    pub MapSourcePreferenceRanking: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
+    pub MaxSubregionsNumber: u32,
+    pub MaxIntraRefreshFrameDuration: u32,
+    pub SubregionBlockPixelsSize: u32,
+    pub QPMapRegionPixelsSize: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
+    pub MaxSubregionsNumber: u32,
+    pub MaxIntraRefreshFrameDuration: u32,
+    pub SubregionBlockPixelsSize: u32,
+    pub QPMapRegionPixelsSize: u32,
+    pub QPMap: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP,
+    pub DirtyRegions: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS,
+    pub MotionSearch: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH,
+    pub FrameAnalysis: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
+    pub MaxMotionHints: u32,
+    pub MinDeviation: u32,
+    pub MaxDeviation: u32,
+    pub MapSourcePreferenceRanking: u32,
+    pub MotionUnitPrecisionSupportFlags: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP {
+    pub MapSourcePreferenceRanking: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
+    pub NodeIndex: u32,
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+    pub IsSupported: windows_core::BOOL,
+    pub MaxResolvedBufferAllocationSize: u64,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub CompressedBitstreamBufferAccessAlignment: u32,
+    pub EncoderMetadataBufferAccessAlignment: u32,
+    pub MaxEncoderOutputMetadataBufferSize: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub IsSupported: windows_core::BOOL,
+    pub CompressedBitstreamBufferAccessAlignment: u32,
+    pub EncoderMetadataBufferAccessAlignment: u32,
+    pub MaxEncoderOutputMetadataBufferSize: u32,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub EncoderOutputMetadataQPMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataSATDMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataBitAllocationMapTextureDimensions: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub EncoderOutputMetadataFramePSNRComponentsNumber: u32,
+    pub EncoderOutputMetadataSubregionsPSNRComponentsNumber: u32,
+    pub EncoderOutputMetadataSubregionsPSNRResolvedMetadataBufferSize: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxReferenceFramesInDPB: u32,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+    pub SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxReferenceFramesInDPB: u32,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+    pub SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub MaxQualityVsSpeed: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
+    pub NodeIndex: u32,
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub IntraRefresh: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub MaxReferenceFramesInDPB: u32,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS,
+    pub SupportFlags: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS,
+    pub SuggestedProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub SuggestedLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub pResolutionDependentSupport: *mut D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub MaxQualityVsSpeed: u32,
+    pub QPMap: D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION,
+    pub DirtyRegions: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION,
+    pub MotionSearch: D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION,
+    pub FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+    pub NodeIndex: u32,
+    pub CommandCount: u32,
+    pub pCommandInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_INFO,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
+    pub NodeIndex: u32,
+    pub CommandCount: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+    pub CommandId: windows_core::GUID,
+    pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+    pub ParameterCount: u32,
+    pub pParameterInfos: *mut D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
+    pub CommandId: windows_core::GUID,
+    pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
+    pub ParameterCount: u32,
+    pub ParameterPacking: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+    pub NodeIndex: u32,
+    pub CommandId: windows_core::GUID,
+    pub pCreationParameters: *const core::ffi::c_void,
+    pub CreationParametersSizeInBytes: usize,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+    pub NodeIndex: u32,
+    pub CommandId: windows_core::GUID,
+    pub pInputData: *const core::ffi::c_void,
+    pub InputDataSizeInBytes: usize,
+    pub pOutputData: *mut core::ffi::c_void,
+    pub OutputDataSizeInBytes: usize,
+}
+impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
+    pub NodeIndex: u32,
+    pub VideoDecodeSupport: windows_core::BOOL,
+    pub VideoProcessSupport: windows_core::BOOL,
+    pub VideoEncodeSupport: windows_core::BOOL,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
+    pub NodeIndex: u32,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub BlockSizeFlags: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS,
+    pub PrecisionFlags: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
+    pub NodeIndex: u32,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub Protected: windows_core::BOOL,
+    pub MotionVectorHeapMemoryPoolL0Size: u64,
+    pub MotionVectorHeapMemoryPoolL1Size: u64,
+    pub MotionEstimatorMemoryPoolL0Size: u64,
+    pub MotionEstimatorMemoryPoolL1Size: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+    pub NodeMask: u32,
+    pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub NumInputStreamDescs: u32,
+    pub pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+    pub NodeMask: u32,
+    pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+    pub NumInputStreamDescs: u32,
+    pub pInputStreamDescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC,
+    pub Protected: windows_core::BOOL,
+    pub MemoryPoolL0Size: u64,
+    pub MemoryPoolL1Size: u64,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
+    pub NodeIndex: u32,
+    pub MaxInputStreams: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
+    pub NodeIndex: u32,
+    pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
+    pub NodeIndex: u32,
+    pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub Filters: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+    pub InputFrameRate: super::dxgi::DXGI_RATIONAL,
+    pub OutputFrameRate: super::dxgi::DXGI_RATIONAL,
+    pub EnableAutoProcessing: windows_core::BOOL,
+    pub PastFrames: u32,
+    pub FutureFrames: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+    pub NodeIndex: u32,
+    pub InputSample: D3D12_VIDEO_SAMPLE,
+    pub InputFieldType: D3D12_VIDEO_FIELD_TYPE,
+    pub InputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub InputFrameRate: super::dxgi::DXGI_RATIONAL,
+    pub OutputFormat: D3D12_VIDEO_FORMAT,
+    pub OutputStereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub OutputFrameRate: super::dxgi::DXGI_RATIONAL,
+    pub SupportFlags: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS,
+    pub ScaleSupport: D3D12_VIDEO_SCALE_SUPPORT,
+    pub FeatureSupport: D3D12_VIDEO_PROCESS_FEATURE_FLAGS,
+    pub DeinterlaceSupport: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub AutoProcessingSupport: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS,
+    pub FilterSupport: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub FilterRangeSupport: [D3D12_VIDEO_PROCESS_FILTER_RANGE; 32],
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D12_FEATURE_DISPLAYABLE: D3D12_FEATURE = 28;
 pub const D3D12_FEATURE_EXISTING_HEAPS: D3D12_FEATURE = 22;
 pub const D3D12_FEATURE_FEATURE_LEVELS: D3D12_FEATURE = 2;
@@ -1702,6 +2501,57 @@ pub const D3D12_FEATURE_SERIALIZATION: D3D12_FEATURE = 24;
 pub const D3D12_FEATURE_SHADER_CACHE: D3D12_FEATURE = 19;
 pub const D3D12_FEATURE_SHADER_CACHE_ABI_SUPPORT: D3D12_FEATURE = 61;
 pub const D3D12_FEATURE_SHADER_MODEL: D3D12_FEATURE = 7;
+pub type D3D12_FEATURE_VIDEO = i32;
+pub const D3D12_FEATURE_VIDEO_ARCHITECTURE: D3D12_FEATURE_VIDEO = 17;
+pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE: D3D12_FEATURE_VIDEO = 8;
+pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = 31;
+pub const D3D12_FEATURE_VIDEO_DECODE_CONVERSION_SUPPORT: D3D12_FEATURE_VIDEO = 3;
+pub const D3D12_FEATURE_VIDEO_DECODE_FORMATS: D3D12_FEATURE_VIDEO = 2;
+pub const D3D12_FEATURE_VIDEO_DECODE_FORMAT_COUNT: D3D12_FEATURE_VIDEO = 11;
+pub const D3D12_FEATURE_VIDEO_DECODE_HISTOGRAM: D3D12_FEATURE_VIDEO = 18;
+pub const D3D12_FEATURE_VIDEO_DECODE_PROFILES: D3D12_FEATURE_VIDEO = 1;
+pub const D3D12_FEATURE_VIDEO_DECODE_PROFILE_COUNT: D3D12_FEATURE_VIDEO = 10;
+pub const D3D12_FEATURE_VIDEO_DECODE_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 28;
+pub const D3D12_FEATURE_VIDEO_DECODE_SUPPORT: D3D12_FEATURE_VIDEO = 0;
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC: D3D12_FEATURE_VIDEO = 33;
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT: D3D12_FEATURE_VIDEO = 42;
+pub const D3D12_FEATURE_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT: D3D12_FEATURE_VIDEO = 44;
+pub const D3D12_FEATURE_VIDEO_ENCODER_DIRTY_REGIONS: D3D12_FEATURE_VIDEO = 51;
+pub const D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG: D3D12_FEATURE_VIDEO = 46;
+pub const D3D12_FEATURE_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE: D3D12_FEATURE_VIDEO = 40;
+pub const D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE: D3D12_FEATURE_VIDEO = 41;
+pub const D3D12_FEATURE_VIDEO_ENCODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = 56;
+pub const D3D12_FEATURE_VIDEO_ENCODER_INPUT_FORMAT: D3D12_FEATURE_VIDEO = 37;
+pub const D3D12_FEATURE_VIDEO_ENCODER_INTRA_REFRESH_MODE: D3D12_FEATURE_VIDEO = 39;
+pub const D3D12_FEATURE_VIDEO_ENCODER_MOTION_SEARCH: D3D12_FEATURE_VIDEO = 52;
+pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION: D3D12_FEATURE_VIDEO = 36;
+pub const D3D12_FEATURE_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT: D3D12_FEATURE_VIDEO = 35;
+pub const D3D12_FEATURE_VIDEO_ENCODER_PROFILE_LEVEL: D3D12_FEATURE_VIDEO = 34;
+pub const D3D12_FEATURE_VIDEO_ENCODER_QPMAP_INPUT: D3D12_FEATURE_VIDEO = 50;
+pub const D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS: D3D12_FEATURE_VIDEO = 57;
+pub const D3D12_FEATURE_VIDEO_ENCODER_RATE_CONTROL_MODE: D3D12_FEATURE_VIDEO = 38;
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT: D3D12_FEATURE_VIDEO = 49;
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS: D3D12_FEATURE_VIDEO = 45;
+pub const D3D12_FEATURE_VIDEO_ENCODER_RESOURCE_REQUIREMENTS1: D3D12_FEATURE_VIDEO = 48;
+pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT: D3D12_FEATURE_VIDEO = 43;
+pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT1: D3D12_FEATURE_VIDEO = 47;
+pub const D3D12_FEATURE_VIDEO_ENCODER_SUPPORT2: D3D12_FEATURE_VIDEO = 55;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMANDS: D3D12_FEATURE_VIDEO = 23;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_COUNT: D3D12_FEATURE_VIDEO = 22;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETERS: D3D12_FEATURE_VIDEO = 25;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT: D3D12_FEATURE_VIDEO = 24;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SIZE: D3D12_FEATURE_VIDEO = 27;
+pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SUPPORT: D3D12_FEATURE_VIDEO = 26;
+pub const D3D12_FEATURE_VIDEO_FEATURE_AREA_SUPPORT: D3D12_FEATURE_VIDEO = 19;
+pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR: D3D12_FEATURE_VIDEO = 20;
+pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 30;
+pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_SIZE: D3D12_FEATURE_VIDEO = 21;
+pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE: D3D12_FEATURE_VIDEO = 9;
+pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE1: D3D12_FEATURE_VIDEO = 32;
+pub const D3D12_FEATURE_VIDEO_PROCESS_MAX_INPUT_STREAMS: D3D12_FEATURE_VIDEO = 6;
+pub const D3D12_FEATURE_VIDEO_PROCESS_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 29;
+pub const D3D12_FEATURE_VIDEO_PROCESS_REFERENCE_INFO: D3D12_FEATURE_VIDEO = 7;
+pub const D3D12_FEATURE_VIDEO_PROCESS_SUPPORT: D3D12_FEATURE_VIDEO = 5;
 pub type D3D12_FENCE_FLAGS = u32;
 pub const D3D12_FENCE_FLAG_NONE: D3D12_FENCE_FLAGS = 0;
 pub const D3D12_FENCE_FLAG_NON_MONITORED: D3D12_FENCE_FLAGS = 4;
@@ -1809,6 +2659,44 @@ pub const D3D12_FORMAT_SUPPORT2_UAV_ATOMIC_UNSIGNED_MIN_OR_MAX: D3D12_FORMAT_SUP
 pub const D3D12_FORMAT_SUPPORT2_UAV_TYPED_LOAD: D3D12_FORMAT_SUPPORT2 = 64;
 pub const D3D12_FORMAT_SUPPORT2_UAV_TYPED_STORE: D3D12_FORMAT_SUPPORT2 = 128;
 #[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_FUNCTION_DESC {
+    pub Version: u32,
+    pub Creator: windows_core::PCSTR,
+    pub Flags: u32,
+    pub ConstantBuffers: u32,
+    pub BoundResources: u32,
+    pub InstructionCount: u32,
+    pub TempRegisterCount: u32,
+    pub TempArrayCount: u32,
+    pub DefCount: u32,
+    pub DclCount: u32,
+    pub TextureNormalInstructions: u32,
+    pub TextureLoadInstructions: u32,
+    pub TextureCompInstructions: u32,
+    pub TextureBiasInstructions: u32,
+    pub TextureGradientInstructions: u32,
+    pub FloatInstructionCount: u32,
+    pub IntInstructionCount: u32,
+    pub UintInstructionCount: u32,
+    pub StaticFlowControlCount: u32,
+    pub DynamicFlowControlCount: u32,
+    pub MacroInstructionCount: u32,
+    pub ArrayInstructionCount: u32,
+    pub MovInstructionCount: u32,
+    pub MovcInstructionCount: u32,
+    pub ConversionInstructionCount: u32,
+    pub BitwiseInstructionCount: u32,
+    pub MinFeatureLevel: super::d3dcommon::D3D_FEATURE_LEVEL,
+    pub RequiredFeatureFlags: u64,
+    pub Name: windows_core::PCSTR,
+    pub FunctionParameterCount: i32,
+    pub HasReturn: windows_core::BOOL,
+    pub Has10Level9VertexShader: windows_core::BOOL,
+    pub Has10Level9PixelShader: windows_core::BOOL,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_GENERIC_PROGRAM_DESC {
     pub ProgramName: windows_core::PCWSTR,
@@ -1840,6 +2728,20 @@ pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
 pub struct D3D12_GLOBAL_SERIALIZED_ROOT_SIGNATURE {
     pub Desc: D3D12_SERIALIZED_ROOT_SIGNATURE_DESC,
 }
+pub type D3D12_GPU_BASED_VALIDATION_FLAGS = u32;
+pub const D3D12_GPU_BASED_VALIDATION_FLAGS_DISABLE_STATE_TRACKING: D3D12_GPU_BASED_VALIDATION_FLAGS = 1;
+pub const D3D12_GPU_BASED_VALIDATION_FLAGS_NONE: D3D12_GPU_BASED_VALIDATION_FLAGS = 0;
+pub type D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = u32;
+pub const D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS_VALID_MASK: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = 7;
+pub const D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_FRONT_LOAD_CREATE_GUARDED_VALIDATION_SHADERS: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = 4;
+pub const D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_FRONT_LOAD_CREATE_TRACKING_ONLY_SHADERS: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = 1;
+pub const D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_FRONT_LOAD_CREATE_UNGUARDED_VALIDATION_SHADERS: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = 2;
+pub const D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAG_NONE: D3D12_GPU_BASED_VALIDATION_PIPELINE_STATE_CREATE_FLAGS = 0;
+pub type D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = i32;
+pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_GUARDED_VALIDATION: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 3;
+pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_NONE: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 0;
+pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_STATE_TRACKING_ONLY: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 1;
+pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_UNGUARDED_VALIDATION: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_GPU_DESCRIPTOR_HANDLE {
@@ -1868,7 +2770,7 @@ pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
     pub StrideInBytes: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
@@ -1886,14 +2788,14 @@ pub struct D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     pub IBStripCutValue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE,
     pub PrimitiveTopologyType: D3D12_PRIMITIVE_TOPOLOGY_TYPE,
     pub NumRenderTargets: u32,
-    pub RTVFormats: [super::dxgiformat::DXGI_FORMAT; 8],
-    pub DSVFormat: super::dxgiformat::DXGI_FORMAT,
-    pub SampleDesc: super::dxgicommon::DXGI_SAMPLE_DESC,
+    pub RTVFormats: [super::dxgi::DXGI_FORMAT; 8],
+    pub DSVFormat: super::dxgi::DXGI_FORMAT,
+    pub SampleDesc: super::dxgi::DXGI_SAMPLE_DESC,
     pub NodeMask: u32,
     pub CachedPSO: D3D12_CACHED_PIPELINE_STATE,
     pub Flags: D3D12_PIPELINE_STATE_FLAGS,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2056,12 +2958,12 @@ pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_0xFFFF: D3D12_INDEX_BUFFER_STRIP_CU
 pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_0xFFFFFFFF: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE = 2;
 pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INDEX_BUFFER_VIEW {
     pub BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u32,
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2135,29 +3037,51 @@ pub const D3D12_INDIRECT_ARGUMENT_TYPE_INDEX_BUFFER_VIEW: D3D12_INDIRECT_ARGUMEN
 pub const D3D12_INDIRECT_ARGUMENT_TYPE_SHADER_RESOURCE_VIEW: D3D12_INDIRECT_ARGUMENT_TYPE = 7;
 pub const D3D12_INDIRECT_ARGUMENT_TYPE_UNORDERED_ACCESS_VIEW: D3D12_INDIRECT_ARGUMENT_TYPE = 8;
 pub const D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW: D3D12_INDIRECT_ARGUMENT_TYPE = 3;
+pub const D3D12_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_INFO_QUEUE_FILTER {
+    pub AllowList: D3D12_INFO_QUEUE_FILTER_DESC,
+    pub DenyList: D3D12_INFO_QUEUE_FILTER_DESC,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_INFO_QUEUE_FILTER_DESC {
+    pub NumCategories: u32,
+    pub pCategoryList: *mut D3D12_MESSAGE_CATEGORY,
+    pub NumSeverities: u32,
+    pub pSeverityList: *mut D3D12_MESSAGE_SEVERITY,
+    pub NumIDs: u32,
+    pub pIDList: *mut D3D12_MESSAGE_ID,
+}
+impl Default for D3D12_INFO_QUEUE_FILTER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D12_INPUT_CLASSIFICATION = i32;
 pub const D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA: D3D12_INPUT_CLASSIFICATION = 1;
 pub const D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA: D3D12_INPUT_CLASSIFICATION = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub InputSlot: u32,
     pub AlignedByteOffset: u32,
     pub InputSlotClass: D3D12_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_INPUT_LAYOUT_DESC {
     pub pInputElementDescs: *const D3D12_INPUT_ELEMENT_DESC,
     pub NumElements: u32,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_INPUT_LAYOUT_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2167,6 +3091,13 @@ pub const D3D12_INTEGER_DIVIDE_BY_ZERO_QUOTIENT: u32 = 4294967295;
 pub const D3D12_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295;
 pub const D3D12_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295;
 pub const D3D12_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_LIBRARY_DESC {
+    pub Creator: windows_core::PCSTR,
+    pub Flags: u32,
+    pub FunctionCount: u32,
+}
 pub type D3D12_LIFETIME_STATE = i32;
 pub const D3D12_LIFETIME_STATE_IN_USE: D3D12_LIFETIME_STATE = 0;
 pub const D3D12_LIFETIME_STATE_NOT_IN_USE: D3D12_LIFETIME_STATE = 1;
@@ -2292,6 +3223,1035 @@ pub const D3D12_MEMORY_POOL_UNKNOWN: D3D12_MEMORY_POOL = 0;
 pub type D3D12_MESH_SHADER_TIER = i32;
 pub const D3D12_MESH_SHADER_TIER_1: D3D12_MESH_SHADER_TIER = 10;
 pub const D3D12_MESH_SHADER_TIER_NOT_SUPPORTED: D3D12_MESH_SHADER_TIER = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_MESSAGE {
+    pub Category: D3D12_MESSAGE_CATEGORY,
+    pub Severity: D3D12_MESSAGE_SEVERITY,
+    pub ID: D3D12_MESSAGE_ID,
+    pub pDescription: *const i8,
+    pub DescriptionByteLength: usize,
+}
+impl Default for D3D12_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_MESSAGE_CALLBACK_FLAGS = u32;
+pub const D3D12_MESSAGE_CALLBACK_FLAG_NONE: D3D12_MESSAGE_CALLBACK_FLAGS = 0;
+pub const D3D12_MESSAGE_CALLBACK_IGNORE_FILTERS: D3D12_MESSAGE_CALLBACK_FLAGS = 1;
+pub type D3D12_MESSAGE_CATEGORY = i32;
+pub const D3D12_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D12_MESSAGE_CATEGORY = 0;
+pub const D3D12_MESSAGE_CATEGORY_CLEANUP: D3D12_MESSAGE_CATEGORY = 3;
+pub const D3D12_MESSAGE_CATEGORY_COMPILATION: D3D12_MESSAGE_CATEGORY = 4;
+pub const D3D12_MESSAGE_CATEGORY_EXECUTION: D3D12_MESSAGE_CATEGORY = 9;
+pub const D3D12_MESSAGE_CATEGORY_INITIALIZATION: D3D12_MESSAGE_CATEGORY = 2;
+pub const D3D12_MESSAGE_CATEGORY_MISCELLANEOUS: D3D12_MESSAGE_CATEGORY = 1;
+pub const D3D12_MESSAGE_CATEGORY_RESOURCE_MANIPULATION: D3D12_MESSAGE_CATEGORY = 8;
+pub const D3D12_MESSAGE_CATEGORY_SHADER: D3D12_MESSAGE_CATEGORY = 10;
+pub const D3D12_MESSAGE_CATEGORY_STATE_CREATION: D3D12_MESSAGE_CATEGORY = 5;
+pub const D3D12_MESSAGE_CATEGORY_STATE_GETTING: D3D12_MESSAGE_CATEGORY = 7;
+pub const D3D12_MESSAGE_CATEGORY_STATE_SETTING: D3D12_MESSAGE_CATEGORY = 6;
+pub type D3D12_MESSAGE_ID = i32;
+pub const D3D12_MESSAGE_ID_ADD_TO_STATE_OBJECT_ERROR: D3D12_MESSAGE_ID = 1246;
+pub const D3D12_MESSAGE_ID_ALPHA_BLEND_FACTOR_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1349;
+pub const D3D12_MESSAGE_ID_APPLICATION_SPECIFIC_DRIVER_STATE_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1421;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_DEPENDENT_RANGE_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1039;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_DEPENDENT_SUBRESOURCE_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1038;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_DST_RANGE_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1029;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_ARCHITECTURE: D3D12_MESSAGE_ID = 1026;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_DEPENDENT_RESOURCE: D3D12_MESSAGE_ID = 1036;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_DEPENDENT_SUBRESOURCE_RANGE: D3D12_MESSAGE_ID = 1037;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_DST_RESOURCE: D3D12_MESSAGE_ID = 1142;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_DST_RESOURCE_DIMENSION: D3D12_MESSAGE_ID = 1028;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_OFFSET_ALIGNMENT: D3D12_MESSAGE_ID = 1033;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_SRC_RESOURCE: D3D12_MESSAGE_ID = 1143;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_INVALID_SRC_RESOURCE_DIMENSION: D3D12_MESSAGE_ID = 1031;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_NULL_DEPENDENT_RESOURCES: D3D12_MESSAGE_ID = 1034;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_NULL_DEPENDENT_SUBRESOURCE_RANGES: D3D12_MESSAGE_ID = 1035;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_NULL_DST: D3D12_MESSAGE_ID = 1027;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_NULL_SRC: D3D12_MESSAGE_ID = 1030;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_SRC_RANGE_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1032;
+pub const D3D12_MESSAGE_ID_ATOMICCOPYBUFFER_ZERO_DEPENDENCIES: D3D12_MESSAGE_ID = 1040;
+pub const D3D12_MESSAGE_ID_BARRIER_INTEROP_INVALID_LAYOUT: D3D12_MESSAGE_ID = 1350;
+pub const D3D12_MESSAGE_ID_BARRIER_INTEROP_INVALID_STATE: D3D12_MESSAGE_ID = 1351;
+pub const D3D12_MESSAGE_ID_BEGIN_END_EVENT_MISMATCH: D3D12_MESSAGE_ID = 955;
+pub const D3D12_MESSAGE_ID_BEGIN_END_QUERY_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 731;
+pub const D3D12_MESSAGE_ID_BEGIN_EVENT: D3D12_MESSAGE_ID = 1014;
+pub const D3D12_MESSAGE_ID_BUFFER_BARRIER_SUBREGION_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1340;
+pub const D3D12_MESSAGE_ID_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INVALID: D3D12_MESSAGE_ID = 1158;
+pub const D3D12_MESSAGE_ID_BUNDLE_PIPELINE_STATE_MISMATCH: D3D12_MESSAGE_ID = 610;
+pub const D3D12_MESSAGE_ID_BYTECODE_VALIDATION_ERROR: D3D12_MESSAGE_ID = 1423;
+pub const D3D12_MESSAGE_ID_CANNOT_ADD_TRACKED_WORKLOAD: D3D12_MESSAGE_ID = 1192;
+pub const D3D12_MESSAGE_ID_CANNOT_CHANGE_COMMAND_RECORDER_TARGET_WHILE_RECORDING: D3D12_MESSAGE_ID = 1134;
+pub const D3D12_MESSAGE_ID_CANNOT_CREATE_GRAPHICS_AND_VIDEO_COMMAND_RECORDER: D3D12_MESSAGE_ID = 1153;
+pub const D3D12_MESSAGE_ID_CANNOT_EXECUTE_EMPTY_COMMAND_LIST: D3D12_MESSAGE_ID = 1131;
+pub const D3D12_MESSAGE_ID_CANNOT_RESET_COMMAND_POOL_WITH_OPEN_COMMAND_LISTS: D3D12_MESSAGE_ID = 1132;
+pub const D3D12_MESSAGE_ID_CANNOT_USE_COMMAND_RECORDER_WITHOUT_CURRENT_TARGET: D3D12_MESSAGE_ID = 1133;
+pub const D3D12_MESSAGE_ID_CHECK_DRIVER_MATCHING_IDENTIFIER_DRIVER_REPORTED_ISSUE: D3D12_MESSAGE_ID = 1201;
+pub const D3D12_MESSAGE_ID_CHECK_DRIVER_MATCHING_IDENTIFIER_INVALID: D3D12_MESSAGE_ID = 1200;
+pub const D3D12_MESSAGE_ID_CLEARDEPTHSTENCILVIEW_INVALID: D3D12_MESSAGE_ID = 135;
+pub const D3D12_MESSAGE_ID_CLEARDEPTHSTENCILVIEW_MISMATCHINGCLEARVALUE: D3D12_MESSAGE_ID = 821;
+pub const D3D12_MESSAGE_ID_CLEARRENDERTARGETVIEW_MISMATCHINGCLEARVALUE: D3D12_MESSAGE_ID = 820;
+pub const D3D12_MESSAGE_ID_CLEARUNORDEREDACCESSVIEW_INCOMPATIBLE_WITH_STRUCTURED_BUFFERS: D3D12_MESSAGE_ID = 1156;
+pub const D3D12_MESSAGE_ID_CLEARUNORDEREDACCESSVIEW_INVALID_RESOURCE_PTR: D3D12_MESSAGE_ID = 1215;
+pub const D3D12_MESSAGE_ID_CLEAR_UNORDERED_ACCESS_VIEW_INVALID_DESCRIPTOR_HANDLE: D3D12_MESSAGE_ID = 1314;
+pub const D3D12_MESSAGE_ID_CLOSE_COMMAND_LIST_OPEN_QUERY: D3D12_MESSAGE_ID = 732;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_CANNOT_RESET: D3D12_MESSAGE_ID = 543;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_CONTENTION: D3D12_MESSAGE_ID = 540;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_RESET: D3D12_MESSAGE_ID = 541;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_RESET_BUNDLE: D3D12_MESSAGE_ID = 542;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_SYNC: D3D12_MESSAGE_ID = 552;
+pub const D3D12_MESSAGE_ID_COMMAND_ALLOCATOR_USAGE_WITH_CREATECOMMANDLIST1_COMMAND_LIST: D3D12_MESSAGE_ID = 1130;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_CLOSED: D3D12_MESSAGE_ID = 547;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DESCRIPTOR_TABLE_NOT_SET: D3D12_MESSAGE_ID = 991;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DISPATCH_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 953;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DISPATCH_ROOT_SIGNATURE_NOT_SET: D3D12_MESSAGE_ID = 952;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_ELEMENT_OFFSET_UNALIGNED: D3D12_MESSAGE_ID = 1348;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INDEX_BUFFER_FORMAT_INVALID: D3D12_MESSAGE_ID = 212;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INDEX_BUFFER_NOT_SET: D3D12_MESSAGE_ID = 211;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INDEX_BUFFER_TOO_SMALL: D3D12_MESSAGE_ID = 213;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INDEX_OFFSET_UNALIGNED: D3D12_MESSAGE_ID = 222;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INSTANCE_COUNT_ZERO: D3D12_MESSAGE_ID = 1418;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_INVALID_PRIMITIVETOPOLOGY: D3D12_MESSAGE_ID = 219;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_RENDER_TARGET_DELETED: D3D12_MESSAGE_ID = 924;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 201;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_ROOT_SIGNATURE_NOT_SET: D3D12_MESSAGE_ID = 200;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_VERTEX_BUFFER_NOT_SET: D3D12_MESSAGE_ID = 202;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_VERTEX_BUFFER_STRIDE_TOO_SMALL: D3D12_MESSAGE_ID = 209;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_VERTEX_BUFFER_TOO_SMALL: D3D12_MESSAGE_ID = 210;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_DRAW_VERTEX_STRIDE_UNALIGNED: D3D12_MESSAGE_ID = 221;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_MULTIPLE_SWAPCHAIN_BUFFER_REFERENCES: D3D12_MESSAGE_ID = 904;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_OPEN: D3D12_MESSAGE_ID = 544;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_OUTOFMEMORY: D3D12_MESSAGE_ID = 903;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_PIPELINE_STATE_NOT_SET: D3D12_MESSAGE_ID = 1045;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_ROOT_CONSTANT_BUFFER_VIEW_NOT_SET: D3D12_MESSAGE_ID = 992;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_ROOT_SHADER_RESOURCE_VIEW_NOT_SET: D3D12_MESSAGE_ID = 993;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_ROOT_UNORDERED_ACCESS_VIEW_NOT_SET: D3D12_MESSAGE_ID = 994;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_SETRENDERTARGETS_INVALIDNUMRENDERTARGETS: D3D12_MESSAGE_ID = 908;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_STATIC_DESCRIPTOR_RESOURCE_DIMENSION_MISMATCH: D3D12_MESSAGE_ID = 1023;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_STATIC_DESCRIPTOR_SAMPLER_MODE_MISMATCH: D3D12_MESSAGE_ID = 1321;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_SYNC: D3D12_MESSAGE_ID = 553;
+pub const D3D12_MESSAGE_ID_COMMAND_LIST_TOO_MANY_SWAPCHAIN_REFERENCES: D3D12_MESSAGE_ID = 905;
+pub const D3D12_MESSAGE_ID_COMMAND_POOL_SYNC: D3D12_MESSAGE_ID = 1135;
+pub const D3D12_MESSAGE_ID_COMMAND_QUEUE_TOO_MANY_SWAPCHAIN_REFERENCES: D3D12_MESSAGE_ID = 906;
+pub const D3D12_MESSAGE_ID_COMMAND_RECORDER_CONTENTION: D3D12_MESSAGE_ID = 1128;
+pub const D3D12_MESSAGE_ID_COMMAND_RECORDER_SUPPORT_FLAGS_MISMATCH: D3D12_MESSAGE_ID = 1127;
+pub const D3D12_MESSAGE_ID_COMMAND_RECORDER_USAGE_WITH_CREATECOMMANDLIST_COMMAND_LIST: D3D12_MESSAGE_ID = 1129;
+pub const D3D12_MESSAGE_ID_COMPUTE_ONLY_DEVICE_OPERATION_UNSUPPORTED: D3D12_MESSAGE_ID = 1157;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_DSTRANGEOUTOFBOUNDS: D3D12_MESSAGE_ID = 841;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_INVALIDCOPYFLAGS: D3D12_MESSAGE_ID = 845;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_INVALIDDSTRESOURCEDIMENSION: D3D12_MESSAGE_ID = 840;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_INVALIDSRCRESOURCEDIMENSION: D3D12_MESSAGE_ID = 843;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_INVALID_DST_RESOURCE: D3D12_MESSAGE_ID = 1140;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_INVALID_SRC_RESOURCE: D3D12_MESSAGE_ID = 1141;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_NULLDST: D3D12_MESSAGE_ID = 839;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_NULLSRC: D3D12_MESSAGE_ID = 842;
+pub const D3D12_MESSAGE_ID_COPYBUFFERREGION_SRCRANGEOUTOFBOUNDS: D3D12_MESSAGE_ID = 844;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_INVALIDDSTRESOURCE: D3D12_MESSAGE_ID = 944;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_INVALIDSRCRESOURCE: D3D12_MESSAGE_ID = 946;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_MISMATCH_DECODE_REFERENCE_ONLY_FLAG: D3D12_MESSAGE_ID = 1098;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_MISMATCH_ENCODE_REFERENCE_ONLY_FLAG: D3D12_MESSAGE_ID = 1304;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_NULLDST: D3D12_MESSAGE_ID = 943;
+pub const D3D12_MESSAGE_ID_COPYRESOURCE_NULLSRC: D3D12_MESSAGE_ID = 945;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_DSTREGIONOUTOFBOUNDS: D3D12_MESSAGE_ID = 858;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_EMPTYBOX: D3D12_MESSAGE_ID = 875;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_FORMATMISMATCH: D3D12_MESSAGE_ID = 874;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDCOPYFLAGS: D3D12_MESSAGE_ID = 876;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTCOORDINATES: D3D12_MESSAGE_ID = 872;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTDIMENSIONS: D3D12_MESSAGE_ID = 854;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTDSPLACEDFOOTPRINTFORMAT: D3D12_MESSAGE_ID = 857;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTFORMAT: D3D12_MESSAGE_ID = 853;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTOFFSET: D3D12_MESSAGE_ID = 851;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTPLACEMENT: D3D12_MESSAGE_ID = 856;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTRESOURCE: D3D12_MESSAGE_ID = 849;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTRESOURCEDIMENSION: D3D12_MESSAGE_ID = 848;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTROWPITCH: D3D12_MESSAGE_ID = 855;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDDSTSUBRESOURCE: D3D12_MESSAGE_ID = 850;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCBOX: D3D12_MESSAGE_ID = 873;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCDIMENSIONS: D3D12_MESSAGE_ID = 867;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCDSPLACEDFOOTPRINTFORMAT: D3D12_MESSAGE_ID = 870;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCFORMAT: D3D12_MESSAGE_ID = 866;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCOFFSET: D3D12_MESSAGE_ID = 864;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCPLACEMENT: D3D12_MESSAGE_ID = 869;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCRESOURCE: D3D12_MESSAGE_ID = 862;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCRESOURCEDIMENSION: D3D12_MESSAGE_ID = 861;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCROWPITCH: D3D12_MESSAGE_ID = 868;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_INVALIDSRCSUBRESOURCE: D3D12_MESSAGE_ID = 863;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_MISMATCH_DECODE_REFERENCE_ONLY_FLAG: D3D12_MESSAGE_ID = 1097;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_MISMATCH_ENCODE_REFERENCE_ONLY_FLAG: D3D12_MESSAGE_ID = 1303;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_NULLDST: D3D12_MESSAGE_ID = 846;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_NULLSRC: D3D12_MESSAGE_ID = 859;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_SRCREGIONOUTOFBOUNDS: D3D12_MESSAGE_ID = 871;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_UNRECOGNIZEDDSTFORMAT: D3D12_MESSAGE_ID = 852;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_UNRECOGNIZEDDSTTYPE: D3D12_MESSAGE_ID = 847;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_UNRECOGNIZEDSRCFORMAT: D3D12_MESSAGE_ID = 865;
+pub const D3D12_MESSAGE_ID_COPYTEXTUREREGION_UNRECOGNIZEDSRCTYPE: D3D12_MESSAGE_ID = 860;
+pub const D3D12_MESSAGE_ID_COPYTILEMAPPINGS_INVALID_PARAMETER: D3D12_MESSAGE_ID = 494;
+pub const D3D12_MESSAGE_ID_COPY_DESCRIPTORS_INVALID_RANGES: D3D12_MESSAGE_ID = 653;
+pub const D3D12_MESSAGE_ID_COPY_DESCRIPTORS_WRITE_ONLY_DESCRIPTOR: D3D12_MESSAGE_ID = 654;
+pub const D3D12_MESSAGE_ID_COPY_INVALIDLAYOUT: D3D12_MESSAGE_ID = 1067;
+pub const D3D12_MESSAGE_ID_COPY_ON_SAME_SUBRESOURCE: D3D12_MESSAGE_ID = 998;
+pub const D3D12_MESSAGE_ID_COPY_RAYTRACING_ACCELERATION_STRUCTURE_INVALID: D3D12_MESSAGE_ID = 1160;
+pub const D3D12_MESSAGE_ID_CORRUPTED_MULTITHREADING: D3D12_MESSAGE_ID = 18;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER1: D3D12_MESSAGE_ID = 3;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER10: D3D12_MESSAGE_ID = 12;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER11: D3D12_MESSAGE_ID = 13;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER12: D3D12_MESSAGE_ID = 14;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER13: D3D12_MESSAGE_ID = 15;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER14: D3D12_MESSAGE_ID = 16;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER15: D3D12_MESSAGE_ID = 17;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER2: D3D12_MESSAGE_ID = 4;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER3: D3D12_MESSAGE_ID = 5;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER4: D3D12_MESSAGE_ID = 6;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER5: D3D12_MESSAGE_ID = 7;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER6: D3D12_MESSAGE_ID = 8;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER7: D3D12_MESSAGE_ID = 9;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER8: D3D12_MESSAGE_ID = 10;
+pub const D3D12_MESSAGE_ID_CORRUPTED_PARAMETER9: D3D12_MESSAGE_ID = 11;
+pub const D3D12_MESSAGE_ID_CORRUPTED_THIS: D3D12_MESSAGE_ID = 2;
+pub const D3D12_MESSAGE_ID_CREATEAMPLIFICATIONSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 1278;
+pub const D3D12_MESSAGE_ID_CREATEAMPLIFICATIONSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 1279;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_BLENDOPALPHA_WARNING: D3D12_MESSAGE_ID = 1317;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_BLENDOP_WARNING: D3D12_MESSAGE_ID = 1316;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDBLENDOP: D3D12_MESSAGE_ID = 113;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDBLENDOPALPHA: D3D12_MESSAGE_ID = 116;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDDESTBLEND: D3D12_MESSAGE_ID = 112;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDDESTBLENDALPHA: D3D12_MESSAGE_ID = 115;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDLOGICOPS: D3D12_MESSAGE_ID = 403;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDRENDERTARGETWRITEMASK: D3D12_MESSAGE_ID = 117;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDSRCBLEND: D3D12_MESSAGE_ID = 111;
+pub const D3D12_MESSAGE_ID_CREATEBLENDSTATE_INVALIDSRCBLENDALPHA: D3D12_MESSAGE_ID = 114;
+pub const D3D12_MESSAGE_ID_CREATECOMMANDLIST_NULL_COMMANDALLOCATOR: D3D12_MESSAGE_ID = 1313;
+pub const D3D12_MESSAGE_ID_CREATECOMMANDSIGNATURE_INVALID: D3D12_MESSAGE_ID = 743;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTEPIPELINESTATE_CS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 882;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTEPIPELINESTATE_INVALID_SHADER: D3D12_MESSAGE_ID = 881;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTEPIPELINESTATE_MISSING_ROOT_SIGNATURE: D3D12_MESSAGE_ID = 883;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTESHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 323;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTESHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 322;
+pub const D3D12_MESSAGE_ID_CREATECOMPUTESHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 321;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_DEPTHBOUNDSTEST_UNSUPPORTED: D3D12_MESSAGE_ID = 1017;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INDEPENDENT_MASKS_UNSUPPORTED: D3D12_MESSAGE_ID = 1354;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDBACKFACESTENCILFAILOP: D3D12_MESSAGE_ID = 106;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDBACKFACESTENCILFUNC: D3D12_MESSAGE_ID = 109;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDBACKFACESTENCILPASSOP: D3D12_MESSAGE_ID = 108;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDBACKFACESTENCILZFAILOP: D3D12_MESSAGE_ID = 107;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDDEPTHFUNC: D3D12_MESSAGE_ID = 101;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDDEPTHWRITEMASK: D3D12_MESSAGE_ID = 100;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDFRONTFACESTENCILFAILOP: D3D12_MESSAGE_ID = 102;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDFRONTFACESTENCILFUNC: D3D12_MESSAGE_ID = 105;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDFRONTFACESTENCILPASSOP: D3D12_MESSAGE_ID = 104;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILSTATE_INVALIDFRONTFACESTENCILZFAILOP: D3D12_MESSAGE_ID = 103;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_INVALIDDESC: D3D12_MESSAGE_ID = 46;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_INVALIDDIMENSIONS: D3D12_MESSAGE_ID = 48;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_INVALIDFLAGS: D3D12_MESSAGE_ID = 276;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_INVALIDFORMAT: D3D12_MESSAGE_ID = 47;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_INVALIDRESOURCE: D3D12_MESSAGE_ID = 49;
+pub const D3D12_MESSAGE_ID_CREATEDEPTHSTENCILVIEW_UNRECOGNIZEDFORMAT: D3D12_MESSAGE_ID = 45;
+pub const D3D12_MESSAGE_ID_CREATEDEVICE_DEBUG_LAYER_STARTUP_OPTIONS: D3D12_MESSAGE_ID = 1016;
+pub const D3D12_MESSAGE_ID_CREATEDEVICE_INVALIDARGS: D3D12_MESSAGE_ID = 506;
+pub const D3D12_MESSAGE_ID_CREATEDEVICE_WARNING: D3D12_MESSAGE_ID = 507;
+pub const D3D12_MESSAGE_ID_CREATEDOMAINSHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 297;
+pub const D3D12_MESSAGE_ID_CREATEDOMAINSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 295;
+pub const D3D12_MESSAGE_ID_CREATEDOMAINSHADER_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 296;
+pub const D3D12_MESSAGE_ID_CREATEDOMAINSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 294;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_CANTHAVEONLYGAPS: D3D12_MESSAGE_ID = 89;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_DECLTOOCOMPLEX: D3D12_MESSAGE_ID = 90;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDCOMPONENTCOUNT: D3D12_MESSAGE_ID = 82;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDGAPDEFINITION: D3D12_MESSAGE_ID = 84;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDNUMENTRIES: D3D12_MESSAGE_ID = 75;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDNUMSTRIDES: D3D12_MESSAGE_ID = 287;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDOUTPUTSLOT: D3D12_MESSAGE_ID = 80;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDOUTPUTSTREAMSTRIDE: D3D12_MESSAGE_ID = 86;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 73;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 74;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDSTARTCOMPONENTANDCOMPONENTCOUNT: D3D12_MESSAGE_ID = 83;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDSTREAM: D3D12_MESSAGE_ID = 284;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_INVALIDSTREAMTORASTERIZER: D3D12_MESSAGE_ID = 280;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_MASKMISMATCH: D3D12_MESSAGE_ID = 88;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_MISSINGOUTPUTSIGNATURE: D3D12_MESSAGE_ID = 91;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_MISSINGSEMANTIC: D3D12_MESSAGE_ID = 87;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_ONLYONEELEMENTPERSLOT: D3D12_MESSAGE_ID = 81;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_OUTOFMEMORY: D3D12_MESSAGE_ID = 72;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_OUTPUTSLOT0EXPECTED: D3D12_MESSAGE_ID = 79;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_OUTPUTSTREAMSTRIDEUNUSED: D3D12_MESSAGE_ID = 76;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_REPEATEDOUTPUT: D3D12_MESSAGE_ID = 85;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_TRAILING_DIGIT_IN_SEMANTIC: D3D12_MESSAGE_ID = 240;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_UNEXPECTEDENTRIES: D3D12_MESSAGE_ID = 285;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_UNEXPECTEDSTRIDES: D3D12_MESSAGE_ID = 286;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 278;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 70;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADER_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 71;
+pub const D3D12_MESSAGE_ID_CREATEGEOMETRYSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 69;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_ALL_RENDER_TARGETS_HAVE_UNKNOWN_FORMAT: D3D12_MESSAGE_ID = 925;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_AS_NOT_MS_MISMATCH: D3D12_MESSAGE_ID = 1250;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_AS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 1244;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_DEPTHSTENCILVIEW_NOT_SET: D3D12_MESSAGE_ID = 680;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_DS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 687;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_GS_INPUT_PRIMITIVE_MISMATCH: D3D12_MESSAGE_ID = 681;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_GS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 689;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_HS_DS_CONTROL_POINT_COUNT_MISMATCH: D3D12_MESSAGE_ID = 669;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_HS_DS_TESSELLATOR_DOMAIN_MISMATCH: D3D12_MESSAGE_ID = 670;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_HS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 686;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_HS_XOR_DS_MISMATCH: D3D12_MESSAGE_ID = 667;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_HULL_SHADER_INPUT_TOPOLOGY_MISMATCH: D3D12_MESSAGE_ID = 668;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INPUTLAYOUT_NOT_SET: D3D12_MESSAGE_ID = 658;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INPUTLAYOUT_SHADER_MISMATCH: D3D12_MESSAGE_ID = 1253;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_INDEX_BUFFER_PROPERTIES: D3D12_MESSAGE_ID = 684;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_PRIMITIVETOPOLOGY: D3D12_MESSAGE_ID = 673;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_RENDER_TARGET_COUNT: D3D12_MESSAGE_ID = 656;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_SAMPLE_DESC: D3D12_MESSAGE_ID = 685;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_SYSTEMVALUE: D3D12_MESSAGE_ID = 674;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_USE_OF_CENTER_MULTISAMPLE_PATTERN: D3D12_MESSAGE_ID = 671;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_INVALID_USE_OF_FORCED_SAMPLE_COUNT: D3D12_MESSAGE_ID = 672;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_METADATA_ERROR: D3D12_MESSAGE_ID = 1103;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_MISSING_ROOT_SIGNATURE: D3D12_MESSAGE_ID = 691;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_MISSING_ROOT_SIGNATURE_FLAGS: D3D12_MESSAGE_ID = 683;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_MS_NOT_PS_MISMATCH: D3D12_MESSAGE_ID = 1251;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_MS_PSO_DESC_MISMATCH: D3D12_MESSAGE_ID = 1248;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_MS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 1245;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_OM_DUAL_SOURCE_BLENDING_CAN_ONLY_HAVE_RENDER_TARGET_0: D3D12_MESSAGE_ID = 675;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_OM_RENDER_TARGET_DOES_NOT_SUPPORT_BLENDING: D3D12_MESSAGE_ID = 676;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_OM_RENDER_TARGET_DOES_NOT_SUPPORT_LOGIC_OPS: D3D12_MESSAGE_ID = 678;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_POSITION_NOT_PRESENT: D3D12_MESSAGE_ID = 682;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_PS_OUTPUT_RT_OUTPUT_MISMATCH: D3D12_MESSAGE_ID = 974;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_PS_OUTPUT_TYPE_MISMATCH: D3D12_MESSAGE_ID = 677;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_PS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 690;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_RENDERTARGETVIEW_NOT_SET: D3D12_MESSAGE_ID = 679;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_RENDER_TARGET_WRONG_WRITE_MASK: D3D12_MESSAGE_ID = 1382;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_RTV_FORMAT_NOT_UNKNOWN: D3D12_MESSAGE_ID = 655;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_RUNTIME_INTERNAL_ERROR: D3D12_MESSAGE_ID = 1105;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_COMPONENTTYPE: D3D12_MESSAGE_ID = 661;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_HS_DS_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 659;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_MINPRECISION: D3D12_MESSAGE_ID = 665;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_NEVERWRITTEN_ALWAYSREADS: D3D12_MESSAGE_ID = 664;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_REGISTERINDEX: D3D12_MESSAGE_ID = 660;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_REGISTERMASK: D3D12_MESSAGE_ID = 662;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_SEMANTICNAME_NOT_FOUND: D3D12_MESSAGE_ID = 666;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_LINKAGE_SYSTEMVALUE: D3D12_MESSAGE_ID = 663;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_SHADER_MODEL_MISMATCH: D3D12_MESSAGE_ID = 1046;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_VERTEX_SHADER_NOT_SET: D3D12_MESSAGE_ID = 657;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_VIEW_INSTANCING_VERTEX_SIZE_EXCEEDED: D3D12_MESSAGE_ID = 1104;
+pub const D3D12_MESSAGE_ID_CREATEGRAPHICSPIPELINESTATE_VS_ROOT_SIGNATURE_MISMATCH: D3D12_MESSAGE_ID = 688;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDALIGNMENT: D3D12_MESSAGE_ID = 629;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDARG_RETURN: D3D12_MESSAGE_ID = 632;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDHEAPTYPE: D3D12_MESSAGE_ID = 1362;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDMISCFLAGS: D3D12_MESSAGE_ID = 631;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDPROPERTIES: D3D12_MESSAGE_ID = 628;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_INVALIDSIZE: D3D12_MESSAGE_ID = 624;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_NULLDESC: D3D12_MESSAGE_ID = 623;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 633;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_UNRECOGNIZEDCPUPAGEPROPERTIES: D3D12_MESSAGE_ID = 626;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_UNRECOGNIZEDHEAPTYPE: D3D12_MESSAGE_ID = 625;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_UNRECOGNIZEDMEMORYPOOL: D3D12_MESSAGE_ID = 627;
+pub const D3D12_MESSAGE_ID_CREATEHEAP_UNRECOGNIZEDMISCFLAGS: D3D12_MESSAGE_ID = 630;
+pub const D3D12_MESSAGE_ID_CREATEHULLSHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 292;
+pub const D3D12_MESSAGE_ID_CREATEHULLSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 290;
+pub const D3D12_MESSAGE_ID_CREATEHULLSHADER_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 291;
+pub const D3D12_MESSAGE_ID_CREATEHULLSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 289;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_DUPLICATESEMANTIC: D3D12_MESSAGE_ID = 62;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_EMPTY_LAYOUT: D3D12_MESSAGE_ID = 253;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INCOMPATIBLEFORMAT: D3D12_MESSAGE_ID = 55;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDALIGNMENT: D3D12_MESSAGE_ID = 61;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDFORMAT: D3D12_MESSAGE_ID = 54;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDINPUTSLOTCLASS: D3D12_MESSAGE_ID = 57;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDSLOT: D3D12_MESSAGE_ID = 56;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDSLOTCLASSCHANGE: D3D12_MESSAGE_ID = 59;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_INVALIDSTEPRATECHANGE: D3D12_MESSAGE_ID = 60;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_MISSINGELEMENT: D3D12_MESSAGE_ID = 65;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_NULLSEMANTIC: D3D12_MESSAGE_ID = 64;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_OUTOFMEMORY: D3D12_MESSAGE_ID = 52;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_STEPRATESLOTCLASSMISMATCH: D3D12_MESSAGE_ID = 58;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_TOOMANYELEMENTS: D3D12_MESSAGE_ID = 53;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_TRAILING_DIGIT_IN_SEMANTIC: D3D12_MESSAGE_ID = 239;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_TYPE_MISMATCH: D3D12_MESSAGE_ID = 245;
+pub const D3D12_MESSAGE_ID_CREATEINPUTLAYOUT_UNPARSEABLEINPUTSIGNATURE: D3D12_MESSAGE_ID = 63;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADERWITHSTREAMOUTPUT_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 1267;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_GROUPSHAREDEXCEEDSMAXSIZE: D3D12_MESSAGE_ID = 1273;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 1265;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_MISMATCHEDASMSPAYLOADSIZE: D3D12_MESSAGE_ID = 1276;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 1266;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_OUTPUTEXCEEDSMAXSIZE: D3D12_MESSAGE_ID = 1272;
+pub const D3D12_MESSAGE_ID_CREATEMESHSHADER_TOPOLOGY_MISMATCH: D3D12_MESSAGE_ID = 1323;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINELIBRARY_ADAPTERVERSIONMISMATCH: D3D12_MESSAGE_ID = 964;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINELIBRARY_DRIVERVERSIONMISMATCH: D3D12_MESSAGE_ID = 963;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINELIBRARY_INVALIDLIBRARYBLOB: D3D12_MESSAGE_ID = 962;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINELIBRARY_UNSUPPORTED: D3D12_MESSAGE_ID = 965;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_CACHEDBLOBADAPTERMISMATCH: D3D12_MESSAGE_ID = 885;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_CACHEDBLOBDESCMISMATCH: D3D12_MESSAGE_ID = 887;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_CACHEDBLOBDRIVERVERSIONMISMATCH: D3D12_MESSAGE_ID = 886;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_CACHEDBLOBIGNORED: D3D12_MESSAGE_ID = 888;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_CANNOT_DEDUCE_TYPE: D3D12_MESSAGE_ID = 1022;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_DUPLICATE_SUBOBJECT: D3D12_MESSAGE_ID = 1018;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_INVALIDCACHEDBLOB: D3D12_MESSAGE_ID = 884;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_INVALID_FLAGS: D3D12_MESSAGE_ID = 922;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_INVALID_STREAM: D3D12_MESSAGE_ID = 1021;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_MS_INCOMPLETE_TYPE: D3D12_MESSAGE_ID = 1249;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_MULTIPLE_ROOT_SIGNATURES_DEFINED: D3D12_MESSAGE_ID = 1435;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_UNKNOWN_SUBOBJECT: D3D12_MESSAGE_ID = 1019;
+pub const D3D12_MESSAGE_ID_CREATEPIPELINESTATE_ZERO_SIZE_STREAM: D3D12_MESSAGE_ID = 1020;
+pub const D3D12_MESSAGE_ID_CREATEPIXELSHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 283;
+pub const D3D12_MESSAGE_ID_CREATEPIXELSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 93;
+pub const D3D12_MESSAGE_ID_CREATEPIXELSHADER_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 94;
+pub const D3D12_MESSAGE_ID_CREATEPIXELSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 92;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_INVALID_BUFFER_DIMENSION: D3D12_MESSAGE_ID = 1147;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_INVALID_BUFFER_FLAGS: D3D12_MESSAGE_ID = 1148;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_INVALID_BUFFER_OFFSET: D3D12_MESSAGE_ID = 1149;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_INVALID_RESOURCE_DIMENSION: D3D12_MESSAGE_ID = 1150;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_INVALID_RESOURCE_FLAGS: D3D12_MESSAGE_ID = 1151;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_NULL_BUFFER: D3D12_MESSAGE_ID = 1144;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_NULL_RESOURCE_DESC: D3D12_MESSAGE_ID = 1145;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 1152;
+pub const D3D12_MESSAGE_ID_CREATEPLACEDRESOURCEONBUFFER_UNSUPPORTED: D3D12_MESSAGE_ID = 1146;
+pub const D3D12_MESSAGE_ID_CREATEQUERY_HEAP_COPY_QUEUE_TIMESTAMPS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1079;
+pub const D3D12_MESSAGE_ID_CREATEQUERY_HEAP_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 729;
+pub const D3D12_MESSAGE_ID_CREATEQUERY_HEAP_VIDEO_DECODE_STATISTICS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 978;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALIDCULLMODE: D3D12_MESSAGE_ID = 96;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALIDDEPTHBIASCLAMP: D3D12_MESSAGE_ID = 97;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALIDFILLMODE: D3D12_MESSAGE_ID = 95;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALIDFORCEDSAMPLECOUNT: D3D12_MESSAGE_ID = 401;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALIDSLOPESCALEDDEPTHBIAS: D3D12_MESSAGE_ID = 98;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALID_CONSERVATIVERASTERMODE: D3D12_MESSAGE_ID = 647;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_INVALID_LINERASTERIZATIONMODE: D3D12_MESSAGE_ID = 1379;
+pub const D3D12_MESSAGE_ID_CREATERASTERIZERSTATE_NON_WHOLE_DYNAMIC_DEPTH_BIAS: D3D12_MESSAGE_ID = 1365;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDDESC: D3D12_MESSAGE_ID = 37;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDDIMENSIONS: D3D12_MESSAGE_ID = 41;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDFORMAT: D3D12_MESSAGE_ID = 38;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDPLANESLICE: D3D12_MESSAGE_ID = 40;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDRESOURCE: D3D12_MESSAGE_ID = 42;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_INVALIDVIDEOPLANESLICE: D3D12_MESSAGE_ID = 39;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_UNRECOGNIZEDFORMAT: D3D12_MESSAGE_ID = 35;
+pub const D3D12_MESSAGE_ID_CREATERENDERTARGETVIEW_UNSUPPORTEDFORMAT: D3D12_MESSAGE_ID = 36;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_INVALIDARG_RETURN: D3D12_MESSAGE_ID = 641;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_INVALIDHEAPMISCFLAGS: D3D12_MESSAGE_ID = 640;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_INVALIDHEAPPROPERTIES: D3D12_MESSAGE_ID = 638;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_INVALIDHEAPTYPE: D3D12_MESSAGE_ID = 1363;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1342;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_NULLHEAP: D3D12_MESSAGE_ID = 701;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_NULLHEAPPROPERTIES: D3D12_MESSAGE_ID = 634;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_NULLRESOURCEPROPERTIES: D3D12_MESSAGE_ID = 700;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 642;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_UNRECOGNIZEDCPUPAGEPROPERTIES: D3D12_MESSAGE_ID = 636;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_UNRECOGNIZEDHEAPMISCFLAGS: D3D12_MESSAGE_ID = 639;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_UNRECOGNIZEDHEAPTYPE: D3D12_MESSAGE_ID = 635;
+pub const D3D12_MESSAGE_ID_CREATERESOURCEANDHEAP_UNRECOGNIZEDMEMORYPOOL: D3D12_MESSAGE_ID = 637;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_CLEARVALUEDENORMFLUSH: D3D12_MESSAGE_ID = 818;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDALIGNMENT: D3D12_MESSAGE_ID = 721;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDALIGNMENT_SMALLRESOURCE: D3D12_MESSAGE_ID = 1380;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDARG_RETURN: D3D12_MESSAGE_ID = 602;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDCLEARVALUE: D3D12_MESSAGE_ID = 815;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDCLEARVALUEFORMAT: D3D12_MESSAGE_ID = 817;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDDESC: D3D12_MESSAGE_ID = 604;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDDIMENSIONALITY: D3D12_MESSAGE_ID = 720;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDDIMENSIONS: D3D12_MESSAGE_ID = 597;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDFORMAT: D3D12_MESSAGE_ID = 738;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDLAYOUT: D3D12_MESSAGE_ID = 724;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDMIPLEVELS: D3D12_MESSAGE_ID = 722;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDMISCFLAGS: D3D12_MESSAGE_ID = 599;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_INVALIDSAMPLEDESC: D3D12_MESSAGE_ID = 723;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 603;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_STATE_IGNORED: D3D12_MESSAGE_ID = 1328;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_UNRECOGNIZEDCLEARVALUEFORMAT: D3D12_MESSAGE_ID = 816;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_UNRECOGNIZEDDIMENSIONALITY: D3D12_MESSAGE_ID = 718;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_UNRECOGNIZEDFORMAT: D3D12_MESSAGE_ID = 737;
+pub const D3D12_MESSAGE_ID_CREATERESOURCE_UNRECOGNIZEDLAYOUT: D3D12_MESSAGE_ID = 719;
+pub const D3D12_MESSAGE_ID_CREATESHADERCACHESESSION_ALREADYOPEN: D3D12_MESSAGE_ID = 1285;
+pub const D3D12_MESSAGE_ID_CREATESHADERCACHESESSION_DISABLED: D3D12_MESSAGE_ID = 1284;
+pub const D3D12_MESSAGE_ID_CREATESHADERCACHESESSION_INVALIDARGS: D3D12_MESSAGE_ID = 1283;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDDESC: D3D12_MESSAGE_ID = 27;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDDIMENSIONS: D3D12_MESSAGE_ID = 31;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDFORMAT: D3D12_MESSAGE_ID = 28;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDPLANESLICE: D3D12_MESSAGE_ID = 30;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDRESOURCE: D3D12_MESSAGE_ID = 32;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_INVALIDVIDEOPLANESLICE: D3D12_MESSAGE_ID = 29;
+pub const D3D12_MESSAGE_ID_CREATESHADERRESOURCEVIEW_UNRECOGNIZEDFORMAT: D3D12_MESSAGE_ID = 26;
+pub const D3D12_MESSAGE_ID_CREATESHADER_INVALIDBYTECODE: D3D12_MESSAGE_ID = 622;
+pub const D3D12_MESSAGE_ID_CREATESHAREDHEAP_INVALIDFLAGS: D3D12_MESSAGE_ID = 913;
+pub const D3D12_MESSAGE_ID_CREATESHAREDRESOURCE_INVALIDFLAGS: D3D12_MESSAGE_ID = 911;
+pub const D3D12_MESSAGE_ID_CREATESHAREDRESOURCE_INVALIDFORMAT: D3D12_MESSAGE_ID = 912;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDDESC: D3D12_MESSAGE_ID = 341;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDDIMENSIONS: D3D12_MESSAGE_ID = 345;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDFLAGS: D3D12_MESSAGE_ID = 354;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDFORMAT: D3D12_MESSAGE_ID = 342;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDPLANESLICE: D3D12_MESSAGE_ID = 344;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDRESOURCE: D3D12_MESSAGE_ID = 340;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_INVALIDVIDEOPLANESLICE: D3D12_MESSAGE_ID = 343;
+pub const D3D12_MESSAGE_ID_CREATEUNORDEREDACCESSVIEW_UNRECOGNIZEDFORMAT: D3D12_MESSAGE_ID = 346;
+pub const D3D12_MESSAGE_ID_CREATEVERTEXSHADER_INVALIDCLASSLINKAGE: D3D12_MESSAGE_ID = 277;
+pub const D3D12_MESSAGE_ID_CREATEVERTEXSHADER_INVALIDSHADERBYTECODE: D3D12_MESSAGE_ID = 67;
+pub const D3D12_MESSAGE_ID_CREATEVERTEXSHADER_INVALIDSHADERTYPE: D3D12_MESSAGE_ID = 68;
+pub const D3D12_MESSAGE_ID_CREATEVERTEXSHADER_OUTOFMEMORY: D3D12_MESSAGE_ID = 66;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDALLOCATOR: D3D12_MESSAGE_ID = 558;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDLIST12: D3D12_MESSAGE_ID = 560;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDPOOL: D3D12_MESSAGE_ID = 1122;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDQUEUE: D3D12_MESSAGE_ID = 557;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDRECORDER: D3D12_MESSAGE_ID = 1115;
+pub const D3D12_MESSAGE_ID_CREATE_COMMANDSIGNATURE: D3D12_MESSAGE_ID = 569;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_ALLOCATOR_VIDEO_NOT_SUPPORTED: D3D12_MESSAGE_ID = 977;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_LIST_INVALID_COMMAND_LIST_TYPE: D3D12_MESSAGE_ID = 1155;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_LIST_INVALID_COMMAND_LIST_TYPE_FOR_FEATURE_LEVEL: D3D12_MESSAGE_ID = 1224;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_LIST_VIDEO_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1126;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_POOL_INVALID_FLAGS: D3D12_MESSAGE_ID = 1125;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_QUEUE_INSUFFICIENT_HARDWARE_SUPPORT_FOR_GLOBAL_REALTIME: D3D12_MESSAGE_ID = 1025;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_QUEUE_INSUFFICIENT_PRIVILEGE_FOR_GLOBAL_REALTIME: D3D12_MESSAGE_ID = 1024;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_RECORDER_INVALID_FLAGS: D3D12_MESSAGE_ID = 1120;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_RECORDER_INVALID_SUPPORT_FLAGS: D3D12_MESSAGE_ID = 1119;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_RECORDER_MORE_RECORDERS_THAN_LOGICAL_PROCESSORS: D3D12_MESSAGE_ID = 1121;
+pub const D3D12_MESSAGE_ID_CREATE_COMMAND_RECORDER_VIDEO_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1118;
+pub const D3D12_MESSAGE_ID_CREATE_CONSTANT_BUFFER_VIEW_INVALID_DESC: D3D12_MESSAGE_ID = 650;
+pub const D3D12_MESSAGE_ID_CREATE_CONSTANT_BUFFER_VIEW_INVALID_RESOURCE: D3D12_MESSAGE_ID = 649;
+pub const D3D12_MESSAGE_ID_CREATE_CRYPTO_SESSION: D3D12_MESSAGE_ID = 1068;
+pub const D3D12_MESSAGE_ID_CREATE_CRYPTO_SESSION_POLICY: D3D12_MESSAGE_ID = 1069;
+pub const D3D12_MESSAGE_ID_CREATE_DESCRIPTORHEAP: D3D12_MESSAGE_ID = 563;
+pub const D3D12_MESSAGE_ID_CREATE_DESCRIPTOR_HEAP_INVALID_DESC: D3D12_MESSAGE_ID = 645;
+pub const D3D12_MESSAGE_ID_CREATE_DESCRIPTOR_HEAP_LARGE_NUM_DESCRIPTORS: D3D12_MESSAGE_ID = 1013;
+pub const D3D12_MESSAGE_ID_CREATE_FENCE_INVALID_FLAGS: D3D12_MESSAGE_ID = 1007;
+pub const D3D12_MESSAGE_ID_CREATE_HEAP: D3D12_MESSAGE_ID = 566;
+pub const D3D12_MESSAGE_ID_CREATE_LIBRARY: D3D12_MESSAGE_ID = 565;
+pub const D3D12_MESSAGE_ID_CREATE_LIFETIMETRACKER: D3D12_MESSAGE_ID = 1163;
+pub const D3D12_MESSAGE_ID_CREATE_META_COMMAND: D3D12_MESSAGE_ID = 1137;
+pub const D3D12_MESSAGE_ID_CREATE_MONITOREDFENCE: D3D12_MESSAGE_ID = 567;
+pub const D3D12_MESSAGE_ID_CREATE_PIPELINELIBRARY: D3D12_MESSAGE_ID = 966;
+pub const D3D12_MESSAGE_ID_CREATE_PIPELINESTATE: D3D12_MESSAGE_ID = 559;
+pub const D3D12_MESSAGE_ID_CREATE_PROTECTED_RESOURCE_SESSION: D3D12_MESSAGE_ID = 1070;
+pub const D3D12_MESSAGE_ID_CREATE_PROTECTED_RESOURCE_SESSION_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1247;
+pub const D3D12_MESSAGE_ID_CREATE_QUERYHEAP: D3D12_MESSAGE_ID = 568;
+pub const D3D12_MESSAGE_ID_CREATE_QUEUE_INVALID_FLAGS: D3D12_MESSAGE_ID = 910;
+pub const D3D12_MESSAGE_ID_CREATE_QUEUE_INVALID_PRIORITY: D3D12_MESSAGE_ID = 920;
+pub const D3D12_MESSAGE_ID_CREATE_QUEUE_INVALID_TYPE: D3D12_MESSAGE_ID = 909;
+pub const D3D12_MESSAGE_ID_CREATE_QUEUE_VIDEO_NOT_SUPPORTED: D3D12_MESSAGE_ID = 976;
+pub const D3D12_MESSAGE_ID_CREATE_RESOURCE: D3D12_MESSAGE_ID = 562;
+pub const D3D12_MESSAGE_ID_CREATE_ROOTSIGNATURE: D3D12_MESSAGE_ID = 564;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_BLOB_NOT_FOUND: D3D12_MESSAGE_ID = 696;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_DESERIALIZE_FAILED: D3D12_MESSAGE_ID = 697;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_INVALID_CONFIGURATION: D3D12_MESSAGE_ID = 698;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_NOT_SUPPORTED_ON_DEVICE: D3D12_MESSAGE_ID = 699;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_NOT_UNIQUE_IN_DXIL_LIBRARY: D3D12_MESSAGE_ID = 1230;
+pub const D3D12_MESSAGE_ID_CREATE_ROOT_SIGNATURE_UNBOUNDED_STATIC_DESCRIPTORS: D3D12_MESSAGE_ID = 1277;
+pub const D3D12_MESSAGE_ID_CREATE_SAMPLER_COMPARISON_FUNC_IGNORED: D3D12_MESSAGE_ID = 1361;
+pub const D3D12_MESSAGE_ID_CREATE_SAMPLER_INVALID: D3D12_MESSAGE_ID = 742;
+pub const D3D12_MESSAGE_ID_CREATE_SHADERCACHESESSION: D3D12_MESSAGE_ID = 1280;
+pub const D3D12_MESSAGE_ID_CREATE_STATE_OBJECT_ERROR: D3D12_MESSAGE_ID = 1194;
+pub const D3D12_MESSAGE_ID_CREATE_STATE_OBJECT_WARNING: D3D12_MESSAGE_ID = 1414;
+pub const D3D12_MESSAGE_ID_CREATE_TRACKEDWORKLOAD: D3D12_MESSAGE_ID = 1167;
+pub const D3D12_MESSAGE_ID_CREATE_UNORDEREDACCESS_VIEW_INVALID_COUNTER_USAGE: D3D12_MESSAGE_ID = 652;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEODECODECOMMANDLIST: D3D12_MESSAGE_ID = 979;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEODECODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1051;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEODECODER: D3D12_MESSAGE_ID = 980;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEODECODERHEAP: D3D12_MESSAGE_ID = 1083;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEODECODESTREAM: D3D12_MESSAGE_ID = 981;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOENCODECOMMANDLIST: D3D12_MESSAGE_ID = 1177;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOENCODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1180;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOENCODER: D3D12_MESSAGE_ID = 1297;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOENCODERHEAP: D3D12_MESSAGE_ID = 1300;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOEXTENSIONCOMMAND: D3D12_MESSAGE_ID = 1225;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOMOTIONESTIMATOR: D3D12_MESSAGE_ID = 1183;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOMOTIONVECTORHEAP: D3D12_MESSAGE_ID = 1186;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOPROCESSCOMMANDLIST: D3D12_MESSAGE_ID = 1052;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOPROCESSCOMMANDQUEUE: D3D12_MESSAGE_ID = 1053;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOPROCESSOR: D3D12_MESSAGE_ID = 1060;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEOPROCESSSTREAM: D3D12_MESSAGE_ID = 1061;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_DECODER_UNSUPPORTED: D3D12_MESSAGE_ID = 1102;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_DECODE_HEAP_CAPS_FAILURE: D3D12_MESSAGE_ID = 1099;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_DECODE_HEAP_CAPS_UNSUPPORTED: D3D12_MESSAGE_ID = 1100;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_ENCODER_HEAP_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1311;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_ENCODER_HEAP_UNSUPPORTED_PARAMETERS: D3D12_MESSAGE_ID = 1312;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_ENCODER_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1309;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_ENCODER_UNSUPPORTED_PARAMETERS: D3D12_MESSAGE_ID = 1310;
+pub const D3D12_MESSAGE_ID_CREATE_VIDEO_PROCESSOR_CAPS_FAILURE: D3D12_MESSAGE_ID = 1108;
+pub const D3D12_MESSAGE_ID_D3D12_MESSAGES_END: D3D12_MESSAGE_ID = 1442;
+pub const D3D12_MESSAGE_ID_DATA_STATIC_DESCRIPTOR_INVALID_DATA_CHANGE: D3D12_MESSAGE_ID = 1002;
+pub const D3D12_MESSAGE_ID_DATA_STATIC_WHILE_SET_AT_EXECUTE_DESCRIPTOR_INVALID_DATA_CHANGE: D3D12_MESSAGE_ID = 1003;
+pub const D3D12_MESSAGE_ID_DECODE_FRAME_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 988;
+pub const D3D12_MESSAGE_ID_DEPRECATED_API: D3D12_MESSAGE_ID = 989;
+pub const D3D12_MESSAGE_ID_DEPTH_STENCIL_FORMAT_MISMATCH_PIPELINE_STATE: D3D12_MESSAGE_ID = 615;
+pub const D3D12_MESSAGE_ID_DEPTH_STENCIL_SAMPLE_DESC_MISMATCH_PIPELINE_STATE: D3D12_MESSAGE_ID = 616;
+pub const D3D12_MESSAGE_ID_DESCRIPTOR_HANDLE_WITH_INVALID_RESOURCE: D3D12_MESSAGE_ID = 1042;
+pub const D3D12_MESSAGE_ID_DESCRIPTOR_HEAP_NOT_SET_BEFORE_ROOT_SIGNATURE_WITH_DIRECTLY_INDEXED_FLAG: D3D12_MESSAGE_ID = 1419;
+pub const D3D12_MESSAGE_ID_DESCRIPTOR_HEAP_NOT_SHADER_VISIBLE: D3D12_MESSAGE_ID = 1315;
+pub const D3D12_MESSAGE_ID_DESTROYOWNEDOBJECT_OBJECTNOTOWNED: D3D12_MESSAGE_ID = 1166;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDALLOCATOR: D3D12_MESSAGE_ID = 584;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDLIST12: D3D12_MESSAGE_ID = 586;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDPOOL: D3D12_MESSAGE_ID = 1124;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDQUEUE: D3D12_MESSAGE_ID = 583;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDRECORDER: D3D12_MESSAGE_ID = 1117;
+pub const D3D12_MESSAGE_ID_DESTROY_COMMANDSIGNATURE: D3D12_MESSAGE_ID = 595;
+pub const D3D12_MESSAGE_ID_DESTROY_CRYPTO_SESSION: D3D12_MESSAGE_ID = 1074;
+pub const D3D12_MESSAGE_ID_DESTROY_CRYPTO_SESSION_POLICY: D3D12_MESSAGE_ID = 1075;
+pub const D3D12_MESSAGE_ID_DESTROY_DESCRIPTORHEAP: D3D12_MESSAGE_ID = 589;
+pub const D3D12_MESSAGE_ID_DESTROY_HEAP: D3D12_MESSAGE_ID = 592;
+pub const D3D12_MESSAGE_ID_DESTROY_LIBRARY: D3D12_MESSAGE_ID = 591;
+pub const D3D12_MESSAGE_ID_DESTROY_LIFETIMETRACKER: D3D12_MESSAGE_ID = 1165;
+pub const D3D12_MESSAGE_ID_DESTROY_META_COMMAND: D3D12_MESSAGE_ID = 1139;
+pub const D3D12_MESSAGE_ID_DESTROY_MONITOREDFENCE: D3D12_MESSAGE_ID = 593;
+pub const D3D12_MESSAGE_ID_DESTROY_PIPELINELIBRARY: D3D12_MESSAGE_ID = 968;
+pub const D3D12_MESSAGE_ID_DESTROY_PIPELINESTATE: D3D12_MESSAGE_ID = 585;
+pub const D3D12_MESSAGE_ID_DESTROY_PROTECTED_RESOURCE_SESSION: D3D12_MESSAGE_ID = 1076;
+pub const D3D12_MESSAGE_ID_DESTROY_QUERYHEAP: D3D12_MESSAGE_ID = 594;
+pub const D3D12_MESSAGE_ID_DESTROY_RESOURCE: D3D12_MESSAGE_ID = 588;
+pub const D3D12_MESSAGE_ID_DESTROY_ROOTSIGNATURE: D3D12_MESSAGE_ID = 590;
+pub const D3D12_MESSAGE_ID_DESTROY_SHADERCACHESESSION: D3D12_MESSAGE_ID = 1282;
+pub const D3D12_MESSAGE_ID_DESTROY_TRACKEDWORKLOAD: D3D12_MESSAGE_ID = 1169;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEODECODECOMMANDLIST: D3D12_MESSAGE_ID = 985;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEODECODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1057;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEODECODER: D3D12_MESSAGE_ID = 986;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEODECODERHEAP: D3D12_MESSAGE_ID = 1085;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEODECODESTREAM: D3D12_MESSAGE_ID = 987;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOENCODECOMMANDLIST: D3D12_MESSAGE_ID = 1179;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOENCODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1182;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOENCODER: D3D12_MESSAGE_ID = 1299;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOENCODERHEAP: D3D12_MESSAGE_ID = 1302;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOEXTENSIONCOMMAND: D3D12_MESSAGE_ID = 1227;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOMOTIONESTIMATOR: D3D12_MESSAGE_ID = 1185;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOMOTIONVECTORHEAP: D3D12_MESSAGE_ID = 1188;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOPROCESSCOMMANDLIST: D3D12_MESSAGE_ID = 1058;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOPROCESSCOMMANDQUEUE: D3D12_MESSAGE_ID = 1059;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOPROCESSOR: D3D12_MESSAGE_ID = 1064;
+pub const D3D12_MESSAGE_ID_DESTROY_VIDEOPROCESSSTREAM: D3D12_MESSAGE_ID = 1065;
+pub const D3D12_MESSAGE_ID_DEVICE_CHECKFEATURESUPPORT_MISMATCHED_DATA_SIZE: D3D12_MESSAGE_ID = 318;
+pub const D3D12_MESSAGE_ID_DEVICE_CLEARVIEW_EMPTYRECT: D3D12_MESSAGE_ID = 448;
+pub const D3D12_MESSAGE_ID_DEVICE_CLEARVIEW_INVALIDSOURCERECT: D3D12_MESSAGE_ID = 447;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATECOMPUTESHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 422;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATECOMPUTESHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 337;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATECOMPUTESHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 431;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEDOMAINSHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 414;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEDOMAINSHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 333;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEDOMAINSHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 427;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 418;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 335;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADERWITHSTREAMOUTPUT_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 429;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 416;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 334;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEGEOMETRYSHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 428;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEHULLSHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 412;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEHULLSHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 332;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEHULLSHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 426;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEPIXELSHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 420;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEPIXELSHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 336;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEPIXELSHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 430;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEVERTEXSHADER_DOUBLEEXTENSIONSNOTSUPPORTED: D3D12_MESSAGE_ID = 410;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEVERTEXSHADER_DOUBLEFLOATOPSNOTSUPPORTED: D3D12_MESSAGE_ID = 331;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATEVERTEXSHADER_UAVSNOTSUPPORTED: D3D12_MESSAGE_ID = 425;
+pub const D3D12_MESSAGE_ID_DEVICE_CREATE_SHARED_HANDLE_INVALIDARG: D3D12_MESSAGE_ID = 1041;
+pub const D3D12_MESSAGE_ID_DEVICE_OPEN_SHARED_HANDLE_ACCESS_DENIED: D3D12_MESSAGE_ID = 1330;
+pub const D3D12_MESSAGE_ID_DEVICE_REMOVAL_PROCESS_AT_FAULT: D3D12_MESSAGE_ID = 232;
+pub const D3D12_MESSAGE_ID_DEVICE_REMOVAL_PROCESS_NOT_AT_FAULT: D3D12_MESSAGE_ID = 234;
+pub const D3D12_MESSAGE_ID_DEVICE_REMOVAL_PROCESS_POSSIBLY_AT_FAULT: D3D12_MESSAGE_ID = 233;
+pub const D3D12_MESSAGE_ID_DIFFERENT_DESCRIPTOR_HEAP_SET_AFTER_ROOT_SIGNATURE_WITH_DIRECTLY_INDEXED_FLAG: D3D12_MESSAGE_ID = 1420;
+pub const D3D12_MESSAGE_ID_DIRECTSR_OUT_OF_MEMORY: D3D12_MESSAGE_ID = 1409;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_DUPLICATE_VARIANT_ID: D3D12_MESSAGE_ID = 1408;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_ENGINE_CREATE_FLAGS_INVALID: D3D12_MESSAGE_ID = 1394;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_EXPOSURE_SCALE_FORMAT_INVALID: D3D12_MESSAGE_ID = 1393;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_EXTENSION_INTERNAL_ENGINE_CREATION_ERROR: D3D12_MESSAGE_ID = 1396;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_EXTENSION_INTERNAL_LOAD_FAILURE: D3D12_MESSAGE_ID = 1395;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_EXTENSION_INTERNAL_UPSCALER_CREATION_ERROR: D3D12_MESSAGE_ID = 1397;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_EXTENSION_INTERNAL_UPSCALER_EXECUTION_ERROR: D3D12_MESSAGE_ID = 1398;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_SOURCE_COLOR_FORMAT_INVALID: D3D12_MESSAGE_ID = 1391;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_SOURCE_DEPTH_FORMAT_INVALID: D3D12_MESSAGE_ID = 1392;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_TARGET_DIMENSION_INVALID: D3D12_MESSAGE_ID = 1390;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_TARGET_FORMAT_INVALID: D3D12_MESSAGE_ID = 1389;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EVICT_UNDERFLOW: D3D12_MESSAGE_ID = 1411;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_EXPOSURE_SCALE_TEXTURE_SIZE_INVALID: D3D12_MESSAGE_ID = 1405;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_FLAGS_INVALID: D3D12_MESSAGE_ID = 1403;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_FORMAT_INVALID: D3D12_MESSAGE_ID = 1404;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_INVALID_CAMERA_JITTER: D3D12_MESSAGE_ID = 1413;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_MOTION_VECTORS_FORMAT_INVALID: D3D12_MESSAGE_ID = 1402;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_OPTIONAL_TEXTURE_IS_NULL: D3D12_MESSAGE_ID = 1412;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_REGION_INVALID: D3D12_MESSAGE_ID = 1399;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_REQUIRED_TEXTURE_IS_NULL: D3D12_MESSAGE_ID = 1401;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_TIME_DELTA_INVALID: D3D12_MESSAGE_ID = 1400;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_UPSCALER_EXECUTE_UNEXPECTED_TEXTURE_IS_IGNORED: D3D12_MESSAGE_ID = 1410;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_VARIANT_ID_NOT_FOUND: D3D12_MESSAGE_ID = 1407;
+pub const D3D12_MESSAGE_ID_DIRECTSR_SUPERRES_VARIANT_INDEX_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1406;
+pub const D3D12_MESSAGE_ID_DISCARD_INVALID_SUBRESOURCE_RANGE: D3D12_MESSAGE_ID = 995;
+pub const D3D12_MESSAGE_ID_DISCARD_NO_RECTS_FOR_NON_TEXTURE2D: D3D12_MESSAGE_ID = 997;
+pub const D3D12_MESSAGE_ID_DISCARD_ONE_SUBRESOURCE_FOR_MIPS_WITH_RECTS: D3D12_MESSAGE_ID = 996;
+pub const D3D12_MESSAGE_ID_DISPATCH_GRAPH_INVALID: D3D12_MESSAGE_ID = 1388;
+pub const D3D12_MESSAGE_ID_DISPATCH_RAYS_INVALID: D3D12_MESSAGE_ID = 1161;
+pub const D3D12_MESSAGE_ID_DRAW_EMPTY_SCISSOR_RECTANGLE: D3D12_MESSAGE_ID = 695;
+pub const D3D12_MESSAGE_ID_DRAW_POTENTIALLY_OUTSIDE_OF_VALID_RENDER_AREA: D3D12_MESSAGE_ID = 1378;
+pub const D3D12_MESSAGE_ID_DYNAMIC_DEPTH_BIAS_FLAG_MISSING: D3D12_MESSAGE_ID = 1366;
+pub const D3D12_MESSAGE_ID_DYNAMIC_DEPTH_BIAS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1364;
+pub const D3D12_MESSAGE_ID_DYNAMIC_DEPTH_BIAS_NO_PIPELINE: D3D12_MESSAGE_ID = 1367;
+pub const D3D12_MESSAGE_ID_DYNAMIC_INDEX_BUFFER_STRIP_CUT_FLAG_MISSING: D3D12_MESSAGE_ID = 1368;
+pub const D3D12_MESSAGE_ID_DYNAMIC_INDEX_BUFFER_STRIP_CUT_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1359;
+pub const D3D12_MESSAGE_ID_DYNAMIC_INDEX_BUFFER_STRIP_CUT_NO_PIPELINE: D3D12_MESSAGE_ID = 1369;
+pub const D3D12_MESSAGE_ID_EMIT_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_INVALID: D3D12_MESSAGE_ID = 1159;
+pub const D3D12_MESSAGE_ID_EMPTY_DISPATCH: D3D12_MESSAGE_ID = 1254;
+pub const D3D12_MESSAGE_ID_EMPTY_ROOT_DESCRIPTOR_TABLE: D3D12_MESSAGE_ID = 1347;
+pub const D3D12_MESSAGE_ID_ENCODE_FRAME_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1305;
+pub const D3D12_MESSAGE_ID_ENCODE_FRAME_UNSUPPORTED_PARAMETERS: D3D12_MESSAGE_ID = 1306;
+pub const D3D12_MESSAGE_ID_END_EVENT: D3D12_MESSAGE_ID = 1015;
+pub const D3D12_MESSAGE_ID_ENHANCED_BARRIERS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1343;
+pub const D3D12_MESSAGE_ID_ENQUEUE_MAKE_RESIDENT_INVALID_FLAGS: D3D12_MESSAGE_ID = 1111;
+pub const D3D12_MESSAGE_ID_ESTIMATE_MOTION_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1220;
+pub const D3D12_MESSAGE_ID_EVICT_NULLOBJECTARRAY: D3D12_MESSAGE_ID = 705;
+pub const D3D12_MESSAGE_ID_EVICT_UNDERFLOW: D3D12_MESSAGE_ID = 1136;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_BUNDLENOTSUPPORTED: D3D12_MESSAGE_ID = 835;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_COMMANDLISTMISMATCH: D3D12_MESSAGE_ID = 836;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_FAILEDCOMMANDLIST: D3D12_MESSAGE_ID = 838;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_GPU_WRITTEN_READBACK_RESOURCE_MAPPED: D3D12_MESSAGE_ID = 927;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_OPENCOMMANDLIST: D3D12_MESSAGE_ID = 837;
+pub const D3D12_MESSAGE_ID_EXECUTECOMMANDLISTS_WRONGSWAPCHAINBUFFERREFERENCE: D3D12_MESSAGE_ID = 907;
+pub const D3D12_MESSAGE_ID_EXECUTE_BUNDLE_DESCRIPTOR_HEAP_MISMATCH: D3D12_MESSAGE_ID = 693;
+pub const D3D12_MESSAGE_ID_EXECUTE_BUNDLE_OPEN_BUNDLE: D3D12_MESSAGE_ID = 692;
+pub const D3D12_MESSAGE_ID_EXECUTE_BUNDLE_STATIC_DESCRIPTOR_DATA_STATIC_NOT_SET: D3D12_MESSAGE_ID = 1004;
+pub const D3D12_MESSAGE_ID_EXECUTE_BUNDLE_TYPE: D3D12_MESSAGE_ID = 694;
+pub const D3D12_MESSAGE_ID_EXECUTE_INDIRECT_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 744;
+pub const D3D12_MESSAGE_ID_EXECUTE_INDIRECT_ZERO_COMMAND_COUNT: D3D12_MESSAGE_ID = 1357;
+pub const D3D12_MESSAGE_ID_FENCE_INVALIDOPERATION: D3D12_MESSAGE_ID = 1078;
+pub const D3D12_MESSAGE_ID_FENCE_ZERO_WAIT: D3D12_MESSAGE_ID = 1424;
+pub const D3D12_MESSAGE_ID_GENERIC_DEVICE_OPERATION_UNSUPPORTED: D3D12_MESSAGE_ID = 1381;
+pub const D3D12_MESSAGE_ID_GEOMETRY_SHADER_OUTPUTTING_BOTH_VIEWPORT_ARRAY_INDEX_AND_SHADING_RATE_NOT_SUPPORTED_ON_DEVICE: D3D12_MESSAGE_ID = 1232;
+pub const D3D12_MESSAGE_ID_GETCOPYABLEFOOTPRINTS_INVALIDBASEOFFSET: D3D12_MESSAGE_ID = 740;
+pub const D3D12_MESSAGE_ID_GETCOPYABLEFOOTPRINTS_INVALIDSUBRESOURCERANGE: D3D12_MESSAGE_ID = 739;
+pub const D3D12_MESSAGE_ID_GETCOPYABLEFOOTPRINTS_UNSUPPORTED_BUFFER_WIDTH: D3D12_MESSAGE_ID = 1322;
+pub const D3D12_MESSAGE_ID_GETCOPYABLELAYOUT_INVALIDBASEOFFSET: D3D12_MESSAGE_ID = 740;
+pub const D3D12_MESSAGE_ID_GETCOPYABLELAYOUT_INVALIDSUBRESOURCERANGE: D3D12_MESSAGE_ID = 739;
+pub const D3D12_MESSAGE_ID_GETCUSTOMHEAPPROPERTIES_INVALIDHEAPTYPE: D3D12_MESSAGE_ID = 644;
+pub const D3D12_MESSAGE_ID_GETCUSTOMHEAPPROPERTIES_UNRECOGNIZEDHEAPTYPE: D3D12_MESSAGE_ID = 643;
+pub const D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_HEAP_TYPE: D3D12_MESSAGE_ID = 1222;
+pub const D3D12_MESSAGE_ID_GETGPUVIRTUALADDRESS_INVALID_RESOURCE_DIMENSION: D3D12_MESSAGE_ID = 745;
+pub const D3D12_MESSAGE_ID_GETHEAPPROPERTIES_INVALIDRESOURCE: D3D12_MESSAGE_ID = 901;
+pub const D3D12_MESSAGE_ID_GETPRIVATEDATA_MOREDATA: D3D12_MESSAGE_ID = 20;
+pub const D3D12_MESSAGE_ID_GETRESOURCEALLOCATIONINFO_INVALIDRDESCS: D3D12_MESSAGE_ID = 702;
+pub const D3D12_MESSAGE_ID_GET_PIPELINE_STACK_SIZE_ERROR: D3D12_MESSAGE_ID = 1197;
+pub const D3D12_MESSAGE_ID_GET_PROGRAM_IDENTIFIER_ERROR: D3D12_MESSAGE_ID = 118;
+pub const D3D12_MESSAGE_ID_GET_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO_INVALID: D3D12_MESSAGE_ID = 1162;
+pub const D3D12_MESSAGE_ID_GET_SHADER_IDENTIFIER_ERROR: D3D12_MESSAGE_ID = 1195;
+pub const D3D12_MESSAGE_ID_GET_SHADER_IDENTIFIER_SIZE_INVALID: D3D12_MESSAGE_ID = 1199;
+pub const D3D12_MESSAGE_ID_GET_SHADER_STACK_SIZE_ERROR: D3D12_MESSAGE_ID = 1196;
+pub const D3D12_MESSAGE_ID_GET_WORK_GRAPH_PROPERTIES_ERROR: D3D12_MESSAGE_ID = 119;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_DESCRIPTOR_HEAP_INDEX_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 936;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_DESCRIPTOR_TABLE_REGISTER_INDEX_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 937;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_DESCRIPTOR_TYPE_MISMATCH: D3D12_MESSAGE_ID = 939;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_DESCRIPTOR_UNINITIALIZED: D3D12_MESSAGE_ID = 938;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_INCOMPATIBLE_RESOURCE_STATE: D3D12_MESSAGE_ID = 942;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_INCOMPATIBLE_TEXTURE_LAYOUT: D3D12_MESSAGE_ID = 1358;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_INVALID_RESOURCE: D3D12_MESSAGE_ID = 958;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_RESOURCE_ACCESS_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1005;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_RESOURCE_STATE_IMPRECISE: D3D12_MESSAGE_ID = 1044;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_ROOT_ARGUMENT_UNINITIALIZED: D3D12_MESSAGE_ID = 935;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_ROOT_DESCRIPTOR_ACCESS_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 961;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_SAMPLER_MODE_MISMATCH: D3D12_MESSAGE_ID = 1006;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_SRV_RESOURCE_DIMENSION_MISMATCH: D3D12_MESSAGE_ID = 940;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_STRUCTURED_BUFFER_STRIDE_MISMATCH: D3D12_MESSAGE_ID = 1387;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_UAV_RESOURCE_DIMENSION_MISMATCH: D3D12_MESSAGE_ID = 941;
+pub const D3D12_MESSAGE_ID_GPU_BASED_VALIDATION_UNSUPPORTED: D3D12_MESSAGE_ID = 1000;
+pub const D3D12_MESSAGE_ID_GRAPHICS_PIPELINE_STATE_DESC_ZERO_SAMPLE_MASK: D3D12_MESSAGE_ID = 1352;
+pub const D3D12_MESSAGE_ID_GUID_TEXTURE_LAYOUT_UNSUPPORTED: D3D12_MESSAGE_ID = 1415;
+pub const D3D12_MESSAGE_ID_HEAP_ADDRESS_RANGE_HAS_NO_RESOURCE: D3D12_MESSAGE_ID = 923;
+pub const D3D12_MESSAGE_ID_HEAP_ADDRESS_RANGE_INTERSECTS_MULTIPLE_BUFFERS: D3D12_MESSAGE_ID = 926;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_ACCESS: D3D12_MESSAGE_ID = 1332;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_LAYOUT: D3D12_MESSAGE_ID = 1334;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_RESOURCE_DIMENSION: D3D12_MESSAGE_ID = 1337;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_SYNC: D3D12_MESSAGE_ID = 1333;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_TYPE: D3D12_MESSAGE_ID = 1335;
+pub const D3D12_MESSAGE_ID_INCOMPATIBLE_BARRIER_VALUES: D3D12_MESSAGE_ID = 1331;
+pub const D3D12_MESSAGE_ID_INCOMPLETE_TRACKED_WORKLOAD_PAIR: D3D12_MESSAGE_ID = 1193;
+pub const D3D12_MESSAGE_ID_INDEPENDENT_STENCIL_REF_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1353;
+pub const D3D12_MESSAGE_ID_INVALID_BARRIER_ACCESS: D3D12_MESSAGE_ID = 1417;
+pub const D3D12_MESSAGE_ID_INVALID_BUNDLE_API: D3D12_MESSAGE_ID = 546;
+pub const D3D12_MESSAGE_ID_INVALID_CAST_TARGET: D3D12_MESSAGE_ID = 1371;
+pub const D3D12_MESSAGE_ID_INVALID_DESCRIPTOR_HANDLE: D3D12_MESSAGE_ID = 646;
+pub const D3D12_MESSAGE_ID_INVALID_NODE_INDEX: D3D12_MESSAGE_ID = 900;
+pub const D3D12_MESSAGE_ID_INVALID_SUBRESOURCE_STATE: D3D12_MESSAGE_ID = 538;
+pub const D3D12_MESSAGE_ID_INVALID_USE_OF_NON_RESIDENT_RESOURCE: D3D12_MESSAGE_ID = 608;
+pub const D3D12_MESSAGE_ID_INVALID_VIDEO_EXTENSION_COMMAND_ID: D3D12_MESSAGE_ID = 1228;
+pub const D3D12_MESSAGE_ID_KEYEDMUTEX_INVALIDKEY: D3D12_MESSAGE_ID = 918;
+pub const D3D12_MESSAGE_ID_KEYEDMUTEX_INVALIDOBJECT: D3D12_MESSAGE_ID = 917;
+pub const D3D12_MESSAGE_ID_KEYEDMUTEX_WRONGSTATE: D3D12_MESSAGE_ID = 919;
+pub const D3D12_MESSAGE_ID_LEGACY_BARRIER_VALIDATION_FORCED_ON: D3D12_MESSAGE_ID = 1346;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDALLOCATOR: D3D12_MESSAGE_ID = 571;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDLIST12: D3D12_MESSAGE_ID = 573;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDPOOL: D3D12_MESSAGE_ID = 1123;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDQUEUE: D3D12_MESSAGE_ID = 570;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDRECORDER: D3D12_MESSAGE_ID = 1116;
+pub const D3D12_MESSAGE_ID_LIVE_COMMANDSIGNATURE: D3D12_MESSAGE_ID = 582;
+pub const D3D12_MESSAGE_ID_LIVE_CRYPTO_SESSION: D3D12_MESSAGE_ID = 1071;
+pub const D3D12_MESSAGE_ID_LIVE_CRYPTO_SESSION_POLICY: D3D12_MESSAGE_ID = 1072;
+pub const D3D12_MESSAGE_ID_LIVE_DESCRIPTORHEAP: D3D12_MESSAGE_ID = 576;
+pub const D3D12_MESSAGE_ID_LIVE_DEVICE: D3D12_MESSAGE_ID = 274;
+pub const D3D12_MESSAGE_ID_LIVE_HEAP: D3D12_MESSAGE_ID = 579;
+pub const D3D12_MESSAGE_ID_LIVE_LIBRARY: D3D12_MESSAGE_ID = 578;
+pub const D3D12_MESSAGE_ID_LIVE_LIFETIMETRACKER: D3D12_MESSAGE_ID = 1164;
+pub const D3D12_MESSAGE_ID_LIVE_META_COMMAND: D3D12_MESSAGE_ID = 1138;
+pub const D3D12_MESSAGE_ID_LIVE_MONITOREDFENCE: D3D12_MESSAGE_ID = 580;
+pub const D3D12_MESSAGE_ID_LIVE_OBJECT_SUMMARY: D3D12_MESSAGE_ID = 255;
+pub const D3D12_MESSAGE_ID_LIVE_PIPELINELIBRARY: D3D12_MESSAGE_ID = 967;
+pub const D3D12_MESSAGE_ID_LIVE_PIPELINESTATE: D3D12_MESSAGE_ID = 572;
+pub const D3D12_MESSAGE_ID_LIVE_PROTECTED_RESOURCE_SESSION: D3D12_MESSAGE_ID = 1073;
+pub const D3D12_MESSAGE_ID_LIVE_QUERYHEAP: D3D12_MESSAGE_ID = 581;
+pub const D3D12_MESSAGE_ID_LIVE_RESOURCE: D3D12_MESSAGE_ID = 575;
+pub const D3D12_MESSAGE_ID_LIVE_ROOTSIGNATURE: D3D12_MESSAGE_ID = 577;
+pub const D3D12_MESSAGE_ID_LIVE_SHADERCACHESESSION: D3D12_MESSAGE_ID = 1281;
+pub const D3D12_MESSAGE_ID_LIVE_SWAPCHAIN: D3D12_MESSAGE_ID = 275;
+pub const D3D12_MESSAGE_ID_LIVE_TRACKEDWORKLOAD: D3D12_MESSAGE_ID = 1168;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEODECODECOMMANDLIST: D3D12_MESSAGE_ID = 982;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEODECODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1054;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEODECODER: D3D12_MESSAGE_ID = 983;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEODECODERHEAP: D3D12_MESSAGE_ID = 1084;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEODECODESTREAM: D3D12_MESSAGE_ID = 984;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOENCODECOMMANDLIST: D3D12_MESSAGE_ID = 1178;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOENCODECOMMANDQUEUE: D3D12_MESSAGE_ID = 1181;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOENCODER: D3D12_MESSAGE_ID = 1298;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOENCODERHEAP: D3D12_MESSAGE_ID = 1301;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOEXTENSIONCOMMAND: D3D12_MESSAGE_ID = 1226;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOMOTIONESTIMATOR: D3D12_MESSAGE_ID = 1184;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOMOTIONVECTORHEAP: D3D12_MESSAGE_ID = 1187;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOPROCESSCOMMANDLIST: D3D12_MESSAGE_ID = 1055;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOPROCESSCOMMANDQUEUE: D3D12_MESSAGE_ID = 1056;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOPROCESSOR: D3D12_MESSAGE_ID = 1062;
+pub const D3D12_MESSAGE_ID_LIVE_VIDEOPROCESSSTREAM: D3D12_MESSAGE_ID = 1063;
+pub const D3D12_MESSAGE_ID_LOADPIPELINE_INVALIDDESC: D3D12_MESSAGE_ID = 972;
+pub const D3D12_MESSAGE_ID_LOADPIPELINE_NAMENOTFOUND: D3D12_MESSAGE_ID = 971;
+pub const D3D12_MESSAGE_ID_MAKERESIDENT_NULLOBJECTARRAY: D3D12_MESSAGE_ID = 703;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDARG_RETURN: D3D12_MESSAGE_ID = 833;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDDATAPOINTER: D3D12_MESSAGE_ID = 832;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDHEAP: D3D12_MESSAGE_ID = 822;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDRANGE: D3D12_MESSAGE_ID = 828;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDRESOURCE: D3D12_MESSAGE_ID = 824;
+pub const D3D12_MESSAGE_ID_MAP_INVALIDSUBRESOURCE: D3D12_MESSAGE_ID = 826;
+pub const D3D12_MESSAGE_ID_MAP_INVALID_NULLRANGE: D3D12_MESSAGE_ID = 930;
+pub const D3D12_MESSAGE_ID_MAP_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 834;
+pub const D3D12_MESSAGE_ID_MESH_SHADER_OUTPUTTING_BOTH_VIEWPORT_ARRAY_INDEX_AND_SHADING_RATE_NOT_SUPPORTED_ON_DEVICE: D3D12_MESSAGE_ID = 1275;
+pub const D3D12_MESSAGE_ID_MESSAGE_REPORTING_OUTOFMEMORY: D3D12_MESSAGE_ID = 19;
+pub const D3D12_MESSAGE_ID_META_COMMAND_FAILED_ENUMERATION: D3D12_MESSAGE_ID = 1173;
+pub const D3D12_MESSAGE_ID_META_COMMAND_ID_INVALID: D3D12_MESSAGE_ID = 1171;
+pub const D3D12_MESSAGE_ID_META_COMMAND_INVALID_GPU_VIRTUAL_ADDRESS: D3D12_MESSAGE_ID = 1176;
+pub const D3D12_MESSAGE_ID_META_COMMAND_PARAMETER_SIZE_MISMATCH: D3D12_MESSAGE_ID = 1174;
+pub const D3D12_MESSAGE_ID_META_COMMAND_UNSUPPORTED_PARAMS: D3D12_MESSAGE_ID = 1172;
+pub const D3D12_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOADS: D3D12_MESSAGE_ID = 1189;
+pub const D3D12_MESSAGE_ID_MULTIPLE_TRACKED_WORKLOAD_PAIRS: D3D12_MESSAGE_ID = 1190;
+pub const D3D12_MESSAGE_ID_NODE_MASK_MISMATCH: D3D12_MESSAGE_ID = 902;
+pub const D3D12_MESSAGE_ID_NONNORMALIZED_COORDINATE_SAMPLING_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1370;
+pub const D3D12_MESSAGE_ID_NONZERO_SAMPLER_FEEDBACK_MIP_REGION_WITH_INCOMPATIBLE_FORMAT: D3D12_MESSAGE_ID = 1252;
+pub const D3D12_MESSAGE_ID_NON_COMMON_RESOURCE_IN_COPY_QUEUE: D3D12_MESSAGE_ID = 1431;
+pub const D3D12_MESSAGE_ID_NON_OPTIMAL_BARRIER_ONLY_EXECUTE_COMMAND_LISTS: D3D12_MESSAGE_ID = 1356;
+pub const D3D12_MESSAGE_ID_NON_RETAIL_SHADER_MODEL_WONT_VALIDATE: D3D12_MESSAGE_ID = 1243;
+pub const D3D12_MESSAGE_ID_NO_COMPUTE_API_SUPPORT: D3D12_MESSAGE_ID = 933;
+pub const D3D12_MESSAGE_ID_NO_GRAPHICS_API_SUPPORT: D3D12_MESSAGE_ID = 932;
+pub const D3D12_MESSAGE_ID_NO_VIDEO_API_SUPPORT: D3D12_MESSAGE_ID = 1106;
+pub const D3D12_MESSAGE_ID_OBJECT_ACCESSED_WHILE_STILL_IN_USE: D3D12_MESSAGE_ID = 1047;
+pub const D3D12_MESSAGE_ID_OBJECT_DELETED_WHILE_STILL_IN_USE: D3D12_MESSAGE_ID = 921;
+pub const D3D12_MESSAGE_ID_OBJECT_EVICTED_WHILE_STILL_IN_USE: D3D12_MESSAGE_ID = 960;
+pub const D3D12_MESSAGE_ID_OPENEXISTINGHEAP_INVALIDADDRESS: D3D12_MESSAGE_ID = 1088;
+pub const D3D12_MESSAGE_ID_OPENEXISTINGHEAP_INVALIDARG_RETURN: D3D12_MESSAGE_ID = 1086;
+pub const D3D12_MESSAGE_ID_OPENEXISTINGHEAP_INVALIDHANDLE: D3D12_MESSAGE_ID = 1089;
+pub const D3D12_MESSAGE_ID_OPENEXISTINGHEAP_OUTOFMEMORY_RETURN: D3D12_MESSAGE_ID = 1087;
+pub const D3D12_MESSAGE_ID_OPENEXISTINGHEAP_UNSUPPORTED: D3D12_MESSAGE_ID = 1112;
+pub const D3D12_MESSAGE_ID_OUT_OF_BOUNDS_BARRIER_SUBRESOURCE_RANGE: D3D12_MESSAGE_ID = 1336;
+pub const D3D12_MESSAGE_ID_OUT_OF_ORDER_TRACKED_WORKLOAD_PAIR: D3D12_MESSAGE_ID = 1191;
+pub const D3D12_MESSAGE_ID_OVERSIZED_DISPATCH: D3D12_MESSAGE_ID = 1296;
+pub const D3D12_MESSAGE_ID_PIPELINELIBRARY_SERIALIZE_NOTENOUGHMEMORY: D3D12_MESSAGE_ID = 973;
+pub const D3D12_MESSAGE_ID_PIPELINE_STATE_TYPE_MISMATCH: D3D12_MESSAGE_ID = 951;
+pub const D3D12_MESSAGE_ID_PIX_EVENT_UNDERFLOW: D3D12_MESSAGE_ID = 1384;
+pub const D3D12_MESSAGE_ID_POSSIBLE_INVALID_USE_OF_NON_RESIDENT_RESOURCE: D3D12_MESSAGE_ID = 609;
+pub const D3D12_MESSAGE_ID_POSSIBLY_INVALID_SUBRESOURCE_STATE: D3D12_MESSAGE_ID = 607;
+pub const D3D12_MESSAGE_ID_PRIMITIVE_TOPOLOGY_MISMATCH_PIPELINE_STATE: D3D12_MESSAGE_ID = 611;
+pub const D3D12_MESSAGE_ID_PRIMITIVE_TOPOLOGY_TRIANGLE_FANS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1360;
+pub const D3D12_MESSAGE_ID_PROBABLE_PIX_EVENT_LEAK: D3D12_MESSAGE_ID = 1383;
+pub const D3D12_MESSAGE_ID_PROCESS_FRAME_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1066;
+pub const D3D12_MESSAGE_ID_PROGRAMMABLE_MSAA_UNSUPPORTED: D3D12_MESSAGE_ID = 1048;
+pub const D3D12_MESSAGE_ID_PROTECTED_RESOURCE_SESSION_UNSUPPORTED: D3D12_MESSAGE_ID = 1077;
+pub const D3D12_MESSAGE_ID_READFROMSUBRESOURCE_EMPTYBOX: D3D12_MESSAGE_ID = 898;
+pub const D3D12_MESSAGE_ID_READFROMSUBRESOURCE_INVALIDBOX: D3D12_MESSAGE_ID = 896;
+pub const D3D12_MESSAGE_ID_READFROMSUBRESOURCE_INVALIDHEAP: D3D12_MESSAGE_ID = 894;
+pub const D3D12_MESSAGE_ID_READFROMSUBRESOURCE_INVALIDRESOURCE: D3D12_MESSAGE_ID = 895;
+pub const D3D12_MESSAGE_ID_READFROMSUBRESOURCE_INVALIDSUBRESOURCE: D3D12_MESSAGE_ID = 897;
+pub const D3D12_MESSAGE_ID_RECREATEAT_INSUFFICIENT_SUPPORT: D3D12_MESSAGE_ID = 1386;
+pub const D3D12_MESSAGE_ID_RECREATEAT_INVALID_TARGET: D3D12_MESSAGE_ID = 1385;
+pub const D3D12_MESSAGE_ID_REFLECTSHAREDPROPERTIES_INVALIDOBJECT: D3D12_MESSAGE_ID = 916;
+pub const D3D12_MESSAGE_ID_REFLECTSHAREDPROPERTIES_INVALIDSIZE: D3D12_MESSAGE_ID = 915;
+pub const D3D12_MESSAGE_ID_REFLECTSHAREDPROPERTIES_UNRECOGNIZEDPROPERTIES: D3D12_MESSAGE_ID = 914;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_CANNOT_CLOSE_COMMAND_LIST: D3D12_MESSAGE_ID = 1206;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_CANNOT_END_WITHOUT_BEGIN: D3D12_MESSAGE_ID = 1205;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_CANNOT_NEST_RENDER_PASSES: D3D12_MESSAGE_ID = 1204;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_COMMANDLIST_INVALID_END_STATE: D3D12_MESSAGE_ID = 1372;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_COMMANDLIST_INVALID_START_STATE: D3D12_MESSAGE_ID = 1373;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_DISALLOWED_API_CALLED: D3D12_MESSAGE_ID = 1203;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_ERROR: D3D12_MESSAGE_ID = 1170;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_GPU_WORK_WHILE_SUSPENDED: D3D12_MESSAGE_ID = 1207;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_INVALID_RESOURCE_BARRIER: D3D12_MESSAGE_ID = 1202;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_LOCAL_DEPTH_STENCIL_ERROR: D3D12_MESSAGE_ID = 1377;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_LOCAL_PRESERVE_RENDER_PARAMETERS_ERROR: D3D12_MESSAGE_ID = 1376;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_MISMATCHING_ACCESS: D3D12_MESSAGE_ID = 1374;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_MISMATCHING_LOCAL_PRESERVE_PARAMETERS: D3D12_MESSAGE_ID = 1375;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_MISMATCHING_NO_ACCESS: D3D12_MESSAGE_ID = 1213;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_MISMATCHING_SUSPEND_RESUME: D3D12_MESSAGE_ID = 1208;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_NO_PRIOR_SUSPEND_WITHIN_EXECUTECOMMANDLISTS: D3D12_MESSAGE_ID = 1209;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_NO_SUBSEQUENT_RESUME_WITHIN_EXECUTECOMMANDLISTS: D3D12_MESSAGE_ID = 1210;
+pub const D3D12_MESSAGE_ID_RENDER_PASS_UNSUPPORTED_RESOLVE: D3D12_MESSAGE_ID = 1214;
+pub const D3D12_MESSAGE_ID_RENDER_TARGET_FORMAT_MISMATCH_PIPELINE_STATE: D3D12_MESSAGE_ID = 613;
+pub const D3D12_MESSAGE_ID_RENDER_TARGET_OR_DEPTH_STENCIL_RESOUCE_NOT_INITIALIZED: D3D12_MESSAGE_ID = 1422;
+pub const D3D12_MESSAGE_ID_RENDER_TARGET_SAMPLE_DESC_MISMATCH_PIPELINE_STATE: D3D12_MESSAGE_ID = 614;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCEREGION_INVALID_RECT: D3D12_MESSAGE_ID = 1050;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_INVALIDDSTRESOURCE: D3D12_MESSAGE_ID = 948;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_INVALIDSRCRESOURCE: D3D12_MESSAGE_ID = 950;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_INVALID_FORMAT: D3D12_MESSAGE_ID = 878;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_INVALID_SAMPLE_COUNT: D3D12_MESSAGE_ID = 880;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_INVALID_SUBRESOURCE_INDEX: D3D12_MESSAGE_ID = 877;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_NULLDST: D3D12_MESSAGE_ID = 947;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_NULLSRC: D3D12_MESSAGE_ID = 949;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_RESOURCE_FLAGS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 934;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_RESOURCE_MISMATCH: D3D12_MESSAGE_ID = 879;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_SAMPLER_FEEDBACK_INVALID_MIP_LEVEL_COUNT: D3D12_MESSAGE_ID = 1269;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_SAMPLER_FEEDBACK_TRANSCODE_ARRAY_SIZE_MISMATCH: D3D12_MESSAGE_ID = 1270;
+pub const D3D12_MESSAGE_ID_RESOLVESUBRESOURCE_SAMPLER_FEEDBACK_TRANSCODE_INVALID_FORMAT: D3D12_MESSAGE_ID = 1268;
+pub const D3D12_MESSAGE_ID_RESOLVE_ENCODER_INPUT_PARAM_LAYOUT_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1416;
+pub const D3D12_MESSAGE_ID_RESOLVE_ENCODER_OUTPUT_METADATA_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 1307;
+pub const D3D12_MESSAGE_ID_RESOLVE_ENCODER_OUTPUT_METADATA_UNSUPPORTED_PARAMETERS: D3D12_MESSAGE_ID = 1308;
+pub const D3D12_MESSAGE_ID_RESOLVE_MOTION_VECTOR_HEAP_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1221;
+pub const D3D12_MESSAGE_ID_RESOLVE_QUERY_DATA_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 733;
+pub const D3D12_MESSAGE_ID_RESOLVE_QUERY_INVALID_QUERY_STATE: D3D12_MESSAGE_ID = 1319;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_BEFORE_AFTER_MISMATCH: D3D12_MESSAGE_ID = 527;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_DUPLICATE_SUBRESOURCE_TRANSITIONS: D3D12_MESSAGE_ID = 1008;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_COMBINATION: D3D12_MESSAGE_ID = 526;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_COMBINED_FLAGS: D3D12_MESSAGE_ID = 531;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_COMMAND_LIST_TYPE: D3D12_MESSAGE_ID = 537;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_FLAG: D3D12_MESSAGE_ID = 536;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_FLAGS: D3D12_MESSAGE_ID = 530;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_FLAGS_FOR_FORMAT: D3D12_MESSAGE_ID = 532;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_HEAP: D3D12_MESSAGE_ID = 741;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_RESOURCE: D3D12_MESSAGE_ID = 528;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_SPLIT_BARRIER: D3D12_MESSAGE_ID = 533;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_SUBRESOURCE: D3D12_MESSAGE_ID = 521;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_INVALID_TYPE: D3D12_MESSAGE_ID = 519;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_MATCHING_STATES: D3D12_MESSAGE_ID = 525;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_MISMATCHING_BEGIN_END: D3D12_MESSAGE_ID = 957;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_MISMATCHING_COMMAND_LIST_TYPE: D3D12_MESSAGE_ID = 990;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_MISMATCHING_MISC_FLAGS: D3D12_MESSAGE_ID = 524;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_MISSING_BIND_FLAGS: D3D12_MESSAGE_ID = 523;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_NULL_POINTER: D3D12_MESSAGE_ID = 520;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_POSSIBLE_BEFORE_AFTER_MISMATCH: D3D12_MESSAGE_ID = 956;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_RESERVED_BITS: D3D12_MESSAGE_ID = 522;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_SAMPLE_COUNT: D3D12_MESSAGE_ID = 529;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_UNMATCHED_BEGIN: D3D12_MESSAGE_ID = 535;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_UNMATCHED_END: D3D12_MESSAGE_ID = 534;
+pub const D3D12_MESSAGE_ID_RESOURCE_BARRIER_ZERO_BARRIERS: D3D12_MESSAGE_ID = 954;
+pub const D3D12_MESSAGE_ID_RESOURCE_FORMAT_REQUIRES_SAMPLER_FEEDBACK_CAPABILITY: D3D12_MESSAGE_ID = 1255;
+pub const D3D12_MESSAGE_ID_RESOURCE_UNMAP_NOTMAPPED: D3D12_MESSAGE_ID = 310;
+pub const D3D12_MESSAGE_ID_RSSETSHADINGRATEIMAGE_REQUIRES_TIER_2: D3D12_MESSAGE_ID = 1236;
+pub const D3D12_MESSAGE_ID_RSSETSHADINGRATE_REQUIRES_TIER_1: D3D12_MESSAGE_ID = 1237;
+pub const D3D12_MESSAGE_ID_RSSETSHADING_RATE_INVALID_COMBINER: D3D12_MESSAGE_ID = 1235;
+pub const D3D12_MESSAGE_ID_RSSETSHADING_RATE_INVALID_SHADING_RATE: D3D12_MESSAGE_ID = 1233;
+pub const D3D12_MESSAGE_ID_RSSETSHADING_RATE_SHADING_RATE_NOT_PERMITTED_BY_CAP: D3D12_MESSAGE_ID = 1234;
+pub const D3D12_MESSAGE_ID_SAMPLEPOSITIONS_MISMATCH_DEFERRED: D3D12_MESSAGE_ID = 1080;
+pub const D3D12_MESSAGE_ID_SAMPLEPOSITIONS_MISMATCH_RECORDTIME_ASSUMEDFROMCLEAR: D3D12_MESSAGE_ID = 1082;
+pub const D3D12_MESSAGE_ID_SAMPLEPOSITIONS_MISMATCH_RECORDTIME_ASSUMEDFROMFIRSTUSE: D3D12_MESSAGE_ID = 1081;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_CREATE_UAV_MISMATCHING_TARGETED_RESOURCE: D3D12_MESSAGE_ID = 1271;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_CREATE_UAV_NULL_ARGUMENTS: D3D12_MESSAGE_ID = 1262;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_CREATE_UAV_REQUIRES_FEEDBACK_MAP_FORMAT: D3D12_MESSAGE_ID = 1264;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_INVALID_DIMENSION: D3D12_MESSAGE_ID = 1257;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_INVALID_LAYOUT: D3D12_MESSAGE_ID = 1260;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_INVALID_MIP_REGION: D3D12_MESSAGE_ID = 1256;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_INVALID_SAMPLE_COUNT: D3D12_MESSAGE_ID = 1258;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_INVALID_SAMPLE_QUALITY: D3D12_MESSAGE_ID = 1259;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_MAP_REQUIRES_UNORDERED_ACCESS_FLAG: D3D12_MESSAGE_ID = 1261;
+pub const D3D12_MESSAGE_ID_SAMPLER_FEEDBACK_UAV_REQUIRES_SAMPLER_FEEDBACK_CAPABILITY: D3D12_MESSAGE_ID = 1263;
+pub const D3D12_MESSAGE_ID_SETDEPTHBOUNDS_INVALIDARGS: D3D12_MESSAGE_ID = 1043;
+pub const D3D12_MESSAGE_ID_SETEVENTONMULTIPLEFENCECOMPLETION_INVALIDFLAGS: D3D12_MESSAGE_ID = 975;
+pub const D3D12_MESSAGE_ID_SETPRIVATEDATA_CHANGINGPARAMS: D3D12_MESSAGE_ID = 24;
+pub const D3D12_MESSAGE_ID_SETPRIVATEDATA_INVALIDFREEDATA: D3D12_MESSAGE_ID = 21;
+pub const D3D12_MESSAGE_ID_SETPRIVATEDATA_NO_ACCESS: D3D12_MESSAGE_ID = 1320;
+pub const D3D12_MESSAGE_ID_SETPRIVATEDATA_OUTOFMEMORY: D3D12_MESSAGE_ID = 25;
+pub const D3D12_MESSAGE_ID_SETRESIDENCYPRIORITY_INVALID_PAGEABLE: D3D12_MESSAGE_ID = 999;
+pub const D3D12_MESSAGE_ID_SETRESIDENCYPRIORITY_INVALID_PRIORITY: D3D12_MESSAGE_ID = 1009;
+pub const D3D12_MESSAGE_ID_SETSAMPLEPOSITIONS_INVALIDARGS: D3D12_MESSAGE_ID = 1049;
+pub const D3D12_MESSAGE_ID_SETTING_SHADING_RATE_FROM_MS_REQUIRES_CAPABILITY: D3D12_MESSAGE_ID = 1325;
+pub const D3D12_MESSAGE_ID_SETVIEWINSTANCEMASK_INVALIDARGS: D3D12_MESSAGE_ID = 1094;
+pub const D3D12_MESSAGE_ID_SET_BACKGROUND_PROCESSING_MODE_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1223;
+pub const D3D12_MESSAGE_ID_SET_DESCRIPTOR_HEAP_INVALID: D3D12_MESSAGE_ID = 554;
+pub const D3D12_MESSAGE_ID_SET_DESCRIPTOR_TABLE_INVALID: D3D12_MESSAGE_ID = 708;
+pub const D3D12_MESSAGE_ID_SET_INDEX_BUFFER_INVALID: D3D12_MESSAGE_ID = 725;
+pub const D3D12_MESSAGE_ID_SET_INDEX_BUFFER_INVALID_DESC: D3D12_MESSAGE_ID = 715;
+pub const D3D12_MESSAGE_ID_SET_PIPELINE_STACK_SIZE_ERROR: D3D12_MESSAGE_ID = 1198;
+pub const D3D12_MESSAGE_ID_SET_PREDICATION_INVALID_PARAMETERS: D3D12_MESSAGE_ID = 734;
+pub const D3D12_MESSAGE_ID_SET_PROGRAM_ERROR: D3D12_MESSAGE_ID = 120;
+pub const D3D12_MESSAGE_ID_SET_RENDER_TARGETS_INVALID: D3D12_MESSAGE_ID = 728;
+pub const D3D12_MESSAGE_ID_SET_ROOT_CONSTANT_BUFFER_VIEW_INVALID: D3D12_MESSAGE_ID = 710;
+pub const D3D12_MESSAGE_ID_SET_ROOT_CONSTANT_INVALID: D3D12_MESSAGE_ID = 709;
+pub const D3D12_MESSAGE_ID_SET_ROOT_SHADER_RESOURCE_VIEW_INVALID: D3D12_MESSAGE_ID = 711;
+pub const D3D12_MESSAGE_ID_SET_ROOT_UNORDERED_ACCESS_VIEW_INVALID: D3D12_MESSAGE_ID = 712;
+pub const D3D12_MESSAGE_ID_SET_SCISSOR_RECTS_INVALID_RECT: D3D12_MESSAGE_ID = 1338;
+pub const D3D12_MESSAGE_ID_SET_STREAM_OUTPUT_BUFFERS_INVALID: D3D12_MESSAGE_ID = 727;
+pub const D3D12_MESSAGE_ID_SET_STREAM_OUTPUT_BUFFERS_INVALID_DESC: D3D12_MESSAGE_ID = 717;
+pub const D3D12_MESSAGE_ID_SET_VERTEX_BUFFERS_INVALID: D3D12_MESSAGE_ID = 726;
+pub const D3D12_MESSAGE_ID_SET_VERTEX_BUFFERS_INVALID_DESC: D3D12_MESSAGE_ID = 713;
+pub const D3D12_MESSAGE_ID_SHADERCACHECONTROL_DEVELOPERMODE: D3D12_MESSAGE_ID = 1286;
+pub const D3D12_MESSAGE_ID_SHADERCACHECONTROL_IGNOREDFLAG: D3D12_MESSAGE_ID = 1289;
+pub const D3D12_MESSAGE_ID_SHADERCACHECONTROL_INVALIDFLAGS: D3D12_MESSAGE_ID = 1287;
+pub const D3D12_MESSAGE_ID_SHADERCACHECONTROL_SHADERCACHECLEAR_NOTSUPPORTED: D3D12_MESSAGE_ID = 1327;
+pub const D3D12_MESSAGE_ID_SHADERCACHECONTROL_STATEALREADYSET: D3D12_MESSAGE_ID = 1288;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_CORRUPT: D3D12_MESSAGE_ID = 1294;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_DISABLED: D3D12_MESSAGE_ID = 1295;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_FINDVALUE_NOTFOUND: D3D12_MESSAGE_ID = 1293;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_SHADERCACHEDELETE_NOTSUPPORTED: D3D12_MESSAGE_ID = 1326;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_STOREVALUE_ALREADYPRESENT: D3D12_MESSAGE_ID = 1290;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_STOREVALUE_CACHEFULL: D3D12_MESSAGE_ID = 1292;
+pub const D3D12_MESSAGE_ID_SHADERCACHESESSION_STOREVALUE_HASHCOLLISION: D3D12_MESSAGE_ID = 1291;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_IMAGE_INCORRECT_ARRAY_SIZE: D3D12_MESSAGE_ID = 1239;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_IMAGE_INCORRECT_FORMAT: D3D12_MESSAGE_ID = 1238;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_IMAGE_INCORRECT_MIP_LEVEL: D3D12_MESSAGE_ID = 1240;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_IMAGE_INCORRECT_SAMPLE_COUNT: D3D12_MESSAGE_ID = 1241;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_IMAGE_INCORRECT_SAMPLE_QUALITY: D3D12_MESSAGE_ID = 1242;
+pub const D3D12_MESSAGE_ID_SHADING_RATE_SOURCE_REQUIRES_DIMENSION_TEXTURE2D: D3D12_MESSAGE_ID = 1339;
+pub const D3D12_MESSAGE_ID_STATIC_DESCRIPTOR_INVALID_DESCRIPTOR_CHANGE: D3D12_MESSAGE_ID = 1001;
+pub const D3D12_MESSAGE_ID_STOREPIPELINE_DUPLICATENAME: D3D12_MESSAGE_ID = 970;
+pub const D3D12_MESSAGE_ID_STOREPIPELINE_NONAME: D3D12_MESSAGE_ID = 969;
+pub const D3D12_MESSAGE_ID_STRING_FROM_APPLICATION: D3D12_MESSAGE_ID = 1;
+pub const D3D12_MESSAGE_ID_TEXTURE_BARRIER_INVALID_FLAGS: D3D12_MESSAGE_ID = 1436;
+pub const D3D12_MESSAGE_ID_TEXTURE_BARRIER_SUBRESOURCES_OUT_OF_BOUNDS: D3D12_MESSAGE_ID = 1355;
+pub const D3D12_MESSAGE_ID_TIMESTAMPS_NOT_SUPPORTED: D3D12_MESSAGE_ID = 735;
+pub const D3D12_MESSAGE_ID_TOO_MANY_NODES_SPECIFIED: D3D12_MESSAGE_ID = 899;
+pub const D3D12_MESSAGE_ID_TRACKED_WORKLOAD_COMMAND_QUEUE_MISMATCH: D3D12_MESSAGE_ID = 1211;
+pub const D3D12_MESSAGE_ID_TRACKED_WORKLOAD_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1212;
+pub const D3D12_MESSAGE_ID_UNINITIALIZED_META_COMMAND: D3D12_MESSAGE_ID = 1175;
+pub const D3D12_MESSAGE_ID_UNKNOWN: D3D12_MESSAGE_ID = 0;
+pub const D3D12_MESSAGE_ID_UNMAP_INVALIDHEAP: D3D12_MESSAGE_ID = 823;
+pub const D3D12_MESSAGE_ID_UNMAP_INVALIDRANGE: D3D12_MESSAGE_ID = 829;
+pub const D3D12_MESSAGE_ID_UNMAP_INVALIDRESOURCE: D3D12_MESSAGE_ID = 825;
+pub const D3D12_MESSAGE_ID_UNMAP_INVALIDSUBRESOURCE: D3D12_MESSAGE_ID = 827;
+pub const D3D12_MESSAGE_ID_UNMAP_INVALID_NULLRANGE: D3D12_MESSAGE_ID = 931;
+pub const D3D12_MESSAGE_ID_UNMAP_RANGE_NOT_EMPTY: D3D12_MESSAGE_ID = 929;
+pub const D3D12_MESSAGE_ID_UNSUPPORTED_BARRIER_LAYOUT: D3D12_MESSAGE_ID = 1341;
+pub const D3D12_MESSAGE_ID_UNUSED_CROSS_EXECUTE_SPLIT_BARRIER: D3D12_MESSAGE_ID = 1329;
+pub const D3D12_MESSAGE_ID_UPDATETILEMAPPINGS_INVALID_PARAMETER: D3D12_MESSAGE_ID = 493;
+pub const D3D12_MESSAGE_ID_UPDATETILEMAPPINGS_POSSIBLY_MISMATCHING_PROPERTIES: D3D12_MESSAGE_ID = 1154;
+pub const D3D12_MESSAGE_ID_USE_OF_ZERO_REFCOUNT_OBJECT: D3D12_MESSAGE_ID = 959;
+pub const D3D12_MESSAGE_ID_VARIABLE_SHADING_RATE_NOT_ALLOWED_WITH_TIR: D3D12_MESSAGE_ID = 1231;
+pub const D3D12_MESSAGE_ID_VERTEX_SHADER_OUTPUTTING_BOTH_VIEWPORT_ARRAY_INDEX_AND_SHADING_RATE_NOT_SUPPORTED_ON_DEVICE: D3D12_MESSAGE_ID = 1274;
+pub const D3D12_MESSAGE_ID_VIDEO_CREATE_MOTION_ESTIMATOR_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1218;
+pub const D3D12_MESSAGE_ID_VIDEO_CREATE_MOTION_VECTOR_HEAP_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1219;
+pub const D3D12_MESSAGE_ID_VIDEO_DECODE_FRAME_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1110;
+pub const D3D12_MESSAGE_ID_VIDEO_DECODE_SUPPORT_INVALID_INPUT: D3D12_MESSAGE_ID = 1101;
+pub const D3D12_MESSAGE_ID_VIDEO_DECODE_SUPPORT_UNSUPPORTED: D3D12_MESSAGE_ID = 1114;
+pub const D3D12_MESSAGE_ID_VIDEO_EXTENSION_COMMAND_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1229;
+pub const D3D12_MESSAGE_ID_VIDEO_PROCESS_FRAMES_INVALID_ARGUMENT: D3D12_MESSAGE_ID = 1113;
+pub const D3D12_MESSAGE_ID_VIDEO_PROCESS_SUPPORT_INVALID_INPUT: D3D12_MESSAGE_ID = 1107;
+pub const D3D12_MESSAGE_ID_VIDEO_PROCESS_SUPPORT_UNSUPPORTED_FORMAT: D3D12_MESSAGE_ID = 1109;
+pub const D3D12_MESSAGE_ID_VIEW_INSTANCING_INVALIDARGS: D3D12_MESSAGE_ID = 1096;
+pub const D3D12_MESSAGE_ID_VIEW_INSTANCING_UNSUPPORTED: D3D12_MESSAGE_ID = 1095;
+pub const D3D12_MESSAGE_ID_VRS_SUM_COMBINER_REQUIRES_CAPABILITY: D3D12_MESSAGE_ID = 1324;
+pub const D3D12_MESSAGE_ID_WINDOWS7_FENCE_OUTOFORDER_SIGNAL: D3D12_MESSAGE_ID = 1216;
+pub const D3D12_MESSAGE_ID_WINDOWS7_FENCE_OUTOFORDER_WAIT: D3D12_MESSAGE_ID = 1217;
+pub const D3D12_MESSAGE_ID_WRITEBUFFERIMMEDIATE_INVALID_ALIGNMENT: D3D12_MESSAGE_ID = 1092;
+pub const D3D12_MESSAGE_ID_WRITEBUFFERIMMEDIATE_INVALID_DEST: D3D12_MESSAGE_ID = 1090;
+pub const D3D12_MESSAGE_ID_WRITEBUFFERIMMEDIATE_INVALID_MODE: D3D12_MESSAGE_ID = 1091;
+pub const D3D12_MESSAGE_ID_WRITEBUFFERIMMEDIATE_NOT_SUPPORTED: D3D12_MESSAGE_ID = 1093;
+pub const D3D12_MESSAGE_ID_WRITETOSUBRESOURCE_EMPTYBOX: D3D12_MESSAGE_ID = 893;
+pub const D3D12_MESSAGE_ID_WRITETOSUBRESOURCE_INVALIDBOX: D3D12_MESSAGE_ID = 891;
+pub const D3D12_MESSAGE_ID_WRITETOSUBRESOURCE_INVALIDHEAP: D3D12_MESSAGE_ID = 889;
+pub const D3D12_MESSAGE_ID_WRITETOSUBRESOURCE_INVALIDRESOURCE: D3D12_MESSAGE_ID = 890;
+pub const D3D12_MESSAGE_ID_WRITETOSUBRESOURCE_INVALIDSUBRESOURCE: D3D12_MESSAGE_ID = 892;
+pub const D3D12_MESSAGE_ID_WRITE_COMBINE_PERFORMANCE_WARNING: D3D12_MESSAGE_ID = 1318;
+pub const D3D12_MESSAGE_ID_WRONG_COMMAND_ALLOCATOR_TYPE: D3D12_MESSAGE_ID = 549;
+pub type D3D12_MESSAGE_SEVERITY = i32;
+pub const D3D12_MESSAGE_SEVERITY_CORRUPTION: D3D12_MESSAGE_SEVERITY = 0;
+pub const D3D12_MESSAGE_SEVERITY_ERROR: D3D12_MESSAGE_SEVERITY = 1;
+pub const D3D12_MESSAGE_SEVERITY_INFO: D3D12_MESSAGE_SEVERITY = 3;
+pub const D3D12_MESSAGE_SEVERITY_MESSAGE: D3D12_MESSAGE_SEVERITY = 4;
+pub const D3D12_MESSAGE_SEVERITY_WARNING: D3D12_MESSAGE_SEVERITY = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_META_COMMAND_DESC {
@@ -2446,6 +4406,23 @@ pub struct D3D12_PACKED_MIP_INFO {
     pub StartTileIndexInOverallResource: u32,
 }
 pub const D3D12_PACKED_TILE: u32 = 4294967295;
+#[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_PARAMETER_DESC {
+    pub Name: windows_core::PCSTR,
+    pub SemanticName: windows_core::PCSTR,
+    pub Type: super::d3dcommon::D3D_SHADER_VARIABLE_TYPE,
+    pub Class: super::d3dcommon::D3D_SHADER_VARIABLE_CLASS,
+    pub Rows: u32,
+    pub Columns: u32,
+    pub InterpolationMode: super::d3dcommon::D3D_INTERPOLATION_MODE,
+    pub Flags: super::d3dcommon::D3D_PARAMETER_FLAGS,
+    pub FirstInRegister: u32,
+    pub FirstInComponent: u32,
+    pub FirstOutRegister: u32,
+    pub FirstOutComponent: u32,
+}
 pub type D3D12_PIPELINE_STATE_FLAGS = u32;
 pub const D3D12_PIPELINE_STATE_FLAG_DYNAMIC_DEPTH_BIAS: D3D12_PIPELINE_STATE_FLAGS = 4;
 pub const D3D12_PIPELINE_STATE_FLAG_DYNAMIC_INDEX_BUFFER_STRIP_CUT: D3D12_PIPELINE_STATE_FLAGS = 8;
@@ -2495,7 +4472,7 @@ pub const D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_VIEW_INSTANCING: D3D12_PIPELINE_ST
 pub const D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_VS: D3D12_PIPELINE_STATE_SUBOBJECT_TYPE = 1;
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     pub Offset: u64,
@@ -2624,6 +4601,15 @@ pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
 pub struct D3D12_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
+    pub Status: u64,
+    pub NumMacroblocksAffected: u64,
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub BitRate: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2807,28 +4793,28 @@ pub struct D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
     pub AABBs: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_RAYTRACING_GEOMETRY_DESC {
     pub Type: D3D12_RAYTRACING_GEOMETRY_TYPE,
     pub Flags: D3D12_RAYTRACING_GEOMETRY_FLAGS,
     pub Anonymous: D3D12_RAYTRACING_GEOMETRY_DESC_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RAYTRACING_GEOMETRY_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     pub Triangles: D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub AABBs: D3D12_RAYTRACING_GEOMETRY_AABBS_DESC,
     pub OmmTriangles: D3D12_RAYTRACING_GEOMETRY_OMM_TRIANGLES_DESC,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2839,34 +4825,34 @@ pub const D3D12_RAYTRACING_GEOMETRY_FLAG_NONE: D3D12_RAYTRACING_GEOMETRY_FLAGS =
 pub const D3D12_RAYTRACING_GEOMETRY_FLAG_NO_DUPLICATE_ANYHIT_INVOCATION: D3D12_RAYTRACING_GEOMETRY_FLAGS = 2;
 pub const D3D12_RAYTRACING_GEOMETRY_FLAG_OPAQUE: D3D12_RAYTRACING_GEOMETRY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_OMM_LINKAGE_DESC {
     pub OpacityMicromapIndexBuffer: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
-    pub OpacityMicromapIndexFormat: super::dxgiformat::DXGI_FORMAT,
+    pub OpacityMicromapIndexFormat: super::dxgi::DXGI_FORMAT,
     pub OpacityMicromapBaseLocation: u32,
     pub OpacityMicromapArray: D3D12_GPU_VIRTUAL_ADDRESS,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_OMM_TRIANGLES_DESC {
     pub pTriangles: *const D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub pOmmLinkage: *const D3D12_RAYTRACING_GEOMETRY_OMM_LINKAGE_DESC,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RAYTRACING_GEOMETRY_OMM_TRIANGLES_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     pub Transform3x4: D3D12_GPU_VIRTUAL_ADDRESS,
-    pub IndexFormat: super::dxgiformat::DXGI_FORMAT,
-    pub VertexFormat: super::dxgiformat::DXGI_FORMAT,
+    pub IndexFormat: super::dxgi::DXGI_FORMAT,
+    pub VertexFormat: super::dxgi::DXGI_FORMAT,
     pub IndexCount: u32,
     pub VertexCount: u32,
     pub IndexBuffer: D3D12_GPU_VIRTUAL_ADDRESS,
@@ -3022,38 +5008,38 @@ pub const D3D12_RECREATE_AT_TIER_NOT_SUPPORTED: D3D12_RECREATE_AT_TIER = 0;
 #[cfg(feature = "Win32_windef")]
 pub type D3D12_RECT = super::windef::RECT;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS {
     pub Type: D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_BEGINNING_ACCESS_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     pub Clear: D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS,
     pub PreserveLocal: D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     pub ClearValue: D3D12_CLEAR_VALUE,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3074,7 +5060,7 @@ pub const D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE_LOCAL_RENDER: D3D12_R
 pub const D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE_LOCAL_SRV: D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE = 5;
 pub const D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE_PRESERVE_LOCAL_UAV: D3D12_RENDER_PASS_BEGINNING_ACCESS_TYPE = 6;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub DepthBeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
@@ -3082,49 +5068,49 @@ pub struct D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     pub DepthEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
     pub StencilEndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Default for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS {
     pub Type: D3D12_RENDER_PASS_ENDING_ACCESS_TYPE,
     pub Anonymous: D3D12_RENDER_PASS_ENDING_ACCESS_0,
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: core::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
     pub PreserveLocal: D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS,
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3137,18 +5123,18 @@ pub struct D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     pub AdditionalHeight: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 #[derive(Clone, Debug, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSrcResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pDstResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub SubresourceCount: u32,
     pub pSubresourceParameters: *const D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS,
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub ResolveMode: D3D12_RESOLVE_MODE,
     pub PreserveResolveSource: windows_core::BOOL,
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3180,19 +5166,19 @@ pub const D3D12_RENDER_PASS_FLAG_NONE: D3D12_RENDER_PASS_FLAGS = 0;
 pub const D3D12_RENDER_PASS_FLAG_RESUMING_PASS: D3D12_RENDER_PASS_FLAGS = 4;
 pub const D3D12_RENDER_PASS_FLAG_SUSPENDING_PASS: D3D12_RENDER_PASS_FLAGS = 2;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub struct D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     pub cpuDescriptor: D3D12_CPU_DESCRIPTOR_HANDLE,
     pub BeginningAccess: D3D12_RENDER_PASS_BEGINNING_ACCESS,
     pub EndingAccess: D3D12_RENDER_PASS_ENDING_ACCESS,
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl Default for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3217,21 +5203,21 @@ pub struct D3D12_RENDER_TARGET_BLEND_DESC {
     pub RenderTargetWriteMask: u8,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_RENDER_TARGET_VIEW_DESC {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D12_RTV_DIMENSION,
     pub Anonymous: D3D12_RENDER_TARGET_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RENDER_TARGET_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_RTV,
@@ -3243,7 +5229,7 @@ pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D12_TEX3D_RTV,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3291,6 +5277,19 @@ pub const D3D12_RESOLVE_MODE_DECOMPRESS: D3D12_RESOLVE_MODE = 0;
 pub const D3D12_RESOLVE_MODE_ENCODE_SAMPLER_FEEDBACK: D3D12_RESOLVE_MODE = 4;
 pub const D3D12_RESOLVE_MODE_MAX: D3D12_RESOLVE_MODE = 2;
 pub const D3D12_RESOLVE_MODE_MIN: D3D12_RESOLVE_MODE = 1;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
+    pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
+    pub PixelWidth: u32,
+    pub PixelHeight: u32,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
+    pub pMotionVectorTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
+}
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
@@ -3356,7 +5355,15 @@ pub const D3D12_RESOURCE_BINDING_TIER_1: D3D12_RESOURCE_BINDING_TIER = 1;
 pub const D3D12_RESOURCE_BINDING_TIER_2: D3D12_RESOURCE_BINDING_TIER = 2;
 pub const D3D12_RESOURCE_BINDING_TIER_3: D3D12_RESOURCE_BINDING_TIER = 3;
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_RESOURCE_COORDINATE {
+    pub X: u64,
+    pub Y: u32,
+    pub Z: u32,
+    pub SubresourceIndex: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_DESC {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
@@ -3365,13 +5372,13 @@ pub struct D3D12_RESOURCE_DESC {
     pub Height: u32,
     pub DepthOrArraySize: u16,
     pub MipLevels: u16,
-    pub Format: super::dxgiformat::DXGI_FORMAT,
-    pub SampleDesc: super::dxgicommon::DXGI_SAMPLE_DESC,
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub SampleDesc: super::dxgi::DXGI_SAMPLE_DESC,
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_RESOURCE_DESC1 {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
@@ -3380,8 +5387,8 @@ pub struct D3D12_RESOURCE_DESC1 {
     pub Height: u32,
     pub DepthOrArraySize: u16,
     pub MipLevels: u16,
-    pub Format: super::dxgiformat::DXGI_FORMAT,
-    pub SampleDesc: super::dxgicommon::DXGI_SAMPLE_DESC,
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub SampleDesc: super::dxgi::DXGI_SAMPLE_DESC,
     pub Layout: D3D12_TEXTURE_LAYOUT,
     pub Flags: D3D12_RESOURCE_FLAGS,
     pub SamplerFeedbackMipRegion: D3D12_MIP_REGION,
@@ -3407,6 +5414,10 @@ pub const D3D12_RESOURCE_FLAG_VIDEO_ENCODE_REFERENCE_ONLY: D3D12_RESOURCE_FLAGS 
 pub type D3D12_RESOURCE_HEAP_TIER = i32;
 pub const D3D12_RESOURCE_HEAP_TIER_1: D3D12_RESOURCE_HEAP_TIER = 1;
 pub const D3D12_RESOURCE_HEAP_TIER_2: D3D12_RESOURCE_HEAP_TIER = 2;
+#[cfg(feature = "Win32_d3dcommon")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D12_RESOURCE_RETURN_TYPE(pub super::d3dcommon::D3D_RESOURCE_RETURN_TYPE);
 pub type D3D12_RESOURCE_STATES = u32;
 pub const D3D12_RESOURCE_STATE_ALL_SHADER_RESOURCE: D3D12_RESOURCE_STATES = 192;
 pub const D3D12_RESOURCE_STATE_COMMON: D3D12_RESOURCE_STATES = 0;
@@ -3453,6 +5464,11 @@ pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
 pub struct D3D12_RESOURCE_UAV_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
+pub const D3D12_RLDO_DETAIL: D3D12_RLDO_FLAGS = 2;
+pub type D3D12_RLDO_FLAGS = u32;
+pub const D3D12_RLDO_IGNORE_INTERNAL: D3D12_RLDO_FLAGS = 4;
+pub const D3D12_RLDO_NONE: D3D12_RLDO_FLAGS = 0;
+pub const D3D12_RLDO_SUMMARY: D3D12_RLDO_FLAGS = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_ROOT_CONSTANTS {
@@ -3622,13 +5638,13 @@ pub const D3D12_RTV_DIMENSION_TEXTURE2DMSARRAY: D3D12_RTV_DIMENSION = 7;
 pub const D3D12_RTV_DIMENSION_TEXTURE3D: D3D12_RTV_DIMENSION = 8;
 pub const D3D12_RTV_DIMENSION_UNKNOWN: D3D12_RTV_DIMENSION = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_RT_FORMAT_ARRAY {
-    pub RTFormats: [super::dxgiformat::DXGI_FORMAT; 8],
+    pub RTFormats: [super::dxgi::DXGI_FORMAT; 8],
     pub NumRenderTargets: u32,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_RT_FORMAT_ARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3811,6 +5827,16 @@ pub type D3D12_SET_WORK_GRAPH_FLAGS = u32;
 pub const D3D12_SET_WORK_GRAPH_FLAG_INITIALIZE: D3D12_SET_WORK_GRAPH_FLAGS = 1;
 pub const D3D12_SET_WORK_GRAPH_FLAG_NONE: D3D12_SET_WORK_GRAPH_FLAGS = 0;
 #[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_SHADER_BUFFER_DESC {
+    pub Name: windows_core::PCSTR,
+    pub Type: super::d3dcommon::D3D_CBUFFER_TYPE,
+    pub Variables: u32,
+    pub Size: u32,
+    pub uFlags: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct D3D12_SHADER_BYTECODE {
     pub pShaderBytecode: *const core::ffi::c_void,
@@ -3867,7 +5893,65 @@ pub const D3D12_SHADER_COMPONENT_MAPPING_FROM_MEMORY_COMPONENT_2: D3D12_SHADER_C
 pub const D3D12_SHADER_COMPONENT_MAPPING_FROM_MEMORY_COMPONENT_3: D3D12_SHADER_COMPONENT_MAPPING = 3;
 pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7;
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3;
+#[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_SHADER_DESC {
+    pub Version: u32,
+    pub Creator: windows_core::PCSTR,
+    pub Flags: u32,
+    pub ConstantBuffers: u32,
+    pub BoundResources: u32,
+    pub InputParameters: u32,
+    pub OutputParameters: u32,
+    pub InstructionCount: u32,
+    pub TempRegisterCount: u32,
+    pub TempArrayCount: u32,
+    pub DefCount: u32,
+    pub DclCount: u32,
+    pub TextureNormalInstructions: u32,
+    pub TextureLoadInstructions: u32,
+    pub TextureCompInstructions: u32,
+    pub TextureBiasInstructions: u32,
+    pub TextureGradientInstructions: u32,
+    pub FloatInstructionCount: u32,
+    pub IntInstructionCount: u32,
+    pub UintInstructionCount: u32,
+    pub StaticFlowControlCount: u32,
+    pub DynamicFlowControlCount: u32,
+    pub MacroInstructionCount: u32,
+    pub ArrayInstructionCount: u32,
+    pub CutInstructionCount: u32,
+    pub EmitInstructionCount: u32,
+    pub GSOutputTopology: super::d3dcommon::D3D_PRIMITIVE_TOPOLOGY,
+    pub GSMaxOutputVertexCount: u32,
+    pub InputPrimitive: super::d3dcommon::D3D_PRIMITIVE,
+    pub PatchConstantParameters: u32,
+    pub cGSInstanceCount: u32,
+    pub cControlPoints: u32,
+    pub HSOutputPrimitive: super::d3dcommon::D3D_TESSELLATOR_OUTPUT_PRIMITIVE,
+    pub HSPartitioning: super::d3dcommon::D3D_TESSELLATOR_PARTITIONING,
+    pub TessellatorDomain: super::d3dcommon::D3D_TESSELLATOR_DOMAIN,
+    pub cBarrierInstructions: u32,
+    pub cInterlockedInstructions: u32,
+    pub cTextureStoreInstructions: u32,
+}
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32;
+#[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_SHADER_INPUT_BIND_DESC {
+    pub Name: windows_core::PCSTR,
+    pub Type: super::d3dcommon::D3D_SHADER_INPUT_TYPE,
+    pub BindPoint: u32,
+    pub BindCount: u32,
+    pub uFlags: u32,
+    pub ReturnType: super::d3dcommon::D3D_RESOURCE_RETURN_TYPE,
+    pub Dimension: super::d3dcommon::D3D_SRV_DIMENSION,
+    pub NumSamples: u32,
+    pub Space: u32,
+    pub uID: u32,
+}
 pub const D3D12_SHADER_MAJOR_VERSION: u32 = 5;
 pub const D3D12_SHADER_MAX_INSTANCES: u32 = 65535;
 pub const D3D12_SHADER_MAX_INTERFACES: u32 = 253;
@@ -3904,22 +5988,22 @@ impl Default for D3D12_SHADER_NODE_0 {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_SHADER_RESOURCE_VIEW_DESC {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D12_SRV_DIMENSION,
     pub Shader4ComponentMapping: u32,
     pub Anonymous: D3D12_SHADER_RESOURCE_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_SRV,
@@ -3934,12 +6018,44 @@ pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D12_TEXCUBE_ARRAY_SRV,
     pub RaytracingAccelerationStructure: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_SHADER_TYPE_DESC {
+    pub Class: super::d3dcommon::D3D_SHADER_VARIABLE_CLASS,
+    pub Type: super::d3dcommon::D3D_SHADER_VARIABLE_TYPE,
+    pub Rows: u32,
+    pub Columns: u32,
+    pub Elements: u32,
+    pub Members: u32,
+    pub Offset: u32,
+    pub Name: windows_core::PCSTR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_SHADER_VARIABLE_DESC {
+    pub Name: windows_core::PCSTR,
+    pub StartOffset: u32,
+    pub Size: u32,
+    pub uFlags: u32,
+    pub DefaultValue: *mut core::ffi::c_void,
+    pub StartTexture: u32,
+    pub TextureSize: u32,
+    pub StartSampler: u32,
+    pub SamplerSize: u32,
+}
+impl Default for D3D12_SHADER_VARIABLE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_SHADER_VERSION_TYPE = i32;
 pub type D3D12_SHADER_VISIBILITY = i32;
 pub const D3D12_SHADER_VISIBILITY_ALL: D3D12_SHADER_VISIBILITY = 0;
 pub const D3D12_SHADER_VISIBILITY_AMPLIFICATION: D3D12_SHADER_VISIBILITY = 6;
@@ -3971,6 +6087,37 @@ pub const D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER_1: D3D12_SHARED_RESOURCE_COMP
 pub const D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER_2: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER = 2;
 pub const D3D12_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0;
 pub const D3D12_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5;
+pub const D3D12_SHVER_AMPLIFICATION_SHADER: D3D12_SHADER_VERSION_TYPE = 14;
+pub const D3D12_SHVER_ANY_HIT_SHADER: D3D12_SHADER_VERSION_TYPE = 9;
+pub const D3D12_SHVER_CALLABLE_SHADER: D3D12_SHADER_VERSION_TYPE = 12;
+pub const D3D12_SHVER_CLOSEST_HIT_SHADER: D3D12_SHADER_VERSION_TYPE = 10;
+pub const D3D12_SHVER_COMPUTE_SHADER: D3D12_SHADER_VERSION_TYPE = 5;
+pub const D3D12_SHVER_DOMAIN_SHADER: D3D12_SHADER_VERSION_TYPE = 4;
+pub const D3D12_SHVER_GEOMETRY_SHADER: D3D12_SHADER_VERSION_TYPE = 2;
+pub const D3D12_SHVER_HULL_SHADER: D3D12_SHADER_VERSION_TYPE = 3;
+pub const D3D12_SHVER_INTERSECTION_SHADER: D3D12_SHADER_VERSION_TYPE = 8;
+pub const D3D12_SHVER_LIBRARY: D3D12_SHADER_VERSION_TYPE = 6;
+pub const D3D12_SHVER_MESH_SHADER: D3D12_SHADER_VERSION_TYPE = 13;
+pub const D3D12_SHVER_MISS_SHADER: D3D12_SHADER_VERSION_TYPE = 11;
+pub const D3D12_SHVER_NODE_SHADER: D3D12_SHADER_VERSION_TYPE = 15;
+pub const D3D12_SHVER_PIXEL_SHADER: D3D12_SHADER_VERSION_TYPE = 0;
+pub const D3D12_SHVER_RAY_GENERATION_SHADER: D3D12_SHADER_VERSION_TYPE = 7;
+pub const D3D12_SHVER_RESERVED0: D3D12_SHADER_VERSION_TYPE = 65520;
+pub const D3D12_SHVER_VERTEX_SHADER: D3D12_SHADER_VERSION_TYPE = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_d3dcommon")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_SIGNATURE_PARAMETER_DESC {
+    pub SemanticName: windows_core::PCSTR,
+    pub SemanticIndex: u32,
+    pub Register: u32,
+    pub SystemValueType: super::d3dcommon::D3D_NAME,
+    pub ComponentType: super::d3dcommon::D3D_REGISTER_COMPONENT_TYPE,
+    pub Mask: u8,
+    pub ReadWriteMask: u8,
+    pub Stream: u32,
+    pub MinPrecision: super::d3dcommon::D3D_MIN_PRECISION,
+}
 pub const D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT: u32 = 8;
 pub const D3D12_SMALL_MSAA_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 65536;
 pub const D3D12_SMALL_RESOURCE_PLACEMENT_ALIGNMENT: u32 = 4096;
@@ -4185,10 +6332,10 @@ impl Default for D3D12_SUBRESOURCE_DATA {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_SUBRESOURCE_FOOTPRINT {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub Width: u32,
     pub Height: u32,
     pub Depth: u32,
@@ -4218,6 +6365,10 @@ pub struct D3D12_SUBRESOURCE_TILING {
 pub const D3D12_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295;
 pub const D3D12_SYSTEM_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967280;
+#[cfg(feature = "Win32_d3dcommon")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D12_TESSELLATOR_DOMAIN(pub super::d3dcommon::D3D_TESSELLATOR_DOMAIN);
 pub const D3D12_TESSELLATOR_MAX_EVEN_TESSELLATION_FACTOR: u32 = 64;
 pub const D3D12_TESSELLATOR_MAX_ISOLINE_DENSITY_TESSELLATION_FACTOR: u32 = 64;
 pub const D3D12_TESSELLATOR_MAX_ODD_TESSELLATION_FACTOR: u32 = 63;
@@ -4225,6 +6376,14 @@ pub const D3D12_TESSELLATOR_MAX_TESSELLATION_FACTOR: u32 = 64;
 pub const D3D12_TESSELLATOR_MIN_EVEN_TESSELLATION_FACTOR: u32 = 2;
 pub const D3D12_TESSELLATOR_MIN_ISOLINE_DENSITY_TESSELLATION_FACTOR: u32 = 1;
 pub const D3D12_TESSELLATOR_MIN_ODD_TESSELLATION_FACTOR: u32 = 1;
+#[cfg(feature = "Win32_d3dcommon")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D12_TESSELLATOR_OUTPUT_PRIMITIVE(pub super::d3dcommon::D3D_TESSELLATOR_OUTPUT_PRIMITIVE);
+#[cfg(feature = "Win32_d3dcommon")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D12_TESSELLATOR_PARTITIONING(pub super::d3dcommon::D3D_TESSELLATOR_PARTITIONING);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_DSV {
@@ -4440,32 +6599,32 @@ pub type D3D12_TEXTURE_BARRIER_FLAGS = u32;
 pub const D3D12_TEXTURE_BARRIER_FLAG_DISCARD: D3D12_TEXTURE_BARRIER_FLAGS = 1;
 pub const D3D12_TEXTURE_BARRIER_FLAG_NONE: D3D12_TEXTURE_BARRIER_FLAGS = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 pub struct D3D12_TEXTURE_COPY_LOCATION {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Type: D3D12_TEXTURE_COPY_TYPE,
     pub Anonymous: D3D12_TEXTURE_COPY_LOCATION_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Clone for D3D12_TEXTURE_COPY_LOCATION {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_TEXTURE_COPY_LOCATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_TEXTURE_COPY_LOCATION_0 {
     pub PlacedFootprint: D3D12_PLACED_SUBRESOURCE_FOOTPRINT,
     pub SubresourceIndex: u32,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_TEXTURE_COPY_LOCATION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4564,21 +6723,21 @@ pub const D3D12_UAV_DIMENSION_UNKNOWN: D3D12_UAV_DIMENSION = 0;
 pub const D3D12_UAV_SLOT_COUNT: u32 = 64;
 pub const D3D12_UNBOUND_MEMORY_ACCESS_RESULT: u32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub struct D3D12_UNORDERED_ACCESS_VIEW_DESC {
-    pub Format: super::dxgiformat::DXGI_FORMAT,
+    pub Format: super::dxgi::DXGI_FORMAT,
     pub ViewDimension: D3D12_UAV_DIMENSION,
     pub Anonymous: D3D12_UNORDERED_ACCESS_VIEW_DESC_0,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_UNORDERED_ACCESS_VIEW_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[derive(Clone, Copy)]
 pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_UAV,
@@ -4590,7 +6749,7 @@ pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_UAV,
     pub Texture3D: D3D12_TEX3D_UAV,
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 impl Default for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4665,18 +6824,2634 @@ pub struct D3D12_VERTEX_BUFFER_VIEW {
     pub SizeInBytes: u32,
     pub StrideInBytes: u32,
 }
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODER_DESC {
+    pub NodeMask: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
+    pub NodeMask: u32,
+    pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
+    pub DecodeWidth: u32,
+    pub DecodeHeight: u32,
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub BitRate: u32,
+    pub MaxDecodePictureBufferCount: u32,
+}
+pub type D3D12_VIDEO_DECODE_ARGUMENT_TYPE = i32;
+pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_HUFFMAN_TABLE: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 3;
+pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_INVERSE_QUANTIZATION_MATRIX: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 1;
+pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 0;
+pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 2;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
+    pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub Offset: u64,
+    pub Size: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
+    pub DecodeProfile: windows_core::GUID,
+    pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
+    pub InterlaceType: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE,
+}
+pub type D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = u32;
+pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_ALLOW_RESOLUTION_CHANGE_ON_NON_KEY_FRAME: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 8;
+pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_HEIGHT_ALIGNMENT_MULTIPLE_32_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 1;
+pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 0;
+pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 2;
+pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 4;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
+    pub Enable: windows_core::BOOL,
+    pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub ReferenceSubresource: u32,
+    pub OutputColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub DecodeColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
+    pub Enable: windows_core::BOOL,
+    pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub ReferenceSubresource: u32,
+    pub OutputColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub DecodeColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub OutputWidth: u32,
+    pub OutputHeight: u32,
+}
+pub type D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+    pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
+    pub Size: u32,
+    pub pData: *mut core::ffi::c_void,
+}
+impl Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = i32;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 3;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 2;
+pub type D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = u32;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 8;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 4;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 2;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 0;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_R: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 1;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_U: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 2;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_V: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 4;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 1;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 1;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_R: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 0;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_U: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 1;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_V: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 2;
+pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 0;
+#[repr(C)]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+    pub NumFrameArguments: u32,
+    pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
+    pub ReferenceFrames: D3D12_VIDEO_DECODE_REFERENCE_FRAMES,
+    pub CompressedBitstream: D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM,
+    pub pHeap: core::mem::ManuallyDrop<Option<ID3D12VideoDecoderHeap>>,
+}
+impl Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D12_VIDEO_DECODE_MAX_ARGUMENTS: u32 = 10;
 pub const D3D12_VIDEO_DECODE_MAX_HISTOGRAM_COMPONENTS: u32 = 4;
 pub const D3D12_VIDEO_DECODE_MIN_BITSTREAM_OFFSET_ALIGNMENT: u32 = 256;
 pub const D3D12_VIDEO_DECODE_MIN_HISTOGRAM_OFFSET_ALIGNMENT: u32 = 256;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
+    pub Offset: u64,
+    pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
+    pub pOutputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub OutputSubresource: u32,
+    pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+    pub pOutputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub OutputSubresource: u32,
+    pub ConversionArguments: D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1,
+    pub Histograms: [D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM; 4],
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2: windows_core::GUID = windows_core::GUID::from_u128(0x17127009_a00f_4ce1_994e_bf4081f6f3f0);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_12BIT_PROFILE2_420: windows_core::GUID = windows_core::GUID::from_u128(0x2d80bed6_9cac_4835_9e91_327bbc4f9ee8);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE0: windows_core::GUID = windows_core::GUID::from_u128(0xb8be4ccb_cf53_46ba_8d59_d6b8a6da5d2a);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE1: windows_core::GUID = windows_core::GUID::from_u128(0x6936ff0f_45b1_4163_9cc1_646ef6946108);
+pub const D3D12_VIDEO_DECODE_PROFILE_AV1_PROFILE2: windows_core::GUID = windows_core::GUID::from_u128(0x0c5f2aa1_e541_4089_bb7b_98110a19d7c8);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be68_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_MULTIVIEW: windows_core::GUID = windows_core::GUID::from_u128(0x705b9d82_76cf_49d6_b7e6_ac8872db013c);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO: windows_core::GUID = windows_core::GUID::from_u128(0xf9aaccbb_c2b6_4cfc_8779_5707b1760552);
+pub const D3D12_VIDEO_DECODE_PROFILE_H264_STEREO_PROGRESSIVE: windows_core::GUID = windows_core::GUID::from_u128(0xd79be8da_0cf1_4c81_b82a_69a4e236f43d);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN: windows_core::GUID = windows_core::GUID::from_u128(0x5b11d51b_2f4c_4452_bcc3_09f2a1160cc0);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10: windows_core::GUID = windows_core::GUID::from_u128(0x107af0e0_ef1a_4d19_aba8_67a163073d13);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_422: windows_core::GUID = windows_core::GUID::from_u128(0x0bac4fe5_1532_4429_a854_f84de04953db);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_444: windows_core::GUID = windows_core::GUID::from_u128(0x0dabeffa_4458_4602_bc03_0795659d617c);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN10_EXT: windows_core::GUID = windows_core::GUID::from_u128(0x9cc55490_e37c_4932_8684_4920f9f6409c);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12: windows_core::GUID = windows_core::GUID::from_u128(0x1a72925f_0c2c_4f15_96fb_b17d1473603f);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12_422: windows_core::GUID = windows_core::GUID::from_u128(0x55bcac81_f311_4093_a7d0_1cbc0b849bee);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN12_444: windows_core::GUID = windows_core::GUID::from_u128(0x9798634d_fe9d_48e5_b4da_dbec45b3df01);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN16: windows_core::GUID = windows_core::GUID::from_u128(0xa4fbdbb0_a113_482b_a232_635cc0697f6d);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MAIN_444: windows_core::GUID = windows_core::GUID::from_u128(0x4008018f_f537_4b36_98cf_61af8a2c1a33);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MONOCHROME: windows_core::GUID = windows_core::GUID::from_u128(0x0685b993_3d8c_43a0_8b28_d74c2d6899a4);
+pub const D3D12_VIDEO_DECODE_PROFILE_HEVC_MONOCHROME10: windows_core::GUID = windows_core::GUID::from_u128(0x142a1d0f_69dd_4ec9_8591_b12ffcb91a29);
+pub const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_420: windows_core::GUID = windows_core::GUID::from_u128(0xcf782c83_bef5_4a2c_87cb_6019e7b175ac);
+pub const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_422: windows_core::GUID = windows_core::GUID::from_u128(0xf04df417_eee2_4067_a778_f35c15ab9721);
+pub const D3D12_VIDEO_DECODE_PROFILE_JPEG_VLD_444: windows_core::GUID = windows_core::GUID::from_u128(0x4cd00e17_89ba_48ef_b9f9_edcb82713f65);
+pub const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_420: windows_core::GUID = windows_core::GUID::from_u128(0x725cb506_0c29_43c4_9440_8e9397903a04);
+pub const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_422: windows_core::GUID = windows_core::GUID::from_u128(0x5b77b9cd_1a35_4c30_9fd8_ef4b60c035dd);
+pub const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_444: windows_core::GUID = windows_core::GUID::from_u128(0xd95161f9_0d44_47e6_bcf5_1bfbfb268f97);
+pub const D3D12_VIDEO_DECODE_PROFILE_MJPEG_VLD_4444: windows_core::GUID = windows_core::GUID::from_u128(0xc91748d5_fd18_4aca_9db3_3a6634ab547d);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG1_AND_MPEG2: windows_core::GUID = windows_core::GUID::from_u128(0x86695f12_340e_4f04_9fd3_9253dd327460);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG2: windows_core::GUID = windows_core::GUID::from_u128(0xee27417f_5e28_4e65_beea_1d26b508adc9);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_ADVSIMPLE_NOGMC: windows_core::GUID = windows_core::GUID::from_u128(0xed418a9f_010d_4eda_9ae3_9a65358d8d2e);
+pub const D3D12_VIDEO_DECODE_PROFILE_MPEG4PT2_SIMPLE: windows_core::GUID = windows_core::GUID::from_u128(0xefd64d74_c9e8_41d7_a5e9_e9b0e39fa319);
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1: windows_core::GUID = windows_core::GUID::from_u128(0x1b81bea3_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_VC1_D2010: windows_core::GUID = windows_core::GUID::from_u128(0x1b81bea4_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP8: windows_core::GUID = windows_core::GUID::from_u128(0x90b899ea_3a62_4705_88b3_8df04b2744e7);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9: windows_core::GUID = windows_core::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
+pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: windows_core::GUID = windows_core::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+    pub NumTexture2Ds: u32,
+    pub ppTexture2Ds: *mut Option<ID3D12Resource>,
+    pub pSubresources: *mut u32,
+    pub ppHeaps: *mut Option<ID3D12VideoDecoderHeap>,
+}
+impl Default for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_DECODE_STATUS = i32;
+pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE: D3D12_VIDEO_DECODE_STATUS = 1;
+pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE_SKIP_DISPLAY: D3D12_VIDEO_DECODE_STATUS = 2;
 pub const D3D12_VIDEO_DECODE_STATUS_MACROBLOCKS_AFFECTED_UNKNOWN: u32 = 4294967295;
+pub const D3D12_VIDEO_DECODE_STATUS_OK: D3D12_VIDEO_DECODE_STATUS = 0;
+pub const D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED: D3D12_VIDEO_DECODE_STATUS = 4;
+pub const D3D12_VIDEO_DECODE_STATUS_RESTART: D3D12_VIDEO_DECODE_STATUS = 3;
+pub type D3D12_VIDEO_DECODE_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = 1;
+pub type D3D12_VIDEO_DECODE_TIER = i32;
+pub const D3D12_VIDEO_DECODE_TIER_1: D3D12_VIDEO_DECODE_TIER = 1;
+pub const D3D12_VIDEO_DECODE_TIER_2: D3D12_VIDEO_DECODE_TIER = 2;
+pub const D3D12_VIDEO_DECODE_TIER_3: D3D12_VIDEO_DECODE_TIER = 3;
+pub const D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED: D3D12_VIDEO_DECODE_TIER = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
+    pub CdefBits: u64,
+    pub CdefDampingMinus3: u64,
+    pub CdefYPriStrength: [u64; 8],
+    pub CdefUVPriStrength: [u64; 8],
+    pub CdefYSecStrength: [u64; 8],
+    pub CdefUVSecStrength: [u64; 8],
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
+    pub FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+    pub OrderHintBitsMinus1: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
+    pub SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+    pub RequiredFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
+    pub SupportedInterpolationFilters: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS,
+    pub SupportedRestorationParams: [[D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS; 3]; 3],
+    pub SupportedSegmentationModes: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS,
+    pub SupportedTxModes: [D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS; 4],
+    pub SegmentationBlockSize: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE,
+    pub PostEncodeValuesFlags: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS,
+    pub MaxTemporalLayers: u32,
+    pub MaxSpatialLayers: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_COMPOUND_REFERENCE: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE_SINGLE_REFERENCE: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE = 0;
+pub type D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_128x128_SUPERBLOCK: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_ALLOW_HIGH_PRECISION_MV: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 8388608;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_AUTO_SEGMENTATION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 65536;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_CDEF_FILTERING: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_CUSTOM_SEGMENTATION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 131072;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_DELTA_LF_PARAMS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 33554432;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_DUAL_FILTER: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FILTER_INTRA: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FORCED_INTEGER_MOTION_VECTORS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_FRAME_REFERENCE_MOTION_VECTORS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTERINTRA_COMPOUND: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTRA_BLOCK_COPY: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_INTRA_EDGE_FILTER: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_JNT_COMP: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_LOOP_FILTER_DELTAS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 262144;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_LOOP_RESTORATION_FILTER: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 1024;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_MASKED_COMPOUND: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_MOTION_MODE_SWITCHABLE: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 4194304;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_ORDER_HINT_TOOLS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 32768;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_PALETTE_ENCODING: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_QUANTIZATION_DELTAS: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 524288;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_QUANTIZATION_MATRIX: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 1048576;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_REDUCED_TX_SET: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 2097152;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SKIP_MODE_PRESENT: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 16777216;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_WARPED_MOTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
+    pub Use128SuperBlocks: windows_core::BOOL,
+    pub TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
+    pub ValidationFlags: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS,
+    pub MinTileRows: u32,
+    pub MaxTileRows: u32,
+    pub MinTileCols: u32,
+    pub MaxTileCols: u32,
+    pub MinTileWidth: u32,
+    pub MaxTileWidth: u32,
+    pub MinTileArea: u32,
+    pub MaxTileArea: u32,
+    pub TileSizeBytesMinus1: u32,
+}
+pub type D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_AREA: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_CODEC_CONSTRAINT: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_COLS_COUNT: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_HARDWARE_CONSTRAINT: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_NOT_SPECIFIED: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_ROWS_COUNT: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_TOTAL_TILES: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAG_WIDTH: D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_VALIDATION_FLAGS = 32;
+pub type D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE = i32;
+pub type D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_INTER_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_INTRA_ONLY_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_KEY_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAG_SWITCH_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_INTER_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_INTRA_ONLY_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_KEY_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_SWITCH_FRAME: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE = 3;
+pub type D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_BILINEAR: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP_SHARP: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_EIGHTTAP_SMOOTH: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = 1;
+pub type D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_BILINEAR: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP_SHARP: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_EIGHTTAP_SMOOTH: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAG_SWITCHABLE: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS_SWITCHABLE: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS = 4;
 pub const D3D12_VIDEO_ENCODER_AV1_INVALID_DPB_RESOURCE_INDEX: u32 = 255;
+pub type D3D12_VIDEO_ENCODER_AV1_LEVELS = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_2_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_2_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_2_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_2_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_3_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_3_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 5;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_3_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 6;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_3_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 7;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_4_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_4_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 9;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_4_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 10;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_4_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 11;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_5_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 12;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_5_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 13;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_5_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 14;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_5_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 15;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_6_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_6_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 17;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_6_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 18;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_6_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 19;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_0: D3D12_VIDEO_ENCODER_AV1_LEVELS = 20;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 21;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 22;
+pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 23;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
+    pub Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
+    pub Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
+}
 pub const D3D12_VIDEO_ENCODER_AV1_MAX_TILE_COLS: u32 = 64;
 pub const D3D12_VIDEO_ENCODER_AV1_MAX_TILE_ROWS: u32 = 64;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
+    pub Flags: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
+    pub CompoundPredictionType: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
+    pub InterpolationFilter: D3D12_VIDEO_ENCODER_AV1_INTERPOLATION_FILTERS,
+    pub FrameRestorationConfig: D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG,
+    pub TxMode: D3D12_VIDEO_ENCODER_AV1_TX_MODE,
+    pub SuperResDenominator: u32,
+    pub OrderHint: u32,
+    pub PictureIndex: u32,
+    pub TemporalLayerIndexPlus1: u32,
+    pub SpatialLayerIndexPlus1: u32,
+    pub ReferenceFramesReconPictureDescriptors: [D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR; 8],
+    pub ReferenceIndices: [u32; 7],
+    pub PrimaryRefFrame: u32,
+    pub RefreshFrameFlags: u32,
+    pub LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
+    pub LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
+    pub Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
+    pub QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
+    pub CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i16,
+    pub CustomSegmentation: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
+    pub CustomSegmentsMap: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP,
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ALLOW_HIGH_PRECISION_MV: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ALLOW_INTRA_BLOCK_COPY: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_DISABLE_CDF_UPDATE: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_DISABLE_FRAME_END_UPDATE_CDF: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_ERROR_RESILIENT_MODE: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_FRAME_SEGMENTATION_AUTO: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_FRAME_SEGMENTATION_CUSTOM: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 1024;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_PALETTE_ENCODING: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_SKIP_MODE: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_ENABLE_WARPED_MOTION: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_FORCE_INTEGER_MOTION_VECTORS: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_FRAME_REFERENCE_MOTION_VECTORS: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_MOTION_MODE_SWITCHABLE: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_REDUCED_TX_SET: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_USE_SUPER_RESOLUTION: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 128;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
+    pub RowCount: u64,
+    pub ColCount: u64,
+    pub RowHeights: [u64; 64],
+    pub ColWidths: [u64; 64],
+    pub ContextUpdateTileId: u64,
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
+    pub CompoundPredictionType: u64,
+    pub LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
+    pub LoopFilterDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG,
+    pub Quantization: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG,
+    pub QuantizationDelta: D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG,
+    pub CDEF: D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG,
+    pub SegmentationConfig: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG,
+    pub PrimaryRefFrame: u64,
+    pub ReferenceIndices: [u64; 7],
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_CDEF_DATA: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_COMPOUND_PREDICTION_MODE: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_CONTEXT_UPDATE_TILE_ID: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_LOOP_FILTER: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_LOOP_FILTER_DELTA: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_PRIMARY_REF_FRAME: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_QUANTIZATION: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_QUANTIZATION_DELTA: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAG_REFERENCE_INDICES: D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES_FLAGS = 256;
+pub type D3D12_VIDEO_ENCODER_AV1_PROFILE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_HIGH: D3D12_VIDEO_ENCODER_AV1_PROFILE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_MAIN: D3D12_VIDEO_ENCODER_AV1_PROFILE = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_PROFESSIONAL: D3D12_VIDEO_ENCODER_AV1_PROFILE = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
+    pub ReconstructedPictureResourceIndex: u32,
+    pub TemporalLayerIndexPlus1: u32,
+    pub SpatialLayerIndexPlus1: u32,
+    pub FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
+    pub WarpedMotionInfo: D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO,
+    pub OrderHint: u32,
+    pub PictureIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
+    pub TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
+    pub TransformationMatrix: [i32; 8],
+    pub InvalidAffineSet: windows_core::BOOL,
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_AFFINE: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 3;
+pub type D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_AFFINE: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_IDENTITY: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_ROTZOOM: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAG_TRANSLATION: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_IDENTITY: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_ROTZOOM: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_TRANSLATION: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
+    pub FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
+    pub LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_128x128: D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_256x256: D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_32x32: D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_64x64: D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAG_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_AV1_RESTORATION_SUPPORT_FLAGS = 0;
+pub type D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_128x128: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_256x256: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_32x32: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_64x64: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE_DISABLED: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE = 0;
+pub type D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_DISABLED: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_SGRPROJ: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_SWITCHABLE: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE_WIENER: D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE = 2;
+pub type D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_16x16: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_32x32: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_4x4: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_64x64: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_8x8: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
+    pub UpdateMap: u64,
+    pub TemporalUpdate: u64,
+    pub UpdateData: u64,
+    pub NumSegments: u64,
+    pub SegmentsData: [D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA; 8],
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
+    pub SegmentsMapByteSize: u32,
+    pub pSegmentsMap: *mut u8,
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_GLOBALMV: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_U: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_V: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 5;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_Y_H: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 3;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_LF_Y_V: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_Q: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_REF_FRAME: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 6;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_ALT_SKIP: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 7;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_DISABLED: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE = 0;
+pub type D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_GLOBALMV: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_U: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_V: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_Y_H: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_LF_Y_V: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_Q: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_ALT_SKIP: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_DISABLED: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_REF_FRAME: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 64;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
+    pub EnabledFeatures: u64,
+    pub FeatureValue: [i64; 8],
+}
+impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
+    pub IntraDistance: u32,
+    pub InterFramePeriod: u32,
+}
 pub const D3D12_VIDEO_ENCODER_AV1_SUPERRES_DENOM_MIN: u32 = 9;
 pub const D3D12_VIDEO_ENCODER_AV1_SUPERRES_NUM: u32 = 8;
+pub type D3D12_VIDEO_ENCODER_AV1_TIER = i32;
+pub const D3D12_VIDEO_ENCODER_AV1_TIER_HIGH: D3D12_VIDEO_ENCODER_AV1_TIER = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_TIER_MAIN: D3D12_VIDEO_ENCODER_AV1_TIER = 0;
+pub type D3D12_VIDEO_ENCODER_AV1_TX_MODE = i32;
+pub type D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_LARGEST: D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_ONLY4x4: D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAG_SELECT: D3D12_VIDEO_ENCODER_AV1_TX_MODE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_LARGEST: D3D12_VIDEO_ENCODER_AV1_TX_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_ONLY4x4: D3D12_VIDEO_ENCODER_AV1_TX_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_SELECT: D3D12_VIDEO_ENCODER_AV1_TX_MODE = 2;
+pub type D3D12_VIDEO_ENCODER_CODEC = i32;
+pub const D3D12_VIDEO_ENCODER_CODEC_AV1: D3D12_VIDEO_ENCODER_CODEC = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
+    pub LoopFilterLevel: [u64; 2],
+    pub LoopFilterLevelU: u64,
+    pub LoopFilterLevelV: u64,
+    pub LoopFilterSharpnessLevel: u64,
+    pub LoopFilterDeltaEnabled: u64,
+    pub UpdateRefDelta: u64,
+    pub RefDeltas: [i64; 8],
+    pub UpdateModeDelta: u64,
+    pub ModeDeltas: [i64; 2],
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
+    pub DeltaLFPresent: u64,
+    pub DeltaLFMulti: u64,
+    pub DeltaLFRes: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
+    pub PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
+    pub MaxUniqueReferencesPerFrame: u32,
+    pub SupportedFrameTypes: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE_FLAGS,
+    pub SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
+    pub BaseQIndex: u64,
+    pub YDCDeltaQ: i64,
+    pub UDCDeltaQ: i64,
+    pub UACDeltaQ: i64,
+    pub VDCDeltaQ: i64,
+    pub VACDeltaQ: i64,
+    pub UsingQMatrix: u64,
+    pub QMY: u64,
+    pub QMU: u64,
+    pub QMV: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
+    pub DeltaQPresent: u64,
+    pub DeltaQRes: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
+    pub pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
+    pub pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
+    pub pAV1Config: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
+    pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
+    pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
+    pub DisableDeblockingFilterConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES,
+}
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = i32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_DISABLED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_SPATIAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_TEMPORAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 1;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ENABLE_CABAC_ENCODING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_ADAPTIVE_8x8_TRANSFORM: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_CONSTRAINED_INTRAPREDICTION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 1;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = i32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_1_DISABLE_ALL_SLICE_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_2_DISABLE_SLICE_BOUNDARIES_BLOCKS: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_3_USE_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 3;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 5;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 6;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_1_DISABLE_ALL_SLICE_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_2_DISABLE_SLICE_BOUNDARIES_BLOCKS: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_3_USE_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
+    pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
+    pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+}
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = i32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_64x64: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 3;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 0;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 32768;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_DISABLE_LOOP_FILTER_ACROSS_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_LONG_TERM_REFERENCES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_SAO_FILTER: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_TRANSFORM_SKIPPING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_EXPLICIT_RDPCM: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 1024;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_HIGH_PRECISION_OFFSETS: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_IMPLICIT_RDPCM: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_INTRA_SMOOTHING_DISABLED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_SEPARATE_COLOUR_PLANE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 65536;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_TRANSFORM_SKIP_ROTATION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_ASYMETRIC_MOTION_PARTITION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_CONSTRAINED_INTRAPREDICTION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 64;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = i32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 3;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_4x4: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
+    pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
+    pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
+    pub pHEVCSupport1: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1,
+    pub pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
+    pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
+}
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_ADAPTIVE_8x8_TRANSFORM_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_BFRAME_LTR_COMBINED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CABAC_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_SPATIAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_TEMPORAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 128;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
+    pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
+    pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
+    pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MaxLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
+    pub MinLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub MaxLumaTransformUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE,
+    pub max_transform_hierarchy_depth_inter: u8,
+    pub max_transform_hierarchy_depth_intra: u8,
+    pub allowed_diff_cu_chroma_qp_offset_depth_values: u32,
+    pub allowed_log2_sao_offset_scale_luma_values: u32,
+    pub allowed_log2_sao_offset_scale_chroma_values: u32,
+    pub allowed_log2_max_transform_skip_block_size_minus2_values: u32,
+    pub allowed_chroma_qp_offset_list_len_minus1_values: u32,
+    pub allowed_cb_qp_offset_list_values: [u32; 6],
+    pub allowed_cr_qp_offset_list_values: [u32; 6],
+    pub SupportFlags1: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG1_SEPARATE_COLOUR_PLANE_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 = 1;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = u32;
+pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS1 = u32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_BFRAME_LTR_COMBINED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 134217728;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CABAC_BYPASS_ALIGNMENT_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 67108864;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 2147483648;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CHROMA_QP_OFFSET_LIST_ENABLED_FLAG_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 1073741824;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 536870912;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CROSS_COMPONENT_PREDICTION_ENABLED_FLAG_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 268435456;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_DISABLING_LOOP_FILTER_ACROSS_SLICES_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXPLICIT_RDPCM_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 131072;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXPLICIT_RDPCM_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 65536;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 524288;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_EXTENDED_PRECISION_PROCESSING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 262144;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_HIGH_PRECISION_OFFSETS_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 8388608;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_HIGH_PRECISION_OFFSETS_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 4194304;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_IMPLICIT_RDPCM_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 32768;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_IMPLICIT_RDPCM_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SMOOTHING_DISABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 2097152;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SMOOTHING_DISABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 1048576;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 33554432;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_PERSISTENT_RICE_ADAPTATION_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 16777216;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_P_FRAMES_IMPLEMENTED_AS_LOW_DELAY_B_FRAMES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_SAO_FILTER_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_CONTEXT_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_ROTATION_ENABLED_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_ROTATION_ENABLED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 1024;
+pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_CODEC_H264: D3D12_VIDEO_ENCODER_CODEC = 0;
+pub const D3D12_VIDEO_ENCODER_CODEC_HEVC: D3D12_VIDEO_ENCODER_CODEC = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
+    pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
+    pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
+    pub pAV1Support: *mut D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT,
+}
+impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
+    pub MaxL0ReferencesForP: u32,
+    pub MaxL0ReferencesForB: u32,
+    pub MaxL1ReferencesForB: u32,
+    pub MaxLongTermReferences: u32,
+    pub MaxDPBCapacity: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
+    pub MaxL0ReferencesForP: u32,
+    pub MaxL0ReferencesForB: u32,
+    pub MaxL1ReferencesForB: u32,
+    pub MaxLongTermReferences: u32,
+    pub MaxDPBCapacity: u32,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
+    pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub FrameStartOffset: u64,
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    pub NotificationMode: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0,
+}
+impl Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    pub FrameOutputBuffer: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM>,
+    pub SubregionOutputBuffers: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM,
+}
+impl Clone for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE_SUBREGIONS: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM_NOTIFICATION_MODE = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_DESC {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub MaxMotionEstimationPrecision: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
+    pub FullFrameIdentical: windows_core::BOOL,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub NumDirtyRects: u32,
+    pub pDirtyRects: *mut super::windef::RECT,
+    pub SourceDPBFrameReference: u32,
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0,
+}
+#[cfg(feature = "Win32_windef")]
+impl Clone for D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_REGIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+pub union D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pCPUBuffer: *mut D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO,
+}
+#[cfg(feature = "Win32_windef")]
+impl Clone for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+}
+pub type D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_DIRTY: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE_SKIP: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE = 1;
+pub type D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_DIRTY_REGIONS_REQUIRE_FULL_ROW: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAG_REPEAT_FRAME: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+    pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC,
+    pub pInputFrame: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub InputFrameSubresource: u32,
+    pub CurrentFrameBitstreamMetadataSize: u32,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
+    pub PictureControlDesc: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1,
+    pub pInputFrame: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub InputFrameSubresource: u32,
+    pub CurrentFrameBitstreamMetadataSize: u32,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
+    pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
+    pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+    pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM1,
+    pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+    pub EncoderOutputMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub FrameAnalysisReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
+}
+impl Clone for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_CODEC_PICTURE_CONTROL_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_METADATA_BUFFER_SOURCE: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_REFERENCE_PICTURES: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 2;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
+    pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub Offset: u64,
+}
+pub type D3D12_VIDEO_ENCODER_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = 0;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS {
+    pub pDownscaledFrame: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub Subresource: u64,
+    pub DownscaledReferences: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub Pow2DownscaleFactor: u32,
+}
+pub type D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = i32;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_FULL_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_HALF_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = 1;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION = 2;
+pub type D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_FULL_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_HALF_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = 4;
+pub type D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = i32;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG {
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub SearchDeviationLimit: u32,
+}
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_FULL_SEARCH: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_START_HINT_LIMITED_DISTANCE: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = 2;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0,
+}
+#[cfg(feature = "Win32_windef")]
+impl Clone for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+pub union D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pCPUBuffer: *mut D3D12_VIDEO_ENCODER_MOVEREGION_INFO,
+}
+#[cfg(feature = "Win32_windef")]
+impl Clone for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
+    pub pAV1Support: *mut D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT,
+}
+impl Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_AUTO: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 7;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_BYTES_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_CONFIGURABLE_GRID_PARTITION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 6;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_SQUARE_UNITS_PER_SUBREGION_ROW_UNALIGNED: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 2;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_GRID_PARTITION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 5;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 3;
+pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
+    pub bSize: u64,
+    pub bStartOffset: u64,
+    pub bHeaderSize: u64,
+}
+pub type D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = i32;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 2;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 3;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 1;
+pub type D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = i32;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 2;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 3;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 0;
+pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+}
+impl Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_HEAP_DESC1 {
+    pub NodeMask: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+    pub EncodeCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncodeProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncodeLevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub ResolutionsListCount: u32,
+    pub pResolutionList: *const D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub Pow2DownscaleFactor: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_HEAP_DESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_HEAP_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_RATE_CONTROL_FRAME_ANALYSIS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_ALLOW_SUBREGION_NOTIFICATION_SINGLE_BUFFER: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 0;
+#[repr(C)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    pub MapType: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE,
+    pub Anonymous: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0,
+}
+impl Clone for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub union D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    pub Quantization: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX>,
+    pub DirtyRegions: core::mem::ManuallyDrop<D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS>,
+    pub MotionVectors: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS,
+}
+impl Clone for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS {
+    pub FullFrameIdentical: windows_core::BOOL,
+    pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
+    pub pDirtyRegionsMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub SourceDPBFrameReference: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
+    pub MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+    pub NumHintsPerPixel: u32,
+    pub ppMotionVectorMaps: *mut Option<ID3D12Resource>,
+    pub pMotionVectorMapsSubresources: *mut u32,
+    pub ppMotionVectorMapsMetadata: *mut Option<ID3D12Resource>,
+    pub pMotionVectorMapsMetadataSubresources: *mut u32,
+    pub MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+    pub PictureControlConfiguration: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+}
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX {
+    pub pQuantizationMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO {
+    pub Codec: D3D12_VIDEO_ENCODER_CODEC,
+    pub Profile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub Level: D3D12_VIDEO_ENCODER_LEVEL_SETTING,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub InputResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+    pub SubregionFrameEncoding: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub SubregionFrameEncodingData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE = i32;
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_CPU_BUFFER: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE = 0;
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE_GPU_TEXTURE: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE = 1;
+pub type D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = i32;
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = 1;
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_MOTION_VECTORS: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = 2;
+pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_QUANTIZATION_MATRIX: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
+    pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
+    pub IntraRefreshDuration: u32,
+}
+pub type D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_NONE: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_ROW_BASED: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = 1;
+pub type D3D12_VIDEO_ENCODER_LEVELS_H264 = i32;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1: D3D12_VIDEO_ENCODER_LEVELS_H264 = 0;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_11: D3D12_VIDEO_ENCODER_LEVELS_H264 = 2;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_12: D3D12_VIDEO_ENCODER_LEVELS_H264 = 3;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_13: D3D12_VIDEO_ENCODER_LEVELS_H264 = 4;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1b: D3D12_VIDEO_ENCODER_LEVELS_H264 = 1;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_2: D3D12_VIDEO_ENCODER_LEVELS_H264 = 5;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_21: D3D12_VIDEO_ENCODER_LEVELS_H264 = 6;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_22: D3D12_VIDEO_ENCODER_LEVELS_H264 = 7;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_3: D3D12_VIDEO_ENCODER_LEVELS_H264 = 8;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_31: D3D12_VIDEO_ENCODER_LEVELS_H264 = 9;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_32: D3D12_VIDEO_ENCODER_LEVELS_H264 = 10;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_4: D3D12_VIDEO_ENCODER_LEVELS_H264 = 11;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_41: D3D12_VIDEO_ENCODER_LEVELS_H264 = 12;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_42: D3D12_VIDEO_ENCODER_LEVELS_H264 = 13;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_5: D3D12_VIDEO_ENCODER_LEVELS_H264 = 14;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_51: D3D12_VIDEO_ENCODER_LEVELS_H264 = 15;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_52: D3D12_VIDEO_ENCODER_LEVELS_H264 = 16;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_6: D3D12_VIDEO_ENCODER_LEVELS_H264 = 17;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_61: D3D12_VIDEO_ENCODER_LEVELS_H264 = 18;
+pub const D3D12_VIDEO_ENCODER_LEVELS_H264_62: D3D12_VIDEO_ENCODER_LEVELS_H264 = 19;
+pub type D3D12_VIDEO_ENCODER_LEVELS_HEVC = i32;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_1: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 0;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_2: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 1;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_21: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 2;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_3: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 3;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_31: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 4;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_4: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 5;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_41: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 6;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_5: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 7;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_51: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 8;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_52: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 9;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_6: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 10;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_61: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 11;
+pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_62: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 12;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_LEVEL_SETTING_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
+    pub pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
+    pub pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
+    pub pAV1LevelSetting: *mut D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS,
+}
+impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
+    pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
+    pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
+}
+pub type D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_EIGHTH_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 4;
+pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_FULL_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 2;
+pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+    pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
+    pub BidirectionalRefFrameEnabled: windows_core::BOOL,
+}
+pub type D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_GPU_TEXTURE_MULTIPLE_REFERENCES: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_MULTIPLE_HINTS: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
+    pub NumMoveRegions: u32,
+    pub pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
+    pub MotionSearchModeConfiguration: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG,
+    pub SourceDPBFrameReference: u32,
+    pub MotionUnitPrecision: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION,
+    pub Flags: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS,
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = i32;
+pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_MULTIPLE_HINTS: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_NONE: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = 0;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_MOVE_RECT {
+    pub SourcePoint: super::windef::POINT,
+    pub DestRect: super::windef::RECT,
+}
+pub type D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_FRAME_PSNR: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_NONE: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_QP_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_RC_BIT_ALLOCATION_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SATD_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SUBREGIONS_PSNR: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 16;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
+    pub EncodeErrorFlags: u64,
+    pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
+    pub EncodedBitstreamWrittenBytesCount: u64,
+    pub WrittenSubregionsCount: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
+    pub AverageQP: u64,
+    pub IntraCodingUnitsCount: u64,
+    pub InterCodingUnitsCount: u64,
+    pub SkipCodingUnitsCount: u64,
+    pub AverageMotionEstimationXDirection: u64,
+    pub AverageMotionEstimationYDirection: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
+    pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+    pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
+    pub pHEVCPicData1: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1,
+    pub pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0 {
+    pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
+    pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2,
+    pub pAV1PicData: *mut D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
+    pub pic_parameter_set_id: u32,
+    pub idr_pic_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub FrameDecodingOrderNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264,
+    pub adaptive_ref_pic_marking_mode_flag: u8,
+    pub RefPicMarkingOperationsCommandsCount: u32,
+    pub pRefPicMarkingOperationsCommands: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
+    pub modification_of_pic_nums_idc: u8,
+    pub abs_diff_pic_num_minus1: u32,
+    pub long_term_pic_num: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
+    pub memory_management_control_operation: u8,
+    pub difference_of_pic_nums_minus1: u32,
+    pub long_term_pic_num: u32,
+    pub long_term_frame_idx: u32,
+    pub max_long_term_frame_idx_plus1: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+    pub slice_pic_parameter_set_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut u32,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut u32,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+    pub slice_pic_parameter_set_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut u32,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut u32,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+    pub diff_cu_chroma_qp_offset_depth: u8,
+    pub log2_sao_offset_scale_luma: u8,
+    pub log2_sao_offset_scale_chroma: u8,
+    pub log2_max_transform_skip_block_size_minus2: u8,
+    pub chroma_qp_offset_list_len_minus1: u8,
+    pub cb_qp_offset_list: [i8; 6],
+    pub cr_qp_offset_list: [i8; 6],
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
+    pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
+    pub slice_pic_parameter_set_id: u32,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+    pub List0ReferenceFramesCount: u32,
+    pub pList0ReferenceFrames: *mut u32,
+    pub List1ReferenceFramesCount: u32,
+    pub pList1ReferenceFrames: *mut u32,
+    pub ReferenceFramesReconPictureDescriptorsCount: u32,
+    pub pReferenceFramesReconPictureDescriptors: *mut D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC,
+    pub List0RefPicModificationsCount: u32,
+    pub pList0RefPicModifications: *mut u32,
+    pub List1RefPicModificationsCount: u32,
+    pub pList1RefPicModifications: *mut u32,
+    pub QPMapValuesCount: u32,
+    pub pRateControlQPMap: *mut i8,
+    pub diff_cu_chroma_qp_offset_depth: u8,
+    pub log2_sao_offset_scale_luma: u8,
+    pub log2_sao_offset_scale_chroma: u8,
+    pub log2_max_transform_skip_block_size_minus2: u8,
+    pub chroma_qp_offset_list_len_minus1: u8,
+    pub cb_qp_offset_list: [i8; 6],
+    pub cr_qp_offset_list: [i8; 6],
+    pub num_ref_idx_l0_active_minus1: u32,
+    pub num_ref_idx_l1_active_minus1: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_CHROMA_QP_OFFSET_LIST: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_CROSS_COMPONENT_PREDICTION: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 2;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+    pub IntraRefreshFrameIndex: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+    pub PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA,
+    pub ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    pub IntraRefreshFrameIndex: u32,
+    pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS,
+    pub PictureControlCodecData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1,
+    pub ReferenceFrames: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
+    pub MotionVectors: D3D12_VIDEO_ENCODER_FRAME_MOTION_VECTORS,
+    pub DirtyRects: D3D12_VIDEO_ENCODER_DIRTY_REGIONS,
+    pub QuantizationTextureMap: D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP,
+    pub FrameAnalysis: D3D12_VIDEO_ENCODER_FRAME_ANALYSIS,
+}
+#[cfg(feature = "Win32_windef")]
+impl Clone for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_DIRTY_REGIONS_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_MOTION_VECTORS_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_ENABLE_QUANTIZATION_MATRIX_INPUT: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
+    pub pSlicesPartition_H264: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+    pub pSlicesPartition_HEVC: *const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
+    pub pTilesPartition_AV1: *const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+    pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
+    pub MaxBytesPerSlice: u32,
+    pub NumberOfCodingUnitsPerSlice: u32,
+    pub NumberOfRowsPerSlice: u32,
+    pub NumberOfSlicesPerFrame: u32,
+}
+impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
+    pub Width: u32,
+    pub Height: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
+    pub WidthRatio: u32,
+    pub HeightRatio: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_PROFILE_DESC_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_PROFILE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
+    pub pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
+    pub pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
+    pub pAV1Profile: *mut D3D12_VIDEO_ENCODER_AV1_PROFILE,
+}
+impl Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_PROFILE_H264 = i32;
+pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH: D3D12_VIDEO_ENCODER_PROFILE_H264 = 1;
+pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH_10: D3D12_VIDEO_ENCODER_PROFILE_H264 = 2;
+pub const D3D12_VIDEO_ENCODER_PROFILE_H264_MAIN: D3D12_VIDEO_ENCODER_PROFILE_H264 = 0;
+pub type D3D12_VIDEO_ENCODER_PROFILE_HEVC = i32;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 0;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 1;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10_422: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 3;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 6;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 2;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_422: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 4;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 7;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN16_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 8;
+pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 5;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION {
+    pub Enabled: windows_core::BOOL,
+    pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP {
+    pub pOpaqueQuantizationMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
+    pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
+    pub Flags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS,
+    pub ConfigParams: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS,
+    pub TargetFrameRate: super::dxgi::DXGI_RATIONAL,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
+    pub QualityVsSpeed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+    pub QualityVsSpeed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
+    pub pConfiguration_CQP: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
+    pub pConfiguration_CBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
+    pub pConfiguration_VBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR,
+    pub pConfiguration_QVBR: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR,
+    pub pConfiguration_CQP1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1,
+    pub pConfiguration_CBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1,
+    pub pConfiguration_VBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1,
+    pub pConfiguration_QVBR1: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1,
+    pub pConfiguration_AbsoluteQPMap: *const D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP,
+}
+impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
+    pub ConstantQP_FullIntracodedFrame: u32,
+    pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+    pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
+    pub ConstantQP_FullIntracodedFrame: u32,
+    pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
+    pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
+    pub QualityVsSpeed: u32,
+}
+pub type D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_DELTA_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_EXTENSION1_SUPPORT: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_FRAME_ANALYSIS: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_INITIAL_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_MAX_FRAME_SIZE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QP_RANGE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QUALITY_VS_SPEED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_SPATIAL_ADAPTIVE_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_VBV_SIZES: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 0;
+pub type D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_BIDIR_INTER_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_1ST_PASS_SKIP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_DYNAMIC_DOWNSCALE_FACTOR_CHANGE_KEY_FRAME: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_EXTERNAL_DPB_DOWNSCALING: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_INTRACODED_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 7;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAG_UNIDIR_INTER_FRAME_SUPPORTED: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS = 2;
+pub type D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_ABSOLUTE_QP_MAP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 2;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 1;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 4;
+pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub ConstantQualityTarget: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub ConstantQualityTarget: u32,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+    pub QualityVsSpeed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
+    pub InitialQP: u32,
+    pub MinQP: u32,
+    pub MaxQP: u32,
+    pub MaxFrameBitSize: u64,
+    pub TargetAvgBitRate: u64,
+    pub PeakBitRate: u64,
+    pub VBVCapacity: u64,
+    pub InitialVBVFullness: u64,
+    pub QualityVsSpeed: u32,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
+    pub pReconstructedPicture: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub ReconstructedPictureSubresource: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
+    pub ReconstructedPictureResourceIndex: u32,
+    pub IsLongTermReference: windows_core::BOOL,
+    pub LongTermPictureIdx: u32,
+    pub PictureOrderCountNumber: u32,
+    pub FrameDecodingOrderNumber: u32,
+    pub TemporalLayerIndex: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
+    pub ReconstructedPictureResourceIndex: u32,
+    pub IsRefUsedByCurrentPic: windows_core::BOOL,
+    pub IsLongTermReference: windows_core::BOOL,
+    pub PictureOrderCountNumber: u32,
+    pub TemporalLayerIndex: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    pub SessionInfo: D3D12_VIDEO_ENCODER_INPUT_MAP_SESSION_INFO,
+    pub InputData: D3D12_VIDEO_ENCODER_INPUT_MAP_DATA,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS {
+    pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncoderInputFormat: super::dxgi::DXGI_FORMAT,
+    pub EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
+    pub EncoderProfile: D3D12_VIDEO_ENCODER_PROFILE_DESC,
+    pub EncoderInputFormat: super::dxgi::DXGI_FORMAT,
+    pub EncodedPictureEffectiveResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub HWLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub OptionalMetadata: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS,
+    pub CodecConfiguration: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Clone for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    fn clone(&self) -> Self {
+        unsafe { core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
+    pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1 {
+    pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub pOutputQPMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pOutputSATDMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub pOutputBitAllocationMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub ResolvedFramePSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+    pub ResolvedSubregionsPSNRData: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_PSNR_RESOLVED_LAYOUT {
+    pub PSNRY: f32,
+    pub PSNRU: f32,
+    pub PSNRV: f32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+    pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
+    pub IntraRefreshConfig: D3D12_VIDEO_ENCODER_INTRA_REFRESH,
+    pub RateControl: D3D12_VIDEO_ENCODER_RATE_CONTROL,
+    pub PictureTargetResolution: D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC,
+    pub SelectedLayoutMode: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE,
+    pub FrameSubregionsLayoutData: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA,
+    pub CodecGopSequence: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_GOP_SEQUENCE_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RATE_CONTROL_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_REQUEST_INTRA_REFRESH: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RESOLUTION_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_SUBREGION_LAYOUT_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 4;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+    pub DataSize: u32,
+    pub Anonymous: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0,
+}
+impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
+    pub pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
+    pub pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
+    pub pAV1SequenceStructure: *mut D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE,
+}
+impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
+    pub GOPLength: u32,
+    pub PPicturePeriod: u32,
+    pub pic_order_cnt_type: u8,
+    pub log2_max_frame_num_minus4: u8,
+    pub log2_max_pic_order_cnt_lsb_minus4: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
+    pub GOPLength: u32,
+    pub PPicturePeriod: u32,
+    pub log2_max_pic_order_cnt_lsb_minus4: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
+    pub BufferMode: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE,
+    pub ExpectedSubregionCount: u32,
+    pub pSubregionBitstreamsBaseOffsets: *mut u64,
+    pub ppSubregionBitstreams: *mut Option<ID3D12Resource>,
+    pub ppSubregionSizes: *mut Option<ID3D12Resource>,
+    pub ppSubregionOffsets: *mut Option<ID3D12Resource>,
+    pub ppSubregionFences: *mut Option<ID3D12Fence>,
+    pub pSubregionFenceValues: *mut u64,
+}
+impl Default for D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE = i32;
+pub const D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_ARRAY_OF_BUFFERS: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE = 0;
+pub const D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE_SINGLE_BUFFER: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE = 1;
+pub type D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_FRAME_PSNR_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 2097152;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_GENERAL_SUPPORT_OK: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_MOTION_ESTIMATION_PRECISION_MODE_LIMIT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_QP_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 65536;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_RC_BIT_ALLOCATION_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 262144;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_PER_BLOCK_SATD_MAP_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 131072;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_ADJUSTABLE_QP_RANGE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 256;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_DELTA_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_EXTENSION1_SUPPORT: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_FRAME_ANALYSIS_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_INITIAL_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_MAX_FRAME_SIZE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 1024;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_QUALITY_VS_SPEED_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_SPATIAL_ADAPTIVE_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 8388608;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_VBV_SIZE_CONFIG_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_READABLE_RECONSTRUCTED_PICTURE_LAYOUT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 32768;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RECONSTRUCTED_FRAMES_REQUIRE_TEXTURE_ARRAYS: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RESOLUTION_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SEQUENCE_GOP_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGIONS_PSNR_METADATA_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 4194304;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_LAYOUT_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_ARRAY_OF_BUFFERS_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 524288;
+pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_NOTIFICATION_SINGLE_BUFFER_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 1048576;
+pub type D3D12_VIDEO_ENCODER_TIER_HEVC = i32;
+pub const D3D12_VIDEO_ENCODER_TIER_HEVC_HIGH: D3D12_VIDEO_ENCODER_TIER_HEVC = 1;
+pub const D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN: D3D12_VIDEO_ENCODER_TIER_HEVC = 0;
+pub type D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = u32;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 16;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 1;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_DIRTY_REGIONS_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 16384;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_FRAME_ANALYSIS_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 65536;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_GOP_STRUCTURE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 2048;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INPUT_FORMAT_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 8;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INTRA_REFRESH_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 128;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_MOTION_SEARCH_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 32768;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 0;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_QPMAP_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 8192;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 64;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 32;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 512;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_DATA_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 4096;
+pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 256;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+    pub NumTexture2Ds: u32,
+    pub ppTexture2Ds: *mut Option<ID3D12Resource>,
+    pub pSubresources: *mut u32,
+}
+impl Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+    pub NodeMask: u32,
+    pub CommandId: windows_core::GUID,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
+    pub CommandId: windows_core::GUID,
+    pub Name: windows_core::PCWSTR,
+    pub CommandListSupportFlags: D3D12_COMMAND_LIST_SUPPORT_FLAGS,
+}
+pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = u32;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 0;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 1;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
+    pub Name: windows_core::PCWSTR,
+    pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
+    pub Flags: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS,
+}
+pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = i32;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_INPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 3;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 4;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CREATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 0;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_INPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 5;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 6;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_EXECUTION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 2;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_INITIALIZATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 1;
+pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = i32;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_DOUBLE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 9;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_FLOAT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 8;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_RESOURCE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 10;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT16: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 5;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT32: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 6;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT64: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 7;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 4;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT16: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 1;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT32: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 2;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT64: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 3;
+pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 0;
+pub type D3D12_VIDEO_FIELD_TYPE = i32;
+pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_BOTTOM_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = 2;
+pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = 1;
+pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = 0;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_FORMAT {
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub ColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+}
+pub type D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = i32;
+pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = 1;
+pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = 0;
+pub type D3D12_VIDEO_FRAME_STEREO_FORMAT = i32;
+pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_HORIZONTAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = 2;
+pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_MONO: D3D12_VIDEO_FRAME_STEREO_FORMAT = 1;
+pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_NONE: D3D12_VIDEO_FRAME_STEREO_FORMAT = 0;
+pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE: D3D12_VIDEO_FRAME_STEREO_FORMAT = 4;
+pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = 3;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+    pub NodeMask: u32,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
+    pub pInputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub InputSubresourceIndex: u32,
+    pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub ReferenceSubresourceIndex: u32,
+    pub pHintMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
+}
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
+    pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
+}
+pub type D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = i32;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = 1;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = 0;
+pub type D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = u32;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 2;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 1;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 0;
+pub type D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = i32;
+pub type D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = u32;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = 0;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = 1;
+pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = 0;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+    pub NodeMask: u32,
+    pub InputFormat: super::dxgi::DXGI_FORMAT,
+    pub BlockSize: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE,
+    pub Precision: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION,
+    pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
+    pub Enable: windows_core::BOOL,
+    pub Alpha: f32,
+}
+pub type D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = i32;
+pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_BACKGROUND: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 1;
+pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_DESTINATION: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 2;
+pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_OPAQUE: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 0;
+pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_SOURCE_STREAM: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 3;
+pub type D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 128;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_COLOR_CORRECTION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 8;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 2147483648;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DENOISE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 1;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DERINGING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 2;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 4;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_FLESH_TONE_MAPPING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 16;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_IMAGE_STABILIZATION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 32;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 0;
+pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 64;
+pub type D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_BOB: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 1;
+pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 2147483648;
+pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 0;
+pub type D3D12_VIDEO_PROCESS_FEATURE_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_BLENDING: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 32;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_FILL: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 1;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_FLIP: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 16;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_LUMA_KEY: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 2;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 0;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_PIXEL_ASPECT_RATIO: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 64;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ROTATION: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 8;
+pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_STEREO: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 4;
+pub type D3D12_VIDEO_PROCESS_FILTER = i32;
+pub const D3D12_VIDEO_PROCESS_FILTER_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER = 6;
+pub const D3D12_VIDEO_PROCESS_FILTER_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER = 0;
+pub const D3D12_VIDEO_PROCESS_FILTER_CONTRAST: D3D12_VIDEO_PROCESS_FILTER = 1;
+pub const D3D12_VIDEO_PROCESS_FILTER_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER = 5;
+pub type D3D12_VIDEO_PROCESS_FILTER_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 64;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 1;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_CONTRAST: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 2;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 32;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_HUE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 4;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 16;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 0;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_SATURATION: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 8;
+pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 128;
+pub const D3D12_VIDEO_PROCESS_FILTER_HUE: D3D12_VIDEO_PROCESS_FILTER = 2;
+pub const D3D12_VIDEO_PROCESS_FILTER_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
+    pub Minimum: i32,
+    pub Maximum: i32,
+    pub Default: i32,
+    pub Multiplier: f32,
+}
+pub const D3D12_VIDEO_PROCESS_FILTER_SATURATION: D3D12_VIDEO_PROCESS_FILTER = 3;
+pub const D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER = 7;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
+    pub pTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub Subresource: u32,
+    pub ReferenceSet: D3D12_VIDEO_PROCESS_REFERENCE_SET,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+    pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+    pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+    pub Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+    pub RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+    pub FilterLevels: [i32; 32],
+    pub AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+    pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
+    pub Transform: D3D12_VIDEO_PROCESS_TRANSFORM,
+    pub Flags: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS,
+    pub RateInfo: D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE,
+    pub FilterLevels: [i32; 32],
+    pub AlphaBlending: D3D12_VIDEO_PROCESS_ALPHA_BLENDING,
+    pub FieldType: D3D12_VIDEO_FIELD_TYPE,
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub ColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub SourceAspectRatio: super::dxgi::DXGI_RATIONAL,
+    pub DestinationAspectRatio: super::dxgi::DXGI_RATIONAL,
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub SourceSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub DestinationSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub EnableOrientation: windows_core::BOOL,
+    pub FilterFlags: D3D12_VIDEO_PROCESS_FILTER_FLAGS,
+    pub StereoFormat: D3D12_VIDEO_FRAME_STEREO_FORMAT,
+    pub FieldType: D3D12_VIDEO_FIELD_TYPE,
+    pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
+    pub EnableAlphaBlending: windows_core::BOOL,
+    pub LumaKey: D3D12_VIDEO_PROCESS_LUMA_KEY,
+    pub NumPastFrames: u32,
+    pub NumFutureFrames: u32,
+    pub EnableAutoProcessing: windows_core::BOOL,
+}
+pub type D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 1;
+pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 2;
+pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 0;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
+    pub OutputIndex: u32,
+    pub InputFrameOrField: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
+    pub Enable: windows_core::BOOL,
+    pub Lower: f32,
+    pub Upper: f32,
+}
 pub const D3D12_VIDEO_PROCESS_MAX_FILTERS: u32 = 32;
+pub type D3D12_VIDEO_PROCESS_ORIENTATION = i32;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_180: D3D12_VIDEO_PROCESS_ORIENTATION = 4;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270: D3D12_VIDEO_PROCESS_ORIENTATION = 6;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 7;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90: D3D12_VIDEO_PROCESS_ORIENTATION = 2;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 3;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT: D3D12_VIDEO_PROCESS_ORIENTATION = 0;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 1;
+pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL: D3D12_VIDEO_PROCESS_ORIENTATION = 5;
+#[repr(C)]
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
+    pub pTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
+    pub Subresource: u32,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Debug, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+    pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
+    pub TargetRectangle: D3D12_RECT,
+}
+#[cfg(feature = "Win32_windef")]
+impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+    pub Format: super::dxgi::DXGI_FORMAT,
+    pub ColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
+    pub AlphaFillMode: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE,
+    pub AlphaFillModeSourceStreamIndex: u32,
+    pub BackgroundColor: [f32; 4],
+    pub FrameRate: super::dxgi::DXGI_RATIONAL,
+    pub EnableStereo: windows_core::BOOL,
+}
+#[cfg(feature = "Win32_dxgi")]
+impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
+    pub NumPastFrames: u32,
+    pub ppPastFrames: *mut Option<ID3D12Resource>,
+    pub pPastSubresources: *mut u32,
+    pub NumFutureFrames: u32,
+    pub ppFutureFrames: *mut Option<ID3D12Resource>,
+    pub pFutureSubresources: *mut u32,
+}
+impl Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D12_VIDEO_PROCESS_STEREO_VIEWS: u32 = 2;
+pub type D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_windef")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
+    pub SourceRectangle: D3D12_RECT,
+    pub DestinationRectangle: D3D12_RECT,
+    pub Orientation: D3D12_VIDEO_PROCESS_ORIENTATION,
+}
+pub type D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_dxgi")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_SAMPLE {
+    pub Width: u32,
+    pub Height: u32,
+    pub Format: D3D12_VIDEO_FORMAT,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_SCALE_SUPPORT {
+    pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
+    pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
+}
+pub type D3D12_VIDEO_SCALE_SUPPORT_FLAGS = u32;
+pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_DPB_ENCODER_RESOURCES: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 4;
+pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 2;
+pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 0;
+pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D12_VIDEO_SIZE_RANGE {
+    pub MaxWidth: u32,
+    pub MaxHeight: u32,
+    pub MinWidth: u32,
+    pub MinHeight: u32,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D12_VIEWPORT {
@@ -4790,6 +9565,31 @@ pub const D3D_SHADER_MODEL_6_7: D3D_SHADER_MODEL = 103;
 pub const D3D_SHADER_MODEL_6_8: D3D_SHADER_MODEL = 104;
 pub const D3D_SHADER_MODEL_6_9: D3D_SHADER_MODEL = 105;
 pub const D3D_SHADER_MODEL_NONE: D3D_SHADER_MODEL = 0;
+pub const D3D_SHADER_REQUIRES_ADVANCED_TEXTURE_OPS: u32 = 536870912;
+pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE: u32 = 268435456;
+pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_GROUP_SHARED: u32 = 8388608;
+pub const D3D_SHADER_REQUIRES_ATOMIC_INT64_ON_TYPED_RESOURCE: u32 = 4194304;
+pub const D3D_SHADER_REQUIRES_BARYCENTRICS: u32 = 131072;
+pub const D3D_SHADER_REQUIRES_DERIVATIVES_IN_MESH_AND_AMPLIFICATION_SHADERS: u32 = 16777216;
+pub const D3D_SHADER_REQUIRES_EXTENDED_COMMAND_INFO: u64 = 4294967296;
+pub const D3D_SHADER_REQUIRES_INNER_COVERAGE: u32 = 1024;
+pub const D3D_SHADER_REQUIRES_INT64_OPS: u32 = 32768;
+pub const D3D_SHADER_REQUIRES_NATIVE_16BIT_OPS: u32 = 262144;
+pub const D3D_SHADER_REQUIRES_RAYTRACING_TIER_1_1: u32 = 1048576;
+pub const D3D_SHADER_REQUIRES_RESOURCE_DESCRIPTOR_HEAP_INDEXING: u32 = 33554432;
+pub const D3D_SHADER_REQUIRES_ROVS: u32 = 4096;
+pub const D3D_SHADER_REQUIRES_SAMPLER_DESCRIPTOR_HEAP_INDEXING: u32 = 67108864;
+pub const D3D_SHADER_REQUIRES_SAMPLER_FEEDBACK: u32 = 2097152;
+pub const D3D_SHADER_REQUIRES_SAMPLE_CMP_GRADIENT_OR_BIAS: u32 = 2147483648;
+pub const D3D_SHADER_REQUIRES_SHADING_RATE: u32 = 524288;
+pub const D3D_SHADER_REQUIRES_STENCIL_REF: u32 = 512;
+pub const D3D_SHADER_REQUIRES_TYPED_UAV_LOAD_ADDITIONAL_FORMATS: u32 = 2048;
+pub const D3D_SHADER_REQUIRES_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER: u32 = 8192;
+pub const D3D_SHADER_REQUIRES_VIEW_ID: u32 = 65536;
+pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728;
+pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384;
+pub const D3D_SHADER_REQUIRES_WRITEABLE_MSAA_TEXTURES: u32 = 1073741824;
+pub const DXGI_DEBUG_D3D12: windows_core::GUID = windows_core::GUID::from_u128(0xcf59a98c_a950_4326_91ef_9bbaa17bfd95);
 windows_core::imp::define_interface!(ID3D12CommandAllocator, ID3D12CommandAllocator_Vtbl, 0x6102dee4_af59_4b09_b999_b44d73f09b24);
 impl core::ops::Deref for ID3D12CommandAllocator {
     type Target = ID3D12Pageable;
@@ -5122,6 +9922,823 @@ impl ID3D12DSRDeviceFactory_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12DSRDeviceFactory {}
+windows_core::imp::define_interface!(ID3D12Debug, ID3D12Debug_Vtbl, 0x344488b7_6846_474b_b989_f027448245e0);
+windows_core::imp::interface_hierarchy!(ID3D12Debug, windows_core::IUnknown);
+impl ID3D12Debug {
+    pub unsafe fn EnableDebugLayer(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EnableDebugLayer)(windows_core::Interface::as_raw(self));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
+}
+pub trait ID3D12Debug_Impl: windows_core::IUnknownImpl {
+    fn EnableDebugLayer(&self);
+}
+impl ID3D12Debug_Vtbl {
+    pub const fn new<Identity: ID3D12Debug_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EnableDebugLayer<Identity: ID3D12Debug_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug_Impl::EnableDebugLayer(this);
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), EnableDebugLayer: EnableDebugLayer::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug {}
+windows_core::imp::define_interface!(ID3D12Debug1, ID3D12Debug1_Vtbl, 0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
+windows_core::imp::interface_hierarchy!(ID3D12Debug1, windows_core::IUnknown);
+impl ID3D12Debug1 {
+    pub unsafe fn EnableDebugLayer(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EnableDebugLayer)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn SetEnableGPUBasedValidation(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+    pub unsafe fn SetEnableSynchronizedCommandQueueValidation(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug1_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub EnableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+}
+pub trait ID3D12Debug1_Impl: windows_core::IUnknownImpl {
+    fn EnableDebugLayer(&self);
+    fn SetEnableGPUBasedValidation(&self, enable: windows_core::BOOL);
+    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: windows_core::BOOL);
+}
+impl ID3D12Debug1_Vtbl {
+    pub const fn new<Identity: ID3D12Debug1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EnableDebugLayer<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug1_Impl::EnableDebugLayer(this);
+            }
+        }
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug1_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug1_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            EnableDebugLayer: EnableDebugLayer::<Identity, OFFSET>,
+            SetEnableGPUBasedValidation: SetEnableGPUBasedValidation::<Identity, OFFSET>,
+            SetEnableSynchronizedCommandQueueValidation: SetEnableSynchronizedCommandQueueValidation::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug1 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug1 {}
+windows_core::imp::define_interface!(ID3D12Debug2, ID3D12Debug2_Vtbl, 0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
+windows_core::imp::interface_hierarchy!(ID3D12Debug2, windows_core::IUnknown);
+impl ID3D12Debug2 {
+    pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetGPUBasedValidationFlags)(windows_core::Interface::as_raw(self), flags);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug2_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
+}
+pub trait ID3D12Debug2_Impl: windows_core::IUnknownImpl {
+    fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
+}
+impl ID3D12Debug2_Vtbl {
+    pub const fn new<Identity: ID3D12Debug2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetGPUBasedValidationFlags<Identity: ID3D12Debug2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug2_Impl::SetGPUBasedValidationFlags(this, core::mem::transmute_copy(&flags));
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetGPUBasedValidationFlags: SetGPUBasedValidationFlags::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug2 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug2 {}
+windows_core::imp::define_interface!(ID3D12Debug3, ID3D12Debug3_Vtbl, 0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
+impl core::ops::Deref for ID3D12Debug3 {
+    type Target = ID3D12Debug;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12Debug3, windows_core::IUnknown, ID3D12Debug);
+impl ID3D12Debug3 {
+    pub unsafe fn SetEnableGPUBasedValidation(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetEnableGPUBasedValidation)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+    pub unsafe fn SetEnableSynchronizedCommandQueueValidation(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetEnableSynchronizedCommandQueueValidation)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+    pub unsafe fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetGPUBasedValidationFlags)(windows_core::Interface::as_raw(self), flags);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug3_Vtbl {
+    pub base__: ID3D12Debug_Vtbl,
+    pub SetEnableGPUBasedValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub SetEnableSynchronizedCommandQueueValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub SetGPUBasedValidationFlags: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_BASED_VALIDATION_FLAGS),
+}
+pub trait ID3D12Debug3_Impl: ID3D12Debug_Impl {
+    fn SetEnableGPUBasedValidation(&self, enable: windows_core::BOOL);
+    fn SetEnableSynchronizedCommandQueueValidation(&self, enable: windows_core::BOOL);
+    fn SetGPUBasedValidationFlags(&self, flags: D3D12_GPU_BASED_VALIDATION_FLAGS);
+}
+impl ID3D12Debug3_Vtbl {
+    pub const fn new<Identity: ID3D12Debug3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug3_Impl::SetEnableGPUBasedValidation(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug3_Impl::SetEnableSynchronizedCommandQueueValidation(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        unsafe extern "system" fn SetGPUBasedValidationFlags<Identity: ID3D12Debug3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug3_Impl::SetGPUBasedValidationFlags(this, core::mem::transmute_copy(&flags));
+            }
+        }
+        Self {
+            base__: ID3D12Debug_Vtbl::new::<Identity, OFFSET>(),
+            SetEnableGPUBasedValidation: SetEnableGPUBasedValidation::<Identity, OFFSET>,
+            SetEnableSynchronizedCommandQueueValidation: SetEnableSynchronizedCommandQueueValidation::<Identity, OFFSET>,
+            SetGPUBasedValidationFlags: SetGPUBasedValidationFlags::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug3 {}
+windows_core::imp::define_interface!(ID3D12Debug4, ID3D12Debug4_Vtbl, 0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
+impl core::ops::Deref for ID3D12Debug4 {
+    type Target = ID3D12Debug3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12Debug4, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3);
+impl ID3D12Debug4 {
+    pub unsafe fn DisableDebugLayer(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).DisableDebugLayer)(windows_core::Interface::as_raw(self));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug4_Vtbl {
+    pub base__: ID3D12Debug3_Vtbl,
+    pub DisableDebugLayer: unsafe extern "system" fn(*mut core::ffi::c_void),
+}
+pub trait ID3D12Debug4_Impl: ID3D12Debug3_Impl {
+    fn DisableDebugLayer(&self);
+}
+impl ID3D12Debug4_Vtbl {
+    pub const fn new<Identity: ID3D12Debug4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn DisableDebugLayer<Identity: ID3D12Debug4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug4_Impl::DisableDebugLayer(this);
+            }
+        }
+        Self { base__: ID3D12Debug3_Vtbl::new::<Identity, OFFSET>(), DisableDebugLayer: DisableDebugLayer::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug4 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug4 {}
+windows_core::imp::define_interface!(ID3D12Debug5, ID3D12Debug5_Vtbl, 0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
+impl core::ops::Deref for ID3D12Debug5 {
+    type Target = ID3D12Debug4;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12Debug5, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4);
+impl ID3D12Debug5 {
+    pub unsafe fn SetEnableAutoName(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetEnableAutoName)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug5_Vtbl {
+    pub base__: ID3D12Debug4_Vtbl,
+    pub SetEnableAutoName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+}
+pub trait ID3D12Debug5_Impl: ID3D12Debug4_Impl {
+    fn SetEnableAutoName(&self, enable: windows_core::BOOL);
+}
+impl ID3D12Debug5_Vtbl {
+    pub const fn new<Identity: ID3D12Debug5_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetEnableAutoName<Identity: ID3D12Debug5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug5_Impl::SetEnableAutoName(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        Self { base__: ID3D12Debug4_Vtbl::new::<Identity, OFFSET>(), SetEnableAutoName: SetEnableAutoName::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug5 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug4 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug5 {}
+windows_core::imp::define_interface!(ID3D12Debug6, ID3D12Debug6_Vtbl, 0x82a816d6_5d01_4157_97d0_4975463fd1ed);
+impl core::ops::Deref for ID3D12Debug6 {
+    type Target = ID3D12Debug5;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12Debug6, windows_core::IUnknown, ID3D12Debug, ID3D12Debug3, ID3D12Debug4, ID3D12Debug5);
+impl ID3D12Debug6 {
+    pub unsafe fn SetForceLegacyBarrierValidation(&self, enable: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetForceLegacyBarrierValidation)(windows_core::Interface::as_raw(self), enable.into());
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12Debug6_Vtbl {
+    pub base__: ID3D12Debug5_Vtbl,
+    pub SetForceLegacyBarrierValidation: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+}
+pub trait ID3D12Debug6_Impl: ID3D12Debug5_Impl {
+    fn SetForceLegacyBarrierValidation(&self, enable: windows_core::BOOL);
+}
+impl ID3D12Debug6_Vtbl {
+    pub const fn new<Identity: ID3D12Debug6_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetForceLegacyBarrierValidation<Identity: ID3D12Debug6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, enable: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12Debug6_Impl::SetForceLegacyBarrierValidation(this, core::mem::transmute_copy(&enable));
+            }
+        }
+        Self { base__: ID3D12Debug5_Vtbl::new::<Identity, OFFSET>(), SetForceLegacyBarrierValidation: SetForceLegacyBarrierValidation::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12Debug6 as windows_core::Interface>::IID || iid == &<ID3D12Debug as windows_core::Interface>::IID || iid == &<ID3D12Debug3 as windows_core::Interface>::IID || iid == &<ID3D12Debug4 as windows_core::Interface>::IID || iid == &<ID3D12Debug5 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12Debug6 {}
+windows_core::imp::define_interface!(ID3D12DebugCommandList, ID3D12DebugCommandList_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053f);
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList, windows_core::IUnknown);
+impl ID3D12DebugCommandList {
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AssertResourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, state) }
+    }
+    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFeatureMask)(windows_core::Interface::as_raw(self), mask) }
+    }
+    pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
+        unsafe { (windows_core::Interface::vtable(self).GetFeatureMask)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandList_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
+    pub SetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_FEATURE) -> windows_core::HRESULT,
+    pub GetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE,
+}
+pub trait ID3D12DebugCommandList_Impl: windows_core::IUnknownImpl {
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
+    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()>;
+    fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
+}
+impl ID3D12DebugCommandList_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
+            }
+        }
+        unsafe extern "system" fn SetFeatureMask<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask)).into()
+            }
+        }
+        unsafe extern "system" fn GetFeatureMask<Identity: ID3D12DebugCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList_Impl::GetFeatureMask(this)
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            AssertResourceState: AssertResourceState::<Identity, OFFSET>,
+            SetFeatureMask: SetFeatureMask::<Identity, OFFSET>,
+            GetFeatureMask: GetFeatureMask::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandList {}
+windows_core::imp::define_interface!(ID3D12DebugCommandList1, ID3D12DebugCommandList1_Vtbl, 0x102ca951_311b_4b01_b11f_ecb83e061b37);
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList1, windows_core::IUnknown);
+impl ID3D12DebugCommandList1 {
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AssertResourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, state) }
+    }
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize) }
+    }
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandList1_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
+    pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait ID3D12DebugCommandList1_Impl: windows_core::IUnknownImpl {
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+}
+impl ID3D12DebugCommandList1_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList1_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
+            }
+        }
+        unsafe extern "system" fn SetDebugParameter<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList1_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        unsafe extern "system" fn GetDebugParameter<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList1_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            AssertResourceState: AssertResourceState::<Identity, OFFSET>,
+            SetDebugParameter: SetDebugParameter::<Identity, OFFSET>,
+            GetDebugParameter: GetDebugParameter::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList1 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandList1 {}
+windows_core::imp::define_interface!(ID3D12DebugCommandList2, ID3D12DebugCommandList2_Vtbl, 0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
+impl core::ops::Deref for ID3D12DebugCommandList2 {
+    type Target = ID3D12DebugCommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList2, windows_core::IUnknown, ID3D12DebugCommandList);
+impl ID3D12DebugCommandList2 {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize) }
+    }
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandList2_Vtbl {
+    pub base__: ID3D12DebugCommandList_Vtbl,
+    pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait ID3D12DebugCommandList2_Impl: ID3D12DebugCommandList_Impl {
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+}
+impl ID3D12DebugCommandList2_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandList2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetDebugParameter<Identity: ID3D12DebugCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList2_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        unsafe extern "system" fn GetDebugParameter<Identity: ID3D12DebugCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList2_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        Self {
+            base__: ID3D12DebugCommandList_Vtbl::new::<Identity, OFFSET>(),
+            SetDebugParameter: SetDebugParameter::<Identity, OFFSET>,
+            GetDebugParameter: GetDebugParameter::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandList2 {}
+windows_core::imp::define_interface!(ID3D12DebugCommandList3, ID3D12DebugCommandList3_Vtbl, 0x197d5e15_4d37_4d34_af78_724cd70fdb1f);
+impl core::ops::Deref for ID3D12DebugCommandList3 {
+    type Target = ID3D12DebugCommandList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList3, windows_core::IUnknown, ID3D12DebugCommandList, ID3D12DebugCommandList2);
+impl ID3D12DebugCommandList3 {
+    pub unsafe fn AssertResourceAccess<P0>(&self, presource: P0, subresource: u32, access: D3D12_BARRIER_ACCESS)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AssertResourceAccess)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, access);
+        }
+    }
+    pub unsafe fn AssertTextureLayout<P0>(&self, presource: P0, subresource: u32, layout: D3D12_BARRIER_LAYOUT)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AssertTextureLayout)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, layout);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandList3_Vtbl {
+    pub base__: ID3D12DebugCommandList2_Vtbl,
+    pub AssertResourceAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_ACCESS),
+    pub AssertTextureLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_LAYOUT),
+}
+pub trait ID3D12DebugCommandList3_Impl: ID3D12DebugCommandList2_Impl {
+    fn AssertResourceAccess(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, access: D3D12_BARRIER_ACCESS);
+    fn AssertTextureLayout(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, layout: D3D12_BARRIER_LAYOUT);
+}
+impl ID3D12DebugCommandList3_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandList3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AssertResourceAccess<Identity: ID3D12DebugCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, access: D3D12_BARRIER_ACCESS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList3_Impl::AssertResourceAccess(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&access));
+            }
+        }
+        unsafe extern "system" fn AssertTextureLayout<Identity: ID3D12DebugCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, layout: D3D12_BARRIER_LAYOUT) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandList3_Impl::AssertTextureLayout(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&layout));
+            }
+        }
+        Self {
+            base__: ID3D12DebugCommandList2_Vtbl::new::<Identity, OFFSET>(),
+            AssertResourceAccess: AssertResourceAccess::<Identity, OFFSET>,
+            AssertTextureLayout: AssertTextureLayout::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandList2 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandList3 {}
+windows_core::imp::define_interface!(ID3D12DebugCommandQueue, ID3D12DebugCommandQueue_Vtbl, 0x09e0bf36_54ac_484f_8847_4baeeab6053a);
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue, windows_core::IUnknown);
+impl ID3D12DebugCommandQueue {
+    pub unsafe fn AssertResourceState<P0>(&self, presource: P0, subresource: u32, state: u32) -> windows_core::BOOL
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AssertResourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, state) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandQueue_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub AssertResourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::BOOL,
+}
+pub trait ID3D12DebugCommandQueue_Impl: windows_core::IUnknownImpl {
+    fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
+}
+impl ID3D12DebugCommandQueue_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AssertResourceState<Identity: ID3D12DebugCommandQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, state: u32) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandQueue_Impl::AssertResourceState(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&state))
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AssertResourceState: AssertResourceState::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandQueue as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandQueue {}
+windows_core::imp::define_interface!(ID3D12DebugCommandQueue1, ID3D12DebugCommandQueue1_Vtbl, 0x16be35a2_bfd6_49f2_bcae_eaae4aff862d);
+impl core::ops::Deref for ID3D12DebugCommandQueue1 {
+    type Target = ID3D12DebugCommandQueue;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12DebugCommandQueue1, windows_core::IUnknown, ID3D12DebugCommandQueue);
+impl ID3D12DebugCommandQueue1 {
+    pub unsafe fn AssertResourceAccess<P0>(&self, presource: P0, subresource: u32, access: D3D12_BARRIER_ACCESS)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AssertResourceAccess)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, access);
+        }
+    }
+    pub unsafe fn AssertTextureLayout<P0>(&self, presource: P0, subresource: u32, layout: D3D12_BARRIER_LAYOUT)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).AssertTextureLayout)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, layout);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugCommandQueue1_Vtbl {
+    pub base__: ID3D12DebugCommandQueue_Vtbl,
+    pub AssertResourceAccess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_ACCESS),
+    pub AssertTextureLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, D3D12_BARRIER_LAYOUT),
+}
+pub trait ID3D12DebugCommandQueue1_Impl: ID3D12DebugCommandQueue_Impl {
+    fn AssertResourceAccess(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, access: D3D12_BARRIER_ACCESS);
+    fn AssertTextureLayout(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, layout: D3D12_BARRIER_LAYOUT);
+}
+impl ID3D12DebugCommandQueue1_Vtbl {
+    pub const fn new<Identity: ID3D12DebugCommandQueue1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn AssertResourceAccess<Identity: ID3D12DebugCommandQueue1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, access: D3D12_BARRIER_ACCESS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandQueue1_Impl::AssertResourceAccess(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&access));
+            }
+        }
+        unsafe extern "system" fn AssertTextureLayout<Identity: ID3D12DebugCommandQueue1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, layout: D3D12_BARRIER_LAYOUT) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugCommandQueue1_Impl::AssertTextureLayout(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&layout));
+            }
+        }
+        Self {
+            base__: ID3D12DebugCommandQueue_Vtbl::new::<Identity, OFFSET>(),
+            AssertResourceAccess: AssertResourceAccess::<Identity, OFFSET>,
+            AssertTextureLayout: AssertTextureLayout::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandQueue1 as windows_core::Interface>::IID || iid == &<ID3D12DebugCommandQueue as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugCommandQueue1 {}
+windows_core::imp::define_interface!(ID3D12DebugDevice, ID3D12DebugDevice_Vtbl, 0x3febd6dd_4973_4787_8194_e45f9e28923e);
+windows_core::imp::interface_hierarchy!(ID3D12DebugDevice, windows_core::IUnknown);
+impl ID3D12DebugDevice {
+    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetFeatureMask)(windows_core::Interface::as_raw(self), mask) }
+    }
+    pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
+        unsafe { (windows_core::Interface::vtable(self).GetFeatureMask)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportLiveDeviceObjects)(windows_core::Interface::as_raw(self), flags) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugDevice_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_FEATURE) -> windows_core::HRESULT,
+    pub GetFeatureMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE,
+    pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RLDO_FLAGS) -> windows_core::HRESULT,
+}
+pub trait ID3D12DebugDevice_Impl: windows_core::IUnknownImpl {
+    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()>;
+    fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
+    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()>;
+}
+impl ID3D12DebugDevice_Vtbl {
+    pub const fn new<Identity: ID3D12DebugDevice_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetFeatureMask<Identity: ID3D12DebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice_Impl::SetFeatureMask(this, core::mem::transmute_copy(&mask)).into()
+            }
+        }
+        unsafe extern "system" fn GetFeatureMask<Identity: ID3D12DebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_DEBUG_FEATURE {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice_Impl::GetFeatureMask(this)
+            }
+        }
+        unsafe extern "system" fn ReportLiveDeviceObjects<Identity: ID3D12DebugDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D12_RLDO_FLAGS) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice_Impl::ReportLiveDeviceObjects(this, core::mem::transmute_copy(&flags)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetFeatureMask: SetFeatureMask::<Identity, OFFSET>,
+            GetFeatureMask: GetFeatureMask::<Identity, OFFSET>,
+            ReportLiveDeviceObjects: ReportLiveDeviceObjects::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugDevice {}
+windows_core::imp::define_interface!(ID3D12DebugDevice1, ID3D12DebugDevice1_Vtbl, 0xa9b71770_d099_4a65_a698_3dee10020f88);
+windows_core::imp::interface_hierarchy!(ID3D12DebugDevice1, windows_core::IUnknown);
+impl ID3D12DebugDevice1 {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize) }
+    }
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize) }
+    }
+    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).ReportLiveDeviceObjects)(windows_core::Interface::as_raw(self), flags) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugDevice1_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub ReportLiveDeviceObjects: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RLDO_FLAGS) -> windows_core::HRESULT,
+}
+pub trait ID3D12DebugDevice1_Impl: windows_core::IUnknownImpl {
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()>;
+}
+impl ID3D12DebugDevice1_Vtbl {
+    pub const fn new<Identity: ID3D12DebugDevice1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetDebugParameter<Identity: ID3D12DebugDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice1_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        unsafe extern "system" fn GetDebugParameter<Identity: ID3D12DebugDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice1_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        unsafe extern "system" fn ReportLiveDeviceObjects<Identity: ID3D12DebugDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: D3D12_RLDO_FLAGS) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice1_Impl::ReportLiveDeviceObjects(this, core::mem::transmute_copy(&flags)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetDebugParameter: SetDebugParameter::<Identity, OFFSET>,
+            GetDebugParameter: GetDebugParameter::<Identity, OFFSET>,
+            ReportLiveDeviceObjects: ReportLiveDeviceObjects::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice1 as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugDevice1 {}
+windows_core::imp::define_interface!(ID3D12DebugDevice2, ID3D12DebugDevice2_Vtbl, 0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
+impl core::ops::Deref for ID3D12DebugDevice2 {
+    type Target = ID3D12DebugDevice;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12DebugDevice2, windows_core::IUnknown, ID3D12DebugDevice);
+impl ID3D12DebugDevice2 {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize) }
+    }
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12DebugDevice2_Vtbl {
+    pub base__: ID3D12DebugDevice_Vtbl,
+    pub SetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetDebugParameter: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DEBUG_DEVICE_PARAMETER_TYPE, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait ID3D12DebugDevice2_Impl: ID3D12DebugDevice_Impl {
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+}
+impl ID3D12DebugDevice2_Vtbl {
+    pub const fn new<Identity: ID3D12DebugDevice2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetDebugParameter<Identity: ID3D12DebugDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice2_Impl::SetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        unsafe extern "system" fn GetDebugParameter<Identity: ID3D12DebugDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12DebugDevice2_Impl::GetDebugParameter(this, core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&datasize)).into()
+            }
+        }
+        Self {
+            base__: ID3D12DebugDevice_Vtbl::new::<Identity, OFFSET>(),
+            SetDebugParameter: SetDebugParameter::<Identity, OFFSET>,
+            GetDebugParameter: GetDebugParameter::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice2 as windows_core::Interface>::IID || iid == &<ID3D12DebugDevice as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12DebugDevice2 {}
 windows_core::imp::define_interface!(ID3D12DescriptorHeap, ID3D12DescriptorHeap_Vtbl, 0x8efb471d_616c_4f49_90f7_127bb763fa51);
 impl core::ops::Deref for ID3D12DescriptorHeap {
     type Target = ID3D12Pageable;
@@ -5224,7 +10841,7 @@ impl ID3D12Device {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCommandAllocator)(windows_core::Interface::as_raw(self), r#type, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateGraphicsPipelineState<T>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
@@ -5273,7 +10890,7 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CreateConstantBufferView)(windows_core::Interface::as_raw(self), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateShaderResourceView<P0>(&self, presource: P0, pdesc: Option<*const D3D12_SHADER_RESOURCE_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE)
     where
         P0: windows_core::Param<ID3D12Resource>,
@@ -5282,7 +10899,7 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateUnorderedAccessView<P0, P1>(&self, presource: P0, pcounterresource: P1, pdesc: Option<*const D3D12_UNORDERED_ACCESS_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE)
     where
         P0: windows_core::Param<ID3D12Resource>,
@@ -5292,7 +10909,7 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CreateUnorderedAccessView)(windows_core::Interface::as_raw(self), presource.param().abi(), pcounterresource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateRenderTargetView<P0>(&self, presource: P0, pdesc: Option<*const D3D12_RENDER_TARGET_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE)
     where
         P0: windows_core::Param<ID3D12Resource>,
@@ -5301,7 +10918,7 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateDepthStencilView<P0>(&self, presource: P0, pdesc: Option<*const D3D12_DEPTH_STENCIL_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE)
     where
         P0: windows_core::Param<ID3D12Resource>,
@@ -5325,7 +10942,7 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CopyDescriptorsSimple)(windows_core::Interface::as_raw(self), numdescriptors, core::mem::transmute(destdescriptorrangestart), core::mem::transmute(srcdescriptorrangestart), descriptorheapstype);
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC]) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5340,7 +10957,7 @@ impl ID3D12Device {
             result__
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateCommittedResource<T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
@@ -5353,7 +10970,7 @@ impl ID3D12Device {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateHeap)(windows_core::Interface::as_raw(self), pdesc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreatePlacedResource<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
@@ -5361,7 +10978,7 @@ impl ID3D12Device {
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateReservedResource<T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         T: windows_core::Interface,
@@ -5412,7 +11029,7 @@ impl ID3D12Device {
     pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)) }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: Option<*mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT>, pnumrows: Option<*mut u32>, prowsizeinbytes: Option<*mut u64>, ptotalbytes: Option<*mut u64>) {
         unsafe {
             (windows_core::Interface::vtable(self).GetCopyableFootprints)(windows_core::Interface::as_raw(self), presourcedesc, firstsubresource, numsubresources, baseoffset, playouts.unwrap_or(core::mem::zeroed()) as _, pnumrows.unwrap_or(core::mem::zeroed()) as _, prowsizeinbytes.unwrap_or(core::mem::zeroed()) as _, ptotalbytes.unwrap_or(core::mem::zeroed()) as _);
@@ -5458,9 +11075,9 @@ pub struct ID3D12Device_Vtbl {
     pub GetNodeCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateCommandQueue: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_COMMAND_QUEUE_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCommandAllocator: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_COMMAND_LIST_TYPE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateGraphicsPipelineState: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateGraphicsPipelineState: usize,
     pub CreateComputePipelineState: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_COMPUTE_PIPELINE_STATE_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateCommandList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_COMMAND_LIST_TYPE, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -5469,42 +11086,42 @@ pub struct ID3D12Device_Vtbl {
     pub GetDescriptorHandleIncrementSize: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_DESCRIPTOR_HEAP_TYPE) -> u32,
     pub CreateRootSignature: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateConstantBufferView: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_CONSTANT_BUFFER_VIEW_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateShaderResourceView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_SHADER_RESOURCE_VIEW_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateShaderResourceView: usize,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateUnorderedAccessView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_UNORDERED_ACCESS_VIEW_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateUnorderedAccessView: usize,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateRenderTargetView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_RENDER_TARGET_VIEW_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateRenderTargetView: usize,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateDepthStencilView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_DEPTH_STENCIL_VIEW_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateDepthStencilView: usize,
     pub CreateSampler: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SAMPLER_DESC, D3D12_CPU_DESCRIPTOR_HANDLE),
     pub CopyDescriptors: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, *const u32, u32, *const D3D12_CPU_DESCRIPTOR_HANDLE, *const u32, D3D12_DESCRIPTOR_HEAP_TYPE),
     pub CopyDescriptorsSimple: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_CPU_DESCRIPTOR_HANDLE, D3D12_CPU_DESCRIPTOR_HANDLE, D3D12_DESCRIPTOR_HEAP_TYPE),
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetResourceAllocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetResourceAllocationInfo: usize,
     pub GetCustomHeapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_PROPERTIES, u32, D3D12_HEAP_TYPE),
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateCommittedResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateCommittedResource: usize,
     pub CreateHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreatePlacedResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreatePlacedResource: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateReservedResource: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateReservedResource: usize,
     #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
     pub CreateSharedHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::minwinbase::SECURITY_ATTRIBUTES, u32, windows_core::PCWSTR, *mut super::winnt::HANDLE) -> windows_core::HRESULT,
@@ -5522,9 +11139,9 @@ pub struct ID3D12Device_Vtbl {
     pub Evict: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateFence: unsafe extern "system" fn(*mut core::ffi::c_void, u64, D3D12_FENCE_FLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetDeviceRemovedReason: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetCopyableFootprints: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, u32, u32, u64, *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, *mut u32, *mut u64, *mut u64),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetCopyableFootprints: usize,
     pub CreateQueryHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_QUERY_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetStablePowerState: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
@@ -5535,7 +11152,7 @@ pub struct ID3D12Device_Vtbl {
     #[cfg(not(feature = "Win32_winnt"))]
     GetAdapterLuid: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn GetNodeCount(&self) -> u32;
     fn CreateCommandQueue(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -5575,7 +11192,7 @@ pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn GetResourceTiling(&self, ptiledresource: windows_core::Ref<ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::winnt::LUID;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device_Vtbl {
     pub const fn new<Identity: ID3D12Device_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetNodeCount<Identity: ID3D12Device_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
@@ -5857,7 +11474,7 @@ impl ID3D12Device_Vtbl {
         iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device {}
 windows_core::imp::define_interface!(ID3D12Device1, ID3D12Device1_Vtbl, 0x77acce80_638e_4e65_8895_c1f23386863e);
 impl core::ops::Deref for ID3D12Device1 {
@@ -5894,13 +11511,13 @@ pub struct ID3D12Device1_Vtbl {
     SetEventOnMultipleFenceCompletion: usize,
     pub SetResidencyPriority: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *const D3D12_RESIDENCY_PRIORITY) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device1_Impl: ID3D12Device_Impl {
     fn CreatePipelineLibrary(&self, plibraryblob: *const core::ffi::c_void, bloblength: usize, riid: *const windows_core::GUID, pppipelinelibrary: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::winnt::HANDLE) -> windows_core::Result<()>;
     fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device1_Vtbl {
     pub const fn new<Identity: ID3D12Device1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePipelineLibrary<Identity: ID3D12Device1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plibraryblob: *const core::ffi::c_void, bloblength: usize, riid: *const windows_core::GUID, pppipelinelibrary: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -5932,7 +11549,7 @@ impl ID3D12Device1_Vtbl {
         iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device1 {}
 windows_core::imp::define_interface!(ID3D12Device10, ID3D12Device10_Vtbl, 0x517f8718_aa66_49f9_b02b_a7ab89c06031);
 impl core::ops::Deref for ID3D12Device10 {
@@ -5943,24 +11560,24 @@ impl core::ops::Deref for ID3D12Device10 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device10, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
 impl ID3D12Device10 {
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource3)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), numcastableformats, pcastableformats, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource2)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, numcastableformats, pcastableformats, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P3: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -5972,41 +11589,41 @@ impl ID3D12Device10 {
 #[doc(hidden)]
 pub struct ID3D12Device10_Vtbl {
     pub base__: ID3D12Device9_Vtbl,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub CreateCommittedResource3: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC1, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, u32, *const super::dxgiformat::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateCommittedResource3: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC1, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, u32, *const super::dxgi::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateCommittedResource3: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub CreatePlacedResource2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const D3D12_RESOURCE_DESC1, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, u32, *const super::dxgiformat::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreatePlacedResource2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const D3D12_RESOURCE_DESC1, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, u32, *const super::dxgi::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreatePlacedResource2: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub CreateReservedResource2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, u32, *const super::dxgiformat::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateReservedResource2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, D3D12_BARRIER_LAYOUT, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, u32, *const super::dxgi::DXGI_FORMAT, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateReservedResource2: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device10_Impl: ID3D12Device9_Impl {
-    fn CreateCommittedResource3(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreatePlacedResource2(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateReservedResource2(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommittedResource3(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreatePlacedResource2(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateReservedResource2(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device10_Vtbl {
     pub const fn new<Identity: ID3D12Device10_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn CreateCommittedResource3<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut core::ffi::c_void, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateCommittedResource3<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut core::ffi::c_void, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Device10_Impl::CreateCommittedResource3(this, core::mem::transmute_copy(&pheapproperties), core::mem::transmute_copy(&heapflags), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riidresource), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
-        unsafe extern "system" fn CreatePlacedResource2<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreatePlacedResource2<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Device10_Impl::CreatePlacedResource2(this, core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&heapoffset), core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
             }
         }
-        unsafe extern "system" fn CreateReservedResource2<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut core::ffi::c_void, numcastableformats: u32, pcastableformats: *const super::dxgiformat::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn CreateReservedResource2<Identity: ID3D12Device10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: *mut core::ffi::c_void, numcastableformats: u32, pcastableformats: *const super::dxgi::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12Device10_Impl::CreateReservedResource2(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&initiallayout), core::mem::transmute_copy(&poptimizedclearvalue), core::mem::transmute_copy(&pprotectedsession), core::mem::transmute_copy(&numcastableformats), core::mem::transmute_copy(&pcastableformats), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvresource)).into()
@@ -6023,7 +11640,7 @@ impl ID3D12Device10_Vtbl {
         iid == &<ID3D12Device10 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Device9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device10 {}
 windows_core::imp::define_interface!(ID3D12Device11, ID3D12Device11_Vtbl, 0x5405c344_d457_444e_b4dd_2366e45aee39);
 impl core::ops::Deref for ID3D12Device11 {
@@ -6046,11 +11663,11 @@ pub struct ID3D12Device11_Vtbl {
     pub base__: ID3D12Device10_Vtbl,
     pub CreateSampler2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SAMPLER_DESC2, D3D12_CPU_DESCRIPTOR_HANDLE),
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device11_Impl: ID3D12Device10_Impl {
     fn CreateSampler2(&self, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device11_Vtbl {
     pub const fn new<Identity: ID3D12Device11_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateSampler2<Identity: ID3D12Device11_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
@@ -6065,7 +11682,7 @@ impl ID3D12Device11_Vtbl {
         iid == &<ID3D12Device11 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Device9 as windows_core::Interface>::IID || iid == &<ID3D12Device10 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device11 {}
 windows_core::imp::define_interface!(ID3D12Device12, ID3D12Device12_Vtbl, 0x5af5c532_4c91_4cd0_b541_15a405395fc5);
 impl core::ops::Deref for ID3D12Device12 {
@@ -6076,8 +11693,8 @@ impl core::ops::Deref for ID3D12Device12 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device12, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11);
 impl ID3D12Device12 {
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub unsafe fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgiformat::DXGI_FORMAT, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgi::DXGI_FORMAT, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetResourceAllocationInfo3)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, numresourcedescs, presourcedescs, pnumcastableformats, ppcastableformats, presourceallocationinfo1.unwrap_or(core::mem::zeroed()) as _);
@@ -6089,19 +11706,19 @@ impl ID3D12Device12 {
 #[doc(hidden)]
 pub struct ID3D12Device12_Vtbl {
     pub base__: ID3D12Device11_Vtbl,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
-    pub GetResourceAllocationInfo3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC1, *const u32, *const *const super::dxgiformat::DXGI_FORMAT, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetResourceAllocationInfo3: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC1, *const u32, *const *const super::dxgi::DXGI_FORMAT, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetResourceAllocationInfo3: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device12_Impl: ID3D12Device11_Impl {
-    fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgiformat::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
+    fn GetResourceAllocationInfo3(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgi::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device12_Vtbl {
     pub const fn new<Identity: ID3D12Device12_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetResourceAllocationInfo3<Identity: ID3D12Device12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgiformat::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
+        unsafe extern "system" fn GetResourceAllocationInfo3<Identity: ID3D12Device12_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, pnumcastableformats: *const u32, ppcastableformats: *const *const super::dxgi::DXGI_FORMAT, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 *result__ = ID3D12Device12_Impl::GetResourceAllocationInfo3(this, core::mem::transmute_copy(&visiblemask), core::mem::transmute_copy(&numresourcedescs), core::mem::transmute_copy(&presourcedescs), core::mem::transmute_copy(&pnumcastableformats), core::mem::transmute_copy(&ppcastableformats), core::mem::transmute_copy(&presourceallocationinfo1));
@@ -6126,7 +11743,7 @@ impl ID3D12Device12_Vtbl {
             || iid == &<ID3D12Device11 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device12 {}
 windows_core::imp::define_interface!(ID3D12Device13, ID3D12Device13_Vtbl, 0x14eecffc_4df8_40f7_a118_5c816f45695e);
 impl core::ops::Deref for ID3D12Device13 {
@@ -6151,11 +11768,11 @@ pub struct ID3D12Device13_Vtbl {
     pub base__: ID3D12Device12_Vtbl,
     pub OpenExistingHeapFromAddress1: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device13_Impl: ID3D12Device12_Impl {
     fn OpenExistingHeapFromAddress1(&self, paddress: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device13_Vtbl {
     pub const fn new<Identity: ID3D12Device13_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenExistingHeapFromAddress1<Identity: ID3D12Device13_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6184,7 +11801,7 @@ impl ID3D12Device13_Vtbl {
             || iid == &<ID3D12Device12 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device13 {}
 windows_core::imp::define_interface!(ID3D12Device14, ID3D12Device14_Vtbl, 0x5f6e592d_d895_44c2_8e4a_88ad4926d323);
 impl core::ops::Deref for ID3D12Device14 {
@@ -6210,11 +11827,11 @@ pub struct ID3D12Device14_Vtbl {
     pub base__: ID3D12Device13_Vtbl,
     pub CreateRootSignatureFromSubobjectInLibrary: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, usize, windows_core::PCWSTR, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device14_Impl: ID3D12Device13_Impl {
     fn CreateRootSignatureFromSubobjectInLibrary(&self, nodemask: u32, plibraryblob: *const core::ffi::c_void, bloblengthinbytes: usize, subobjectname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device14_Vtbl {
     pub const fn new<Identity: ID3D12Device14_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateRootSignatureFromSubobjectInLibrary<Identity: ID3D12Device14_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodemask: u32, plibraryblob: *const core::ffi::c_void, bloblengthinbytes: usize, subobjectname: windows_core::PCWSTR, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6247,7 +11864,7 @@ impl ID3D12Device14_Vtbl {
             || iid == &<ID3D12Device13 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device14 {}
 windows_core::imp::define_interface!(ID3D12Device2, ID3D12Device2_Vtbl, 0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
 impl core::ops::Deref for ID3D12Device2 {
@@ -6272,11 +11889,11 @@ pub struct ID3D12Device2_Vtbl {
     pub base__: ID3D12Device1_Vtbl,
     pub CreatePipelineState: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device2_Impl: ID3D12Device1_Impl {
     fn CreatePipelineState(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device2_Vtbl {
     pub const fn new<Identity: ID3D12Device2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreatePipelineState<Identity: ID3D12Device2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6291,7 +11908,7 @@ impl ID3D12Device2_Vtbl {
         iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device2 {}
 windows_core::imp::define_interface!(ID3D12Device3, ID3D12Device3_Vtbl, 0x81dadc15_2bad_4392_93c5_101345c4aa98);
 impl core::ops::Deref for ID3D12Device3 {
@@ -6335,13 +11952,13 @@ pub struct ID3D12Device3_Vtbl {
     OpenExistingHeapFromFileMapping: usize,
     pub EnqueueMakeResident: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_RESIDENCY_FLAGS, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device3_Impl: ID3D12Device2_Impl {
     fn OpenExistingHeapFromAddress(&self, paddress: *const core::ffi::c_void, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::winnt::HANDLE, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, pfencetosignal: windows_core::Ref<ID3D12Fence>, fencevaluetosignal: u64) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device3_Vtbl {
     pub const fn new<Identity: ID3D12Device3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OpenExistingHeapFromAddress<Identity: ID3D12Device3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddress: *const core::ffi::c_void, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6373,7 +11990,7 @@ impl ID3D12Device3_Vtbl {
         iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device3 {}
 windows_core::imp::define_interface!(ID3D12Device4, ID3D12Device4_Vtbl, 0xe865df17_a9ee_46f9_a463_3098315aa2e5);
 impl core::ops::Deref for ID3D12Device4 {
@@ -6398,7 +12015,7 @@ impl ID3D12Device4 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateProtectedResourceSession)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateCommittedResource1<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
@@ -6413,7 +12030,7 @@ impl ID3D12Device4 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateHeap1)(windows_core::Interface::as_raw(self), pdesc, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateReservedResource1<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P3: windows_core::Param<ID3D12ProtectedResourceSession>,
@@ -6421,7 +12038,7 @@ impl ID3D12Device4 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateReservedResource1)(windows_core::Interface::as_raw(self), pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6436,21 +12053,21 @@ pub struct ID3D12Device4_Vtbl {
     pub base__: ID3D12Device3_Vtbl,
     pub CreateCommandList1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_COMMAND_LIST_TYPE, D3D12_COMMAND_LIST_FLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateCommittedResource1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateCommittedResource1: usize,
     pub CreateHeap1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateReservedResource1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateReservedResource1: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetResourceAllocationInfo1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetResourceAllocationInfo1: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device4_Impl: ID3D12Device3_Impl {
     fn CreateCommandList1(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateProtectedResourceSession(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -6459,7 +12076,7 @@ pub trait ID3D12Device4_Impl: ID3D12Device3_Impl {
     fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device4_Vtbl {
     pub const fn new<Identity: ID3D12Device4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateCommandList1<Identity: ID3D12Device4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6512,7 +12129,7 @@ impl ID3D12Device4_Vtbl {
         iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device4 {}
 windows_core::imp::define_interface!(ID3D12Device5, ID3D12Device5_Vtbl, 0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
 impl core::ops::Deref for ID3D12Device5 {
@@ -6556,7 +12173,7 @@ impl ID3D12Device5 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateStateObject)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
         unsafe {
             (windows_core::Interface::vtable(self).GetRaytracingAccelerationStructurePrebuildInfo)(windows_core::Interface::as_raw(self), pdesc, pinfo as _);
@@ -6576,13 +12193,13 @@ pub struct ID3D12Device5_Vtbl {
     pub EnumerateMetaCommandParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, D3D12_META_COMMAND_PARAMETER_STAGE, *mut u32, *mut u32, *mut D3D12_META_COMMAND_PARAMETER_DESC) -> windows_core::HRESULT,
     pub CreateMetaCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, *const core::ffi::c_void, usize, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateStateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_STATE_OBJECT_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetRaytracingAccelerationStructurePrebuildInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetRaytracingAccelerationStructurePrebuildInfo: usize,
     pub CheckDriverMatchingIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_SERIALIZED_DATA_TYPE, *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device5_Impl: ID3D12Device4_Impl {
     fn CreateLifetimeTracker(&self, powner: windows_core::Ref<ID3D12LifetimeOwner>, riid: *const windows_core::GUID, ppvtracker: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn RemoveDevice(&self);
@@ -6593,7 +12210,7 @@ pub trait ID3D12Device5_Impl: ID3D12Device4_Impl {
     fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO);
     fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device5_Vtbl {
     pub const fn new<Identity: ID3D12Device5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateLifetimeTracker<Identity: ID3D12Device5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, powner: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvtracker: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6660,7 +12277,7 @@ impl ID3D12Device5_Vtbl {
         iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device5 {}
 windows_core::imp::define_interface!(ID3D12Device6, ID3D12Device6_Vtbl, 0xc70b221b_40e4_4a17_89af_025a0727a6dc);
 impl core::ops::Deref for ID3D12Device6 {
@@ -6685,11 +12302,11 @@ pub struct ID3D12Device6_Vtbl {
     #[cfg(not(feature = "Win32_winnt"))]
     SetBackgroundProcessingMode: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device6_Impl: ID3D12Device5_Impl {
     fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::winnt::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device6_Vtbl {
     pub const fn new<Identity: ID3D12Device6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetBackgroundProcessingMode<Identity: ID3D12Device6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::winnt::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_core::HRESULT {
@@ -6704,7 +12321,7 @@ impl ID3D12Device6_Vtbl {
         iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device6 {}
 windows_core::imp::define_interface!(ID3D12Device7, ID3D12Device7_Vtbl, 0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
 impl core::ops::Deref for ID3D12Device7 {
@@ -6738,12 +12355,12 @@ pub struct ID3D12Device7_Vtbl {
     pub AddToStateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_STATE_OBJECT_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateProtectedResourceSession1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device7_Impl: ID3D12Device6_Impl {
     fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: windows_core::Ref<ID3D12StateObject>, riid: *const windows_core::GUID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device7_Vtbl {
     pub const fn new<Identity: ID3D12Device7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AddToStateObject<Identity: ID3D12Device7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6768,7 +12385,7 @@ impl ID3D12Device7_Vtbl {
         iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device7 {}
 windows_core::imp::define_interface!(ID3D12Device8, ID3D12Device8_Vtbl, 0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
 impl core::ops::Deref for ID3D12Device8 {
@@ -6779,7 +12396,7 @@ impl core::ops::Deref for ID3D12Device8 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device8, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7);
 impl ID3D12Device8 {
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: Option<*mut D3D12_RESOURCE_ALLOCATION_INFO1>) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -6787,7 +12404,7 @@ impl ID3D12Device8 {
             result__
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreateCommittedResource2<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
@@ -6795,7 +12412,7 @@ impl ID3D12Device8 {
     {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource2)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initialresourcestate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CreatePlacedResource1<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
@@ -6812,7 +12429,7 @@ impl ID3D12Device8 {
             (windows_core::Interface::vtable(self).CreateSamplerFeedbackUnorderedAccessView)(windows_core::Interface::as_raw(self), ptargetedresource.param().abi(), pfeedbackresource.param().abi(), core::mem::transmute(destdescriptor));
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: Option<*mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT>, pnumrows: Option<*mut u32>, prowsizeinbytes: Option<*mut u64>, ptotalbytes: Option<*mut u64>) {
         unsafe {
             (windows_core::Interface::vtable(self).GetCopyableFootprints1)(windows_core::Interface::as_raw(self), presourcedesc, firstsubresource, numsubresources, baseoffset, playouts.unwrap_or(core::mem::zeroed()) as _, pnumrows.unwrap_or(core::mem::zeroed()) as _, prowsizeinbytes.unwrap_or(core::mem::zeroed()) as _, ptotalbytes.unwrap_or(core::mem::zeroed()) as _);
@@ -6823,25 +12440,25 @@ impl ID3D12Device8 {
 #[doc(hidden)]
 pub struct ID3D12Device8_Vtbl {
     pub base__: ID3D12Device7_Vtbl,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetResourceAllocationInfo2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_ALLOCATION_INFO, u32, u32, *const D3D12_RESOURCE_DESC1, *mut D3D12_RESOURCE_ALLOCATION_INFO1),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetResourceAllocationInfo2: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreateCommittedResource2: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_HEAP_PROPERTIES, D3D12_HEAP_FLAGS, *const D3D12_RESOURCE_DESC1, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreateCommittedResource2: usize,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub CreatePlacedResource1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const D3D12_RESOURCE_DESC1, D3D12_RESOURCE_STATES, *const D3D12_CLEAR_VALUE, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CreatePlacedResource1: usize,
     pub CreateSamplerFeedbackUnorderedAccessView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_CPU_DESCRIPTOR_HANDLE),
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetCopyableFootprints1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOURCE_DESC1, u32, u32, u64, *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, *mut u32, *mut u64, *mut u64),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetCopyableFootprints1: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device8_Impl: ID3D12Device7_Impl {
     fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
     fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -6849,7 +12466,7 @@ pub trait ID3D12Device8_Impl: ID3D12Device7_Impl {
     fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: windows_core::Ref<ID3D12Resource>, pfeedbackresource: windows_core::Ref<ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device8_Vtbl {
     pub const fn new<Identity: ID3D12Device8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetResourceAllocationInfo2<Identity: ID3D12Device8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
@@ -6895,7 +12512,7 @@ impl ID3D12Device8_Vtbl {
         iid == &<ID3D12Device8 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device8 {}
 windows_core::imp::define_interface!(ID3D12Device9, ID3D12Device9_Vtbl, 0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
 impl core::ops::Deref for ID3D12Device9 {
@@ -6931,13 +12548,13 @@ pub struct ID3D12Device9_Vtbl {
     pub ShaderCacheControl: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_SHADER_CACHE_KIND_FLAGS, D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_core::HRESULT,
     pub CreateCommandQueue1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_COMMAND_QUEUE_DESC, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 pub trait ID3D12Device9_Impl: ID3D12Device8_Impl {
     fn CreateShaderCacheSession(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const windows_core::GUID, ppvsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_core::Result<()>;
     fn CreateCommandQueue1(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const windows_core::GUID, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl ID3D12Device9_Vtbl {
     pub const fn new<Identity: ID3D12Device9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn CreateShaderCacheSession<Identity: ID3D12Device9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const windows_core::GUID, ppvsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -6969,7 +12586,7 @@ impl ID3D12Device9_Vtbl {
         iid == &<ID3D12Device9 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12Device as windows_core::Interface>::IID || iid == &<ID3D12Device1 as windows_core::Interface>::IID || iid == &<ID3D12Device2 as windows_core::Interface>::IID || iid == &<ID3D12Device3 as windows_core::Interface>::IID || iid == &<ID3D12Device4 as windows_core::Interface>::IID || iid == &<ID3D12Device5 as windows_core::Interface>::IID || iid == &<ID3D12Device6 as windows_core::Interface>::IID || iid == &<ID3D12Device7 as windows_core::Interface>::IID || iid == &<ID3D12Device8 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 impl windows_core::RuntimeName for ID3D12Device9 {}
 windows_core::imp::define_interface!(ID3D12DeviceChild, ID3D12DeviceChild_Vtbl, 0x905db94b_a00c_4140_9df5_2b64ca9ea357);
 impl core::ops::Deref for ID3D12DeviceChild {
@@ -7811,6 +13428,195 @@ impl ID3D12Fence1_Vtbl {
 }
 #[cfg(feature = "Win32_winnt")]
 impl windows_core::RuntimeName for ID3D12Fence1 {}
+windows_core::imp::define_interface!(ID3D12FunctionParameterReflection, ID3D12FunctionParameterReflection_Vtbl);
+impl ID3D12FunctionParameterReflection {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12FunctionParameterReflection_Vtbl {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_PARAMETER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetDesc: usize,
+}
+#[cfg(feature = "Win32_d3dcommon")]
+pub trait ID3D12FunctionParameterReflection_Impl {
+    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12FunctionParameterReflection_Vtbl {
+    pub const fn new<Identity: ID3D12FunctionParameterReflection_Impl>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12FunctionParameterReflection_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionParameterReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        Self { GetDesc: GetDesc::<Identity> }
+    }
+}
+#[cfg(feature = "Win32_d3dcommon")]
+struct ID3D12FunctionParameterReflection_ImplVtbl<T: ID3D12FunctionParameterReflection_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "Win32_d3dcommon")]
+impl<T: ID3D12FunctionParameterReflection_Impl> ID3D12FunctionParameterReflection_ImplVtbl<T> {
+    const VTABLE: ID3D12FunctionParameterReflection_Vtbl = ID3D12FunctionParameterReflection_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12FunctionParameterReflection {
+    pub fn new<'a, T: ID3D12FunctionParameterReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionParameterReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+windows_core::imp::define_interface!(ID3D12FunctionReflection, ID3D12FunctionReflection_Vtbl);
+impl ID3D12FunctionReflection {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+    pub unsafe fn GetConstantBufferByIndex(&self, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByIndex)(windows_core::Interface::as_raw(self), bufferindex) }
+    }
+    pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionConstantBuffer>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDesc)(windows_core::Interface::as_raw(self), resourceindex, pdesc as _) }
+    }
+    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), name.param().abi(), pdesc as _) }
+    }
+    pub unsafe fn GetFunctionParameter(&self, parameterindex: i32) -> Option<ID3D12FunctionParameterReflection> {
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionParameter)(windows_core::Interface::as_raw(self), parameterindex) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12FunctionReflection_Vtbl {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_FUNCTION_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetDesc: usize,
+    pub GetConstantBufferByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D12ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetResourceBindingDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetResourceBindingDesc: usize,
+    pub GetVariableByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetResourceBindingDescByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetResourceBindingDescByName: usize,
+    pub GetFunctionParameter: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D12FunctionParameterReflection>,
+}
+#[cfg(feature = "Win32_d3dcommon")]
+pub trait ID3D12FunctionReflection_Impl {
+    fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_core::Result<()>;
+    fn GetConstantBufferByIndex(&self, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetFunctionParameter(&self, parameterindex: i32) -> Option<ID3D12FunctionParameterReflection>;
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12FunctionReflection_Vtbl {
+    pub const fn new<Identity: ID3D12FunctionReflection_Impl>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetConstantBufferByIndex<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetConstantBufferByIndex(this, core::mem::transmute_copy(&bufferindex))
+            }
+        }
+        unsafe extern "system" fn GetConstantBufferByName<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetConstantBufferByName(this, core::mem::transmute(&name))
+            }
+        }
+        unsafe extern "system" fn GetResourceBindingDesc<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetVariableByName<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetVariableByName(this, core::mem::transmute(&name))
+            }
+        }
+        unsafe extern "system" fn GetResourceBindingDescByName<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetResourceBindingDescByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetFunctionParameter<Identity: ID3D12FunctionReflection_Impl>(this: *mut core::ffi::c_void, parameterindex: i32) -> Option<ID3D12FunctionParameterReflection> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12FunctionReflection_Impl::GetFunctionParameter(this, core::mem::transmute_copy(&parameterindex))
+            }
+        }
+        Self {
+            GetDesc: GetDesc::<Identity>,
+            GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity>,
+            GetConstantBufferByName: GetConstantBufferByName::<Identity>,
+            GetResourceBindingDesc: GetResourceBindingDesc::<Identity>,
+            GetVariableByName: GetVariableByName::<Identity>,
+            GetResourceBindingDescByName: GetResourceBindingDescByName::<Identity>,
+            GetFunctionParameter: GetFunctionParameter::<Identity>,
+        }
+    }
+}
+#[cfg(feature = "Win32_d3dcommon")]
+struct ID3D12FunctionReflection_ImplVtbl<T: ID3D12FunctionReflection_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "Win32_d3dcommon")]
+impl<T: ID3D12FunctionReflection_Impl> ID3D12FunctionReflection_ImplVtbl<T> {
+    const VTABLE: ID3D12FunctionReflection_Vtbl = ID3D12FunctionReflection_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12FunctionReflection {
+    pub fn new<'a, T: ID3D12FunctionReflection_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3D12FunctionReflection_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
 windows_core::imp::define_interface!(ID3D12GBVDiagnostics, ID3D12GBVDiagnostics_Vtbl, 0x597985ab_9b75_4dbb_be23_0761195bebee);
 windows_core::imp::interface_hierarchy!(ID3D12GBVDiagnostics, windows_core::IUnknown);
 impl ID3D12GBVDiagnostics {
@@ -7838,7 +13644,7 @@ impl ID3D12GBVDiagnostics {
             (windows_core::Interface::vtable(self).GetGBVResourceUniformState)(windows_core::Interface::as_raw(self), presource.param().abi(), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetGBVResourceInfo<P0>(&self, presource: P0, presourcedesc: Option<*const D3D12_RESOURCE_DESC>, presourcehash: Option<*const u32>, psubresourcestatesbyteoffset: Option<*const u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<ID3D12Resource>,
@@ -7863,14 +13669,14 @@ pub struct ID3D12GBVDiagnostics_Vtbl {
     pub GetGBVEntireSubresourceStatesData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32, u32) -> windows_core::HRESULT,
     pub GetGBVSubresourceState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut i32) -> windows_core::HRESULT,
     pub GetGBVResourceUniformState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetGBVResourceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_RESOURCE_DESC, *const u32, *const u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetGBVResourceInfo: usize,
     pub GBVReserved0: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub GBVReserved1: unsafe extern "system" fn(*mut core::ffi::c_void),
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12GBVDiagnostics_Impl: windows_core::IUnknownImpl {
     fn GetGBVEntireSubresourceStatesData(&self, presource: windows_core::Ref<ID3D12Resource>, pdata: *mut i32, datasize: u32) -> windows_core::Result<()>;
     fn GetGBVSubresourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32) -> windows_core::Result<i32>;
@@ -7879,7 +13685,7 @@ pub trait ID3D12GBVDiagnostics_Impl: windows_core::IUnknownImpl {
     fn GBVReserved0(&self);
     fn GBVReserved1(&self);
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12GBVDiagnostics_Vtbl {
     pub const fn new<Identity: ID3D12GBVDiagnostics_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetGBVEntireSubresourceStatesData<Identity: ID3D12GBVDiagnostics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pdata: *mut i32, datasize: u32) -> windows_core::HRESULT {
@@ -7944,7 +13750,7 @@ impl ID3D12GBVDiagnostics_Vtbl {
         iid == &<ID3D12GBVDiagnostics as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12GBVDiagnostics {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList, ID3D12GraphicsCommandList_Vtbl, 0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
 impl core::ops::Deref for ID3D12GraphicsCommandList {
@@ -7997,7 +13803,7 @@ impl ID3D12GraphicsCommandList {
             (windows_core::Interface::vtable(self).CopyBufferRegion)(windows_core::Interface::as_raw(self), pdstbuffer.param().abi(), dstoffset, psrcbuffer.param().abi(), srcoffset, numbytes);
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: Option<*const D3D12_BOX>) {
         unsafe {
             (windows_core::Interface::vtable(self).CopyTextureRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(pdst), dstx, dsty, dstz, core::mem::transmute(psrc), psrcbox.unwrap_or(core::mem::zeroed()) as _);
@@ -8021,8 +13827,8 @@ impl ID3D12GraphicsCommandList {
             (windows_core::Interface::vtable(self).CopyTiles)(windows_core::Interface::as_raw(self), ptiledresource.param().abi(), ptileregionstartcoordinate, ptileregionsize, pbuffer.param().abi(), bufferstartoffsetinbytes, flags);
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
-    pub unsafe fn ResolveSubresource<P0, P2>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P2, srcsubresource: u32, format: super::dxgiformat::DXGI_FORMAT)
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn ResolveSubresource<P0, P2>(&self, pdstresource: P0, dstsubresource: u32, psrcresource: P2, srcsubresource: u32, format: super::dxgi::DXGI_FORMAT)
     where
         P0: windows_core::Param<ID3D12Resource>,
         P2: windows_core::Param<ID3D12Resource>,
@@ -8160,7 +13966,7 @@ impl ID3D12GraphicsCommandList {
             (windows_core::Interface::vtable(self).SetGraphicsRootUnorderedAccessView)(windows_core::Interface::as_raw(self), rootparameterindex, bufferlocation);
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn IASetIndexBuffer(&self, pview: Option<*const D3D12_INDEX_BUFFER_VIEW>) {
         unsafe {
             (windows_core::Interface::vtable(self).IASetIndexBuffer)(windows_core::Interface::as_raw(self), pview.unwrap_or(core::mem::zeroed()) as _);
@@ -8290,15 +14096,15 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub DrawIndexedInstanced: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, i32, u32),
     pub Dispatch: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32),
     pub CopyBufferRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut core::ffi::c_void, u64, u64),
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub CopyTextureRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_TEXTURE_COPY_LOCATION, u32, u32, u32, *const D3D12_TEXTURE_COPY_LOCATION, *const D3D12_BOX),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     CopyTextureRegion: usize,
     pub CopyResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void),
     pub CopyTiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_TILED_RESOURCE_COORDINATE, *const D3D12_TILE_REGION_SIZE, *mut core::ffi::c_void, u64, D3D12_TILE_COPY_FLAGS),
-    #[cfg(feature = "Win32_dxgiformat")]
-    pub ResolveSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, super::dxgiformat::DXGI_FORMAT),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
+    pub ResolveSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u32, super::dxgi::DXGI_FORMAT),
+    #[cfg(not(feature = "Win32_dxgi"))]
     ResolveSubresource: usize,
     #[cfg(feature = "Win32_d3dcommon")]
     pub IASetPrimitiveTopology: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_PRIMITIVE_TOPOLOGY),
@@ -8329,9 +14135,9 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub SetGraphicsRootShaderResourceView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_GPU_VIRTUAL_ADDRESS),
     pub SetComputeRootUnorderedAccessView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_GPU_VIRTUAL_ADDRESS),
     pub SetGraphicsRootUnorderedAccessView: unsafe extern "system" fn(*mut core::ffi::c_void, u32, D3D12_GPU_VIRTUAL_ADDRESS),
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub IASetIndexBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_INDEX_BUFFER_VIEW),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     IASetIndexBuffer: usize,
     pub IASetVertexBuffers: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_VERTEX_BUFFER_VIEW),
     pub SOSetTargets: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_STREAM_OUTPUT_BUFFER_VIEW),
@@ -8365,7 +14171,7 @@ pub struct ID3D12GraphicsCommandList_Vtbl {
     pub EndEvent: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub ExecuteIndirect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut core::ffi::c_void, u64, *mut core::ffi::c_void, u64),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList_Impl: ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>, pinitialstate: windows_core::Ref<ID3D12PipelineState>) -> windows_core::Result<()>;
@@ -8377,7 +14183,7 @@ pub trait ID3D12GraphicsCommandList_Impl: ID3D12CommandList_Impl {
     fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX);
     fn CopyResource(&self, pdstresource: windows_core::Ref<ID3D12Resource>, psrcresource: windows_core::Ref<ID3D12Resource>);
     fn CopyTiles(&self, ptiledresource: windows_core::Ref<ID3D12Resource>, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: windows_core::Ref<ID3D12Resource>, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS);
-    fn ResolveSubresource(&self, pdstresource: windows_core::Ref<ID3D12Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<ID3D12Resource>, srcsubresource: u32, format: super::dxgiformat::DXGI_FORMAT);
+    fn ResolveSubresource(&self, pdstresource: windows_core::Ref<ID3D12Resource>, dstsubresource: u32, psrcresource: windows_core::Ref<ID3D12Resource>, srcsubresource: u32, format: super::dxgi::DXGI_FORMAT);
     fn IASetPrimitiveTopology(&self, primitivetopology: D3D12_PRIMITIVE_TOPOLOGY);
     fn RSSetViewports(&self, numviewports: u32, pviewports: *const D3D12_VIEWPORT);
     fn RSSetScissorRects(&self, numrects: u32, prects: *const D3D12_RECT);
@@ -8419,7 +14225,7 @@ pub trait ID3D12GraphicsCommandList_Impl: ID3D12CommandList_Impl {
     fn EndEvent(&self);
     fn ExecuteIndirect(&self, pcommandsignature: windows_core::Ref<ID3D12CommandSignature>, maxcommandcount: u32, pargumentbuffer: windows_core::Ref<ID3D12Resource>, argumentbufferoffset: u64, pcountbuffer: windows_core::Ref<ID3D12Resource>, countbufferoffset: u64);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Close<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -8482,7 +14288,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
                 ID3D12GraphicsCommandList_Impl::CopyTiles(this, core::mem::transmute_copy(&ptiledresource), core::mem::transmute_copy(&ptileregionstartcoordinate), core::mem::transmute_copy(&ptileregionsize), core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&bufferstartoffsetinbytes), core::mem::transmute_copy(&flags));
             }
         }
-        unsafe extern "system" fn ResolveSubresource<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, format: super::dxgiformat::DXGI_FORMAT) {
+        unsafe extern "system" fn ResolveSubresource<Identity: ID3D12GraphicsCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, format: super::dxgi::DXGI_FORMAT) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12GraphicsCommandList_Impl::ResolveSubresource(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&format));
@@ -8787,7 +14593,7 @@ impl ID3D12GraphicsCommandList_Vtbl {
         iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList1_Vtbl, 0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
 impl core::ops::Deref for ID3D12GraphicsCommandList1 {
@@ -8826,8 +14632,8 @@ impl ID3D12GraphicsCommandList1 {
             (windows_core::Interface::vtable(self).SetSamplePositions)(windows_core::Interface::as_raw(self), numsamplesperpixel, numpixels, psamplepositions);
         }
     }
-    #[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
-    pub unsafe fn ResolveSubresourceRegion<P0, P4>(&self, pdstresource: P0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: P4, srcsubresource: u32, psrcrect: Option<*const D3D12_RECT>, format: super::dxgiformat::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE)
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+    pub unsafe fn ResolveSubresourceRegion<P0, P4>(&self, pdstresource: P0, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: P4, srcsubresource: u32, psrcrect: Option<*const D3D12_RECT>, format: super::dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE)
     where
         P0: windows_core::Param<ID3D12Resource>,
         P4: windows_core::Param<ID3D12Resource>,
@@ -8850,22 +14656,22 @@ pub struct ID3D12GraphicsCommandList1_Vtbl {
     pub AtomicCopyBufferUINT64: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *mut core::ffi::c_void, u64, u32, *const *mut core::ffi::c_void, *const D3D12_SUBRESOURCE_RANGE_UINT64),
     pub OMSetDepthBounds: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32),
     pub SetSamplePositions: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const D3D12_SAMPLE_POSITION),
-    #[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
-    pub ResolveSubresourceRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, u32, *const D3D12_RECT, super::dxgiformat::DXGI_FORMAT, D3D12_RESOLVE_MODE),
-    #[cfg(not(all(feature = "Win32_dxgiformat", feature = "Win32_windef")))]
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+    pub ResolveSubresourceRegion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *mut core::ffi::c_void, u32, *const D3D12_RECT, super::dxgi::DXGI_FORMAT, D3D12_RESOLVE_MODE),
+    #[cfg(not(all(feature = "Win32_dxgi", feature = "Win32_windef")))]
     ResolveSubresourceRegion: usize,
     pub SetViewInstanceMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList1_Impl: ID3D12GraphicsCommandList_Impl {
     fn AtomicCopyBufferUINT(&self, pdstbuffer: windows_core::Ref<ID3D12Resource>, dstoffset: u64, psrcbuffer: windows_core::Ref<ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
     fn AtomicCopyBufferUINT64(&self, pdstbuffer: windows_core::Ref<ID3D12Resource>, dstoffset: u64, psrcbuffer: windows_core::Ref<ID3D12Resource>, srcoffset: u64, dependencies: u32, ppdependentresources: *const Option<ID3D12Resource>, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64);
     fn OMSetDepthBounds(&self, min: f32, max: f32);
     fn SetSamplePositions(&self, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION);
-    fn ResolveSubresourceRegion(&self, pdstresource: windows_core::Ref<ID3D12Resource>, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: windows_core::Ref<ID3D12Resource>, srcsubresource: u32, psrcrect: *const D3D12_RECT, format: super::dxgiformat::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE);
+    fn ResolveSubresourceRegion(&self, pdstresource: windows_core::Ref<ID3D12Resource>, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: windows_core::Ref<ID3D12Resource>, srcsubresource: u32, psrcrect: *const D3D12_RECT, format: super::dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE);
     fn SetViewInstanceMask(&self, mask: u32);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList1_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn AtomicCopyBufferUINT<Identity: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstbuffer: *mut core::ffi::c_void, dstoffset: u64, psrcbuffer: *mut core::ffi::c_void, srcoffset: u64, dependencies: u32, ppdependentresources: *const *mut core::ffi::c_void, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
@@ -8892,7 +14698,7 @@ impl ID3D12GraphicsCommandList1_Vtbl {
                 ID3D12GraphicsCommandList1_Impl::SetSamplePositions(this, core::mem::transmute_copy(&numsamplesperpixel), core::mem::transmute_copy(&numpixels), core::mem::transmute_copy(&psamplepositions));
             }
         }
-        unsafe extern "system" fn ResolveSubresourceRegion<Identity: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, psrcrect: *const D3D12_RECT, format: super::dxgiformat::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+        unsafe extern "system" fn ResolveSubresourceRegion<Identity: ID3D12GraphicsCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdstresource: *mut core::ffi::c_void, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: *mut core::ffi::c_void, srcsubresource: u32, psrcrect: *const D3D12_RECT, format: super::dxgi::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ID3D12GraphicsCommandList1_Impl::ResolveSubresourceRegion(this, core::mem::transmute_copy(&pdstresource), core::mem::transmute_copy(&dstsubresource), core::mem::transmute_copy(&dstx), core::mem::transmute_copy(&dsty), core::mem::transmute_copy(&psrcresource), core::mem::transmute_copy(&srcsubresource), core::mem::transmute_copy(&psrcrect), core::mem::transmute_copy(&format), core::mem::transmute_copy(&resolvemode));
@@ -8918,7 +14724,7 @@ impl ID3D12GraphicsCommandList1_Vtbl {
         iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList1 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList10, ID3D12GraphicsCommandList10_Vtbl, 0x7013c015_d161_4b63_a08c_238552dd8acc);
 impl core::ops::Deref for ID3D12GraphicsCommandList10 {
@@ -8947,12 +14753,12 @@ pub struct ID3D12GraphicsCommandList10_Vtbl {
     pub SetProgram: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_SET_PROGRAM_DESC),
     pub DispatchGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_DISPATCH_GRAPH_DESC),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList10_Impl: ID3D12GraphicsCommandList9_Impl {
     fn SetProgram(&self, pdesc: *const D3D12_SET_PROGRAM_DESC);
     fn DispatchGraph(&self, pdesc: *const D3D12_DISPATCH_GRAPH_DESC);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList10_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList10_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProgram<Identity: ID3D12GraphicsCommandList10_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_SET_PROGRAM_DESC) {
@@ -8990,7 +14796,7 @@ impl ID3D12GraphicsCommandList10_Vtbl {
             || iid == &<ID3D12GraphicsCommandList9 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList10 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList2_Vtbl, 0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
 impl core::ops::Deref for ID3D12GraphicsCommandList2 {
@@ -9013,11 +14819,11 @@ pub struct ID3D12GraphicsCommandList2_Vtbl {
     pub base__: ID3D12GraphicsCommandList1_Vtbl,
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList2_Impl: ID3D12GraphicsCommandList1_Impl {
     fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList2_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12GraphicsCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
@@ -9032,7 +14838,7 @@ impl ID3D12GraphicsCommandList2_Vtbl {
         iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList2 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList3, ID3D12GraphicsCommandList3_Vtbl, 0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
 impl core::ops::Deref for ID3D12GraphicsCommandList3 {
@@ -9058,11 +14864,11 @@ pub struct ID3D12GraphicsCommandList3_Vtbl {
     pub base__: ID3D12GraphicsCommandList2_Vtbl,
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList3_Impl: ID3D12GraphicsCommandList2_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList3_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12GraphicsCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
@@ -9077,7 +14883,7 @@ impl ID3D12GraphicsCommandList3_Vtbl {
         iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList3 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList4, ID3D12GraphicsCommandList4_Vtbl, 0x8754318e_d3a9_4541_98cf_645b50dc4874);
 impl core::ops::Deref for ID3D12GraphicsCommandList4 {
@@ -9088,7 +14894,7 @@ impl core::ops::Deref for ID3D12GraphicsCommandList4 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList4, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12GraphicsCommandList, ID3D12GraphicsCommandList1, ID3D12GraphicsCommandList2, ID3D12GraphicsCommandList3);
 impl ID3D12GraphicsCommandList4 {
-    #[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
     pub unsafe fn BeginRenderPass(&self, prendertargets: Option<&[D3D12_RENDER_PASS_RENDER_TARGET_DESC]>, pdepthstencil: Option<*const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS) {
         unsafe {
             (windows_core::Interface::vtable(self).BeginRenderPass)(windows_core::Interface::as_raw(self), prendertargets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prendertargets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencil.unwrap_or(core::mem::zeroed()) as _, flags);
@@ -9115,7 +14921,7 @@ impl ID3D12GraphicsCommandList4 {
             (windows_core::Interface::vtable(self).ExecuteMetaCommand)(windows_core::Interface::as_raw(self), pmetacommand.param().abi(), pexecutionparametersdata.unwrap_or(core::mem::zeroed()) as _, executionparametersdatasizeinbytes);
         }
     }
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, ppostbuildinfodescs: Option<&[D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC]>) {
         unsafe {
             (windows_core::Interface::vtable(self).BuildRaytracingAccelerationStructure)(windows_core::Interface::as_raw(self), pdesc, ppostbuildinfodescs.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppostbuildinfodescs.map_or(core::ptr::null(), |slice| slice.as_ptr())));
@@ -9149,23 +14955,23 @@ impl ID3D12GraphicsCommandList4 {
 #[doc(hidden)]
 pub struct ID3D12GraphicsCommandList4_Vtbl {
     pub base__: ID3D12GraphicsCommandList3_Vtbl,
-    #[cfg(all(feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
     pub BeginRenderPass: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, D3D12_RENDER_PASS_FLAGS),
-    #[cfg(not(all(feature = "Win32_dxgiformat", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "Win32_dxgi", feature = "Win32_windef")))]
     BeginRenderPass: usize,
     pub EndRenderPass: unsafe extern "system" fn(*mut core::ffi::c_void),
     pub InitializeMetaCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
     pub ExecuteMetaCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
-    #[cfg(feature = "Win32_dxgiformat")]
+    #[cfg(feature = "Win32_dxgi")]
     pub BuildRaytracingAccelerationStructure: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, u32, *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC),
-    #[cfg(not(feature = "Win32_dxgiformat"))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     BuildRaytracingAccelerationStructure: usize,
     pub EmitRaytracingAccelerationStructurePostbuildInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, u32, *const D3D12_GPU_VIRTUAL_ADDRESS),
     pub CopyRaytracingAccelerationStructure: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_GPU_VIRTUAL_ADDRESS, D3D12_GPU_VIRTUAL_ADDRESS, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE),
     pub SetPipelineState1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
     pub DispatchRays: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_DISPATCH_RAYS_DESC),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList4_Impl: ID3D12GraphicsCommandList3_Impl {
     fn BeginRenderPass(&self, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS);
     fn EndRenderPass(&self);
@@ -9177,7 +14983,7 @@ pub trait ID3D12GraphicsCommandList4_Impl: ID3D12GraphicsCommandList3_Impl {
     fn SetPipelineState1(&self, pstateobject: windows_core::Ref<ID3D12StateObject>);
     fn DispatchRays(&self, pdesc: *const D3D12_DISPATCH_RAYS_DESC);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList4_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn BeginRenderPass<Identity: ID3D12GraphicsCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
@@ -9251,7 +15057,7 @@ impl ID3D12GraphicsCommandList4_Vtbl {
         iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList4 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList5, ID3D12GraphicsCommandList5_Vtbl, 0x55050859_4024_474c_87f5_6472eaee44ea);
 impl core::ops::Deref for ID3D12GraphicsCommandList5 {
@@ -9283,12 +15089,12 @@ pub struct ID3D12GraphicsCommandList5_Vtbl {
     pub RSSetShadingRate: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_SHADING_RATE, *const D3D12_SHADING_RATE_COMBINER),
     pub RSSetShadingRateImage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList5_Impl: ID3D12GraphicsCommandList4_Impl {
     fn RSSetShadingRate(&self, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER);
     fn RSSetShadingRateImage(&self, shadingrateimage: windows_core::Ref<ID3D12Resource>);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList5_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RSSetShadingRate<Identity: ID3D12GraphicsCommandList5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
@@ -9313,7 +15119,7 @@ impl ID3D12GraphicsCommandList5_Vtbl {
         iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList5 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList6, ID3D12GraphicsCommandList6_Vtbl, 0xc3827890_e548_4cfa_96cf_5689a9370f80);
 impl core::ops::Deref for ID3D12GraphicsCommandList6 {
@@ -9336,11 +15142,11 @@ pub struct ID3D12GraphicsCommandList6_Vtbl {
     pub base__: ID3D12GraphicsCommandList5_Vtbl,
     pub DispatchMesh: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList6_Impl: ID3D12GraphicsCommandList5_Impl {
     fn DispatchMesh(&self, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList6_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn DispatchMesh<Identity: ID3D12GraphicsCommandList6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
@@ -9355,7 +15161,7 @@ impl ID3D12GraphicsCommandList6_Vtbl {
         iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList6 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList7, ID3D12GraphicsCommandList7_Vtbl, 0xdd171223_8b61_4769_90e3_160ccde4e2c1);
 impl core::ops::Deref for ID3D12GraphicsCommandList7 {
@@ -9378,11 +15184,11 @@ pub struct ID3D12GraphicsCommandList7_Vtbl {
     pub base__: ID3D12GraphicsCommandList6_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList7_Impl: ID3D12GraphicsCommandList6_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList7_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList7_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Barrier<Identity: ID3D12GraphicsCommandList7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
@@ -9397,7 +15203,7 @@ impl ID3D12GraphicsCommandList7_Vtbl {
         iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList5 as windows_core::Interface>::IID || iid == &<ID3D12GraphicsCommandList6 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList7 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList8, ID3D12GraphicsCommandList8_Vtbl, 0xee936ef9_599d_4d28_938e_23c4ad05ce51);
 impl core::ops::Deref for ID3D12GraphicsCommandList8 {
@@ -9420,11 +15226,11 @@ pub struct ID3D12GraphicsCommandList8_Vtbl {
     pub base__: ID3D12GraphicsCommandList7_Vtbl,
     pub OMSetFrontAndBackStencilRef: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList8_Impl: ID3D12GraphicsCommandList7_Impl {
     fn OMSetFrontAndBackStencilRef(&self, frontstencilref: u32, backstencilref: u32);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList8_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList8_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn OMSetFrontAndBackStencilRef<Identity: ID3D12GraphicsCommandList8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, frontstencilref: u32, backstencilref: u32) {
@@ -9450,7 +15256,7 @@ impl ID3D12GraphicsCommandList8_Vtbl {
             || iid == &<ID3D12GraphicsCommandList7 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList8 {}
 windows_core::imp::define_interface!(ID3D12GraphicsCommandList9, ID3D12GraphicsCommandList9_Vtbl, 0x34ed2808_ffe6_4c2b_b11a_cabd2b0c59e1);
 impl core::ops::Deref for ID3D12GraphicsCommandList9 {
@@ -9479,12 +15285,12 @@ pub struct ID3D12GraphicsCommandList9_Vtbl {
     pub RSSetDepthBias: unsafe extern "system" fn(*mut core::ffi::c_void, f32, f32, f32),
     pub IASetIndexBufferStripCutValue: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_INDEX_BUFFER_STRIP_CUT_VALUE),
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 pub trait ID3D12GraphicsCommandList9_Impl: ID3D12GraphicsCommandList8_Impl {
     fn RSSetDepthBias(&self, depthbias: f32, depthbiasclamp: f32, slopescaleddepthbias: f32);
     fn IASetIndexBufferStripCutValue(&self, ibstripcutvalue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE);
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl ID3D12GraphicsCommandList9_Vtbl {
     pub const fn new<Identity: ID3D12GraphicsCommandList9_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn RSSetDepthBias<Identity: ID3D12GraphicsCommandList9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, depthbias: f32, depthbiasclamp: f32, slopescaleddepthbias: f32) {
@@ -9521,7 +15327,7 @@ impl ID3D12GraphicsCommandList9_Vtbl {
             || iid == &<ID3D12GraphicsCommandList8 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgiformat", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d3dcommon", feature = "Win32_dxgi", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ID3D12GraphicsCommandList9 {}
 windows_core::imp::define_interface!(ID3D12Heap, ID3D12Heap_Vtbl, 0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
 impl core::ops::Deref for ID3D12Heap {
@@ -9604,6 +15410,609 @@ impl ID3D12Heap1_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12Heap1 {}
+windows_core::imp::define_interface!(ID3D12InfoQueue, ID3D12InfoQueue_Vtbl, 0x0742a90b_c387_483f_b946_30a7e4e61458);
+windows_core::imp::interface_hierarchy!(ID3D12InfoQueue, windows_core::IUnknown);
+impl ID3D12InfoQueue {
+    pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), messagecountlimit) }
+    }
+    pub unsafe fn ClearStoredMessages(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: Option<*mut D3D12_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _) }
+    }
+    pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumStoredMessages(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessages)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetMessageCountLimit(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetMessageCountLimit)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), pfilter) }
+    }
+    pub unsafe fn GetStorageFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
+    }
+    pub unsafe fn ClearStorageFilter(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn PushEmptyStorageFilter(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushEmptyStorageFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn PushCopyOfStorageFilter(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushCopyOfStorageFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), pfilter) }
+    }
+    pub unsafe fn PopStorageFilter(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), pfilter) }
+    }
+    pub unsafe fn GetRetrievalFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
+    }
+    pub unsafe fn ClearRetrievalFilter(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn PushEmptyRetrievalFilter(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushEmptyRetrievalFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn PushCopyOfRetrievalFilter(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushCopyOfRetrievalFilter)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), pfilter) }
+    }
+    pub unsafe fn PopRetrievalFilter(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn AddMessage<P3>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P3) -> windows_core::HRESULT
+    where
+        P3: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, pdescription.param().abi()) }
+    }
+    pub unsafe fn AddApplicationMessage<P1>(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::HRESULT
+    where
+        P1: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()) }
+    }
+    pub unsafe fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), category, benable.into()) }
+    }
+    pub unsafe fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), severity, benable.into()) }
+    }
+    pub unsafe fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: bool) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), id, benable.into()) }
+    }
+    pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), category) }
+    }
+    pub unsafe fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), severity) }
+    }
+    pub unsafe fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), id) }
+    }
+    pub unsafe fn SetMuteDebugOutput(&self, bmute: bool) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), bmute.into());
+        }
+    }
+    pub unsafe fn GetMuteDebugOutput(&self) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12InfoQueue_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub SetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
+    pub ClearStoredMessages: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub GetMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut D3D12_MESSAGE, *mut usize) -> windows_core::HRESULT,
+    pub GetNumMessagesAllowedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub GetNumMessagesDeniedByStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub GetNumStoredMessages: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub GetNumStoredMessagesAllowedByRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub GetNumMessagesDiscardedByMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub GetMessageCountLimit: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+    pub AddStorageFilterEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    pub GetStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_INFO_QUEUE_FILTER, *mut usize) -> windows_core::HRESULT,
+    pub ClearStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub PushEmptyStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PushCopyOfStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PushStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    pub PopStorageFilter: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub GetStorageFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub AddRetrievalFilterEntries: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    pub GetRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_INFO_QUEUE_FILTER, *mut usize) -> windows_core::HRESULT,
+    pub ClearRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub PushEmptyRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PushCopyOfRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PushRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT,
+    pub PopRetrievalFilter: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub GetRetrievalFilterStackSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub AddMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY, D3D12_MESSAGE_SEVERITY, D3D12_MESSAGE_ID, windows_core::PCSTR) -> windows_core::HRESULT,
+    pub AddApplicationMessage: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY, windows_core::PCSTR) -> windows_core::HRESULT,
+    pub SetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY, windows_core::BOOL) -> windows_core::HRESULT,
+    pub SetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID, windows_core::BOOL) -> windows_core::HRESULT,
+    pub GetBreakOnCategory: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL,
+    pub GetBreakOnSeverity: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL,
+    pub GetBreakOnID: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_MESSAGE_ID) -> windows_core::BOOL,
+    pub SetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL),
+    pub GetMuteDebugOutput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
+}
+pub trait ID3D12InfoQueue_Impl: windows_core::IUnknownImpl {
+    fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::Result<()>;
+    fn ClearStoredMessages(&self);
+    fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::Result<()>;
+    fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
+    fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
+    fn GetNumStoredMessages(&self) -> u64;
+    fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
+    fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
+    fn GetMessageCountLimit(&self) -> u64;
+    fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn GetStorageFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn ClearStorageFilter(&self);
+    fn PushEmptyStorageFilter(&self) -> windows_core::Result<()>;
+    fn PushCopyOfStorageFilter(&self) -> windows_core::Result<()>;
+    fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PopStorageFilter(&self);
+    fn GetStorageFilterStackSize(&self) -> u32;
+    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn GetRetrievalFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn ClearRetrievalFilter(&self);
+    fn PushEmptyRetrievalFilter(&self) -> windows_core::Result<()>;
+    fn PushCopyOfRetrievalFilter(&self) -> windows_core::Result<()>;
+    fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PopRetrievalFilter(&self);
+    fn GetRetrievalFilterStackSize(&self) -> u32;
+    fn AddMessage(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn AddApplicationMessage(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL;
+    fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL;
+    fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> windows_core::BOOL;
+    fn SetMuteDebugOutput(&self, bmute: windows_core::BOOL);
+    fn GetMuteDebugOutput(&self) -> windows_core::BOOL;
+}
+impl ID3D12InfoQueue_Vtbl {
+    pub const fn new<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetMessageCountLimit<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messagecountlimit: u64) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::SetMessageCountLimit(this, core::mem::transmute_copy(&messagecountlimit)).into()
+            }
+        }
+        unsafe extern "system" fn ClearStoredMessages<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::ClearStoredMessages(this);
+            }
+        }
+        unsafe extern "system" fn GetMessage<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetMessage(this, core::mem::transmute_copy(&messageindex), core::mem::transmute_copy(&pmessage), core::mem::transmute_copy(&pmessagebytelength)).into()
+            }
+        }
+        unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetNumMessagesAllowedByStorageFilter(this)
+            }
+        }
+        unsafe extern "system" fn GetNumMessagesDeniedByStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetNumMessagesDeniedByStorageFilter(this)
+            }
+        }
+        unsafe extern "system" fn GetNumStoredMessages<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetNumStoredMessages(this)
+            }
+        }
+        unsafe extern "system" fn GetNumStoredMessagesAllowedByRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetNumStoredMessagesAllowedByRetrievalFilter(this)
+            }
+        }
+        unsafe extern "system" fn GetNumMessagesDiscardedByMessageCountLimit<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetNumMessagesDiscardedByMessageCountLimit(this)
+            }
+        }
+        unsafe extern "system" fn GetMessageCountLimit<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetMessageCountLimit(this)
+            }
+        }
+        unsafe extern "system" fn AddStorageFilterEntries<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::AddStorageFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
+            }
+        }
+        unsafe extern "system" fn GetStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetStorageFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
+            }
+        }
+        unsafe extern "system" fn ClearStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::ClearStorageFilter(this);
+            }
+        }
+        unsafe extern "system" fn PushEmptyStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushEmptyStorageFilter(this).into()
+            }
+        }
+        unsafe extern "system" fn PushCopyOfStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushCopyOfStorageFilter(this).into()
+            }
+        }
+        unsafe extern "system" fn PushStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushStorageFilter(this, core::mem::transmute_copy(&pfilter)).into()
+            }
+        }
+        unsafe extern "system" fn PopStorageFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PopStorageFilter(this);
+            }
+        }
+        unsafe extern "system" fn GetStorageFilterStackSize<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetStorageFilterStackSize(this)
+            }
+        }
+        unsafe extern "system" fn AddRetrievalFilterEntries<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::AddRetrievalFilterEntries(this, core::mem::transmute_copy(&pfilter)).into()
+            }
+        }
+        unsafe extern "system" fn GetRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetRetrievalFilter(this, core::mem::transmute_copy(&pfilter), core::mem::transmute_copy(&pfilterbytelength)).into()
+            }
+        }
+        unsafe extern "system" fn ClearRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::ClearRetrievalFilter(this);
+            }
+        }
+        unsafe extern "system" fn PushEmptyRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushEmptyRetrievalFilter(this).into()
+            }
+        }
+        unsafe extern "system" fn PushCopyOfRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushCopyOfRetrievalFilter(this).into()
+            }
+        }
+        unsafe extern "system" fn PushRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PushRetrievalFilter(this, core::mem::transmute_copy(&pfilter)).into()
+            }
+        }
+        unsafe extern "system" fn PopRetrievalFilter<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::PopRetrievalFilter(this);
+            }
+        }
+        unsafe extern "system" fn GetRetrievalFilterStackSize<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetRetrievalFilterStackSize(this)
+            }
+        }
+        unsafe extern "system" fn AddMessage<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: windows_core::PCSTR) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::AddMessage(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&severity), core::mem::transmute_copy(&id), core::mem::transmute(&pdescription)).into()
+            }
+        }
+        unsafe extern "system" fn AddApplicationMessage<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, pdescription: windows_core::PCSTR) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::AddApplicationMessage(this, core::mem::transmute_copy(&severity), core::mem::transmute(&pdescription)).into()
+            }
+        }
+        unsafe extern "system" fn SetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::SetBreakOnCategory(this, core::mem::transmute_copy(&category), core::mem::transmute_copy(&benable)).into()
+            }
+        }
+        unsafe extern "system" fn SetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::SetBreakOnSeverity(this, core::mem::transmute_copy(&severity), core::mem::transmute_copy(&benable)).into()
+            }
+        }
+        unsafe extern "system" fn SetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::SetBreakOnID(this, core::mem::transmute_copy(&id), core::mem::transmute_copy(&benable)).into()
+            }
+        }
+        unsafe extern "system" fn GetBreakOnCategory<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetBreakOnCategory(this, core::mem::transmute_copy(&category))
+            }
+        }
+        unsafe extern "system" fn GetBreakOnSeverity<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetBreakOnSeverity(this, core::mem::transmute_copy(&severity))
+            }
+        }
+        unsafe extern "system" fn GetBreakOnID<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: D3D12_MESSAGE_ID) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetBreakOnID(this, core::mem::transmute_copy(&id))
+            }
+        }
+        unsafe extern "system" fn SetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bmute: windows_core::BOOL) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::SetMuteDebugOutput(this, core::mem::transmute_copy(&bmute));
+            }
+        }
+        unsafe extern "system" fn GetMuteDebugOutput<Identity: ID3D12InfoQueue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue_Impl::GetMuteDebugOutput(this)
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetMessageCountLimit: SetMessageCountLimit::<Identity, OFFSET>,
+            ClearStoredMessages: ClearStoredMessages::<Identity, OFFSET>,
+            GetMessage: GetMessage::<Identity, OFFSET>,
+            GetNumMessagesAllowedByStorageFilter: GetNumMessagesAllowedByStorageFilter::<Identity, OFFSET>,
+            GetNumMessagesDeniedByStorageFilter: GetNumMessagesDeniedByStorageFilter::<Identity, OFFSET>,
+            GetNumStoredMessages: GetNumStoredMessages::<Identity, OFFSET>,
+            GetNumStoredMessagesAllowedByRetrievalFilter: GetNumStoredMessagesAllowedByRetrievalFilter::<Identity, OFFSET>,
+            GetNumMessagesDiscardedByMessageCountLimit: GetNumMessagesDiscardedByMessageCountLimit::<Identity, OFFSET>,
+            GetMessageCountLimit: GetMessageCountLimit::<Identity, OFFSET>,
+            AddStorageFilterEntries: AddStorageFilterEntries::<Identity, OFFSET>,
+            GetStorageFilter: GetStorageFilter::<Identity, OFFSET>,
+            ClearStorageFilter: ClearStorageFilter::<Identity, OFFSET>,
+            PushEmptyStorageFilter: PushEmptyStorageFilter::<Identity, OFFSET>,
+            PushCopyOfStorageFilter: PushCopyOfStorageFilter::<Identity, OFFSET>,
+            PushStorageFilter: PushStorageFilter::<Identity, OFFSET>,
+            PopStorageFilter: PopStorageFilter::<Identity, OFFSET>,
+            GetStorageFilterStackSize: GetStorageFilterStackSize::<Identity, OFFSET>,
+            AddRetrievalFilterEntries: AddRetrievalFilterEntries::<Identity, OFFSET>,
+            GetRetrievalFilter: GetRetrievalFilter::<Identity, OFFSET>,
+            ClearRetrievalFilter: ClearRetrievalFilter::<Identity, OFFSET>,
+            PushEmptyRetrievalFilter: PushEmptyRetrievalFilter::<Identity, OFFSET>,
+            PushCopyOfRetrievalFilter: PushCopyOfRetrievalFilter::<Identity, OFFSET>,
+            PushRetrievalFilter: PushRetrievalFilter::<Identity, OFFSET>,
+            PopRetrievalFilter: PopRetrievalFilter::<Identity, OFFSET>,
+            GetRetrievalFilterStackSize: GetRetrievalFilterStackSize::<Identity, OFFSET>,
+            AddMessage: AddMessage::<Identity, OFFSET>,
+            AddApplicationMessage: AddApplicationMessage::<Identity, OFFSET>,
+            SetBreakOnCategory: SetBreakOnCategory::<Identity, OFFSET>,
+            SetBreakOnSeverity: SetBreakOnSeverity::<Identity, OFFSET>,
+            SetBreakOnID: SetBreakOnID::<Identity, OFFSET>,
+            GetBreakOnCategory: GetBreakOnCategory::<Identity, OFFSET>,
+            GetBreakOnSeverity: GetBreakOnSeverity::<Identity, OFFSET>,
+            GetBreakOnID: GetBreakOnID::<Identity, OFFSET>,
+            SetMuteDebugOutput: SetMuteDebugOutput::<Identity, OFFSET>,
+            GetMuteDebugOutput: GetMuteDebugOutput::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12InfoQueue as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12InfoQueue {}
+windows_core::imp::define_interface!(ID3D12InfoQueue1, ID3D12InfoQueue1_Vtbl, 0x2852dd88_b484_4c0c_b6b1_67168500e600);
+impl core::ops::Deref for ID3D12InfoQueue1 {
+    type Target = ID3D12InfoQueue;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12InfoQueue1, windows_core::IUnknown, ID3D12InfoQueue);
+impl ID3D12InfoQueue1 {
+    pub unsafe fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).RegisterMessageCallback)(windows_core::Interface::as_raw(self), callbackfunc, callbackfilterflags, pcontext as _, pcallbackcookie as _) }
+    }
+    pub unsafe fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).UnregisterMessageCallback)(windows_core::Interface::as_raw(self), callbackcookie) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12InfoQueue1_Vtbl {
+    pub base__: ID3D12InfoQueue_Vtbl,
+    pub RegisterMessageCallback: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12MessageFunc, D3D12_MESSAGE_CALLBACK_FLAGS, *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub UnregisterMessageCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+}
+pub trait ID3D12InfoQueue1_Impl: ID3D12InfoQueue_Impl {
+    fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_core::Result<()>;
+    fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_core::Result<()>;
+}
+impl ID3D12InfoQueue1_Vtbl {
+    pub const fn new<Identity: ID3D12InfoQueue1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn RegisterMessageCallback<Identity: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue1_Impl::RegisterMessageCallback(this, core::mem::transmute_copy(&callbackfunc), core::mem::transmute_copy(&callbackfilterflags), core::mem::transmute_copy(&pcontext), core::mem::transmute_copy(&pcallbackcookie)).into()
+            }
+        }
+        unsafe extern "system" fn UnregisterMessageCallback<Identity: ID3D12InfoQueue1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, callbackcookie: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12InfoQueue1_Impl::UnregisterMessageCallback(this, core::mem::transmute_copy(&callbackcookie)).into()
+            }
+        }
+        Self {
+            base__: ID3D12InfoQueue_Vtbl::new::<Identity, OFFSET>(),
+            RegisterMessageCallback: RegisterMessageCallback::<Identity, OFFSET>,
+            UnregisterMessageCallback: UnregisterMessageCallback::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12InfoQueue1 as windows_core::Interface>::IID || iid == &<ID3D12InfoQueue as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12InfoQueue1 {}
+windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryReflection_Vtbl, 0x8e349d19_54db_4a56_9dc9_119d87bdb804);
+windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
+impl ID3D12LibraryReflection {
+    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
+    }
+    pub unsafe fn AddRef(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn Release(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D12FunctionReflection> {
+        unsafe { (windows_core::Interface::vtable(self).GetFunctionByIndex)(windows_core::Interface::as_raw(self), functionindex) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12LibraryReflection_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT,
+    pub GetFunctionByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D12FunctionReflection>,
+}
+pub trait ID3D12LibraryReflection_Impl: windows_core::IUnknownImpl {
+    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn AddRef(&self) -> u32;
+    fn Release(&self) -> u32;
+    fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC>;
+    fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D12FunctionReflection>;
+}
+impl ID3D12LibraryReflection_Vtbl {
+    pub const fn new<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn QueryInterface<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12LibraryReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
+            }
+        }
+        unsafe extern "system" fn AddRef<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12LibraryReflection_Impl::AddRef(this)
+            }
+        }
+        unsafe extern "system" fn Release<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12LibraryReflection_Impl::Release(this)
+            }
+        }
+        unsafe extern "system" fn GetDesc<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ID3D12LibraryReflection_Impl::GetDesc(this) {
+                    Ok(ok__) => {
+                        pdesc.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetFunctionByIndex<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, functionindex: i32) -> Option<ID3D12FunctionReflection> {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12LibraryReflection_Impl::GetFunctionByIndex(this, core::mem::transmute_copy(&functionindex))
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            QueryInterface: QueryInterface::<Identity, OFFSET>,
+            AddRef: AddRef::<Identity, OFFSET>,
+            Release: Release::<Identity, OFFSET>,
+            GetDesc: GetDesc::<Identity, OFFSET>,
+            GetFunctionByIndex: GetFunctionByIndex::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12LibraryReflection as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12LibraryReflection {}
 windows_core::imp::define_interface!(ID3D12LifetimeOwner, ID3D12LifetimeOwner_Vtbl, 0xe667af9f_cd56_4f46_83ce_032e595d70a8);
 windows_core::imp::interface_hierarchy!(ID3D12LifetimeOwner, windows_core::IUnknown);
 impl ID3D12LifetimeOwner {
@@ -9677,6 +16086,39 @@ impl ID3D12LifetimeTracker_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12LifetimeTracker {}
+windows_core::imp::define_interface!(ID3D12ManualWriteTrackingResource, ID3D12ManualWriteTrackingResource_Vtbl, 0x86ca3b85_49ad_4b6e_aed5_eddb18540f41);
+windows_core::imp::interface_hierarchy!(ID3D12ManualWriteTrackingResource, windows_core::IUnknown);
+impl ID3D12ManualWriteTrackingResource {
+    pub unsafe fn TrackWrite(&self, subresource: u32, pwrittenrange: Option<*const D3D12_RANGE>) {
+        unsafe {
+            (windows_core::Interface::vtable(self).TrackWrite)(windows_core::Interface::as_raw(self), subresource, pwrittenrange.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12ManualWriteTrackingResource_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub TrackWrite: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE),
+}
+pub trait ID3D12ManualWriteTrackingResource_Impl: windows_core::IUnknownImpl {
+    fn TrackWrite(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE);
+}
+impl ID3D12ManualWriteTrackingResource_Vtbl {
+    pub const fn new<Identity: ID3D12ManualWriteTrackingResource_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn TrackWrite<Identity: ID3D12ManualWriteTrackingResource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ManualWriteTrackingResource_Impl::TrackWrite(this, core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&pwrittenrange));
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TrackWrite: TrackWrite::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12ManualWriteTrackingResource as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12ManualWriteTrackingResource {}
 windows_core::imp::define_interface!(ID3D12MetaCommand, ID3D12MetaCommand_Vtbl, 0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
 impl core::ops::Deref for ID3D12MetaCommand {
     type Target = ID3D12Pageable;
@@ -9860,7 +16302,7 @@ impl ID3D12PipelineLibrary {
     {
         unsafe { (windows_core::Interface::vtable(self).StorePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), ppipeline.param().abi()) }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn LoadGraphicsPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -9889,15 +16331,15 @@ impl ID3D12PipelineLibrary {
 pub struct ID3D12PipelineLibrary_Vtbl {
     pub base__: ID3D12DeviceChild_Vtbl,
     pub StorePipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub LoadGraphicsPipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     LoadGraphicsPipeline: usize,
     pub LoadComputePipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const D3D12_COMPUTE_PIPELINE_STATE_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetSerializedSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
     pub Serialize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12PipelineLibrary_Impl: ID3D12DeviceChild_Impl {
     fn StorePipeline(&self, pname: &windows_core::PCWSTR, ppipeline: windows_core::Ref<ID3D12PipelineState>) -> windows_core::Result<()>;
     fn LoadGraphicsPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -9905,7 +16347,7 @@ pub trait ID3D12PipelineLibrary_Impl: ID3D12DeviceChild_Impl {
     fn GetSerializedSize(&self) -> usize;
     fn Serialize(&self, pdata: *mut core::ffi::c_void, datasizeinbytes: usize) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12PipelineLibrary_Vtbl {
     pub const fn new<Identity: ID3D12PipelineLibrary_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn StorePipeline<Identity: ID3D12PipelineLibrary_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, ppipeline: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9951,7 +16393,7 @@ impl ID3D12PipelineLibrary_Vtbl {
         iid == &<ID3D12PipelineLibrary as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12PipelineLibrary {}
 windows_core::imp::define_interface!(ID3D12PipelineLibrary1, ID3D12PipelineLibrary1_Vtbl, 0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
 impl core::ops::Deref for ID3D12PipelineLibrary1 {
@@ -9977,11 +16419,11 @@ pub struct ID3D12PipelineLibrary1_Vtbl {
     pub base__: ID3D12PipelineLibrary_Vtbl,
     pub LoadPipeline: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const D3D12_PIPELINE_STATE_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12PipelineLibrary1_Impl: ID3D12PipelineLibrary_Impl {
     fn LoadPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12PipelineLibrary1_Vtbl {
     pub const fn new<Identity: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn LoadPipeline<Identity: ID3D12PipelineLibrary1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pname: windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -9996,7 +16438,7 @@ impl ID3D12PipelineLibrary1_Vtbl {
         iid == &<ID3D12PipelineLibrary1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12PipelineLibrary as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12PipelineLibrary1 {}
 windows_core::imp::define_interface!(ID3D12PipelineState, ID3D12PipelineState_Vtbl, 0x765a30f3_f624_4c6f_a828_ace948622445);
 impl core::ops::Deref for ID3D12PipelineState {
@@ -10272,7 +16714,7 @@ impl ID3D12Resource {
             (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self), subresource, pwrittenrange.unwrap_or(core::mem::zeroed()) as _);
         }
     }
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetDesc(&self) -> D3D12_RESOURCE_DESC {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10299,16 +16741,16 @@ pub struct ID3D12Resource_Vtbl {
     pub base__: ID3D12Pageable_Vtbl,
     pub Map: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RANGE),
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_DESC),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetDesc: usize,
     pub GetGPUVirtualAddress: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_GPU_VIRTUAL_ADDRESS,
     pub WriteToSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BOX, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
     pub ReadFromSubresource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32, u32, *const D3D12_BOX) -> windows_core::HRESULT,
     pub GetHeapProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_HEAP_PROPERTIES, *mut D3D12_HEAP_FLAGS) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12Resource_Impl: ID3D12Pageable_Impl {
     fn Map(&self, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE);
@@ -10318,7 +16760,7 @@ pub trait ID3D12Resource_Impl: ID3D12Pageable_Impl {
     fn ReadFromSubresource(&self, pdstdata: *mut core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> windows_core::Result<()>;
     fn GetHeapProperties(&self, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12Resource_Vtbl {
     pub const fn new<Identity: ID3D12Resource_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Map<Identity: ID3D12Resource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10378,7 +16820,7 @@ impl ID3D12Resource_Vtbl {
         iid == &<ID3D12Resource as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12Resource {}
 windows_core::imp::define_interface!(ID3D12Resource1, ID3D12Resource1_Vtbl, 0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
 impl core::ops::Deref for ID3D12Resource1 {
@@ -10402,11 +16844,11 @@ pub struct ID3D12Resource1_Vtbl {
     pub base__: ID3D12Resource_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12Resource1_Impl: ID3D12Resource_Impl {
     fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12Resource1_Vtbl {
     pub const fn new<Identity: ID3D12Resource1_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12Resource1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -10421,7 +16863,7 @@ impl ID3D12Resource1_Vtbl {
         iid == &<ID3D12Resource1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Resource as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12Resource1 {}
 windows_core::imp::define_interface!(ID3D12Resource2, ID3D12Resource2_Vtbl, 0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
 impl core::ops::Deref for ID3D12Resource2 {
@@ -10432,7 +16874,7 @@ impl core::ops::Deref for ID3D12Resource2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource, ID3D12Resource1);
 impl ID3D12Resource2 {
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub unsafe fn GetDesc1(&self) -> D3D12_RESOURCE_DESC1 {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10445,16 +16887,16 @@ impl ID3D12Resource2 {
 #[doc(hidden)]
 pub struct ID3D12Resource2_Vtbl {
     pub base__: ID3D12Resource1_Vtbl,
-    #[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+    #[cfg(feature = "Win32_dxgi")]
     pub GetDesc1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_RESOURCE_DESC1),
-    #[cfg(not(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat")))]
+    #[cfg(not(feature = "Win32_dxgi"))]
     GetDesc1: usize,
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 pub trait ID3D12Resource2_Impl: ID3D12Resource1_Impl {
     fn GetDesc1(&self) -> D3D12_RESOURCE_DESC1;
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl ID3D12Resource2_Vtbl {
     pub const fn new<Identity: ID3D12Resource2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetDesc1<Identity: ID3D12Resource2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC1) {
@@ -10469,7 +16911,7 @@ impl ID3D12Resource2_Vtbl {
         iid == &<ID3D12Resource2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12Resource as windows_core::Interface>::IID || iid == &<ID3D12Resource1 as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_dxgicommon", feature = "Win32_dxgiformat"))]
+#[cfg(feature = "Win32_dxgi")]
 impl windows_core::RuntimeName for ID3D12Resource2 {}
 windows_core::imp::define_interface!(ID3D12RootSignature, ID3D12RootSignature_Vtbl, 0xc54a6b66_72df_4ee8_8be5_a946a1429214);
 impl core::ops::Deref for ID3D12RootSignature {
@@ -10700,6 +17142,772 @@ impl ID3D12ShaderCacheSession_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12ShaderCacheSession {}
+windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflection_Vtbl, 0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
+windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, windows_core::IUnknown);
+impl ID3D12ShaderReflection {
+    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
+    }
+    pub unsafe fn AddRef(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn Release(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+    pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByIndex)(windows_core::Interface::as_raw(self), index) }
+    }
+    pub unsafe fn GetConstantBufferByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionConstantBuffer>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDesc)(windows_core::Interface::as_raw(self), resourceindex, pdesc as _) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetOutputParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetPatchConstantParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _) }
+    }
+    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDescByName)(windows_core::Interface::as_raw(self), name.param().abi(), pdesc as _) }
+    }
+    pub unsafe fn GetMovInstructionCount(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetMovInstructionCount)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetMovcInstructionCount(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetMovcInstructionCount)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetConversionInstructionCount(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetConversionInstructionCount)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetBitwiseInstructionCount(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetBitwiseInstructionCount)(windows_core::Interface::as_raw(self)) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetGSInputPrimitive(&self) -> super::d3dcommon::D3D_PRIMITIVE {
+        unsafe { (windows_core::Interface::vtable(self).GetGSInputPrimitive)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn IsSampleFrequencyShader(&self) -> windows_core::BOOL {
+        unsafe { (windows_core::Interface::vtable(self).IsSampleFrequencyShader)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumInterfaceSlots(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumInterfaceSlots)(windows_core::Interface::as_raw(self)) }
+    }
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetMinFeatureLevel(&self) -> windows_core::Result<super::d3dcommon::D3D_FEATURE_LEVEL> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetMinFeatureLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
+        }
+    }
+    pub unsafe fn GetThreadGroupSize(&self, psizex: Option<*mut u32>, psizey: Option<*mut u32>, psizez: Option<*mut u32>) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetThreadGroupSize)(windows_core::Interface::as_raw(self), psizex.unwrap_or(core::mem::zeroed()) as _, psizey.unwrap_or(core::mem::zeroed()) as _, psizez.unwrap_or(core::mem::zeroed()) as _) }
+    }
+    pub unsafe fn GetRequiresFlags(&self) -> u64 {
+        unsafe { (windows_core::Interface::vtable(self).GetRequiresFlags)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12ShaderReflection_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetDesc: usize,
+    pub GetConstantBufferByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D12ShaderReflectionConstantBuffer>,
+    pub GetConstantBufferByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetResourceBindingDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetResourceBindingDesc: usize,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetInputParameterDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetInputParameterDesc: usize,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetOutputParameterDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetOutputParameterDesc: usize,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetPatchConstantParameterDesc: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetPatchConstantParameterDesc: usize,
+    pub GetVariableByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetResourceBindingDescByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetResourceBindingDescByName: usize,
+    pub GetMovInstructionCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetMovcInstructionCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetConversionInstructionCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetBitwiseInstructionCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetGSInputPrimitive: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::d3dcommon::D3D_PRIMITIVE,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetGSInputPrimitive: usize,
+    pub IsSampleFrequencyShader: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::BOOL,
+    pub GetNumInterfaceSlots: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetMinFeatureLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::d3dcommon::D3D_FEATURE_LEVEL) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetMinFeatureLevel: usize,
+    pub GetThreadGroupSize: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32, *mut u32) -> u32,
+    pub GetRequiresFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> u64,
+}
+#[cfg(feature = "Win32_d3dcommon")]
+pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
+    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn AddRef(&self) -> u32;
+    fn Release(&self) -> u32;
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::Result<()>;
+    fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer>;
+    fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
+    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetMovInstructionCount(&self) -> u32;
+    fn GetMovcInstructionCount(&self) -> u32;
+    fn GetConversionInstructionCount(&self) -> u32;
+    fn GetBitwiseInstructionCount(&self) -> u32;
+    fn GetGSInputPrimitive(&self) -> super::d3dcommon::D3D_PRIMITIVE;
+    fn IsSampleFrequencyShader(&self) -> windows_core::BOOL;
+    fn GetNumInterfaceSlots(&self) -> u32;
+    fn GetMinFeatureLevel(&self) -> windows_core::Result<super::d3dcommon::D3D_FEATURE_LEVEL>;
+    fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
+    fn GetRequiresFlags(&self) -> u64;
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12ShaderReflection_Vtbl {
+    pub const fn new<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn QueryInterface<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
+            }
+        }
+        unsafe extern "system" fn AddRef<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::AddRef(this)
+            }
+        }
+        unsafe extern "system" fn Release<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::Release(this)
+            }
+        }
+        unsafe extern "system" fn GetDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetConstantBufferByIndex<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetConstantBufferByIndex(this, core::mem::transmute_copy(&index))
+            }
+        }
+        unsafe extern "system" fn GetConstantBufferByName<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetConstantBufferByName(this, core::mem::transmute(&name))
+            }
+        }
+        unsafe extern "system" fn GetResourceBindingDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetResourceBindingDesc(this, core::mem::transmute_copy(&resourceindex), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetInputParameterDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetInputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetOutputParameterDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetOutputParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetPatchConstantParameterDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetPatchConstantParameterDesc(this, core::mem::transmute_copy(&parameterindex), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetVariableByName<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetVariableByName(this, core::mem::transmute(&name))
+            }
+        }
+        unsafe extern "system" fn GetResourceBindingDescByName<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetResourceBindingDescByName(this, core::mem::transmute(&name), core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetMovInstructionCount<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetMovInstructionCount(this)
+            }
+        }
+        unsafe extern "system" fn GetMovcInstructionCount<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetMovcInstructionCount(this)
+            }
+        }
+        unsafe extern "system" fn GetConversionInstructionCount<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetConversionInstructionCount(this)
+            }
+        }
+        unsafe extern "system" fn GetBitwiseInstructionCount<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetBitwiseInstructionCount(this)
+            }
+        }
+        unsafe extern "system" fn GetGSInputPrimitive<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::d3dcommon::D3D_PRIMITIVE {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetGSInputPrimitive(this)
+            }
+        }
+        unsafe extern "system" fn IsSampleFrequencyShader<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::BOOL {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::IsSampleFrequencyShader(this)
+            }
+        }
+        unsafe extern "system" fn GetNumInterfaceSlots<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetNumInterfaceSlots(this)
+            }
+        }
+        unsafe extern "system" fn GetMinFeatureLevel<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plevel: *mut super::d3dcommon::D3D_FEATURE_LEVEL) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ID3D12ShaderReflection_Impl::GetMinFeatureLevel(this) {
+                    Ok(ok__) => {
+                        plevel.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn GetThreadGroupSize<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetThreadGroupSize(this, core::mem::transmute_copy(&psizex), core::mem::transmute_copy(&psizey), core::mem::transmute_copy(&psizez))
+            }
+        }
+        unsafe extern "system" fn GetRequiresFlags<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u64 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12ShaderReflection_Impl::GetRequiresFlags(this)
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            QueryInterface: QueryInterface::<Identity, OFFSET>,
+            AddRef: AddRef::<Identity, OFFSET>,
+            Release: Release::<Identity, OFFSET>,
+            GetDesc: GetDesc::<Identity, OFFSET>,
+            GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, OFFSET>,
+            GetConstantBufferByName: GetConstantBufferByName::<Identity, OFFSET>,
+            GetResourceBindingDesc: GetResourceBindingDesc::<Identity, OFFSET>,
+            GetInputParameterDesc: GetInputParameterDesc::<Identity, OFFSET>,
+            GetOutputParameterDesc: GetOutputParameterDesc::<Identity, OFFSET>,
+            GetPatchConstantParameterDesc: GetPatchConstantParameterDesc::<Identity, OFFSET>,
+            GetVariableByName: GetVariableByName::<Identity, OFFSET>,
+            GetResourceBindingDescByName: GetResourceBindingDescByName::<Identity, OFFSET>,
+            GetMovInstructionCount: GetMovInstructionCount::<Identity, OFFSET>,
+            GetMovcInstructionCount: GetMovcInstructionCount::<Identity, OFFSET>,
+            GetConversionInstructionCount: GetConversionInstructionCount::<Identity, OFFSET>,
+            GetBitwiseInstructionCount: GetBitwiseInstructionCount::<Identity, OFFSET>,
+            GetGSInputPrimitive: GetGSInputPrimitive::<Identity, OFFSET>,
+            IsSampleFrequencyShader: IsSampleFrequencyShader::<Identity, OFFSET>,
+            GetNumInterfaceSlots: GetNumInterfaceSlots::<Identity, OFFSET>,
+            GetMinFeatureLevel: GetMinFeatureLevel::<Identity, OFFSET>,
+            GetThreadGroupSize: GetThreadGroupSize::<Identity, OFFSET>,
+            GetRequiresFlags: GetRequiresFlags::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12ShaderReflection as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl windows_core::RuntimeName for ID3D12ShaderReflection {}
+windows_core::imp::define_interface!(ID3D12ShaderReflectionConstantBuffer, ID3D12ShaderReflectionConstantBuffer_Vtbl);
+impl ID3D12ShaderReflectionConstantBuffer {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+    pub unsafe fn GetVariableByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionVariable> {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByIndex)(windows_core::Interface::as_raw(self), index) }
+    }
+    pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12ShaderReflectionConstantBuffer_Vtbl {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetDesc: usize,
+    pub GetVariableByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D12ShaderReflectionVariable>,
+    pub GetVariableByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>,
+}
+#[cfg(feature = "Win32_d3dcommon")]
+pub trait ID3D12ShaderReflectionConstantBuffer_Impl {
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::Result<()>;
+    fn GetVariableByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionVariable>;
+    fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12ShaderReflectionConstantBuffer_Vtbl {
+    pub const fn new<Identity: ID3D12ShaderReflectionConstantBuffer_Impl>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12ShaderReflectionConstantBuffer_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionConstantBuffer_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetVariableByIndex<Identity: ID3D12ShaderReflectionConstantBuffer_Impl>(this: *mut core::ffi::c_void, index: u32) -> Option<ID3D12ShaderReflectionVariable> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionConstantBuffer_Impl::GetVariableByIndex(this, core::mem::transmute_copy(&index))
+            }
+        }
+        unsafe extern "system" fn GetVariableByName<Identity: ID3D12ShaderReflectionConstantBuffer_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionConstantBuffer_Impl::GetVariableByName(this, core::mem::transmute(&name))
+            }
+        }
+        Self { GetDesc: GetDesc::<Identity>, GetVariableByIndex: GetVariableByIndex::<Identity>, GetVariableByName: GetVariableByName::<Identity> }
+    }
+}
+#[cfg(feature = "Win32_d3dcommon")]
+struct ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T: ID3D12ShaderReflectionConstantBuffer_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "Win32_d3dcommon")]
+impl<T: ID3D12ShaderReflectionConstantBuffer_Impl> ID3D12ShaderReflectionConstantBuffer_ImplVtbl<T> {
+    const VTABLE: ID3D12ShaderReflectionConstantBuffer_Vtbl = ID3D12ShaderReflectionConstantBuffer_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12ShaderReflectionConstantBuffer {
+    pub fn new<'a, T: ID3D12ShaderReflectionConstantBuffer_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionConstantBuffer_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+windows_core::imp::define_interface!(ID3D12ShaderReflectionType, ID3D12ShaderReflectionType_Vtbl);
+impl ID3D12ShaderReflectionType {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+    pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<Self> {
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByIndex)(windows_core::Interface::as_raw(self), index) }
+    }
+    pub unsafe fn GetMemberTypeByName<P0>(&self, name: P0) -> Option<Self>
+    where
+        P0: windows_core::Param<windows_core::PCSTR>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
+    }
+    pub unsafe fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR {
+        unsafe { (windows_core::Interface::vtable(self).GetMemberTypeName)(windows_core::Interface::as_raw(self), index) }
+    }
+    pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<Self>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), ptype.param().abi()) }
+    }
+    pub unsafe fn GetSubType(&self) -> Option<Self> {
+        unsafe { (windows_core::Interface::vtable(self).GetSubType)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetBaseClass(&self) -> Option<Self> {
+        unsafe { (windows_core::Interface::vtable(self).GetBaseClass)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumInterfaces(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumInterfaces)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> Option<Self> {
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceByIndex)(windows_core::Interface::as_raw(self), uindex) }
+    }
+    pub unsafe fn IsOfType<P0>(&self, ptype: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<Self>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).IsOfType)(windows_core::Interface::as_raw(self), ptype.param().abi()) }
+    }
+    pub unsafe fn ImplementsInterface<P0>(&self, pbase: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<Self>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).ImplementsInterface)(windows_core::Interface::as_raw(self), pbase.param().abi()) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12ShaderReflectionType_Vtbl {
+    #[cfg(feature = "Win32_d3dcommon")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_TYPE_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_d3dcommon"))]
+    GetDesc: usize,
+    pub GetMemberTypeByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D12ShaderReflectionType>,
+    pub GetMemberTypeByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> Option<ID3D12ShaderReflectionType>,
+    pub GetMemberTypeName: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::PCSTR,
+    pub IsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetSubType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType>,
+    pub GetBaseClass: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType>,
+    pub GetNumInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetInterfaceByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> Option<ID3D12ShaderReflectionType>,
+    pub IsOfType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ImplementsInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_d3dcommon")]
+pub trait ID3D12ShaderReflectionType_Impl {
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_core::Result<()>;
+    fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionType>;
+    fn GetMemberTypeByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionType>;
+    fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR;
+    fn IsEqual(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
+    fn GetSubType(&self) -> Option<ID3D12ShaderReflectionType>;
+    fn GetBaseClass(&self) -> Option<ID3D12ShaderReflectionType>;
+    fn GetNumInterfaces(&self) -> u32;
+    fn GetInterfaceByIndex(&self, uindex: u32) -> Option<ID3D12ShaderReflectionType>;
+    fn IsOfType(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
+    fn ImplementsInterface(&self, pbase: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12ShaderReflectionType_Vtbl {
+    pub const fn new<Identity: ID3D12ShaderReflectionType_Impl>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetMemberTypeByIndex<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, index: u32) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetMemberTypeByIndex(this, core::mem::transmute_copy(&index))
+            }
+        }
+        unsafe extern "system" fn GetMemberTypeByName<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, name: windows_core::PCSTR) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetMemberTypeByName(this, core::mem::transmute(&name))
+            }
+        }
+        unsafe extern "system" fn GetMemberTypeName<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, index: u32) -> windows_core::PCSTR {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetMemberTypeName(this, core::mem::transmute_copy(&index))
+            }
+        }
+        unsafe extern "system" fn IsEqual<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, ptype: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::IsEqual(this, core::mem::transmute_copy(&ptype)).into()
+            }
+        }
+        unsafe extern "system" fn GetSubType<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetSubType(this)
+            }
+        }
+        unsafe extern "system" fn GetBaseClass<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetBaseClass(this)
+            }
+        }
+        unsafe extern "system" fn GetNumInterfaces<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetNumInterfaces(this)
+            }
+        }
+        unsafe extern "system" fn GetInterfaceByIndex<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, uindex: u32) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::GetInterfaceByIndex(this, core::mem::transmute_copy(&uindex))
+            }
+        }
+        unsafe extern "system" fn IsOfType<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, ptype: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::IsOfType(this, core::mem::transmute_copy(&ptype)).into()
+            }
+        }
+        unsafe extern "system" fn ImplementsInterface<Identity: ID3D12ShaderReflectionType_Impl>(this: *mut core::ffi::c_void, pbase: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionType_Impl::ImplementsInterface(this, core::mem::transmute_copy(&pbase)).into()
+            }
+        }
+        Self {
+            GetDesc: GetDesc::<Identity>,
+            GetMemberTypeByIndex: GetMemberTypeByIndex::<Identity>,
+            GetMemberTypeByName: GetMemberTypeByName::<Identity>,
+            GetMemberTypeName: GetMemberTypeName::<Identity>,
+            IsEqual: IsEqual::<Identity>,
+            GetSubType: GetSubType::<Identity>,
+            GetBaseClass: GetBaseClass::<Identity>,
+            GetNumInterfaces: GetNumInterfaces::<Identity>,
+            GetInterfaceByIndex: GetInterfaceByIndex::<Identity>,
+            IsOfType: IsOfType::<Identity>,
+            ImplementsInterface: ImplementsInterface::<Identity>,
+        }
+    }
+}
+#[cfg(feature = "Win32_d3dcommon")]
+struct ID3D12ShaderReflectionType_ImplVtbl<T: ID3D12ShaderReflectionType_Impl>(core::marker::PhantomData<T>);
+#[cfg(feature = "Win32_d3dcommon")]
+impl<T: ID3D12ShaderReflectionType_Impl> ID3D12ShaderReflectionType_ImplVtbl<T> {
+    const VTABLE: ID3D12ShaderReflectionType_Vtbl = ID3D12ShaderReflectionType_Vtbl::new::<T>();
+}
+#[cfg(feature = "Win32_d3dcommon")]
+impl ID3D12ShaderReflectionType {
+    pub fn new<'a, T: ID3D12ShaderReflectionType_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionType_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+windows_core::imp::define_interface!(ID3D12ShaderReflectionVariable, ID3D12ShaderReflectionVariable_Vtbl);
+impl ID3D12ShaderReflectionVariable {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
+    }
+    pub unsafe fn GetType(&self) -> Option<ID3D12ShaderReflectionType> {
+        unsafe { (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetBuffer(&self) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+        unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetInterfaceSlot)(windows_core::Interface::as_raw(self), uarrayindex) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12ShaderReflectionVariable_Vtbl {
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::HRESULT,
+    pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType>,
+    pub GetBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionConstantBuffer>,
+    pub GetInterfaceSlot: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> u32,
+}
+pub trait ID3D12ShaderReflectionVariable_Impl {
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::Result<()>;
+    fn GetType(&self) -> Option<ID3D12ShaderReflectionType>;
+    fn GetBuffer(&self) -> Option<ID3D12ShaderReflectionConstantBuffer>;
+    fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32;
+}
+impl ID3D12ShaderReflectionVariable_Vtbl {
+    pub const fn new<Identity: ID3D12ShaderReflectionVariable_Impl>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12ShaderReflectionVariable_Impl>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionVariable_Impl::GetDesc(this, core::mem::transmute_copy(&pdesc)).into()
+            }
+        }
+        unsafe extern "system" fn GetType<Identity: ID3D12ShaderReflectionVariable_Impl>(this: *mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionType> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionVariable_Impl::GetType(this)
+            }
+        }
+        unsafe extern "system" fn GetBuffer<Identity: ID3D12ShaderReflectionVariable_Impl>(this: *mut core::ffi::c_void) -> Option<ID3D12ShaderReflectionConstantBuffer> {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionVariable_Impl::GetBuffer(this)
+            }
+        }
+        unsafe extern "system" fn GetInterfaceSlot<Identity: ID3D12ShaderReflectionVariable_Impl>(this: *mut core::ffi::c_void, uarrayindex: u32) -> u32 {
+            unsafe {
+                let this = (this as *mut *mut core::ffi::c_void) as *const windows_core::ScopedHeap;
+                let this = &*((*this).this as *const Identity);
+                ID3D12ShaderReflectionVariable_Impl::GetInterfaceSlot(this, core::mem::transmute_copy(&uarrayindex))
+            }
+        }
+        Self { GetDesc: GetDesc::<Identity>, GetType: GetType::<Identity>, GetBuffer: GetBuffer::<Identity>, GetInterfaceSlot: GetInterfaceSlot::<Identity> }
+    }
+}
+struct ID3D12ShaderReflectionVariable_ImplVtbl<T: ID3D12ShaderReflectionVariable_Impl>(core::marker::PhantomData<T>);
+impl<T: ID3D12ShaderReflectionVariable_Impl> ID3D12ShaderReflectionVariable_ImplVtbl<T> {
+    const VTABLE: ID3D12ShaderReflectionVariable_Vtbl = ID3D12ShaderReflectionVariable_Vtbl::new::<T>();
+}
+impl ID3D12ShaderReflectionVariable {
+    pub fn new<'a, T: ID3D12ShaderReflectionVariable_Impl>(this: &'a T) -> windows_core::ScopedInterface<'a, Self> {
+        let this = windows_core::ScopedHeap { vtable: &ID3D12ShaderReflectionVariable_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
+        let this = core::mem::ManuallyDrop::new(windows_core::imp::box_new(this));
+        unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
+    }
+}
+windows_core::imp::define_interface!(ID3D12SharingContract, ID3D12SharingContract_Vtbl, 0x0adf7d52_929c_4e61_addb_ffed30de66ef);
+windows_core::imp::interface_hierarchy!(ID3D12SharingContract, windows_core::IUnknown);
+impl ID3D12SharingContract {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn Present<P0>(&self, presource: P0, subresource: u32, window: super::windef::HWND)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).Present)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, window);
+        }
+    }
+    pub unsafe fn SharedFenceSignal<P0>(&self, pfence: P0, fencevalue: u64)
+    where
+        P0: windows_core::Param<ID3D12Fence>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SharedFenceSignal)(windows_core::Interface::as_raw(self), pfence.param().abi(), fencevalue);
+        }
+    }
+    pub unsafe fn BeginCapturableWork(&self, guid: *const windows_core::GUID) {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginCapturableWork)(windows_core::Interface::as_raw(self), guid);
+        }
+    }
+    pub unsafe fn EndCapturableWork(&self, guid: *const windows_core::GUID) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndCapturableWork)(windows_core::Interface::as_raw(self), guid);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12SharingContract_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_windef")]
+    pub Present: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, super::windef::HWND),
+    #[cfg(not(feature = "Win32_windef"))]
+    Present: usize,
+    pub SharedFenceSignal: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64),
+    pub BeginCapturableWork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID),
+    pub EndCapturableWork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12SharingContract_Impl: windows_core::IUnknownImpl {
+    fn Present(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, window: super::windef::HWND);
+    fn SharedFenceSignal(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: u64);
+    fn BeginCapturableWork(&self, guid: *const windows_core::GUID);
+    fn EndCapturableWork(&self, guid: *const windows_core::GUID);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12SharingContract_Vtbl {
+    pub const fn new<Identity: ID3D12SharingContract_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Present<Identity: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, subresource: u32, window: super::windef::HWND) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12SharingContract_Impl::Present(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&subresource), core::mem::transmute_copy(&window));
+            }
+        }
+        unsafe extern "system" fn SharedFenceSignal<Identity: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfence: *mut core::ffi::c_void, fencevalue: u64) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12SharingContract_Impl::SharedFenceSignal(this, core::mem::transmute_copy(&pfence), core::mem::transmute_copy(&fencevalue));
+            }
+        }
+        unsafe extern "system" fn BeginCapturableWork<Identity: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12SharingContract_Impl::BeginCapturableWork(this, core::mem::transmute_copy(&guid));
+            }
+        }
+        unsafe extern "system" fn EndCapturableWork<Identity: ID3D12SharingContract_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, guid: *const windows_core::GUID) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12SharingContract_Impl::EndCapturableWork(this, core::mem::transmute_copy(&guid));
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Present: Present::<Identity, OFFSET>,
+            SharedFenceSignal: SharedFenceSignal::<Identity, OFFSET>,
+            BeginCapturableWork: BeginCapturableWork::<Identity, OFFSET>,
+            EndCapturableWork: EndCapturableWork::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12SharingContract as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12SharingContract {}
 windows_core::imp::define_interface!(ID3D12StateObject, ID3D12StateObject_Vtbl, 0x47016943_fca8_4594_93ea_af258b55346d);
 impl core::ops::Deref for ID3D12StateObject {
     type Target = ID3D12Pageable;
@@ -11201,6 +18409,2569 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12VersionedRootSignatureDeserializer {}
+windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList_Vtbl, 0x3b60536e_ad29_4e64_a269_f853837e5e53);
+impl core::ops::Deref for ID3D12VideoDecodeCommandList {
+    type Target = ID3D12CommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
+impl ID3D12VideoDecodeCommandList {
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<ID3D12CommandAllocator>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()) }
+    }
+    pub unsafe fn ClearState(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
+    }
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const D3D12_DISCARD_REGION>)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+        P4: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
+    }
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn EndEvent(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn DecodeFrame<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
+    where
+        P0: windows_core::Param<ID3D12VideoDecoder>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
+    }
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecodeCommandList_Vtbl {
+    pub base__: ID3D12CommandList_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearState: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub ResourceBarrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RESOURCE_BARRIER),
+    #[cfg(feature = "Win32_windef")]
+    pub DiscardResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_DISCARD_REGION),
+    #[cfg(not(feature = "Win32_windef"))]
+    DiscardResource: usize,
+    pub BeginQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub EndQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub ResolveQueryData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32, u32, *mut core::ffi::c_void, u64),
+    pub SetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, D3D12_PREDICATION_OP),
+    pub SetMarker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub BeginEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub EndEvent: unsafe extern "system" fn(*mut core::ffi::c_void),
+    #[cfg(feature = "Win32_dxgi")]
+    pub DecodeFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    DecodeFrame: usize,
+    pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoDecodeCommandList_Impl: ID3D12CommandList_Impl {
+    fn Close(&self) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn ClearState(&self);
+    fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER);
+    fn DiscardResource(&self, presource: windows_core::Ref<ID3D12Resource>, pregion: *const D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<ID3D12Resource>, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP);
+    fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn EndEvent(&self);
+    fn DecodeFrame(&self, pdecoder: windows_core::Ref<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+    fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoDecodeCommandList_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Close<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::Close(this).into()
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pallocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::Reset(this, core::mem::transmute_copy(&pallocator)).into()
+            }
+        }
+        unsafe extern "system" fn ClearState<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::ClearState(this);
+            }
+        }
+        unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
+            }
+        }
+        unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const D3D12_DISCARD_REGION) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
+            }
+        }
+        unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn EndQuery<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
+            }
+        }
+        unsafe extern "system" fn SetPredication<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
+            }
+        }
+        unsafe extern "system" fn SetMarker<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn EndEvent<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::EndEvent(this);
+            }
+        }
+        unsafe extern "system" fn DecodeFrame<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecoder: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::DecodeFrame(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoDecodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
+            }
+        }
+        Self {
+            base__: ID3D12CommandList_Vtbl::new::<Identity, OFFSET>(),
+            Close: Close::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            ClearState: ClearState::<Identity, OFFSET>,
+            ResourceBarrier: ResourceBarrier::<Identity, OFFSET>,
+            DiscardResource: DiscardResource::<Identity, OFFSET>,
+            BeginQuery: BeginQuery::<Identity, OFFSET>,
+            EndQuery: EndQuery::<Identity, OFFSET>,
+            ResolveQueryData: ResolveQueryData::<Identity, OFFSET>,
+            SetPredication: SetPredication::<Identity, OFFSET>,
+            SetMarker: SetMarker::<Identity, OFFSET>,
+            BeginEvent: BeginEvent::<Identity, OFFSET>,
+            EndEvent: EndEvent::<Identity, OFFSET>,
+            DecodeFrame: DecodeFrame::<Identity, OFFSET>,
+            WriteBufferImmediate: WriteBufferImmediate::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList {}
+windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList1_Vtbl, 0xd52f011b_b56e_453c_a05a_a7f311c8f472);
+impl core::ops::Deref for ID3D12VideoDecodeCommandList1 {
+    type Target = ID3D12VideoDecodeCommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoDecodeCommandList);
+impl ID3D12VideoDecodeCommandList1 {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn DecodeFrame1<P0>(&self, pdecoder: P0, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS)
+    where
+        P0: windows_core::Param<ID3D12VideoDecoder>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecodeCommandList1_Vtbl {
+    pub base__: ID3D12VideoDecodeCommandList_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub DecodeFrame1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    DecodeFrame1: usize,
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoDecodeCommandList1_Impl: ID3D12VideoDecodeCommandList_Impl {
+    fn DecodeFrame1(&self, pdecoder: windows_core::Ref<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoDecodeCommandList1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn DecodeFrame1<Identity: ID3D12VideoDecodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdecoder: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList1_Impl::DecodeFrame1(this, core::mem::transmute_copy(&pdecoder), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        Self { base__: ID3D12VideoDecodeCommandList_Vtbl::new::<Identity, OFFSET>(), DecodeFrame1: DecodeFrame1::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList1 {}
+windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList2, ID3D12VideoDecodeCommandList2_Vtbl, 0x6e120880_c114_4153_8036_d247051e1729);
+impl core::ops::Deref for ID3D12VideoDecodeCommandList2 {
+    type Target = ID3D12VideoDecodeCommandList1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1);
+impl ID3D12VideoDecodeCommandList2 {
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: windows_core::Param<ID3D12ProtectedResourceSession>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
+    }
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
+    }
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecodeCommandList2_Vtbl {
+    pub base__: ID3D12VideoDecodeCommandList1_Vtbl,
+    pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+    pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+    pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoDecodeCommandList2_Impl: ID3D12VideoDecodeCommandList1_Impl {
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>);
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoDecodeCommandList2_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
+            }
+        }
+        unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
+            }
+        }
+        unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoDecodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
+            }
+        }
+        Self {
+            base__: ID3D12VideoDecodeCommandList1_Vtbl::new::<Identity, OFFSET>(),
+            SetProtectedResourceSession: SetProtectedResourceSession::<Identity, OFFSET>,
+            InitializeExtensionCommand: InitializeExtensionCommand::<Identity, OFFSET>,
+            ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList2 {}
+windows_core::imp::define_interface!(ID3D12VideoDecodeCommandList3, ID3D12VideoDecodeCommandList3_Vtbl, 0x2aee8c37_9562_42da_8abf_61efeb2e4513);
+impl core::ops::Deref for ID3D12VideoDecodeCommandList3 {
+    type Target = ID3D12VideoDecodeCommandList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoDecodeCommandList, ID3D12VideoDecodeCommandList1, ID3D12VideoDecodeCommandList2);
+impl ID3D12VideoDecodeCommandList3 {
+    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecodeCommandList3_Vtbl {
+    pub base__: ID3D12VideoDecodeCommandList2_Vtbl,
+    pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoDecodeCommandList3_Impl: ID3D12VideoDecodeCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoDecodeCommandList3_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecodeCommandList3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Barrier<Identity: ID3D12VideoDecodeCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
+            }
+        }
+        Self { base__: ID3D12VideoDecodeCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecodeCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12VideoDecodeCommandList2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoDecodeCommandList3 {}
+windows_core::imp::define_interface!(ID3D12VideoDecoder, ID3D12VideoDecoder_Vtbl, 0xc59b6bdc_7720_4074_a136_17a156037470);
+impl core::ops::Deref for ID3D12VideoDecoder {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecoder, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoDecoder {
+    pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecoder_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_DECODER_DESC),
+}
+pub trait ID3D12VideoDecoder_Impl: ID3D12Pageable_Impl {
+    fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
+}
+impl ID3D12VideoDecoder_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecoder_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12VideoDecoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoDecoder_Impl::GetDesc(this);
+            }
+        }
+        Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoder as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12VideoDecoder {}
+windows_core::imp::define_interface!(ID3D12VideoDecoder1, ID3D12VideoDecoder1_Vtbl, 0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
+impl core::ops::Deref for ID3D12VideoDecoder1 {
+    type Target = ID3D12VideoDecoder;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecoder1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12VideoDecoder);
+impl ID3D12VideoDecoder1 {
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecoder1_Vtbl {
+    pub base__: ID3D12VideoDecoder_Vtbl,
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ID3D12VideoDecoder1_Impl: ID3D12VideoDecoder_Impl {
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl ID3D12VideoDecoder1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecoder1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoDecoder1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecoder1_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self { base__: ID3D12VideoDecoder_Vtbl::new::<Identity, OFFSET>(), GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoder1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12VideoDecoder as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12VideoDecoder1 {}
+windows_core::imp::define_interface!(ID3D12VideoDecoderHeap, ID3D12VideoDecoderHeap_Vtbl, 0x0946b7c9_ebf6_4047_bb73_8683e27dbb1f);
+impl core::ops::Deref for ID3D12VideoDecoderHeap {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecoderHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoDecoderHeap {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecoderHeap_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_DECODER_HEAP_DESC),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetDesc: usize,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDecoderHeap_Impl: ID3D12Pageable_Impl {
+    fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDecoderHeap_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12VideoDecoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoDecoderHeap_Impl::GetDesc(this);
+            }
+        }
+        Self { base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(), GetDesc: GetDesc::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoderHeap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDecoderHeap {}
+windows_core::imp::define_interface!(ID3D12VideoDecoderHeap1, ID3D12VideoDecoderHeap1_Vtbl, 0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
+impl core::ops::Deref for ID3D12VideoDecoderHeap1 {
+    type Target = ID3D12VideoDecoderHeap;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDecoderHeap1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12VideoDecoderHeap);
+impl ID3D12VideoDecoderHeap1 {
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDecoderHeap1_Vtbl {
+    pub base__: ID3D12VideoDecoderHeap_Vtbl,
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDecoderHeap1_Impl: ID3D12VideoDecoderHeap_Impl {
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDecoderHeap1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDecoderHeap1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoDecoderHeap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDecoderHeap1_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self { base__: ID3D12VideoDecoderHeap_Vtbl::new::<Identity, OFFSET>(), GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDecoderHeap1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12VideoDecoderHeap as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDecoderHeap1 {}
+windows_core::imp::define_interface!(ID3D12VideoDevice, ID3D12VideoDevice_Vtbl, 0x1f052807_0b46_4acc_8a89_364f793718a4);
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice, windows_core::IUnknown);
+impl ID3D12VideoDevice {
+    pub unsafe fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), featurevideo, pfeaturesupportdata as _, featuresupportdatasize) }
+    }
+    pub unsafe fn CreateVideoDecoder<T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoder)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoDecoderHeap<T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoderHeap)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoProcessor<T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub CheckFeatureSupport: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_FEATURE_VIDEO, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub CreateVideoDecoder: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_DECODER_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoDecoderHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_DECODER_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoDecoderHeap: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoProcessor: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoProcessor: usize,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDevice_Impl: windows_core::IUnknownImpl {
+    fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
+    fn CreateVideoDecoder(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoDecoderHeap(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoProcessor(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDevice_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CheckFeatureSupport<Identity: ID3D12VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice_Impl::CheckFeatureSupport(this, core::mem::transmute_copy(&featurevideo), core::mem::transmute_copy(&pfeaturesupportdata), core::mem::transmute_copy(&featuresupportdatasize)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoDecoder<Identity: ID3D12VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice_Impl::CreateVideoDecoder(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideodecoder)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoDecoderHeap<Identity: ID3D12VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice_Impl::CreateVideoDecoderHeap(this, core::mem::transmute_copy(&pvideodecoderheapdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideodecoderheap)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoProcessor<Identity: ID3D12VideoDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice_Impl::CreateVideoProcessor(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&poutputstreamdesc), core::mem::transmute_copy(&numinputstreamdescs), core::mem::transmute_copy(&pinputstreamdescs), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoprocessor)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            CheckFeatureSupport: CheckFeatureSupport::<Identity, OFFSET>,
+            CreateVideoDecoder: CreateVideoDecoder::<Identity, OFFSET>,
+            CreateVideoDecoderHeap: CreateVideoDecoderHeap::<Identity, OFFSET>,
+            CreateVideoProcessor: CreateVideoProcessor::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDevice {}
+windows_core::imp::define_interface!(ID3D12VideoDevice1, ID3D12VideoDevice1_Vtbl, 0x981611ad_a144_4c83_9890_f30e26d658ab);
+impl core::ops::Deref for ID3D12VideoDevice1 {
+    type Target = ID3D12VideoDevice;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice1, windows_core::IUnknown, ID3D12VideoDevice);
+impl ID3D12VideoDevice1 {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoMotionEstimator<P1, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: P1) -> windows_core::Result<T>
+    where
+        P1: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoMotionEstimator)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoMotionVectorHeap<P1, T>(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: P1) -> windows_core::Result<T>
+    where
+        P1: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoMotionVectorHeap)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice1_Vtbl {
+    pub base__: ID3D12VideoDevice_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoMotionEstimator: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoMotionEstimator: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoMotionVectorHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoMotionVectorHeap: usize,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDevice1_Impl: ID3D12VideoDevice_Impl {
+    fn CreateVideoMotionEstimator(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionestimator: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoMotionVectorHeap(&self, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionvectorheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDevice1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateVideoMotionEstimator<Identity: ID3D12VideoDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideomotionestimator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice1_Impl::CreateVideoMotionEstimator(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideomotionestimator)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoMotionVectorHeap<Identity: ID3D12VideoDevice1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideomotionvectorheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice1_Impl::CreateVideoMotionVectorHeap(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideomotionvectorheap)).into()
+            }
+        }
+        Self {
+            base__: ID3D12VideoDevice_Vtbl::new::<Identity, OFFSET>(),
+            CreateVideoMotionEstimator: CreateVideoMotionEstimator::<Identity, OFFSET>,
+            CreateVideoMotionVectorHeap: CreateVideoMotionVectorHeap::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice1 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDevice1 {}
+windows_core::imp::define_interface!(ID3D12VideoDevice2, ID3D12VideoDevice2_Vtbl, 0xf019ac49_f838_4a95_9b17_579437c8f513);
+impl core::ops::Deref for ID3D12VideoDevice2 {
+    type Target = ID3D12VideoDevice1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice2, windows_core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1);
+impl ID3D12VideoDevice2 {
+    pub unsafe fn CreateVideoDecoder1<P1, T>(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: P1) -> windows_core::Result<T>
+    where
+        P1: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoder1)(windows_core::Interface::as_raw(self), pdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoDecoderHeap1<P1, T>(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: P1) -> windows_core::Result<T>
+    where
+        P1: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoDecoderHeap1)(windows_core::Interface::as_raw(self), pvideodecoderheapdesc, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoProcessor1<P4, T>(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, pinputstreamdescs: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC], pprotectedresourcesession: P4) -> windows_core::Result<T>
+    where
+        P4: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn CreateVideoExtensionCommand<P3, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P3) -> windows_core::Result<T>
+    where
+        P3: windows_core::Param<ID3D12ProtectedResourceSession>,
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoExtensionCommand)(windows_core::Interface::as_raw(self), pdesc, pcreationparameters, creationparametersdatasizeinbytes, pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut core::ffi::c_void, outputdatasizeinbytes: usize) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes, poutputdata as _, outputdatasizeinbytes) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice2_Vtbl {
+    pub base__: ID3D12VideoDevice1_Vtbl,
+    pub CreateVideoDecoder1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_DECODER_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoDecoderHeap1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_DECODER_HEAP_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoDecoderHeap1: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoProcessor1: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoProcessor1: usize,
+    pub CreateVideoExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, *const core::ffi::c_void, usize, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDevice2_Impl: ID3D12VideoDevice1_Impl {
+    fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoDecoderHeap1(&self, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoProcessor1(&self, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoExtensionCommand(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideoextensioncommand: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut core::ffi::c_void, outputdatasizeinbytes: usize) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDevice2_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateVideoDecoder1<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice2_Impl::CreateVideoDecoder1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideodecoder)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoDecoderHeap1<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideodecoderheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice2_Impl::CreateVideoDecoderHeap1(this, core::mem::transmute_copy(&pvideodecoderheapdesc), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideodecoderheap)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoProcessor1<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideoprocessor: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice2_Impl::CreateVideoProcessor1(this, core::mem::transmute_copy(&nodemask), core::mem::transmute_copy(&poutputstreamdesc), core::mem::transmute_copy(&numinputstreamdescs), core::mem::transmute_copy(&pinputstreamdescs), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoprocessor)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoExtensionCommand<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvideoextensioncommand: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice2_Impl::CreateVideoExtensionCommand(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&pcreationparameters), core::mem::transmute_copy(&creationparametersdatasizeinbytes), core::mem::transmute_copy(&pprotectedresourcesession), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoextensioncommand)).into()
+            }
+        }
+        unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoDevice2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut core::ffi::c_void, outputdatasizeinbytes: usize) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes), core::mem::transmute_copy(&poutputdata), core::mem::transmute_copy(&outputdatasizeinbytes)).into()
+            }
+        }
+        Self {
+            base__: ID3D12VideoDevice1_Vtbl::new::<Identity, OFFSET>(),
+            CreateVideoDecoder1: CreateVideoDecoder1::<Identity, OFFSET>,
+            CreateVideoDecoderHeap1: CreateVideoDecoderHeap1::<Identity, OFFSET>,
+            CreateVideoProcessor1: CreateVideoProcessor1::<Identity, OFFSET>,
+            CreateVideoExtensionCommand: CreateVideoExtensionCommand::<Identity, OFFSET>,
+            ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice2 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDevice2 {}
+windows_core::imp::define_interface!(ID3D12VideoDevice3, ID3D12VideoDevice3_Vtbl, 0x4243adb4_3a32_4666_973c_0ccc5625dc44);
+impl core::ops::Deref for ID3D12VideoDevice3 {
+    type Target = ID3D12VideoDevice2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice3, windows_core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2);
+impl ID3D12VideoDevice3 {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn CreateVideoEncoder<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoEncoder)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+    pub unsafe fn CreateVideoEncoderHeap<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoEncoderHeap)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice3_Vtbl {
+    pub base__: ID3D12VideoDevice2_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub CreateVideoEncoder: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    CreateVideoEncoder: usize,
+    pub CreateVideoEncoderHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDevice3_Impl: ID3D12VideoDevice2_Impl {
+    fn CreateVideoEncoder(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const windows_core::GUID, ppvideoencoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVideoEncoderHeap(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDevice3_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateVideoEncoder<Identity: ID3D12VideoDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const windows_core::GUID, ppvideoencoder: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice3_Impl::CreateVideoEncoder(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoencoder)).into()
+            }
+        }
+        unsafe extern "system" fn CreateVideoEncoderHeap<Identity: ID3D12VideoDevice3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice3_Impl::CreateVideoEncoderHeap(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoencoderheap)).into()
+            }
+        }
+        Self {
+            base__: ID3D12VideoDevice2_Vtbl::new::<Identity, OFFSET>(),
+            CreateVideoEncoder: CreateVideoEncoder::<Identity, OFFSET>,
+            CreateVideoEncoderHeap: CreateVideoEncoderHeap::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice3 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDevice3 {}
+windows_core::imp::define_interface!(ID3D12VideoDevice4, ID3D12VideoDevice4_Vtbl, 0xe59ad09e_f1ae_42bb_8983_9f6e5586c4eb);
+impl core::ops::Deref for ID3D12VideoDevice4 {
+    type Target = ID3D12VideoDevice3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoDevice4, windows_core::IUnknown, ID3D12VideoDevice, ID3D12VideoDevice1, ID3D12VideoDevice2, ID3D12VideoDevice3);
+impl ID3D12VideoDevice4 {
+    pub unsafe fn CreateVideoEncoderHeap1<T>(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoEncoderHeap1)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoDevice4_Vtbl {
+    pub base__: ID3D12VideoDevice3_Vtbl,
+    pub CreateVideoEncoderHeap1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_HEAP_DESC1, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoDevice4_Impl: ID3D12VideoDevice3_Impl {
+    fn CreateVideoEncoderHeap1(&self, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoDevice4_Vtbl {
+    pub const fn new<Identity: ID3D12VideoDevice4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateVideoEncoderHeap1<Identity: ID3D12VideoDevice4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC1, riid: *const windows_core::GUID, ppvideoencoderheap: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoDevice4_Impl::CreateVideoEncoderHeap1(this, core::mem::transmute_copy(&pdesc), core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvideoencoderheap)).into()
+            }
+        }
+        Self { base__: ID3D12VideoDevice3_Vtbl::new::<Identity, OFFSET>(), CreateVideoEncoderHeap1: CreateVideoEncoderHeap1::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoDevice4 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice1 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice2 as windows_core::Interface>::IID || iid == &<ID3D12VideoDevice3 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoDevice4 {}
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList_Vtbl, 0x8455293a_0cbd_4831_9b39_fbdbab724723);
+impl core::ops::Deref for ID3D12VideoEncodeCommandList {
+    type Target = ID3D12CommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
+impl ID3D12VideoEncodeCommandList {
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<ID3D12CommandAllocator>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()) }
+    }
+    pub unsafe fn ClearState(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
+    }
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const D3D12_DISCARD_REGION>)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+        P4: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
+    }
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn EndEvent(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn EstimateMotion<P0>(&self, pmotionestimator: P0, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT)
+    where
+        P0: windows_core::Param<ID3D12VideoMotionEstimator>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
+    }
+    pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+        }
+    }
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: windows_core::Param<ID3D12ProtectedResourceSession>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList_Vtbl {
+    pub base__: ID3D12CommandList_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearState: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub ResourceBarrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RESOURCE_BARRIER),
+    #[cfg(feature = "Win32_windef")]
+    pub DiscardResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_DISCARD_REGION),
+    #[cfg(not(feature = "Win32_windef"))]
+    DiscardResource: usize,
+    pub BeginQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub EndQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub ResolveQueryData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32, u32, *mut core::ffi::c_void, u64),
+    pub SetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, D3D12_PREDICATION_OP),
+    pub SetMarker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub BeginEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub EndEvent: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub EstimateMotion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT),
+    pub ResolveMotionVectorHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT),
+    pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
+    pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoEncodeCommandList_Impl: ID3D12CommandList_Impl {
+    fn Close(&self) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn ClearState(&self);
+    fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER);
+    fn DiscardResource(&self, presource: windows_core::Ref<ID3D12Resource>, pregion: *const D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<ID3D12Resource>, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP);
+    fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn EndEvent(&self);
+    fn EstimateMotion(&self, pmotionestimator: windows_core::Ref<ID3D12VideoMotionEstimator>, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT);
+    fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT);
+    fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoEncodeCommandList_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Close<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::Close(this).into()
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pallocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::Reset(this, core::mem::transmute_copy(&pallocator)).into()
+            }
+        }
+        unsafe extern "system" fn ClearState<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::ClearState(this);
+            }
+        }
+        unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
+            }
+        }
+        unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const D3D12_DISCARD_REGION) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
+            }
+        }
+        unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn EndQuery<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
+            }
+        }
+        unsafe extern "system" fn SetPredication<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
+            }
+        }
+        unsafe extern "system" fn SetMarker<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn EndEvent<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::EndEvent(this);
+            }
+        }
+        unsafe extern "system" fn EstimateMotion<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pmotionestimator: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT, pinputarguments: *const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::EstimateMotion(this, core::mem::transmute_copy(&pmotionestimator), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        unsafe extern "system" fn ResolveMotionVectorHeap<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::ResolveMotionVectorHeap(this, core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
+            }
+        }
+        unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoEncodeCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
+            }
+        }
+        Self {
+            base__: ID3D12CommandList_Vtbl::new::<Identity, OFFSET>(),
+            Close: Close::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            ClearState: ClearState::<Identity, OFFSET>,
+            ResourceBarrier: ResourceBarrier::<Identity, OFFSET>,
+            DiscardResource: DiscardResource::<Identity, OFFSET>,
+            BeginQuery: BeginQuery::<Identity, OFFSET>,
+            EndQuery: EndQuery::<Identity, OFFSET>,
+            ResolveQueryData: ResolveQueryData::<Identity, OFFSET>,
+            SetPredication: SetPredication::<Identity, OFFSET>,
+            SetMarker: SetMarker::<Identity, OFFSET>,
+            BeginEvent: BeginEvent::<Identity, OFFSET>,
+            EndEvent: EndEvent::<Identity, OFFSET>,
+            EstimateMotion: EstimateMotion::<Identity, OFFSET>,
+            ResolveMotionVectorHeap: ResolveMotionVectorHeap::<Identity, OFFSET>,
+            WriteBufferImmediate: WriteBufferImmediate::<Identity, OFFSET>,
+            SetProtectedResourceSession: SetProtectedResourceSession::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList {}
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList1_Vtbl, 0x94971eca_2bdb_4769_88cf_3675ea757ebc);
+impl core::ops::Deref for ID3D12VideoEncodeCommandList1 {
+    type Target = ID3D12VideoEncodeCommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoEncodeCommandList);
+impl ID3D12VideoEncodeCommandList1 {
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
+    }
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList1_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList_Vtbl,
+    pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+    pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoEncodeCommandList1_Impl: ID3D12VideoEncodeCommandList_Impl {
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoEncodeCommandList1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList1_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
+            }
+        }
+        unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoEncodeCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList1_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
+            }
+        }
+        Self {
+            base__: ID3D12VideoEncodeCommandList_Vtbl::new::<Identity, OFFSET>(),
+            InitializeExtensionCommand: InitializeExtensionCommand::<Identity, OFFSET>,
+            ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList1 {}
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList2, ID3D12VideoEncodeCommandList2_Vtbl, 0x895491e2_e701_46a9_9a1f_8d3480ed867a);
+impl core::ops::Deref for ID3D12VideoEncodeCommandList2 {
+    type Target = ID3D12VideoEncodeCommandList1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1);
+impl ID3D12VideoEncodeCommandList2 {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn EncodeFrame<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS)
+    where
+        P0: windows_core::Param<ID3D12VideoEncoder>,
+        P1: windows_core::Param<ID3D12VideoEncoderHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList2_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList1_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub EncodeFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    EncodeFrame: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub ResolveEncoderOutputMetadata: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    ResolveEncoderOutputMetadata: usize,
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoEncodeCommandList2_Impl: ID3D12VideoEncodeCommandList1_Impl {
+    fn EncodeFrame(&self, pencoder: windows_core::Ref<ID3D12VideoEncoder>, pheap: windows_core::Ref<ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
+    fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoEncodeCommandList2_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EncodeFrame<Identity: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList2_Impl::EncodeFrame(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
+            }
+        }
+        unsafe extern "system" fn ResolveEncoderOutputMetadata<Identity: ID3D12VideoEncodeCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList2_Impl::ResolveEncoderOutputMetadata(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
+            }
+        }
+        Self {
+            base__: ID3D12VideoEncodeCommandList1_Vtbl::new::<Identity, OFFSET>(),
+            EncodeFrame: EncodeFrame::<Identity, OFFSET>,
+            ResolveEncoderOutputMetadata: ResolveEncoderOutputMetadata::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList2 {}
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList3, ID3D12VideoEncodeCommandList3_Vtbl, 0x7f027b22_1515_4e85_aa0d_026486580576);
+impl core::ops::Deref for ID3D12VideoEncodeCommandList3 {
+    type Target = ID3D12VideoEncodeCommandList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2);
+impl ID3D12VideoEncodeCommandList3 {
+    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList3_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList2_Vtbl,
+    pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoEncodeCommandList3_Impl: ID3D12VideoEncodeCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoEncodeCommandList3_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Barrier<Identity: ID3D12VideoEncodeCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
+            }
+        }
+        Self { base__: ID3D12VideoEncodeCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList3 {}
+windows_core::imp::define_interface!(ID3D12VideoEncodeCommandList4, ID3D12VideoEncodeCommandList4_Vtbl, 0x69aeb5b7_55f2_4012_8b73_3a88d65a204c);
+impl core::ops::Deref for ID3D12VideoEncodeCommandList4 {
+    type Target = ID3D12VideoEncodeCommandList3;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList4, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoEncodeCommandList, ID3D12VideoEncodeCommandList1, ID3D12VideoEncodeCommandList2, ID3D12VideoEncodeCommandList3);
+impl ID3D12VideoEncodeCommandList4 {
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+    pub unsafe fn EncodeFrame1<P0, P1>(&self, pencoder: P0, pheap: P1, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1)
+    where
+        P0: windows_core::Param<ID3D12VideoEncoder>,
+        P1: windows_core::Param<ID3D12VideoEncoderHeap1>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncodeCommandList4_Vtbl {
+    pub base__: ID3D12VideoEncodeCommandList3_Vtbl,
+    #[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+    pub EncodeFrame1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1),
+    #[cfg(not(all(feature = "Win32_dxgi", feature = "Win32_windef")))]
+    EncodeFrame1: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub ResolveEncoderOutputMetadata1: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    ResolveEncoderOutputMetadata1: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub ResolveInputParamLayout: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    ResolveInputParamLayout: usize,
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+pub trait ID3D12VideoEncodeCommandList4_Impl: ID3D12VideoEncodeCommandList3_Impl {
+    fn EncodeFrame1(&self, pencoder: windows_core::Ref<ID3D12VideoEncoder>, pheap: windows_core::Ref<ID3D12VideoEncoderHeap1>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1);
+    fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1);
+    fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS);
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl ID3D12VideoEncodeCommandList4_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn EncodeFrame1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pencoder: *mut core::ffi::c_void, pheap: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS1) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::EncodeFrame1(this, core::mem::transmute_copy(&pencoder), core::mem::transmute_copy(&pheap), core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
+            }
+        }
+        unsafe extern "system" fn ResolveEncoderOutputMetadata1<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::ResolveEncoderOutputMetadata1(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
+            }
+        }
+        unsafe extern "system" fn ResolveInputParamLayout<Identity: ID3D12VideoEncodeCommandList4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncodeCommandList4_Impl::ResolveInputParamLayout(this, core::mem::transmute_copy(&pinputarguments), core::mem::transmute_copy(&poutputarguments));
+            }
+        }
+        Self {
+            base__: ID3D12VideoEncodeCommandList3_Vtbl::new::<Identity, OFFSET>(),
+            EncodeFrame1: EncodeFrame1::<Identity, OFFSET>,
+            ResolveEncoderOutputMetadata1: ResolveEncoderOutputMetadata1::<Identity, OFFSET>,
+            ResolveInputParamLayout: ResolveInputParamLayout::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncodeCommandList4 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12VideoEncodeCommandList3 as windows_core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_dxgi", feature = "Win32_windef"))]
+impl windows_core::RuntimeName for ID3D12VideoEncodeCommandList4 {}
+windows_core::imp::define_interface!(ID3D12VideoEncoder, ID3D12VideoEncoder_Vtbl, 0x2e0d212d_8df9_44a6_a770_bb289b182737);
+impl core::ops::Deref for ID3D12VideoEncoder {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncoder, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoEncoder {
+    pub unsafe fn GetNodeMask(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeMask)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS {
+        unsafe { (windows_core::Interface::vtable(self).GetEncoderFlags)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC {
+        unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+    }
+    pub unsafe fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCodecConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(dstcodecconfig)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetInputFormat(&self) -> super::dxgi::DXGI_FORMAT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputFormat)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
+        unsafe { (windows_core::Interface::vtable(self).GetMaxMotionEstimationPrecision)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncoder_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetEncoderFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_FLAGS,
+    pub GetCodec: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC,
+    pub GetCodecProfile: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT,
+    pub GetCodecConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::HRESULT,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetInputFormat: unsafe extern "system" fn(*mut core::ffi::c_void) -> super::dxgi::DXGI_FORMAT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetInputFormat: usize,
+    pub GetMaxMotionEstimationPrecision: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoEncoder_Impl: ID3D12Pageable_Impl {
+    fn GetNodeMask(&self) -> u32;
+    fn GetEncoderFlags(&self) -> D3D12_VIDEO_ENCODER_FLAGS;
+    fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
+    fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::Result<()>;
+    fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::Result<()>;
+    fn GetInputFormat(&self) -> super::dxgi::DXGI_FORMAT;
+    fn GetMaxMotionEstimationPrecision(&self) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoEncoder_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetNodeMask<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetNodeMask(this)
+            }
+        }
+        unsafe extern "system" fn GetEncoderFlags<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_FLAGS {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetEncoderFlags(this)
+            }
+        }
+        unsafe extern "system" fn GetCodec<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetCodec(this)
+            }
+        }
+        unsafe extern "system" fn GetCodecProfile<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetCodecProfile(this, core::mem::transmute_copy(&dstprofile)).into()
+            }
+        }
+        unsafe extern "system" fn GetCodecConfiguration<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetCodecConfiguration(this, core::mem::transmute_copy(&dstcodecconfig)).into()
+            }
+        }
+        unsafe extern "system" fn GetInputFormat<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> super::dxgi::DXGI_FORMAT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetInputFormat(this)
+            }
+        }
+        unsafe extern "system" fn GetMaxMotionEstimationPrecision<Identity: ID3D12VideoEncoder_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoder_Impl::GetMaxMotionEstimationPrecision(this)
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetNodeMask: GetNodeMask::<Identity, OFFSET>,
+            GetEncoderFlags: GetEncoderFlags::<Identity, OFFSET>,
+            GetCodec: GetCodec::<Identity, OFFSET>,
+            GetCodecProfile: GetCodecProfile::<Identity, OFFSET>,
+            GetCodecConfiguration: GetCodecConfiguration::<Identity, OFFSET>,
+            GetInputFormat: GetInputFormat::<Identity, OFFSET>,
+            GetMaxMotionEstimationPrecision: GetMaxMotionEstimationPrecision::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoder as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoEncoder {}
+windows_core::imp::define_interface!(ID3D12VideoEncoderHeap, ID3D12VideoEncoderHeap_Vtbl, 0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
+impl core::ops::Deref for ID3D12VideoEncoderHeap {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncoderHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoEncoderHeap {
+    pub unsafe fn GetNodeMask(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeMask)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+        unsafe { (windows_core::Interface::vtable(self).GetEncoderHeapFlags)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC {
+        unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+    }
+    pub unsafe fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetCodecLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(dstlevel)) }
+    }
+    pub unsafe fn GetResolutionListCount(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetResolutionListCount)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetResolutionList(&self, presolutionlist: &mut [D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetResolutionList)(windows_core::Interface::as_raw(self), presolutionlist.len().try_into().unwrap(), core::mem::transmute(presolutionlist.as_ptr())) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncoderHeap_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetEncoderHeapFlags: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS,
+    pub GetCodec: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC,
+    pub GetCodecProfile: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT,
+    pub GetCodecLevel: unsafe extern "system" fn(*mut core::ffi::c_void, D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::HRESULT,
+    pub GetResolutionListCount: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetResolutionList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> windows_core::HRESULT,
+}
+pub trait ID3D12VideoEncoderHeap_Impl: ID3D12Pageable_Impl {
+    fn GetNodeMask(&self) -> u32;
+    fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
+    fn GetCodec(&self) -> D3D12_VIDEO_ENCODER_CODEC;
+    fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::Result<()>;
+    fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::Result<()>;
+    fn GetResolutionListCount(&self) -> u32;
+    fn GetResolutionList(&self, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> windows_core::Result<()>;
+}
+impl ID3D12VideoEncoderHeap_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetNodeMask<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetNodeMask(this)
+            }
+        }
+        unsafe extern "system" fn GetEncoderHeapFlags<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetEncoderHeapFlags(this)
+            }
+        }
+        unsafe extern "system" fn GetCodec<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_CODEC {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetCodec(this)
+            }
+        }
+        unsafe extern "system" fn GetCodecProfile<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetCodecProfile(this, core::mem::transmute_copy(&dstprofile)).into()
+            }
+        }
+        unsafe extern "system" fn GetCodecLevel<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetCodecLevel(this, core::mem::transmute_copy(&dstlevel)).into()
+            }
+        }
+        unsafe extern "system" fn GetResolutionListCount<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetResolutionListCount(this)
+            }
+        }
+        unsafe extern "system" fn GetResolutionList<Identity: ID3D12VideoEncoderHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap_Impl::GetResolutionList(this, core::mem::transmute_copy(&resolutionslistcount), core::mem::transmute_copy(&presolutionlist)).into()
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetNodeMask: GetNodeMask::<Identity, OFFSET>,
+            GetEncoderHeapFlags: GetEncoderHeapFlags::<Identity, OFFSET>,
+            GetCodec: GetCodec::<Identity, OFFSET>,
+            GetCodecProfile: GetCodecProfile::<Identity, OFFSET>,
+            GetCodecLevel: GetCodecLevel::<Identity, OFFSET>,
+            GetResolutionListCount: GetResolutionListCount::<Identity, OFFSET>,
+            GetResolutionList: GetResolutionList::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoderHeap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12VideoEncoderHeap {}
+windows_core::imp::define_interface!(ID3D12VideoEncoderHeap1, ID3D12VideoEncoderHeap1_Vtbl, 0xea8f1968_4aa0_43a4_9d30_ba86ec84d4f9);
+impl core::ops::Deref for ID3D12VideoEncoderHeap1 {
+    type Target = ID3D12VideoEncoderHeap;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoEncoderHeap1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12VideoEncoderHeap);
+impl ID3D12VideoEncoderHeap1 {
+    pub unsafe fn GetPow2DownscaleFactor(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetPow2DownscaleFactor)(windows_core::Interface::as_raw(self)) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoEncoderHeap1_Vtbl {
+    pub base__: ID3D12VideoEncoderHeap_Vtbl,
+    pub GetPow2DownscaleFactor: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+}
+pub trait ID3D12VideoEncoderHeap1_Impl: ID3D12VideoEncoderHeap_Impl {
+    fn GetPow2DownscaleFactor(&self) -> u32;
+}
+impl ID3D12VideoEncoderHeap1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoEncoderHeap1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetPow2DownscaleFactor<Identity: ID3D12VideoEncoderHeap1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoEncoderHeap1_Impl::GetPow2DownscaleFactor(this)
+            }
+        }
+        Self { base__: ID3D12VideoEncoderHeap_Vtbl::new::<Identity, OFFSET>(), GetPow2DownscaleFactor: GetPow2DownscaleFactor::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoEncoderHeap1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12VideoEncoderHeap as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12VideoEncoderHeap1 {}
+windows_core::imp::define_interface!(ID3D12VideoExtensionCommand, ID3D12VideoExtensionCommand_Vtbl, 0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
+impl core::ops::Deref for ID3D12VideoExtensionCommand {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoExtensionCommand, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoExtensionCommand {
+    pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoExtensionCommand_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ID3D12VideoExtensionCommand_Impl: ID3D12Pageable_Impl {
+    fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+impl ID3D12VideoExtensionCommand_Vtbl {
+    pub const fn new<Identity: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoExtensionCommand_Impl::GetDesc(this);
+            }
+        }
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoExtensionCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoExtensionCommand_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetDesc: GetDesc::<Identity, OFFSET>,
+            GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoExtensionCommand as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D12VideoExtensionCommand {}
+windows_core::imp::define_interface!(ID3D12VideoMotionEstimator, ID3D12VideoMotionEstimator_Vtbl, 0x33fdae0e_098b_428f_87bb_34b695de08f8);
+impl core::ops::Deref for ID3D12VideoMotionEstimator {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoMotionEstimator, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoMotionEstimator {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoMotionEstimator_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetDesc: usize,
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoMotionEstimator_Impl: ID3D12Pageable_Impl {
+    fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoMotionEstimator_Vtbl {
+    pub const fn new<Identity: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoMotionEstimator_Impl::GetDesc(this);
+            }
+        }
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoMotionEstimator_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoMotionEstimator_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetDesc: GetDesc::<Identity, OFFSET>,
+            GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoMotionEstimator as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoMotionEstimator {}
+windows_core::imp::define_interface!(ID3D12VideoMotionVectorHeap, ID3D12VideoMotionVectorHeap_Vtbl, 0x5be17987_743a_4061_834b_23d22daea505);
+impl core::ops::Deref for ID3D12VideoMotionVectorHeap {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoMotionVectorHeap, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoMotionVectorHeap {
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoMotionVectorHeap_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetDesc: usize,
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoMotionVectorHeap_Impl: ID3D12Pageable_Impl {
+    fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoMotionVectorHeap_Vtbl {
+    pub const fn new<Identity: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetDesc<Identity: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoMotionVectorHeap_Impl::GetDesc(this);
+            }
+        }
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoMotionVectorHeap_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoMotionVectorHeap_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetDesc: GetDesc::<Identity, OFFSET>,
+            GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoMotionVectorHeap as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoMotionVectorHeap {}
+windows_core::imp::define_interface!(ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList_Vtbl, 0xaeb2543a_167f_4682_acc8_d159ed4a6209);
+impl core::ops::Deref for ID3D12VideoProcessCommandList {
+    type Target = ID3D12CommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
+impl ID3D12VideoProcessCommandList {
+    pub unsafe fn Close(&self) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn Reset<P0>(&self, pallocator: P0) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<ID3D12CommandAllocator>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self), pallocator.param().abi()) }
+    }
+    pub unsafe fn ClearState(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ClearState)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+        }
+    }
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn DiscardResource<P0>(&self, presource: P0, pregion: Option<*const D3D12_DISCARD_REGION>)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).DiscardResource)(windows_core::Interface::as_raw(self), presource.param().abi(), pregion.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+    pub unsafe fn BeginQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn EndQuery<P0>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, index: u32)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndQuery)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, index);
+        }
+    }
+    pub unsafe fn ResolveQueryData<P0, P4>(&self, pqueryheap: P0, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: P4, aligneddestinationbufferoffset: u64)
+    where
+        P0: windows_core::Param<ID3D12QueryHeap>,
+        P4: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResolveQueryData)(windows_core::Interface::as_raw(self), pqueryheap.param().abi(), r#type, startindex, numqueries, pdestinationbuffer.param().abi(), aligneddestinationbufferoffset);
+        }
+    }
+    pub unsafe fn SetPredication<P0>(&self, pbuffer: P0, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP)
+    where
+        P0: windows_core::Param<ID3D12Resource>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPredication)(windows_core::Interface::as_raw(self), pbuffer.param().abi(), alignedbufferoffset, operation);
+        }
+    }
+    pub unsafe fn SetMarker(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetMarker)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn BeginEvent(&self, metadata: u32, pdata: Option<*const core::ffi::c_void>, size: u32) {
+        unsafe {
+            (windows_core::Interface::vtable(self).BeginEvent)(windows_core::Interface::as_raw(self), metadata, pdata.unwrap_or(core::mem::zeroed()) as _, size);
+        }
+    }
+    pub unsafe fn EndEvent(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self));
+        }
+    }
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn ProcessFrames<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS])
+    where
+        P0: windows_core::Param<ID3D12VideoProcessor>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+        }
+    }
+    pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
+        unsafe {
+            (windows_core::Interface::vtable(self).WriteBufferImmediate)(windows_core::Interface::as_raw(self), count, pparams, pmodes.unwrap_or(core::mem::zeroed()) as _);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessCommandList_Vtbl {
+    pub base__: ID3D12CommandList_Vtbl,
+    pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ClearState: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub ResourceBarrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_RESOURCE_BARRIER),
+    #[cfg(feature = "Win32_windef")]
+    pub DiscardResource: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_DISCARD_REGION),
+    #[cfg(not(feature = "Win32_windef"))]
+    DiscardResource: usize,
+    pub BeginQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub EndQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32),
+    pub ResolveQueryData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, D3D12_QUERY_TYPE, u32, u32, *mut core::ffi::c_void, u64),
+    pub SetPredication: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, D3D12_PREDICATION_OP),
+    pub SetMarker: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub BeginEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32),
+    pub EndEvent: unsafe extern "system" fn(*mut core::ffi::c_void),
+    #[cfg(feature = "Win32_windef")]
+    pub ProcessFrames: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS),
+    #[cfg(not(feature = "Win32_windef"))]
+    ProcessFrames: usize,
+    pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const D3D12_WRITEBUFFERIMMEDIATE_MODE),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoProcessCommandList_Impl: ID3D12CommandList_Impl {
+    fn Close(&self) -> windows_core::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>) -> windows_core::Result<()>;
+    fn ClearState(&self);
+    fn ResourceBarrier(&self, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER);
+    fn DiscardResource(&self, presource: windows_core::Ref<ID3D12Resource>, pregion: *const D3D12_DISCARD_REGION);
+    fn BeginQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn EndQuery(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, index: u32);
+    fn ResolveQueryData(&self, pqueryheap: windows_core::Ref<ID3D12QueryHeap>, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: windows_core::Ref<ID3D12Resource>, aligneddestinationbufferoffset: u64);
+    fn SetPredication(&self, pbuffer: windows_core::Ref<ID3D12Resource>, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP);
+    fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
+    fn EndEvent(&self);
+    fn ProcessFrames(&self, pvideoprocessor: windows_core::Ref<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS);
+    fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoProcessCommandList_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Close<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::Close(this).into()
+            }
+        }
+        unsafe extern "system" fn Reset<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pallocator: *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::Reset(this, core::mem::transmute_copy(&pallocator)).into()
+            }
+        }
+        unsafe extern "system" fn ClearState<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::ClearState(this);
+            }
+        }
+        unsafe extern "system" fn ResourceBarrier<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::ResourceBarrier(this, core::mem::transmute_copy(&numbarriers), core::mem::transmute_copy(&pbarriers));
+            }
+        }
+        unsafe extern "system" fn DiscardResource<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, presource: *mut core::ffi::c_void, pregion: *const D3D12_DISCARD_REGION) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::DiscardResource(this, core::mem::transmute_copy(&presource), core::mem::transmute_copy(&pregion));
+            }
+        }
+        unsafe extern "system" fn BeginQuery<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::BeginQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn EndQuery<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, index: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::EndQuery(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&index));
+            }
+        }
+        unsafe extern "system" fn ResolveQueryData<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqueryheap: *mut core::ffi::c_void, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: *mut core::ffi::c_void, aligneddestinationbufferoffset: u64) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::ResolveQueryData(this, core::mem::transmute_copy(&pqueryheap), core::mem::transmute_copy(&r#type), core::mem::transmute_copy(&startindex), core::mem::transmute_copy(&numqueries), core::mem::transmute_copy(&pdestinationbuffer), core::mem::transmute_copy(&aligneddestinationbufferoffset));
+            }
+        }
+        unsafe extern "system" fn SetPredication<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbuffer: *mut core::ffi::c_void, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::SetPredication(this, core::mem::transmute_copy(&pbuffer), core::mem::transmute_copy(&alignedbufferoffset), core::mem::transmute_copy(&operation));
+            }
+        }
+        unsafe extern "system" fn SetMarker<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::SetMarker(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn BeginEvent<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, metadata: u32, pdata: *const core::ffi::c_void, size: u32) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::BeginEvent(this, core::mem::transmute_copy(&metadata), core::mem::transmute_copy(&pdata), core::mem::transmute_copy(&size));
+            }
+        }
+        unsafe extern "system" fn EndEvent<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::EndEvent(this);
+            }
+        }
+        unsafe extern "system" fn ProcessFrames<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoprocessor: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::ProcessFrames(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        unsafe extern "system" fn WriteBufferImmediate<Identity: ID3D12VideoProcessCommandList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList_Impl::WriteBufferImmediate(this, core::mem::transmute_copy(&count), core::mem::transmute_copy(&pparams), core::mem::transmute_copy(&pmodes));
+            }
+        }
+        Self {
+            base__: ID3D12CommandList_Vtbl::new::<Identity, OFFSET>(),
+            Close: Close::<Identity, OFFSET>,
+            Reset: Reset::<Identity, OFFSET>,
+            ClearState: ClearState::<Identity, OFFSET>,
+            ResourceBarrier: ResourceBarrier::<Identity, OFFSET>,
+            DiscardResource: DiscardResource::<Identity, OFFSET>,
+            BeginQuery: BeginQuery::<Identity, OFFSET>,
+            EndQuery: EndQuery::<Identity, OFFSET>,
+            ResolveQueryData: ResolveQueryData::<Identity, OFFSET>,
+            SetPredication: SetPredication::<Identity, OFFSET>,
+            SetMarker: SetMarker::<Identity, OFFSET>,
+            BeginEvent: BeginEvent::<Identity, OFFSET>,
+            EndEvent: EndEvent::<Identity, OFFSET>,
+            ProcessFrames: ProcessFrames::<Identity, OFFSET>,
+            WriteBufferImmediate: WriteBufferImmediate::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoProcessCommandList {}
+windows_core::imp::define_interface!(ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList1_Vtbl, 0x542c5c4d_7596_434f_8c93_4efa6766f267);
+impl core::ops::Deref for ID3D12VideoProcessCommandList1 {
+    type Target = ID3D12VideoProcessCommandList;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoProcessCommandList);
+impl ID3D12VideoProcessCommandList1 {
+    #[cfg(feature = "Win32_windef")]
+    pub unsafe fn ProcessFrames1<P0>(&self, pvideoprocessor: P0, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, pinputarguments: &[D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1])
+    where
+        P0: windows_core::Param<ID3D12VideoProcessor>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessCommandList1_Vtbl {
+    pub base__: ID3D12VideoProcessCommandList_Vtbl,
+    #[cfg(feature = "Win32_windef")]
+    pub ProcessFrames1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, u32, *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
+    #[cfg(not(feature = "Win32_windef"))]
+    ProcessFrames1: usize,
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoProcessCommandList1_Impl: ID3D12VideoProcessCommandList_Impl {
+    fn ProcessFrames1(&self, pvideoprocessor: windows_core::Ref<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoProcessCommandList1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn ProcessFrames1<Identity: ID3D12VideoProcessCommandList1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pvideoprocessor: *mut core::ffi::c_void, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList1_Impl::ProcessFrames1(this, core::mem::transmute_copy(&pvideoprocessor), core::mem::transmute_copy(&poutputarguments), core::mem::transmute_copy(&numinputstreams), core::mem::transmute_copy(&pinputarguments));
+            }
+        }
+        Self { base__: ID3D12VideoProcessCommandList_Vtbl::new::<Identity, OFFSET>(), ProcessFrames1: ProcessFrames1::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoProcessCommandList1 {}
+windows_core::imp::define_interface!(ID3D12VideoProcessCommandList2, ID3D12VideoProcessCommandList2_Vtbl, 0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
+impl core::ops::Deref for ID3D12VideoProcessCommandList2 {
+    type Target = ID3D12VideoProcessCommandList1;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList2, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1);
+impl ID3D12VideoProcessCommandList2 {
+    pub unsafe fn SetProtectedResourceSession<P0>(&self, pprotectedresourcesession: P0)
+    where
+        P0: windows_core::Param<ID3D12ProtectedResourceSession>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetProtectedResourceSession)(windows_core::Interface::as_raw(self), pprotectedresourcesession.param().abi());
+        }
+    }
+    pub unsafe fn InitializeExtensionCommand<P0>(&self, pextensioncommand: P0, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InitializeExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pinitializationparameters, initializationparameterssizeinbytes);
+        }
+    }
+    pub unsafe fn ExecuteExtensionCommand<P0>(&self, pextensioncommand: P0, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize)
+    where
+        P0: windows_core::Param<ID3D12VideoExtensionCommand>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).ExecuteExtensionCommand)(windows_core::Interface::as_raw(self), pextensioncommand.param().abi(), pexecutionparameters, executionparameterssizeinbytes);
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessCommandList2_Vtbl {
+    pub base__: ID3D12VideoProcessCommandList1_Vtbl,
+    pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
+    pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+    pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoProcessCommandList2_Impl: ID3D12VideoProcessCommandList1_Impl {
+    fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<ID3D12ProtectedResourceSession>);
+    fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
+    fn ExecuteExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoProcessCommandList2_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn SetProtectedResourceSession<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pprotectedresourcesession: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList2_Impl::SetProtectedResourceSession(this, core::mem::transmute_copy(&pprotectedresourcesession));
+            }
+        }
+        unsafe extern "system" fn InitializeExtensionCommand<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList2_Impl::InitializeExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pinitializationparameters), core::mem::transmute_copy(&initializationparameterssizeinbytes));
+            }
+        }
+        unsafe extern "system" fn ExecuteExtensionCommand<Identity: ID3D12VideoProcessCommandList2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pextensioncommand: *mut core::ffi::c_void, pexecutionparameters: *const core::ffi::c_void, executionparameterssizeinbytes: usize) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList2_Impl::ExecuteExtensionCommand(this, core::mem::transmute_copy(&pextensioncommand), core::mem::transmute_copy(&pexecutionparameters), core::mem::transmute_copy(&executionparameterssizeinbytes));
+            }
+        }
+        Self {
+            base__: ID3D12VideoProcessCommandList1_Vtbl::new::<Identity, OFFSET>(),
+            SetProtectedResourceSession: SetProtectedResourceSession::<Identity, OFFSET>,
+            InitializeExtensionCommand: InitializeExtensionCommand::<Identity, OFFSET>,
+            ExecuteExtensionCommand: ExecuteExtensionCommand::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList2 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoProcessCommandList2 {}
+windows_core::imp::define_interface!(ID3D12VideoProcessCommandList3, ID3D12VideoProcessCommandList3_Vtbl, 0x1a0a4ca4_9f08_40ce_9558_b411fd2666ff);
+impl core::ops::Deref for ID3D12VideoProcessCommandList3 {
+    type Target = ID3D12VideoProcessCommandList2;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList3, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList, ID3D12VideoProcessCommandList, ID3D12VideoProcessCommandList1, ID3D12VideoProcessCommandList2);
+impl ID3D12VideoProcessCommandList3 {
+    pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
+        unsafe {
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessCommandList3_Vtbl {
+    pub base__: ID3D12VideoProcessCommandList2_Vtbl,
+    pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const D3D12_BARRIER_GROUP),
+}
+#[cfg(feature = "Win32_windef")]
+pub trait ID3D12VideoProcessCommandList3_Impl: ID3D12VideoProcessCommandList2_Impl {
+    fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP);
+}
+#[cfg(feature = "Win32_windef")]
+impl ID3D12VideoProcessCommandList3_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessCommandList3_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Barrier<Identity: ID3D12VideoProcessCommandList3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numbarriergroups: u32, pbarriergroups: *const D3D12_BARRIER_GROUP) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessCommandList3_Impl::Barrier(this, core::mem::transmute_copy(&numbarriergroups), core::mem::transmute_copy(&pbarriergroups));
+            }
+        }
+        Self { base__: ID3D12VideoProcessCommandList2_Vtbl::new::<Identity, OFFSET>(), Barrier: Barrier::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessCommandList3 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12CommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList1 as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessCommandList2 as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_windef")]
+impl windows_core::RuntimeName for ID3D12VideoProcessCommandList3 {}
+windows_core::imp::define_interface!(ID3D12VideoProcessor, ID3D12VideoProcessor_Vtbl, 0x304fdb32_bede_410a_8545_943ac6a46138);
+impl core::ops::Deref for ID3D12VideoProcessor {
+    type Target = ID3D12Pageable;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessor, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
+impl ID3D12VideoProcessor {
+    pub unsafe fn GetNodeMask(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNodeMask)(windows_core::Interface::as_raw(self)) }
+    }
+    pub unsafe fn GetNumInputStreamDescs(&self) -> u32 {
+        unsafe { (windows_core::Interface::vtable(self).GetNumInputStreamDescs)(windows_core::Interface::as_raw(self)) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetInputStreamDescs(&self, pinputstreamdescs: &mut [D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInputStreamDescs)(windows_core::Interface::as_raw(self), pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr())) }
+    }
+    #[cfg(feature = "Win32_dxgi")]
+    pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetOutputStreamDesc)(windows_core::Interface::as_raw(self), &mut result__);
+            result__
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessor_Vtbl {
+    pub base__: ID3D12Pageable_Vtbl,
+    pub GetNodeMask: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    pub GetNumInputStreamDescs: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetInputStreamDescs: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetInputStreamDescs: usize,
+    #[cfg(feature = "Win32_dxgi")]
+    pub GetOutputStreamDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC),
+    #[cfg(not(feature = "Win32_dxgi"))]
+    GetOutputStreamDesc: usize,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoProcessor_Impl: ID3D12Pageable_Impl {
+    fn GetNodeMask(&self) -> u32;
+    fn GetNumInputStreamDescs(&self) -> u32;
+    fn GetInputStreamDescs(&self, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> windows_core::Result<()>;
+    fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoProcessor_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetNodeMask<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessor_Impl::GetNodeMask(this)
+            }
+        }
+        unsafe extern "system" fn GetNumInputStreamDescs<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessor_Impl::GetNumInputStreamDescs(this)
+            }
+        }
+        unsafe extern "system" fn GetInputStreamDescs<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessor_Impl::GetInputStreamDescs(this, core::mem::transmute_copy(&numinputstreamdescs), core::mem::transmute_copy(&pinputstreamdescs)).into()
+            }
+        }
+        unsafe extern "system" fn GetOutputStreamDesc<Identity: ID3D12VideoProcessor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                *result__ = ID3D12VideoProcessor_Impl::GetOutputStreamDesc(this);
+            }
+        }
+        Self {
+            base__: ID3D12Pageable_Vtbl::new::<Identity, OFFSET>(),
+            GetNodeMask: GetNodeMask::<Identity, OFFSET>,
+            GetNumInputStreamDescs: GetNumInputStreamDescs::<Identity, OFFSET>,
+            GetInputStreamDescs: GetInputStreamDescs::<Identity, OFFSET>,
+            GetOutputStreamDesc: GetOutputStreamDesc::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessor as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoProcessor {}
+windows_core::imp::define_interface!(ID3D12VideoProcessor1, ID3D12VideoProcessor1_Vtbl, 0xf3cfe615_553f_425c_86d8_ee8c1b1fb01c);
+impl core::ops::Deref for ID3D12VideoProcessor1 {
+    type Target = ID3D12VideoProcessor;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+windows_core::imp::interface_hierarchy!(ID3D12VideoProcessor1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12VideoProcessor);
+impl ID3D12VideoProcessor1 {
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    where
+        T: windows_core::Interface,
+    {
+        unsafe { (windows_core::Interface::vtable(self).GetProtectedResourceSession)(windows_core::Interface::as_raw(self), &T::IID, result__ as *mut _ as *mut _).ok() }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D12VideoProcessor1_Vtbl {
+    pub base__: ID3D12VideoProcessor_Vtbl,
+    pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+#[cfg(feature = "Win32_dxgi")]
+pub trait ID3D12VideoProcessor1_Impl: ID3D12VideoProcessor_Impl {
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+}
+#[cfg(feature = "Win32_dxgi")]
+impl ID3D12VideoProcessor1_Vtbl {
+    pub const fn new<Identity: ID3D12VideoProcessor1_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetProtectedResourceSession<Identity: ID3D12VideoProcessor1_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D12VideoProcessor1_Impl::GetProtectedResourceSession(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppprotectedsession)).into()
+            }
+        }
+        Self { base__: ID3D12VideoProcessor_Vtbl::new::<Identity, OFFSET>(), GetProtectedResourceSession: GetProtectedResourceSession::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D12VideoProcessor1 as windows_core::Interface>::IID || iid == &<ID3D12Object as windows_core::Interface>::IID || iid == &<ID3D12DeviceChild as windows_core::Interface>::IID || iid == &<ID3D12Pageable as windows_core::Interface>::IID || iid == &<ID3D12VideoProcessor as windows_core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_dxgi")]
+impl windows_core::RuntimeName for ID3D12VideoProcessor1 {}
 windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12VirtualizationGuestDevice_Vtbl, 0xbc66d368_7373_4943_8757_fc87dc79e476);
 windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, windows_core::IUnknown);
 impl ID3D12VirtualizationGuestDevice {
@@ -11469,6 +21240,7 @@ impl ID3D12WorkGraphProperties_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ID3D12WorkGraphProperties {}
+pub const NUM_D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODES: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 4;
 #[cfg(feature = "Win32_d3dcommon")]
 pub type PFN_D3D12_CREATE_DEVICE = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::IUnknown>, param1: super::d3dcommon::D3D_FEATURE_LEVEL, param2: *const windows_core::GUID, param3: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = Option<unsafe extern "system" fn(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
@@ -11480,3 +21252,4 @@ pub type PFN_D3D12_GET_INTERFACE = Option<unsafe extern "system" fn(param0: *con
 pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: windows_core::OutRef<super::d3dcommon::ID3D10Blob>, pperrorblob: windows_core::OutRef<super::d3dcommon::ID3D10Blob>) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_d3dcommon")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = Option<unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: windows_core::OutRef<super::d3dcommon::ID3D10Blob>, pperrorblob: windows_core::OutRef<super::d3dcommon::ID3D10Blob>) -> windows_core::HRESULT>;
+pub const WKPDID_D3DAutoDebugObjectNameW: windows_core::GUID = windows_core::GUID::from_u128(0xd4902e36_757a_4942_9594_b6769afa43cd);

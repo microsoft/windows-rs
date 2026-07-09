@@ -7,13 +7,11 @@
 //! a namespace named after its defining header (`wdm.rdl` -> `Windows.Wdk.wdm`) and rewrites the
 //! flat winmds into that partition via `windows_metadata::remap`.
 //!
-//! The partition is purely metadata-derived — exactly one namespace per `.rdl` file, with no
-//! curated grouping, no synthetic catch-all bucket, and no preserved `Win32_Foundation` special
-//! case. (A name-based heuristic that folded related headers into a family namespace was
-//! considered and rejected: because it can only key off the header name, it inevitably mis-groups
-//! headers that merely share a prefix — e.g. `msinkaut` (Ink) under `msi` (Installer) — and there
-//! is no automatic way to tell those apart from legitimate families like `sql`/`sqlext` without a
-//! curated exception list. A predictable one-header-one-namespace mapping was preferred.)
+//! The partition is metadata-derived — by default one namespace per `.rdl` file, with a small
+//! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
+//! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.Win32.d2d`). There is no
+//! automatic name heuristic (it mis-groups prefix collisions like `msinkaut` under `msi`), no
+//! synthetic catch-all bucket, and no preserved `Win32_Foundation` special case.
 
 use std::collections::HashMap;
 
@@ -30,6 +28,48 @@ pub struct Corpus {
 
 /// The single flat namespace every canonical Win32/WDK `.rdl` file declares.
 const FLAT_NAMESPACE: &str = "Windows.Win32";
+
+/// Curated header-name prefixes whose headers are safe to fold into a single family namespace
+/// (`d2d1`, `d2d1_1`, `d2d1effects`, `d2dbasetypes`, … -> `Windows.Win32.d2d`).
+///
+/// This is deliberately an explicit allowlist rather than an automatic name heuristic. A purely
+/// name-based rule (fold any header into the shortest existing header-stem that is a prefix of it)
+/// mis-groups headers that merely share a prefix — `msinkaut` (Ink) under `msi` (Installer),
+/// `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` — and cannot be told apart from real
+/// families like `sql`/`sqlext` without curation. So instead we assert the safe prefixes here,
+/// each verified to cover only genuinely related headers. A header matching no prefix keeps its
+/// own name. The longest matching prefix wins (the current list has no overlaps).
+const FOLD_PREFIXES: &[&str] = &[
+    "bits",
+    "d2d",
+    "d3d10",
+    "d3d11",
+    "d3d12",
+    "d3d9",
+    "dwrite",
+    "dxgi",
+    "functiondiscovery",
+    "msxml",
+    "ro",
+    "rpc",
+    "winbio",
+    "windns",
+    "winusb",
+    "wlan",
+    "ws2",
+    "wsd",
+    "xps",
+];
+
+/// Maps a header stem to its namespace stem: the longest curated fold prefix it starts with, or
+/// the stem itself when none match.
+fn fold_stem(stem: &str) -> &str {
+    FOLD_PREFIXES
+        .iter()
+        .filter(|prefix| stem.starts_with(**prefix))
+        .max_by_key(|prefix| prefix.len())
+        .map_or(stem, |prefix| *prefix)
+}
 
 /// Builds the `name -> namespace` route map for a corpus by walking each `.rdl` file's declared
 /// item names. Returns the routes plus a per-namespace item-count summary for reporting.
@@ -63,7 +103,7 @@ pub fn routes(corpus: &Corpus) -> (HashMap<String, String>, Vec<(String, usize)>
     let mut summary: HashMap<String, usize> = HashMap::new();
 
     for (stem, names) in &per_file {
-        let namespace = format!("{}.{stem}", corpus.root);
+        let namespace = format!("{}.{}", corpus.root, fold_stem(stem));
         for name in names {
             map.insert(name.clone(), namespace.clone());
         }

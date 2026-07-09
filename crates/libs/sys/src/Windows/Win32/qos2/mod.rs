@@ -1,5 +1,5 @@
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2def"))]
-windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::winnt::HANDLE, socket : super::winsock2::SOCKET, destaddr : *const super::ws2def::SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "Win32_winnt", feature = "Win32_winsock2", feature = "Win32_ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::winnt::HANDLE, socket : super::winsock2::SOCKET, destaddr : *const super::ws2::SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 windows_link::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::winnt::HANDLE, overlapped : *const super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_winnt")]
@@ -16,10 +16,10 @@ windows_link::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::winn
 windows_link::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::winnt::HANDLE, socket : super::winsock2::SOCKET, flowid : QOS_FLOWID, flags : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 windows_link::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::winnt::HANDLE, flowid : QOS_FLOWID, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2def"))]
-windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2def::SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2def"))]
-windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2def::SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2::SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+windows_link::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2::SOCKADDR, flags : u32) -> windows_sys::core::BOOL);
 pub type PQOS_FLOWID = *mut u32;
 pub type PQOS_FLOWRATE_OUTGOING = *mut QOS_FLOWRATE_OUTGOING;
 pub type PQOS_FLOWRATE_REASON = *mut QOS_FLOWRATE_REASON;

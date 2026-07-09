@@ -338,27 +338,27 @@ impl Default for FORMATETC {
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct GDI_OBJECT {
     pub ObjectType: u32,
     pub u: GDI_OBJECT_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for GDI_OBJECT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union GDI_OBJECT_0 {
     pub hBitmap: super::wtypes::wireHBITMAP,
     pub hPalette: super::wtypes::wireHPALETTE,
     pub hGeneric: super::wtypes::wireHGLOBAL,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for GDI_OBJECT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3038,8 +3038,8 @@ impl windows_core::RuntimeName for IProgressNotify {}
 windows_core::imp::define_interface!(IROTData, IROTData_Vtbl, 0xf29f6bc0_5021_11ce_aa15_00006901293f);
 windows_core::imp::interface_hierarchy!(IROTData, windows_core::IUnknown);
 impl IROTData {
-    #[cfg(feature = "Win32_rpcndr")]
-    pub unsafe fn GetComparisonData(&self, pbdata: *mut super::rpcndr::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_rpc")]
+    pub unsafe fn GetComparisonData(&self, pbdata: *mut super::rpc::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetComparisonData)(windows_core::Interface::as_raw(self), pbdata as _, cbmax, pcbdata as _) }
     }
 }
@@ -3047,19 +3047,19 @@ impl IROTData {
 #[doc(hidden)]
 pub struct IROTData_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "Win32_rpcndr")]
-    pub GetComparisonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::rpcndr::byte, u32, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpcndr"))]
+    #[cfg(feature = "Win32_rpc")]
+    pub GetComparisonData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::rpc::byte, u32, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_rpc"))]
     GetComparisonData: usize,
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 pub trait IROTData_Impl: windows_core::IUnknownImpl {
-    fn GetComparisonData(&self, pbdata: *mut super::rpcndr::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::Result<()>;
+    fn GetComparisonData(&self, pbdata: *mut super::rpc::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl IROTData_Vtbl {
     pub const fn new<Identity: IROTData_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetComparisonData<Identity: IROTData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *mut super::rpcndr::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetComparisonData<Identity: IROTData_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pbdata: *mut super::rpc::byte, cbmax: u32, pcbdata: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IROTData_Impl::GetComparisonData(this, core::mem::transmute_copy(&pbdata), core::mem::transmute_copy(&cbmax), core::mem::transmute_copy(&pcbdata)).into()
@@ -3071,7 +3071,7 @@ impl IROTData_Vtbl {
         iid == &<IROTData as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl windows_core::RuntimeName for IROTData {}
 windows_core::imp::define_interface!(IRootStorage, IRootStorage_Vtbl, 0x00000012_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IRootStorage, windows_core::IUnknown);
@@ -4045,7 +4045,7 @@ impl Default for RemSNB {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
@@ -4053,9 +4053,9 @@ pub struct RemSTGMEDIUM {
     pub pData: u32,
     pub pUnkForRelease: u32,
     pub cbData: u32,
-    pub data: [super::rpcndr::byte; 1],
+    pub data: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for RemSTGMEDIUM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4170,20 +4170,20 @@ pub struct userSTGMEDIUM {
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for userSTGMEDIUM_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: super::wtypes::wireHMETAFILEPICT,
@@ -4194,7 +4194,7 @@ pub union userSTGMEDIUM_0_0 {
     pub pstm: *mut super::wtypesbase::BYTE_BLOB,
     pub pstg: *mut super::wtypesbase::BYTE_BLOB,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wingdi", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for userSTGMEDIUM_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

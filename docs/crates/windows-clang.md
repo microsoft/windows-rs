@@ -520,10 +520,11 @@ in-house metadata has not shipped so no released consumer breaks. There is **no*
   `Windows.Win32.Apis` container is **split** into one `Apis` per target namespace, routing each
   function/constant by name. References not in the map (`System.*`, metadata-attribute types)
   pass through unchanged.
-- `tool_package` builds the map from the RDL corpus (exactly one namespace per header `.rdl`
-  file — no coalescing, no synthetic buckets, no curated lists), emits throwaway namespaced
-  winmds under `target/`, and runs `--package` against those plus the already-namespaced WinRT
-  `Windows.winmd`.
+- `tool_package` builds the map from the RDL corpus (one namespace per header `.rdl` file, plus a
+  small curated allowlist of header-name prefixes — `FOLD_PREFIXES` — that fold obviously-related
+  headers into a family namespace, e.g. `d2d1`/`d2d1_1`/`d2d1effects`/`d2dbasetypes` → `d2d`),
+  emits throwaway namespaced winmds under `target/`, and runs `--package` against those plus the
+  already-namespaced WinRT `Windows.winmd`.
 
 **Remaining after the winmd remap works:** migrate the in-repo consumers (samples/tests) from
 the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
@@ -534,21 +535,25 @@ address the metadata-shape differences the switch surfaces (see "Metadata-shape 
 
 **Status.** The remap is wired end to end for the **full corpus** and both published crates
 compile. `tool_package` reads the flat `Windows.Win32`/`Windows.Wdk` winmds and routes every
-type/function/constant to a `Windows.Win32.<header>` / `Windows.Wdk.<header>` namespace —
-exactly one namespace per header, no coalescing: **614** Win32 namespaces / 124813 items
+type/function/constant to a `Windows.Win32.<header>` / `Windows.Wdk.<header>` namespace (one per
+header, minus the curated fold families): **528** Win32 namespaces / 124813 items
 and **6** Wdk namespaces / 6401 items. `cargo check -p windows-sys --all-features` and
 `cargo check -p windows --all-features` both succeed. Arch-divergent copies survive the remap
 byte-faithfully. `sys.txt`/`windows.txt` now include the whole flat corpus (`--in target/package`,
 editorial exclusions dropped — see the summary of feature naming below); WinRT exclusions are
 preserved and `Windows.Win32.Metadata` (attribute types) is excluded.
 
-A name-based coalescing heuristic (fold related headers such as `d2d1`/`d2d1_1`/`d2d1effects`
-into one family namespace) was prototyped and rejected. Keyed only off the header name, it
-inevitably mis-groups headers that merely share a prefix — `msinkaut` (Ink) under `msi`
-(Installer), `playsoundapi` under `pla`, `icmpapi` (ICMP) under `icm` — and there is no automatic
-way to distinguish those from legitimate families like `sql`/`sqlext` without a curated exception
-list. Rather than mix a heuristic with hand-maintained exceptions, the mapping is kept fully
-predictable: one header, one namespace.
+**Header folding.** By default each `.rdl` header becomes its own namespace/feature. On top of
+that, `remap.rs::FOLD_PREFIXES` is a small **curated allowlist** of header-name prefixes that fold
+obviously-related headers into one family namespace (`bits`, `d2d`, `d3d9`/`d3d10`/`d3d11`/`d3d12`,
+`dwrite`, `dxgi`, `functiondiscovery`, `msxml`, `ro`, `rpc`, `winbio`, `windns`, `winusb`, `wlan`,
+`ws2`, `wsd`, `xps`). This is deliberately an allowlist, **not** an automatic name heuristic: a
+purely name-based rule (fold into the shortest existing header-stem prefix) mis-groups headers that
+merely share a prefix — `msinkaut` (Ink) under `msi` (Installer), `playsoundapi` under `pla`,
+`icmpapi` (ICMP) under `icm` — and cannot be told apart from legitimate families like `sql`/`sqlext`
+without curation. Each listed prefix was verified against the corpus to cover only genuinely related
+headers; the longest matching prefix wins. Adding a header that starts with a listed prefix folds it
+automatically, so the list should be revisited if an unrelated header ever collides.
 
 **Feature-graph fix.** `package_writer.rs` previously hardcoded the old `Win32_Foundation`
 "snowflake" as the base dependency of every top-level Win32/Wdk umbrella feature, and derived a

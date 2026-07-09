@@ -794,16 +794,16 @@ pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFLockWorkQueue(dwworkqueue : u32) -> windows_core::HRESULT);
     unsafe { MFLockWorkQueue(dwworkqueue) }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[inline]
-pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::dxgiformat::DXGI_FORMAT {
-    windows_core::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::dxgiformat::DXGI_FORMAT);
+pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::dxgi::DXGI_FORMAT {
+    windows_core::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::dxgi::DXGI_FORMAT);
     unsafe { MFMapDX9FormatToDXGIFormat(dx9) }
 }
-#[cfg(feature = "Win32_dxgiformat")]
+#[cfg(feature = "Win32_dxgi")]
 #[inline]
-pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::dxgiformat::DXGI_FORMAT) -> u32 {
-    windows_core::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::dxgiformat::DXGI_FORMAT) -> u32);
+pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::dxgi::DXGI_FORMAT) -> u32 {
+    windows_core::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::dxgi::DXGI_FORMAT) -> u32);
     unsafe { MFMapDXGIFormatToDX9Format(dx11) }
 }
 #[cfg(all(feature = "Win32_mfobjects", feature = "Win32_winnt"))]

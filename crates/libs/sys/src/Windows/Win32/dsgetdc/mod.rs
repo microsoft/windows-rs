@@ -1,11 +1,11 @@
-#[cfg(feature = "Win32_ws2def")]
-windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2def::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "Win32_ws2def")]
-windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2def::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR, subnetnames : *mut *mut windows_sys::core::PSTR) -> u32);
-#[cfg(feature = "Win32_ws2def")]
-windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2def::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR, subnetnames : *mut *mut windows_sys::core::PWSTR) -> u32);
-#[cfg(feature = "Win32_ws2def")]
-windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2def::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR) -> u32);
+#[cfg(feature = "Win32_ws2")]
+windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR) -> u32);
+#[cfg(feature = "Win32_ws2")]
+windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_sys::core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PSTR, subnetnames : *mut *mut windows_sys::core::PSTR) -> u32);
+#[cfg(feature = "Win32_ws2")]
+windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR, subnetnames : *mut *mut windows_sys::core::PWSTR) -> u32);
+#[cfg(feature = "Win32_ws2")]
+windows_link::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_sys::core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_sys::core::PWSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsA(servername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCSTR) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DsDeregisterDnsHostRecordsW(servername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, dsaguid : *const windows_sys::core::GUID, dnshostname : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_winnt")]
@@ -16,10 +16,10 @@ windows_link::link!("netapi32.dll" "system" fn DsEnumerateDomainTrustsW(serverna
 windows_link::link!("netapi32.dll" "system" fn DsGetDcCloseW(getdccontexthandle : super::winnt::HANDLE));
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNameA(computername : windows_sys::core::PCSTR, domainname : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, sitename : windows_sys::core::PCSTR, flags : u32, domaincontrollerinfo : *mut PDOMAIN_CONTROLLER_INFOA) -> u32);
 windows_link::link!("netapi32.dll" "system" fn DsGetDcNameW(computername : windows_sys::core::PCWSTR, domainname : windows_sys::core::PCWSTR, domainguid : *const windows_sys::core::GUID, sitename : windows_sys::core::PCWSTR, flags : u32, domaincontrollerinfo : *mut PDOMAIN_CONTROLLER_INFOW) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2def"))]
-windows_link::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2def::LPSOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PSTR) -> u32);
-#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2def"))]
-windows_link::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2def::LPSOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PWSTR) -> u32);
+#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+windows_link::link!("netapi32.dll" "system" fn DsGetDcNextA(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2::LPSOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PSTR) -> u32);
+#[cfg(all(feature = "Win32_winnt", feature = "Win32_ws2"))]
+windows_link::link!("netapi32.dll" "system" fn DsGetDcNextW(getdccontexthandle : super::winnt::HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut super::ws2::LPSOCKET_ADDRESS, dnshostname : *mut windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("netapi32.dll" "system" fn DsGetDcOpenA(dnsname : windows_sys::core::PCSTR, optionflags : u32, sitename : windows_sys::core::PCSTR, domainguid : *const windows_sys::core::GUID, dnsforestname : windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut super::winnt::HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]

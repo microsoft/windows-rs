@@ -1445,10 +1445,10 @@ impl ITextServices2 {
     pub unsafe fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).TxGetNaturalSize2)(windows_core::Interface::as_raw(self), dwaspect, hdcdraw, hictargetdev, ptd as _, dwmode, psizelextent, pwidth as _, pheight as _, pascent as _) }
     }
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_windef"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_windef"))]
     pub unsafe fn TxDrawD2D<P0>(&self, prendertarget: P0, lprcbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, lviewid: i32) -> windows_core::HRESULT
     where
-        P0: windows_core::Param<super::d2d1::ID2D1RenderTarget>,
+        P0: windows_core::Param<super::d2d::ID2D1RenderTarget>,
     {
         unsafe { (windows_core::Interface::vtable(self).TxDrawD2D)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), lprcbounds, lprcupdate as _, lviewid) }
     }
@@ -1461,17 +1461,17 @@ pub struct ITextServices2_Vtbl {
     pub TxGetNaturalSize2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::windef::HDC, super::windef::HDC, *mut super::objidl::DVTARGETDEVICE, u32, *const super::windef::SIZEL, *mut i32, *mut i32, *mut i32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_objidl", feature = "Win32_windef")))]
     TxGetNaturalSize2: usize,
-    #[cfg(all(feature = "Win32_d2d1", feature = "Win32_windef"))]
+    #[cfg(all(feature = "Win32_d2d", feature = "Win32_windef"))]
     pub TxDrawD2D: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const super::windef::RECTL, *mut super::windef::RECT, i32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_d2d1", feature = "Win32_windef")))]
+    #[cfg(not(all(feature = "Win32_d2d", feature = "Win32_windef")))]
     TxDrawD2D: usize,
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
 pub trait ITextServices2_Impl: ITextServices_Impl {
     fn TxGetNaturalSize2(&self, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::Result<()>;
-    fn TxDrawD2D(&self, prendertarget: windows_core::Ref<super::d2d1::ID2D1RenderTarget>, lprcbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, lviewid: i32) -> windows_core::Result<()>;
+    fn TxDrawD2D(&self, prendertarget: windows_core::Ref<super::d2d::ID2D1RenderTarget>, lprcbounds: *const super::windef::RECTL, lprcupdate: *mut super::windef::RECT, lviewid: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
 impl ITextServices2_Vtbl {
     pub const fn new<Identity: ITextServices2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn TxGetNaturalSize2<Identity: ITextServices2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwaspect: u32, hdcdraw: super::windef::HDC, hictargetdev: super::windef::HDC, ptd: *mut super::objidl::DVTARGETDEVICE, dwmode: u32, psizelextent: *const super::windef::SIZEL, pwidth: *mut i32, pheight: *mut i32, pascent: *mut i32) -> windows_core::HRESULT {
@@ -1496,7 +1496,7 @@ impl ITextServices2_Vtbl {
         iid == &<ITextServices2 as windows_core::Interface>::IID || iid == &<ITextServices as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_d2d1", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
+#[cfg(all(feature = "Win32_d2d", feature = "Win32_minwindef", feature = "Win32_objidl", feature = "Win32_oleidl", feature = "Win32_windef"))]
 impl windows_core::RuntimeName for ITextServices2 {}
 pub type PCreateTextServices = Option<unsafe extern "system" fn(punkouter: windows_core::Ref<windows_core::IUnknown>, pitexthost: windows_core::Ref<ITextHost>, ppunk: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT>;
 pub type PShutdownTextServices = Option<unsafe extern "system" fn(ptextservices: windows_core::Ref<windows_core::IUnknown>) -> windows_core::HRESULT>;

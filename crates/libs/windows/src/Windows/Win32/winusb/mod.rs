@@ -95,16 +95,16 @@ pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: WINUSB_INTERFACE_HA
     windows_core::link!("winusb.dll" "system" fn WinUsb_QueryInterfaceSettings(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, usbaltinterfacedescriptor : *mut super::usbspec::USB_INTERFACE_DESCRIPTOR) -> windows_core::BOOL);
     unsafe { WinUsb_QueryInterfaceSettings(interfacehandle, alternateinterfacenumber, usbaltinterfacedescriptor as _) }
 }
-#[cfg(all(feature = "Win32_usb", feature = "Win32_winusbio"))]
+#[cfg(feature = "Win32_usb")]
 #[inline]
-pub unsafe fn WinUsb_QueryPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut super::winusbio::WINUSB_PIPE_INFORMATION) -> windows_core::BOOL {
-    windows_core::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut super::winusbio::WINUSB_PIPE_INFORMATION) -> windows_core::BOOL);
+pub unsafe fn WinUsb_QueryPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> windows_core::BOOL {
+    windows_core::link!("winusb.dll" "system" fn WinUsb_QueryPipe(interfacehandle : WINUSB_INTERFACE_HANDLE, alternateinterfacenumber : u8, pipeindex : u8, pipeinformation : *mut WINUSB_PIPE_INFORMATION) -> windows_core::BOOL);
     unsafe { WinUsb_QueryPipe(interfacehandle, alternateinterfacenumber, pipeindex, pipeinformation as _) }
 }
-#[cfg(all(feature = "Win32_usb", feature = "Win32_winusbio"))]
+#[cfg(feature = "Win32_usb")]
 #[inline]
-pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: WINUSB_INTERFACE_HANDLE, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut super::winusbio::WINUSB_PIPE_INFORMATION_EX) -> windows_core::BOOL {
-    windows_core::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut super::winusbio::WINUSB_PIPE_INFORMATION_EX) -> windows_core::BOOL);
+pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: WINUSB_INTERFACE_HANDLE, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> windows_core::BOOL {
+    windows_core::link!("winusb.dll" "system" fn WinUsb_QueryPipeEx(interfacehandle : WINUSB_INTERFACE_HANDLE, alternatesettingnumber : u8, pipeindex : u8, pipeinformationex : *mut WINUSB_PIPE_INFORMATION_EX) -> windows_core::BOOL);
     unsafe { WinUsb_QueryPipeEx(interfacehandle, alternatesettingnumber, pipeindex, pipeinformationex as _) }
 }
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_usb", feature = "Win32_winnt"))]
@@ -185,6 +185,17 @@ pub unsafe fn WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid:
     windows_core::link!("winusb.dll" "system" fn WinUsb_WritePipe(interfacehandle : WINUSB_INTERFACE_HANDLE, pipeid : u8, buffer : *const u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
     unsafe { WinUsb_WritePipe(interfacehandle, pipeid, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
+pub const ALLOW_PARTIAL_READS: u32 = 5;
+pub const AUTO_CLEAR_STALL: u32 = 2;
+pub const AUTO_FLUSH: u32 = 6;
+pub const AUTO_SUSPEND: u32 = 129;
+pub const DEVICE_SPEED: u32 = 1;
+pub const FullSpeed: u32 = 2;
+pub const HighSpeed: u32 = 3;
+pub const IGNORE_SHORT_PACKETS: u32 = 4;
+pub const LowSpeed: u32 = 1;
+pub const MAXIMUM_TRANSFER_SIZE: u32 = 8;
+pub const PIPE_TRANSFER_TIMEOUT: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINUSB_INTERFACE_HANDLE(pub *mut *mut core::ffi::c_void);
@@ -211,6 +222,38 @@ impl Default for PWINUSB_ISOCH_BUFFER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_usb")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PWINUSB_PIPE_INFORMATION(pub *mut WINUSB_PIPE_INFORMATION);
+#[cfg(feature = "Win32_usb")]
+impl PWINUSB_PIPE_INFORMATION {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_usb")]
+impl Default for PWINUSB_PIPE_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_usb")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PWINUSB_PIPE_INFORMATION_EX(pub *mut WINUSB_PIPE_INFORMATION_EX);
+#[cfg(feature = "Win32_usb")]
+impl PWINUSB_PIPE_INFORMATION_EX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(feature = "Win32_usb")]
+impl Default for PWINUSB_PIPE_INFORMATION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINUSB_SETUP_PACKET(pub *mut WINUSB_SETUP_PACKET);
@@ -224,6 +267,10 @@ impl Default for PWINUSB_SETUP_PACKET {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const RAW_IO: u32 = 7;
+pub const RESET_PIPE_ON_RESUME: u32 = 9;
+pub const SHORT_PACKET_TERMINATE: u32 = 1;
+pub const SUSPEND_DELAY: u32 = 131;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINUSB_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
@@ -250,6 +297,25 @@ impl Default for WINUSB_ISOCH_BUFFER_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(feature = "Win32_usb")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINUSB_PIPE_INFORMATION {
+    pub PipeType: super::usb::USBD_PIPE_TYPE,
+    pub PipeId: u8,
+    pub MaximumPacketSize: u16,
+    pub Interval: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_usb")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct WINUSB_PIPE_INFORMATION_EX {
+    pub PipeType: super::usb::USBD_PIPE_TYPE,
+    pub PipeId: u8,
+    pub MaximumPacketSize: u16,
+    pub Interval: u8,
+    pub MaximumBytesPerInterval: u32,
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct WINUSB_SETUP_PACKET {
@@ -259,3 +325,4 @@ pub struct WINUSB_SETUP_PACKET {
     pub Index: u16,
     pub Length: u16,
 }
+pub const WinUSB_TestGuid: windows_core::GUID = windows_core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);

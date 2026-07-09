@@ -367,7 +367,7 @@ pub type PSEC_TRAFFIC_SECRET_TYPE = *mut SEC_TRAFFIC_SECRET_TYPE;
 pub type PSEC_WINNT_AUTH_IDENTITY_EX2 = *mut SEC_WINNT_AUTH_IDENTITY_EX2;
 pub type PSEC_WINNT_AUTH_IDENTITY_EXA = *mut SEC_WINNT_AUTH_IDENTITY_EXA;
 pub type PSEC_WINNT_AUTH_IDENTITY_EXW = *mut SEC_WINNT_AUTH_IDENTITY_EXW;
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 pub type PSEC_WINNT_AUTH_IDENTITY_INFO = *mut SEC_WINNT_AUTH_IDENTITY_INFO;
 pub type PSEC_WINNT_AUTH_IDENTITY_OPAQUE = *mut core::ffi::c_void;
 pub type PSecBuffer = *mut SecBuffer;
@@ -926,16 +926,16 @@ pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED: u32 = 32;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED: u32 = 64;
 pub const SEC_WINNT_AUTH_IDENTITY_FLAGS_VALID_SSPIPFC_FLAGS: i32 = -268435456;
 #[repr(C)]
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy)]
 pub union SEC_WINNT_AUTH_IDENTITY_INFO {
     pub AuthIdExw: SEC_WINNT_AUTH_IDENTITY_EXW,
     pub AuthIdExa: SEC_WINNT_AUTH_IDENTITY_EXA,
-    pub AuthId_a: super::rpcdce::SEC_WINNT_AUTH_IDENTITY_A,
-    pub AuthId_w: super::rpcdce::SEC_WINNT_AUTH_IDENTITY_W,
+    pub AuthId_a: super::rpc::SEC_WINNT_AUTH_IDENTITY_A,
+    pub AuthId_w: super::rpc::SEC_WINNT_AUTH_IDENTITY_W,
     pub AuthIdEx2: SEC_WINNT_AUTH_IDENTITY_EX2,
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for SEC_WINNT_AUTH_IDENTITY_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

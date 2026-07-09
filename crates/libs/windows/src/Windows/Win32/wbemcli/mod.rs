@@ -1309,12 +1309,12 @@ impl IWbemObjectAccess {
     {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyHandle)(windows_core::Interface::as_raw(self), wszpropertyname.param().abi(), ptype as _, plhandle as _) }
     }
-    #[cfg(feature = "Win32_rpcndr")]
-    pub unsafe fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const super::rpcndr::byte) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_rpc")]
+    pub unsafe fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const super::rpc::byte) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).WritePropertyValue)(windows_core::Interface::as_raw(self), lhandle, lnumbytes, adata) }
     }
-    #[cfg(feature = "Win32_rpcndr")]
-    pub unsafe fn ReadPropertyValue(&self, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpcndr::byte) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_rpc")]
+    pub unsafe fn ReadPropertyValue(&self, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpc::byte) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPropertyValue)(windows_core::Interface::as_raw(self), lhandle, lbuffersize, plnumbytes as _, adata as _) }
     }
     pub unsafe fn ReadDWORD(&self, lhandle: i32) -> windows_core::Result<u32> {
@@ -1350,13 +1350,13 @@ impl IWbemObjectAccess {
 pub struct IWbemObjectAccess_Vtbl {
     pub base__: IWbemClassObject_Vtbl,
     pub GetPropertyHandle: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut CIMTYPE, *mut i32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpcndr")]
-    pub WritePropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const super::rpcndr::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpcndr"))]
+    #[cfg(feature = "Win32_rpc")]
+    pub WritePropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *const super::rpc::byte) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_rpc"))]
     WritePropertyValue: usize,
-    #[cfg(feature = "Win32_rpcndr")]
-    pub ReadPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32, *mut super::rpcndr::byte) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpcndr"))]
+    #[cfg(feature = "Win32_rpc")]
+    pub ReadPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, *mut i32, *mut super::rpc::byte) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_rpc"))]
     ReadPropertyValue: usize,
     pub ReadDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32) -> windows_core::HRESULT,
     pub WriteDWORD: unsafe extern "system" fn(*mut core::ffi::c_void, i32, u32) -> windows_core::HRESULT,
@@ -1366,11 +1366,11 @@ pub struct IWbemObjectAccess_Vtbl {
     pub Lock: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Unlock: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 pub trait IWbemObjectAccess_Impl: IWbemClassObject_Impl {
     fn GetPropertyHandle(&self, wszpropertyname: &windows_core::PCWSTR, ptype: *mut CIMTYPE, plhandle: *mut i32) -> windows_core::Result<()>;
-    fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const super::rpcndr::byte) -> windows_core::Result<()>;
-    fn ReadPropertyValue(&self, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpcndr::byte) -> windows_core::Result<()>;
+    fn WritePropertyValue(&self, lhandle: i32, lnumbytes: i32, adata: *const super::rpc::byte) -> windows_core::Result<()>;
+    fn ReadPropertyValue(&self, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpc::byte) -> windows_core::Result<()>;
     fn ReadDWORD(&self, lhandle: i32) -> windows_core::Result<u32>;
     fn WriteDWORD(&self, lhandle: i32, dw: u32) -> windows_core::Result<()>;
     fn ReadQWORD(&self, lhandle: i32) -> windows_core::Result<u64>;
@@ -1379,7 +1379,7 @@ pub trait IWbemObjectAccess_Impl: IWbemClassObject_Impl {
     fn Lock(&self, lflags: i32) -> windows_core::Result<()>;
     fn Unlock(&self, lflags: i32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl IWbemObjectAccess_Vtbl {
     pub const fn new<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetPropertyHandle<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszpropertyname: windows_core::PCWSTR, ptype: *mut CIMTYPE, plhandle: *mut i32) -> windows_core::HRESULT {
@@ -1388,13 +1388,13 @@ impl IWbemObjectAccess_Vtbl {
                 IWbemObjectAccess_Impl::GetPropertyHandle(this, core::mem::transmute(&wszpropertyname), core::mem::transmute_copy(&ptype), core::mem::transmute_copy(&plhandle)).into()
             }
         }
-        unsafe extern "system" fn WritePropertyValue<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, lnumbytes: i32, adata: *const super::rpcndr::byte) -> windows_core::HRESULT {
+        unsafe extern "system" fn WritePropertyValue<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, lnumbytes: i32, adata: *const super::rpc::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemObjectAccess_Impl::WritePropertyValue(this, core::mem::transmute_copy(&lhandle), core::mem::transmute_copy(&lnumbytes), core::mem::transmute_copy(&adata)).into()
             }
         }
-        unsafe extern "system" fn ReadPropertyValue<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpcndr::byte) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadPropertyValue<Identity: IWbemObjectAccess_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lhandle: i32, lbuffersize: i32, plnumbytes: *mut i32, adata: *mut super::rpc::byte) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemObjectAccess_Impl::ReadPropertyValue(this, core::mem::transmute_copy(&lhandle), core::mem::transmute_copy(&lbuffersize), core::mem::transmute_copy(&plnumbytes), core::mem::transmute_copy(&adata)).into()
@@ -1472,7 +1472,7 @@ impl IWbemObjectAccess_Vtbl {
         iid == &<IWbemObjectAccess as windows_core::Interface>::IID || iid == &<IWbemClassObject as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl windows_core::RuntimeName for IWbemObjectAccess {}
 windows_core::imp::define_interface!(IWbemObjectSink, IWbemObjectSink_Vtbl, 0x7c857801_7381_11cf_884d_00aa004b2e24);
 windows_core::imp::interface_hierarchy!(IWbemObjectSink, windows_core::IUnknown);

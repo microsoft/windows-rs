@@ -1,31 +1,31 @@
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCSTR, srcprincipal : windows_sys::core::PCSTR, srcdomaincontroller : windows_sys::core::PCSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCSTR, dstprincipal : windows_sys::core::PCSTR) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_sys::core::PCWSTR, srcprincipal : windows_sys::core::PCWSTR, srcdomaincontroller : windows_sys::core::PCWSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_sys::core::PCWSTR, dstprincipal : windows_sys::core::PCWSTR) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_sys::core::PCSTR, annotation : windows_sys::core::PCSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_sys::core::PCWSTR, annotation : windows_sys::core::PCWSTR, instanceguid : *const windows_sys::core::GUID, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGA(sitename : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindToISTGW(sitename : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
-windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_sys::core::PCSTR, dnsdomainname : windows_sys::core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
+windows_link::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_sys::core::PCWSTR, dnsdomainname : windows_sys::core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_sys::core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsBindingSetTimeout(hds : super::winnt::HANDLE, ctimeoutsecs : u32) -> u32);
 windows_link::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_sys::core::PCSTR, servicename : windows_sys::core::PCSTR, pcspnlength : *mut u32, pszspn : windows_sys::core::PSTR) -> u32);
@@ -38,8 +38,8 @@ windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoA(infole
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeDomainControllerInfoW(infolevel : u32, cinfo : u32, pinfo : *const core::ffi::c_void));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultA(presult : *const DS_NAME_RESULTA));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
-#[cfg(feature = "Win32_rpcdce")]
-windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE));
+#[cfg(feature = "Win32_rpc")]
+windows_link::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapA(pguidmap : *const DS_SCHEMA_GUID_MAPA));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW));
 windows_link::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_sys::core::PSTR));
@@ -78,10 +78,10 @@ windows_link::link!("ntdsapi.dll" "system" fn DsListServersInSiteW(hds : super::
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesA(hds : super::winnt::HANDLE, ppsites : *mut PDS_NAME_RESULTA) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::winnt::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> u32);
-#[cfg(feature = "Win32_rpcdce")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32);
-#[cfg(feature = "Win32_rpcdce")]
-windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32);
+#[cfg(feature = "Win32_rpc")]
+windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_sys::core::PCSTR, domain : windows_sys::core::PCSTR, password : windows_sys::core::PCSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
+#[cfg(feature = "Win32_rpc")]
+windows_link::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_sys::core::PCWSTR, domain : windows_sys::core::PCWSTR, password : windows_sys::core::PCWSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
 #[cfg(feature = "Win32_winnt")]
 windows_link::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::winnt::HANDLE, cguids : u32, rguids : *const windows_sys::core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
 #[cfg(feature = "Win32_winnt")]

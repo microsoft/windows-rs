@@ -323,19 +323,19 @@ pub const DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA2_Vid
 pub const DXVA2_VideoChromaSubsampling_Vertically_Cosited: DXVA2_VideoChromaSubSampling = 2;
 pub const DXVA2_VideoDecoderRenderTarget: i32 = 0;
 #[repr(C)]
-#[cfg(feature = "Win32_d3d9types")]
+#[cfg(feature = "Win32_d3d9")]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
     pub SampleHeight: u32,
     pub SampleFormat: DXVA2_ExtendedFormat,
-    pub Format: super::d3d9types::D3DFORMAT,
+    pub Format: super::d3d9::D3DFORMAT,
     pub InputSampleFreq: DXVA2_Frequency,
     pub OutputFrameFreq: DXVA2_Frequency,
     pub UABProtectionLevel: u32,
     pub Reserved: u32,
 }
-#[cfg(feature = "Win32_d3d9types")]
+#[cfg(feature = "Win32_d3d9")]
 impl Default for DXVA2_VideoDesc {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -405,11 +405,11 @@ pub const DXVA2_VideoProcess_SubStreamsExtended: i32 = 64;
 pub const DXVA2_VideoProcess_YUV2RGB: i32 = 1;
 pub const DXVA2_VideoProcess_YUV2RGBExtended: i32 = 128;
 #[repr(C)]
-#[cfg(feature = "Win32_d3d9types")]
+#[cfg(feature = "Win32_d3d9")]
 #[derive(Clone, Copy, Default)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
-    pub InputPool: super::d3d9types::D3DPOOL,
+    pub InputPool: super::d3d9::D3DPOOL,
     pub NumForwardRefSamples: u32,
     pub NumBackwardRefSamples: u32,
     pub Reserved: u32,

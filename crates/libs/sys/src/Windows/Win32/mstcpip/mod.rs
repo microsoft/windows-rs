@@ -195,15 +195,15 @@ pub const SOCKET_INFO_CONNECTION_ENCRYPTED: u32 = 2;
 pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy)]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub PeerAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
     pub PeerTargetNameStringLen: u32,
     pub AllStrings: [u16; 0],
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for SOCKET_PEER_TARGET_NAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -239,19 +239,19 @@ pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SaLookupContext: windows_sys::core::GUID,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub PeerAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
     pub PeerTokenAccessMask: u32,
 }
 #[repr(C)]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
-    pub PeerAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
     pub PeerTokenAccessMask: u32,
     pub Flags: u32,
     pub FieldMask: u32,

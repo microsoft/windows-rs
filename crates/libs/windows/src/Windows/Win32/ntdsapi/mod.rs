@@ -1,6 +1,6 @@
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsAddSidHistoryA<P2, P3, P4, P6, P7>(hds: super::winnt::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> u32
+pub unsafe fn DsAddSidHistoryA<P2, P3, P4, P6, P7>(hds: super::winnt::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> u32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
@@ -8,12 +8,12 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
     P7: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_core::PCSTR, srcprincipal : windows_core::PCSTR, srcdomaincontroller : windows_core::PCSTR, srcdomaincreds : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryA(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_core::PCSTR, srcprincipal : windows_core::PCSTR, srcdomaincontroller : windows_core::PCSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCSTR, dstprincipal : windows_core::PCSTR) -> u32);
     unsafe { DsAddSidHistoryA(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsAddSidHistoryW<P2, P3, P4, P6, P7>(hds: super::winnt::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> u32
+pub unsafe fn DsAddSidHistoryW<P2, P3, P4, P6, P7>(hds: super::winnt::HANDLE, flags: Option<u32>, srcdomain: P2, srcprincipal: P3, srcdomaincontroller: P4, srcdomaincreds: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, dstdomain: P6, dstprincipal: P7) -> u32
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -21,7 +21,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
     P7: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_core::PCWSTR, srcprincipal : windows_core::PCWSTR, srcdomaincontroller : windows_core::PCWSTR, srcdomaincreds : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsAddSidHistoryW(hds : super::winnt::HANDLE, flags : u32, srcdomain : windows_core::PCWSTR, srcprincipal : windows_core::PCWSTR, srcdomaincontroller : windows_core::PCWSTR, srcdomaincreds : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dstdomain : windows_core::PCWSTR, dstprincipal : windows_core::PCWSTR) -> u32);
     unsafe { DsAddSidHistoryW(hds, flags.unwrap_or(core::mem::zeroed()) as _, srcdomain.param().abi(), srcprincipal.param().abi(), srcdomaincontroller.param().abi(), srcdomaincreds.unwrap_or(core::mem::zeroed()) as _, dstdomain.param().abi(), dstprincipal.param().abi()) }
 }
 #[cfg(feature = "Win32_winnt")]
@@ -34,28 +34,28 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindByInstanceA<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindByInstanceA<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_core::PCSTR, annotation : windows_core::PCSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceA(servername : windows_core::PCSTR, annotation : windows_core::PCSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindByInstanceA(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindByInstanceW<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindByInstanceW<P0, P1, P3, P5>(servername: P0, annotation: P1, instanceguid: Option<*const windows_core::GUID>, dnsdomainname: P3, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P5, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_core::PCWSTR, annotation : windows_core::PCWSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindByInstanceW(servername : windows_core::PCWSTR, annotation : windows_core::PCWSTR, instanceguid : *const windows_core::GUID, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindByInstanceW(servername.param().abi(), annotation.param().abi(), instanceguid.unwrap_or(core::mem::zeroed()) as _, dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
 #[cfg(feature = "Win32_winnt")]
@@ -86,68 +86,68 @@ where
     windows_core::link!("ntdsapi.dll" "system" fn DsBindW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithCredA<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithCredA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithCredW<P0, P1>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithCredW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithCredW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithSpnA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithSpnA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithSpnExA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnExA<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExA(domaincontrollername : windows_core::PCSTR, dnsdomainname : windows_core::PCSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithSpnExA(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithSpnExW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnExW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, bindflags: Option<u32>, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnExW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, bindflags : u32, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithSpnExW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), bindflags.unwrap_or(core::mem::zeroed()) as _, phds as _) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_winnt"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_winnt"))]
 #[inline]
-pub unsafe fn DsBindWithSpnW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::winnt::HANDLE) -> u32
+pub unsafe fn DsBindWithSpnW<P0, P1, P3>(domaincontrollername: P0, dnsdomainname: P1, authidentity: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, serviceprincipalname: P3, phds: *mut super::winnt::HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsBindWithSpnW(domaincontrollername : windows_core::PCWSTR, dnsdomainname : windows_core::PCWSTR, authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE, serviceprincipalname : windows_core::PCWSTR, phds : *mut super::winnt::HANDLE) -> u32);
     unsafe { DsBindWithSpnW(domaincontrollername.param().abi(), dnsdomainname.param().abi(), authidentity.unwrap_or(core::mem::zeroed()) as _, serviceprincipalname.param().abi(), phds as _) }
 }
 #[cfg(feature = "Win32_winnt")]
@@ -206,10 +206,10 @@ pub unsafe fn DsFreeNameResultW(presult: *const DS_NAME_RESULTW) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeNameResultW(presult : *const DS_NAME_RESULTW));
     unsafe { DsFreeNameResultW(presult) }
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[inline]
-pub unsafe fn DsFreePasswordCredentials(authidentity: super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) {
-    windows_core::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE));
+pub unsafe fn DsFreePasswordCredentials(authidentity: super::rpc::RPC_AUTH_IDENTITY_HANDLE) {
+    windows_core::link!("ntdsapi.dll" "system" fn DsFreePasswordCredentials(authidentity : super::rpc::RPC_AUTH_IDENTITY_HANDLE));
     unsafe { DsFreePasswordCredentials(authidentity) }
 }
 #[inline]
@@ -386,26 +386,26 @@ pub unsafe fn DsListSitesW(hds: super::winnt::HANDLE, ppsites: *mut PDS_NAME_RES
     windows_core::link!("ntdsapi.dll" "system" fn DsListSitesW(hds : super::winnt::HANDLE, ppsites : *mut PDS_NAME_RESULTW) -> u32);
     unsafe { DsListSitesW(hds, ppsites as _) }
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[inline]
-pub unsafe fn DsMakePasswordCredentialsA<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32
+pub unsafe fn DsMakePasswordCredentialsA<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_core::PCSTR, domain : windows_core::PCSTR, password : windows_core::PCSTR, pauthidentity : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsA(user : windows_core::PCSTR, domain : windows_core::PCSTR, password : windows_core::PCSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
     unsafe { DsMakePasswordCredentialsA(user.param().abi(), domain.param().abi(), password.param().abi(), pauthidentity as _) }
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[inline]
-pub unsafe fn DsMakePasswordCredentialsW<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32
+pub unsafe fn DsMakePasswordCredentialsW<P0, P1, P2>(user: P0, domain: P1, password: P2, pauthidentity: *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_core::PCWSTR, domain : windows_core::PCWSTR, password : windows_core::PCWSTR, pauthidentity : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE) -> u32);
+    windows_core::link!("ntdsapi.dll" "system" fn DsMakePasswordCredentialsW(user : windows_core::PCWSTR, domain : windows_core::PCWSTR, password : windows_core::PCWSTR, pauthidentity : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE) -> u32);
     unsafe { DsMakePasswordCredentialsW(user.param().abi(), domain.param().abi(), password.param().abi(), pauthidentity as _) }
 }
 #[cfg(feature = "Win32_winnt")]

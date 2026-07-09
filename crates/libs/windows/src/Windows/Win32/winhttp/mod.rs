@@ -666,17 +666,17 @@ impl Default for PWINHTTP_CONNECTION_GROUP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINHTTP_CONNECTION_INFO(pub *mut WINHTTP_CONNECTION_INFO);
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl PWINHTTP_CONNECTION_INFO {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 impl Default for PWINHTTP_CONNECTION_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1126,21 +1126,21 @@ pub struct WINHTTP_CONNECTION_GROUP {
 }
 #[repr(C, packed(4))]
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Default)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
-    pub LocalAddress: super::ws2def::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::ws2::SOCKADDR_STORAGE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
-    pub LocalAddress: super::ws2def::SOCKADDR_STORAGE,
-    pub RemoteAddress: super::ws2def::SOCKADDR_STORAGE,
+    pub LocalAddress: super::ws2::SOCKADDR_STORAGE,
+    pub RemoteAddress: super::ws2::SOCKADDR_STORAGE,
 }
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_408: u32 = 1;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_MASK: u32 = 7;

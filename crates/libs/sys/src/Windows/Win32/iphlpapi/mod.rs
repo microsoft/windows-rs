@@ -28,7 +28,7 @@ windows_link::link!("iphlpapi.dll" "system" fn FlushIpNetTable(dwifindex : u32) 
 windows_link::link!("iphlpapi.dll" "system" fn GetAdapterIndex(adaptername : windows_sys::core::PCWSTR, ifindex : *mut u32) -> u32);
 #[cfg(feature = "Win32_ipexport")]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdapterOrderMap() -> super::ipexport::PIP_ADAPTER_ORDER_MAP);
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_iptypes", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_iptypes", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : u32, reserved : *const core::ffi::c_void, adapteraddresses : *mut super::iptypes::IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
 #[cfg(all(feature = "Win32_corecrt", feature = "Win32_iptypes"))]
 windows_link::link!("iphlpapi.dll" "system" fn GetAdaptersInfo(adapterinfo : *mut super::iptypes::IP_ADAPTER_INFO, sizepointer : *mut u32) -> u32);
@@ -132,8 +132,8 @@ windows_link::link!("iphlpapi.dll" "system" fn NotifyIfTimestampConfigChange(cal
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn NotifyRouteChange(handle : *mut super::winnt::HANDLE, overlapped : *const super::minwinbase::OVERLAPPED) -> u32);
 windows_link::link!("iphlpapi.dll" "system" fn RegisterInterfaceTimestampConfigChange(callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
-#[cfg(feature = "Win32_ws2def")]
-windows_link::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::ws2def::SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
+#[cfg(feature = "Win32_ws2")]
+windows_link::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::ws2::SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
 windows_link::link!("iphlpapi.dll" "system" fn RestoreMediaSense(poverlapped : *const super::minwinbase::OVERLAPPED, lpdwenablecount : *mut u32) -> u32);
 #[cfg(feature = "Win32_ntddndis")]

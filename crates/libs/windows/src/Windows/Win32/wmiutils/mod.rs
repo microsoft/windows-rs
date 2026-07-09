@@ -441,8 +441,8 @@ impl IWbemPathKeyList {
     pub unsafe fn RemoveAllKeys(&self, uflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllKeys)(windows_core::Interface::as_raw(self), uflags) }
     }
-    #[cfg(feature = "Win32_rpcndr")]
-    pub unsafe fn MakeSingleton(&self, bset: super::rpcndr::boolean) -> windows_core::HRESULT {
+    #[cfg(feature = "Win32_rpc")]
+    pub unsafe fn MakeSingleton(&self, bset: super::rpc::boolean) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).MakeSingleton)(windows_core::Interface::as_raw(self), bset) }
     }
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64> {
@@ -472,14 +472,14 @@ pub struct IWbemPathKeyList_Vtbl {
     GetKey2: usize,
     pub RemoveKey: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub RemoveAllKeys: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    #[cfg(feature = "Win32_rpcndr")]
-    pub MakeSingleton: unsafe extern "system" fn(*mut core::ffi::c_void, super::rpcndr::boolean) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_rpcndr"))]
+    #[cfg(feature = "Win32_rpc")]
+    pub MakeSingleton: unsafe extern "system" fn(*mut core::ffi::c_void, super::rpc::boolean) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_rpc"))]
     MakeSingleton: usize,
     pub GetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
     pub GetText: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut u32, windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 pub trait IWbemPathKeyList_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn SetKey(&self, wszname: &windows_core::PCWSTR, uflags: u32, ucimtype: u32, pkeyval: *const core::ffi::c_void) -> windows_core::Result<()>;
@@ -488,11 +488,11 @@ pub trait IWbemPathKeyList_Impl: windows_core::IUnknownImpl {
     fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: windows_core::PWSTR, pkeyvalue: *mut super::oaidl::VARIANT, puapparentcimtype: *mut u32) -> windows_core::Result<()>;
     fn RemoveKey(&self, wszname: &windows_core::PCWSTR, uflags: u32) -> windows_core::Result<()>;
     fn RemoveAllKeys(&self, uflags: u32) -> windows_core::Result<()>;
-    fn MakeSingleton(&self, bset: super::rpcndr::boolean) -> windows_core::Result<()>;
+    fn MakeSingleton(&self, bset: super::rpc::boolean) -> windows_core::Result<()>;
     fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64>;
     fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl IWbemPathKeyList_Vtbl {
     pub const fn new<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetCount<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pukeycount: *mut u32) -> windows_core::HRESULT {
@@ -543,7 +543,7 @@ impl IWbemPathKeyList_Vtbl {
                 IWbemPathKeyList_Impl::RemoveAllKeys(this, core::mem::transmute_copy(&uflags)).into()
             }
         }
-        unsafe extern "system" fn MakeSingleton<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bset: super::rpcndr::boolean) -> windows_core::HRESULT {
+        unsafe extern "system" fn MakeSingleton<Identity: IWbemPathKeyList_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, bset: super::rpc::boolean) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IWbemPathKeyList_Impl::MakeSingleton(this, core::mem::transmute_copy(&bset)).into()
@@ -585,7 +585,7 @@ impl IWbemPathKeyList_Vtbl {
         iid == &<IWbemPathKeyList as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_oaidl", feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl windows_core::RuntimeName for IWbemPathKeyList {}
 windows_core::imp::define_interface!(IWbemQuery, IWbemQuery_Vtbl, 0x81166f58_dd98_11d3_a120_00105a1f515a);
 windows_core::imp::interface_hierarchy!(IWbemQuery, windows_core::IUnknown);

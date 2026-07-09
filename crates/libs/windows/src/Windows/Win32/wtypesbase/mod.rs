@@ -26,26 +26,26 @@ impl Default for BLOB {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
-    pub abData: [super::rpcndr::byte; 1],
+    pub abData: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
-    pub pData: *mut super::rpcndr::byte,
+    pub pData: *mut super::rpc::byte,
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for BYTE_SIZEDARR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -144,14 +144,14 @@ impl Default for DWORD_SIZEDARR {
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
-    pub abData: [super::rpcndr::byte; 1],
+    pub abData: [super::rpc::byte; 1],
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for FLAGGED_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -235,17 +235,17 @@ pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCODE(pub i32);
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UP_BYTE_BLOB(pub *mut BYTE_BLOB);
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl UP_BYTE_BLOB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for UP_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -264,17 +264,17 @@ impl Default for UP_DWORD_BLOB {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UP_FLAGGED_BYTE_BLOB(pub *mut FLAGGED_BYTE_BLOB);
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl UP_FLAGGED_BYTE_BLOB {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for UP_FLAGGED_BYTE_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

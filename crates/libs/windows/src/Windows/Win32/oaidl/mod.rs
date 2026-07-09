@@ -3767,20 +3767,20 @@ pub struct SAFEARRAYBOUND {
     pub lLbound: i32,
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct SAFEARRAYUNION {
     pub sfType: u32,
     pub u: SAFEARRAYUNION_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SAFEARRAYUNION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub union SAFEARRAYUNION_0 {
     pub BstrStr: SAFEARR_BSTR,
@@ -3794,20 +3794,20 @@ pub union SAFEARRAYUNION_0 {
     pub LongStr: super::wtypesbase::DWORD_SIZEDARR,
     pub HyperStr: super::wtypesbase::HYPER_SIZEDARR,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SAFEARRAYUNION_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut wireBRECORD,
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for SAFEARR_BRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3861,13 +3861,13 @@ impl Default for SAFEARR_UNKNOWN {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut wireVARIANT,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for SAFEARR_VARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4166,22 +4166,22 @@ pub const VAR_DISPATCH: VARKIND = 3;
 pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C)]
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[derive(Clone, Debug, PartialEq)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
-    pub pRecord: *mut super::rpcndr::byte,
+    pub pRecord: *mut super::rpc::byte,
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for _wireBRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[derive(Clone, Copy)]
 pub struct _wireSAFEARRAY {
     pub cDims: u16,
@@ -4191,14 +4191,14 @@ pub struct _wireSAFEARRAY {
     pub uArrayStructs: SAFEARRAYUNION,
     pub rgsabound: [SAFEARRAYBOUND; 1],
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for _wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 pub struct _wireVARIANT {
     pub clSize: u32,
     pub rpcReserved: u32,
@@ -4208,20 +4208,20 @@ pub struct _wireVARIANT {
     pub wReserved3: u16,
     pub Anonymous: _wireVARIANT_0,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Clone for _wireVARIANT {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for _wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -4268,77 +4268,77 @@ pub union _wireVARIANT_0 {
     pub pintVal: *mut i32,
     pub puintVal: *mut u32,
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Clone for _wireVARIANT_0 {
     fn clone(&self) -> Self {
         unsafe { core::mem::transmute_copy(self) }
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for _wireVARIANT_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireBRECORD(pub *mut _wireBRECORD);
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl wireBRECORD {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(feature = "Win32_rpcndr")]
+#[cfg(feature = "Win32_rpc")]
 impl Default for wireBRECORD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wirePSAFEARRAY(pub *mut wireSAFEARRAY);
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl wirePSAFEARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for wirePSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireSAFEARRAY(pub *mut _wireSAFEARRAY);
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl wireSAFEARRAY {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for wireSAFEARRAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct wireVARIANT(pub *mut _wireVARIANT);
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl wireVARIANT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "Win32_rpcndr", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypes", feature = "Win32_wtypesbase"))]
 impl Default for wireVARIANT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

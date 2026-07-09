@@ -372,19 +372,19 @@ pub unsafe fn CoQueryAuthenticationServices(pcauthsvc: *mut u32, asauthsvc: *mut
     windows_core::link!("ole32.dll" "system" fn CoQueryAuthenticationServices(pcauthsvc : *mut u32, asauthsvc : *mut *mut super::objidlbase::SOLE_AUTHENTICATION_SERVICE) -> windows_core::HRESULT);
     unsafe { CoQueryAuthenticationServices(pcauthsvc as _, asauthsvc as _) }
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[inline]
-pub unsafe fn CoQueryClientBlanket(pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut super::rpcdce::RPC_AUTHZ_HANDLE, pcapabilities: Option<*mut u32>) -> windows_core::HRESULT {
-    windows_core::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::rpcdce::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_core::HRESULT);
+pub unsafe fn CoQueryClientBlanket(pauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pprivs: *mut super::rpc::RPC_AUTHZ_HANDLE, pcapabilities: Option<*mut u32>) -> windows_core::HRESULT {
+    windows_core::link!("ole32.dll" "system" fn CoQueryClientBlanket(pauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pprivs : *mut super::rpc::RPC_AUTHZ_HANDLE, pcapabilities : *mut u32) -> windows_core::HRESULT);
     unsafe { CoQueryClientBlanket(pauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pprivs as _, pcapabilities.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(feature = "Win32_rpcdce")]
+#[cfg(feature = "Win32_rpc")]
 #[inline]
-pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: Option<*mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, pcapabilites: Option<*mut u32>) -> windows_core::HRESULT
+pub unsafe fn CoQueryProxyBlanket<P0>(pproxy: P0, pwauthnsvc: Option<*mut u32>, pauthzsvc: Option<*mut u32>, pserverprincname: *mut windows_core::PWSTR, pauthnlevel: Option<*mut u32>, pimplevel: Option<*mut u32>, pauthinfo: Option<*mut super::rpc::RPC_AUTH_IDENTITY_HANDLE>, pcapabilites: Option<*mut u32>) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoQueryProxyBlanket(pproxy : *mut core::ffi::c_void, pwauthnsvc : *mut u32, pauthzsvc : *mut u32, pserverprincname : *mut windows_core::PWSTR, pauthnlevel : *mut u32, pimplevel : *mut u32, pauthinfo : *mut super::rpc::RPC_AUTH_IDENTITY_HANDLE, pcapabilites : *mut u32) -> windows_core::HRESULT);
     unsafe { CoQueryProxyBlanket(pproxy.param().abi(), pwauthnsvc.unwrap_or(core::mem::zeroed()) as _, pauthzsvc.unwrap_or(core::mem::zeroed()) as _, pserverprincname as _, pauthnlevel.unwrap_or(core::mem::zeroed()) as _, pimplevel.unwrap_or(core::mem::zeroed()) as _, pauthinfo.unwrap_or(core::mem::zeroed()) as _, pcapabilites.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_objidlbase")]
@@ -474,13 +474,13 @@ where
     windows_core::link!("ole32.dll" "system" fn CoSetCancelObject(punk : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoSetCancelObject(punk.param().abi()) }
 }
-#[cfg(all(feature = "Win32_rpcdce", feature = "Win32_wtypesbase"))]
+#[cfg(all(feature = "Win32_rpc", feature = "Win32_wtypesbase"))]
 #[inline]
-pub unsafe fn CoSetProxyBlanket<P0>(pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: Option<*const super::wtypesbase::OLECHAR>, dwauthnlevel: u32, dwimplevel: u32, pauthinfo: Option<super::rpcdce::RPC_AUTH_IDENTITY_HANDLE>, dwcapabilities: u32) -> windows_core::HRESULT
+pub unsafe fn CoSetProxyBlanket<P0>(pproxy: P0, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: Option<*const super::wtypesbase::OLECHAR>, dwauthnlevel: u32, dwimplevel: u32, pauthinfo: Option<super::rpc::RPC_AUTH_IDENTITY_HANDLE>, dwcapabilities: u32) -> windows_core::HRESULT
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : *const super::wtypesbase::OLECHAR, dwauthnlevel : u32, dwimplevel : u32, pauthinfo : super::rpcdce::RPC_AUTH_IDENTITY_HANDLE, dwcapabilities : u32) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : *mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : *const super::wtypesbase::OLECHAR, dwauthnlevel : u32, dwimplevel : u32, pauthinfo : super::rpc::RPC_AUTH_IDENTITY_HANDLE, dwcapabilities : u32) -> windows_core::HRESULT);
     unsafe { CoSetProxyBlanket(pproxy.param().abi(), dwauthnsvc, dwauthzsvc, pserverprincname.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthinfo.unwrap_or(core::mem::zeroed()) as _, dwcapabilities) }
 }
 #[inline]

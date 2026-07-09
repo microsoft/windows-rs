@@ -111,7 +111,7 @@ pub unsafe fn GetAdapterOrderMap() -> super::ipexport::PIP_ADAPTER_ORDER_MAP {
     windows_core::link!("iphlpapi.dll" "system" fn GetAdapterOrderMap() -> super::ipexport::PIP_ADAPTER_ORDER_MAP);
     unsafe { GetAdapterOrderMap() }
 }
-#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_iptypes", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2def"))]
+#[cfg(all(feature = "Win32_ifdef", feature = "Win32_ipifcons", feature = "Win32_iptypes", feature = "Win32_nldef", feature = "Win32_winnt", feature = "Win32_ws2"))]
 #[inline]
 pub unsafe fn GetAdaptersAddresses(family: u32, flags: u32, reserved: Option<*const core::ffi::c_void>, adapteraddresses: Option<*mut super::iptypes::IP_ADAPTER_ADDRESSES_LH>, sizepointer: *mut u32) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn GetAdaptersAddresses(family : u32, flags : u32, reserved : *const core::ffi::c_void, adapteraddresses : *mut super::iptypes::IP_ADAPTER_ADDRESSES_LH, sizepointer : *mut u32) -> u32);
@@ -463,10 +463,10 @@ pub unsafe fn RegisterInterfaceTimestampConfigChange(callback: PINTERFACE_TIMEST
     windows_core::link!("iphlpapi.dll" "system" fn RegisterInterfaceTimestampConfigChange(callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
     unsafe { RegisterInterfaceTimestampConfigChange(callback, callercontext.unwrap_or(core::mem::zeroed()) as _, notificationhandle as _) }
 }
-#[cfg(feature = "Win32_ws2def")]
+#[cfg(feature = "Win32_ws2")]
 #[inline]
-pub unsafe fn ResolveNeighbor(networkaddress: *const super::ws2def::SOCKADDR, physicaladdress: *mut core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
-    windows_core::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::ws2def::SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
+pub unsafe fn ResolveNeighbor(networkaddress: *const super::ws2::SOCKADDR, physicaladdress: *mut core::ffi::c_void, physicaladdresslength: *mut u32) -> u32 {
+    windows_core::link!("iphlpapi.dll" "system" fn ResolveNeighbor(networkaddress : *const super::ws2::SOCKADDR, physicaladdress : *mut core::ffi::c_void, physicaladdresslength : *mut u32) -> u32);
     unsafe { ResolveNeighbor(networkaddress, physicaladdress as _, physicaladdresslength as _) }
 }
 #[cfg(all(feature = "Win32_minwinbase", feature = "Win32_winnt"))]
