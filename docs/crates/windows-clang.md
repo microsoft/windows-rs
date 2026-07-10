@@ -824,8 +824,8 @@ build previously terminated with an access violation on exit and now exits clean
 Porting an in-repo sample from the old editorial feature names to the header-based namespaces is
 mechanical. The mapping mechanism: **a feature/module is a source-header stem**, so the module a
 symbol lives in is found by grepping the generated crate
-(`crates/libs/windows/src/Windows/Win32/<stem>/mod.rs`) for the symbol — the directory name *is*
-the feature and the `use windows::Win32::<stem>::*` path. Enable those stems in `Cargo.toml`
+(`crates/libs/windows/src/Windows/<stem>/mod.rs`) for the symbol — the directory name *is*
+the feature and the `use windows::<stem>::*` path. Enable those stems in `Cargo.toml`
 `features`, rewrite the `use` block to match, then let the compiler surface the rest. (The
 `crates/samples/*/*` glob has been restored in the workspace `members` now that all samples build;
 `crates/samples/windows/spellchecker` stays in `exclude` — see follow-up below.)
