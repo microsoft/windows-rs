@@ -11,15 +11,15 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Wdk_System_SystemServices",
-    "Wdk_System_OfflineRegistry",
+    "Wdk",
+    "offreg",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Wdk_System_SystemServices",
-    "Wdk_System_OfflineRegistry",
+    "Wdk",
+    "offreg",
 ]
 
 [lints]

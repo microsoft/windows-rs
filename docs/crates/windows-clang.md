@@ -906,7 +906,7 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 38 test crates ported and back in the `crates/tests/*/*` glob; 16 remain in
+**Status: complete.** 38 test crates ported and back in the `crates/tests/*/*` glob; 13 remain in
 `exclude` on genuine metadata gaps (see Follow-up). `cargo test --workspace --exclude test_no_std
 --no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std` are both green
 (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification pulls `std` and
@@ -921,16 +921,16 @@ dropped an unused `Win32_Foundation`; the rest remapped to header stems — e.g.
 `bcrypt`/`ntstatus`/`winerror` with NTSTATUS wraps, `sys` → `bcrypt`/`handleapi`/`minwinbase`/
 `minwindef`/`ntstatus`/`synchapi`/`windef`/`winerror`/`winnt`/`winuser`).
 
-BLOCKED (16, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
-`libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, const_params,
-const_ptrs, extensions, handles, lib, resources, return_handle, structs, variant, wdk, win32}`.
+BLOCKED (13, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
+`libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, extensions,
+handles, lib, resources, return_handle, structs, variant, win32}`.
 The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
 (`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
 `Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
-`RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`const_params`,
-`const_ptrs`, `extensions`, `resources`, `structs`, `variant`, `lib`, `win32`, `arch_feature`),
-plus offreg.h `ORCreateHive`/`ORHKEY`/`ORCloseHive` (`wdk` — `tool_wdk` only scrapes
-`ntifs.h`+`wdm.h`).
+`RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`extensions`,
+`resources`, `structs`, `variant`, `lib`, `win32`, `arch_feature`).
+(`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
+`misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32` — see Follow-up.)
 
 Test-specific drift beyond the sample patterns:
 
@@ -971,11 +971,49 @@ Test-specific drift beyond the sample patterns:
   in-house metadata emits only `SystemFunction036` (in `ntsecapi`). `test_targets`' `symbol.rs`
   links `RtlGenRandom` specifically, so it is BLOCKED and left unported. **TODO:** either re-add the
   `RtlGenRandom` alias in `windows-clang` or update the test to link `SystemFunction036`.
-- **offreg.h not scraped (test_wdk BLOCKED).** `test_wdk`'s `win.rs`/`sys.rs` use `ORCreateHive`,
-  `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, but `tool_wdk` only scrapes `ntifs.h` and
-  `wdm.h`, so the entire offline-registry surface is absent from `Windows.Wdk.winmd`. `test_wdk` is
-  BLOCKED and left in `exclude`. **TODO:** add `offreg.h` to `tool_wdk`'s `SOURCE_HEADERS` (and wire
-  its import library) so the offline-registry API is regenerated.
+- **offreg.h scraped into `tool_wdk` — done (`test_wdk` unblocked).** `test_wdk`'s `win.rs`/`sys.rs`
+  use `ORCreateHive`, `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, which `tool_wdk`
+  previously did not scrape (only `ntifs.h`+`wdm.h`), so the offline-registry surface was absent.
+  `offreg.h` is now appended to `SOURCE_HEADERS` and `offreg.lib` (WDK `Lib/…/km/x64`) is fed to
+  `import_library` so `drop_lib_less` keeps the routines (they export from `offreg.dll`). One wrinkle:
+  `offreg.h` ships in the WDK `km` folder but is really a *user-mode* API and references the standard
+  Win32 `um` typedefs (`DWORD`/`PDWORD`/`BYTE`/`PBYTE`/`PWSTR`/`PCWSTR`/`PFILETIME`/
+  `PSECURITY_DESCRIPTOR`/`SECURITY_INFORMATION`) that the kernel-mode TU (`ntifs.h`+`wdm.h`) never
+  brings in. A small force-included prelude (`crates/tools/wdk/src/offreg_prelude.h`) supplies just
+  those aliases. Two lessons: (1) a `-include` prelude's declarations are *not* emitted (not the main
+  input, not in `scope_headers`) **only** if its type names collide with the Win32 winmd exclusion
+  reference — the FILETIME alias initially leaked as an empty `_FILETIME` struct because it was
+  forward-declared under its *tag* name; giving it the full standard `typedef struct _FILETIME {…}
+  FILETIME` definition made it resolve/exclude by the name Win32 uses (`FILETIME`). (2) `ORHKEY` comes
+  through as a plain handle newtype `struct ORHKEY(pub *mut c_void)` (no `Default`) and the routines
+  return bare `u32` (not `Result`), so the ported test constructs `ORHKEY(core::ptr::null_mut())` and
+  asserts the return is `0`.
+- **`pathcch.h` + `propvarutil.h` scraped into `tool_win32` — done (`test_const_params`,
+  `test_const_ptrs` unblocked).** Both headers were simply absent from `win32.toml`'s `headers`
+  list, so their exports (`PathCchFindExtension` / `WINPATHCCHAPI`, and the `PropVariantTo*` /
+  `InitPropVariantFrom*` `PSSTDAPI` inline helpers) were never emitted. Adding `pathcch.h` (after
+  `shlwapi.h`) and `propvarutil.h` (after `propsys.h`) surfaced them plus a small dependency header
+  (`propapi.rdl`); only three *new* `metadata/win32/*.rdl` files appear, no existing rdl changes.
+  Two lessons:
+  1. **`parse_nested_cast` misread a function-like-macro invocation as a cast.** `pathcch.h` has
+     `#define VOLUME_PREFIX_LEN (ARRAYSIZE(VOLUME_PREFIX)-1)`. `parse_nested_cast` (in `const.rs`,
+     built for handle sentinels like `((HANDLE)(LONG_PTR)-1)`) ignored paren nesting and read
+     `ARRAYSIZE(VOLUME_PREFIX)` as two cast-type identifiers, emitting a bogus
+     `const VOLUME_PREFIX_LEN: ARRAYSIZE = -1` that then failed the arch-merge ("type not found").
+     Fix: a cast identifier `(TYPE)` is *always* immediately followed by `)`; an identifier followed
+     by `(` is a macro call → return `None` so the batch evaluator computes the real value (`10`).
+     Regression fixture: `crates/tests/libs/clang/input/macro_invocation_const.h`.
+  2. **Header-stem features do NOT auto-enable the stems they reference.** The generated per-header
+     Cargo features are flat (`propvarutil = ["Win32"]`, `Win32 = []`); tool_package instead gates
+     each *function* with an `all(feature = …)` `cfg` listing every stem its signature touches. So
+     `InitPropVariantFromStringVector`/`PropVariantToBSTR` are gated on
+     `minwindef, oaidl, objidl, objidlbase, propidlbase, wtypes, wtypesbase` — the consumer must
+     enable *all* of them explicitly (a bare `propvarutil` feature silently compiles the module but
+     omits the functions, showing up as an "unused import" + "cannot find function"). `test_const_ptrs`
+     therefore lists all nine stems. API drift for `test_const_params`: `URI_CREATE_FLAGS` no longer
+     exists (pass a bare `0` to `CreateUri`, whose `dwreserved` is now `Option<usize>`); modules moved
+     to header stems (`PathCchFindExtension`→`pathcch`, `WindowsGetStringRawBuffer`→`winstring`,
+     `CreateUri`/`CreateIUriBuilder`→`urlmon`, `S_OK`→`winerror`).
 - **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
   `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
   explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add

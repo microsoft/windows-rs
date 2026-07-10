@@ -978,7 +978,7 @@ fn parse_nested_cast(
     let mut negate = false;
     let mut literal: Option<&str> = None;
 
-    for (kind, tok) in body {
+    for (i, (kind, tok)) in body.iter().enumerate() {
         match *kind {
             CXToken_Punctuation => match tok.as_str() {
                 "(" | ")" => {}
@@ -988,6 +988,14 @@ fn parse_nested_cast(
             CXToken_Identifier => {
                 // An identifier after the literal is not part of a cast chain.
                 if literal.is_some() {
+                    return None;
+                }
+                // A cast identifier is `(TYPE)` — always immediately closed by `)`.
+                // An identifier followed by `(` is a function-like macro invocation
+                // (e.g. `ARRAYSIZE(VOLUME_PREFIX)`), not a cast; bail so the batch
+                // evaluator can compute the real value instead of misreading the macro
+                // name as a bogus target type.
+                if !matches!(body.get(i + 1), Some((CXToken_Punctuation, p)) if p == ")") {
                     return None;
                 }
                 casts.push(tok);

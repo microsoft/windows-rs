@@ -8,5 +8,7 @@ pub mod ntdef;
 pub mod ntifs;
 #[cfg(feature = "ntnls")]
 pub mod ntnls;
+#[cfg(feature = "offreg")]
+pub mod offreg;
 #[cfg(feature = "wdm")]
 pub mod wdm;

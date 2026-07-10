@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::System::Com::*, Win32::System::WinRT::*, Win32::UI::Shell::*, core::*};
+use windows::{Win32::pathcch::*, Win32::urlmon::*, Win32::winstring::*, core::*};
 
 #[test]
 fn path() -> Result<()> {
@@ -22,7 +22,7 @@ fn hstring() -> Result<()> {
 #[test]
 fn uri() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
         let builder = CreateIUriBuilder(&uri, 0, 0)?;
 
         let mut host_len = 0u32;

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::Wdk::System::OfflineRegistry::*;
+use windows_sys::Wdk::offreg::*;
 
 #[test]
 fn offline_registry() {

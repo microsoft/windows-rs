@@ -610,6 +610,8 @@ pub mod oledb;
 pub mod oleidl;
 #[cfg(feature = "patchapi")]
 pub mod patchapi;
+#[cfg(feature = "pathcch")]
+pub mod pathcch;
 #[cfg(feature = "pciprop")]
 pub mod pciprop;
 #[cfg(feature = "pdh")]
@@ -646,6 +648,8 @@ pub mod processtopologyapi;
 pub mod profileapi;
 #[cfg(feature = "profinfo")]
 pub mod profinfo;
+#[cfg(feature = "propapi")]
+pub mod propapi;
 #[cfg(feature = "propidl")]
 pub mod propidl;
 #[cfg(feature = "propidlbase")]
@@ -654,6 +658,8 @@ pub mod propidlbase;
 pub mod propkey;
 #[cfg(feature = "propsys")]
 pub mod propsys;
+#[cfg(feature = "propvarutil")]
+pub mod propvarutil;
 #[cfg(feature = "prsht")]
 pub mod prsht;
 #[cfg(feature = "psapi")]
