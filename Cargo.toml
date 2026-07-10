@@ -20,7 +20,6 @@ exclude = [
     "crates/tests/misc/extensions",
     "crates/tests/misc/handles",
     "crates/tests/misc/lib",
-    "crates/tests/misc/resources",
     "crates/tests/misc/return_handle",
     "crates/tests/misc/structs",
     "crates/tests/misc/variant",

@@ -57,10 +57,26 @@ impl CppFn {
         }
     }
 
+    fn abi(&self, config: &Config<'_>) -> &'static str {
+        // A variadic function is always `__cdecl` on Windows regardless of the
+        // stated convention, and rustc rejects `extern "system"` C-variadics on
+        // non-MSVC targets, so force `"C"` whenever the signature is VARARG.
+        if self
+            .method
+            .method_signature(self.namespace, &[], config.reader)
+            .call_flags
+            .contains(MethodCallAttributes::VARARG)
+        {
+            "C"
+        } else {
+            self.method.calling_convention()
+        }
+    }
+
     pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let ptr_name = self.method.name().to_string();
         let name = to_ident(&ptr_name);
-        let abi = self.method.calling_convention();
+        let abi = self.abi(config);
         let signature = self.write_extern_signature(config, underlying_types);
 
         quote! {
@@ -72,7 +88,7 @@ impl CppFn {
         let library = self.method.module_name();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
-        let abi = self.method.calling_convention();
+        let abi = self.abi(config);
         let signature = self.write_extern_signature(config, underlying_types);
         let link = to_ident(config.link);
 

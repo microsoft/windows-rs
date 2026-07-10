@@ -1,0 +1,10 @@
+//! --filter Test --sys --flat
+#[win32]
+mod Test {
+    type NativePtr = *const u8;
+    type NativePtrAlias = NativePtr;
+    struct Struct {
+        field: NativePtrAlias,
+        other: i32,
+    }
+}

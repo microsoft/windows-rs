@@ -279,6 +279,7 @@ impl AsyncIPipeLong_Vtbl {
     }
 }
 impl windows_core::RuntimeName for AsyncIPipeLong {}
+pub const COLE_DEFAULT_PRINCIPAL: windows_core::PCWSTR = windows_core::PCWSTR(-1 as _);
 pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = 4;
 pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = 5;
 pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = 8;

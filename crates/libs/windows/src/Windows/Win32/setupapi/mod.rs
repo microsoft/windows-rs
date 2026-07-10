@@ -2377,7 +2377,7 @@ pub unsafe fn SetupWriteTextLog<P3>(logtoken: super::spapidef::SP_LOG_TOKEN, cat
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupWriteTextLog(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, flags : u32, messagestr : windows_core::PCSTR));
+    windows_core::link!("setupapi.dll" "C" fn SetupWriteTextLog(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, flags : u32, messagestr : windows_core::PCSTR));
     unsafe { SetupWriteTextLog(logtoken, category, flags, messagestr.param().abi()) }
 }
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
@@ -2386,7 +2386,7 @@ pub unsafe fn SetupWriteTextLogError<P4>(logtoken: super::spapidef::SP_LOG_TOKEN
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("setupapi.dll" "system" fn SetupWriteTextLogError(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
+    windows_core::link!("setupapi.dll" "C" fn SetupWriteTextLogError(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_core::PCSTR));
     unsafe { SetupWriteTextLogError(logtoken, category, logflags, error, messagestr.param().abi()) }
 }
 #[cfg(all(feature = "spapidef", feature = "winnt"))]

@@ -1886,12 +1886,18 @@ pub const CTLCOLOR_SCROLLBAR: u32 = 5;
 pub const CTLCOLOR_STATIC: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CURSORINFO {
     pub cbSize: u32,
     pub flags: u32,
     pub hCursor: super::windef::HCURSOR,
     pub ptScreenPos: super::windef::POINT,
+}
+#[cfg(feature = "windef")]
+impl Default for CURSORINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

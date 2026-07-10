@@ -906,7 +906,7 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 38 test crates ported and back in the `crates/tests/*/*` glob; 13 remain in
+**Status: complete.** 38 test crates ported and back in the `crates/tests/*/*` glob; 12 remain in
 `exclude` on genuine metadata gaps (see Follow-up). `cargo test --workspace --exclude test_no_std
 --no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std` are both green
 (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification pulls `std` and
@@ -921,16 +921,17 @@ dropped an unused `Win32_Foundation`; the rest remapped to header stems — e.g.
 `bcrypt`/`ntstatus`/`winerror` with NTSTATUS wraps, `sys` → `bcrypt`/`handleapi`/`minwinbase`/
 `minwindef`/`ntstatus`/`synchapi`/`windef`/`winerror`/`winnt`/`winuser`).
 
-BLOCKED (13, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
+BLOCKED (12, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
 `libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, extensions,
-handles, lib, resources, return_handle, structs, variant, win32}`.
+handles, lib, return_handle, structs, variant, win32}`.
 The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
 (`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
 `Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
 `RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`extensions`,
-`resources`, `structs`, `variant`, `lib`, `win32`, `arch_feature`).
+`structs`, `variant`, `lib`, `win32`, `arch_feature`).
 (`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
-`misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32` — see Follow-up.)
+`misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
+negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs` arms — see Follow-up.)
 
 Test-specific drift beyond the sample patterns:
 
@@ -956,6 +957,16 @@ Test-specific drift beyond the sample patterns:
 
 ### Follow-up work (not done in this branch)
 
+- **The published `windows`/`windows-sys` crates no longer need an umbrella `Win32` module or
+  feature — the projection is now completely flat.** In the old editorial layout the module tree was
+  nested (`Win32::UI::Shell`, `Win32::System::Com`, …) and enabled via nested cargo features
+  (`Win32_UI_Shell`). The in-house metadata is flat: every header stem is its own top-level module
+  (`pathcch`, `urlmon`, `winerror`, …) gated by a same-named leaf feature (`pathcch = ["Win32"]`),
+  and the intermediate `Win32 = []` feature and the `Win32/mod.rs` re-export shell now carry nothing
+  of their own — they exist only as a vestigial grouping. **TODO:** drop the `Win32` umbrella feature
+  and the surrounding module entirely (emit the header-stem modules at the crate root, or at least
+  stop threading the empty `Win32` feature through every leaf's dependency list), simplifying every
+  consumer's feature list from `["Win32", "pathcch", …]` down to just the leaf stems.
 - **Missing WinRT `*Interop` bridge interfaces (metadata coverage gap).** The in-house metadata is
   missing some of the WinRT-to-Win32 interop interfaces the editorial winmd carried:
   `IUserConsentVerifierInterop`, `IWindowNative`, `IGraphicsCaptureItemInterop`, and
@@ -1014,6 +1025,53 @@ Test-specific drift beyond the sample patterns:
      exists (pass a bare `0` to `CreateUri`, whose `dwreserved` is now `Option<usize>`); modules moved
      to header stems (`PathCchFindExtension`→`pathcch`, `WindowsGetStringRawBuffer`→`winstring`,
      `CreateUri`/`CreateIUriBuilder`→`urlmon`, `S_OK`→`winerror`).
+- **Negative `MAKEINTRESOURCE` ordinals + inline char-pointer sentinels scraped — done
+  (`test_resources` unblocked).** Two `const.rs` gaps surfaced by `test_resources`:
+  1. **`MAKEINTRESOURCEW(-N)`.** `commctrl.h`'s `TD_ERROR_ICON`/`TD_WARNING_ICON`/… are
+     `MAKEINTRESOURCEW(-2)` etc. The existing `makeintresource_macro` arm only matched the positive
+     `IDENT ( LITERAL )` shape; the negative form (`IDENT ( - LITERAL )`) fell through and was dropped.
+     Added a mirror arm. **Critical subtlety:** `MAKEINTRESOURCEW(i)` is
+     `((LPWSTR)((ULONG_PTR)((WORD)(i))))` — the `(WORD)` truncates to 16 bits *before* widening, so a
+     negative arg becomes a zero-extended ordinal, **not** a sign-extended pointer. Storing the
+     sign-extended value (`-2` = `0xFFFF…FFFE`) gives a non-zero high word, so `LoadIconW`/`FindResource`
+     dereference it as a string pointer → **ACCESS VIOLATION** at runtime. The arm therefore emits
+     `(raw as u16).wrapping_neg() as i32` (`TD_ERROR_ICON: PWSTR = 65534`); `0xFFFE as i16` is still `-2`,
+     so `.0 as i16 == -2` holds while the high word stays zero (treated as an ordinal).
+  2. **`((OLECHAR*)(INT_PTR)-1)`.** `objidl.h`'s `COLE_DEFAULT_PRINCIPAL` casts through an *inline*
+     pointer-to-char (`OLECHAR*`), which `parse_nested_cast` rejects at the `*` (its cast chain only
+     accepts bare typedef names). Added a fixed-token arm + `char_pointer_target` helper mapping
+     `OLECHAR`/`WCHAR`→`PWSTR`, `CHAR`→`PSTR`, emitting the sign-extended sentinel
+     (`COLE_DEFAULT_PRINCIPAL: PWSTR = -1`, projected `PCWSTR(-1 as _)`, so `.0 as usize == usize::MAX`).
+     This is a *genuine* full-width pointer sentinel and must **not** be WORD-truncated like case 1.
+  Regression fixtures: `const_makeintresource.h` (extended) and new `const_char_pointer.h`.
+- **PR #4689 CI validation fixes (non-MSVC/msrv targets).** Two bugs broke the generated
+  `windows-sys` on `gnu`/`gnullvm`/`i686`/`msrv` (they compiled on MSVC stable, so only the cross jobs
+  caught them):
+  1. **C-variadic calling convention.** A variadic function is always `__cdecl` on Windows — MSVC
+     silently ignores a stated `__stdcall`/`WINAPI` for varargs — and rustc *rejects* an
+     `extern "system"` C-variadic outright on non-MSVC targets (`E0658`/`E0045`). Several `WINAPI`
+     variadics (`AuthzInitializeObjectAccessAuditEvent`, `AuthzReportSecurityEvent`, `setupapi`, Wdk
+     `ntifs`) were being emitted as `extern "system"`. Fixed in **two layers**: `clang` (`fn.rs::write`)
+     now forces `extern "C"` in the RDL whenever `is_variadic`, and `bindgen` (`cpp_fn.rs::abi`) forces
+     `"C"` whenever the method signature carries `MethodCallAttributes::VARARG` — a belt-and-suspenders
+     override so any winmd marking a variadic as `system` still emits correctly.
+     (`method_def.rs::calling_convention` widened to `-> &'static str`.) Regression fixtures:
+     `calling_convention.h` (`VariadicFunc`, clang) and new `variadic_fn_sys.rdl` (bindgen).
+  2. **`*const u8: Default`.** `GOPHER_ABSTRACT_ATTRIBUTE_TYPE` (wininet) has an `LPCTSTR` (= `PCSTR`
+     = `*const u8`) field yet derived `Default`; raw pointers have no `Default` impl (`E0277`). The
+     existing `can_derive_default` caught direct `PtrConst`/`PtrMut`/`PCSTR`/… fields but not a
+     **native-typedef alias** that *resolves* to a pointer. Added `CppStruct::resolves_to_pointer`
+     (parallel to `resolves_to_fixed_array`); a sys-mode struct with such a field now falls back to the
+     manual zeroed `Default` impl instead of deriving. Regression fixture: `struct_typedef_pointer_sys.rdl`.
+     RDL churn: `authz.rdl` (3 fns) + `setupapi.rdl` (2 fns) flip `system`→`C`; no other change.
+- **`cross.yml` hardcodes `-p test_win32` (still failing).** The `cross` workflow's cross-compile
+  smoke test (`.github/workflows/cross.yml:95`) runs `cargo test --no-run -p test_win32` for the
+  `gnu`/`gnullvm` targets, but `test_win32` is currently in the workspace `exclude` list → `error:
+  package ID specification 'test_win32' did not match any packages`. **TODO (next batch):** unblock
+  `test_win32` by porting its `Cargo.toml` from editorial features (`Win32_Graphics_Direct2D`, …) to
+  flat header stems and fixing any API drift in `win32.rs`/`winsock.rs`/`hresult.rs` — it is the
+  designated broad-surface cross-compile canary, so it should be the next test enabled. (Fallback if a
+  genuine gap blocks it: repoint the smoke test at an already-ported broad crate.)
 - **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
   `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
   explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add

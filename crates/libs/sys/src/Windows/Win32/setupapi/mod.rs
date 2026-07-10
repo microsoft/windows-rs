@@ -419,9 +419,9 @@ windows_link::link!("setupapi.dll" "system" fn SetupUninstallOEMInfW(inffilename
 windows_link::link!("setupapi.dll" "system" fn SetupVerifyInfFileA(infname : windows_sys::core::PCSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_A) -> windows_sys::core::BOOL);
 windows_link::link!("setupapi.dll" "system" fn SetupVerifyInfFileW(infname : windows_sys::core::PCWSTR, altplatforminfo : PSP_ALTPLATFORM_INFO, infsignerinfo : PSP_INF_SIGNER_INFO_W) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupWriteTextLog(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, flags : u32, messagestr : windows_sys::core::PCSTR, ...));
+windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLog(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, flags : u32, messagestr : windows_sys::core::PCSTR, ...));
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
-windows_link::link!("setupapi.dll" "system" fn SetupWriteTextLogError(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_sys::core::PCSTR, ...));
+windows_link::link!("setupapi.dll" "C" fn SetupWriteTextLogError(logtoken : super::spapidef::SP_LOG_TOKEN, category : u32, logflags : u32, error : u32, messagestr : windows_sys::core::PCSTR, ...));
 #[cfg(all(feature = "spapidef", feature = "winnt"))]
 windows_link::link!("setupapi.dll" "system" fn SetupWriteTextLogInfLine(logtoken : super::spapidef::SP_LOG_TOKEN, flags : u32, infhandle : HINF, context : *const INFCONTEXT));
 pub type CABINET_INFO = CABINET_INFO_A;

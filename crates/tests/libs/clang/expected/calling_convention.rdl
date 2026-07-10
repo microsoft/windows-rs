@@ -16,5 +16,7 @@ mod Test {
     #[library("user32.dll")]
     extern "system" fn StdcallFunc(a: i32) -> i32;
     #[library("user32.dll")]
+    extern "C" fn VariadicFunc(count: i32, ...) -> i32;
+    #[library("user32.dll")]
     extern "system" fn WithCallback(callback: *mut u8);
 }

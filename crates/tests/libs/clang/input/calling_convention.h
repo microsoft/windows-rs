@@ -48,4 +48,9 @@ extern "C" {
     // A callback parameter carries its own (__cdecl) convention; the function's
     // own (__stdcall) convention must still be recovered correctly.
     void WINAPI WithCallback(int (__cdecl *callback)(int));
+
+    // A variadic function is always __cdecl on Windows even when spelled WINAPI,
+    // so it must be emitted as extern "C" (an extern "system" C-variadic is a
+    // hard rustc error on non-MSVC targets).
+    int WINAPI VariadicFunc(int count, ...);
 }

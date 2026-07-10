@@ -2,5 +2,7 @@
 mod Test {
     const IDC_ARROW: PWSTR = 32512;
     const IDI_APPLICATION: PWSTR = 32512;
+    const OCR_NEGATIVE: PSTR = 65533;
     const OCR_NORMAL: PSTR = 32512;
+    const TD_ERROR_ICON: PWSTR = 65534;
 }

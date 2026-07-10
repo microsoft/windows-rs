@@ -606,6 +606,54 @@ fn parse_body(
                 Box::new(metadata::Value::I32(raw as i32)),
             ))
         }
+        // MAKEINTRESOURCE(-ORDINAL) — a resource named by *negative* integer ordinal,
+        // e.g. `#define TD_ERROR_ICON MAKEINTRESOURCEW(-2)`. The macro truncates via
+        // `(WORD)(i)` *before* widening to the pointer (`((LPWSTR)((ULONG_PTR)((WORD)(i))))`),
+        // so a negative arg is a *zero-extended 16-bit* ordinal (`(WORD)-2 == 0xFFFE`), NOT a
+        // sign-extended pointer. Emitting the sign-extended value would give a non-zero high
+        // word and make `LoadIcon`/`FindResource` dereference it as a string pointer. Stored
+        // as the truncated ordinal (`TD_ERROR_ICON: PWSTR = 65534`, projected
+        // `PCWSTR(65534 as _)`, so `.0 as i16 == -2` while the high word stays zero).
+        [
+            (CXToken_Identifier, w),
+            (CXToken_Punctuation, lp),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp),
+        ] if lp == "(" && rp == ")" && minus == "-" && makeintresource_macro(w).is_some() => {
+            let (digits, _suffix) = split_int_suffix(lit);
+            let raw: u64 = parse_int_digits(digits)?;
+            Some(metadata::Value::EnumValue(
+                metadata::TypeName::named(namespace, makeintresource_macro(w)?),
+                Box::new(metadata::Value::I32((raw as u16).wrapping_neg() as i32)),
+            ))
+        }
+        // ((TYPE *)(SCALAR)-VALUE) — an inline char-pointer sentinel, e.g.
+        // `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`. The outer cast is an
+        // inline pointer-to-char rather than a named alias, so `parse_nested_cast` rejects
+        // it at the `*`. Emitted as the canonical `PWSTR`/`PSTR` carrying the sign-extended
+        // sentinel value (see [`char_pointer_target`]).
+        [
+            (CXToken_Punctuation, lp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Identifier, ptr_ty),
+            (CXToken_Punctuation, star),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Punctuation, lp3),
+            (CXToken_Identifier, inner),
+            (CXToken_Punctuation, rp2),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp3),
+        ] if lp1 == "(" && lp2 == "(" && star == "*" && rp1 == ")" && lp3 == "(" && rp2 == ")" && minus == "-" && rp3 == ")" && char_pointer_target(ptr_ty).is_some() =>
+        {
+            let (digits, _suffix) = split_int_suffix(lit);
+            let raw: u64 = parse_int_digits(digits)?;
+            Some(metadata::Value::EnumValue(
+                metadata::TypeName::named(namespace, char_pointer_target(ptr_ty)?),
+                Box::new(inner_scalar_value(inner, raw, true)),
+            ))
+        }
         _ => parse_nested_cast(body, namespace, ref_map, header_names),
     }
 }
@@ -865,6 +913,23 @@ fn makeintresource_macro(name: &str) -> Option<&'static str> {
     Some(match name {
         "MAKEINTRESOURCE" | "MAKEINTRESOURCEW" => "PWSTR",
         "MAKEINTRESOURCEA" => "PSTR",
+        _ => return None,
+    })
+}
+
+/// Maps an inline *char-pointer* cast type (`OLECHAR`/`WCHAR` → wide, `CHAR` → narrow)
+/// to the canonical string-pointer spelling its sentinel value is carried as.
+///
+/// String-pointer *sentinel* constants are spelled with an inline pointer-to-char cast
+/// rather than a named alias — `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`.
+/// `parse_nested_cast` rejects them at the `*` (its cast chain only accepts bare typedef
+/// names), so they are matched by their fixed token shape in [`parse_body`] and emitted as
+/// a `PWSTR`/`PSTR` const carrying the (sign-extended) sentinel — matching the reference
+/// metadata, which projects them as `PCWSTR(-1 as _)`.
+fn char_pointer_target(name: &str) -> Option<&'static str> {
+    Some(match name {
+        "OLECHAR" | "WCHAR" | "wchar_t" => "PWSTR",
+        "CHAR" | "char" => "PSTR",
         _ => return None,
     })
 }

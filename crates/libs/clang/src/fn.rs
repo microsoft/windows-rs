@@ -235,16 +235,24 @@ impl Fn {
             }
         };
 
-        let abi = match self.calling_convention {
-            // An explicitly-stated convention is authoritative.
-            Some(CallingConvention::Stdcall) => quote! { "system" },
-            Some(CallingConvention::Cdecl) => quote! { "C" },
-            Some(CallingConvention::Fastcall) => quote! { "fastcall" },
-            // No explicit convention: fall back to linkage. An `extern "C"`
-            // function with no stated convention defaults to `__cdecl` under
-            // MSVC, so emitting `extern "C"` here remains faithful.
-            None if self.extern_c => quote! { "C" },
-            None => quote! {},
+        let abi = if self.is_variadic {
+            // A variadic function is always `__cdecl` on Windows: MSVC ignores a
+            // stated `__stdcall`/`WINAPI` for varargs and uses `__cdecl`. Emitting
+            // any other convention is both wrong and rejected outright by rustc on
+            // non-MSVC targets (`extern "system"` C-variadics are an error).
+            quote! { "C" }
+        } else {
+            match self.calling_convention {
+                // An explicitly-stated convention is authoritative.
+                Some(CallingConvention::Stdcall) => quote! { "system" },
+                Some(CallingConvention::Cdecl) => quote! { "C" },
+                Some(CallingConvention::Fastcall) => quote! { "fastcall" },
+                // No explicit convention: fall back to linkage. An `extern "C"`
+                // function with no stated convention defaults to `__cdecl` under
+                // MSVC, so emitting `extern "C"` here remains faithful.
+                None if self.extern_c => quote! { "C" },
+                None => quote! {},
+            }
         };
 
         let does_not_return = if self.does_not_return {

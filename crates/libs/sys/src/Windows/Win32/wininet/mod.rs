@@ -505,24 +505,42 @@ pub const FTP_TRANSFER_TYPE_MASK: u32 = 3;
 pub const FTP_TRANSFER_TYPE_UNKNOWN: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::winnt::LPCTSTR,
     pub AbstractFile: super::winnt::LPCTSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::winnt::LPCTSTR,
     pub EmailAddress: super::winnt::LPCTSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_ADMIN_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::winnt::LPCTSTR,
     pub QuestionText: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_ASK_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type GOPHER_ATTRIBUTE_ENUMERATOR = Option<unsafe extern "system" fn(lpattributeinfo: *const GOPHER_ATTRIBUTE_TYPE, dwerror: u32) -> windows_sys::core::BOOL>;
@@ -642,9 +660,15 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_LOCATION_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -654,15 +678,27 @@ pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::winnt::LPCTSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_PROVIDER_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -677,9 +713,15 @@ pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_SITE_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -718,9 +760,15 @@ pub const GOPHER_TYPE_UNIX_UUENCODED: u32 = 64;
 pub const GOPHER_TYPE_UNKNOWN: u32 = 536870912;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -729,17 +777,29 @@ pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::winnt::LPCTSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_VERSION_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::winnt::LPCTSTR,
     pub Language: super::winnt::LPCTSTR,
     pub Size: u32,
+}
+#[cfg(feature = "winnt")]
+impl Default for GOPHER_VIEW_ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type GROUPID = i64;
 pub const GROUPNAME_MAX_LENGTH: u32 = 120;
@@ -1069,7 +1129,7 @@ pub struct INTERNET_CACHE_TIMESTAMPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::minwindef::FILETIME,
     pub ftStart: super::minwindef::FILETIME,
@@ -1079,6 +1139,12 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub lpszSignatureAlgName: super::winnt::LPTSTR,
     pub lpszEncryptionAlgName: super::winnt::LPTSTR,
     pub dwKeySize: u32,
+}
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+impl Default for INTERNET_CERTIFICATE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1438,11 +1504,17 @@ pub const INTERNET_PER_CONN_PROXY_SERVER: u32 = 2;
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: u32,
     pub lpszProxy: super::winnt::LPCTSTR,
     pub lpszProxyBypass: super::winnt::LPCTSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for INTERNET_PROXY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const INTERNET_RAS_INSTALLED: u32 = 16;
 pub const INTERNET_REQFLAG_ASYNC: u32 = 2;

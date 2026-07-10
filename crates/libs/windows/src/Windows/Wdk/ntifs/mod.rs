@@ -638,7 +638,7 @@ pub unsafe fn RtlInitializeSid(sid: super::super::Win32::winnt::PSID, identifier
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
 pub unsafe fn RtlInitializeSidEx(sid: super::super::Win32::winnt::PSID, identifierauthority: *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> super::super::Win32::bcrypt::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlInitializeSidEx(sid : super::super::Win32::winnt::PSID, identifierauthority : *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::Win32::bcrypt::NTSTATUS);
+    windows_core::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::Win32::winnt::PSID, identifierauthority : *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::Win32::bcrypt::NTSTATUS);
     unsafe { RtlInitializeSidEx(sid as _, identifierauthority, subauthoritycount) }
 }
 #[inline]

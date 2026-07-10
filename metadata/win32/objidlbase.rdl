@@ -56,6 +56,7 @@ mod Windows {
             fn Begin_Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
+        const COLE_DEFAULT_PRINCIPAL: PWSTR = -1;
         struct COSERVERINFO {
             dwReserved1: u32,
             pwszName: PWSTR,

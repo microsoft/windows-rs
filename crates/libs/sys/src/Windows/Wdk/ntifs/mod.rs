@@ -186,7 +186,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationst
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::super::Win32::winnt::PSID, identifierauthority : *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> super::super::Win32::bcrypt::NTSTATUS);
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlInitializeSidEx(sid : super::super::Win32::winnt::PSID, identifierauthority : *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, ...) -> super::super::Win32::bcrypt::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::Win32::winnt::PSID, identifierauthority : *const super::super::Win32::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, ...) -> super::super::Win32::bcrypt::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlIsCloudFilesPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag : u32) -> bool);
 #[cfg(feature = "bcrypt")]

@@ -2562,9 +2562,9 @@ mod Windows {
         #[library("SETUPAPI.dll")]
         extern fn SetupVerifyInfFileW(InfName: PCWSTR, #[opt] AltPlatformInfo: PSP_ALTPLATFORM_INFO, #[in] #[out] InfSignerInfo: PSP_INF_SIGNER_INFO_W) -> BOOL;
         #[library("SETUPAPI.dll")]
-        extern fn SetupWriteTextLog(LogToken: SP_LOG_TOKEN, Category: u32, Flags: u32, MessageStr: PCSTR, ...);
+        extern "C" fn SetupWriteTextLog(LogToken: SP_LOG_TOKEN, Category: u32, Flags: u32, MessageStr: PCSTR, ...);
         #[library("SETUPAPI.dll")]
-        extern fn SetupWriteTextLogError(LogToken: SP_LOG_TOKEN, Category: u32, LogFlags: u32, Error: u32, MessageStr: PCSTR, ...);
+        extern "C" fn SetupWriteTextLogError(LogToken: SP_LOG_TOKEN, Category: u32, LogFlags: u32, Error: u32, MessageStr: PCSTR, ...);
         #[library("SETUPAPI.dll")]
         extern fn SetupWriteTextLogInfLine(LogToken: SP_LOG_TOKEN, Flags: u32, InfHandle: HINF, Context: *const INFCONTEXT);
     }

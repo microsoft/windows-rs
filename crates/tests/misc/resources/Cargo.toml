@@ -11,17 +11,23 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_UI_Controls",
-    "Win32_UI_WindowsAndMessaging",
-    "Win32_System_Com",
+    "commctrl",
+    "minwindef",
+    "objidlbase",
+    "windef",
+    "winuser",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_UI_Controls",
-    "Win32_UI_WindowsAndMessaging",
-    "Win32_System_Com",
+    "commctrl",
+    "errhandlingapi",
+    "minwindef",
+    "objidlbase",
+    "windef",
+    "winerror",
+    "winuser",
 ]
 
 [lints]
