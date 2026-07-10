@@ -923,15 +923,15 @@ constructors, constructors_client, event_core, old, overloads, overloads_client}
 `winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
 conversions as example helpers).
 
-BLOCKED (11, genuine metadata gaps or removed extensions, left unmodified and out of `members` —
-see Follow-up): `libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature,
-extensions, handles, lib, return_handle, structs, variant}`.
+BLOCKED (9, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
+`libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, handles, lib,
+return_handle, structs}`.
 The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
 (`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
 `Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
-`RtlGenRandom` alias (`targets`), the intentionally-removed `windows`-crate extensions
-(`extensions`, `variant` — see "Intentionally-removed `windows`-crate extensions"), and assorted
-absent symbols/attributes (`structs`, `lib`, `arch_feature`).
+`RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`structs`, `lib`,
+`arch_feature`). The former `test_extensions` and `test_variant` crates were **deleted** (they only
+tested removed `windows`-crate extensions — see "Intentionally-removed `windows`-crate extensions").
 (`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
 `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
 negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs` arms — see Follow-up.)
@@ -1132,8 +1132,9 @@ Test-specific drift beyond the sample patterns:
   `Win32/System/StructuredStorage.rs`), the **`VARIANT_BOOL`** helpers, and the WinRT
   **`Foundation::DateTime`** conversions. Tests/samples that relied on them must construct/convert the
   raw types themselves (as `winsock.rs` now demonstrates) or drop the reliant assertions. The
-  `test_extensions` and `test_variant` crates (still in the workspace `exclude` list) exist solely to
-  test these removed helpers and are pending removal/rework under this direction.
+  `test_extensions` and `test_variant` crates existed solely to test these removed helpers and have
+  been **deleted** (`bool32.rs`/`ntstatus.rs` covered `windows-core`'s `BOOL`/`NTSTATUS`, which the
+  `test_error`/`test_result` crates already exercise).
 - **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
   `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
   explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add
