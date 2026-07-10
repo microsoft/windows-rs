@@ -295,6 +295,15 @@ an empty `#[library("")]` would otherwise force `windows-bindgen` to emit
 by `tool_win32`; unit-test fixtures that supply no import libraries leave it off so
 they still emit their functions.
 
+The import-library list in `win32.toml` is ordered by resolution priority (first-wins):
+per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrella
+(`onecore.lib`, `onecoreuap.lib`) next, and `vertdll.lib` — the VBS-enclave runtime —
+**dead last**. `vertdll.dll` also exports host-side synchronization/enclave functions
+(`WaitOnAddress`, `WakeByAddress*`, `CallEnclave`, `TerminateEnclave`), and importing
+those from `vertdll.dll` faults a normal process at load; ordering it after the apiset
+umbrella lets them resolve to their loadable `api-ms-win-core-synch`/`-enclave` contract,
+leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+
 ## The WDK corpus: tool_wdk
 
 `cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the

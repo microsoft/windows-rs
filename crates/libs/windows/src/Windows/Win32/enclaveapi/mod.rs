@@ -1,7 +1,7 @@
 #[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn CallEnclave(lproutine: super::minwinbase::LPENCLAVE_ROUTINE, lpparameter: *const core::ffi::c_void, fwaitforthread: bool, lpreturnvalue: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_core::link!("vertdll.dll" "system" fn CallEnclave(lproutine : super::minwinbase::LPENCLAVE_ROUTINE, lpparameter : *const core::ffi::c_void, fwaitforthread : windows_core::BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn CallEnclave(lproutine : super::minwinbase::LPENCLAVE_ROUTINE, lpparameter : *const core::ffi::c_void, fwaitforthread : windows_core::BOOL, lpreturnvalue : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { CallEnclave(lproutine, lpparameter, fwaitforthread.into(), lpreturnvalue as _) }
 }
 #[cfg(feature = "winnt")]
@@ -50,6 +50,6 @@ where
 }
 #[inline]
 pub unsafe fn TerminateEnclave(lpaddress: *const core::ffi::c_void, fwait: bool) -> windows_core::BOOL {
-    windows_core::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-enclave-l1-1-1.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { TerminateEnclave(lpaddress, fwait.into()) }
 }

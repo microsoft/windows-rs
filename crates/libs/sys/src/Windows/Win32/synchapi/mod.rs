@@ -108,11 +108,11 @@ windows_link::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount :
 windows_link::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : super::winnt::HANDLE, dwmilliseconds : u32) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn WaitForSingleObjectEx(hhandle : super::winnt::HANDLE, dwmilliseconds : u32, balertable : windows_sys::core::BOOL) -> u32);
-windows_link::link!("vertdll.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn WakeAllConditionVariable(conditionvariable : *mut super::winnt::RTL_CONDITION_VARIABLE));
-windows_link::link!("vertdll.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
-windows_link::link!("vertdll.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
+windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
+windows_link::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
 #[cfg(feature = "winnt")]
 windows_link::link!("kernel32.dll" "system" fn WakeConditionVariable(conditionvariable : *mut super::winnt::RTL_CONDITION_VARIABLE));
 #[cfg(feature = "winnt")]

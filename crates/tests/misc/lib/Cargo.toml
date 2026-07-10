@@ -11,21 +11,20 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Graphics_Direct3D_Fxc",
-    "Win32_Graphics_Direct3D11",
-    "Win32_Graphics_Gdi",
-    "Win32_System_Threading",
-    "Win32_System_ClrHosting",
+    "d3d11",
+    "d3dcompiler",
+    "synchapi",
+    "windef",
+    "wingdi",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Graphics_Gdi",
-    "Win32_Security",
-    "Win32_System_ProcessStatus",
-    "Win32_System_Threading",
-    "Win32_Web_InternetExplorer",
+    "psapi",
+    "synchapi",
+    "windef",
+    "wingdi",
 ]
 
 [dependencies.windows-link]

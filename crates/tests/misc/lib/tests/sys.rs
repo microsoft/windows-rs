@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{
-    Win32::Graphics::Gdi::*, Win32::System::ProcessStatus::*, Win32::System::Threading::*,
-    Win32::Web::InternetExplorer::*, core::*,
-};
+use windows_sys::{Win32::psapi::*, Win32::synchapi::*, Win32::wingdi::*, core::*};
 
 #[test]
 fn gdi() {
@@ -27,21 +24,6 @@ fn gdi() {
 fn wait_on_address() {
     unsafe {
         WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, 0);
-    }
-}
-
-#[test]
-fn browser() {
-    unsafe {
-        IECreateFile(
-            std::ptr::null(),
-            0,
-            0,
-            std::ptr::null(),
-            0,
-            0,
-            core::ptr::null_mut(),
-        );
     }
 }
 

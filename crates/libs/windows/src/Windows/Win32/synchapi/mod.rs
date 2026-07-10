@@ -393,7 +393,7 @@ pub unsafe fn WaitForSingleObjectEx(hhandle: super::winnt::HANDLE, dwmillisecond
 }
 #[inline]
 pub unsafe fn WaitOnAddress(address: *const core::ffi::c_void, compareaddress: *const core::ffi::c_void, addresssize: usize, dwmilliseconds: Option<u32>) -> windows_core::BOOL {
-    windows_core::link!("vertdll.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WaitOnAddress(address : *const core::ffi::c_void, compareaddress : *const core::ffi::c_void, addresssize : usize, dwmilliseconds : u32) -> windows_core::BOOL);
     unsafe { WaitOnAddress(address, compareaddress, addresssize, dwmilliseconds.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
@@ -404,12 +404,12 @@ pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut super::winnt::RTL
 }
 #[inline]
 pub unsafe fn WakeByAddressAll(address: *const core::ffi::c_void) {
-    windows_core::link!("vertdll.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
+    windows_core::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressAll(address : *const core::ffi::c_void));
     unsafe { WakeByAddressAll(address) }
 }
 #[inline]
 pub unsafe fn WakeByAddressSingle(address: *const core::ffi::c_void) {
-    windows_core::link!("vertdll.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
+    windows_core::link!("api-ms-win-core-synch-l1-2-0.dll" "system" fn WakeByAddressSingle(address : *const core::ffi::c_void));
     unsafe { WakeByAddressSingle(address) }
 }
 #[cfg(feature = "winnt")]

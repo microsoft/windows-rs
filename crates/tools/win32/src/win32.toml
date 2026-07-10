@@ -568,7 +568,6 @@ import-libs = [
     "query.lib",
     "msctfmonitor.lib",
     "shdocvw.lib",
-    "vertdll.lib",
     "icmui.lib",
     "normaliz.lib",
     "dflayout.lib",
@@ -594,6 +593,13 @@ import-libs = [
     # which likewise leaves no function with an empty library.
     "onecore.lib",
     "onecoreuap.lib",
+    # Enclave runtime, resolved dead last. `vertdll.dll` is the VBS-enclave runtime and
+    # also exports host-side synchronization/enclave functions (`WaitOnAddress`,
+    # `WakeByAddress*`, `CallEnclave`, `TerminateEnclave`); importing those from
+    # `vertdll.dll` faults a normal process at load. Placing it after the apiset umbrella
+    # lets those functions resolve to their loadable `api-ms-win-*` contract first, leaving
+    # `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+    "vertdll.lib",
 ]
 
 
