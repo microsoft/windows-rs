@@ -906,29 +906,32 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 38 test crates ported and back in the `crates/tests/*/*` glob; 12 remain in
-`exclude` on genuine metadata gaps (see Follow-up). `cargo test --workspace --exclude test_no_std
---no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std` are both green
-(`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification pulls `std` and
-duplicates its `panic_impl`; `cargo check -p test_no_std` stays clean).
+**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 11 remain in
+`exclude` on genuine metadata gaps or removed extensions (see Follow-up). `cargo test --workspace
+--exclude test_no_std --no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std`
+are both green (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification
+pulls `std` and duplicates its `panic_impl`; `cargo check -p test_no_std` stays clean).
 
-Ported (38): `libs/{core, collections, future, interface, reactor_perf, registry, result, services,
+Ported (39): `libs/{core, collections, future, interface, reactor_perf, registry, result, services,
 strings, sys}`; `misc/{arch, array, bcrypt, calling_convention, error, interop, marshal, msrv,
 no_std, not_dll, query_signature, readme, reserved, return_struct, string_param, unions, weak_ref,
-win32_arrays}`; `winrt/{activation, activation_client, composable, composable_client, constructors,
-constructors_client, event_core, old, overloads, overloads_client}`. (`collections`/`future` just
-dropped an unused `Win32_Foundation`; the rest remapped to header stems — e.g. `result` →
-`bcrypt`/`ntstatus`/`winerror` with NTSTATUS wraps, `sys` → `bcrypt`/`handleapi`/`minwinbase`/
-`minwindef`/`ntstatus`/`synchapi`/`windef`/`winerror`/`winnt`/`winuser`).
+win32, win32_arrays}`; `winrt/{activation, activation_client, composable, composable_client,
+constructors, constructors_client, event_core, old, overloads, overloads_client}`.
+(`collections`/`future` just dropped an unused `Win32_Foundation`; the rest remapped to header stems
+— e.g. `result` → `bcrypt`/`ntstatus`/`winerror` with NTSTATUS wraps, `sys` →
+`bcrypt`/`handleapi`/`minwinbase`/`minwindef`/`ntstatus`/`synchapi`/`windef`/`winerror`/`winnt`/
+`winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
+conversions as example helpers).
 
-BLOCKED (12, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
-`libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, extensions,
-handles, lib, return_handle, structs, variant, win32}`.
+BLOCKED (11, genuine metadata gaps or removed extensions, left unmodified and out of `members` —
+see Follow-up): `libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature,
+extensions, handles, lib, return_handle, structs, variant}`.
 The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
 (`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
 `Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
-`RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`extensions`,
-`structs`, `variant`, `lib`, `win32`, `arch_feature`).
+`RtlGenRandom` alias (`targets`), the intentionally-removed `windows`-crate extensions
+(`extensions`, `variant` — see "Intentionally-removed `windows`-crate extensions"), and assorted
+absent symbols/attributes (`structs`, `lib`, `arch_feature`).
 (`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
 `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
 negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs` arms — see Follow-up.)
@@ -1094,30 +1097,43 @@ Test-specific drift beyond the sample patterns:
   emit (resolving to `D3DCOMPILER_47.dll` via `d3dcompiler.lib`). Note `d3d11shadertracing.h`'s
   content is attributed to the **`d3d11`** module (no separate `d3d11shadertracing` feature is
   generated) — so `D3DDisassemble11Trace` lives at `Win32::d3d11`, gated by the `d3d11` feature.
-- **`cross.yml` hardcodes `-p test_win32` (partially unblocked; port in progress).** The `cross`
-  workflow's cross-compile smoke test (`.github/workflows/cross.yml:95`) runs
-  `cargo test --no-run -p test_win32`, but `test_win32` is in the workspace `exclude` list. The four
-  genuine metadata gaps that blocked it are now filled (above): `D3D12_DEFAULT_BLEND_FACTOR_ALPHA`
-  (f32), `UIA_ScrollPatternNoScroll` (f64), `HasExpandedResources`, `D3DDisassemble11Trace`. The
-  remaining work is **test-side API-drift adaptation**, not metadata gaps:
-  - **`win32.rs` / `hresult.rs` — portable.** Enum newtypes are now bare integer aliases
+- **`cross.yml`'s `-p test_win32` is unblocked (ported and passing).** The `cross` workflow's
+  cross-compile smoke test (`.github/workflows/cross.yml:95`) runs `cargo test --no-run -p test_win32`.
+  The crate is now removed from the workspace `exclude` list and its three test files are ported to the
+  flat header-stem API; `cargo test -p test_win32` passes all 21 tests. The four genuine metadata gaps
+  that had blocked it are filled (above): `D3D12_DEFAULT_BLEND_FACTOR_ALPHA` (f32),
+  `UIA_ScrollPatternNoScroll` (f64), `HasExpandedResources`, `D3DDisassemble11Trace`. Test-side
+  API-drift adaptations applied:
+  - **`win32.rs` / `hresult.rs`.** Enum newtypes are now bare integer aliases
     (`ACCESS_MODE`/`DXGI_ADAPTER_FLAG` → `type = i32`), so `X::default().0`→`X::default()`,
     `both.0 == 3`→`both == 3`; DXGI flag params/returns are bare `u32`
-    (`MakeWindowAssociation(hwnd, 0)`, `GetCreationFlags() == 0`); `URI_CREATE_FLAGS::default()`→`0`.
-    BOOL-returning Win32 fns no longer auto-return `Result` (the flat metadata omits the error
-    transform) — use `windows_core::BOOL::ok()` (`SetEvent(e).ok()?`, `MiniDumpWriteDump(..).ok().unwrap_err()`);
-    `CreateEventW` now returns a bare `HANDLE` (drop the `?`). `hresult.rs`'s `ERROR_*` are bare `u32`
-    (wrap `WIN32_ERROR(ERROR_SUCCESS).into()`).
-  - **`winsock.rs` — BLOCKED on a genuine gap: the std ↔ WinSock interop `From`/`Into` conversions
-    are absent.** The flat output has **no** `From<std::net::Ipv4Addr> for IN_ADDR`,
-    `From<SocketAddrV4> for SOCKADDR_IN`, `From<IN_ADDR> for Ipv4Addr`, or the v6/`SOCKADDR_INET`
-    equivalents (grep for `Ipv4Addr` across `Win32/{inaddr,in6addr,ws2}` = 0). These were a
-    hand-authored/special-cased interop layer in the editorial projection; the in-house pipeline does
-    not (yet) emit them. Additional drift once that lands: `AF_INET`/`AF_INET6` are bare `u32` (was
-    the `ADDRESS_FAMILY` newtype) while `sin_family` stays `ADDRESS_FAMILY(pub u16)`, so comparisons
-    need `ADDRESS_FAMILY(AF_INET as u16)`. **TODO:** either build the std-net interop layer in the
-    projection (the larger, correct fix), or split `winsock.rs` out / gate it so `win32.rs` +
-    `hresult.rs` can enable the crate as the cross canary in the meantime.
+    (`MakeWindowAssociation(hwnd, 0)`, `GetCreationFlags() == 0`); `URI_CREATE_FLAGS::default()`→`0`;
+    `STREAM_SEEK_SET` is `i32` (cast to `u32` for `IStream::Seek`); `PLDAPSearch` wraps a raw pointer
+    (`PLDAPSearch(123 as _)`). BOOL-returning Win32 fns no longer auto-return `Result` (the flat
+    metadata omits the error transform) — use `windows_core::BOOL::ok()` (`SetEvent(e).ok()?`,
+    `MiniDumpWriteDump(..).ok().unwrap_err()`); `CreateEventW` now returns a bare `HANDLE` (drop the
+    `?`). `hresult.rs`'s `ERROR_*` are bare `u32` (wrap `WIN32_ERROR(ERROR_SUCCESS).into()`).
+  - **`winsock.rs` — ported by inlining the conversions as example helpers.** The std ↔ WinSock
+    interop conversions it exercised were hand-baked `windows`-crate extensions that are being
+    intentionally removed (see "Intentionally-removed `windows`-crate extensions" below), *not* a
+    metadata gap. Because the orphan rule forbids `impl From<std::net::*> for <foreign WinSock struct>`
+    in a downstream crate, the test now carries small free-function equivalents (`to_in_addr`,
+    `from_in_addr`, `to_sockaddr_in`, …) that construct the raw structs directly — doubling as a worked
+    example of how a caller does the conversion themselves. Drift folded in: `AF_INET`/`AF_INET6` are
+    bare `u32` (was the `ADDRESS_FAMILY` newtype) while `sin_family`/`si_family` stay
+    `ADDRESS_FAMILY(pub u16)`, so comparisons need `ADDRESS_FAMILY(AF_INET as u16)`; `SOCKADDR_IN6` is a
+    type alias for `SOCKADDR_IN6_LH` (its anonymous union is `SOCKADDR_IN6_LH_0`).
+- **Intentionally-removed `windows`-crate extensions (not metadata gaps).** A set of hand-authored
+  ergonomic extensions that the old editorial `windows` crate baked on top of the generated bindings
+  (see `crates/libs/windows/src/extensions/` on the `master` branch) are being **deliberately dropped**
+  in the in-house/flat projection — do **not** try to "fill" them as scraper gaps. Known members: the
+  **std ↔ WinSock net conversions** (`IN_ADDR`/`IN6_ADDR`/`SOCKADDR_IN`/`SOCKADDR_IN6`/`SOCKADDR_INET`
+  ↔ `std::net::*`), the **`VARIANT`/`PROPVARIANT` extension helpers** (`Win32/System/Variant.rs`,
+  `Win32/System/StructuredStorage.rs`), the **`VARIANT_BOOL`** helpers, and the WinRT
+  **`Foundation::DateTime`** conversions. Tests/samples that relied on them must construct/convert the
+  raw types themselves (as `winsock.rs` now demonstrates) or drop the reliant assertions. The
+  `test_extensions` and `test_variant` crates (still in the workspace `exclude` list) exist solely to
+  test these removed helpers and are pending removal/rework under this direction.
 - **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
   `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
   explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add

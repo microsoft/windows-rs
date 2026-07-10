@@ -23,7 +23,6 @@ exclude = [
     "crates/tests/misc/return_handle",
     "crates/tests/misc/structs",
     "crates/tests/misc/variant",
-    "crates/tests/misc/win32",
 ]
 
 [profile.release]
