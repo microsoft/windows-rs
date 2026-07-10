@@ -106,7 +106,7 @@ impl CppConst {
                     }
                 } else {
                     let ty = field_ty.write_name(config);
-                    let value = constant.value().write();
+                    let value = pointer_sized_const_value(&field_ty, &constant.value());
 
                     quote! {
                         #cfg
@@ -206,6 +206,27 @@ impl CppConst {
         } else {
             panic!()
         }
+    }
+}
+
+/// Emits a `usize`/`isize` constant value portably across 32- and 64-bit targets.
+/// A pointer-sized sentinel such as `#define ITSAT_DEFAULT_LPARAM ((DWORD_PTR)-1)` is
+/// stored as the 64-bit two's-complement value (`0xFFFF_FFFF_FFFF_FFFF`); written as a
+/// bare literal it overflows a 32-bit `usize` (`E0080`). Emitting `<value>u64 as usize`
+/// truncates to the target's pointer width, reproducing the correct arch-specific value
+/// (`0xFFFF_FFFF` on 32-bit, `0xFFFF_FFFF_FFFF_FFFF` on 64-bit). Values that already fit a
+/// 32-bit target keep the bare literal, so existing bindings are unaffected.
+fn pointer_sized_const_value(field_ty: &Type, value: &Value) -> TokenStream {
+    match (field_ty, value) {
+        (Type::USize, Value::USize(v)) if *v > u32::MAX as u64 => {
+            let lit = Literal::u64_suffixed(*v);
+            quote! { #lit as usize }
+        }
+        (Type::ISize, Value::ISize(v)) if !(i32::MIN as i64..=i32::MAX as i64).contains(v) => {
+            let lit = Literal::i64_suffixed(*v);
+            quote! { #lit as isize }
+        }
+        _ => value.write(),
     }
 }
 

@@ -906,8 +906,9 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 11 remain in
-`exclude` on genuine metadata gaps or removed extensions (see Follow-up). `cargo test --workspace
+**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 9 remain in
+`exclude` on genuine metadata gaps (the former `test_extensions`/`test_variant` were deleted — see
+Follow-up). `cargo test --workspace
 --exclude test_no_std --no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std`
 are both green (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification
 pulls `std` and duplicates its `panic_impl`; `cargo check -p test_no_std` stays clean).
@@ -929,8 +930,11 @@ return_handle, structs}`.
 The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
 (`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
 `Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
-`RtlGenRandom` alias (`targets`), and assorted absent symbols/attributes (`structs`, `lib`,
-`arch_feature`). The former `test_extensions` and `test_variant` crates were **deleted** (they only
+`RtlGenRandom` alias (`targets`), missing `mscoree.h`/`ieframe.h` headers plus the `EnumProcesses`
+macro-alias (`lib` — `GetFileVersion`/`IECreateFile`/`EnumProcesses` all absent; `EnumProcesses` is
+`#define EnumProcesses K32EnumProcesses`, the same macro-alias class as `RtlGenRandom`), and assorted
+absent symbols/attributes (`structs`, `arch_feature`). The former `test_extensions` and
+`test_variant` crates were **deleted** (they only
 tested removed `windows`-crate extensions — see "Intentionally-removed `windows`-crate extensions").
 (`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
 `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
@@ -1067,6 +1071,19 @@ Test-specific drift beyond the sample patterns:
      (parallel to `resolves_to_fixed_array`); a sys-mode struct with such a field now falls back to the
      manual zeroed `Default` impl instead of deriving. Regression fixture: `struct_typedef_pointer_sys.rdl`.
      RDL churn: `authz.rdl` (3 fns) + `setupapi.rdl` (2 fns) flip `system`→`C`; no other change.
+   3. **Pointer-sized `usize` constant overflows 32-bit targets.** A pointer sentinel such as
+     `#define ITSAT_DEFAULT_LPARAM ((DWORD_PTR)-1)` is scraped (correctly) as `USize(0xFFFF_FFFF_FFFF_FFFF)`
+     — the 64-bit two's-complement of `-1` — but `bindgen` emitted the bare decimal literal
+     `pub const ITSAT_DEFAULT_LPARAM: usize = 18446744073709551615;`, which overflows a 32-bit `usize`
+     (`E0080`) on `i686`. The reference winmd never carried any `usize`/`isize` integer constant, so the
+     published crates had zero of these until the in-house pipeline added them (6 total: `ITSAT_DEFAULT_LPARAM`,
+     `SSRVOPT_RESET`, `WMDRMDEVICEAPP_USE_WPD_DEVICE_PTR` across `windows`+`windows-sys`). The metadata value
+     is right; only the emission was non-portable. Fixed in `bindgen` (`cpp_const.rs::pointer_sized_const_value`):
+     a `usize` value `> u32::MAX` (or an `isize` outside `i32` range) is emitted as `<lit>u64 as usize`
+     (resp. `<lit>i64 as isize`), which truncates to the target's pointer width — reproducing the correct
+     arch-specific value (`0xFFFF_FFFF` on 32-bit, `0xFFFF_FFFF_FFFF_FFFF` on 64-bit) — while values that
+     already fit a 32-bit target keep the bare literal (no churn). Regression fixture:
+     `crates/tests/libs/bindgen/input/const_pointer_sized.rdl`.
 - **Floating-point constants scraped — done (systematic gap).** The flat Win32 metadata carried
   **zero** floating-point constants (`Select-String "pub const \w+: f(32|64)"` over the whole
   generated `windows` crate = 0 matches); every `windows-clang` const path handled only strings and
