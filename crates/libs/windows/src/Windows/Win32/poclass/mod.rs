@@ -620,6 +620,8 @@ impl Default for PPROCESSOR_OBJECT_INFO_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(feature = "devpropdef")]
+pub const PROCESSOR_NUMBER_PKEY: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: super::devpropdef::DEVPROPID(1) };
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {

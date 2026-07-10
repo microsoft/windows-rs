@@ -1,3 +1,7 @@
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_WIA_DeviceType: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 2 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_WIA_USDClassId: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x6bdd1fc6_810f_11d0_bec7_08002be2092f), pid: 3 };
 pub const IS_DIGITAL_CAMERA_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("IsDigitalCamera");
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1;
 pub const REGSTR_VAL_BAUDRATE: windows_sys::core::PCWSTR = windows_sys::core::w!("BaudRate");

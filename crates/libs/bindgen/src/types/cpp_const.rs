@@ -48,13 +48,40 @@ impl CppConst {
             to_ident(self.field.name())
         };
 
-        if let Some(guid) = self.field.guid_attribute() {
-            return config.write_cpp_const_guid(name, &guid);
-        }
-
         let arches = write_arches(self.field);
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
+
+        if let Some(guid) = self.field.guid_attribute() {
+            // A `GuidAttribute` on a struct-typed field is a property-key constant
+            // (`PROPERTYKEY`/`DEVPROPKEY`): the attribute is the `fmtid` and the field's
+            // `Constant` the `pid`. Reconstruct the struct literal from those two structured
+            // pieces rather than parsing an initializer string.
+            if let Type::CppStruct(ty) = &field_ty {
+                let struct_ty = field_ty.write_name(config);
+                let mut fields = quote! {};
+
+                for field in ty.def.fields() {
+                    let field_name = to_ident(field.name());
+                    let member_ty = field.field_type(None, config.reader);
+                    if resolves_to_guid(&member_ty, config.reader) {
+                        let value = config.write_guid_value(&guid);
+                        fields.combine(quote! { #field_name: #value, });
+                    } else if let Some(constant) = self.field.constant() {
+                        let value = constant.value().write();
+                        let value = write_newtype_wrap(&member_ty, &value, config);
+                        fields.combine(quote! { #field_name: #value, });
+                    }
+                }
+
+                return quote! {
+                    #cfg
+                    pub const #name: #struct_ty = #struct_ty { #fields };
+                };
+            }
+
+            return config.write_cpp_const_guid(name, &guid);
+        }
 
         if let Some(constant) = self.field.constant() {
             let constant_ty = constant.constant_type(config.reader);
@@ -178,31 +205,6 @@ impl CppConst {
                     }
                 }
             }
-        } else if let Some(attribute) = self.field.find_attribute("ConstantAttribute") {
-            let args = attribute.value();
-            let Some((_, Value::Utf8(input_str))) = args.first() else {
-                panic!()
-            };
-            let mut input = input_str.as_str();
-
-            let Type::CppStruct(ty) = &field_ty else {
-                panic!()
-            };
-
-            let mut tokens = quote! {};
-
-            for field in ty.def.fields() {
-                let (value, rest) = config.field_initializer(field, input);
-                input = rest;
-                tokens.combine(value);
-            }
-
-            let ty = field_ty.write_name(config);
-
-            quote! {
-                #cfg
-                pub const #name: #ty = #ty { #tokens };
-            }
         } else {
             panic!()
         }
@@ -302,5 +304,22 @@ fn is_signed_error(ty: &Type, reader: &Reader) -> bool {
         Type::HRESULT => true,
         Type::CppStruct(ty) => !ty.def.underlying_type_ext(reader).is_unsigned(),
         _ => false,
+    }
+}
+
+// Resolves a field type through any chain of native typedefs (e.g. `DEVPROPGUID = GUID`)
+// to decide whether it ultimately is the `GUID` carrying a property key's `fmtid`.
+fn resolves_to_guid(ty: &Type, reader: &Reader) -> bool {
+    let mut ty = ty.clone();
+    loop {
+        if ty == Type::GUID {
+            return true;
+        }
+        match &ty {
+            Type::CppStruct(s) if s.is_native_typedef(reader) => {
+                ty = s.def.underlying_type_ext(reader);
+            }
+            _ => return false,
+        }
     }
 }

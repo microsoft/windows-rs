@@ -236,6 +236,2172 @@ mod Windows {
         const PHOTO_SHARPNESS_SOFT: u32 = 1;
         const PHOTO_WHITEBALANCE_AUTO: u32 = 0;
         const PHOTO_WHITEBALANCE_MANUAL: u32 = 1;
+        #[guid(0x65a98875_3c80_40ab_abbc_efdaf77dbee2)]
+        const PKEY_AcquisitionID: PROPERTYKEY = 100;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_ActivityDate: PROPERTYKEY = 23;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_ActivityIcon: PROPERTYKEY = 24;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_ActivityInfo: PROPERTYKEY = 17;
+        #[guid(0xc07b4199_e1df_4493_b1e1_de5946fb58f8)]
+        const PKEY_Address_Country: PROPERTYKEY = 100;
+        #[guid(0xc07b4199_e1df_4493_b1e1_de5946fb58f8)]
+        const PKEY_Address_CountryCode: PROPERTYKEY = 101;
+        #[guid(0xc07b4199_e1df_4493_b1e1_de5946fb58f8)]
+        const PKEY_Address_Region: PROPERTYKEY = 102;
+        #[guid(0xc07b4199_e1df_4493_b1e1_de5946fb58f8)]
+        const PKEY_Address_RegionCode: PROPERTYKEY = 103;
+        #[guid(0xc07b4199_e1df_4493_b1e1_de5946fb58f8)]
+        const PKEY_Address_Town: PROPERTYKEY = 104;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_ExcludeFromShowInNewInstall: PROPERTYKEY = 8;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_ID: PROPERTYKEY = 5;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_IsDestListSeparator: PROPERTYKEY = 6;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_IsDualMode: PROPERTYKEY = 11;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_PreventPinning: PROPERTYKEY = 9;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_RelaunchCommand: PROPERTYKEY = 2;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_RelaunchDisplayNameResource: PROPERTYKEY = 4;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_RelaunchIconResource: PROPERTYKEY = 3;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_SettingsCommand: PROPERTYKEY = 38;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_StartPinOption: PROPERTYKEY = 12;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_ToastActivatorCLSID: PROPERTYKEY = 26;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_UninstallCommand: PROPERTYKEY = 37;
+        #[guid(0x9f4c2855_9f79_4b39_a8d0_e1d42de1d5f3)]
+        const PKEY_AppUserModel_VisualElementsManifestHintPath: PROPERTYKEY = 31;
+        #[guid(0x502cfeab_47eb_459c_b960_e6d8728f7701)]
+        const PKEY_AppZoneIdentifier: PROPERTYKEY = 102;
+        #[guid(0xcdbfc167_337e_41d8_af7c_8c09205429c7)]
+        const PKEY_ApplicationDefinedProperties: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_ApplicationName: PROPERTYKEY = 18;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_ChannelCount: PROPERTYKEY = 7;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_Compression: PROPERTYKEY = 10;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_EncodingBitrate: PROPERTYKEY = 4;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_Format: PROPERTYKEY = 2;
+        #[guid(0xe6822fee_8c17_4d62_823c_8e9cfcbd1d5c)]
+        const PKEY_Audio_IsVariableBitRate: PROPERTYKEY = 100;
+        #[guid(0x2579e5d0_1116_4084_bd9a_9b4f7cb4df5e)]
+        const PKEY_Audio_PeakValue: PROPERTYKEY = 100;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_SampleRate: PROPERTYKEY = 5;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_SampleSize: PROPERTYKEY = 6;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_StreamName: PROPERTYKEY = 9;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Audio_StreamNumber: PROPERTYKEY = 8;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Author: PROPERTYKEY = 4;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_CachedFileUpdaterContentIdForConflictResolution: PROPERTYKEY = 114;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_CachedFileUpdaterContentIdForStream: PROPERTYKEY = 113;
+        #[guid(0x293ca35a_09aa_4dd2_b180_1fe245728a52)]
+        const PKEY_Calendar_Duration: PROPERTYKEY = 100;
+        #[guid(0xbfee9149_e3e2_49a7_a862_c05988145cec)]
+        const PKEY_Calendar_IsOnline: PROPERTYKEY = 100;
+        #[guid(0x315b9c8d_80a9_4ef9_ae16_8e746da51d70)]
+        const PKEY_Calendar_IsRecurring: PROPERTYKEY = 100;
+        #[guid(0xf6272d18_cecc_40b1_b26a_3911717aa7bd)]
+        const PKEY_Calendar_Location: PROPERTYKEY = 100;
+        #[guid(0xd55bae5a_3892_417a_a649_c6ac5aaaeab3)]
+        const PKEY_Calendar_OptionalAttendeeAddresses: PROPERTYKEY = 100;
+        #[guid(0x09429607_582d_437f_84c3_de93a2b24c3c)]
+        const PKEY_Calendar_OptionalAttendeeNames: PROPERTYKEY = 100;
+        #[guid(0x744c8242_4df5_456c_ab9e_014efb9021e3)]
+        const PKEY_Calendar_OrganizerAddress: PROPERTYKEY = 100;
+        #[guid(0xaaa660f9_9865_458e_b484_01bc7fe3973e)]
+        const PKEY_Calendar_OrganizerName: PROPERTYKEY = 100;
+        #[guid(0x72fc5ba4_24f9_4011_9f3f_add27afad818)]
+        const PKEY_Calendar_ReminderTime: PROPERTYKEY = 100;
+        #[guid(0x0ba7d6c3_568d_4159_ab91_781a91fb71e5)]
+        const PKEY_Calendar_RequiredAttendeeAddresses: PROPERTYKEY = 100;
+        #[guid(0xb33af30b_f552_4584_936c_cb93e5cda29f)]
+        const PKEY_Calendar_RequiredAttendeeNames: PROPERTYKEY = 100;
+        #[guid(0x00f58a38_c54b_4c40_8696_97235980eae1)]
+        const PKEY_Calendar_Resources: PROPERTYKEY = 100;
+        #[guid(0x188c1f91_3c40_4132_9ec5_d8b03b72a8a2)]
+        const PKEY_Calendar_ResponseStatus: PROPERTYKEY = 100;
+        #[guid(0x5bf396d4_5eb2_466f_bde9_2fb3f2361d6e)]
+        const PKEY_Calendar_ShowTimeAs: PROPERTYKEY = 100;
+        #[guid(0x53da57cf_62c0_45c4_81de_7610bcefd7f5)]
+        const PKEY_Calendar_ShowTimeAsText: PROPERTYKEY = 100;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_Capacity: PROPERTYKEY = 3;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Category: PROPERTYKEY = 2;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Comment: PROPERTYKEY = 6;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Communication_AccountName: PROPERTYKEY = 9;
+        #[guid(0x428040ac_a177_4c8a_9760_f6f761227f9a)]
+        const PKEY_Communication_DateItemExpires: PROPERTYKEY = 100;
+        #[guid(0x8e531030_b960_4346_ae0d_66bc9a86fb94)]
+        const PKEY_Communication_Direction: PROPERTYKEY = 100;
+        #[guid(0x83a6347e_6fe4_4f40_ba9c_c4865240d1f4)]
+        const PKEY_Communication_FollowupIconIndex: PROPERTYKEY = 100;
+        #[guid(0xc9c34f84_2241_4401_b607_bd20ed75ae7f)]
+        const PKEY_Communication_HeaderItem: PROPERTYKEY = 100;
+        #[guid(0xec0b4191_ab0b_4c66_90b6_c6637cdebbab)]
+        const PKEY_Communication_PolicyTag: PROPERTYKEY = 100;
+        #[guid(0x8619a4b6_9f4d_4429_8c0f_b996ca59e335)]
+        const PKEY_Communication_SecurityFlags: PROPERTYKEY = 100;
+        #[guid(0x807b653a_9e91_43ef_8f97_11ce04ee20c5)]
+        const PKEY_Communication_Suffix: PROPERTYKEY = 100;
+        #[guid(0xbe1a72c6_9a1d_46b7_afe7_afaf8cef4999)]
+        const PKEY_Communication_TaskStatus: PROPERTYKEY = 100;
+        #[guid(0xa6744477_c237_475b_a075_54f34498292a)]
+        const PKEY_Communication_TaskStatusText: PROPERTYKEY = 100;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Company: PROPERTYKEY = 15;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ComputerName: PROPERTYKEY = 5;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_Computer_DecoratedFreeSpace: PROPERTYKEY = 7;
+        #[guid(0x0b8bb018_2725_4b44_92ba_7933aeb2dde7)]
+        const PKEY_Contact_AccountPictureDynamicVideo: PROPERTYKEY = 2;
+        #[guid(0x0b8bb018_2725_4b44_92ba_7933aeb2dde7)]
+        const PKEY_Contact_AccountPictureLarge: PROPERTYKEY = 3;
+        #[guid(0x0b8bb018_2725_4b44_92ba_7933aeb2dde7)]
+        const PKEY_Contact_AccountPictureSmall: PROPERTYKEY = 4;
+        #[guid(0x9ad5badb_cea7_4470_a03d_b84e51b9949e)]
+        const PKEY_Contact_Anniversary: PROPERTYKEY = 100;
+        #[guid(0xcd102c9c_5540_4a88_a6f6_64e4981c8cd1)]
+        const PKEY_Contact_AssistantName: PROPERTYKEY = 100;
+        #[guid(0x9a93244d_a7ad_4ff8_9b99_45ee4cc09af6)]
+        const PKEY_Contact_AssistantTelephone: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_Birthday: PROPERTYKEY = 47;
+        #[guid(0x730fb6dd_cf7c_426b_a03f_bd166cc9ee24)]
+        const PKEY_Contact_BusinessAddress: PROPERTYKEY = 100;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress1Country: PROPERTYKEY = 119;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress1Locality: PROPERTYKEY = 117;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress1PostalCode: PROPERTYKEY = 120;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress1Region: PROPERTYKEY = 118;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress1Street: PROPERTYKEY = 116;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress2Country: PROPERTYKEY = 124;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress2Locality: PROPERTYKEY = 122;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress2PostalCode: PROPERTYKEY = 125;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress2Region: PROPERTYKEY = 123;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress2Street: PROPERTYKEY = 121;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress3Country: PROPERTYKEY = 129;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress3Locality: PROPERTYKEY = 127;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress3PostalCode: PROPERTYKEY = 130;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress3Region: PROPERTYKEY = 128;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_BusinessAddress3Street: PROPERTYKEY = 126;
+        #[guid(0x402b5934_ec5a_48c3_93e6_85e86a2d934e)]
+        const PKEY_Contact_BusinessAddressCity: PROPERTYKEY = 100;
+        #[guid(0xb0b87314_fcf6_4feb_8dff_a50da6af561c)]
+        const PKEY_Contact_BusinessAddressCountry: PROPERTYKEY = 100;
+        #[guid(0xbc4e71ce_17f9_48d5_bee9_021df0ea5409)]
+        const PKEY_Contact_BusinessAddressPostOfficeBox: PROPERTYKEY = 100;
+        #[guid(0xe1d4a09e_d758_4cd1_b6ec_34a8b5a73f80)]
+        const PKEY_Contact_BusinessAddressPostalCode: PROPERTYKEY = 100;
+        #[guid(0x446f787f_10c4_41cb_a6c4_4d0343551597)]
+        const PKEY_Contact_BusinessAddressState: PROPERTYKEY = 100;
+        #[guid(0xddd1460f_c0bf_4553_8ce4_10433c908fb0)]
+        const PKEY_Contact_BusinessAddressStreet: PROPERTYKEY = 100;
+        #[guid(0xf271c659_7e5e_471f_ba25_7f77b286f836)]
+        const PKEY_Contact_BusinessEmailAddresses: PROPERTYKEY = 100;
+        #[guid(0x91eff6f3_2e27_42ca_933e_7c999fbe310b)]
+        const PKEY_Contact_BusinessFaxNumber: PROPERTYKEY = 100;
+        #[guid(0x56310920_2491_4919_99ce_eadb06fafdb2)]
+        const PKEY_Contact_BusinessHomePage: PROPERTYKEY = 100;
+        #[guid(0x6a15e5a0_0a1e_4cd7_bb8c_d2f1b0c929bc)]
+        const PKEY_Contact_BusinessTelephone: PROPERTYKEY = 100;
+        #[guid(0xbf53d1c3_49e0_4f7f_8567_5a821d8ac542)]
+        const PKEY_Contact_CallbackTelephone: PROPERTYKEY = 100;
+        #[guid(0x8fdc6dea_b929_412b_ba90_397a257465fe)]
+        const PKEY_Contact_CarTelephone: PROPERTYKEY = 100;
+        #[guid(0xd4729704_8ef1_43ef_9024_2bd381187fd5)]
+        const PKEY_Contact_Children: PROPERTYKEY = 100;
+        #[guid(0x8589e481_6040_473d_b171_7fa89c2708ed)]
+        const PKEY_Contact_CompanyMainTelephone: PROPERTYKEY = 100;
+        #[guid(0x39b77f4f_a104_4863_b395_2db2ad8f7bc1)]
+        const PKEY_Contact_ConnectedServiceDisplayName: PROPERTYKEY = 100;
+        #[guid(0x80f41eb8_afc4_4208_aa5f_cce21a627281)]
+        const PKEY_Contact_ConnectedServiceIdentities: PROPERTYKEY = 100;
+        #[guid(0xb5c84c9e_5927_46b5_a3cc_933c21b78469)]
+        const PKEY_Contact_ConnectedServiceName: PROPERTYKEY = 100;
+        #[guid(0xa19fb7a9_024b_4371_a8bf_4d29c3e4e9c9)]
+        const PKEY_Contact_ConnectedServiceSupportedActions: PROPERTYKEY = 100;
+        #[guid(0x9660c283_fc3a_4a08_a096_eed3aac46da2)]
+        const PKEY_Contact_DataSuppliers: PROPERTYKEY = 100;
+        #[guid(0xfc9f7306_ff8f_4d49_9fb6_3ffe5c0951ec)]
+        const PKEY_Contact_Department: PROPERTYKEY = 100;
+        #[guid(0x364028da_d895_41fe_a584_302b1bb70a76)]
+        const PKEY_Contact_DisplayBusinessPhoneNumbers: PROPERTYKEY = 100;
+        #[guid(0x5068bcdf_d697_4d85_8c53_1f1cdab01763)]
+        const PKEY_Contact_DisplayHomePhoneNumbers: PROPERTYKEY = 100;
+        #[guid(0x9cb0c358_9d7a_46b1_b466_dcc6f1a3d93d)]
+        const PKEY_Contact_DisplayMobilePhoneNumbers: PROPERTYKEY = 100;
+        #[guid(0x03089873_8ee8_4191_bd60_d31f72b7900b)]
+        const PKEY_Contact_DisplayOtherPhoneNumbers: PROPERTYKEY = 100;
+        #[guid(0xf8fa7fa3_d12b_4785_8a4e_691a94f7a3e7)]
+        const PKEY_Contact_EmailAddress: PROPERTYKEY = 100;
+        #[guid(0x38965063_edc8_4268_8491_b7723172cf29)]
+        const PKEY_Contact_EmailAddress2: PROPERTYKEY = 100;
+        #[guid(0x644d37b4_e1b3_4bad_b099_7e7c04966aca)]
+        const PKEY_Contact_EmailAddress3: PROPERTYKEY = 100;
+        #[guid(0x84d8f337_981d_44b3_9615_c7596dba17e3)]
+        const PKEY_Contact_EmailAddresses: PROPERTYKEY = 100;
+        #[guid(0xcc6f4f24_6083_4bd4_8754_674d0de87ab8)]
+        const PKEY_Contact_EmailName: PROPERTYKEY = 100;
+        #[guid(0xf1a24aa7_9ca7_40f6_89ec_97def9ffe8db)]
+        const PKEY_Contact_FileAsName: PROPERTYKEY = 100;
+        #[guid(0x14977844_6b49_4aad_a714_a4513bf60460)]
+        const PKEY_Contact_FirstName: PROPERTYKEY = 100;
+        #[guid(0x635e9051_50a5_4ba2_b9db_4ed056c77296)]
+        const PKEY_Contact_FullName: PROPERTYKEY = 100;
+        #[guid(0x3c8cee58_d4f0_4cf9_b756_4e5d24447bcd)]
+        const PKEY_Contact_Gender: PROPERTYKEY = 100;
+        #[guid(0x3c8cee58_d4f0_4cf9_b756_4e5d24447bcd)]
+        const PKEY_Contact_GenderValue: PROPERTYKEY = 101;
+        #[guid(0x5dc2253f_5e11_4adf_9cfe_910dd01e3e70)]
+        const PKEY_Contact_Hobbies: PROPERTYKEY = 100;
+        #[guid(0x98f98354_617a_46b8_8560_5b1b64bf1f89)]
+        const PKEY_Contact_HomeAddress: PROPERTYKEY = 100;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress1Country: PROPERTYKEY = 104;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress1Locality: PROPERTYKEY = 102;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress1PostalCode: PROPERTYKEY = 105;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress1Region: PROPERTYKEY = 103;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress1Street: PROPERTYKEY = 101;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress2Country: PROPERTYKEY = 109;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress2Locality: PROPERTYKEY = 107;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress2PostalCode: PROPERTYKEY = 110;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress2Region: PROPERTYKEY = 108;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress2Street: PROPERTYKEY = 106;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress3Country: PROPERTYKEY = 114;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress3Locality: PROPERTYKEY = 112;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress3PostalCode: PROPERTYKEY = 115;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress3Region: PROPERTYKEY = 113;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_HomeAddress3Street: PROPERTYKEY = 111;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_HomeAddressCity: PROPERTYKEY = 65;
+        #[guid(0x08a65aa1_f4c9_43dd_9ddf_a33d8e7ead85)]
+        const PKEY_Contact_HomeAddressCountry: PROPERTYKEY = 100;
+        #[guid(0x7b9f6399_0a3f_4b12_89bd_4adc51c918af)]
+        const PKEY_Contact_HomeAddressPostOfficeBox: PROPERTYKEY = 100;
+        #[guid(0x8afcc170_8a46_4b53_9eee_90bae7151e62)]
+        const PKEY_Contact_HomeAddressPostalCode: PROPERTYKEY = 100;
+        #[guid(0xc89a23d0_7d6d_4eb8_87d4_776a82d493e5)]
+        const PKEY_Contact_HomeAddressState: PROPERTYKEY = 100;
+        #[guid(0x0adef160_db3f_4308_9a21_06237b16fa2a)]
+        const PKEY_Contact_HomeAddressStreet: PROPERTYKEY = 100;
+        #[guid(0x56c90e9d_9d46_4963_886f_2e1cd9a694ef)]
+        const PKEY_Contact_HomeEmailAddresses: PROPERTYKEY = 100;
+        #[guid(0x660e04d6_81ab_4977_a09f_82313113ab26)]
+        const PKEY_Contact_HomeFaxNumber: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_HomeTelephone: PROPERTYKEY = 20;
+        #[guid(0xd68dbd8a_3374_4b81_9972_3ec30682db3d)]
+        const PKEY_Contact_IMAddress: PROPERTYKEY = 100;
+        #[guid(0xf3d8f40d_50cb_44a2_9718_40cb9119495d)]
+        const PKEY_Contact_Initials: PROPERTYKEY = 100;
+        #[guid(0x897b3694_fe9e_43e6_8066_260f590c0100)]
+        const PKEY_Contact_JA_CompanyNamePhonetic: PROPERTYKEY = 2;
+        #[guid(0x897b3694_fe9e_43e6_8066_260f590c0100)]
+        const PKEY_Contact_JA_FirstNamePhonetic: PROPERTYKEY = 3;
+        #[guid(0x897b3694_fe9e_43e6_8066_260f590c0100)]
+        const PKEY_Contact_JA_LastNamePhonetic: PROPERTYKEY = 4;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1CompanyAddress: PROPERTYKEY = 120;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1CompanyName: PROPERTYKEY = 102;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1Department: PROPERTYKEY = 106;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1Manager: PROPERTYKEY = 105;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1OfficeLocation: PROPERTYKEY = 104;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1Title: PROPERTYKEY = 103;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo1YomiCompanyName: PROPERTYKEY = 101;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2CompanyAddress: PROPERTYKEY = 121;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2CompanyName: PROPERTYKEY = 108;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2Department: PROPERTYKEY = 113;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2Manager: PROPERTYKEY = 112;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2OfficeLocation: PROPERTYKEY = 110;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2Title: PROPERTYKEY = 109;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo2YomiCompanyName: PROPERTYKEY = 107;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3CompanyAddress: PROPERTYKEY = 123;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3CompanyName: PROPERTYKEY = 115;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3Department: PROPERTYKEY = 119;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3Manager: PROPERTYKEY = 118;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3OfficeLocation: PROPERTYKEY = 117;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3Title: PROPERTYKEY = 116;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_JobInfo3YomiCompanyName: PROPERTYKEY = 114;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_JobTitle: PROPERTYKEY = 6;
+        #[guid(0x97b0ad89_df49_49cc_834e_660974fd755b)]
+        const PKEY_Contact_Label: PROPERTYKEY = 100;
+        #[guid(0x8f367200_c270_457c_b1d4_e07c5bcd90c7)]
+        const PKEY_Contact_LastName: PROPERTYKEY = 100;
+        #[guid(0xc0ac206a_827e_4650_95ae_77e2bb74fcc9)]
+        const PKEY_Contact_MailingAddress: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_MiddleName: PROPERTYKEY = 71;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_MobileTelephone: PROPERTYKEY = 35;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_NickName: PROPERTYKEY = 74;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_OfficeLocation: PROPERTYKEY = 7;
+        #[guid(0x508161fa_313b_43d5_83a1_c1accf68622c)]
+        const PKEY_Contact_OtherAddress: PROPERTYKEY = 100;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress1Country: PROPERTYKEY = 134;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress1Locality: PROPERTYKEY = 132;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress1PostalCode: PROPERTYKEY = 135;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress1Region: PROPERTYKEY = 133;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress1Street: PROPERTYKEY = 131;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress2Country: PROPERTYKEY = 139;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress2Locality: PROPERTYKEY = 137;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress2PostalCode: PROPERTYKEY = 140;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress2Region: PROPERTYKEY = 138;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress2Street: PROPERTYKEY = 136;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress3Country: PROPERTYKEY = 144;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress3Locality: PROPERTYKEY = 142;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress3PostalCode: PROPERTYKEY = 145;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress3Region: PROPERTYKEY = 143;
+        #[guid(0xa7b6f596_d678_4bc1_b05f_0203d27e8aa1)]
+        const PKEY_Contact_OtherAddress3Street: PROPERTYKEY = 141;
+        #[guid(0x6e682923_7f7b_4f0c_a337_cfca296687bf)]
+        const PKEY_Contact_OtherAddressCity: PROPERTYKEY = 100;
+        #[guid(0x8f167568_0aae_4322_8ed9_6055b7b0e398)]
+        const PKEY_Contact_OtherAddressCountry: PROPERTYKEY = 100;
+        #[guid(0x8b26ea41_058f_43f6_aecc_4035681ce977)]
+        const PKEY_Contact_OtherAddressPostOfficeBox: PROPERTYKEY = 100;
+        #[guid(0x95c656c1_2abf_4148_9ed3_9ec602e3b7cd)]
+        const PKEY_Contact_OtherAddressPostalCode: PROPERTYKEY = 100;
+        #[guid(0x71b377d6_e570_425f_a170_809fae73e54e)]
+        const PKEY_Contact_OtherAddressState: PROPERTYKEY = 100;
+        #[guid(0xff962609_b7d6_4999_862d_95180d529aea)]
+        const PKEY_Contact_OtherAddressStreet: PROPERTYKEY = 100;
+        #[guid(0x11d6336b_38c4_4ec9_84d6_eb38d0b150af)]
+        const PKEY_Contact_OtherEmailAddresses: PROPERTYKEY = 100;
+        #[guid(0xd6304e01_f8f5_4f45_8b15_d024a6296789)]
+        const PKEY_Contact_PagerTelephone: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_PersonalTitle: PROPERTYKEY = 69;
+        #[guid(0xd042d2a1_927e_40b5_a503_6edbd42a517e)]
+        const PKEY_Contact_PhoneNumbersCanonical: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_Prefix: PROPERTYKEY = 75;
+        #[guid(0xc8ea94f0_a9e3_4969_a94b_9c62a95324e0)]
+        const PKEY_Contact_PrimaryAddressCity: PROPERTYKEY = 100;
+        #[guid(0xe53d799d_0f3f_466e_b2ff_74634a3cb7a4)]
+        const PKEY_Contact_PrimaryAddressCountry: PROPERTYKEY = 100;
+        #[guid(0xde5ef3c7_46e1_484e_9999_62c5308394c1)]
+        const PKEY_Contact_PrimaryAddressPostOfficeBox: PROPERTYKEY = 100;
+        #[guid(0x18bbd425_ecfd_46ef_b612_7b4a6034eda0)]
+        const PKEY_Contact_PrimaryAddressPostalCode: PROPERTYKEY = 100;
+        #[guid(0xf1176dfe_7138_4640_8b4c_ae375dc70a6d)]
+        const PKEY_Contact_PrimaryAddressState: PROPERTYKEY = 100;
+        #[guid(0x63c25b20_96be_488f_8788_c09c407ad812)]
+        const PKEY_Contact_PrimaryAddressStreet: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_PrimaryEmailAddress: PROPERTYKEY = 48;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_PrimaryTelephone: PROPERTYKEY = 25;
+        #[guid(0x7268af55_1ce4_4f6e_a41f_b6e4ef10e4a9)]
+        const PKEY_Contact_Profession: PROPERTYKEY = 100;
+        #[guid(0x9d2408b6_3167_422b_82b0_f583b7a7cfe3)]
+        const PKEY_Contact_SpouseName: PROPERTYKEY = 100;
+        #[guid(0x176dc63c_2688_4e89_8143_a347800f25e9)]
+        const PKEY_Contact_Suffix: PROPERTYKEY = 73;
+        #[guid(0xaaf16bac_2b55_45e6_9f6d_415eb94910df)]
+        const PKEY_Contact_TTYTDDTelephone: PROPERTYKEY = 100;
+        #[guid(0xc554493c_c1f7_40c1_a76c_ef8c0614003e)]
+        const PKEY_Contact_TelexNumber: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Contact_WebPage: PROPERTYKEY = 18;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_Webpage2: PROPERTYKEY = 124;
+        #[guid(0x00f63dd8_22bd_4a5d_ba34_5cb0b9bdcb03)]
+        const PKEY_Contact_Webpage3: PROPERTYKEY = 125;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ContainedItems: PROPERTYKEY = 29;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_ContentId: PROPERTYKEY = 132;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_ContentStatus: PROPERTYKEY = 27;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_ContentType: PROPERTYKEY = 26;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_ContentUri: PROPERTYKEY = 131;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Copyright: PROPERTYKEY = 11;
+        #[guid(0xc2ea046e_033c_4e91_bd5b_d4942f6bbe49)]
+        const PKEY_CreatorAppId: PROPERTYKEY = 2;
+        #[guid(0xc2ea046e_033c_4e91_bd5b_d4942f6bbe49)]
+        const PKEY_CreatorOpenWithUIOptions: PROPERTYKEY = 3;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_DatePlayExpires: PROPERTYKEY = 6;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_DatePlayStarts: PROPERTYKEY = 5;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_Description: PROPERTYKEY = 3;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_IsDisabled: PROPERTYKEY = 7;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_IsProtected: PROPERTYKEY = 2;
+        #[guid(0xaeac19e4_89ae_4508_b9b7_bb867abee2ed)]
+        const PKEY_DRM_PlayCount: PROPERTYKEY = 4;
+        #[guid(0x1e81a3f8_a30f_4247_b9ee_1d0368a9425c)]
+        const PKEY_DataObjectFormat: PROPERTYKEY = 2;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_DateAccessed: PROPERTYKEY = 16;
+        #[guid(0x2cbaa8f5_d81f_47ca_b17a_f8d822300131)]
+        const PKEY_DateAcquired: PROPERTYKEY = 100;
+        #[guid(0x43f8d7b7_a444_4f87_9383_52271c9b915c)]
+        const PKEY_DateArchived: PROPERTYKEY = 100;
+        #[guid(0x72fab781_acda_43e5_b155_b2434f85e678)]
+        const PKEY_DateCompleted: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_DateCreated: PROPERTYKEY = 15;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_DateImported: PROPERTYKEY = 18258;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_DateModified: PROPERTYKEY = 14;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_DefaultSaveLocationDisplay: PROPERTYKEY = 10;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_DescriptionID: PROPERTYKEY = 2;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_DeviceAddress: PROPERTYKEY = 1;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_Flags: PROPERTYKEY = 3;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_LastConnectedTime: PROPERTYKEY = 11;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_Manufacturer: PROPERTYKEY = 4;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_ModelNumber: PROPERTYKEY = 5;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_ProductId: PROPERTYKEY = 8;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_ProductVersion: PROPERTYKEY = 9;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_ServiceGuid: PROPERTYKEY = 2;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_VendorId: PROPERTYKEY = 7;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_DeviceInterface_Bluetooth_VendorIdSource: PROPERTYKEY = 6;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_IsReadOnly: PROPERTYKEY = 4;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_ProductId: PROPERTYKEY = 6;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_UsageId: PROPERTYKEY = 3;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_UsagePage: PROPERTYKEY = 2;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_VendorId: PROPERTYKEY = 5;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const PKEY_DeviceInterface_Hid_VersionNumber: PROPERTYKEY = 7;
+        #[guid(0x847c66de_b8d6_4af9_abc3_6f4f926bc039)]
+        const PKEY_DeviceInterface_PrinterDriverDirectory: PROPERTYKEY = 14;
+        #[guid(0xafc47170_14f5_498c_8f30_b0d19be449c6)]
+        const PKEY_DeviceInterface_PrinterDriverName: PROPERTYKEY = 11;
+        #[guid(0xa00742a1_cd8c_4b37_95ab_70755587767a)]
+        const PKEY_DeviceInterface_PrinterEnumerationFlag: PROPERTYKEY = 3;
+        #[guid(0x0a7b84ef_0c27_463f_84ef_06c5070001be)]
+        const PKEY_DeviceInterface_PrinterName: PROPERTYKEY = 10;
+        #[guid(0xeec7b761_6f94_41b1_949f_c729720dd13c)]
+        const PKEY_DeviceInterface_PrinterPortName: PROPERTYKEY = 12;
+        #[guid(0xfb3842cd_9e2a_4f83_8fcc_4b0761139ae9)]
+        const PKEY_DeviceInterface_Proximity_SupportsNfc: PROPERTYKEY = 2;
+        #[guid(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4)]
+        const PKEY_DeviceInterface_Serial_PortName: PROPERTYKEY = 4;
+        #[guid(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4)]
+        const PKEY_DeviceInterface_Serial_UsbProductId: PROPERTYKEY = 3;
+        #[guid(0x4c6bf15c_4c03_4aac_91f5_64c0f852bcf4)]
+        const PKEY_DeviceInterface_Serial_UsbVendorId: PROPERTYKEY = 2;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_DeviceInterfaceClasses: PROPERTYKEY = 7;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_UsbClass: PROPERTYKEY = 4;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_UsbProductId: PROPERTYKEY = 3;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_UsbProtocol: PROPERTYKEY = 6;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_UsbSubClass: PROPERTYKEY = 5;
+        #[guid(0x95e127b5_79cc_4e83_9c9e_8422187b3e0e)]
+        const PKEY_DeviceInterface_WinUsb_UsbVendorId: PROPERTYKEY = 2;
+        #[guid(0x0b48f35a_be6e_4f17_b108_3c4073d1669a)]
+        const PKEY_Device_PrinterURL: PROPERTYKEY = 15;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_CanPair: PROPERTYKEY = 3;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_Categories: PROPERTYKEY = 9;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_Children: PROPERTYKEY = 2;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_ContainerId: PROPERTYKEY = 12;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_DialProtocol_InstalledApplications: PROPERTYKEY = 6;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_IsPaired: PROPERTYKEY = 4;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_IsPresent: PROPERTYKEY = 11;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_Manufacturer: PROPERTYKEY = 6;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_ModelIds: PROPERTYKEY = 8;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_ModelName: PROPERTYKEY = 7;
+        #[guid(0x0bba1ede_7566_4f47_90ec_25fc567ced2a)]
+        const PKEY_Devices_AepContainer_ProtocolIds: PROPERTYKEY = 13;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportedUriSchemes: PROPERTYKEY = 5;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsAudio: PROPERTYKEY = 2;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsCapturing: PROPERTYKEY = 11;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsImages: PROPERTYKEY = 4;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsInformation: PROPERTYKEY = 14;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsLimitedDiscovery: PROPERTYKEY = 7;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsNetworking: PROPERTYKEY = 9;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsObjectTransfer: PROPERTYKEY = 12;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsPositioning: PROPERTYKEY = 8;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsRendering: PROPERTYKEY = 10;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsTelephony: PROPERTYKEY = 13;
+        #[guid(0x6af55d45_38db_4495_acb0_d4728a3b8314)]
+        const PKEY_Devices_AepContainer_SupportsVideo: PROPERTYKEY = 3;
+        #[guid(0xc9c141a9_1b4c_4f17_a9d1_f298538cadb8)]
+        const PKEY_Devices_AepService_AepId: PROPERTYKEY = 6;
+        #[guid(0x9744311e_7951_4b2e_b6f0_ecb293cac119)]
+        const PKEY_Devices_AepService_Bluetooth_CacheMode: PROPERTYKEY = 5;
+        #[guid(0xa399aac7_c265_474e_b073_ffce57721716)]
+        const PKEY_Devices_AepService_Bluetooth_ServiceGuid: PROPERTYKEY = 2;
+        #[guid(0x9744311e_7951_4b2e_b6f0_ecb293cac119)]
+        const PKEY_Devices_AepService_Bluetooth_TargetDevice: PROPERTYKEY = 6;
+        #[guid(0x71724756_3e74_4432_9b59_e7b2f668a593)]
+        const PKEY_Devices_AepService_ContainerId: PROPERTYKEY = 4;
+        #[guid(0x71724756_3e74_4432_9b59_e7b2f668a593)]
+        const PKEY_Devices_AepService_FriendlyName: PROPERTYKEY = 2;
+        #[guid(0x79d94e82_4d79_45aa_821a_74858b4e4ca6)]
+        const PKEY_Devices_AepService_IoT_ServiceInterfaces: PROPERTYKEY = 2;
+        #[guid(0xc9c141a9_1b4c_4f17_a9d1_f298538cadb8)]
+        const PKEY_Devices_AepService_ParentAepIsPaired: PROPERTYKEY = 7;
+        #[guid(0xc9c141a9_1b4c_4f17_a9d1_f298538cadb8)]
+        const PKEY_Devices_AepService_ProtocolId: PROPERTYKEY = 5;
+        #[guid(0x71724756_3e74_4432_9b59_e7b2f668a593)]
+        const PKEY_Devices_AepService_ServiceClassId: PROPERTYKEY = 3;
+        #[guid(0xc9c141a9_1b4c_4f17_a9d1_f298538cadb8)]
+        const PKEY_Devices_AepService_ServiceId: PROPERTYKEY = 2;
+        #[guid(0x3b2ce006_5e61_4fde_bab8_9b8aac9b26df)]
+        const PKEY_Devices_Aep_AepId: PROPERTYKEY = 8;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Major: PROPERTYKEY = 2;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Minor: PROPERTYKEY = 3;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Audio: PROPERTYKEY = 10;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Capturing: PROPERTYKEY = 8;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Information: PROPERTYKEY = 12;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_LimitedDiscovery: PROPERTYKEY = 4;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Networking: PROPERTYKEY = 6;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_ObjectXfer: PROPERTYKEY = 9;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Positioning: PROPERTYKEY = 5;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Rendering: PROPERTYKEY = 7;
+        #[guid(0x5fbd34cd_561a_412e_ba98_478a6b0fef1d)]
+        const PKEY_Devices_Aep_Bluetooth_Cod_Services_Telephony: PROPERTYKEY = 11;
+        #[guid(0x2bd67d8b_8beb_48d5_87e0_6cda3428040a)]
+        const PKEY_Devices_Aep_Bluetooth_LastSeenTime: PROPERTYKEY = 12;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_AddressType: PROPERTYKEY = 4;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_Appearance: PROPERTYKEY = 1;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Category: PROPERTYKEY = 5;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_Appearance_Subcategory: PROPERTYKEY = 6;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_IsCallControlClient: PROPERTYKEY = 12;
+        #[guid(0x995ef0b0_7eb3_4a8b_b9ce_068bb3f4af69)]
+        const PKEY_Devices_Aep_Bluetooth_Le_IsConnectable: PROPERTYKEY = 8;
+        #[guid(0xe7c3fb29_caa7_4f47_8c8b_be59b330d4c5)]
+        const PKEY_Devices_Aep_CanPair: PROPERTYKEY = 3;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_Category: PROPERTYKEY = 17;
+        #[guid(0xe7c3fb29_caa7_4f47_8c8b_be59b330d4c5)]
+        const PKEY_Devices_Aep_ContainerId: PROPERTYKEY = 2;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_DeviceAddress: PROPERTYKEY = 12;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_IsConnected: PROPERTYKEY = 7;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_IsPaired: PROPERTYKEY = 16;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_IsPresent: PROPERTYKEY = 9;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_Manufacturer: PROPERTYKEY = 5;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_ModelId: PROPERTYKEY = 4;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_ModelName: PROPERTYKEY = 3;
+        #[guid(0xd4bf61b3_442e_4ada_882d_fa7b70c832d9)]
+        const PKEY_Devices_Aep_PointOfService_ConnectionTypes: PROPERTYKEY = 6;
+        #[guid(0x3b2ce006_5e61_4fde_bab8_9b8aac9b26df)]
+        const PKEY_Devices_Aep_ProtocolId: PROPERTYKEY = 5;
+        #[guid(0xa35996ab_11cf_4935_8b61_a6761081ecdf)]
+        const PKEY_Devices_Aep_SignalStrength: PROPERTYKEY = 6;
+        #[guid(0x51236583_0c4a_4fe8_b81f_166aec13f510)]
+        const PKEY_Devices_AppPackageFamilyName: PROPERTYKEY = 100;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_Microphone_EqCoefficientsDb: PROPERTYKEY = 7;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_Microphone_IsFarField: PROPERTYKEY = 6;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs: PROPERTYKEY = 3;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_Microphone_SensitivityInDbfs2: PROPERTYKEY = 5;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_Microphone_SignalToNoiseRatioInDb: PROPERTYKEY = 4;
+        #[guid(0x8943b373_388c_4395_b557_bc6dbaffafdb)]
+        const PKEY_Devices_AudioDevice_RawProcessingSupported: PROPERTYKEY = 2;
+        #[guid(0xfb1de864_e06d_47f4_82a6_8a0aef44493c)]
+        const PKEY_Devices_AudioDevice_SpeechProcessingSupported: PROPERTYKEY = 2;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_BatteryLife: PROPERTYKEY = 10;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_BatteryPlusCharging: PROPERTYKEY = 22;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_BatteryPlusChargingText: PROPERTYKEY = 23;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_Category: PROPERTYKEY = 91;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_CategoryGroup: PROPERTYKEY = 94;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_CategoryIds: PROPERTYKEY = 90;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_CategoryPlural: PROPERTYKEY = 92;
+        #[guid(0x0774315e_b714_48ec_8de8_8125c077ac11)]
+        const PKEY_Devices_ChallengeAep: PROPERTYKEY = 2;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_ChargingState: PROPERTYKEY = 11;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const PKEY_Devices_Children: PROPERTYKEY = 9;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_ClassGuid: PROPERTYKEY = 10;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_CompatibleIds: PROPERTYKEY = 4;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_Connected: PROPERTYKEY = 55;
+        #[guid(0x8c7ed206_3f8a_4827_b3ab_ae9e1faefc6c)]
+        const PKEY_Devices_ContainerId: PROPERTYKEY = 2;
+        #[guid(0x880f70a2_6082_47ac_8aab_a739d1a300c3)]
+        const PKEY_Devices_DefaultTooltip: PROPERTYKEY = 153;
+        #[guid(0x13673f42_a3d6_49f6_b4da_ae46e0c5237c)]
+        const PKEY_Devices_DevObjectType: PROPERTYKEY = 2;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_DeviceCapabilities: PROPERTYKEY = 17;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_DeviceCharacteristics: PROPERTYKEY = 29;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_DeviceDescription1: PROPERTYKEY = 81;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_DeviceDescription2: PROPERTYKEY = 82;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const PKEY_Devices_DeviceHasProblem: PROPERTYKEY = 6;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_DeviceInstanceId: PROPERTYKEY = 256;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_DeviceManufacturer: PROPERTYKEY = 13;
+        #[guid(0x6845cc72_1b71_48c3_af86_b09171a19b14)]
+        const PKEY_Devices_DialProtocol_InstalledApplications: PROPERTYKEY = 3;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_DiscoveryMethod: PROPERTYKEY = 52;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_Domain: PROPERTYKEY = 3;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_FullName: PROPERTYKEY = 5;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_HostName: PROPERTYKEY = 7;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_InstanceName: PROPERTYKEY = 4;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_NetworkAdapterId: PROPERTYKEY = 11;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_PortNumber: PROPERTYKEY = 12;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_Priority: PROPERTYKEY = 9;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_ServiceName: PROPERTYKEY = 2;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_TextAttributes: PROPERTYKEY = 6;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_Ttl: PROPERTYKEY = 10;
+        #[guid(0xbf79c0ab_bb74_4cee_b070_470b5ae202ea)]
+        const PKEY_Devices_Dnssd_Weight: PROPERTYKEY = 8;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_FriendlyName: PROPERTYKEY = 12288;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_FunctionPaths: PROPERTYKEY = 3;
+        #[guid(0x51236583_0c4a_4fe8_b81f_166aec13f510)]
+        const PKEY_Devices_GlyphIcon: PROPERTYKEY = 123;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_HardwareIds: PROPERTYKEY = 3;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_Icon: PROPERTYKEY = 57;
+        #[guid(0x8c7ed206_3f8a_4827_b3ab_ae9e1faefc6c)]
+        const PKEY_Devices_InLocalMachineContainer: PROPERTYKEY = 4;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const PKEY_Devices_InterfaceClassGuid: PROPERTYKEY = 4;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const PKEY_Devices_InterfaceEnabled: PROPERTYKEY = 3;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_InterfacePaths: PROPERTYKEY = 2;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_IpAddress: PROPERTYKEY = 12297;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_IsDefault: PROPERTYKEY = 86;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_IsNetworkConnected: PROPERTYKEY = 85;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_IsShared: PROPERTYKEY = 84;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const PKEY_Devices_IsSoftwareInstalling: PROPERTYKEY = 9;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_LaunchDeviceStageFromExplorer: PROPERTYKEY = 77;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_LocalMachine: PROPERTYKEY = 70;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const PKEY_Devices_LocationPaths: PROPERTYKEY = 37;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_Manufacturer: PROPERTYKEY = 8192;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_MetadataPath: PROPERTYKEY = 71;
+        #[guid(0xa1829ea2_27eb_459e_935d_b2fad7b07762)]
+        const PKEY_Devices_MicrophoneArray_Geometry: PROPERTYKEY = 2;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_MissedCalls: PROPERTYKEY = 5;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const PKEY_Devices_ModelId: PROPERTYKEY = 2;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_ModelName: PROPERTYKEY = 8194;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_ModelNumber: PROPERTYKEY = 8195;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_NetworkName: PROPERTYKEY = 7;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_NetworkType: PROPERTYKEY = 8;
+        #[guid(0x880f70a2_6082_47ac_8aab_a739d1a300c3)]
+        const PKEY_Devices_NetworkedTooltip: PROPERTYKEY = 152;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_NewPictures: PROPERTYKEY = 4;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_NotWorkingProperly: PROPERTYKEY = 83;
+        #[guid(0x06704b0c_e830_4c81_9178_91e4e95a80a0)]
+        const PKEY_Devices_Notification: PROPERTYKEY = 3;
+        #[guid(0x06704b0c_e830_4c81_9178_91e4e95a80a0)]
+        const PKEY_Devices_NotificationStore: PROPERTYKEY = 2;
+        #[guid(0xc4c07f2b_8524_4e66_ae3a_a6235f103beb)]
+        const PKEY_Devices_Notifications_LowBattery: PROPERTYKEY = 2;
+        #[guid(0x6614ef48_4efe_4424_9eda_c79f404edf3e)]
+        const PKEY_Devices_Notifications_MissedCall: PROPERTYKEY = 2;
+        #[guid(0x2be9260a_2012_4742_a555_f41b638b7dcb)]
+        const PKEY_Devices_Notifications_NewMessage: PROPERTYKEY = 2;
+        #[guid(0x59569556_0a08_4212_95b9_fae2ad6413db)]
+        const PKEY_Devices_Notifications_NewVoicemail: PROPERTYKEY = 2;
+        #[guid(0xa0e00ee1_f0c7_4d41_b8e7_26a7bd8d38b0)]
+        const PKEY_Devices_Notifications_StorageFull: PROPERTYKEY = 2;
+        #[guid(0xa0e00ee1_f0c7_4d41_b8e7_26a7bd8d38b0)]
+        const PKEY_Devices_Notifications_StorageFullLinkText: PROPERTYKEY = 3;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_Devices_Paired: PROPERTYKEY = 56;
+        #[guid(0x8dbc9c86_97a9_4bff_9bc6_bfe95d3e6dad)]
+        const PKEY_Devices_Panel_PanelGroup: PROPERTYKEY = 3;
+        #[guid(0x8dbc9c86_97a9_4bff_9bc6_bfe95d3e6dad)]
+        const PKEY_Devices_Panel_PanelId: PROPERTYKEY = 2;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const PKEY_Devices_Parent: PROPERTYKEY = 8;
+        #[guid(0xaecf2fe8_1d00_4fee_8a6d_a70d719b772b)]
+        const PKEY_Devices_PhoneLineTransportDevice_Connected: PROPERTYKEY = 2;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const PKEY_Devices_PhysicalDeviceLocation: PROPERTYKEY = 9;
+        #[guid(0x3633de59_6825_4381_a49b_9f6ba13a1471)]
+        const PKEY_Devices_PlaybackPositionPercent: PROPERTYKEY = 5;
+        #[guid(0x3633de59_6825_4381_a49b_9f6ba13a1471)]
+        const PKEY_Devices_PlaybackState: PROPERTYKEY = 2;
+        #[guid(0x3633de59_6825_4381_a49b_9f6ba13a1471)]
+        const PKEY_Devices_PlaybackTitle: PROPERTYKEY = 3;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const PKEY_Devices_Present: PROPERTYKEY = 5;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_PresentationUrl: PROPERTYKEY = 8198;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_PrimaryCategory: PROPERTYKEY = 10;
+        #[guid(0x3633de59_6825_4381_a49b_9f6ba13a1471)]
+        const PKEY_Devices_RemainingDuration: PROPERTYKEY = 4;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const PKEY_Devices_RestrictedInterface: PROPERTYKEY = 6;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_Roaming: PROPERTYKEY = 9;
+        #[guid(0xafd97640_86a3_4210_b67c_289c41aabe55)]
+        const PKEY_Devices_SafeRemovalRequired: PROPERTYKEY = 2;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const PKEY_Devices_SchematicName: PROPERTYKEY = 9;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_ServiceAddress: PROPERTYKEY = 16384;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_Devices_ServiceId: PROPERTYKEY = 16385;
+        #[guid(0x880f70a2_6082_47ac_8aab_a739d1a300c3)]
+        const PKEY_Devices_SharedTooltip: PROPERTYKEY = 151;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_SignalStrength: PROPERTYKEY = 2;
+        #[guid(0xd6b5b883_18bd_4b4d_b2ec_9e38affeda82)]
+        const PKEY_Devices_SmartCards_ReaderKind: PROPERTYKEY = 2;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_Status: PROPERTYKEY = 259;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_Status1: PROPERTYKEY = 257;
+        #[guid(0xd08dd4c0_3a9e_462e_8290_7b636b2576b9)]
+        const PKEY_Devices_Status2: PROPERTYKEY = 258;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_StorageCapacity: PROPERTYKEY = 12;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_StorageFreeSpace: PROPERTYKEY = 13;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_StorageFreeSpacePercent: PROPERTYKEY = 14;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_TextMessages: PROPERTYKEY = 3;
+        #[guid(0x49cd1f76_5626_4b17_a4e8_18b4aa1a2213)]
+        const PKEY_Devices_Voicemail: PROPERTYKEY = 6;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_AdvertisementId: PROPERTYKEY = 5;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_RequestServiceInformation: PROPERTYKEY = 7;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_ServiceAddress: PROPERTYKEY = 2;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_ServiceConfigMethods: PROPERTYKEY = 6;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_ServiceInformation: PROPERTYKEY = 4;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const PKEY_Devices_WiFiDirectServices_ServiceName: PROPERTYKEY = 3;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_DeviceAddress: PROPERTYKEY = 13;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_GroupId: PROPERTYKEY = 4;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_InformationElements: PROPERTYKEY = 12;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_InterfaceAddress: PROPERTYKEY = 2;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_InterfaceGuid: PROPERTYKEY = 3;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_IsConnected: PROPERTYKEY = 5;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_IsLegacyDevice: PROPERTYKEY = 7;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_IsMiracastLcpSupported: PROPERTYKEY = 9;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_IsVisible: PROPERTYKEY = 6;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_MiracastVersion: PROPERTYKEY = 8;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_Services: PROPERTYKEY = 10;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const PKEY_Devices_WiFiDirect_SupportedChannelList: PROPERTYKEY = 11;
+        #[guid(0xef1167eb_cbfc_4341_a568_a7c91a68982c)]
+        const PKEY_Devices_WiFi_InterfaceGuid: PROPERTYKEY = 2;
+        #[guid(0x6bdd1fc6_810f_11d0_bec7_08002be2092f)]
+        const PKEY_Devices_WiaDeviceType: PROPERTYKEY = 2;
+        #[guid(0xb7b4d61c_5a64_4187_a52e_b1539f359099)]
+        const PKEY_Devices_WinPhone8CameraFlags: PROPERTYKEY = 2;
+        #[guid(0xff1167eb_cbfc_4341_a568_a7c91a68982c)]
+        const PKEY_Devices_Wwan_InterfaceGuid: PROPERTYKEY = 2;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_ByteCount: PROPERTYKEY = 4;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_CharacterCount: PROPERTYKEY = 16;
+        #[guid(0x276d7bb0_5b34_4fb0_aa4b_158ed12a1809)]
+        const PKEY_Document_ClientID: PROPERTYKEY = 100;
+        #[guid(0xf334115e_da1b_4509_9b3d_119504dc7abb)]
+        const PKEY_Document_Contributor: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_DateCreated: PROPERTYKEY = 12;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_DatePrinted: PROPERTYKEY = 11;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_DateSaved: PROPERTYKEY = 13;
+        #[guid(0x1e005ee6_bf27_428b_b01c_79676acd2870)]
+        const PKEY_Document_Division: PROPERTYKEY = 100;
+        #[guid(0xe08805c8_e395_40df_80d2_54f0d6c43154)]
+        const PKEY_Document_DocumentID: PROPERTYKEY = 100;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_HiddenSlideCount: PROPERTYKEY = 9;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_LastAuthor: PROPERTYKEY = 8;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_LineCount: PROPERTYKEY = 5;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_Manager: PROPERTYKEY = 14;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_MultimediaClipCount: PROPERTYKEY = 10;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_NoteCount: PROPERTYKEY = 8;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_PageCount: PROPERTYKEY = 14;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_ParagraphCount: PROPERTYKEY = 6;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_PresentationFormat: PROPERTYKEY = 3;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_RevisionNumber: PROPERTYKEY = 9;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_Security: PROPERTYKEY = 19;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_SlideCount: PROPERTYKEY = 7;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_Template: PROPERTYKEY = 7;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_TotalEditingTime: PROPERTYKEY = 10;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Document_Version: PROPERTYKEY = 29;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Document_WordCount: PROPERTYKEY = 15;
+        #[guid(0x3f8472b5_e0af_4db2_8071_c53fe76ae7ce)]
+        const PKEY_DueDate: PROPERTYKEY = 100;
+        #[guid(0x32ce38b2_2c9a_41b1_9bc5_b3784394aa44)]
+        const PKEY_EdgeGesture_DisableTouchWhenFullscreen: PROPERTYKEY = 2;
+        #[guid(0xc75faa05_96fd_49e7_9cb4_9f601082d553)]
+        const PKEY_EndDate: PROPERTYKEY = 100;
+        #[guid(0x6fa20de6_d11c_4d9d_a154_64317628c12d)]
+        const PKEY_ExpandoProperties: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_FileAllocationSize: PROPERTYKEY = 18;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_FileAttributes: PROPERTYKEY = 13;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_FileCount: PROPERTYKEY = 12;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_FileDescription: PROPERTYKEY = 3;
+        #[guid(0xe4f10a3c_49e6_405d_8288_a23bd4eeaa6c)]
+        const PKEY_FileExtension: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_FileFRN: PROPERTYKEY = 21;
+        #[guid(0x41cf5ae0_f75a_4806_bd87_59c7d9248eb9)]
+        const PKEY_FileName: PROPERTYKEY = 100;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_FileOfflineAvailabilityStatus: PROPERTYKEY = 100;
+        #[guid(0x9b174b34_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_FileOwner: PROPERTYKEY = 4;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_FilePlaceholderStatus: PROPERTYKEY = 2;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_FileVersion: PROPERTYKEY = 4;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_FindData: PROPERTYKEY = 0;
+        #[guid(0x67df94de_0ca7_4d6f_b792_053a3e4f03cf)]
+        const PKEY_FlagColor: PROPERTYKEY = 100;
+        #[guid(0x45eae747_8e2a_40ae_8cbf_ca52aba6152a)]
+        const PKEY_FlagColorText: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_FlagStatus: PROPERTYKEY = 12;
+        #[guid(0xdc54fd2e_189d_4871_aa01_08c2f57a4abc)]
+        const PKEY_FlagStatusText: PROPERTYKEY = 100;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_FolderKind: PROPERTYKEY = 101;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_FolderNameDisplay: PROPERTYKEY = 25;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_FreeSpace: PROPERTYKEY = 2;
+        #[guid(0x1e3ee840_bc2b_476c_8237_2acd1a839b22)]
+        const PKEY_FullText: PROPERTYKEY = 6;
+        #[guid(0x827edb4f_5b73_44a7_891d_fdffabea35ca)]
+        const PKEY_GPS_Altitude: PROPERTYKEY = 100;
+        #[guid(0x78342dcb_e358_4145_ae9a_6bfe4e0f9f51)]
+        const PKEY_GPS_AltitudeDenominator: PROPERTYKEY = 100;
+        #[guid(0x2dad1eb7_816d_40d3_9ec3_c9773be2aade)]
+        const PKEY_GPS_AltitudeNumerator: PROPERTYKEY = 100;
+        #[guid(0x46ac629d_75ea_4515_867f_6dc4321c5844)]
+        const PKEY_GPS_AltitudeRef: PROPERTYKEY = 100;
+        #[guid(0x972e333e_ac7e_49f1_8adf_a70d07a9bcab)]
+        const PKEY_GPS_AreaInformation: PROPERTYKEY = 100;
+        #[guid(0x0cf8fb02_1837_42f1_a697_a7017aa289b9)]
+        const PKEY_GPS_DOP: PROPERTYKEY = 100;
+        #[guid(0xa0be94c5_50ba_487b_bd35_0654be8881ed)]
+        const PKEY_GPS_DOPDenominator: PROPERTYKEY = 100;
+        #[guid(0x47166b16_364f_4aa0_9f31_e2ab3df449c3)]
+        const PKEY_GPS_DOPNumerator: PROPERTYKEY = 100;
+        #[guid(0x3602c812_0f3b_45f0_85ad_603468d69423)]
+        const PKEY_GPS_Date: PROPERTYKEY = 100;
+        #[guid(0xc66d4b3c_e888_47cc_b99f_9dca3ee34dea)]
+        const PKEY_GPS_DestBearing: PROPERTYKEY = 100;
+        #[guid(0x7abcf4f8_7c3f_4988_ac91_8d2c2e97eca5)]
+        const PKEY_GPS_DestBearingDenominator: PROPERTYKEY = 100;
+        #[guid(0xba3b1da9_86ee_4b5d_a2a4_a271a429f0cf)]
+        const PKEY_GPS_DestBearingNumerator: PROPERTYKEY = 100;
+        #[guid(0x9ab84393_2a0f_4b75_bb22_7279786977cb)]
+        const PKEY_GPS_DestBearingRef: PROPERTYKEY = 100;
+        #[guid(0xa93eae04_6804_4f24_ac81_09b266452118)]
+        const PKEY_GPS_DestDistance: PROPERTYKEY = 100;
+        #[guid(0x9bc2c99b_ac71_4127_9d1c_2596d0d7dcb7)]
+        const PKEY_GPS_DestDistanceDenominator: PROPERTYKEY = 100;
+        #[guid(0x2bda47da_08c6_4fe1_80bc_a72fc517c5d0)]
+        const PKEY_GPS_DestDistanceNumerator: PROPERTYKEY = 100;
+        #[guid(0xed4df2d3_8695_450b_856f_f5c1c53acb66)]
+        const PKEY_GPS_DestDistanceRef: PROPERTYKEY = 100;
+        #[guid(0x9d1d7cc5_5c39_451c_86b3_928e2d18cc47)]
+        const PKEY_GPS_DestLatitude: PROPERTYKEY = 100;
+        #[guid(0x3a372292_7fca_49a7_99d5_e47bb2d4e7ab)]
+        const PKEY_GPS_DestLatitudeDenominator: PROPERTYKEY = 100;
+        #[guid(0xecf4b6f6_d5a6_433c_bb92_4076650fc890)]
+        const PKEY_GPS_DestLatitudeNumerator: PROPERTYKEY = 100;
+        #[guid(0xcea820b9_ce61_4885_a128_005d9087c192)]
+        const PKEY_GPS_DestLatitudeRef: PROPERTYKEY = 100;
+        #[guid(0x47a96261_cb4c_4807_8ad3_40b9d9dbc6bc)]
+        const PKEY_GPS_DestLongitude: PROPERTYKEY = 100;
+        #[guid(0x425d69e5_48ad_4900_8d80_6eb6b8d0ac86)]
+        const PKEY_GPS_DestLongitudeDenominator: PROPERTYKEY = 100;
+        #[guid(0xa3250282_fb6d_48d5_9a89_dbcace75cccf)]
+        const PKEY_GPS_DestLongitudeNumerator: PROPERTYKEY = 100;
+        #[guid(0x182c1ea6_7c1c_4083_ab4b_ac6c9f4ed128)]
+        const PKEY_GPS_DestLongitudeRef: PROPERTYKEY = 100;
+        #[guid(0xaaf4ee25_bd3b_4dd7_bfc4_47f77bb00f6d)]
+        const PKEY_GPS_Differential: PROPERTYKEY = 100;
+        #[guid(0x16473c91_d017_4ed9_ba4d_b6baa55dbcf8)]
+        const PKEY_GPS_ImgDirection: PROPERTYKEY = 100;
+        #[guid(0x10b24595_41a2_4e20_93c2_5761c1395f32)]
+        const PKEY_GPS_ImgDirectionDenominator: PROPERTYKEY = 100;
+        #[guid(0xdc5877c7_225f_45f7_bac7_e81334b6130a)]
+        const PKEY_GPS_ImgDirectionNumerator: PROPERTYKEY = 100;
+        #[guid(0xa4aaa5b7_1ad0_445f_811a_0f8f6e67f6b5)]
+        const PKEY_GPS_ImgDirectionRef: PROPERTYKEY = 100;
+        #[guid(0x8727cfff_4868_4ec6_ad5b_81b98521d1ab)]
+        const PKEY_GPS_Latitude: PROPERTYKEY = 100;
+        #[guid(0x0f55cde2_4f49_450d_92c1_dcd16301b1b7)]
+        const PKEY_GPS_LatitudeDecimal: PROPERTYKEY = 100;
+        #[guid(0x16e634ee_2bff_497b_bd8a_4341ad39eeb9)]
+        const PKEY_GPS_LatitudeDenominator: PROPERTYKEY = 100;
+        #[guid(0x7ddaaad1_ccc8_41ae_b750_b2cb8031aea2)]
+        const PKEY_GPS_LatitudeNumerator: PROPERTYKEY = 100;
+        #[guid(0x029c0252_5b86_46c7_aca0_2769ffc8e3d4)]
+        const PKEY_GPS_LatitudeRef: PROPERTYKEY = 100;
+        #[guid(0xc4c4dbb2_b593_466b_bbda_d03d27d5e43a)]
+        const PKEY_GPS_Longitude: PROPERTYKEY = 100;
+        #[guid(0x4679c1b5_844d_4590_baf5_f322231f1b81)]
+        const PKEY_GPS_LongitudeDecimal: PROPERTYKEY = 100;
+        #[guid(0xbe6e176c_4534_4d2c_ace5_31dedac1606b)]
+        const PKEY_GPS_LongitudeDenominator: PROPERTYKEY = 100;
+        #[guid(0x02b0f689_a914_4e45_821d_1dda452ed2c4)]
+        const PKEY_GPS_LongitudeNumerator: PROPERTYKEY = 100;
+        #[guid(0x33dcf22b_28d5_464c_8035_1ee9efd25278)]
+        const PKEY_GPS_LongitudeRef: PROPERTYKEY = 100;
+        #[guid(0x2ca2dae6_eddc_407d_bef1_773942abfa95)]
+        const PKEY_GPS_MapDatum: PROPERTYKEY = 100;
+        #[guid(0xa015ed5d_aaea_4d58_8a86_3c586920ea0b)]
+        const PKEY_GPS_MeasureMode: PROPERTYKEY = 100;
+        #[guid(0x59d49e61_840f_4aa9_a939_e2099b7f6399)]
+        const PKEY_GPS_ProcessingMethod: PROPERTYKEY = 100;
+        #[guid(0x467ee575_1f25_4557_ad4e_b8b58b0d9c15)]
+        const PKEY_GPS_Satellites: PROPERTYKEY = 100;
+        #[guid(0xda5d0862_6e76_4e1b_babd_70021bd25494)]
+        const PKEY_GPS_Speed: PROPERTYKEY = 100;
+        #[guid(0x7d122d5a_ae5e_4335_8841_d71e7ce72f53)]
+        const PKEY_GPS_SpeedDenominator: PROPERTYKEY = 100;
+        #[guid(0xacc9ce3d_c213_4942_8b48_6d0820f21c6d)]
+        const PKEY_GPS_SpeedNumerator: PROPERTYKEY = 100;
+        #[guid(0xecf7f4c9_544f_4d6d_9d98_8ad79adaf453)]
+        const PKEY_GPS_SpeedRef: PROPERTYKEY = 100;
+        #[guid(0x125491f4_818f_46b2_91b5_d537753617b2)]
+        const PKEY_GPS_Status: PROPERTYKEY = 100;
+        #[guid(0x76c09943_7c33_49e3_9e7e_cdba872cfada)]
+        const PKEY_GPS_Track: PROPERTYKEY = 100;
+        #[guid(0xc8d1920c_01f6_40c0_ac86_2f3a4ad00770)]
+        const PKEY_GPS_TrackDenominator: PROPERTYKEY = 100;
+        #[guid(0x702926f4_44a6_43e1_ae71_45627116893b)]
+        const PKEY_GPS_TrackNumerator: PROPERTYKEY = 100;
+        #[guid(0x35dbe6fe_44c3_4400_aaae_d2c799c407e8)]
+        const PKEY_GPS_TrackRef: PROPERTYKEY = 100;
+        #[guid(0x22704da4_c6b2_4a99_8e56_f16df8c92599)]
+        const PKEY_GPS_VersionID: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_HighKeywords: PROPERTYKEY = 24;
+        #[guid(0x1ce0d6bc_536c_4600_b0dd_7e0c66b350d5)]
+        const PKEY_History_SelectionCount: PROPERTYKEY = 8;
+        #[guid(0x1ce0d6bc_536c_4600_b0dd_7e0c66b350d5)]
+        const PKEY_History_TargetUrlHostName: PROPERTYKEY = 9;
+        #[guid(0x5cbf2787_48cf_4208_b90e_ee5e5d420294)]
+        const PKEY_History_VisitCount: PROPERTYKEY = 7;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_Grouping: PROPERTYKEY = 2;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_IsPinned: PROPERTYKEY = 4;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_ItemFolderPathDisplay: PROPERTYKEY = 6;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_RecommendationActivityDate: PROPERTYKEY = 22;
+        #[guid(0x5ca9b1cb_c69f_404b_abc6_fd336793a6a7)]
+        const PKEY_Home_RecommendationProviderSource: PROPERTYKEY = 22;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_RecommendationReasonIcon: PROPERTYKEY = 21;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_Home_Recommended: PROPERTYKEY = 20;
+        #[guid(0xa26f4afc_7346_4299_be47_eb1ae613139f)]
+        const PKEY_Identity: PROPERTYKEY = 100;
+        #[guid(0xb96eff7b_35ca_4a35_8607_29e3a54c46ea)]
+        const PKEY_IdentityProvider_Name: PROPERTYKEY = 100;
+        #[guid(0x2425166f_5642_4864_992f_98fd98f294c3)]
+        const PKEY_IdentityProvider_Picture: PROPERTYKEY = 100;
+        #[guid(0x8c3b93a4_baed_1a83_9a32_102ee313f6eb)]
+        const PKEY_Identity_Blob: PROPERTYKEY = 100;
+        #[guid(0x7d683fc9_d155_45a8_bb1f_89d19bcb792f)]
+        const PKEY_Identity_DisplayName: PROPERTYKEY = 100;
+        #[guid(0x6d6d5d49_265d_4688_9f4e_1fdd33e7cc83)]
+        const PKEY_Identity_InternetSid: PROPERTYKEY = 100;
+        #[guid(0xa4108708_09df_4377_9dfc_6d99986d5a67)]
+        const PKEY_Identity_IsMeIdentity: PROPERTYKEY = 100;
+        #[guid(0xa26f4afc_7346_4299_be47_eb1ae613139f)]
+        const PKEY_Identity_KeyProviderContext: PROPERTYKEY = 17;
+        #[guid(0xa26f4afc_7346_4299_be47_eb1ae613139f)]
+        const PKEY_Identity_KeyProviderName: PROPERTYKEY = 16;
+        #[guid(0xf18dedf3_337f_42c0_9e03_cee08708a8c3)]
+        const PKEY_Identity_LogonStatusString: PROPERTYKEY = 100;
+        #[guid(0xfcc16823_baed_4f24_9b32_a0982117f7fa)]
+        const PKEY_Identity_PrimaryEmailAddress: PROPERTYKEY = 100;
+        #[guid(0x2b1b801e_c0c1_4987_9ec5_72fa89814787)]
+        const PKEY_Identity_PrimarySid: PROPERTYKEY = 100;
+        #[guid(0xa8a74b92_361b_4e9a_b722_7c4a7330a312)]
+        const PKEY_Identity_ProviderData: PROPERTYKEY = 100;
+        #[guid(0x74a7de49_fa11_4d3d_a006_db7e08675916)]
+        const PKEY_Identity_ProviderID: PROPERTYKEY = 100;
+        #[guid(0xda520e51_f4e9_4739_ac82_02e0a95c9030)]
+        const PKEY_Identity_QualifiedUserName: PROPERTYKEY = 100;
+        #[guid(0xe55fc3b0_2b60_4220_918e_b21e8bf16016)]
+        const PKEY_Identity_UniqueID: PROPERTYKEY = 100;
+        #[guid(0xc4322503_78ca_49c6_9acc_a68e2afd7b6b)]
+        const PKEY_Identity_UserName: PROPERTYKEY = 100;
+        #[guid(0xd7750ee0_c6a4_48ec_b53e_b87b52e6d073)]
+        const PKEY_ImageParsingName: PROPERTYKEY = 100;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_BitDepth: PROPERTYKEY = 7;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Image_ColorSpace: PROPERTYKEY = 40961;
+        #[guid(0x364b6fa9_37ab_482a_be2b_ae02f60d4318)]
+        const PKEY_Image_CompressedBitsPerPixel: PROPERTYKEY = 100;
+        #[guid(0x1f8844e1_24ad_4508_9dfd_5326a415ce02)]
+        const PKEY_Image_CompressedBitsPerPixelDenominator: PROPERTYKEY = 100;
+        #[guid(0xd21a7148_d32c_4624_8900_277210f79c0f)]
+        const PKEY_Image_CompressedBitsPerPixelNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Image_Compression: PROPERTYKEY = 259;
+        #[guid(0x3f08e66f_2f44_4bb9_a682_ac35d2562322)]
+        const PKEY_Image_CompressionText: PROPERTYKEY = 100;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_Dimensions: PROPERTYKEY = 13;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_HorizontalResolution: PROPERTYKEY = 5;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_HorizontalSize: PROPERTYKEY = 3;
+        #[guid(0x10dabe05_32aa_4c29_bf1a_63e2d220587f)]
+        const PKEY_Image_ImageID: PROPERTYKEY = 100;
+        #[guid(0x19b51fa6_1f92_4a5c_ab48_7df0abd67444)]
+        const PKEY_Image_ResolutionUnit: PROPERTYKEY = 100;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_VerticalResolution: PROPERTYKEY = 6;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Image_VerticalSize: PROPERTYKEY = 4;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Importance: PROPERTYKEY = 11;
+        #[guid(0xa3b29791_7713_4e1d_bb40_17db85f01831)]
+        const PKEY_ImportanceText: PROPERTYKEY = 100;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_InfoTipText: PROPERTYKEY = 17;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_InternalName: PROPERTYKEY = 5;
+        #[guid(0xf23f425c_71a1_4fa8_922f_678ea4a60408)]
+        const PKEY_IsAttachment: PROPERTYKEY = 100;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_IsDefaultNonOwnerSaveLocation: PROPERTYKEY = 5;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_IsDefaultSaveLocation: PROPERTYKEY = 3;
+        #[guid(0x5cda5fc8_33ee_4ff3_9094_ae7bd8868c4d)]
+        const PKEY_IsDeleted: PROPERTYKEY = 100;
+        #[guid(0x90e5e14e_648b_4826_b2aa_acaf790e3513)]
+        const PKEY_IsEncrypted: PROPERTYKEY = 10;
+        #[guid(0x5da84765_e3ff_4278_86b0_a27967fbdd03)]
+        const PKEY_IsFlagged: PROPERTYKEY = 100;
+        #[guid(0xa6f360d2_55f9_48de_b909_620e090a647c)]
+        const PKEY_IsFlaggedComplete: PROPERTYKEY = 100;
+        #[guid(0x346c8bd1_2e6a_4c45_89a4_61b78e8e700f)]
+        const PKEY_IsIncomplete: PROPERTYKEY = 100;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_IsLocationSupported: PROPERTYKEY = 8;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_IsPinnedToNameSpaceTree: PROPERTYKEY = 2;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_IsRead: PROPERTYKEY = 10;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_IsSearchOnlyItem: PROPERTYKEY = 4;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_IsSendToTarget: PROPERTYKEY = 33;
+        #[guid(0xef884c5b_2bfe_41bb_aae5_76eedf4f9902)]
+        const PKEY_IsShared: PROPERTYKEY = 100;
+        #[guid(0xd0a04f0a_462a_48a4_bb2f_3706e88dbd7d)]
+        const PKEY_ItemAuthors: PROPERTYKEY = 100;
+        #[guid(0x048658ad_2db8_41a4_bbb6_ac1ef1207eb1)]
+        const PKEY_ItemClassType: PROPERTYKEY = 100;
+        #[guid(0xf7db74b4_4287_4103_afba_f1b13dcd75cf)]
+        const PKEY_ItemDate: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_ItemFolderNameDisplay: PROPERTYKEY = 2;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_ItemFolderPathDisplay: PROPERTYKEY = 6;
+        #[guid(0xdabd30ed_0043_4789_a7f8_d013a4736622)]
+        const PKEY_ItemFolderPathDisplayNarrow: PROPERTYKEY = 100;
+        #[guid(0x6b8da074_3b5c_43bc_886f_0a2cdce00b6f)]
+        const PKEY_ItemName: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_ItemNameDisplay: PROPERTYKEY = 10;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_ItemNameDisplayWithoutExtension: PROPERTYKEY = 24;
+        #[guid(0xd7313ff1_a77a_401c_8c99_3dbdd68add36)]
+        const PKEY_ItemNamePrefix: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_ItemNameSortOverride: PROPERTYKEY = 23;
+        #[guid(0xd4d0aa16_9948_41a4_aa85_d97ff9646993)]
+        const PKEY_ItemParticipants: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_ItemPathDisplay: PROPERTYKEY = 7;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ItemPathDisplayNarrow: PROPERTYKEY = 8;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ItemSubType: PROPERTYKEY = 37;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ItemType: PROPERTYKEY = 11;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_ItemTypeText: PROPERTYKEY = 4;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_ItemUrl: PROPERTYKEY = 9;
+        #[guid(0xdea7c82c_1d89_4a66_9427_a4e3debabcb1)]
+        const PKEY_Journal_Contacts: PROPERTYKEY = 100;
+        #[guid(0x95beb1fc_326d_4644_b396_cd3ed90e6ddf)]
+        const PKEY_Journal_EntryType: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Keywords: PROPERTYKEY = 5;
+        #[guid(0x1e3ee840_bc2b_476c_8237_2acd1a839b22)]
+        const PKEY_Kind: PROPERTYKEY = 3;
+        #[guid(0xf04bef95_c585_4197_a2b7_df46fdc9ee6d)]
+        const PKEY_KindText: PROPERTYKEY = 100;
+        #[guid(0xd5cdd502_2e9c_101b_9397_08002b2cf9ae)]
+        const PKEY_Language: PROPERTYKEY = 28;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_LastSyncError: PROPERTYKEY = 107;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_LastSyncWarning: PROPERTYKEY = 128;
+        #[guid(0x502cfeab_47eb_459c_b960_e6d8728f7701)]
+        const PKEY_LastWriterPackageFamilyName: PROPERTYKEY = 101;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_LayoutPattern_ContentViewModeForBrowse: PROPERTYKEY = 500;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_LayoutPattern_ContentViewModeForSearch: PROPERTYKEY = 501;
+        #[guid(0x908696c7_8f87_44f2_80ed_a8c1c6894575)]
+        const PKEY_LibraryLocationsCount: PROPERTYKEY = 2;
+        #[guid(0x436f2667_14e2_4feb_b30a_146c53b5b674)]
+        const PKEY_Link_Arguments: PROPERTYKEY = 100;
+        #[guid(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25)]
+        const PKEY_Link_Comment: PROPERTYKEY = 5;
+        #[guid(0x5cbf2787_48cf_4208_b90e_ee5e5d420294)]
+        const PKEY_Link_DateVisited: PROPERTYKEY = 23;
+        #[guid(0x5cbf2787_48cf_4208_b90e_ee5e5d420294)]
+        const PKEY_Link_Description: PROPERTYKEY = 21;
+        #[guid(0x8a2f99f9_3c37_465d_a8d7_69777a246d0c)]
+        const PKEY_Link_FeedItemLocalId: PROPERTYKEY = 2;
+        #[guid(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25)]
+        const PKEY_Link_Status: PROPERTYKEY = 3;
+        #[guid(0x7a7d76f4_b630_4bd7_95ff_37cc51a975c9)]
+        const PKEY_Link_TargetExtension: PROPERTYKEY = 2;
+        #[guid(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25)]
+        const PKEY_Link_TargetParsingPath: PROPERTYKEY = 2;
+        #[guid(0xb9b4b3fc_2b51_4a42_b5d8_324146afcf25)]
+        const PKEY_Link_TargetSFGAOFlags: PROPERTYKEY = 8;
+        #[guid(0xd6942081_d53b_443d_ad47_5e059d9cd27a)]
+        const PKEY_Link_TargetSFGAOFlagsStrings: PROPERTYKEY = 3;
+        #[guid(0x5cbf2787_48cf_4208_b90e_ee5e5d420294)]
+        const PKEY_Link_TargetUrl: PROPERTYKEY = 2;
+        #[guid(0x8a2f99f9_3c37_465d_a8d7_69777a246d0c)]
+        const PKEY_Link_TargetUrlHostName: PROPERTYKEY = 5;
+        #[guid(0x8a2f99f9_3c37_465d_a8d7_69777a246d0c)]
+        const PKEY_Link_TargetUrlPath: PROPERTYKEY = 6;
+        #[guid(0x62d2d9ab_8b64_498d_b865_402d4796f865)]
+        const PKEY_LocationEmptyString: PROPERTYKEY = 3;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_LowKeywords: PROPERTYKEY = 25;
+        #[guid(0x0b63e350_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_MIMEType: PROPERTYKEY = 5;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_AuthorUrl: PROPERTYKEY = 32;
+        #[guid(0x09edd5b6_b301_43c5_9990_d00302effd46)]
+        const PKEY_Media_AverageLevel: PROPERTYKEY = 100;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ClassPrimaryID: PROPERTYKEY = 13;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ClassSecondaryID: PROPERTYKEY = 14;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_CollectionGroupID: PROPERTYKEY = 24;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_CollectionID: PROPERTYKEY = 25;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ContentDistributor: PROPERTYKEY = 18;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ContentID: PROPERTYKEY = 26;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_CreatorApplication: PROPERTYKEY = 27;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_CreatorApplicationVersion: PROPERTYKEY = 28;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_DVDID: PROPERTYKEY = 15;
+        #[guid(0x2e4b640d_5019_46d8_8881_55414cc5caa0)]
+        const PKEY_Media_DateEncoded: PROPERTYKEY = 100;
+        #[guid(0xde41cc29_6971_4290_b472_f59f2e2f31e2)]
+        const PKEY_Media_DateReleased: PROPERTYKEY = 100;
+        #[guid(0xcfa31b45_525d_4998_bb44_3f7d81542fa4)]
+        const PKEY_Media_DlnaProfileID: PROPERTYKEY = 100;
+        #[guid(0x64440490_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_Duration: PROPERTYKEY = 3;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_EncodedBy: PROPERTYKEY = 36;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_EncodingSettings: PROPERTYKEY = 37;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_EpisodeNumber: PROPERTYKEY = 100;
+        #[guid(0x6444048f_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_FrameCount: PROPERTYKEY = 12;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_MCDI: PROPERTYKEY = 16;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_MetadataContentProvider: PROPERTYKEY = 17;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_Producer: PROPERTYKEY = 22;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_PromotionUrl: PROPERTYKEY = 33;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ProtectionType: PROPERTYKEY = 38;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ProviderRating: PROPERTYKEY = 39;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ProviderStyle: PROPERTYKEY = 40;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_Publisher: PROPERTYKEY = 30;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_SeasonNumber: PROPERTYKEY = 101;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_SeriesName: PROPERTYKEY = 42;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Media_SubTitle: PROPERTYKEY = 38;
+        #[guid(0x9aebae7a_9644_487d_a92c_657585ed751a)]
+        const PKEY_Media_SubscriptionContentId: PROPERTYKEY = 100;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ThumbnailLargePath: PROPERTYKEY = 47;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ThumbnailLargeUri: PROPERTYKEY = 48;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ThumbnailSmallPath: PROPERTYKEY = 49;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_ThumbnailSmallUri: PROPERTYKEY = 50;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_UniqueFileIdentifier: PROPERTYKEY = 35;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_UserNoAutoInfo: PROPERTYKEY = 41;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_UserWebUrl: PROPERTYKEY = 34;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Media_Writer: PROPERTYKEY = 23;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Media_Year: PROPERTYKEY = 5;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_MediumKeywords: PROPERTYKEY = 26;
+        #[guid(0x3143bf7c_80a8_4854_8880_e2e40189bdd0)]
+        const PKEY_Message_AttachmentContents: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_AttachmentNames: PROPERTYKEY = 21;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_BccAddress: PROPERTYKEY = 2;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_BccName: PROPERTYKEY = 3;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_CcAddress: PROPERTYKEY = 4;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_CcName: PROPERTYKEY = 5;
+        #[guid(0xdc8f80bd_af1e_4289_85b6_3dfc1b493992)]
+        const PKEY_Message_ConversationID: PROPERTYKEY = 100;
+        #[guid(0xdc8f80bd_af1e_4289_85b6_3dfc1b493992)]
+        const PKEY_Message_ConversationIndex: PROPERTYKEY = 101;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_DateReceived: PROPERTYKEY = 20;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_DateSent: PROPERTYKEY = 19;
+        #[guid(0xa82d9ee7_ca67_4312_965e_226bcea85023)]
+        const PKEY_Message_Flags: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_FromAddress: PROPERTYKEY = 13;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_FromName: PROPERTYKEY = 14;
+        #[guid(0x9c1fcf74_2d97_41ba_b4ae_cb2e3661a6e4)]
+        const PKEY_Message_HasAttachments: PROPERTYKEY = 8;
+        #[guid(0x9a9bc088_4f6d_469e_9919_e705412040f9)]
+        const PKEY_Message_IsFwdOrReply: PROPERTYKEY = 100;
+        #[guid(0xcd9ed458_08ce_418f_a70e_f912c7bb9c5c)]
+        const PKEY_Message_MessageClass: PROPERTYKEY = 103;
+        #[guid(0x1a9ba605_8e7c_4d11_ad7d_a50ada18ba1b)]
+        const PKEY_Message_Participants: PROPERTYKEY = 2;
+        #[guid(0x9098f33c_9a7d_48a8_8de5_2e1227a64e91)]
+        const PKEY_Message_ProofInProgress: PROPERTYKEY = 100;
+        #[guid(0x0be1c8e7_1981_4676_ae14_fdd78f05a6e7)]
+        const PKEY_Message_SenderAddress: PROPERTYKEY = 100;
+        #[guid(0x0da41cfa_d224_4a18_ae2f_596158db4b3a)]
+        const PKEY_Message_SenderName: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_Store: PROPERTYKEY = 15;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_ToAddress: PROPERTYKEY = 16;
+        #[guid(0x1f856a9f_6900_4aba_9505_2d5f1b4d66cb)]
+        const PKEY_Message_ToDoFlags: PROPERTYKEY = 100;
+        #[guid(0xbccc8a3c_8cef_42e5_9b1c_c69079398bc7)]
+        const PKEY_Message_ToDoTitle: PROPERTYKEY = 100;
+        #[guid(0xe3e0584c_b788_4a5a_bb20_7f5a44c9acdd)]
+        const PKEY_Message_ToName: PROPERTYKEY = 17;
+        #[guid(0xfdf84370_031a_4add_9e91_0d775f1c6605)]
+        const PKEY_MileageInformation: PROPERTYKEY = 100;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_ActivityType: PROPERTYKEY = 14;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_CompositeId: PROPERTYKEY = 2;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_DateLastShared: PROPERTYKEY = 9;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_DriveId: PROPERTYKEY = 3;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_GraphFileType: PROPERTYKEY = 16;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_IconUrl: PROPERTYKEY = 15;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_ItemId: PROPERTYKEY = 4;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_PrimaryActivityActorDisplayName: PROPERTYKEY = 13;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_PrimaryActivityActorUpn: PROPERTYKEY = 12;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_RecommendationReason: PROPERTYKEY = 8;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_RecommendationReferenceId: PROPERTYKEY = 5;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_RecommendationResultSourceId: PROPERTYKEY = 7;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_SharedByEmail: PROPERTYKEY = 11;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_SharedByName: PROPERTYKEY = 10;
+        #[guid(0x4f85567e_fff0_4df5_b1d9_98b314ff0729)]
+        const PKEY_MsGraph_WebAccountId: PROPERTYKEY = 6;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_AlbumArtist: PROPERTYKEY = 13;
+        #[guid(0xf1fdb4af_f78c_466c_bb05_56e92db0b8ec)]
+        const PKEY_Music_AlbumArtistSortOverride: PROPERTYKEY = 103;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_AlbumID: PROPERTYKEY = 100;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_AlbumTitle: PROPERTYKEY = 4;
+        #[guid(0x13eb7ffc_ec89_4346_b19d_ccc6f1784223)]
+        const PKEY_Music_AlbumTitleSortOverride: PROPERTYKEY = 101;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_Artist: PROPERTYKEY = 2;
+        #[guid(0xdeeb2db5_0696_4ce0_94fe_a01f77a45fb5)]
+        const PKEY_Music_ArtistSortOverride: PROPERTYKEY = 102;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_BeatsPerMinute: PROPERTYKEY = 35;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Music_Composer: PROPERTYKEY = 19;
+        #[guid(0x00bc20a3_bd48_4085_872c_a88d77f5097e)]
+        const PKEY_Music_ComposerSortOverride: PROPERTYKEY = 105;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_Conductor: PROPERTYKEY = 36;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_ContentGroupDescription: PROPERTYKEY = 33;
+        #[guid(0x6afe7437_9bcd_49c7_80fe_4a5c65fa5874)]
+        const PKEY_Music_DiscNumber: PROPERTYKEY = 104;
+        #[guid(0xfd122953_fa93_4ef7_92c3_04c946b2f7c8)]
+        const PKEY_Music_DisplayArtist: PROPERTYKEY = 100;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_Genre: PROPERTYKEY = 11;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_InitialKey: PROPERTYKEY = 34;
+        #[guid(0xc449d5cb_9ea4_4809_82e8_af9d59ded6d1)]
+        const PKEY_Music_IsCompilation: PROPERTYKEY = 100;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_Lyrics: PROPERTYKEY = 12;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_Mood: PROPERTYKEY = 39;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_PartOfSet: PROPERTYKEY = 37;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Music_Period: PROPERTYKEY = 31;
+        #[guid(0x6b223b6a_162e_4aa9_b39f_05d678fc6d77)]
+        const PKEY_Music_SynchronizedLyrics: PROPERTYKEY = 100;
+        #[guid(0x56a3372e_ce9c_11d2_9f0e_006097c686f6)]
+        const PKEY_Music_TrackNumber: PROPERTYKEY = 7;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_NamespaceCLSID: PROPERTYKEY = 6;
+        #[guid(0x4776cafa_bce4_4cb1_a23e_265e76d8eb11)]
+        const PKEY_Note_Color: PROPERTYKEY = 100;
+        #[guid(0x46b4e8de_cdb2_440d_885c_1658eb65b914)]
+        const PKEY_Note_ColorText: PROPERTYKEY = 100;
+        #[guid(0x00000000_0000_0000_0000_000000000000)]
+        const PKEY_Null: PROPERTYKEY = 0;
+        #[guid(0xa94688b6_7d9f_4570_a648_e3dfc0ab2b3f)]
+        const PKEY_OfflineAvailability: PROPERTYKEY = 100;
+        #[guid(0x6d24888f_4718_4bda_afed_ea0fb4386cd8)]
+        const PKEY_OfflineStatus: PROPERTYKEY = 100;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_OriginalFileName: PROPERTYKEY = 6;
+        #[guid(0x5d76b67f_9b3d_44bb_b6ae_25da4f638a67)]
+        const PKEY_OwnerSID: PROPERTYKEY = 6;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_ParentalRating: PROPERTYKEY = 21;
+        #[guid(0x10984e0a_f9f2_4321_b7ef_baf195af4319)]
+        const PKEY_ParentalRatingReason: PROPERTYKEY = 100;
+        #[guid(0xa7fe0840_1344_46f0_8d37_52ed712a4bf9)]
+        const PKEY_ParentalRatingsOrganization: PROPERTYKEY = 100;
+        #[guid(0xdfb9a04d_362f_4ca3_b30b_0254b17b5b84)]
+        const PKEY_ParsingBindContext: PROPERTYKEY = 100;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ParsingName: PROPERTYKEY = 24;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_ParsingPath: PROPERTYKEY = 30;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_PerceivedType: PROPERTYKEY = 9;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_PercentFull: PROPERTYKEY = 5;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_Aperture: PROPERTYKEY = 37378;
+        #[guid(0xe1a9a38b_6685_46bd_875e_570dc7ad7320)]
+        const PKEY_Photo_ApertureDenominator: PROPERTYKEY = 100;
+        #[guid(0x0337ecec_39fb_4581_a0bd_4c4cc51e9914)]
+        const PKEY_Photo_ApertureNumerator: PROPERTYKEY = 100;
+        #[guid(0x1a701bf6_478c_4361_83ab_3701bb053c58)]
+        const PKEY_Photo_Brightness: PROPERTYKEY = 100;
+        #[guid(0x6ebe6946_2321_440a_90f0_c043efd32476)]
+        const PKEY_Photo_BrightnessDenominator: PROPERTYKEY = 100;
+        #[guid(0x9e7d118f_b314_45a0_8cfb_d654b917c9e9)]
+        const PKEY_Photo_BrightnessNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_CameraManufacturer: PROPERTYKEY = 271;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_CameraModel: PROPERTYKEY = 272;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_CameraSerialNumber: PROPERTYKEY = 273;
+        #[guid(0x2a785ba9_8d23_4ded_82e6_60a350c86a10)]
+        const PKEY_Photo_Contrast: PROPERTYKEY = 100;
+        #[guid(0x59dde9f2_5253_40ea_9a8b_479e96c6249a)]
+        const PKEY_Photo_ContrastText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_DateTaken: PROPERTYKEY = 36867;
+        #[guid(0xf85bf840_a925_4bc2_b0c4_8e36b598679e)]
+        const PKEY_Photo_DigitalZoom: PROPERTYKEY = 100;
+        #[guid(0x745baf0e_e5c1_4cfb_8a1b_d031a0a52393)]
+        const PKEY_Photo_DigitalZoomDenominator: PROPERTYKEY = 100;
+        #[guid(0x16cbb924_6500_473b_a5be_f1599bcbe413)]
+        const PKEY_Photo_DigitalZoomNumerator: PROPERTYKEY = 100;
+        #[guid(0xd35f743a_eb2e_47f2_a286_844132cb1427)]
+        const PKEY_Photo_EXIFVersion: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_Event: PROPERTYKEY = 18248;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_ExposureBias: PROPERTYKEY = 37380;
+        #[guid(0xab205e50_04b7_461c_a18c_2f233836e627)]
+        const PKEY_Photo_ExposureBiasDenominator: PROPERTYKEY = 100;
+        #[guid(0x738bf284_1d87_420b_92cf_5834bf6ef9ed)]
+        const PKEY_Photo_ExposureBiasNumerator: PROPERTYKEY = 100;
+        #[guid(0x967b5af8_995a_46ed_9e11_35b3c5b9782d)]
+        const PKEY_Photo_ExposureIndex: PROPERTYKEY = 100;
+        #[guid(0x93112f89_c28b_492f_8a9d_4be2062cee8a)]
+        const PKEY_Photo_ExposureIndexDenominator: PROPERTYKEY = 100;
+        #[guid(0xcdedcf30_8919_44df_8f4c_4eb2ffdb8d89)]
+        const PKEY_Photo_ExposureIndexNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_ExposureProgram: PROPERTYKEY = 34850;
+        #[guid(0xfec690b7_5f30_4646_ae47_4caafba884a3)]
+        const PKEY_Photo_ExposureProgramText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_ExposureTime: PROPERTYKEY = 33434;
+        #[guid(0x55e98597_ad16_42e0_b624_21599a199838)]
+        const PKEY_Photo_ExposureTimeDenominator: PROPERTYKEY = 100;
+        #[guid(0x257e44e2_9031_4323_ac38_85c552871b2e)]
+        const PKEY_Photo_ExposureTimeNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_FNumber: PROPERTYKEY = 33437;
+        #[guid(0xe92a2496_223b_4463_a4e3_30eabba79d80)]
+        const PKEY_Photo_FNumberDenominator: PROPERTYKEY = 100;
+        #[guid(0x1b97738a_fdfc_462f_9d93_1957e08be90c)]
+        const PKEY_Photo_FNumberNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_Flash: PROPERTYKEY = 37385;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_FlashEnergy: PROPERTYKEY = 41483;
+        #[guid(0xd7b61c70_6323_49cd_a5fc_c84277162c97)]
+        const PKEY_Photo_FlashEnergyDenominator: PROPERTYKEY = 100;
+        #[guid(0xfcad3d3d_0858_400f_aaa3_2f66cce2a6bc)]
+        const PKEY_Photo_FlashEnergyNumerator: PROPERTYKEY = 100;
+        #[guid(0xaabaf6c9_e0c5_4719_8585_57b103e584fe)]
+        const PKEY_Photo_FlashManufacturer: PROPERTYKEY = 100;
+        #[guid(0xfe83bb35_4d1a_42e2_916b_06f3e1af719e)]
+        const PKEY_Photo_FlashModel: PROPERTYKEY = 100;
+        #[guid(0x6b8b68f6_200b_47ea_8d25_d8050f57339f)]
+        const PKEY_Photo_FlashText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_FocalLength: PROPERTYKEY = 37386;
+        #[guid(0x305bc615_dca1_44a5_9fd4_10c0ba79412e)]
+        const PKEY_Photo_FocalLengthDenominator: PROPERTYKEY = 100;
+        #[guid(0xa0e74609_b84d_4f49_b860_462bd9971f98)]
+        const PKEY_Photo_FocalLengthInFilm: PROPERTYKEY = 100;
+        #[guid(0x776b6b3b_1e3d_4b0c_9a0e_8fbaf2a8492a)]
+        const PKEY_Photo_FocalLengthNumerator: PROPERTYKEY = 100;
+        #[guid(0xcfc08d97_c6f7_4484_89dd_ebef4356fe76)]
+        const PKEY_Photo_FocalPlaneXResolution: PROPERTYKEY = 100;
+        #[guid(0x0933f3f5_4786_4f46_a8e8_d64dd37fa521)]
+        const PKEY_Photo_FocalPlaneXResolutionDenominator: PROPERTYKEY = 100;
+        #[guid(0xdccb10af_b4e2_4b88_95f9_031b4d5ab490)]
+        const PKEY_Photo_FocalPlaneXResolutionNumerator: PROPERTYKEY = 100;
+        #[guid(0x4fffe4d0_914f_4ac4_8d6f_c9c61de169b1)]
+        const PKEY_Photo_FocalPlaneYResolution: PROPERTYKEY = 100;
+        #[guid(0x1d6179a6_a876_4031_b013_3347b2b64dc8)]
+        const PKEY_Photo_FocalPlaneYResolutionDenominator: PROPERTYKEY = 100;
+        #[guid(0xa2e541c5_4440_4ba8_867e_75cfc06828cd)]
+        const PKEY_Photo_FocalPlaneYResolutionNumerator: PROPERTYKEY = 100;
+        #[guid(0xfa304789_00c7_4d80_904a_1e4dcc7265aa)]
+        const PKEY_Photo_GainControl: PROPERTYKEY = 100;
+        #[guid(0x42864dfd_9da4_4f77_bded_4aad7b256735)]
+        const PKEY_Photo_GainControlDenominator: PROPERTYKEY = 100;
+        #[guid(0x8e8ecf7c_b7b8_4eb8_a63f_0ee715c96f9e)]
+        const PKEY_Photo_GainControlNumerator: PROPERTYKEY = 100;
+        #[guid(0xc06238b2_0bf9_4279_a723_25856715cb9d)]
+        const PKEY_Photo_GainControlText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_ISOSpeed: PROPERTYKEY = 34855;
+        #[guid(0xe6ddcaf7_29c5_4f0a_9a68_d19412ec7090)]
+        const PKEY_Photo_LensManufacturer: PROPERTYKEY = 100;
+        #[guid(0xe1277516_2b5f_4869_89b1_2e585bd38b7a)]
+        const PKEY_Photo_LensModel: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_LightSource: PROPERTYKEY = 37384;
+        #[guid(0xfa303353_b659_4052_85e9_bcac79549b84)]
+        const PKEY_Photo_MakerNote: PROPERTYKEY = 100;
+        #[guid(0x813f4124_34e6_4d17_ab3e_6b1f3c2247a1)]
+        const PKEY_Photo_MakerNoteOffset: PROPERTYKEY = 100;
+        #[guid(0x08f6d7c2_e3f2_44fc_af1e_5aa5c81a2d3e)]
+        const PKEY_Photo_MaxAperture: PROPERTYKEY = 100;
+        #[guid(0xc77724d4_601f_46c5_9b89_c53f93bceb77)]
+        const PKEY_Photo_MaxApertureDenominator: PROPERTYKEY = 100;
+        #[guid(0xc107e191_a459_44c5_9ae6_b952ad4b906d)]
+        const PKEY_Photo_MaxApertureNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_MeteringMode: PROPERTYKEY = 37383;
+        #[guid(0xf628fd8c_7ba8_465a_a65b_c5aa79263a9e)]
+        const PKEY_Photo_MeteringModeText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_Orientation: PROPERTYKEY = 274;
+        #[guid(0xa9ea193c_c511_498a_a06b_58e2776dcc28)]
+        const PKEY_Photo_OrientationText: PROPERTYKEY = 100;
+        #[guid(0xe8309b6e_084c_49b4_b1fc_90a80331b638)]
+        const PKEY_Photo_PeopleNames: PROPERTYKEY = 100;
+        #[guid(0x341796f1_1df9_4b1c_a564_91bdefa43877)]
+        const PKEY_Photo_PhotometricInterpretation: PROPERTYKEY = 100;
+        #[guid(0x821437d6_9eab_4765_a589_3b1cbbd22a61)]
+        const PKEY_Photo_PhotometricInterpretationText: PROPERTYKEY = 100;
+        #[guid(0x6d217f6d_3f6a_4825_b470_5f03ca2fbe9b)]
+        const PKEY_Photo_ProgramMode: PROPERTYKEY = 100;
+        #[guid(0x7fe3aa27_2648_42f3_89b0_454e5cb150c3)]
+        const PKEY_Photo_ProgramModeText: PROPERTYKEY = 100;
+        #[guid(0x318a6b45_087f_4dc2_b8cc_05359551fc9e)]
+        const PKEY_Photo_RelatedSoundFile: PROPERTYKEY = 100;
+        #[guid(0x49237325_a95a_4f67_b211_816b2d45d2e0)]
+        const PKEY_Photo_Saturation: PROPERTYKEY = 100;
+        #[guid(0x61478c08_b600_4a84_bbe4_e99c45f0a072)]
+        const PKEY_Photo_SaturationText: PROPERTYKEY = 100;
+        #[guid(0xfc6976db_8349_4970_ae97_b3c5316a08f0)]
+        const PKEY_Photo_Sharpness: PROPERTYKEY = 100;
+        #[guid(0x51ec3f47_dd50_421d_8769_334f50424b1e)]
+        const PKEY_Photo_SharpnessText: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_ShutterSpeed: PROPERTYKEY = 37377;
+        #[guid(0xe13d8975_81c7_4948_ae3f_37cae11e8ff7)]
+        const PKEY_Photo_ShutterSpeedDenominator: PROPERTYKEY = 100;
+        #[guid(0x16ea4042_d6f4_4bca_8349_7c78d30fb333)]
+        const PKEY_Photo_ShutterSpeedNumerator: PROPERTYKEY = 100;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_Photo_SubjectDistance: PROPERTYKEY = 37382;
+        #[guid(0x0c840a88_b043_466d_9766_d4b26da3fa77)]
+        const PKEY_Photo_SubjectDistanceDenominator: PROPERTYKEY = 100;
+        #[guid(0x8af4961c_f526_43e5_aa81_db768219178d)]
+        const PKEY_Photo_SubjectDistanceNumerator: PROPERTYKEY = 100;
+        #[guid(0xb812f15d_c2d8_4bbf_bacd_79744346113f)]
+        const PKEY_Photo_TagViewAggregate: PROPERTYKEY = 100;
+        #[guid(0x9a8ebb75_6458_4e82_bacb_35c0095b03bb)]
+        const PKEY_Photo_TranscodedForSync: PROPERTYKEY = 100;
+        #[guid(0xee3d3d8a_5381_4cfa_b13b_aaf66b5f4ec9)]
+        const PKEY_Photo_WhiteBalance: PROPERTYKEY = 100;
+        #[guid(0x6336b95e_c7a7_426d_86fd_7ae3d39c84b4)]
+        const PKEY_Photo_WhiteBalanceText: PROPERTYKEY = 100;
+        #[guid(0x9c1fcf74_2d97_41ba_b4ae_cb2e3661a6e4)]
+        const PKEY_Priority: PROPERTYKEY = 5;
+        #[guid(0xd98be98b_b86b_4095_bf52_9d23b2e0a752)]
+        const PKEY_PriorityText: PROPERTYKEY = 100;
+        #[guid(0x39a7f922_477c_48de_8bc8_b28441e342e3)]
+        const PKEY_Project: PROPERTYKEY = 100;
+        #[guid(0x900a403b_097b_4b95_8ae2_071fdaeeb118)]
+        const PKEY_PropGroup_Advanced: PROPERTYKEY = 100;
+        #[guid(0x2804d469_788f_48aa_8570_71b9c187e138)]
+        const PKEY_PropGroup_Audio: PROPERTYKEY = 100;
+        #[guid(0x9973d2b5_bfd8_438a_ba94_5349b293181a)]
+        const PKEY_PropGroup_Calendar: PROPERTYKEY = 100;
+        #[guid(0xde00de32_547e_4981_ad4b_542f2e9007d8)]
+        const PKEY_PropGroup_Camera: PROPERTYKEY = 100;
+        #[guid(0xdf975fd3_250a_4004_858f_34e29a3e37aa)]
+        const PKEY_PropGroup_Contact: PROPERTYKEY = 100;
+        #[guid(0xd0dab0ba_368a_4050_a882_6c010fd19a4f)]
+        const PKEY_PropGroup_Content: PROPERTYKEY = 100;
+        #[guid(0x8969b275_9475_4e00_a887_ff93b8b41e44)]
+        const PKEY_PropGroup_Description: PROPERTYKEY = 100;
+        #[guid(0xe3a7d2c1_80fc_4b40_8f34_30ea111bdc2e)]
+        const PKEY_PropGroup_FileSystem: PROPERTYKEY = 100;
+        #[guid(0xf3713ada_90e3_4e11_aae5_fdc17685b9be)]
+        const PKEY_PropGroup_GPS: PROPERTYKEY = 100;
+        #[guid(0xcc301630_b192_4c22_b372_9f4c6d338e07)]
+        const PKEY_PropGroup_General: PROPERTYKEY = 100;
+        #[guid(0xe3690a87_0fa8_4a2a_9a9f_fce8827055ac)]
+        const PKEY_PropGroup_Image: PROPERTYKEY = 100;
+        #[guid(0x61872cf7_6b5e_4b4b_ac2d_59da84459248)]
+        const PKEY_PropGroup_Media: PROPERTYKEY = 100;
+        #[guid(0x8859a284_de7e_4642_99ba_d431d044b1ec)]
+        const PKEY_PropGroup_MediaAdvanced: PROPERTYKEY = 100;
+        #[guid(0x7fd7259d_16b4_4135_9f97_7c96ecd2fa9e)]
+        const PKEY_PropGroup_Message: PROPERTYKEY = 100;
+        #[guid(0x68dd6094_7216_40f1_a029_43fe7127043f)]
+        const PKEY_PropGroup_Music: PROPERTYKEY = 100;
+        #[guid(0x2598d2fb_5569_4367_95df_5cd3a177e1a5)]
+        const PKEY_PropGroup_Origin: PROPERTYKEY = 100;
+        #[guid(0x0cb2bf5a_9ee7_4a86_8222_f01e07fdadaf)]
+        const PKEY_PropGroup_PhotoAdvanced: PROPERTYKEY = 100;
+        #[guid(0xe7b33238_6584_4170_a5c0_ac25efd9da56)]
+        const PKEY_PropGroup_RecordedTV: PROPERTYKEY = 100;
+        #[guid(0xbebe0920_7671_4c54_a3eb_49fddfc191ee)]
+        const PKEY_PropGroup_Video: PROPERTYKEY = 100;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_ConflictPrompt: PROPERTYKEY = 11;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_ContentViewModeForBrowse: PROPERTYKEY = 13;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_ContentViewModeForSearch: PROPERTYKEY = 14;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_ExtendedTileInfo: PROPERTYKEY = 9;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_FileOperationPrompt: PROPERTYKEY = 10;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_FullDetails: PROPERTYKEY = 2;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_InfoTip: PROPERTYKEY = 4;
+        #[guid(0x49d1091f_082e_493f_b23f_d2308aa9668c)]
+        const PKEY_PropList_NonPersonal: PROPERTYKEY = 100;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_PreviewDetails: PROPERTYKEY = 8;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_PreviewTitle: PROPERTYKEY = 6;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_QuickTip: PROPERTYKEY = 5;
+        #[guid(0xc9944a21_a406_48fe_8225_aec7e24c211b)]
+        const PKEY_PropList_TileInfo: PROPERTYKEY = 3;
+        #[guid(0xf2275480_f782_4291_bd94_f13693513aec)]
+        const PKEY_PropList_XPDetailsPanel: PROPERTYKEY = 0;
+        #[guid(0xf21d9941_81f0_471a_adee_4e74b49217ed)]
+        const PKEY_ProviderItemID: PROPERTYKEY = 100;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Rating: PROPERTYKEY = 9;
+        #[guid(0x90197ca7_fd8f_4e8c_9da3_b57e1e609295)]
+        const PKEY_RatingText: PROPERTYKEY = 100;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_ChannelNumber: PROPERTYKEY = 7;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_Credits: PROPERTYKEY = 4;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_DateContentExpires: PROPERTYKEY = 15;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_EpisodeName: PROPERTYKEY = 2;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsATSCContent: PROPERTYKEY = 16;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsClosedCaptioningAvailable: PROPERTYKEY = 12;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsDTVContent: PROPERTYKEY = 17;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsHDContent: PROPERTYKEY = 18;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsRepeatBroadcast: PROPERTYKEY = 13;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_IsSAP: PROPERTYKEY = 14;
+        #[guid(0x2c53c813_fb63_4e22_a1ab_0b331ca1e273)]
+        const PKEY_RecordedTV_NetworkAffiliation: PROPERTYKEY = 100;
+        #[guid(0x4684fe97_8765_4842_9c13_f006447b178c)]
+        const PKEY_RecordedTV_OriginalBroadcastDate: PROPERTYKEY = 100;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_ProgramDescription: PROPERTYKEY = 3;
+        #[guid(0xa5477f61_7a82_4eca_9dde_98b69b2479b3)]
+        const PKEY_RecordedTV_RecordingTime: PROPERTYKEY = 100;
+        #[guid(0x6d748de2_8d38_4cc3_ac60_f009b057c557)]
+        const PKEY_RecordedTV_StationCallSign: PROPERTYKEY = 5;
+        #[guid(0x1b5439e7_eba1_4af8_bdd7_7af1d4549493)]
+        const PKEY_RecordedTV_StationName: PROPERTYKEY = 100;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_RemoteConflictingFile: PROPERTYKEY = 115;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_SFGAOFlags: PROPERTYKEY = 25;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_Search_AutoCategory: PROPERTYKEY = 31;
+        #[guid(0x560c36c0_503a_11cf_baa1_00004c752a9a)]
+        const PKEY_Search_AutoSummary: PROPERTYKEY = 2;
+        #[guid(0xbceee283_35df_4d53_826a_f36a3eefc6be)]
+        const PKEY_Search_ContainerHash: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_Search_Contents: PROPERTYKEY = 19;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_EntryID: PROPERTYKEY = 5;
+        #[guid(0x7b03b546_fa4f_4a52_a2fe_03d5311e5865)]
+        const PKEY_Search_ExtendedProperties: PROPERTYKEY = 100;
+        #[guid(0x0b63e350_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_Search_GatherTime: PROPERTYKEY = 8;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_HitCount: PROPERTYKEY = 4;
+        #[guid(0x0b63e343_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_Search_IsClosedDirectory: PROPERTYKEY = 23;
+        #[guid(0x0b63e343_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_Search_IsFullyContained: PROPERTYKEY = 24;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_MatchKind: PROPERTYKEY = 29;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_MatchTags: PROPERTYKEY = 30;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_Search_OcrContent: PROPERTYKEY = 28;
+        #[guid(0x560c36c0_503a_11cf_baa1_00004c752a9a)]
+        const PKEY_Search_QueryFocusedSummary: PROPERTYKEY = 3;
+        #[guid(0x560c36c0_503a_11cf_baa1_00004c752a9a)]
+        const PKEY_Search_QueryFocusedSummaryWithFallback: PROPERTYKEY = 4;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_QueryPropertyHits: PROPERTYKEY = 21;
+        #[guid(0x49691c90_7e17_101a_a91c_08002b2ecda9)]
+        const PKEY_Search_Rank: PROPERTYKEY = 3;
+        #[guid(0xa06992b3_8caf_4ed7_a547_b259e32ac9fc)]
+        const PKEY_Search_Store: PROPERTYKEY = 100;
+        #[guid(0x0b63e343_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_Search_UrlToIndex: PROPERTYKEY = 2;
+        #[guid(0x0b63e343_9ccc_11d0_bcdb_00805fccce04)]
+        const PKEY_Search_UrlToIndexWithModificationTime: PROPERTYKEY = 12;
+        #[guid(0x38d43380_d418_4830_84d5_46935a81c5c6)]
+        const PKEY_Security_AllowedEnterpriseDataProtectionIdentities: PROPERTYKEY = 32;
+        #[guid(0x5f5aff6a_37e5_4780_97ea_80c7565cf535)]
+        const PKEY_Security_EncryptionOwners: PROPERTYKEY = 34;
+        #[guid(0xde621b8f_e125_43a3_a32d_5665446d632a)]
+        const PKEY_Security_EncryptionOwnersDisplay: PROPERTYKEY = 25;
+        #[guid(0xf8d3f6ac_4874_42cb_be59_ab454b30716a)]
+        const PKEY_Sensitivity: PROPERTYKEY = 100;
+        #[guid(0xd0c7f054_3f72_4725_8527_129a577cb269)]
+        const PKEY_SensitivityText: PROPERTYKEY = 100;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_ShareUserRating: PROPERTYKEY = 12;
+        #[guid(0xef884c5b_2bfe_41bb_aae5_76eedf4f9902)]
+        const PKEY_SharedWith: PROPERTYKEY = 200;
+        #[guid(0xef884c5b_2bfe_41bb_aae5_76eedf4f9902)]
+        const PKEY_SharingStatus: PROPERTYKEY = 300;
+        #[guid(0x38652bca_4329_4e74_86f9_39cf29345eea)]
+        const PKEY_Shell_CopilotKeyProviderFastPathMessage: PROPERTYKEY = 2;
+        #[guid(0xde35258c_c695_4cbc_b982_38b0ad24ced0)]
+        const PKEY_Shell_OmitFromView: PROPERTYKEY = 2;
+        #[guid(0xd6942081_d53b_443d_ad47_5e059d9cd27a)]
+        const PKEY_Shell_SFGAOFlagsStrings: PROPERTYKEY = 2;
+        #[guid(0xa09f084e_ad41_489f_8076_aa5be3082bca)]
+        const PKEY_SimpleRating: PROPERTYKEY = 100;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const PKEY_Size: PROPERTYKEY = 12;
+        #[guid(0x14b81da1_0135_4d31_96d9_6cbfc9671a99)]
+        const PKEY_SoftwareUsed: PROPERTYKEY = 305;
+        #[guid(0x841e4f90_ff59_4d16_8947_e81bbffab36d)]
+        const PKEY_Software_DateLastUsed: PROPERTYKEY = 16;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_Software_ProductName: PROPERTYKEY = 7;
+        #[guid(0x668cdfa5_7a1b_4323_ae4b_e527393a1d81)]
+        const PKEY_SourceItem: PROPERTYKEY = 100;
+        #[guid(0xffae9db7_1c8d_43ff_818c_84403aa3732d)]
+        const PKEY_SourcePackageFamilyName: PROPERTYKEY = 100;
+        #[guid(0x48fd6ec8_8a12_4cdf_a03e_4ec5a511edde)]
+        const PKEY_StartDate: PROPERTYKEY = 100;
+        #[guid(0x000214a1_0000_0000_c000_000000000046)]
+        const PKEY_Status: PROPERTYKEY = 9;
+        #[guid(0x26dc287c_6e3d_4bd3_b2b0_6a26ba2e346d)]
+        const PKEY_StatusBarSelectedItemCount: PROPERTYKEY = 3;
+        #[guid(0x26dc287c_6e3d_4bd3_b2b0_6a26ba2e346d)]
+        const PKEY_StatusBarViewItemCount: PROPERTYKEY = 2;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderCallerVersionInformation: PROPERTYKEY = 7;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderCustomPrimaryIcon: PROPERTYKEY = 12;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderError: PROPERTYKEY = 109;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileChecksum: PROPERTYKEY = 5;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileCreatedBy: PROPERTYKEY = 10;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileDateShared: PROPERTYKEY = 14;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileFlags: PROPERTYKEY = 8;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileHasConflict: PROPERTYKEY = 9;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileIdentifier: PROPERTYKEY = 3;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileModifiedBy: PROPERTYKEY = 11;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileRemoteLocation: PROPERTYKEY = 16;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderFileRemoteUri: PROPERTYKEY = 112;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileSharedBy: PROPERTYKEY = 15;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileVersion: PROPERTYKEY = 4;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderFileVersionWaterline: PROPERTYKEY = 6;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderFullyQualifiedId: PROPERTYKEY = 119;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderId: PROPERTYKEY = 108;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderShareStatuses: PROPERTYKEY = 111;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderSharingStatus: PROPERTYKEY = 117;
+        #[guid(0xe77e90df_6271_4f5b_834f_2dd1f245dda4)]
+        const PKEY_StorageProviderState: PROPERTYKEY = 3;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_StorageProviderStatus: PROPERTYKEY = 110;
+        #[guid(0xe77e90df_6271_4f5b_834f_2dd1f245dda4)]
+        const PKEY_StorageProviderTransferProgress: PROPERTYKEY = 4;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderUserAccountKind: PROPERTYKEY = 17;
+        #[guid(0xb2f9b9d6_fec4_4dd5_94d7_8957488c807b)]
+        const PKEY_StorageProviderUserId: PROPERTYKEY = 13;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const PKEY_Storage_Portable: PROPERTYKEY = 2;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const PKEY_Storage_RemovableMedia: PROPERTYKEY = 3;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const PKEY_Storage_SystemCritical: PROPERTYKEY = 4;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Subject: PROPERTYKEY = 3;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_Album: PROPERTYKEY = 6;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_AlbumID: PROPERTYKEY = 2;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_Location: PROPERTYKEY = 5;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_Person: PROPERTYKEY = 7;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_ResourceId: PROPERTYKEY = 3;
+        #[guid(0x0c73b141_39d6_4653_a683_cab291eaf95b)]
+        const PKEY_Supplemental_Tag: PROPERTYKEY = 4;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_SyncTransferStatus: PROPERTYKEY = 103;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_Comments: PROPERTYKEY = 13;
+        #[guid(0xce50c159_2fb8_41fd_be68_d3e042e274bc)]
+        const PKEY_Sync_ConflictDescription: PROPERTYKEY = 4;
+        #[guid(0xce50c159_2fb8_41fd_be68_d3e042e274bc)]
+        const PKEY_Sync_ConflictFirstLocation: PROPERTYKEY = 6;
+        #[guid(0xce50c159_2fb8_41fd_be68_d3e042e274bc)]
+        const PKEY_Sync_ConflictSecondLocation: PROPERTYKEY = 7;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_HandlerCollectionID: PROPERTYKEY = 2;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_HandlerID: PROPERTYKEY = 3;
+        #[guid(0xce50c159_2fb8_41fd_be68_d3e042e274bc)]
+        const PKEY_Sync_HandlerName: PROPERTYKEY = 2;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_HandlerType: PROPERTYKEY = 8;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_HandlerTypeLabel: PROPERTYKEY = 9;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_ItemID: PROPERTYKEY = 6;
+        #[guid(0xce50c159_2fb8_41fd_be68_d3e042e274bc)]
+        const PKEY_Sync_ItemName: PROPERTYKEY = 3;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_ProgressPercentage: PROPERTYKEY = 23;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_State: PROPERTYKEY = 24;
+        #[guid(0x7bd5533e_af15_44db_b8c8_bd6624e1d032)]
+        const PKEY_Sync_Status: PROPERTYKEY = 10;
+        #[guid(0xd37d52c6_261c_4303_82b3_08b926ac6f12)]
+        const PKEY_Task_BillingInformation: PROPERTYKEY = 100;
+        #[guid(0x084d8a0a_e6d5_40de_bf1f_c8820e7c877c)]
+        const PKEY_Task_CompletionStatus: PROPERTYKEY = 100;
+        #[guid(0x08c7cc5f_60f2_4494_ad75_55e3e0b5add0)]
+        const PKEY_Task_Owner: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Thumbnail: PROPERTYKEY = 17;
+        #[guid(0x446d16b1_8dad_4870_a748_402ea43d788c)]
+        const PKEY_ThumbnailCacheId: PROPERTYKEY = 100;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_ThumbnailStream: PROPERTYKEY = 27;
+        #[guid(0xf29f85e0_4ff9_1068_ab91_08002b27b3d9)]
+        const PKEY_Title: PROPERTYKEY = 2;
+        #[guid(0xf0f7984d_222e_4ad2_82ab_1dd8ea40e57e)]
+        const PKEY_TitleSortOverride: PROPERTYKEY = 300;
+        #[guid(0x28636aa6_953d_11d2_b5d6_00c04fd918d0)]
+        const PKEY_TotalFileSize: PROPERTYKEY = 14;
+        #[guid(0x0cef7d53_fa64_11d1_a203_0000f81fedee)]
+        const PKEY_Trademarks: PROPERTYKEY = 9;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_TransferOrder: PROPERTYKEY = 106;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_TransferPosition: PROPERTYKEY = 104;
+        #[guid(0xfceff153_e839_4cf3_a9e7_ea22832094b8)]
+        const PKEY_TransferSize: PROPERTYKEY = 105;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_Compression: PROPERTYKEY = 10;
+        #[guid(0x64440492_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_Director: PROPERTYKEY = 20;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_EncodingBitrate: PROPERTYKEY = 8;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_FourCC: PROPERTYKEY = 44;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_FrameHeight: PROPERTYKEY = 4;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_FrameRate: PROPERTYKEY = 6;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_FrameWidth: PROPERTYKEY = 3;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_HorizontalAspectRatio: PROPERTYKEY = 42;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_IsSpherical: PROPERTYKEY = 100;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_IsStereo: PROPERTYKEY = 98;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_Orientation: PROPERTYKEY = 99;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_SampleSize: PROPERTYKEY = 9;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_StreamName: PROPERTYKEY = 2;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_StreamNumber: PROPERTYKEY = 11;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_TotalBitrate: PROPERTYKEY = 43;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_TranscodedForSync: PROPERTYKEY = 46;
+        #[guid(0x64440491_4c8b_11d1_8b70_080036b11a03)]
+        const PKEY_Video_VerticalAspectRatio: PROPERTYKEY = 45;
+        #[guid(0x446d16b1_8dad_4870_a748_402ea43d788c)]
+        const PKEY_VolumeId: PROPERTYKEY = 104;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_Volume_FileSystem: PROPERTYKEY = 4;
+        #[guid(0x149c0b69_2c2d_48fc_808f_d318d78c4636)]
+        const PKEY_Volume_IsMappedDrive: PROPERTYKEY = 2;
+        #[guid(0x9b174b35_40ff_11d2_a27e_00c04fc30871)]
+        const PKEY_Volume_IsRoot: PROPERTYKEY = 10;
+        #[guid(0x30c8eef4_a832_41e2_ab32_e3c3ca28fd29)]
+        const PKEY_WebAccountID: PROPERTYKEY = 7;
+        #[guid(0x502cfeab_47eb_459c_b960_e6d8728f7701)]
+        const PKEY_ZoneIdentifier: PROPERTYKEY = 100;
         const PLAYBACKSTATE_NOMEDIA: u32 = 7;
         const PLAYBACKSTATE_PAUSED: u32 = 4;
         const PLAYBACKSTATE_PLAYING: u32 = 2;

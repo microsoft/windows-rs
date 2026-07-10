@@ -492,6 +492,36 @@ impl<'a> Parser<'a> {
                     }
                 }
             }
+            // Detect `DEFINE_PROPERTYKEY(name, ...)` / `DEFINE_DEVPROPKEY(name, ...)` macro
+            // invocations. Both expand to a `{ { fmtid }, pid }` initializer for a
+            // `PROPERTYKEY`/`DEVPROPKEY` (a GUID plus a `u32`), so the faithful value lives in
+            // the macro arguments parsed here. The `fmtid` is emitted as a `#[guid]` attribute
+            // and the `pid` as an ordinary integer constant.
+            CXCursor_MacroExpansion
+                if matches!(
+                    child.name().as_str(),
+                    "DEFINE_PROPERTYKEY" | "DEFINE_DEVPROPKEY"
+                ) =>
+            {
+                let ty = if child.name() == "DEFINE_DEVPROPKEY" {
+                    "DEVPROPKEY"
+                } else {
+                    "PROPERTYKEY"
+                };
+                let tokens = self.tu.tokenize(child.extent());
+                if let Some((name, uuid, pid)) = parse_define_property_key_tokens(&tokens)
+                    && !name.is_empty()
+                    && !self.ref_map.contains_key(&name)
+                    && !collector.contains_key(&name)
+                {
+                    collector.insert(Item::PropertyKeyConst(PropertyKeyConst {
+                        name,
+                        ty: ty.to_string(),
+                        uuid,
+                        pid,
+                    }));
+                }
+            }
             // Detect `extern "C" const GUID IID_XXX = { ... };` variable declarations.
             // These associate a GUID with an interface whose C++ declaration does not
             // carry `__declspec(uuid("..."))` (e.g. the 7zip SDK pattern).
@@ -1682,6 +1712,9 @@ fn item_refs(item: &Item, out: &mut HashSet<String>) {
         Item::Struct(item) => collect_field_refs(&item.fields, out),
         Item::Typedef(item) => collect_type_refs(&item.ty, out),
         Item::Const(item) => collect_value_refs(&item.value, out),
+        Item::PropertyKeyConst(item) => {
+            out.insert(item.ty.clone());
+        }
         Item::Enum(_) | Item::GuidConst(_) => {}
     }
 }
@@ -2542,6 +2575,38 @@ fn parse_define_guid_tokens(
 
     let uuid = format_guid_from_values(&values)?;
     Some((name, uuid))
+}
+
+/// Parse a `DEFINE_PROPERTYKEY(name, l, w1, w2, b1..b8, pid)` /
+/// `DEFINE_DEVPROPKEY(...)` macro invocation into `(name, fmtid_uuid, pid)`. Both macros
+/// take the same 13 arguments: the constant name, the eleven GUID components, and a trailing
+/// `pid`. Returns `None` when the token shape does not match (e.g. a non-literal argument).
+fn parse_define_property_key_tokens(
+    tokens: &[(CXTokenKind, String)],
+) -> Option<(String, String, u32)> {
+    let lparen = tokens
+        .iter()
+        .position(|(k, s)| *k == CXToken_Punctuation && s == "(")?;
+
+    let name = tokens[lparen + 1..]
+        .iter()
+        .find(|(k, _)| *k == CXToken_Identifier)
+        .map(|(_, s)| s.clone())?;
+
+    let values: Vec<u64> = tokens[lparen + 1..]
+        .iter()
+        .filter(|(k, _)| *k == CXToken_Literal)
+        .map(|(_, s)| parse_c_int_literal(s))
+        .collect::<Option<_>>()?;
+
+    // Eleven GUID components plus the trailing `pid`.
+    if values.len() != 12 {
+        return None;
+    }
+
+    let uuid = format_guid_from_values(&values[..11])?;
+    let pid = u32::try_from(values[11]).ok()?;
+    Some((name, uuid, pid))
 }
 
 /// Format the eleven GUID field values (`data1`, `data2`, `data3`, `data4[0..8]`)

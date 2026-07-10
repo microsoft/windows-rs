@@ -1,0 +1,21 @@
+#[win32]
+mod Test {
+    #[guid(0x26e3e2a2_1234_5678_9abc_def012345678)]
+    const DEVPKEY_Test_Sample: DEVPROPKEY = 26u32;
+    struct DEVPROPKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+    struct GUID {
+        Data1: u32,
+        Data2: u16,
+        Data3: u16,
+        Data4: [u8; 8],
+    }
+    #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+    const PKEY_Test_Sample: PROPERTYKEY = 100u32;
+    struct PROPERTYKEY {
+        fmtid: GUID,
+        pid: u32,
+    }
+}

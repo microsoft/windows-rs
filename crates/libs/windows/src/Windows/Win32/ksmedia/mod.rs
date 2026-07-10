@@ -285,6 +285,12 @@ pub struct DEVCAPS {
     pub SeekType: i32,
     pub SimulatedHardware: i32,
 }
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: super::devpropdef::DEVPROPID(3) };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: super::devpropdef::DEVPROPID(2) };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: super::devpropdef::DEVPROPID(2) };
 pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]

@@ -174,6 +174,8 @@ pub mod ddeml;
 pub mod ddraw;
 #[cfg(feature = "debugapi")]
 pub mod debugapi;
+#[cfg(feature = "devpkey")]
+pub mod devpkey;
 #[cfg(feature = "devpropdef")]
 pub mod devpropdef;
 #[cfg(feature = "dhcpsapi")]

@@ -19,6 +19,12 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> win
         MFIsVirtualCameraTypeSupported(r#type, &mut result__).map(|| result__)
     }
 }
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::devpropdef::DEVPROPID(3) };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::devpropdef::DEVPROPID(4) };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: super::devpropdef::DEVPROPID(5) };
 windows_core::imp::define_interface!(IMFCameraSyncObject, IMFCameraSyncObject_Vtbl, 0x6338b23a_3042_49d2_a3ea_ec0fed815407);
 windows_core::imp::interface_hierarchy!(IMFCameraSyncObject, windows_core::IUnknown);
 impl IMFCameraSyncObject {

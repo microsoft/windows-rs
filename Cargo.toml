@@ -14,7 +14,6 @@ exclude = [
     # and recipe".
     "crates/tests/libs/implement",
     "crates/tests/misc/lib",
-    "crates/tests/misc/structs",
 ]
 
 [profile.release]

@@ -1,6 +1,84 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_AccessPointBssid: DEVPROPKEY = 19;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_ChallengeAep: DEVPROPKEY = 21;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_DevnodeAep: DEVPROPKEY = 23;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_HostName_ResolutionMode: DEVPROPKEY = 25;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_PinSupported: DEVPROPKEY = 29;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: DEVPROPKEY = 30;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_SinkHostName: DEVPROPKEY = 20;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_SinkIpAddress: DEVPROPKEY = 26;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_StreamSecuritySupported: DEVPROPKEY = 18;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_InfraCast_Supported: DEVPROPKEY = 17;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_AdvertisementId: DEVPROPKEY = 5;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_RequestServiceInformation: DEVPROPKEY = 7;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_ServiceAddress: DEVPROPKEY = 2;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: DEVPROPKEY = 6;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_ServiceInformation: DEVPROPKEY = 4;
+        #[guid(0x31b37743_7c5e_4005_93e6_e953f92b82e9)]
+        const DEVPKEY_WiFiDirectServices_ServiceName: DEVPROPKEY = 3;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_DeviceAddress: DEVPROPKEY = 1;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_DeviceAddressCopy: DEVPROPKEY = 13;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_FoundWsbService: DEVPROPKEY = 24;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_GroupId: DEVPROPKEY = 4;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_InformationElements: DEVPROPKEY = 12;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_InterfaceAddress: DEVPROPKEY = 2;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_InterfaceGuid: DEVPROPKEY = 3;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsConnected: DEVPROPKEY = 5;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsDMGCapable: DEVPROPKEY = 22;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsLegacyDevice: DEVPROPKEY = 7;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: DEVPROPKEY = 9;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsRecentlyAssociated: DEVPROPKEY = 14;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_IsVisible: DEVPROPKEY = 6;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_LinkQuality: DEVPROPKEY = 28;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_MiracastVersion: DEVPROPKEY = 8;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: DEVPROPKEY = 31;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_NoMiracastAutoProject: DEVPROPKEY = 16;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: DEVPROPKEY = 32;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_Service_Aeps: DEVPROPKEY = 15;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_Services: DEVPROPKEY = 10;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_SupportedChannelList: DEVPROPKEY = 11;
+        #[guid(0x1506935d_e3e7_450f_8637_82233ebe5f6e)]
+        const DEVPKEY_WiFiDirect_TransientAssociation: DEVPROPKEY = 27;
+        #[guid(0xef1167eb_cbfc_4341_a568_a7c91a68982c)]
+        const DEVPKEY_WiFi_InterfaceGuid: DEVPROPKEY = 2;
         struct DOT11_NETWORK {
             dot11Ssid: DOT11_SSID,
             dot11BssType: DOT11_BSS_TYPE,

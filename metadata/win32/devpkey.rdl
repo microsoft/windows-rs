@@ -1,0 +1,407 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x13673f42_a3d6_49f6_b4da_ae46e0c5237c)]
+        const DEVPKEY_DevQuery_ObjectType: DEVPROPKEY = 2;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_Characteristics: DEVPROPKEY = 29;
+        #[guid(0x713d1703_a2e2_49f5_9214_56472ef3da5c)]
+        const DEVPKEY_DeviceClass_ClassCoInstallers: DEVPROPKEY = 2;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_ClassInstaller: DEVPROPKEY = 5;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_ClassName: DEVPROPKEY = 3;
+        #[guid(0xd14d3ef3_66cf_4ba2_9d38_0ddb37ab4701)]
+        const DEVPKEY_DeviceClass_DHPRebalanceOptOut: DEVPROPKEY = 2;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_DefaultService: DEVPROPKEY = 11;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_DevType: DEVPROPKEY = 27;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_Exclusive: DEVPROPKEY = 28;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_Icon: DEVPROPKEY = 4;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_IconPath: DEVPROPKEY = 12;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_LowerFilters: DEVPROPKEY = 20;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_Name: DEVPROPKEY = 2;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_NoDisplayClass: DEVPROPKEY = 8;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_NoInstallClass: DEVPROPKEY = 7;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_NoUseClass: DEVPROPKEY = 10;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_PropPageProvider: DEVPROPKEY = 6;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_Security: DEVPROPKEY = 25;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_SecuritySDS: DEVPROPKEY = 26;
+        #[guid(0x259abffc_50a7_47ce_af08_68c9a7d73366)]
+        const DEVPKEY_DeviceClass_SilentInstall: DEVPROPKEY = 9;
+        #[guid(0x4321918b_f69e_470d_a5de_4d88c75ad24b)]
+        const DEVPKEY_DeviceClass_UpperFilters: DEVPROPKEY = 19;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Address: DEVPROPKEY = 51;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_AlwaysShowDeviceAsConnected: DEVPROPKEY = 101;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_AssociationArray: DEVPROPKEY = 80;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_BaselineExperienceId: DEVPROPKEY = 78;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Category: DEVPROPKEY = 90;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_CategoryGroup_Desc: DEVPROPKEY = 94;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_CategoryGroup_Icon: DEVPROPKEY = 95;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Category_Desc_Plural: DEVPROPKEY = 92;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Category_Desc_Singular: DEVPROPKEY = 91;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Category_Icon: DEVPROPKEY = 93;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_ConfigFlags: DEVPROPKEY = 105;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_CustomPrivilegedPackageFamilyNames: DEVPROPKEY = 107;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_DeviceDescription1: DEVPROPKEY = 81;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_DeviceDescription2: DEVPROPKEY = 82;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_DeviceFunctionSubRank: DEVPROPKEY = 100;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_DiscoveryMethod: DEVPROPKEY = 52;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_ExperienceId: DEVPROPKEY = 89;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const DEVPKEY_DeviceContainer_FriendlyName: DEVPROPKEY = 12288;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_HasProblem: DEVPROPKEY = 83;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Icon: DEVPROPKEY = 57;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_DeviceContainer_InstallInProgress: DEVPROPKEY = 9;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsAuthenticated: DEVPROPKEY = 54;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsConnected: DEVPROPKEY = 55;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsDefaultDevice: DEVPROPKEY = 86;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsDeviceUniquelyIdentifiable: DEVPROPKEY = 79;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsEncrypted: DEVPROPKEY = 53;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsLocalMachine: DEVPROPKEY = 70;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsMetadataSearchInProgress: DEVPROPKEY = 72;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsNetworkDevice: DEVPROPKEY = 85;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsNotInterestingForDisplay: DEVPROPKEY = 74;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsPaired: DEVPROPKEY = 56;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsRebootRequired: DEVPROPKEY = 108;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsSharedDevice: DEVPROPKEY = 84;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_IsShowInDisconnectedState: DEVPROPKEY = 68;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Last_Connected: DEVPROPKEY = 67;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Last_Seen: DEVPROPKEY = 66;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_LaunchDeviceStageFromExplorer: DEVPROPKEY = 77;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_LaunchDeviceStageOnDeviceConnect: DEVPROPKEY = 76;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const DEVPKEY_DeviceContainer_Manufacturer: DEVPROPKEY = 8192;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_MetadataCabinet: DEVPROPKEY = 87;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_MetadataChecksum: DEVPROPKEY = 73;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_MetadataPath: DEVPROPKEY = 71;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const DEVPKEY_DeviceContainer_ModelName: DEVPROPKEY = 8194;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const DEVPKEY_DeviceContainer_ModelNumber: DEVPROPKEY = 8195;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_PrimaryCategory: DEVPROPKEY = 97;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_PrivilegedPackageFamilyNames: DEVPROPKEY = 106;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_RequiresPairingElevation: DEVPROPKEY = 88;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_RequiresUninstallElevation: DEVPROPKEY = 99;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_UnpairUninstall: DEVPROPKEY = 98;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_DeviceContainer_Version: DEVPROPKEY = 65;
+        #[guid(0x14c83a99_0b3f_44b7_be4c_a178d3990564)]
+        const DEVPKEY_DeviceInterfaceClass_DefaultInterface: DEVPROPKEY = 2;
+        #[guid(0x14c83a99_0b3f_44b7_be4c_a178d3990564)]
+        const DEVPKEY_DeviceInterfaceClass_Name: DEVPROPKEY = 3;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_ClassGuid: DEVPROPKEY = 4;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_Enabled: DEVPROPKEY = 3;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_FriendlyName: DEVPROPKEY = 2;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_ReferenceString: DEVPROPKEY = 5;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_Restricted: DEVPROPKEY = 6;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_SchematicName: DEVPROPKEY = 9;
+        #[guid(0x026e516e_b814_414b_83cd_856d6fef4822)]
+        const DEVPKEY_DeviceInterface_UnrestrictedAppCapabilities: DEVPROPKEY = 8;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_AdditionalSoftwareRequested: DEVPROPKEY = 19;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Address: DEVPROPKEY = 30;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_AssignedToGuest: DEVPROPKEY = 24;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_BaseContainerId: DEVPROPKEY = 38;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_BiosDeviceName: DEVPROPKEY = 10;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_BusNumber: DEVPROPKEY = 23;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_BusRelations: DEVPROPKEY = 7;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_BusReportedDeviceDesc: DEVPROPKEY = 4;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_BusTypeGuid: DEVPROPKEY = 21;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Capabilities: DEVPROPKEY = 17;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Characteristics: DEVPROPKEY = 29;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_Children: DEVPROPKEY = 9;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Class: DEVPROPKEY = 9;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_ClassGuid: DEVPROPKEY = 10;
+        #[guid(0x6a742654_d0b2_4420_a523_e068352ac1df)]
+        const DEVPKEY_Device_CompanionApps: DEVPROPKEY = 2;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_CompatibleIds: DEVPROPKEY = 4;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_ConfigFlags: DEVPROPKEY = 12;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_ConfigurationId: DEVPROPKEY = 7;
+        #[guid(0x7d0300e4_4fb7_493d_8a95_656f00e6a271)]
+        const DEVPKEY_Device_ContainerCategories: DEVPROPKEY = 4;
+        #[guid(0x7d0300e4_4fb7_493d_8a95_656f00e6a271)]
+        const DEVPKEY_Device_ContainerIcon: DEVPROPKEY = 5;
+        #[guid(0x8c7ed206_3f8a_4827_b3ab_ae9e1faefc6c)]
+        const DEVPKEY_Device_ContainerId: DEVPROPKEY = 2;
+        #[guid(0x7d0300e4_4fb7_493d_8a95_656f00e6a271)]
+        const DEVPKEY_Device_ContainerManufacturer: DEVPROPKEY = 3;
+        #[guid(0x7d0300e4_4fb7_493d_8a95_656f00e6a271)]
+        const DEVPKEY_Device_ContainerModelName: DEVPROPKEY = 2;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_CreatorProcessId: DEVPROPKEY = 25;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_DHP_Rebalance_Policy: DEVPROPKEY = 2;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_DebuggerSafe: DEVPROPKEY = 12;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_DependencyDependents: DEVPROPKEY = 21;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_DependencyProviders: DEVPROPKEY = 20;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_DevNodeStatus: DEVPROPKEY = 2;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_DevType: DEVPROPKEY = 27;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_DeviceDesc: DEVPROPKEY = 2;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Driver: DEVPROPKEY = 11;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverCoInstallers: DEVPROPKEY = 11;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverDate: DEVPROPKEY = 2;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverDesc: DEVPROPKEY = 4;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverInfPath: DEVPROPKEY = 5;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverInfSection: DEVPROPKEY = 6;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverInfSectionExt: DEVPROPKEY = 7;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverLogoLevel: DEVPROPKEY = 15;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_DriverProblemDesc: DEVPROPKEY = 11;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverPropPageProvider: DEVPROPKEY = 10;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverProvider: DEVPROPKEY = 9;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverRank: DEVPROPKEY = 14;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_DriverVersion: DEVPROPKEY = 3;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_EjectionRelations: DEVPROPKEY = 4;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_EnumeratorName: DEVPROPKEY = 24;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Exclusive: DEVPROPKEY = 28;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_ExtendedAddress: DEVPROPKEY = 23;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_ExtendedConfigurationIds: DEVPROPKEY = 15;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_FirmwareDate: DEVPROPKEY = 17;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_FirmwareRevision: DEVPROPKEY = 19;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_FirmwareVendor: DEVPROPKEY = 26;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_FirmwareVersion: DEVPROPKEY = 18;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_Device_FirstInstallDate: DEVPROPKEY = 101;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_FriendlyName: DEVPROPKEY = 14;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_FriendlyNameAttributes: DEVPROPKEY = 3;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_GenericDriverInstalled: DEVPROPKEY = 18;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_HardwareIds: DEVPROPKEY = 3;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_HasProblem: DEVPROPKEY = 6;
+        #[guid(0x8c7ed206_3f8a_4827_b3ab_ae9e1faefc6c)]
+        const DEVPKEY_Device_InLocalMachineContainer: DEVPROPKEY = 4;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_Device_InstallDate: DEVPROPKEY = 100;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_InstallState: DEVPROPKEY = 36;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_Device_InstanceId: DEVPROPKEY = 256;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_IsAssociateableByUserAction: DEVPROPKEY = 7;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_IsPresent: DEVPROPKEY = 5;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_IsRebootRequired: DEVPROPKEY = 16;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_Device_LastArrivalDate: DEVPROPKEY = 102;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_Device_LastRemovalDate: DEVPROPKEY = 103;
+        #[guid(0x80497100_8c73_48b9_aad9_ce387e19c56e)]
+        const DEVPKEY_Device_Legacy: DEVPROPKEY = 3;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_LegacyBusType: DEVPROPKEY = 22;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_LocationInfo: DEVPROPKEY = 15;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_LocationPaths: DEVPROPKEY = 37;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_LowerFilters: DEVPROPKEY = 20;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Manufacturer: DEVPROPKEY = 13;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_ManufacturerAttributes: DEVPROPKEY = 4;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_MatchingDeviceId: DEVPROPKEY = 8;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const DEVPKEY_Device_Model: DEVPROPKEY = 39;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_ModelId: DEVPROPKEY = 2;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_NoConnectSound: DEVPROPKEY = 17;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_Numa_Node: DEVPROPKEY = 3;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_Numa_Proximity_Domain: DEVPROPKEY = 1;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_PDOName: DEVPROPKEY = 16;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_Parent: DEVPROPKEY = 8;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_PhysicalDeviceLocation: DEVPROPKEY = 9;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_PostInstallInProgress: DEVPROPKEY = 13;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_PowerData: DEVPROPKEY = 32;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_PowerRelations: DEVPROPKEY = 6;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_PresenceNotForDevice: DEVPROPKEY = 5;
+        #[guid(0x6a742654_d0b2_4420_a523_e068352ac1df)]
+        const DEVPKEY_Device_PrimaryCompanionApp: DEVPROPKEY = 3;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_ProblemCode: DEVPROPKEY = 3;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_ProblemStatus: DEVPROPKEY = 12;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_RemovalPolicy: DEVPROPKEY = 33;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_RemovalPolicyDefault: DEVPROPKEY = 34;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_RemovalPolicyOverride: DEVPROPKEY = 35;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_RemovalRelations: DEVPROPKEY = 5;
+        #[guid(0x80497100_8c73_48b9_aad9_ce387e19c56e)]
+        const DEVPKEY_Device_Reported: DEVPROPKEY = 2;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_ReportedDeviceIdsHash: DEVPROPKEY = 8;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_ResourcePickerExceptions: DEVPROPKEY = 13;
+        #[guid(0xa8b865dd_2e3d_4094_ad97_e593a70c75d6)]
+        const DEVPKEY_Device_ResourcePickerTags: DEVPROPKEY = 12;
+        #[guid(0xafd97640_86a3_4210_b67c_289c41aabe55)]
+        const DEVPKEY_Device_SafeRemovalRequired: DEVPROPKEY = 2;
+        #[guid(0xafd97640_86a3_4210_b67c_289c41aabe55)]
+        const DEVPKEY_Device_SafeRemovalRequiredOverride: DEVPROPKEY = 3;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Security: DEVPROPKEY = 25;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_SecuritySDS: DEVPROPKEY = 26;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_Service: DEVPROPKEY = 6;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const DEVPKEY_Device_SessionId: DEVPROPKEY = 6;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_ShowInUninstallUI: DEVPROPKEY = 8;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_Siblings: DEVPROPKEY = 10;
+        #[guid(0x80d81ea6_7473_4b0c_8216_efc11a2c4c8b)]
+        const DEVPKEY_Device_SignalStrength: DEVPROPKEY = 6;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_SoftRestartSupported: DEVPROPKEY = 22;
+        #[guid(0x540b947e_8b40_45bc_a8a2_6a0b894cbda2)]
+        const DEVPKEY_Device_Stack: DEVPROPKEY = 14;
+        #[guid(0x4340a6c5_93fa_4706_972c_7b648008a5a7)]
+        const DEVPKEY_Device_TransportRelations: DEVPROPKEY = 11;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_UINumber: DEVPROPKEY = 18;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_UINumberDescFormat: DEVPROPKEY = 31;
+        #[guid(0xa45c254e_df1c_4efd_8020_67d146a850e0)]
+        const DEVPKEY_Device_UpperFilters: DEVPROPKEY = 19;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_BrandingIcon: DEVPROPKEY = 7;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_DetailedDescription: DEVPROPKEY = 4;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_DocumentationLink: DEVPROPKEY = 5;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_Icon: DEVPROPKEY = 6;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_Model: DEVPROPKEY = 2;
+        #[guid(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132)]
+        const DEVPKEY_DrvPkg_VendorWebSite: DEVPROPKEY = 3;
+        #[guid(0xb725f130_47ef_101a_a5f1_02608c9eebac)]
+        const DEVPKEY_NAME: DEVPROPKEY = 10;
+    }
+}

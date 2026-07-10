@@ -418,6 +418,10 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> Result<TokenS
     };
     if is_guid && item.find_attribute("GuidAttribute").is_some() {
         write_const_guid(namespace, item)
+    } else if item.find_attribute("GuidAttribute").is_some() {
+        // A non-GUID struct field carrying a `GuidAttribute` is a property-key constant
+        // (`PROPERTYKEY`/`DEVPROPKEY`): the attribute is the `fmtid` and the `Constant` the `pid`.
+        write_const_property_key(namespace, item)
     } else {
         write_const_value(namespace, item)
     }
@@ -460,6 +464,31 @@ fn write_const_guid(
 ) -> Result<TokenStream, Error> {
     let name = write_ident(item.name());
     let arch_attr = write_arch_attr(item.arches());
+    let literal = guid_attribute_literal(item)?;
+    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+}
+
+/// Renders a property-key constant (`PROPERTYKEY`/`DEVPROPKEY`) back to its RDL spelling:
+/// `#[guid(0x…)] const NAME: TYPE = pid;`. The `fmtid` comes from the `GuidAttribute` and the
+/// `pid` from the field's `Constant` — the inverse of `encode_const_property_key`.
+fn write_const_property_key(
+    namespace: &str,
+    item: &metadata::reader::Field,
+) -> Result<TokenStream, Error> {
+    let name = write_ident(item.name());
+    let ty = write_type(namespace, &item.ty());
+    let arch_attr = write_arch_attr(item.arches());
+    let guid = guid_attribute_literal(item)?;
+    let constant = item
+        .constant()
+        .ok_or_else(|| writer_err!("property key constant `{}` has no `pid` value", item.name()))?;
+    let pid = write_value(namespace, &constant.value());
+    Ok(quote! { #arch_attr #[guid(#guid)] const #name: #ty = #pid; })
+}
+
+/// Folds a field's `GuidAttribute` (11 typed args) into the `0x…`-underscore u128 literal used
+/// by both plain GUID constants and the `fmtid` of a property-key constant.
+fn guid_attribute_literal(item: &metadata::reader::Field) -> Result<syn::LitInt, Error> {
     let attribute = item
         .find_attribute("GuidAttribute")
         .ok_or_else(|| writer_err!("GUID constant `{}` has no `GuidAttribute`", item.name()))?;
@@ -487,8 +516,7 @@ fn write_const_guid(
         value as u64 & 0xffffffffffff,
     );
 
-    let literal = syn::LitInt::new(&value, Span::call_site());
-    Ok(quote! { #arch_attr const #name: GUID = #literal; })
+    Ok(syn::LitInt::new(&value, Span::call_site()))
 }
 
 fn write_params(

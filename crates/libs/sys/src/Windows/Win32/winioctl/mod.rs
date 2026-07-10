@@ -1319,6 +1319,22 @@ pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Size: u32,
     pub BenefitsFromWriteAggregation: bool,
 }
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Disk_Number: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Gpt_Name: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 9 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Gpt_Type: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 8 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Mbr_Type: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 7 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Partition_Number: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 6 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Portable: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 2 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_Removable_Media: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 3 };
+#[cfg(feature = "devpropdef")]
+pub const DEVPKEY_Storage_System_Critical: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 4 };
 pub const DISABLE_SMART: u32 = 217;
 pub const DISK_ATTRIBUTE_OFFLINE: u32 = 1;
 pub const DISK_ATTRIBUTE_READ_ONLY: u32 = 2;

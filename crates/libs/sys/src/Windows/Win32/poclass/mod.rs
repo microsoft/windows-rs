@@ -332,6 +332,8 @@ pub type PPOWER_ADAPTER_SET_STATUS_BUFFER = *mut POWER_ADAPTER_SET_STATUS_BUFFER
 pub type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
 pub type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
 pub type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
+#[cfg(feature = "devpropdef")]
+pub const PROCESSOR_NUMBER_PKEY: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PROCESSOR_OBJECT_INFO {

@@ -121,6 +121,35 @@ impl GuidConst {
     }
 }
 
+/// A `PROPERTYKEY`/`DEVPROPKEY` constant produced from a `DEFINE_PROPERTYKEY` or
+/// `DEFINE_DEVPROPKEY` macro invocation. Both expand to `{ { fmtid }, pid }`, so the value
+/// is a GUID plus a `u32`. The `fmtid` rides on a `#[guid]` attribute (the same faithful
+/// encoding `DEFINE_GUID` uses) and the `pid` is an ordinary integer constant — no bespoke
+/// struct-initializer string is needed.
+#[derive(Debug)]
+pub struct PropertyKeyConst {
+    pub name: String,
+    /// The struct type name, `PROPERTYKEY` or `DEVPROPKEY`.
+    pub ty: String,
+    /// The `fmtid` UUID without braces, e.g. `540b947e-8b40-45bc-a8a2-6a0b894cbda2`.
+    pub uuid: String,
+    /// The `pid` field value.
+    pub pid: u32,
+}
+
+impl PropertyKeyConst {
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        let name = write_ident(&self.name);
+        let ty = write_ident(&self.ty);
+        let guid = syn::LitInt::new(&uuid_to_u128_literal(&self.uuid), Span::call_site());
+        let pid = syn::LitInt::new(&format!("{}u32", self.pid), Span::call_site());
+        Ok(quote! {
+            #[guid(#guid)]
+            const #name: #ty = #pid;
+        })
+    }
+}
+
 impl Const {
     /// Evaluate a batch of macro names that could not be parsed by the simple
     /// token-based parser (e.g. arithmetic expressions, bitwise shifts, or

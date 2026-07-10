@@ -491,12 +491,20 @@ header and regenerate; the reachability closure does the rest. Open issues on
 [`microsoft/win32metadata`](https://github.com/microsoft/win32metadata/issues) are the
 signal for *which* headers matter. Not everything is reachable from the pinned SDK:
 
-- **Feature, not a header add:** `PROPERTYKEY`/`DEVPROPKEY` struct constants (`PKEY_*`,
-  `DEVPKEY_*`, ~1300 of them — win32metadata#2090/#2100/#1773) are struct-*valued*
-  constants (`DEFINE_PROPERTYKEY` / `DEFINE_DEVPROPKEY`). The scraper only special-cases
-  `DEFINE_GUID` today, so closing this is a 3-crate feature: detect the macro expansions
-  (`windows-clang`), add an RDL surface for a struct-typed constant field
-  (`windows-rdl`), and encode the constant blob (`windows-metadata`).
+- **`PROPERTYKEY`/`DEVPROPKEY` struct constants — now scraped (was a deferred feature).**
+  `PKEY_*`/`DEVPKEY_*` (~2,672 of them — win32metadata#2090/#2100/#1773) are struct-*valued*
+  constants written with `DEFINE_PROPERTYKEY` / `DEFINE_DEVPROPKEY`, both of which expand to
+  the identical shape `{ { fmtid-GUID }, pid }`. The scraper matches these macro expansions
+  the same way it matches `DEFINE_GUID`, and — rather than reviving win32metadata's brittle
+  `ConstantAttribute` C-initializer *string* (which bindgen parsed by hand) — represents each
+  one with the two structured primitives that already round-trip faithfully: a `GuidAttribute`
+  (the `fmtid`) plus an ordinary ECMA `Constant` of type `u32` (the `pid`). The RDL spelling is
+  `#[guid(0x540b947e_…)] const DEVPKEY_Device_BiosDeviceName: DEVPROPKEY = 10;`. bindgen
+  reconstructs the struct literal from those two pieces, resolving the field types through any
+  native-typedef chain (`DEVPROPKEY.fmtid` is `DEVPROPGUID = GUID`, `DEVPROPKEY.pid` is
+  `DEVPROPID = u32`) so the `fmtid` GUID and the newtype-wrapped `pid` land in the right fields
+  (`DEVPROPID(10)` in `windows`, bare `10` in `windows-sys`). Only these two struct shapes use
+  the path, so no general struct-initializer machinery is needed.
 - **WinRT interop headers** (`windows.ui.interop.h`, … — win32metadata#2186):
   `GetWindowFromWindowId` takes a WinRT *projection* type (`ABI::Windows::UI::WindowId`),
   which cannot be scraped without dragging in the `ABI::Windows::*` surface the manifest
@@ -942,10 +950,10 @@ crates `test_agile`/`test_alternate_success_code`/`test_handles`/`test_return_ha
 are both green (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification
 pulls `std` and duplicates its `panic_impl`; `cargo check -p test_no_std` stays clean).
 
-Ported (39): `libs/{core, collections, future, interface, reactor_perf, registry, result, services,
+Ported (40): `libs/{core, collections, future, interface, reactor_perf, registry, result, services,
 strings, sys}`; `misc/{arch, array, bcrypt, calling_convention, error, interop, marshal, msrv,
-no_std, not_dll, query_signature, readme, reserved, return_struct, string_param, unions, weak_ref,
-win32, win32_arrays}`; `winrt/{activation, activation_client, composable, composable_client,
+no_std, not_dll, query_signature, readme, reserved, return_struct, string_param, structs, unions,
+weak_ref, win32, win32_arrays}`; `winrt/{activation, activation_client, composable, composable_client,
 constructors, constructors_client, event_core, old, overloads, overloads_client}`.
 (`collections`/`future` just dropped an unused `Win32_Foundation`; the rest remapped to header stems
 — e.g. `result` → `bcrypt`/`ntstatus`/`winerror` with NTSTATUS wraps, `sys` →
@@ -953,17 +961,13 @@ constructors, constructors_client, event_core, old, overloads, overloads_client}
 `winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
 conversions as example helpers).
 
-BLOCKED (3, at the remaining metadata edges — see Follow-up): `libs/implement`; `misc/{lib, structs}`.
+BLOCKED (2, at the remaining metadata edges — see Follow-up): `libs/implement`; `misc/lib`.
 The precise gaps:
 - `implement` — needs the WinRT interop interface `IDisplayPathInterop`. **Now scraped** by adding
   `Windows.Devices.Display.Core.Interop.h` to `tool_win32` (a clean `IUnknown`-derived COM interface,
   no `ABI::Windows::*` projection deps, unlike the `windows.ui.interop.h` scope-block above). The crate
   still needs its editorial `Win32_*` features/paths ported to header stems (`Win32::System::Com`,
   `::WinRT`, `::Ole`, `::Foundation`, `::UI::Shell`, …) — a large but mechanical port.
-- `structs` — the `propertykey` test needs `DEVPKEY_Device_BiosDeviceName`, a `DEFINE_DEVPROPKEY`
-  struct-valued constant. That is the deferred 3-crate constant-blob feature (see "Feature, not a
-  header add" above), *not* a header add. The other two tests are unblocked: `bstr` by scraping
-  `DbgProp.h` (`DebugPropertyInfo`), `winrt` needs no metadata (WinRT `Storage_Search::SortEntry`).
 - `lib` — the `clr` test needs `GetFileVersion` from `mscoree.h`, which ships **only in the NETFXSDK**
   (`Windows Kits\NETFXSDK\4.8\…`), not the pinned Windows SDK NuGet — the same hermetic-build block as
   `cor.h`/`RoMetadataApi.h` above, so it is genuinely **out of scope**, not a scrapable gap. The
@@ -973,7 +977,11 @@ The precise gaps:
 Newly un-blocked this pass: `misc/arch_feature` (scraped `ntenclv.h` for `VBS_BASIC_ENCLAVE_*`; `CONTEXT`
 already present in `winnt`). The `VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD` callback now faithfully
 takes the `PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR` typedef newtype (windows) / raw pointer (windows-sys),
-so the test uses that signature rather than a decayed `*const …DESCRIPTOR64`.
+so the test uses that signature rather than a decayed `*const …DESCRIPTOR64`. `misc/structs` is
+also un-blocked this pass: `propertykey` by the `PROPERTYKEY`/`DEVPROPKEY` constant scrape above
+(`DEVPKEY_Device_BiosDeviceName.pid` is now the faithful `DEVPROPID(10)` newtype, not a bare `u32`),
+`bstr` by scraping `DbgProp.h` (`DebugPropertyInfo`), and `winrt` needs no metadata (WinRT
+`Storage_Search::SortEntry`).
 
 Header-stem note: a header whose own file name is dotted (`Windows.Devices.Display.Core.Interop.h`)
 must collapse to a *single* flat partition (`windowsdevicesdisplaycoreinterop`), not a nested
