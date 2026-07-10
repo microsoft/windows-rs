@@ -545,6 +545,32 @@ manifest (`wdk.toml`) so both tools run the same driver from a declarative confi
 per-arch WDK package wiring (the function → DLL map is arch-invariant, so the corpus is
 currently x64-derived).
 
+**To investigate and resolve: `tool_win32` and `tool_wdk` still work quite differently.**
+`tool_win32` is the robust, general driver; `tool_wdk` reads like a thin hack bolted on to
+parse a few extra headers. They share `windows-clang`/`windows-rdl` but diverge in ways that
+are confusing and risk drift — the two should be streamlined onto one common path that
+configures headers and other parameters the same way. Concrete discrepancies observed
+(all confirmed against the current tree):
+
+- **Config mechanism.** `tool_win32` is driven by a declarative `win32.toml` manifest
+  (headers, satellite headers, import libs, arches — see [tool_win32](#the-in-house-corpus-tool_win32));
+  `tool_wdk` hardcodes its inputs as `const SOURCE_HEADERS`/`SCOPE` in `main.rs`
+  (~200 lines vs. ~490). The planned shared `wdk.toml`/manifest is the obvious unifier.
+- **Architecture coverage.** `tool_win32` scrapes **three** arches (x64 + aarch64 + i686)
+  and arch-merges them so subset-of-arch symbols get `SupportedArchitecture` tags;
+  `tool_wdk` scrapes **x64 only** (single `--target=x86_64-pc-windows-msvc`, no merge).
+  Any WDK symbol that differs across arches is therefore silently x64-shaped.
+- **Calling-convention emission.** `tool_win32` emits bare `extern fn` throughout (0
+  explicit `extern "system"` across the whole `metadata/win32` corpus — `"system"` is the
+  inferred default); `tool_wdk` emits **explicit** `extern "system" fn` for hundreds of
+  functions (≈452 in `metadata/wdk`), mixed inconsistently with bare `extern fn` even
+  within the same corpus. The two should agree on one representation (prefer the `tool_win32`
+  "infer and omit the default convention" style) so the RDL is uniform and diffs are clean.
+
+Resolving these means factoring the common scrape/emit/merge pipeline into one shared driver
+that both tools parameterize identically, then reducing `tool_wdk` to just its manifest
+(headers + scope + import lib) — eliminating the calling-convention and arch-coverage skew.
+
 ### IDL as the COM source of truth
 
 Parse `.idl` (or `midl` output) directly for COM to recover the pointer-shape
@@ -983,11 +1009,44 @@ Test-specific drift beyond the sample patterns:
   `test_implement` `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is BLOCKED and left
   unported. **TODO:** scrape the missing interop interfaces in `windows-clang` and restore the
   original interop-based `consent` sample + `test_implement`.
-- **`RtlGenRandom` alias is not emitted (test_targets BLOCKED).** The editorial winmd exposed
-  advapi32's `SystemFunction036` export under its documented alias `RtlGenRandom`; the faithful
-  in-house metadata emits only `SystemFunction036` (in `ntsecapi`). `test_targets`' `symbol.rs`
-  links `RtlGenRandom` specifically, so it is BLOCKED and left unported. **TODO:** either re-add the
-  `RtlGenRandom` alias in `windows-clang` or update the test to link `SystemFunction036`.
+- **`RtlGenRandom` alias is not emitted (test_targets BLOCKED) — plus the general `#define`
+  function-alias gap.** The editorial winmd exposed advapi32's `SystemFunction036` export under its
+  documented alias `RtlGenRandom`; the faithful in-house metadata emits only `SystemFunction036` (in
+  `ntsecapi`). `test_targets`' `symbol.rs` links `RtlGenRandom` specifically, so it is BLOCKED and
+  left unported.
+
+  **Census (pinned SDK `10.0.28000.2270`).** Exactly **three** functions use the
+  `#define <Friendly> SystemFunction<NNN>` form, all in `um/NTSecAPI.h`:
+  `RtlGenRandom`→`SystemFunction036` (`BOOLEAN __stdcall`), `RtlEncryptMemory`→`SystemFunction040`
+  and `RtlDecryptMemory`→`SystemFunction041` (both `NTSTATUS __stdcall`). Only `RtlGenRandom` is
+  currently exercised by a test, but all three are lost the same way.
+
+  **Why they're lost.** These are *object-like* macros whose replacement list is a single identifier.
+  The header declares the prototype under the friendly name (`RtlGenRandom(...)`), but the `#define`
+  textually rewrites it to `SystemFunction036(...)` *before* clang parses, so the scraper only ever
+  sees `SystemFunction036` — the friendly name never reaches metadata. Hence `ntsecapi.rdl` carries
+  `SystemFunction036` and no `RtlGenRandom`.
+
+  **Reliably scrapeable? Yes.** `parser.macro_defs` already captures object-like macro definitions
+  (`callback.rs` consults it for calling-convention macros). A `#define A B` whose body is exactly one
+  identifier token matching an emitted function name is a precise, unambiguous alias signal — no
+  heuristics. The *same* mechanism generalizes beyond `SystemFunction*` to the other `#define`
+  function-forwarder gaps (e.g. `EnumProcesses`→`K32EnumProcesses` and the rest of the `psapi` `K32*`
+  family), so it is worth building once as a general "object-like macro aliasing a known exported
+  function" pass rather than special-casing `SystemFunction*`.
+
+  **Missing plumbing (the actual blocker).** RDL has **no** syntax for an import (link) name distinct
+  from the function's own name — `crates/libs/rdl/src/reader/fn.rs` hardwires the `ImplMap` `ImportName`
+  to `&name`. The natural minimal extension is an optional `import = "SystemFunction036"` argument on
+  the existing `#[library(...)]` attribute (which already parses `last_error = true`), threaded into the
+  `ImplMap(..)` call. The winmd writer's `ImplMap` already accepts an `import_name`, and **downstream
+  `windows-bindgen` already reads `impl_map.import_name()`** and emits it as the `link!` entry point —
+  so only the RDL grammar + the `windows-clang` emit step need new code.
+
+  **TODO:** build the general macro-alias pass in `windows-clang`, add the `#[library(import = "…")]`
+  RDL syntax, emit the friendly-named alias (matching the editorial winmd, which exposed only the
+  friendly name), regenerate `tool_win32`, and unblock `test_targets`. Interim fallback: update
+  `symbol.rs` to link `SystemFunction036` directly.
 - **offreg.h scraped into `tool_wdk` — done (`test_wdk` unblocked).** `test_wdk`'s `win.rs`/`sys.rs`
   use `ORCreateHive`, `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, which `tool_wdk`
   previously did not scrape (only `ntifs.h`+`wdm.h`), so the offline-registry surface was absent.
@@ -1200,6 +1259,20 @@ Test-specific drift beyond the sample patterns:
   **`windows-clang` cannot infer from headers** (`SupportsLastError` occurs zero times in
   `Windows.Win32.winmd`). So `CreateEventA` returns a bare `HANDLE` and Win32 `BOOL` functions no longer
   auto-`Result` — the same curated-attribute class as the four above.
+- **Follow-up: remove the now-dead `Owned`/`Free` runtime support from `windows-core`.** `RAIIFree`
+  was the only attribute with a *runtime* counterpart in `windows-core`: the `Free` trait and the
+  `Owned<T>` wrapper in `crates/libs/core/src/resources.rs` (wired via `mod resources; pub use
+  resources::*;` in `crates/libs/core/src/windows.rs`). With `RAIIFree` gone, `windows-bindgen`
+  emits **no `Free` impls**, so nothing in the generated projection uses `Owned<T>` anymore. The only
+  remaining consumer is the self-contained unit test `crates/tests/libs/core/tests/handles.rs`, which
+  exercises the machinery with a mock `FreeCounter` (no metadata dependency). **TODO:** delete
+  `resources.rs`, drop its `mod`/`pub use` in `windows.rs`, and remove `handles.rs`. This is a
+  breaking change to the public `windows-core` surface (`windows::core::Owned` / `windows::core::Free`
+  are exported), so it needs explicit sign-off before landing. The other three removed attributes
+  (`InvalidHandleValue`, `Agile`, `CanReturnMultipleSuccessValues`) and the `SupportsLastError` flag
+  have **no** `windows-core` runtime plumbing — their handling was entirely inside `windows-bindgen`
+  (inline `is_invalid`, `unsafe impl Send/Sync`, the HRESULT/last-error transforms) — so there is
+  nothing else of this kind to remove.
 - **Move and rename the `spellchecker` sample.** `windows_spellchecker` does not use the `windows`
   crate — it generates its own bindings with `windows-bindgen` (`build.rs`) on top of `windows-core`,
   so it belongs with the other bindgen-driven samples, not under `crates/samples/windows/`. **TODO:**

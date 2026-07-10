@@ -670,7 +670,15 @@ fn parse_body(
             (CXToken_Punctuation, minus),
             (CXToken_Literal, lit),
             (CXToken_Punctuation, rp3),
-        ] if lp1 == "(" && lp2 == "(" && star == "*" && rp1 == ")" && lp3 == "(" && rp2 == ")" && minus == "-" && rp3 == ")" && char_pointer_target(ptr_ty).is_some() =>
+        ] if lp1 == "("
+            && lp2 == "("
+            && star == "*"
+            && rp1 == ")"
+            && lp3 == "("
+            && rp2 == ")"
+            && minus == "-"
+            && rp3 == ")"
+            && char_pointer_target(ptr_ty).is_some() =>
         {
             let (digits, _suffix) = split_int_suffix(lit);
             let raw: u64 = parse_int_digits(digits)?;

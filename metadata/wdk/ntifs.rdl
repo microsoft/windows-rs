@@ -2704,7 +2704,7 @@ mod Windows {
         #[library("ntdll.dll")]
         extern "system" fn RtlInitializeSid(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitializeSidEx(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, ...) -> NTSTATUS;
+        extern "C" fn RtlInitializeSidEx(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, ...) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "system" fn RtlIsCloudFilesPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
