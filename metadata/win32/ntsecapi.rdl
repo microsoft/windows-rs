@@ -1762,6 +1762,12 @@ mod Windows {
         const RTL_ENCRYPT_OPTION_CROSS_PROCESS: u32 = 1;
         const RTL_ENCRYPT_OPTION_FOR_SYSTEM: u32 = 4;
         const RTL_ENCRYPT_OPTION_SAME_LOGON: u32 = 2;
+        #[library("ADVAPI32.dll", import = "SystemFunction041")]
+        extern fn RtlDecryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
+        #[library("ADVAPI32.dll", import = "SystemFunction040")]
+        extern fn RtlEncryptMemory(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
+        #[library("ADVAPI32.dll", import = "SystemFunction036")]
+        extern fn RtlGenRandom(#[size_param(1)] RandomBuffer: *mut void, RandomBufferLength: u32) -> BOOLEAN;
         #[encoding("ansi")]
         const SAM_INIT_NOTIFICATION_ROUTINE: String = "InitializeChangeNotify";
         #[encoding("ansi")]
@@ -1906,12 +1912,6 @@ mod Windows {
             Buffer: PCHAR,
         }
         type STRING = LSA_STRING;
-        #[library("ADVAPI32.dll")]
-        extern "C" fn SystemFunction036(#[size_param(1)] RandomBuffer: *mut void, RandomBufferLength: u32) -> BOOLEAN;
-        #[library("ADVAPI32.dll")]
-        extern "C" fn SystemFunction040(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
-        #[library("ADVAPI32.dll")]
-        extern "C" fn SystemFunction041(#[size_param(1)] #[in] #[out] Memory: *mut void, MemorySize: u32, OptionFlags: u32) -> NTSTATUS;
         struct TRUSTED_CONTROLLERS_INFO {
             Entries: u32,
             Names: PLSA_UNICODE_STRING,

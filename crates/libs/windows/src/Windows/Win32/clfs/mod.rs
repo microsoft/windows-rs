@@ -1,52 +1,52 @@
 #[inline]
-pub unsafe fn LsnBlockOffset(plsn: *const CLFS_LSN) -> u32 {
-    windows_core::link!("clfsw32.dll" "C" fn LsnBlockOffset(plsn : *const CLFS_LSN) -> u32);
-    unsafe { LsnBlockOffset(plsn) }
+pub unsafe fn ClfsLsnBlockOffset(plsn: *const CLFS_LSN) -> u32 {
+    windows_core::link!("clfsw32.dll" "system" "LsnBlockOffset" fn ClfsLsnBlockOffset(plsn : *const CLFS_LSN) -> u32);
+    unsafe { ClfsLsnBlockOffset(plsn) }
 }
 #[inline]
-pub unsafe fn LsnContainer(plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID {
-    windows_core::link!("clfsw32.dll" "C" fn LsnContainer(plsn : *const CLFS_LSN) -> CLFS_CONTAINER_ID);
-    unsafe { LsnContainer(plsn) }
+pub unsafe fn ClfsLsnContainer(plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID {
+    windows_core::link!("clfsw32.dll" "system" "LsnContainer" fn ClfsLsnContainer(plsn : *const CLFS_LSN) -> CLFS_CONTAINER_ID);
+    unsafe { ClfsLsnContainer(plsn) }
 }
 #[inline]
-pub unsafe fn LsnCreate(cidcontainer: CLFS_CONTAINER_ID, offblock: u32, crecord: u32) -> CLFS_LSN {
-    windows_core::link!("clfsw32.dll" "C" fn LsnCreate(cidcontainer : CLFS_CONTAINER_ID, offblock : u32, crecord : u32) -> CLFS_LSN);
-    unsafe { LsnCreate(cidcontainer, offblock, crecord) }
+pub unsafe fn ClfsLsnCreate(cidcontainer: CLFS_CONTAINER_ID, offblock: u32, crecord: u32) -> CLFS_LSN {
+    windows_core::link!("clfsw32.dll" "system" "LsnCreate" fn ClfsLsnCreate(cidcontainer : CLFS_CONTAINER_ID, offblock : u32, crecord : u32) -> CLFS_LSN);
+    unsafe { ClfsLsnCreate(cidcontainer, offblock, crecord) }
 }
 #[inline]
-pub unsafe fn LsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "C" fn LsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-    unsafe { LsnEqual(plsn1, plsn2) }
+pub unsafe fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
+    windows_core::link!("clfsw32.dll" "system" "LsnEqual" fn ClfsLsnEqual(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+    unsafe { ClfsLsnEqual(plsn1, plsn2) }
 }
 #[inline]
-pub unsafe fn LsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "C" fn LsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-    unsafe { LsnGreater(plsn1, plsn2) }
+pub unsafe fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
+    windows_core::link!("clfsw32.dll" "system" "LsnGreater" fn ClfsLsnGreater(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+    unsafe { ClfsLsnGreater(plsn1, plsn2) }
 }
 #[inline]
-pub unsafe fn LsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN {
-    windows_core::link!("clfsw32.dll" "C" fn LsnIncrement(plsn : *const CLFS_LSN) -> CLFS_LSN);
-    unsafe { LsnIncrement(plsn) }
+pub unsafe fn ClfsLsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN {
+    windows_core::link!("clfsw32.dll" "system" "LsnIncrement" fn ClfsLsnIncrement(plsn : *const CLFS_LSN) -> CLFS_LSN);
+    unsafe { ClfsLsnIncrement(plsn) }
 }
 #[inline]
-pub unsafe fn LsnInvalid(plsn: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "C" fn LsnInvalid(plsn : *const CLFS_LSN) -> bool);
-    unsafe { LsnInvalid(plsn) }
+pub unsafe fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> bool {
+    windows_core::link!("clfsw32.dll" "system" "LsnInvalid" fn ClfsLsnInvalid(plsn : *const CLFS_LSN) -> bool);
+    unsafe { ClfsLsnInvalid(plsn) }
 }
 #[inline]
-pub unsafe fn LsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "C" fn LsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
-    unsafe { LsnLess(plsn1, plsn2) }
+pub unsafe fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> bool {
+    windows_core::link!("clfsw32.dll" "system" "LsnLess" fn ClfsLsnLess(plsn1 : *const CLFS_LSN, plsn2 : *const CLFS_LSN) -> bool);
+    unsafe { ClfsLsnLess(plsn1, plsn2) }
 }
 #[inline]
-pub unsafe fn LsnNull(plsn: *const CLFS_LSN) -> bool {
-    windows_core::link!("clfsw32.dll" "C" fn LsnNull(plsn : *const CLFS_LSN) -> bool);
-    unsafe { LsnNull(plsn) }
+pub unsafe fn ClfsLsnNull(plsn: *const CLFS_LSN) -> bool {
+    windows_core::link!("clfsw32.dll" "system" "LsnNull" fn ClfsLsnNull(plsn : *const CLFS_LSN) -> bool);
+    unsafe { ClfsLsnNull(plsn) }
 }
 #[inline]
-pub unsafe fn LsnRecordSequence(plsn: *const CLFS_LSN) -> u32 {
-    windows_core::link!("clfsw32.dll" "C" fn LsnRecordSequence(plsn : *const CLFS_LSN) -> u32);
-    unsafe { LsnRecordSequence(plsn) }
+pub unsafe fn ClfsLsnRecordSequence(plsn: *const CLFS_LSN) -> u32 {
+    windows_core::link!("clfsw32.dll" "system" "LsnRecordSequence" fn ClfsLsnRecordSequence(plsn : *const CLFS_LSN) -> u32);
+    unsafe { ClfsLsnRecordSequence(plsn) }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

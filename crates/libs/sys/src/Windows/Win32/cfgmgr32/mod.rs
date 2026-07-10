@@ -1,4 +1,3 @@
-windows_link::link!("setupapi.dll" "C" fn CMP_WaitNoPendingInstallEvents(dwtimeout : u32) -> u32);
 windows_link::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf(plclogconf : *mut LOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : u32) -> CONFIGRET);
 #[cfg(feature = "winnt")]
 windows_link::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf_Ex(plclogconf : *mut LOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
@@ -362,6 +361,7 @@ windows_link::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_Ex
 #[cfg(feature = "winnt")]
 windows_link::link!("setupapi.dll" "system" fn CM_Unregister_Device_Interface_ExW(pszdeviceinterface : windows_sys::core::PCWSTR, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
 windows_link::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : HCMNOTIFICATION) -> CONFIGRET);
+windows_link::link!("setupapi.dll" "system" "CMP_WaitNoPendingInstallEvents" fn CM_WaitNoPendingInstallEvents(dwtimeout : u32) -> u32);
 pub const ALLOC_LOG_CONF: u32 = 2;
 pub const BASIC_LOG_CONF: u32 = 0;
 pub const BOOT_LOG_CONF: u32 = 3;

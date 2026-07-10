@@ -174,31 +174,31 @@ mod Windows {
             Buffer: *mut void,
             ByteLength: u32,
         }
+        #[library("clfsw32.dll", import = "LsnBlockOffset")]
+        extern fn ClfsLsnBlockOffset(plsn: *const CLFS_LSN) -> u32;
+        #[library("clfsw32.dll", import = "LsnContainer")]
+        extern fn ClfsLsnContainer(plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID;
+        #[library("clfsw32.dll", import = "LsnCreate")]
+        extern fn ClfsLsnCreate(cidContainer: CLFS_CONTAINER_ID, offBlock: u32, cRecord: u32) -> CLFS_LSN;
+        #[library("clfsw32.dll", import = "LsnEqual")]
+        extern fn ClfsLsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll", import = "LsnGreater")]
+        extern fn ClfsLsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll", import = "LsnIncrement")]
+        extern fn ClfsLsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN;
+        #[library("clfsw32.dll", import = "LsnInvalid")]
+        extern fn ClfsLsnInvalid(plsn: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll", import = "LsnLess")]
+        extern fn ClfsLsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll", import = "LsnNull")]
+        extern fn ClfsLsnNull(plsn: *const CLFS_LSN) -> BOOLEAN;
+        #[library("clfsw32.dll", import = "LsnRecordSequence")]
+        extern fn ClfsLsnRecordSequence(plsn: *const CLFS_LSN) -> u32;
         #[encoding("ansi")]
         const EA_CONTAINER_NAME: String = "ContainerName";
         #[encoding("ansi")]
         const EA_CONTAINER_SIZE: String = "ContainerSize";
         const FILE_ATTRIBUTE_DEDICATED: u32 = 256;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnBlockOffset(plsn: *const CLFS_LSN) -> u32;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnContainer(plsn: *const CLFS_LSN) -> CLFS_CONTAINER_ID;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnCreate(cidContainer: CLFS_CONTAINER_ID, offBlock: u32, cRecord: u32) -> CLFS_LSN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnEqual(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnGreater(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnIncrement(plsn: *const CLFS_LSN) -> CLFS_LSN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnInvalid(plsn: *const CLFS_LSN) -> BOOLEAN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnLess(plsn1: *const CLFS_LSN, plsn2: *const CLFS_LSN) -> BOOLEAN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnNull(plsn: *const CLFS_LSN) -> BOOLEAN;
-        #[library("clfsw32.dll")]
-        extern "C" fn LsnRecordSequence(plsn: *const CLFS_LSN) -> u32;
         type PCLFS_ARCHIVE_DESCRIPTOR = *mut CLFS_ARCHIVE_DESCRIPTOR;
         type PCLFS_CONTAINER_ID = *mut CLFS_CONTAINER_ID;
         type PCLFS_CONTAINER_INFORMATION = *mut CLFS_CONTAINER_INFORMATION;

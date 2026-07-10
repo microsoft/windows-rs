@@ -23,8 +23,6 @@ mod Windows {
             BusNumber_Header: BUSNUMBER_DES,
             BusNumber_Data: [BUSNUMBER_RANGE; 1],
         }
-        #[library("SETUPAPI.dll")]
-        extern "C" fn CMP_WaitNoPendingInstallEvents(dwTimeout: u32) -> u32;
         const CM_ADD_ID_BITS: u32 = 1;
         const CM_ADD_ID_COMPATIBLE: u32 = 1;
         const CM_ADD_ID_HARDWARE: u32 = 0;
@@ -750,6 +748,8 @@ mod Windows {
         extern fn CM_Unregister_Device_Interface_ExW(pszDeviceInterface: PCWSTR, ulFlags: u32, #[opt] hMachine: HMACHINE) -> CONFIGRET;
         #[library("CFGMGR32.dll")]
         extern fn CM_Unregister_Notification(NotifyContext: HCMNOTIFICATION) -> CONFIGRET;
+        #[library("SETUPAPI.dll", import = "CMP_WaitNoPendingInstallEvents")]
+        extern fn CM_WaitNoPendingInstallEvents(dwTimeout: u32) -> u32;
         const CONFIGMG_VERSION: u32 = 1024;
         type CONFIGRET = RETURN_TYPE;
         type CONFLICT_DETAILS = CONFLICT_DETAILS_A;

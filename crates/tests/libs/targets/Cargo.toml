@@ -13,11 +13,11 @@ workspace = true
 
 [dependencies.windows]
 workspace = true
-features = [ "Win32_Security_Authentication_Identity" ]
+features = [ "ntsecapi" ]
 
 [dependencies.windows-sys]
 workspace = true
-features = [ "Win32_Security_Authentication_Identity" ]
+features = [ "ntsecapi" ]
 
 [dependencies.helpers]
 workspace = true

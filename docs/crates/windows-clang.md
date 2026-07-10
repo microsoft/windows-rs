@@ -952,18 +952,17 @@ constructors, constructors_client, event_core, old, overloads, overloads_client}
 `winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
 conversions as example helpers).
 
-BLOCKED (5, genuine *scrapeable* metadata gaps — missing symbols/interfaces/headers, left unmodified
-and out of `members` — see Follow-up): `libs/{implement, targets}`; `misc/{arch_feature, lib,
-structs}`.
-The gaps: missing interop interface `IDisplayPathInterop` (`implement`), missing `RtlGenRandom` alias
-(`targets`), missing `mscoree.h`/`ieframe.h` headers plus the `EnumProcesses` macro-alias (`lib` —
-`GetFileVersion`/`IECreateFile`/`EnumProcesses` all absent; `EnumProcesses` is
-`#define EnumProcesses K32EnumProcesses`, the same macro-alias class as `RtlGenRandom`), and assorted
-absent symbols (`structs`, `arch_feature`). All five are fixable in `windows-clang` (add a header,
-surface an interface, or handle a macro-alias) — unlike the deleted curated-attribute crates below.
-(`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
-`misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
-negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs` arms — see Follow-up.)
+BLOCKED (4, genuine *scrapeable* metadata gaps — missing symbols/interfaces/headers, left unmodified
+and out of `members` — see Follow-up): `libs/implement`; `misc/{arch_feature, lib, structs}`.
+The gaps: missing interop interface `IDisplayPathInterop` (`implement`), missing `mscoree.h`/`ieframe.h`
+headers (`lib` — `GetFileVersion`/`IECreateFile` absent), and assorted absent symbols (`structs`,
+`arch_feature`). All four are fixable in `windows-clang` (add a header or surface an interface) — unlike
+the deleted curated-attribute crates below.
+(`libs/targets` was un-blocked by the general macro-alias pass, which recovers `RtlGenRandom` (and the
+`psapi` `K32*`/`EnumProcesses` family) — see Follow-up; `misc/wdk` by scraping `offreg.h` into
+`tool_wdk`; `misc/const_params` and `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to
+`tool_win32`; `misc/resources` by the negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs`
+arms — see Follow-up.)
 
 Test-specific drift beyond the sample patterns:
 
@@ -1009,44 +1008,48 @@ Test-specific drift beyond the sample patterns:
   `test_implement` `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is BLOCKED and left
   unported. **TODO:** scrape the missing interop interfaces in `windows-clang` and restore the
   original interop-based `consent` sample + `test_implement`.
-- **`RtlGenRandom` alias is not emitted (test_targets BLOCKED) — plus the general `#define`
-  function-alias gap.** The editorial winmd exposed advapi32's `SystemFunction036` export under its
-  documented alias `RtlGenRandom`; the faithful in-house metadata emits only `SystemFunction036` (in
-  `ntsecapi`). `test_targets`' `symbol.rs` links `RtlGenRandom` specifically, so it is BLOCKED and
-  left unported.
+- **Macro-alias function scraping — done (`test_targets` unblocked).** A general, entirely heuristic
+  pass in `windows-clang` recovers functions the SDK declares under a documented name that an
+  object-like `#define` textually rewrites to a raw export before clang parses. The prototype is
+  written (with its calling-convention token) under the friendly name — e.g.
+  `RtlGenRandom(...)`, `EnumProcesses(...)`, `ClfsLsnCreate(...)`, `CM_WaitNoPendingInstallEvents(...)`
+  — but `#define RtlGenRandom SystemFunction036` (and the `psapi` `K32*`, `clfs` `Clfs*`, `cfgmgr32`
+  `CM_*` families) makes `cursor.name()` the *expanded* export symbol while the source tokens still
+  carry the friendly spelling. The pass emits the function under the recovered friendly name and
+  records the raw export as the P/Invoke import (link) symbol — a faithful mapping of the header to the
+  documented/header-defined name, with the export preserved for the linker.
 
-  **Census (pinned SDK `10.0.28000.2270`).** Exactly **three** functions use the
-  `#define <Friendly> SystemFunction<NNN>` form, all in `um/NTSecAPI.h`:
-  `RtlGenRandom`→`SystemFunction036` (`BOOLEAN __stdcall`), `RtlEncryptMemory`→`SystemFunction040`
-  and `RtlDecryptMemory`→`SystemFunction041` (both `NTSTATUS __stdcall`). Only `RtlGenRandom` is
-  currently exercised by a test, but all three are lost the same way.
+  **No curated list.** `Parser::alias_map` (`build_alias_map`, from `macro_defs`) inverts every
+  object-like `#define <Alias> <Export>` whose body is a single C identifier, excluding the A/W charset
+  selectors (`#define X XW`) so the `A`/`W` variants are never collapsed. The rename is applied per
+  function only when the *source tokens* confirm this prototype was written with the alias
+  (`token_names_function`): the alias token precedes the parameter-list `(` **and** the export name
+  does not. This deliberately leaves back-compat aliases alone — where the real prototype is written
+  under the export and the `#define` merely adds a legacy spelling (`#define VarBoolFromInt VarBoolFromI4`,
+  literal prototype `VarBoolFromI4(...)`) — so `oleauto` et al. are untouched. Total fallout is 4 RDL
+  files (`ntsecapi` ×3, `psapi` ×~28, `cfgmgr32` ×1, `clfs` ×10).
 
-  **Why they're lost.** These are *object-like* macros whose replacement list is a single identifier.
-  The header declares the prototype under the friendly name (`RtlGenRandom(...)`), but the `#define`
-  textually rewrites it to `SystemFunction036(...)` *before* clang parses, so the scraper only ever
-  sees `SystemFunction036` — the friendly name never reaches metadata. Hence `ntsecapi.rdl` carries
-  `SystemFunction036` and no `RtlGenRandom`.
+  **Also fixes a real calling-convention bug.** Before this, `detect_calling_convention` anchored on
+  `cursor.name()` (the expanded export), failed to find it among the source tokens, and fell back to
+  `extern "C"` — so every one of these `__stdcall`/`WINAPI`/`NTAPI` exports was recorded with the wrong
+  ABI (a stack-corrupting mismatch on x86). Anchoring detection on the recovered source spelling flips
+  them to the correct `"system"`. The `test_targets` `symbol.rs` acceptance test (which links
+  `RtlGenRandom`) now passes on **both** x64 and i686 — the i686 run is the regression guard for the
+  convention fix.
 
-  **Reliably scrapeable? Yes.** `parser.macro_defs` already captures object-like macro definitions
-  (`callback.rs` consults it for calling-convention macros). A `#define A B` whose body is exactly one
-  identifier token matching an emitted function name is a precise, unambiguous alias signal — no
-  heuristics. The *same* mechanism generalizes beyond `SystemFunction*` to the other `#define`
-  function-forwarder gaps (e.g. `EnumProcesses`→`K32EnumProcesses` and the rest of the `psapi` `K32*`
-  family), so it is worth building once as a general "object-like macro aliasing a known exported
-  function" pass rather than special-casing `SystemFunction*`.
+  **Divergence from the editorial winmd is intentional.** The old win32metadata winmd renamed *only*
+  the `SystemFunction*` family (curated) and kept raw exports for `K32EnumProcesses`, `LsnCreate`,
+  `CMP_WaitNoPendingInstallEvents`; this pass instead uniformly prefers the documented/header-defined
+  name. The editorial names are hand-curated and not always reliable, so the mechanical mapping to the
+  name the header actually writes the prototype under is treated as the more faithful projection. The
+  raw export always survives as the `link!` import symbol, so linkage is unchanged.
 
-  **Missing plumbing (the actual blocker).** RDL has **no** syntax for an import (link) name distinct
-  from the function's own name — `crates/libs/rdl/src/reader/fn.rs` hardwires the `ImplMap` `ImportName`
-  to `&name`. The natural minimal extension is an optional `import = "SystemFunction036"` argument on
-  the existing `#[library(...)]` attribute (which already parses `last_error = true`), threaded into the
-  `ImplMap(..)` call. The winmd writer's `ImplMap` already accepts an `import_name`, and **downstream
-  `windows-bindgen` already reads `impl_map.import_name()`** and emits it as the `link!` entry point —
-  so only the RDL grammar + the `windows-clang` emit step need new code.
-
-  **TODO:** build the general macro-alias pass in `windows-clang`, add the `#[library(import = "…")]`
-  RDL syntax, emit the friendly-named alias (matching the editorial winmd, which exposed only the
-  friendly name), regenerate `tool_win32`, and unblock `test_targets`. Interim fallback: update
-  `symbol.rs` to link `SystemFunction036` directly.
+  **Plumbing.** `Fn` gained an `import_name: Option<String>`; RDL's `#[library(...)]` attribute gained
+  an optional `import = "<export>"` argument (parsed in `rdl/src/reader/fn.rs`, emitted by
+  `rdl/src/writer/fn.rs` for the arch-merge round-trip), threaded into the winmd `ImplMap` `ImportName`.
+  Downstream `windows-bindgen` already reads `impl_map.import_name()` and emits it as the `link!` entry
+  point, so no bindgen change was needed. End-to-end the published crates emit e.g.
+  `link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(...))`.
 - **offreg.h scraped into `tool_wdk` — done (`test_wdk` unblocked).** `test_wdk`'s `win.rs`/`sys.rs`
   use `ORCreateHive`, `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, which `tool_wdk`
   previously did not scrape (only `ntifs.h`+`wdm.h`), so the offline-registry surface was absent.

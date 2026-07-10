@@ -1,9 +1,4 @@
 #[inline]
-pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
-    windows_core::link!("setupapi.dll" "C" fn CMP_WaitNoPendingInstallEvents(dwtimeout : u32) -> u32);
-    unsafe { CMP_WaitNoPendingInstallEvents(dwtimeout) }
-}
-#[inline]
 pub unsafe fn CM_Add_Empty_Log_Conf(plclogconf: *mut LOG_CONF, dndevinst: DEVINST, priority: PRIORITY, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Add_Empty_Log_Conf(plclogconf : *mut LOG_CONF, dndevinst : DEVINST, priority : PRIORITY, ulflags : u32) -> CONFIGRET);
     unsafe { CM_Add_Empty_Log_Conf(plclogconf as _, dndevinst, priority, ulflags) }
@@ -1425,6 +1420,11 @@ where
 pub unsafe fn CM_Unregister_Notification(notifycontext: HCMNOTIFICATION) -> CONFIGRET {
     windows_core::link!("cfgmgr32.dll" "system" fn CM_Unregister_Notification(notifycontext : HCMNOTIFICATION) -> CONFIGRET);
     unsafe { CM_Unregister_Notification(notifycontext) }
+}
+#[inline]
+pub unsafe fn CM_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
+    windows_core::link!("setupapi.dll" "system" "CMP_WaitNoPendingInstallEvents" fn CM_WaitNoPendingInstallEvents(dwtimeout : u32) -> u32);
+    unsafe { CM_WaitNoPendingInstallEvents(dwtimeout) }
 }
 pub const ALLOC_LOG_CONF: u32 = 2;
 pub const BASIC_LOG_CONF: u32 = 0;

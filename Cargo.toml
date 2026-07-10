@@ -13,7 +13,6 @@ exclude = [
     # (missing symbols/interfaces/headers). See docs/crates/windows-clang.md "Test migration status
     # and recipe".
     "crates/tests/libs/implement",
-    "crates/tests/libs/targets",
     "crates/tests/misc/arch_feature",
     "crates/tests/misc/lib",
     "crates/tests/misc/structs",

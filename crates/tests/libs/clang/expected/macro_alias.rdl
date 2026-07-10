@@ -1,0 +1,11 @@
+#[win32]
+mod Test {
+    #[library("test.dll", import = "RawExport036")]
+    extern "system" fn GenRandom(buffer: *mut void, length: u32) -> i32;
+    #[library("test.dll")]
+    extern "system" fn GetThingA(value: i32) -> i32;
+    #[library("test.dll")]
+    extern "system" fn GetThingW(value: i32) -> i32;
+    #[library("test.dll")]
+    extern "system" fn VarFromReal(value: i32) -> i32;
+}

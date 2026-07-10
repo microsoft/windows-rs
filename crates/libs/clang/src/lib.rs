@@ -97,6 +97,20 @@ pub(crate) struct Parser<'a> {
     /// (e.g. `WINAPI` → `__stdcall`) back to the underlying compiler keyword,
     /// transitively, regardless of which header defined them.
     pub macro_defs: &'a HashMap<String, Vec<String>>,
+    /// Reverse map from a function's macro-expanded export symbol to the source
+    /// (pre-expansion) spelling it is declared under, derived from object-like alias
+    /// macros (`#define RtlGenRandom SystemFunction036`,
+    /// `#define EnumProcesses K32EnumProcesses`). clang reports the expanded export name
+    /// for such a declaration, losing both the documented name and — because the
+    /// convention keyword no longer anchors on the name token — the calling convention;
+    /// [`Fn::parse`] consults this map to recover both, emitting the function under its
+    /// documented name with the raw export recorded as the P/Invoke import name.
+    ///
+    /// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`) are
+    /// deliberately excluded: those select a `-A`/`-W` variant rather than forwarding to a
+    /// differently-named export, and the reference metadata emits only the explicit
+    /// `…A`/`…W` functions, never the bare name.
+    pub alias_map: HashMap<String, String>,
     /// Symbol allowlist. When non-empty, only functions whose name is listed are
     /// emitted as roots and every other root (types, consts, macros, GUIDs) is
     /// suppressed; the allowlisted functions' transitive type/const closure still
@@ -150,6 +164,7 @@ impl<'a> Parser<'a> {
             pending_opaque: vec![],
             flag_enums: HashSet::new(),
             iid_vars: HashMap::new(),
+            alias_map: build_alias_map(macro_defs),
             macro_defs,
             symbols,
             drop_lib_less: false,
@@ -2282,7 +2297,54 @@ fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<String>> {
     defs
 }
 
-/// Remove `__declspec( ... )` runs from a macro replacement list, leaving only the
+/// Build the reverse alias map consumed by [`Parser::alias_map`] and [`Fn::parse`].
+///
+/// Scans the object-like macro definitions for the `#define <Alias> <Export>` forwarders
+/// the SDK uses to expose an export under a documented name (`RtlGenRandom` →
+/// `SystemFunction036`, `EnumProcesses` → `K32EnumProcesses`, `GetMappedFileNameW` →
+/// `K32GetMappedFileNameW`) and inverts them to `export -> alias` so a scraped function —
+/// whose clang name is the expanded export — can recover the source spelling.
+///
+/// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`, the
+/// `#ifdef UNICODE` idiom) are excluded: their replacement is the same name with an `A`/`W`
+/// suffix, selecting a character-set variant rather than forwarding to a distinct export.
+/// The reference metadata emits only the explicit `…A`/`…W` functions, so renaming the `A`
+/// variant back to the bare name would both diverge from the reference and delete the
+/// variant. On the rare chance two aliases share one export, the lexicographically smallest
+/// is chosen so the result is deterministic across the unordered macro map.
+fn build_alias_map(macro_defs: &HashMap<String, Vec<String>>) -> HashMap<String, String> {
+    let mut map: HashMap<String, String> = HashMap::new();
+    for (alias, body) in macro_defs {
+        let [export] = body.as_slice() else {
+            continue;
+        };
+        if export == alias || !is_c_identifier(export) {
+            continue;
+        }
+        if *export == format!("{alias}A") || *export == format!("{alias}W") {
+            continue;
+        }
+        map.entry(export.clone())
+            .and_modify(|current| {
+                if alias < current {
+                    current.clone_from(alias);
+                }
+            })
+            .or_insert_with(|| alias.clone());
+    }
+    map
+}
+
+/// True when `s` is a well-formed C identifier (leading letter/underscore, then
+/// letters/digits/underscores), used to reject macro replacement lists that are not a bare
+/// symbol name (`#define TRUE 1`, operator spellings, ...).
+fn is_c_identifier(s: &str) -> bool {
+    let mut chars = s.chars();
+    chars
+        .next()
+        .is_some_and(|c| c.is_ascii_alphabetic() || c == '_')
+        && chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
+}
 /// tokens that matter for calling-convention detection.
 fn strip_declspec(body: &mut Vec<String>) {
     let mut i = 0;

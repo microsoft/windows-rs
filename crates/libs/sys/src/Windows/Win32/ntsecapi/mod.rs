@@ -121,11 +121,11 @@ windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(po
 windows_link::link!("advapi32.dll" "system" fn LsaStorePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::lsalookup::LSA_UNICODE_STRING, privatedata : *const super::lsalookup::LSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS);
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 windows_link::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
-windows_link::link!("advapi32.dll" "C" fn SystemFunction036(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
 #[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "C" fn SystemFunction040(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
 #[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "C" fn SystemFunction041(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
 pub const AUDIT_ENUMERATE_USERS: u32 = 16;
 pub const AUDIT_GENERIC_ALL: u32 = 983167;
 pub const AUDIT_GENERIC_EXECUTE: u32 = 131072;

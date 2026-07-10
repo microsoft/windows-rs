@@ -401,22 +401,22 @@ pub unsafe fn LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOT
     windows_core::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
     unsafe { LsaUnregisterPolicyChangeNotification(informationclass, notificationeventhandle) }
 }
+#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn SystemFunction036(randombuffer: *mut core::ffi::c_void, randombufferlength: u32) -> bool {
-    windows_core::link!("advapi32.dll" "C" fn SystemFunction036(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
-    unsafe { SystemFunction036(randombuffer as _, randombufferlength) }
+pub unsafe fn RtlDecryptMemory(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
+    unsafe { RtlDecryptMemory(memory as _, memorysize, optionflags) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn SystemFunction040(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("advapi32.dll" "C" fn SystemFunction040(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { SystemFunction040(memory as _, memorysize, optionflags) }
+pub unsafe fn RtlEncryptMemory(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
+    windows_core::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
+    unsafe { RtlEncryptMemory(memory as _, memorysize, optionflags) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn SystemFunction041(memory: *mut core::ffi::c_void, memorysize: u32, optionflags: u32) -> super::bcrypt::NTSTATUS {
-    windows_core::link!("advapi32.dll" "C" fn SystemFunction041(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { SystemFunction041(memory as _, memorysize, optionflags) }
+pub unsafe fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlength: u32) -> bool {
+    windows_core::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
+    unsafe { RtlGenRandom(randombuffer as _, randombufferlength) }
 }
 pub const AUDIT_ENUMERATE_USERS: u32 = 16;
 pub const AUDIT_GENERIC_ALL: u32 = 983167;

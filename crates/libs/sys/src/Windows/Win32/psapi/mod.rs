@@ -1,48 +1,48 @@
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32EmptyWorkingSet(hprocess : super::winnt::HANDLE) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32EnumDeviceDrivers(lpimagebase : *mut *mut core::ffi::c_void, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32EnumPageFilesA(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKA, pcontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32EnumPageFilesW(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW, pcontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EmptyWorkingSet" fn EmptyWorkingSet(hprocess : super::winnt::HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EnumDeviceDrivers" fn EnumDeviceDrivers(lpimagebase : *mut *mut core::ffi::c_void, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EnumPageFilesA" fn EnumPageFilesA(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKA, pcontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EnumPageFilesW" fn EnumPageFilesW(pcallbackroutine : PENUM_PAGE_FILE_CALLBACKW, pcontext : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32EnumProcessModules(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EnumProcessModules" fn EnumProcessModules(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32EnumProcessModulesEx(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32, dwfilterflag : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32EnumProcesses(lpidprocess : *mut u32, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "C" fn K32GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_sys::core::PWSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "C" fn K32GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
-windows_link::link!("kernel32.dll" "C" fn K32GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32EnumProcessModulesEx" fn EnumProcessModulesEx(hprocess : super::winnt::HANDLE, lphmodule : *mut super::minwindef::HMODULE, cb : u32, lpcbneeded : *mut u32, dwfilterflag : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32EnumProcesses" fn EnumProcesses(lpidprocess : *mut u32, cb : u32, lpcbneeded : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetDeviceDriverBaseNameA" fn GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetDeviceDriverBaseNameW" fn GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetDeviceDriverFileNameA" fn GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetDeviceDriverFileNameW" fn GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetMappedFileNameA(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetMappedFileNameA" fn GetMappedFileNameA(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_sys::core::PSTR, nsize : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetMappedFileNameW(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetMappedFileNameW" fn GetMappedFileNameW(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32GetModuleBaseNameA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_sys::core::PSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetModuleBaseNameA" fn GetModuleBaseNameA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_sys::core::PSTR, nsize : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32GetModuleBaseNameW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetModuleBaseNameW" fn GetModuleBaseNameW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_sys::core::PWSTR, nsize : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32GetModuleFileNameExA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_sys::core::PCSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetModuleFileNameExA" fn GetModuleFileNameExA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_sys::core::PCSTR, nsize : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32GetModuleFileNameExW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_sys::core::PCWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetModuleFileNameExW" fn GetModuleFileNameExW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpfilename : windows_sys::core::PCWSTR, nsize : u32) -> u32);
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("kernel32.dll" "C" fn K32GetModuleInformation(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpmodinfo : *mut MODULEINFO, cb : u32) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "C" fn K32GetPerformanceInfo(pperformanceinformation : *mut PERFORMANCE_INFORMATION, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetModuleInformation" fn GetModuleInformation(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpmodinfo : *mut MODULEINFO, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetPerformanceInfo" fn GetPerformanceInfo(pperformanceinformation : *mut PERFORMANCE_INFORMATION, cb : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetProcessImageFileNameA(hprocess : super::winnt::HANDLE, lpimagefilename : windows_sys::core::PSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetProcessImageFileNameA" fn GetProcessImageFileNameA(hprocess : super::winnt::HANDLE, lpimagefilename : windows_sys::core::PSTR, nsize : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetProcessImageFileNameW(hprocess : super::winnt::HANDLE, lpimagefilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
+windows_link::link!("kernel32.dll" "system" "K32GetProcessImageFileNameW" fn GetProcessImageFileNameW(hprocess : super::winnt::HANDLE, lpimagefilename : windows_sys::core::PWSTR, nsize : u32) -> u32);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetProcessMemoryInfo(process : super::winnt::HANDLE, ppsmemcounters : *mut PROCESS_MEMORY_COUNTERS, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetProcessMemoryInfo" fn GetProcessMemoryInfo(process : super::winnt::HANDLE, ppsmemcounters : *mut PROCESS_MEMORY_COUNTERS, cb : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetWsChanges(hprocess : super::winnt::HANDLE, lpwatchinfo : *mut PSAPI_WS_WATCH_INFORMATION, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetWsChanges" fn GetWsChanges(hprocess : super::winnt::HANDLE, lpwatchinfo : *mut PSAPI_WS_WATCH_INFORMATION, cb : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32GetWsChangesEx(hprocess : super::winnt::HANDLE, lpwatchinfoex : *mut PSAPI_WS_WATCH_INFORMATION_EX, cb : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32GetWsChangesEx" fn GetWsChangesEx(hprocess : super::winnt::HANDLE, lpwatchinfoex : *mut PSAPI_WS_WATCH_INFORMATION_EX, cb : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32InitializeProcessForWsWatch(hprocess : super::winnt::HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32InitializeProcessForWsWatch" fn InitializeProcessForWsWatch(hprocess : super::winnt::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32QueryWorkingSet(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32QueryWorkingSet" fn QueryWorkingSet(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "winnt")]
-windows_link::link!("kernel32.dll" "C" fn K32QueryWorkingSetEx(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" "K32QueryWorkingSetEx" fn QueryWorkingSetEx(hprocess : super::winnt::HANDLE, pv : *mut core::ffi::c_void, cb : u32) -> windows_sys::core::BOOL);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
