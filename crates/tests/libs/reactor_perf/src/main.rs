@@ -7,8 +7,8 @@ use std::rc::Rc;
 use std::sync::OnceLock;
 use std::time::{Duration, Instant};
 
-use windows::Win32::System::ProcessStatus::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
-use windows::Win32::System::Threading::GetCurrentProcess;
+use windows::Win32::processthreadsapi::GetCurrentProcess;
+use windows::Win32::psapi::{K32GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 use windows::core::Result;
 
 use windows_reactor::*;
@@ -550,7 +550,7 @@ fn working_set_bytes() -> u64 {
     unsafe {
         let mut counters = PROCESS_MEMORY_COUNTERS::default();
         let size = size_of::<PROCESS_MEMORY_COUNTERS>() as u32;
-        if GetProcessMemoryInfo(GetCurrentProcess(), &mut counters, size).is_ok() {
+        if K32GetProcessMemoryInfo(GetCurrentProcess(), &mut counters, size).as_bool() {
             counters.WorkingSetSize as u64
         } else {
             0

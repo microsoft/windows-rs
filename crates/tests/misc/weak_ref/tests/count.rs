@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::System::WinRT::IWeakReferenceSource;
+use windows::Win32::weakreference::IWeakReferenceSource;
 use windows::core::Interface;
 use windows::core::imp::WeakRefCount;
 

@@ -1,7 +1,7 @@
 fn main() {
     use windows_sys::{
-        Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect,
-        Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*, core::*,
+        Win32::libloaderapi::GetModuleHandleA, Win32::minwindef::*, Win32::windef::*,
+        Win32::winuser::*, core::*,
     };
 
     extern "system" fn wndproc(

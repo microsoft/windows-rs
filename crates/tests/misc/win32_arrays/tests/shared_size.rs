@@ -1,5 +1,8 @@
 #![cfg(windows)]
-use windows::{Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*, core::*};
+use windows::{
+    Win32::{wingdi::*, winuser::GetDC},
+    core::*,
+};
 
 #[test]
 fn test() -> Result<()> {
@@ -7,7 +10,7 @@ fn test() -> Result<()> {
         let mut results: [u8; 2] = [255; 2];
         let dc = GetDC(None);
 
-        assert!(0 != SetICMMode(dc, ICM_ON));
+        assert!(0 != SetICMMode(dc, ICM_ON as i32));
 
         let input = [
             RGBTRIPLE {

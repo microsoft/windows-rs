@@ -20,11 +20,11 @@ workspace = true
 [dependencies.windows]
 workspace = true
 features = [
-    "std",
     "Data_Xml_Dom",
     "Devices_Enumeration",
     "Foundation_Collections",
-    "Win32_System_Com",
+    "objidlbase",
+    "std",
 ]
 
 [lints]

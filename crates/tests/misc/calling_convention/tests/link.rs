@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_sys::{
-    Win32::Foundation::ERROR_BUSY,
-    Win32::Networking::Ldap::LDAP_BUSY,
+    Win32::winerror::ERROR_BUSY,
+    Win32::winldap::LDAP_BUSY,
     core::{PCSTR, PSTR, s},
 };
 

@@ -59,13 +59,16 @@ default-features = false
 path = "../../../libs/windows"
 default-features = false
 features = [
+    "d3dcommon",
     "Foundation_Collections",
-    "Win32_Graphics_Direct3D",
-    "Win32_Networking_WinSock",
-    "Win32_System_Com_StructuredStorage",
-    "Win32_System_Ole",
-    "Win32_System_Rpc",
-    "Win32_System_Variant",
+    "oaidl",
+    "objidl",
+    "ole2",
+    "oleauto",
+    "oleidl",
+    "rpc",
+    "winsock2",
+    "wtypes",
 ]
 
 [lints]

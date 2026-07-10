@@ -2,7 +2,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows::Win32::Graphics::{Direct3D::*, Direct3D11::*, Dxgi::Common::*, Dxgi::*};
+use windows::Win32::{d3d11::*, d3dcommon::*, dxgi::*, minwindef::*};
 use windows_reactor::*;
 
 struct D3DState {
@@ -23,8 +23,8 @@ fn create_d3d_swap_chain(
         D3D11CreateDevice(
             None,
             D3D_DRIVER_TYPE_HARDWARE,
-            None,
-            D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+            HMODULE::default(),
+            D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
             Some(&[D3D_FEATURE_LEVEL_11_0]),
             D3D11_SDK_VERSION,
             Some(&mut device),
@@ -49,7 +49,7 @@ fn create_d3d_swap_chain(
             Count: 1,
             Quality: 0,
         },
-        BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+        BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
         BufferCount: 2,
         SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
         AlphaMode: DXGI_ALPHA_MODE_PREMULTIPLIED,
@@ -83,7 +83,7 @@ fn render_frame(state: &mut D3DState) {
         let rtv = rtv.unwrap();
         let color = [0.1_f32, 0.2 + t * 0.3, 0.5 + t * 0.4, 1.0];
         state.device_context.ClearRenderTargetView(&rtv, &color);
-        state.swap_chain.Present(1, DXGI_PRESENT(0)).unwrap();
+        state.swap_chain.Present(1, 0).unwrap();
     }
 }
 
@@ -125,13 +125,9 @@ fn app(cx: &mut RenderCx) -> Element {
                 && height > 0
             {
                 unsafe {
-                    _ = state.swap_chain.ResizeBuffers(
-                        0,
-                        width,
-                        height,
-                        DXGI_FORMAT_UNKNOWN,
-                        DXGI_SWAP_CHAIN_FLAG(0),
-                    );
+                    _ = state
+                        .swap_chain
+                        .ResizeBuffers(0, width, height, DXGI_FORMAT_UNKNOWN, 0);
                 }
             }
         })

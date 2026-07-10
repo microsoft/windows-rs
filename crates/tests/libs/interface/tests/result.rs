@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::Foundation::*, core::*};
+use windows::{Win32::winerror::*, core::*};
 
 // The interface macro detects `-> Result<()>` and implements the interface as if it is returning an HRESULT.
 // This would be simpler if `HRESULT` could just implement `Try` but that is not yet stable.

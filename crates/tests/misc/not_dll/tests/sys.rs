@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::Win32::Graphics::Printing::*;
+use windows_sys::Win32::winspool::*;
 
 // Validates that the target libs resolve this function to "winspool.drv"
 

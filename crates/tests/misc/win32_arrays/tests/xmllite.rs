@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*,
-    core::*,
-};
+use windows::{Win32::combaseapi::*, Win32::objidlbase::*, Win32::xmllite::*, core::*};
 
 #[test]
 fn test() -> Result<()> {
@@ -31,7 +28,9 @@ fn test() -> Result<()> {
         writer.Flush().ok()?;
 
         let mut pos = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos)).ok()?;
+        stream
+            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .ok()?;
         assert_eq!(pos, 0);
 
         let mut reader: Option<IXmlReader> = None;
@@ -131,7 +130,9 @@ fn lite() -> Result<()> {
         writer.Flush().ok()?;
 
         let mut pos = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos)).ok()?;
+        stream
+            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .ok()?;
         assert_eq!(pos, 0);
 
         let mut reader: Option<IXmlReader> = None;

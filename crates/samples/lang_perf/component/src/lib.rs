@@ -7,7 +7,7 @@
 )]
 mod bindings;
 
-use windows::{Win32::Foundation::*, Win32::System::WinRT::*, core::*};
+use windows::{Win32::activation::*, Win32::winerror::*, core::*};
 
 #[unsafe(no_mangle)]
 extern "system" fn DllGetActivationFactory(

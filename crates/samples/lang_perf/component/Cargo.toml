@@ -9,7 +9,7 @@ name = "langperf_rust"
 crate-type = ["cdylib"]
 
 [dependencies]
-windows = { workspace = true, features = ["Win32_System_WinRT"] }
+windows = { workspace = true, features = ["activation", "winerror"] }
 windows-core = { workspace = true, default-features = true }
 windows-collections = { workspace = true, features = ["std"] }
 windows-future = { workspace = true, features = ["std"] }

@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 windows-reactor = { workspace = true }
-windows = { workspace = true, features = ["Win32_System_ProcessStatus", "Win32_System_Threading"] }
+windows = { workspace = true, features = ["processthreadsapi", "psapi", "winnt"] }
 windows-core = { workspace = true }
 
 [build-dependencies]

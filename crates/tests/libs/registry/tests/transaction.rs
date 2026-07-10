@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_registry::*;
 use windows_result::*;
-use windows_sys::Win32::Foundation::*;
+use windows_sys::Win32::winerror::*;
 
 #[test]
 fn create_with_transaction() {

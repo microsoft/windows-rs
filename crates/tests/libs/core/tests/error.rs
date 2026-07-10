@@ -1,14 +1,22 @@
 #![cfg(windows)]
 use windows::{
-    Win32::Foundation::*, Win32::Media::Audio::*, Win32::System::Com::*, Win32::System::Ole::*,
-    Win32::System::WinRT::*, core::*,
+    Win32::audioclient::*,
+    Win32::errhandlingapi::*,
+    Win32::oaidl::*,
+    Win32::oleauto::*,
+    Win32::ro::{
+        RO_ERROR_REPORTING_SUPPRESSSETERRORINFO, RO_ERROR_REPORTING_USESETERRORINFO,
+        RoSetErrorReportingFlags,
+    },
+    Win32::winerror::*,
+    core::*,
 };
 
 #[test]
 fn display_debug() {
     helpers::set_thread_ui_language();
 
-    let e = Error::from(ERROR_NO_UNICODE_TRANSLATION);
+    let e = Error::from(WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION));
     let display = format!("{e}");
     let debug = format!("{e:?}");
     assert_eq!(
@@ -20,7 +28,7 @@ fn display_debug() {
         r#"Error { code: HRESULT(0x80070459), message: "No mapping for the Unicode character exists in the target multi-byte code page." }"#
     );
 
-    let e = Error::from(AUDCLNT_E_UNSUPPORTED_FORMAT);
+    let e = Error::from(HRESULT(AUDCLNT_E_UNSUPPORTED_FORMAT));
     let display = format!("{e}");
     let debug = format!("{e:?}");
     assert_eq!(display, "0x88890008");
@@ -31,8 +39,8 @@ fn display_debug() {
 fn hresult_last_error() {
     unsafe {
         assert_eq!(CRYPT_E_NOT_FOUND.0, 0x80092004u32 as i32);
-        SetLastError(WIN32_ERROR(CRYPT_E_NOT_FOUND.0 as u32));
-        assert_eq!(GetLastError().to_hresult(), CRYPT_E_NOT_FOUND);
+        SetLastError(CRYPT_E_NOT_FOUND.0 as u32);
+        assert_eq!(WIN32_ERROR(GetLastError()).to_hresult(), CRYPT_E_NOT_FOUND);
     }
 }
 
@@ -45,7 +53,7 @@ fn set_error_info() -> Result<()> {
         SetErrorInfo(0, &creator.cast::<IErrorInfo>()?).ok()?;
 
         assert_eq!(Error::from(E_FAIL).message(), "message");
-        SetErrorInfo(0, None).ok()?;
+        SetErrorInfo(0, None::<&IErrorInfo>).ok()?;
         assert_eq!(Error::from(E_FAIL).message(), "Unspecified error");
 
         Ok(())
@@ -55,11 +63,11 @@ fn set_error_info() -> Result<()> {
 // https://github.com/microsoft/cppwinrt/pull/1386
 #[test]
 fn suppressed_error_info() -> Result<()> {
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO.0 as u32).ok()? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_SUPPRESSSETERRORINFO).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "Unspecified error");
 
-    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO.0 as u32).ok()? };
+    unsafe { RoSetErrorReportingFlags(RO_ERROR_REPORTING_USESETERRORINFO).ok()? };
 
     assert_eq!(Error::new(E_FAIL, "message").message(), "message");
 

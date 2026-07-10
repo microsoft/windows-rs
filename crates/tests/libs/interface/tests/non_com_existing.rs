@@ -1,8 +1,7 @@
 #![cfg(windows)]
 use windows::{
-    Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*,
-    Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*,
-    core::*,
+    Win32::combaseapi::*, Win32::d3d10::*, Win32::d3d12::*, Win32::objbase::*, Win32::sdkddkver::*,
+    Win32::xaudio2::*, core::*,
 };
 
 struct Reflection;
@@ -32,6 +31,78 @@ impl ID3D10EffectBlendVariable_Impl for Variable {
         unimplemented!();
     }
     fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<()> {
+        unimplemented!();
+    }
+    fn GetType(&self) -> Option<ID3D10EffectType> {
+        unimplemented!();
+    }
+    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> Result<()> {
+        unimplemented!();
+    }
+    fn GetAnnotationByIndex(&self, _: u32) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetAnnotationByName(&self, _: &PCSTR) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetMemberByIndex(&self, _: u32) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetMemberByName(&self, _: &PCSTR) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetMemberBySemantic(&self, _: &PCSTR) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetElement(&self, _: u32) -> Option<ID3D10EffectVariable> {
+        unimplemented!();
+    }
+    fn GetParentConstantBuffer(&self) -> Option<ID3D10EffectConstantBuffer> {
+        unimplemented!();
+    }
+    fn AsScalar(&self) -> Option<ID3D10EffectScalarVariable> {
+        unimplemented!();
+    }
+    fn AsVector(&self) -> Option<ID3D10EffectVectorVariable> {
+        unimplemented!();
+    }
+    fn AsMatrix(&self) -> Option<ID3D10EffectMatrixVariable> {
+        unimplemented!();
+    }
+    fn AsString(&self) -> Option<ID3D10EffectStringVariable> {
+        unimplemented!();
+    }
+    fn AsShaderResource(&self) -> Option<ID3D10EffectShaderResourceVariable> {
+        unimplemented!();
+    }
+    fn AsRenderTargetView(&self) -> Option<ID3D10EffectRenderTargetViewVariable> {
+        unimplemented!();
+    }
+    fn AsDepthStencilView(&self) -> Option<ID3D10EffectDepthStencilViewVariable> {
+        unimplemented!();
+    }
+    fn AsConstantBuffer(&self) -> Option<ID3D10EffectConstantBuffer> {
+        unimplemented!();
+    }
+    fn AsShader(&self) -> Option<ID3D10EffectShaderVariable> {
+        unimplemented!();
+    }
+    fn AsBlend(&self) -> Option<ID3D10EffectBlendVariable> {
+        unimplemented!();
+    }
+    fn AsDepthStencil(&self) -> Option<ID3D10EffectDepthStencilVariable> {
+        unimplemented!();
+    }
+    fn AsRasterizer(&self) -> Option<ID3D10EffectRasterizerVariable> {
+        unimplemented!();
+    }
+    fn AsSampler(&self) -> Option<ID3D10EffectSamplerVariable> {
+        unimplemented!();
+    }
+    fn SetRawValue(&self, _: *const core::ffi::c_void, _: u32, _: u32) -> Result<()> {
+        unimplemented!();
+    }
+    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> Result<()> {
         unimplemented!();
     }
 }
@@ -142,7 +213,7 @@ impl IXAudio2VoiceCallback_Impl for Callback {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
         let mut desc = Default::default();
@@ -158,8 +229,13 @@ fn test() -> Result<()> {
         assert_eq!(interface_variable.IsValid(), true);
 
         let mut audio = None;
-        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION)
-            .ok()?;
+        XAudio2CreateWithVersionInfo(
+            &mut audio,
+            0,
+            XAUDIO2_PROCESSOR(XAUDIO2_DEFAULT_PROCESSOR),
+            NTDDI_VERSION,
+        )
+        .ok()?;
         let audio = audio.unwrap();
 
         // Call the callback interface directly...

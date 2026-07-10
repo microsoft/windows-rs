@@ -11,7 +11,9 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Graphics_Direct2D_Common"
+    "d2d",
+    "dcommon",
+    "dxgi",
 ]
 
 [lints]

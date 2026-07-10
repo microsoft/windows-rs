@@ -11,7 +11,7 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_System_Diagnostics_Debug_Extensions",
+    "dbgeng",
 ]
 
 [lints]

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::Foundation::*, core::*};
+use windows::{Win32::winerror::ERROR_NO_UNICODE_TRANSLATION, core::*};
 
 #[test]
 fn test() -> Result<()> {
@@ -13,7 +13,7 @@ fn test() -> Result<()> {
     let invalid = &[0xc0, 0x80];
     let p = PCSTR::from_raw(invalid.as_ptr());
     let e: Error = unsafe { p.to_string().unwrap_err().into() };
-    assert_eq!(e.code(), ERROR_NO_UNICODE_TRANSLATION.into());
+    assert_eq!(e.code(), WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION).into());
     assert_eq!(
         e.message(),
         "No mapping for the Unicode character exists in the target multi-byte code page."

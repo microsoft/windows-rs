@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::UI::WindowsAndMessaging::NCCALCSIZE_PARAMS;
+use windows::Win32::winuser::NCCALCSIZE_PARAMS;
 
 #[test]
 #[cfg(target_arch = "aarch64")]

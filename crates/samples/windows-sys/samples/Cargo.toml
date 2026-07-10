@@ -7,14 +7,16 @@ publish = false
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Graphics_Gdi",
-    "Win32_Security",
-    "Win32_Storage_FileSystem",
-    "Win32_System_IO",
-    "Win32_System_LibraryLoader",
-    "Win32_System_Services",
-    "Win32_UI_Shell",
-    "Win32_UI_WindowsAndMessaging",
+    "fileapi",
+    "handleapi",
+    "libloaderapi",
+    "minwinbase",
+    "minwindef",
+    "shellapi",
+    "windef",
+    "winnt",
+    "winsvc",
+    "winuser",
 ]
 
 [lints]

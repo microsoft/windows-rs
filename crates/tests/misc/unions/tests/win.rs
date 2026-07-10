@@ -1,8 +1,8 @@
 #![cfg(windows)]
 use windows::Win32::{
-    Foundation::HANDLE,
-    Graphics::Direct3D12::*,
-    System::IO::{OVERLAPPED, OVERLAPPED_0_0},
+    d3d12::*,
+    minwinbase::{OVERLAPPED, OVERLAPPED_0_0},
+    winnt::HANDLE,
 };
 
 #[test]
@@ -76,7 +76,7 @@ fn test_arch() {
 fn d3d() {
     assert_eq!(size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
 
-    assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW.0, 3);
+    assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW, 3);
 
     let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
         Type: D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,

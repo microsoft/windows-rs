@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_registry::*;
 use windows_result::*;
-use windows_sys::Win32::{Foundation::*, System::Registry::*};
+use windows_sys::Win32::{winerror::*, winnt::*};
 
 #[test]
 fn access() {

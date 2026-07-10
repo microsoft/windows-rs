@@ -1,6 +1,6 @@
 fn main() {
     use windows_sys::{
-        Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::Services::*, core::*,
+        Win32::fileapi::*, Win32::handleapi::*, Win32::winnt::*, Win32::winsvc::*, core::*,
     };
 
     // Sample logs to this file for illustration purposes.
@@ -106,7 +106,7 @@ fn main() {
         writer.handle = handle;
     }
 
-    fn set_state(state: SERVICE_STATUS_CURRENT_STATE) {
+    fn set_state(state: u32) {
         let mut writer = STATE.write().unwrap();
         writer.status.dwCurrentState = state;
 
@@ -137,7 +137,7 @@ fn main() {
         writer.thread = Some(thread);
     }
 
-    fn state() -> SERVICE_STATUS_CURRENT_STATE {
+    fn state() -> u32 {
         let reader = STATE.read().unwrap();
         reader.status.dwCurrentState
     }
@@ -171,7 +171,7 @@ fn main() {
 
             WriteFile(
                 file,
-                message.as_ptr(),
+                message.as_ptr() as *const _,
                 message.len().try_into().unwrap(),
                 &mut 0,
                 std::ptr::null_mut(),

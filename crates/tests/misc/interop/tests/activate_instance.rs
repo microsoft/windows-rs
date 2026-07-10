@@ -1,8 +1,9 @@
 #![cfg(windows)]
 use windows::{
     Foundation::Collections::StringMap,
-    Win32::System::Com::{COINIT_MULTITHREADED, CoInitializeEx},
-    Win32::System::WinRT::RoActivateInstance,
+    Win32::combaseapi::CoInitializeEx,
+    Win32::objbase::COINIT_MULTITHREADED,
+    Win32::ro::RoActivateInstance,
     core::{HSTRING, Interface, Result},
 };
 
@@ -12,7 +13,7 @@ use windows::{
 // activate WinRT types directly as it can do so far more efficiently.
 #[test]
 fn test() -> Result<()> {
-    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED).ok()? };
+    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()? };
 
     let instance: HSTRING = "Windows.Foundation.Collections.StringMap".into();
     let instance = unsafe { RoActivateInstance(&instance)? };

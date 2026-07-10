@@ -3,19 +3,31 @@ resolver = "3"
 members = [
     "crates/libs/*",
     "crates/tools/*",
-    "crates/samples/windows/direct2d",
-    "crates/samples/windows/task_dialog",
-    "crates/samples/windows/file_dialogs",
-    "crates/samples/windows/dcomp",
-    "crates/samples/windows/direct3d12",
-    "crates/samples/windows/ocr",
-    "crates/samples/windows/overlapped",
-    "crates/samples/windows/core_app",
-    "crates/samples/windows/uiautomation",
-    "crates/samples/windows/samples",
+    "crates/samples/*/*",
+    "crates/tests/*/*",
 ]
 exclude = [
     "crates/targets/baseline",
+    "crates/samples/windows/spellchecker",
+    # Test crates blocked on genuine metadata gaps in the regenerated windows/windows-sys crates
+    # (missing symbols/interfaces or dropped attributes: RAIIFree/Owned, agile, AlternateSuccessCodes,
+    # Result<HANDLE> transforms). See docs/crates/windows-clang.md "Test migration status and recipe".
+    "crates/tests/libs/implement",
+    "crates/tests/libs/targets",
+    "crates/tests/misc/agile",
+    "crates/tests/misc/alternate_success_code",
+    "crates/tests/misc/arch_feature",
+    "crates/tests/misc/const_params",
+    "crates/tests/misc/const_ptrs",
+    "crates/tests/misc/extensions",
+    "crates/tests/misc/handles",
+    "crates/tests/misc/lib",
+    "crates/tests/misc/resources",
+    "crates/tests/misc/return_handle",
+    "crates/tests/misc/structs",
+    "crates/tests/misc/variant",
+    "crates/tests/misc/wdk",
+    "crates/tests/misc/win32",
 ]
 
 [profile.release]

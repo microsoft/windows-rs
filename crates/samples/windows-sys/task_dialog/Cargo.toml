@@ -7,8 +7,9 @@ publish = false
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_UI_Controls",
-    "Win32_UI_WindowsAndMessaging",
+    "commctrl",
+    "minwindef",
+    "windef",
 ]
 
 [lints]

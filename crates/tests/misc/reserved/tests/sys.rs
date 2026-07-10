@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows_sys::{
-    Win32::System::Registry::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
+    Win32::{threadpoolapiset::*, winnt::*, winreg::*, winuser::*},
     core::*,
 };
 
@@ -9,7 +9,7 @@ use windows_sys::{
 fn test() {
     unsafe {
         assert_eq!(InSendMessageEx(std::ptr::null_mut()), ISMEX_NOSEND);
-        assert!(CreateThreadpool(std::ptr::null_mut()) != 0);
+        assert!(!CreateThreadpool(std::ptr::null_mut()).is_null());
         assert_eq!(
             TrackPopupMenu(
                 core::ptr::null_mut(),

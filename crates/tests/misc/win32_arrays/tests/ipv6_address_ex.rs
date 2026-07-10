@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::NetworkManagement::IpHelper::IPV6_ADDRESS_EX;
+use windows::Win32::ipexport::IPV6_ADDRESS_EX;
 
 #[test]
 fn test() {

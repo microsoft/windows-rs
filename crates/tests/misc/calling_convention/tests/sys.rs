@@ -1,7 +1,6 @@
 #![cfg(windows)]
 use windows_sys::{
-    Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*,
-    Win32::UI::WindowsAndMessaging::*, core::*,
+    Win32::sysinfoapi::*, Win32::winerror::*, Win32::winldap::*, Win32::winuser::*, core::*,
 };
 
 #[test]

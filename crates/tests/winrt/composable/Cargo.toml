@@ -19,8 +19,9 @@ workspace = true
 workspace = true
 default-features = true
 features = [
+    "activation",
     "Foundation",
-    "Win32_System_WinRT",
+    "winerror",
 ]
 
 [lints]

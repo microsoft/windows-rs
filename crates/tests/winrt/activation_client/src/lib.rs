@@ -10,8 +10,10 @@
 mod bindings;
 use bindings::*;
 use windows::{
-    Win32::Foundation::{E_NOINTERFACE, REGDB_E_CLASSNOTREG},
-    Win32::System::WinRT::IActivationFactory,
+    Win32::{
+        activation::IActivationFactory,
+        winerror::{E_NOINTERFACE, REGDB_E_CLASSNOTREG},
+    },
     core::factory,
 };
 

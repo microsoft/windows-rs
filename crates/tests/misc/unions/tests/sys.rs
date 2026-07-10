@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::Win32::System::IO::{OVERLAPPED, OVERLAPPED_0_0};
+use windows_sys::Win32::minwinbase::{OVERLAPPED, OVERLAPPED_0_0};
 
 #[test]
 fn test() {

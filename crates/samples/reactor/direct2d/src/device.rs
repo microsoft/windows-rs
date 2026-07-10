@@ -43,7 +43,7 @@ impl SharedDevice {
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
                 HMODULE::default(),
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT.0 as u32,
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 Some(&[D3D_FEATURE_LEVEL_11_0]),
                 D3D11_SDK_VERSION,
                 Some(&mut d3d_device),

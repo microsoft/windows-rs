@@ -1,5 +1,16 @@
 #![cfg(windows)]
-use windows::{Win32::Foundation::*, Win32::System::Rpc::*, core::*};
+use meta_winerror::{E_INVALIDARG, RPC_S_MAX_CALLS_TOO_SMALL, S_OK};
+use windows::{
+    Win32::{ntstatus as meta_ntstatus, rpc as meta_rpc, winerror as meta_winerror},
+    core::*,
+};
+
+const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_SUCCESS);
+const ERROR_BAD_ARGUMENTS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_BAD_ARGUMENTS);
+const STATUS_SUCCESS: NTSTATUS = NTSTATUS(meta_ntstatus::STATUS_SUCCESS.0);
+const STATUS_NOT_FOUND: NTSTATUS = NTSTATUS(meta_ntstatus::STATUS_NOT_FOUND.0);
+const RPC_S_OK: RPC_STATUS = RPC_STATUS(meta_rpc::RPC_S_OK as i32);
+const RPC_S_NOT_LISTENING: RPC_STATUS = RPC_STATUS(meta_winerror::RPC_S_NOT_LISTENING as i32);
 
 #[test]
 fn hresult() -> Result<()> {
@@ -93,8 +104,11 @@ fn rpc() -> Result<()> {
     assert_eq!(e.code(), WIN32_ERROR(1715).to_hresult());
     assert_eq!(e.message(), "The RPC server is not listening.");
 
-    let r: Result<()> = unsafe { RpcServerListen(0, 0, 1).ok() };
-    assert_eq!(r.unwrap_err().code(), RPC_S_MAX_CALLS_TOO_SMALL.into());
+    let r: Result<()> = unsafe { RPC_STATUS(meta_rpc::RpcServerListen(0, 0, 1).0).ok() };
+    assert_eq!(
+        r.unwrap_err().code(),
+        RPC_STATUS(RPC_S_MAX_CALLS_TOO_SMALL as i32).into()
+    );
 
     RPC_S_OK.ok()
 }

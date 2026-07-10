@@ -1,5 +1,8 @@
 #![cfg(windows)]
-use windows::{Win32::System::Registry::*, core::w};
+use windows::{
+    Win32::{minwindef::HKEY, winnt::*, winreg::*},
+    core::w,
+};
 use windows_registry::*;
 
 #[test]
@@ -16,12 +19,15 @@ fn bad_string() -> Result<()> {
     ];
 
     unsafe {
-        RegSetValueExW(
-            HKEY(key.as_raw()),
-            w!("name"),
-            None,
-            REG_SZ,
-            Some(&bad_string_bytes),
+        windows_result::WIN32_ERROR(
+            RegSetValueExW(
+                HKEY(key.as_raw()),
+                w!("name"),
+                None,
+                REG_SZ,
+                Some(&bad_string_bytes),
+            )
+            .0,
         )
         .ok()?;
     }
@@ -55,12 +61,15 @@ fn bad_multi_string_missing_double_null() -> Result<()> {
     ];
 
     unsafe {
-        RegSetValueExW(
-            HKEY(key.as_raw()),
-            w!("multi"),
-            None,
-            REG_MULTI_SZ,
-            Some(bad_multi_bytes),
+        windows_result::WIN32_ERROR(
+            RegSetValueExW(
+                HKEY(key.as_raw()),
+                w!("multi"),
+                None,
+                REG_MULTI_SZ,
+                Some(bad_multi_bytes),
+            )
+            .0,
         )
         .ok()?;
     }

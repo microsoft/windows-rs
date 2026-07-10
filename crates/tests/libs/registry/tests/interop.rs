@@ -3,7 +3,7 @@ use windows_registry::*;
 
 #[test]
 fn sys_interop() -> Result<()> {
-    use windows_sys::Win32::System::Registry::*;
+    use windows_sys::Win32::{minwindef::HKEY, winreg::*};
 
     let test_key = "software\\windows-rs\\tests\\sys_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -42,7 +42,7 @@ fn sys_interop() -> Result<()> {
 
 #[test]
 fn windows_interop() -> Result<()> {
-    use windows::Win32::System::Registry::*;
+    use windows::Win32::{minwindef::HKEY, winreg::*};
 
     let test_key = "software\\windows-rs\\tests\\windows_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -59,19 +59,22 @@ fn windows_interop() -> Result<()> {
     let mut count = 0;
 
     unsafe {
-        RegQueryInfoKeyW(
-            HKEY(owned.as_raw()),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(&mut count),
-            None,
-            None,
-            None,
-            None,
+        windows_result::WIN32_ERROR(
+            RegQueryInfoKeyW(
+                HKEY(owned.as_raw()),
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                Some(&mut count),
+                None,
+                None,
+                None,
+                None,
+            )
+            .0,
         )
         .ok()?;
     };

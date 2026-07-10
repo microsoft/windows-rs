@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::Graphics::Dxgi::DXGI_ADAPTER_DESC1;
+use windows::Win32::dxgi::DXGI_ADAPTER_DESC1;
 
 #[test]
 #[cfg(target_arch = "aarch64")]

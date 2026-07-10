@@ -11,15 +11,17 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Graphics_Printing",
-    "Win32_Graphics_Gdi",
+    "wingdi",
+    "winnt",
+    "winspool",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Graphics_Printing",
-    "Win32_Graphics_Gdi",
+    "wingdi",
+    "winnt",
+    "winspool",
 ]
 
 [lints]

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::Foundation::*, core::*};
+use windows::{Win32::winerror::*, core::*};
 
 #[test]
 fn ok() {

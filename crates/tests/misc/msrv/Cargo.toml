@@ -11,8 +11,7 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Globalization",
-    "Win32_Graphics_Direct2D",
+    "d2d",
 ]
 
 [lints]
