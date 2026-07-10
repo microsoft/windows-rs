@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{Win32::psapi::*, Win32::synchapi::*, Win32::wingdi::*, core::*};
+use windows_sys::{core::*, psapi::*, synchapi::*, wingdi::*};
 
 #[test]
 fn gdi() {

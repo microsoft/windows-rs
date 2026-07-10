@@ -1,10 +1,22 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Security::Credentials::UI::*, core::*};
+    use windows::{
+        Security::Credentials::UI::*, core::*, userconsentverifierinterop::*, windef::*,
+    };
 
-    let operation = UserConsentVerifier::RequestVerificationAsync(h!("Hello from Rust"))?;
-    let result: UserConsentVerificationResult = operation.join()?;
+    use windows_future::*;
 
-    println!("{result:?}");
+    unsafe {
+        let interop = factory::<UserConsentVerifier, IUserConsentVerifierInterop>()?;
 
-    Ok(())
+        let window = HWND::default(); // <== replace with your app's window handle
+
+        let operation: IAsyncOperation<UserConsentVerificationResult> =
+            interop.RequestVerificationForWindowAsync(window, h!("Hello from Rust"))?;
+
+        let result: UserConsentVerificationResult = operation.join()?;
+
+        println!("{result:?}");
+
+        Ok(())
+    }
 }

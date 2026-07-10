@@ -1,8 +1,8 @@
 --out crates/libs/sys
---in target/package
+--in target/package/Windows.Win32.winmd
 --package --sys
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
-    Windows::Wdk
-    Windows::Win32
+    Windows
+    !Windows::Win32::Metadata

@@ -7,10 +7,7 @@
     clippy::all
 )]
 mod bindings;
-use windows::{
-    Win32::{activation::*, winerror::*},
-    core::*,
-};
+use windows::{activation::*, core::*, winerror::*};
 
 #[unsafe(no_mangle)]
 unsafe extern "system" fn DllGetActivationFactory(

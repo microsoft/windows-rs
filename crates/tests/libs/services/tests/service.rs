@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows_services::*;
-use windows_sys::Win32::winsvc::*;
+use windows_sys::winsvc::*;
 
 #[test]
 fn start_stop() {

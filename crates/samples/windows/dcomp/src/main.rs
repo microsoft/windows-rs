@@ -1,11 +1,8 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::{
-            bcrypt::*, combaseapi::*, d2d::*, d3d11::*, d3dcommon::*, dcommon::*, dcomp::*,
-            dwrite::*, dxgi::*, minwindef::*, objbase::*, shellscalingapi::*, shlwapi::*,
-            uianimation::*, wincodec::*, windef::*, winnt::*, winuser::*, wtypesbase::*,
-        },
-        core::*,
+        bcrypt::*, combaseapi::*, core::*, d2d::*, d3d11::*, d3dcommon::*, dcommon::*, dcomp::*,
+        dwrite::*, dxgi::*, minwindef::*, objbase::*, shellscalingapi::*, shlwapi::*,
+        uianimation::*, wincodec::*, windef::*, winnt::*, winuser::*, wtypesbase::*,
     };
 
     use std::cell::RefCell;

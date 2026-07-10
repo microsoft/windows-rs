@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::winerror::ERROR_NO_UNICODE_TRANSLATION, core::*};
+use windows::{core::*, winerror::ERROR_NO_UNICODE_TRANSLATION};
 
 #[test]
 fn test() -> Result<()> {

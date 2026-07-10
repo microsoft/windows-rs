@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::combaseapi::*, Win32::d3d10::*, Win32::d3d12::*, Win32::objbase::*, Win32::sdkddkver::*,
-    Win32::xaudio2::*, core::*,
-};
+use windows::{combaseapi::*, core::*, d3d10::*, d3d12::*, objbase::*, sdkddkver::*, xaudio2::*};
 
 struct Reflection;
 

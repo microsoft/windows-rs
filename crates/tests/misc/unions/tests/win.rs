@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::{
+use windows::{
     d3d12::*,
     minwinbase::{OVERLAPPED, OVERLAPPED_0_0},
     winnt::HANDLE,

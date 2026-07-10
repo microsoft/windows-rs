@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::{ntstatus as metadata_ntstatus, winerror::S_OK};
+use windows::{ntstatus as metadata_ntstatus, winerror::S_OK};
 use windows_result::Result as WindowsResult;
 use windows_result::{HRESULT, NTSTATUS};
 

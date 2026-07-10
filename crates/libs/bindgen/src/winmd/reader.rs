@@ -6,6 +6,9 @@ fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: 
 
 pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
+    /// Whether this reader feeds a sys-style (`windows-sys`) generation. Gates the
+    /// `Windows.Foundation.Numerics` projection off (sys keeps raw D2D/D3D structs).
+    pub sys: bool,
 }
 
 impl std::ops::Deref for Reader {
@@ -17,7 +20,7 @@ impl std::ops::Deref for Reader {
 }
 
 impl Reader {
-    pub fn new(files: Vec<File>) -> Self {
+    pub fn new(files: Vec<File>, sys: bool) -> Self {
         // Build a `'static` metadata index that owns the parsed winmd files for the lifetime
         // of the process. This is the single sanctioned leak point — all subsequent
         // `TypeDef<'static>`, `Field<'static>`, etc. values reference data owned by it.
@@ -26,12 +29,13 @@ impl Reader {
 
         let mut reader = Self {
             map: HashMap::new(),
+            sys,
         };
 
         for (namespace, name, item) in index.iter_items() {
             match item {
                 windows_metadata::reader::Item::Type(def) => {
-                    if Type::remap(namespace, name) != Remap::None {
+                    if Type::remap(namespace, name, sys) != Remap::None {
                         continue;
                     }
 

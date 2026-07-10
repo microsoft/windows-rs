@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Foundation::*, Win32::combaseapi::*, Win32::objidlbase::*, Win32::unknwnbase::*,
-    Win32::wtypesbase::*, core::*,
-};
+use windows::{Foundation::*, combaseapi::*, core::*, objidlbase::*, unknwnbase::*, wtypesbase::*};
 
 #[implement(IClassFactory)]
 struct Factory;

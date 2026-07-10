@@ -192,7 +192,7 @@ impl Type {
         )
     }
 
-    pub fn remap(namespace: &str, name: &str) -> Remap {
+    pub fn remap(namespace: &str, name: &str, sys: bool) -> Remap {
         // WinRT / .NET system projections keep full-name matching: their names
         // (`Guid`, `HResult`, `Type`) differ from the C spellings and would be
         // ambiguous if matched by name alone.
@@ -204,12 +204,20 @@ impl Type {
             _ => {}
         }
 
-        // The Win32 core types are matched by name alone so that both the
-        // win32metadata namespaces (e.g. `Windows.Win32.Foundation.HRESULT`) and
-        // the in-house faithful metadata's flat namespace (`Windows.Win32.HRESULT`)
-        // resolve to the same hard-coded core type. These C spellings are
-        // unambiguous, so the namespace they live in does not matter.
-        if namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.") {
+        // The Win32 core types are matched by name alone so that the win32metadata
+        // namespaces (e.g. `Windows.Win32.Foundation.HRESULT`), the in-house faithful
+        // metadata's flat namespace (`Windows.Win32.HRESULT`), and the published
+        // package's per-header namespaces (`Windows.guiddef.GUID`, produced by the
+        // package remapper) all resolve to the same hard-coded core type. These C
+        // spellings are unambiguous, so the namespace they live in does not matter.
+        // WinRT namespaces always have PascalCase leaves, so a lowercase leaf directly
+        // under `Windows.` uniquely identifies a flat Win32/WDK header stem.
+        let win32_meta = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
+        let is_flat_win32_stem = namespace
+            .strip_prefix("Windows.")
+            .is_some_and(|leaf| leaf.starts_with(|c: char| c.is_ascii_lowercase()));
+
+        if win32_meta || is_flat_win32_stem {
             match name {
                 "GUID" => return Remap::Type(Self::GUID),
                 "HRESULT" => return Remap::Type(Self::HRESULT),
@@ -234,14 +242,23 @@ impl Type {
                 // the ergonomic `i64` / `u64`.
                 "LARGE_INTEGER" => return Remap::Type(Self::I64),
                 "ULARGE_INTEGER" => return Remap::Type(Self::U64),
+                _ => {}
+            }
+        }
 
-                // Numerics substitutions swap a faithful Win32 struct for its
-                // layout-identical `Windows.Foundation.Numerics` projection (an
-                // ergonomic gen-time choice — the winmd keeps the D2D/D3D struct).
-                // These must be matched by name, not shape: the same `{ f32; f32 }`
-                // layout is reused under many names that map to *different* Numerics
-                // types. Matched across any `Windows.Win32*` namespace so both the
-                // sub-namespaced reference winmd and the flat in-house metadata hit.
+        // Numerics substitutions swap a faithful Win32 struct for its
+        // layout-identical `Windows.Foundation.Numerics` projection (an ergonomic
+        // gen-time choice — the winmd keeps the D2D/D3D struct). These must be
+        // matched by name, not shape: the same `{ f32; f32 }` layout is reused
+        // under many names that map to *different* Numerics types.
+        //
+        // The projection is applied for the `windows` crate (whose input carries
+        // the WinRT `Windows.Foundation.Numerics` types, re-exported from the
+        // `windows-numerics` crate) but NOT for `windows-sys`: the sys package is
+        // generated from the Win32/WDK winmd alone, which has no Numerics types to
+        // resolve against, so `windows-sys` keeps the raw D2D/D3D structs.
+        if (win32_meta || is_flat_win32_stem) && !sys {
+            match name {
                 "D2D_MATRIX_3X2_F" => {
                     return Remap::Name(TypeName("Windows.Foundation.Numerics", "Matrix3x2"));
                 }
@@ -282,7 +299,7 @@ impl Type {
 
         let mut code_name = code.type_name();
 
-        match Self::remap(code_name.namespace(), code_name.name()) {
+        match Self::remap(code_name.namespace(), code_name.name(), reader.sys) {
             Remap::Type(ty) => return ty,
             Remap::Name(type_name) => {
                 code_name = type_name;
@@ -328,7 +345,7 @@ impl Type {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
 
-                let (ns, n) = match Self::remap(ns, n) {
+                let (ns, n) = match Self::remap(ns, n, reader.sys) {
                     Remap::Type(ty) => return ty,
                     Remap::Name(type_name) => (type_name.namespace(), type_name.name()),
                     Remap::None => (ns, n),

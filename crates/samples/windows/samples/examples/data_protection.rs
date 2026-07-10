@@ -1,7 +1,7 @@
 fn main() -> std::io::Result<()> {
     use windows::{
         Security::Cryptography::DataProtection::*, Security::Cryptography::*, Storage::Streams::*,
-        Win32::ro::*, core::*,
+        core::*, ro::*,
     };
 
     #[expect(clippy::mut_from_ref)]

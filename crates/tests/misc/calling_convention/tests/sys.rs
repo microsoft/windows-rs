@@ -1,7 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{
-    Win32::sysinfoapi::*, Win32::winerror::*, Win32::winldap::*, Win32::winuser::*, core::*,
-};
+use windows_sys::{core::*, sysinfoapi::*, winerror::*, winldap::*, winuser::*};
 
 #[test]
 fn calling_convention() {

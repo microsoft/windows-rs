@@ -403,7 +403,7 @@ impl Bindgen {
             self.input.iter().map(|s| s.as_str()).collect()
         };
 
-        let reader = Reader::new(expand_input(&input));
+        let reader = Reader::new(expand_input(&input), sys);
 
         let mut references: Vec<ReferenceStage> = Vec::new();
 
@@ -686,8 +686,10 @@ fn namespace_feature(namespace: &str) -> String {
         .or_else(|| namespace.strip_prefix("Windows.Wdk."))
     {
         stem.replace('.', "_")
+    } else if let Some((_, rest)) = namespace.split_once('.') {
+        rest.replace('.', "_")
     } else {
-        namespace.split_once('.').unwrap().1.replace('.', "_")
+        namespace.to_string()
     }
 }
 

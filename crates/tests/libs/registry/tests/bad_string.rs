@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::{minwindef::HKEY, winnt::*, winreg::*},
-    core::w,
-};
+use windows::{core::w, minwindef::HKEY, winnt::*, winreg::*};
 use windows_registry::*;
 
 #[test]

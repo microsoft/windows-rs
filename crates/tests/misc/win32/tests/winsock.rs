@@ -1,7 +1,7 @@
 #![cfg(windows)]
-use windows::Win32::in6addr::*;
-use windows::Win32::inaddr::*;
-use windows::Win32::ws2::*;
+use windows::in6addr::*;
+use windows::inaddr::*;
+use windows::ws2::*;
 
 // The `windows` crate no longer bundles std <-> WinSock conversion extensions.
 // These free functions show how a caller can convert between `std::net` types and

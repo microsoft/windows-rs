@@ -1,7 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::d3dcompiler::*, Win32::synchapi::*, Win32::windef::*, Win32::wingdi::*, core::*,
-};
+use windows::{core::*, d3dcompiler::*, synchapi::*, windef::*, wingdi::*};
 
 #[test]
 fn linker() -> Result<()> {

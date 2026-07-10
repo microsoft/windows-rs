@@ -2,10 +2,7 @@
 #![expect(non_snake_case)]
 
 use std::sync::RwLock;
-use windows::{
-    Win32::{ocidl::*, urlmon::*, winerror::*},
-    core::*,
-};
+use windows::{core::*, ocidl::*, urlmon::*, winerror::*};
 
 /// A custom declaration of implementation of `IUri`
 #[interface("a39ee748-6a27-4817-a6f2-13914bef5890")]

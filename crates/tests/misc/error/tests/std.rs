@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::winerror::*, core::*};
+use windows::{core::*, winerror::*};
 
 #[test]
 fn conversions() {

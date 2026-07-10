@@ -1,5 +1,5 @@
 fn main() {
-    use windows_sys::{Win32::commctrl::*, Win32::minwindef::*, Win32::windef::*, core::*};
+    use windows_sys::{commctrl::*, core::*, minwindef::*, windef::*};
 
     extern "system" fn callback(
         _: HWND,

@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::Win32::winerror::E_BOUNDS;
 use windows::core::*;
+use windows::winerror::E_BOUNDS;
 use windows_collections::*;
 
 #[implement(

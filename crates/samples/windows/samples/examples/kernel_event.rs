@@ -1,10 +1,8 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::{
-            handleapi::CloseHandle,
-            synchapi::{CreateEventW, SetEvent, WaitForSingleObject},
-        },
         core::*,
+        handleapi::CloseHandle,
+        synchapi::{CreateEventW, SetEvent, WaitForSingleObject},
     };
 
     unsafe {

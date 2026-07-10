@@ -345,6 +345,7 @@ headers = [
     "IntShCut.h",
     "cfapi.h",
     "Windows.Devices.Display.Core.Interop.h",
+    "UserConsentVerifierInterop.h",
     # WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     # scope_headers makes them roots). These are the flat COM/C interop headers that
     # win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated

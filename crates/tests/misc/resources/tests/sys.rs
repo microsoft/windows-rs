@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{
-    Win32::commctrl::*, Win32::errhandlingapi::*, Win32::objidlbase::*, Win32::winerror::*,
-    Win32::winuser::*,
-};
+use windows_sys::{commctrl::*, errhandlingapi::*, objidlbase::*, winerror::*, winuser::*};
 
 /// These tests ensure `MAKEINTRESOURCEW` style constants an in particular negative constants like TD_ERROR_ICON
 /// work as expected.

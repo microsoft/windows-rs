@@ -46,12 +46,12 @@ fn main() {
         Corpus {
             rdl_dir: "metadata/win32",
             winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
-            root: "Windows.Win32",
+            root: "Windows",
         },
         Corpus {
             rdl_dir: "metadata/wdk",
             winmd: "crates/libs/bindgen/default/Windows.Wdk.winmd",
-            root: "Windows.Wdk",
+            root: "Windows",
         },
     ];
 
@@ -75,9 +75,9 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-/// Asserts the header partition took effect (Win32/WDK land in `Windows.<root>.<header>`
-/// namespaces and the flat `Windows.Win32` namespace no longer holds types directly) and reports
-/// the namespace count per root.
+/// Asserts the header partition took effect (every Win32/WDK header stem lands in its own
+/// crate-root `Windows.<header>` namespace and the flat `Windows.Win32` namespace no longer
+/// holds types directly) and reports the synthesised namespace/item totals.
 fn verify(summary: &[(String, usize)]) {
     let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
         .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));
@@ -87,17 +87,8 @@ fn verify(summary: &[(String, usize)]) {
         "flat `Windows.Win32` namespace survived the remap (types were not routed)"
     );
 
-    for root in ["Windows.Win32", "Windows.Wdk"] {
-        let namespaces = summary
-            .iter()
-            .filter(|(ns, _)| ns.starts_with(root))
-            .count();
-        let items: usize = summary
-            .iter()
-            .filter(|(ns, _)| ns.starts_with(root))
-            .map(|(_, n)| n)
-            .sum();
-        assert!(namespaces > 0, "remap produced no `{root}.*` namespaces");
-        println!("{root}: {namespaces} namespace(s), {items} item(s)");
-    }
+    let namespaces = summary.len();
+    let items: usize = summary.iter().map(|(_, n)| n).sum();
+    assert!(namespaces > 0, "remap produced no header-stem namespaces");
+    println!("Header partition: {namespaces} namespace(s), {items} item(s)");
 }

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::dbgprop::DebugPropertyInfo, core::*};
+use windows::{core::*, dbgprop::DebugPropertyInfo};
 
 #[test]
 fn test() {

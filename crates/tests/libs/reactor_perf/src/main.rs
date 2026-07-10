@@ -7,9 +7,9 @@ use std::rc::Rc;
 use std::sync::OnceLock;
 use std::time::{Duration, Instant};
 
-use windows::Win32::processthreadsapi::GetCurrentProcess;
-use windows::Win32::psapi::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 use windows::core::Result;
+use windows::processthreadsapi::GetCurrentProcess;
+use windows::psapi::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 
 use windows_reactor::*;
 

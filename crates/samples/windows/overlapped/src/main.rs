@@ -1,7 +1,7 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::fileapi::*, Win32::handleapi::*, Win32::ioapiset::*, Win32::minwinbase::*,
-        Win32::synchapi::*, Win32::winbase::*, Win32::winerror::*, Win32::winnt::*, core::*,
+        core::*, fileapi::*, handleapi::*, ioapiset::*, minwinbase::*, synchapi::*, winbase::*,
+        winerror::*, winnt::*,
     };
 
     unsafe {

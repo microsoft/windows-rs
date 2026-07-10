@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::oleauto::*, core::*};
+use windows::{core::*, oleauto::*};
 
 #[test]
 fn test() {

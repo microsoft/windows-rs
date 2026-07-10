@@ -1,15 +1,15 @@
 #![cfg(windows)]
 use windows::{
-    Win32::audioclient::*,
-    Win32::errhandlingapi::*,
-    Win32::oaidl::*,
-    Win32::oleauto::*,
-    Win32::ro::{
+    audioclient::*,
+    core::*,
+    errhandlingapi::*,
+    oaidl::*,
+    oleauto::*,
+    ro::{
         RO_ERROR_REPORTING_SUPPRESSSETERRORINFO, RO_ERROR_REPORTING_USESETERRORINFO,
         RoSetErrorReportingFlags,
     },
-    Win32::winerror::*,
-    core::*,
+    winerror::*,
 };
 
 #[test]

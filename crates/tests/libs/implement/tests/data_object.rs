@@ -1,10 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{
-    Win32::{objidl::*, winerror::*},
-    core::*,
-};
+use windows::{core::*, objidl::*, winerror::*};
 
 #[derive(Default)]
 struct TestData {

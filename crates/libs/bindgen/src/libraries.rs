@@ -11,7 +11,7 @@ pub enum CallingConvention {
 pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let mut libraries = BTreeMap::new();
 
-    let reader = Reader::new(expand_input(&["default"]));
+    let reader = Reader::new(expand_input(&["default"]), false);
     combine_libraries(&reader, &mut libraries);
     libraries
 }

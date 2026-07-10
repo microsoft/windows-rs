@@ -2,7 +2,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows::Win32::{d3d11::*, d3dcommon::*, dxgi::*, minwindef::*};
+use windows::{d3d11::*, d3dcommon::*, dxgi::*, minwindef::*};
 use windows_reactor::*;
 
 struct D3DState {

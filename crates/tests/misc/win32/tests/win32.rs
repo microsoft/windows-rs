@@ -1,10 +1,9 @@
 #![cfg(windows)]
 use windows::{
-    Win32::accctrl::*, Win32::combaseapi::*, Win32::commdlg::*, Win32::d2d::*, Win32::d3d11::*,
-    Win32::d3d12::*, Win32::d3dcompiler::*, Win32::dxgi::*, Win32::expandedresources::*,
-    Win32::handleapi::*, Win32::minidumpapiset::*, Win32::objidlbase::*, Win32::synchapi::*,
-    Win32::uianimation::*, Win32::uiautomationcore::*, Win32::urlmon::*, Win32::windef::*,
-    Win32::winerror::*, Win32::winldap::*, Win32::winnt::*, Win32::winuser::*, core::*,
+    accctrl::*, combaseapi::*, commdlg::*, core::*, d2d::*, d3d11::*, d3d12::*, d3dcompiler::*,
+    dxgi::*, expandedresources::*, handleapi::*, minidumpapiset::*, objidlbase::*, synchapi::*,
+    uianimation::*, uiautomationcore::*, urlmon::*, windef::*, winerror::*, winldap::*, winnt::*,
+    winuser::*,
 };
 
 #[test]

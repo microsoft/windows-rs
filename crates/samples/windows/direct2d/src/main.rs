@@ -1,19 +1,19 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::combaseapi::*;
-    use windows::Win32::d2d::*;
-    use windows::Win32::d3d11::*;
-    use windows::Win32::d3dcommon::*;
-    use windows::Win32::dcommon::*;
-    use windows::Win32::dxgi::*;
-    use windows::Win32::minwindef::*;
-    use windows::Win32::objbase::*;
-    use windows::Win32::profileapi::*;
-    use windows::Win32::sysinfoapi::*;
-    use windows::Win32::uianimation::*;
-    use windows::Win32::windef::*;
-    use windows::Win32::winerror::*;
-    use windows::Win32::winuser::*;
+    use windows::combaseapi::*;
     use windows::core::*;
+    use windows::d2d::*;
+    use windows::d3d11::*;
+    use windows::d3dcommon::*;
+    use windows::dcommon::*;
+    use windows::dxgi::*;
+    use windows::minwindef::*;
+    use windows::objbase::*;
+    use windows::profileapi::*;
+    use windows::sysinfoapi::*;
+    use windows::uianimation::*;
+    use windows::windef::*;
+    use windows::winerror::*;
+    use windows::winuser::*;
 
     use std::cell::RefCell;
     use std::rc::Rc;

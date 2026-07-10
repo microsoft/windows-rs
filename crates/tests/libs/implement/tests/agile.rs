@@ -1,6 +1,6 @@
 #![cfg(windows)]
-use windows::Win32::objidlbase::*;
 use windows::core::*;
+use windows::objidlbase::*;
 
 #[interface("e9f8ddc5-7006-4c7f-9c1e-5a08e240cb13")]
 unsafe trait ITest: IUnknown {}

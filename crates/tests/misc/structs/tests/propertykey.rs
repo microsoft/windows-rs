@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::devpkey::DEVPKEY_Device_BiosDeviceName;
+use windows::devpkey::DEVPKEY_Device_BiosDeviceName;
 
 #[test]
 fn test_debug_impl() {

@@ -1058,12 +1058,35 @@ impl Type {
             CXType_FunctionProto | CXType_FunctionNoProto => {
                 metadata::Type::PtrMut(Box::new(metadata::Type::Void), 1)
             }
-            rest => panic!(
-                "unhandled type kind {rest:?}: spelling={:?} canonical={:?} decl_at={}",
-                self.spelling(),
-                self.canonical_type().spelling(),
-                self.ty().location_id()
-            ),
+            rest => {
+                // The `ABI::Windows::*` C++/WinRT projection mirrors a type that already
+                // exists in `Windows.winmd`, so map it to that reference rather than
+                // failing. Such types only reach here through declarations pulled in by an
+                // incidentally-included `winrt/` projection header (e.g. `asyncinfo.h`'s
+                // out-of-scope `IAsyncInfo::get_Status(AsyncStatus*)`, dragged in by
+                // `UserConsentVerifierInterop.h`); the header sweep drops the referencing
+                // declaration afterwards, but emission still has to resolve the type first.
+                // `ABI::Windows::Foundation::AsyncStatus` -> `Windows.Foundation.AsyncStatus`.
+                let spelling = self.spelling();
+                // Match on the canonical spelling: a `using`-aliased reference (as in
+                // `asyncinfo.h`) reports the bare name as its spelling but the fully
+                // qualified `ABI::Windows::…` path as its canonical type.
+                let canonical = self.canonical_type().spelling();
+                if let Some(projected) = canonical.strip_prefix("ABI::") {
+                    // Drop any generic arguments (`IReference<T>` -> `IReference`); these only
+                    // occur on the dropped projection declarations, never on a kept interop API.
+                    let projected = projected.split('<').next().unwrap_or(projected);
+                    if let Some((namespace, name)) = projected.rsplit_once("::") {
+                        return metadata::Type::value_named(&namespace.replace("::", "."), name);
+                    }
+                }
+                panic!(
+                    "unhandled type kind {rest:?}: spelling={:?} canonical={:?} decl_at={}",
+                    spelling,
+                    canonical,
+                    self.ty().location_id()
+                )
+            }
         }
     }
 }

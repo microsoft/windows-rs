@@ -4,12 +4,12 @@
 //! every flat/minimal consumer but leaves `--package` generation (which derives file layout and
 //! Cargo features from namespaces) with nothing to partition on. This module synthesises the
 //! "optional downstream map over the flat namespace": it routes every type/function/constant to
-//! a namespace named after its defining header (`wdm.rdl` -> `Windows.Wdk.wdm`) and rewrites the
+//! a namespace named after its defining header (`wdm.rdl` -> `Windows.wdm`) and rewrites the
 //! flat winmds into that partition via `windows_metadata::remap`.
 //!
 //! The partition is metadata-derived — by default one namespace per `.rdl` file, with a small
 //! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
-//! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.Win32.d2d`). There is no
+//! into one family namespace (`d2d1`, `d2d1_1`, `d2d1effects` -> `Windows.d2d`). There is no
 //! automatic name heuristic (it mis-groups prefix collisions like `msinkaut` under `msi`), no
 //! synthetic catch-all bucket, and no preserved `Win32_Foundation` special case.
 
@@ -22,7 +22,7 @@ pub struct Corpus {
     pub rdl_dir: &'static str,
     /// Flat winmd compiled from `rdl_dir`, e.g. `crates/libs/bindgen/default/Windows.Wdk.winmd`.
     pub winmd: &'static str,
-    /// Target namespace root, e.g. `Windows.Wdk` (headers become `Windows.Wdk.<stem>`).
+    /// Target namespace root, e.g. `Windows` (headers become `Windows.<stem>`).
     pub root: &'static str,
 }
 
@@ -30,7 +30,7 @@ pub struct Corpus {
 const FLAT_NAMESPACE: &str = "Windows.Win32";
 
 /// Curated header-name prefixes whose headers are safe to fold into a single family namespace
-/// (`d2d1`, `d2d1_1`, `d2d1effects`, `d2dbasetypes`, … -> `Windows.Win32.d2d`).
+/// (`d2d1`, `d2d1_1`, `d2d1effects`, `d2dbasetypes`, … -> `Windows.d2d`).
 ///
 /// This is deliberately an explicit allowlist rather than an automatic name heuristic. A purely
 /// name-based rule (fold any header into the shortest existing header-stem that is a prefix of it)

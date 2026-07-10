@@ -1,10 +1,7 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::{
-            combaseapi::*, exdisp::*, oaidl::*, objbase::*, oleauto::*, servprov::*, shldisp::*,
-            shlguid::*, shlobj_core::*, shobjidl_core::*, winuser::*, wtypes::*,
-        },
-        core::*,
+        combaseapi::*, core::*, exdisp::*, oaidl::*, objbase::*, oleauto::*, servprov::*,
+        shldisp::*, shlguid::*, shlobj_core::*, shobjidl_core::*, winuser::*, wtypes::*,
     };
 
     use std::mem::ManuallyDrop;

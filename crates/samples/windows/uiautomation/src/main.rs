@@ -1,7 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        UI::UIAutomation::*, Win32::combaseapi::*, Win32::objbase::*, Win32::uiautomationclient::*,
-        Win32::winuser::*, core::*,
+        UI::UIAutomation::*, combaseapi::*, core::*, objbase::*, uiautomationclient::*, winuser::*,
     };
 
     unsafe {

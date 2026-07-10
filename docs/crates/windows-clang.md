@@ -1027,26 +1027,42 @@ Test-specific drift beyond the sample patterns:
 
 ### Follow-up work (not done in this branch)
 
-- **The published `windows`/`windows-sys` crates no longer need an umbrella `Win32` module or
-  feature — the projection is now completely flat.** In the old editorial layout the module tree was
-  nested (`Win32::UI::Shell`, `Win32::System::Com`, …) and enabled via nested cargo features
-  (`Win32_UI_Shell`). The in-house metadata is flat: every header stem is its own top-level module
-  (`pathcch`, `urlmon`, `winerror`, …) gated by a same-named leaf feature (`pathcch = ["Win32"]`),
-  and the intermediate `Win32 = []` feature and the `Win32/mod.rs` re-export shell now carry nothing
-  of their own — they exist only as a vestigial grouping. **TODO:** drop the `Win32` umbrella feature
-  and the surrounding module entirely (emit the header-stem modules at the crate root, or at least
-  stop threading the empty `Win32` feature through every leaf's dependency list), simplifying every
-  consumer's feature list from `["Win32", "pathcch", …]` down to just the leaf stems.
-- **Missing WinRT `*Interop` bridge interfaces (metadata coverage gap).** The in-house metadata is
-  missing some of the WinRT-to-Win32 interop interfaces the editorial winmd carried:
-  `IUserConsentVerifierInterop`, `IWindowNative`, `IGraphicsCaptureItemInterop`, and
-  `IDisplayPathInterop` are absent, while others (`IInitializeWithWindow`, `IMemoryBufferByteAccess`,
-  `IBufferByteAccess`, `ICoreWindowInterop`) are present. As a stopgap the `consent` example was
-  reworked to call `UserConsentVerifier::RequestVerificationAsync` (no HWND) instead of the interop
-  `RequestVerificationForWindowAsync`, which changes what the sample demonstrates; the
-  `test_implement` `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is BLOCKED and left
-  unported. **TODO:** scrape the missing interop interfaces in `windows-clang` and restore the
-  original interop-based `consent` sample + `test_implement`.
+- **The published `windows`/`windows-sys` crates are now completely flat — no umbrella `Win32`/`Wdk`
+  module or feature (done).** In the old editorial layout the module tree was nested
+  (`Win32::UI::Shell`, `Win32::System::Com`, …) and enabled via nested cargo features
+  (`Win32_UI_Shell`). Every header stem is now its own top-level module at the crate root
+  (`windows::pathcch`, `windows::urlmon`, `windows::winerror`, …) gated by a same-named leaf feature.
+  Each leaf feature's dependency list is *computed* from the type graph — `Cfg::new(&ty.dependencies(reader))`
+  yields the set of dependency namespaces (e.g. `pathcch = ["minwindef", "winnt"]`), filtered to real
+  header stems by `feature_namespaces` (the empty `""` namespace of core types with no metadata
+  namespace is dropped). The `Win32`/`Wdk` grouping features and re-export shells are gone; consumers
+  list only the leaf stems they use.
+
+  One consequence: bindgen recognizes the core Win32 types (`GUID`, `HRESULT`, `PSTR`/`PWSTR`/…,
+  `BSTR`, `IUnknown`, …) by *name* via `Type::remap()`, whose old gate only matched the flat
+  `Windows.Win32` namespace. The package remapper rewrites those into per-stem namespaces
+  (`Windows.guiddef`, …), which the old gate missed → `GUID` stayed a plain struct and emitted as an
+  empty `GUID {}`. The gate now also accepts any flat Win32/WDK stem — a `Windows.`-prefixed namespace
+  whose leaf is lowercase (`is_flat_win32_stem`; WinRT leaves are always PascalCase).
+- **Numerics projection is applied in the `windows` crate only; `windows-sys` keeps the raw D2D
+  structs (done).** The name-based numerics substitution (`D2D_MATRIX_3X2_F` → `windows_numerics::Matrix3x2`,
+  `D2D_POINT_2F`/`D2D_VECTOR_2F` → `Vector2`, `D3DMATRIX`/`D2D_MATRIX_4X4_F` → `Matrix4x4`,
+  `D2D_VECTOR_4F` → `Vector4`) is gated on `!sys` inside `Type::remap()`. `windows-sys` is generated
+  from the Win32/WDK-only winmd (no `Windows.Foundation.Numerics`), so projecting there would panic at
+  resolution time; instead it faithfully emits the raw `D2D_*` structs (appropriate for the raw-FFI
+  crate). The `sys` flag is threaded through `Reader::new(files, sys)` — the decision must happen at
+  `remap()` time because `reader.rs` *skips* any type whose `remap()` is non-`None`, so a
+  resolution-time fallback is impossible.
+- **Missing WinRT `*Interop` bridge interfaces — partially resolved.** The in-house metadata was
+  missing several WinRT-to-Win32 interop interfaces the editorial winmd carried. `IUserConsentVerifierInterop`
+  (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`) and `IDisplayPathInterop`
+  (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`) are now
+  scraped by adding their headers to `win32.toml`; the `spellchecker`/`consent` sample was ported back
+  to the `windows` crate and the `test_implement` `com.rs` test (which `#[implement]`s
+  `IDisplayPathInterop`) is unblocked. These interop headers reference WinRT `ABI::` types, which
+  `windows-clang` now maps to their `Windows.winmd` WinRT equivalents in `cx.rs`'s `to_type`.
+  **TODO:** `IWindowNative` and `IGraphicsCaptureItemInterop` are still absent (present:
+  `IInitializeWithWindow`, `IMemoryBufferByteAccess`, `IBufferByteAccess`, `ICoreWindowInterop`).
 - **Macro-alias function scraping — done (`test_targets` unblocked).** A general, entirely heuristic
   pass in `windows-clang` recovers functions the SDK declares under a documented name that an
   object-like `#define` textually rewrites to a raw export before clang parses. The prototype is

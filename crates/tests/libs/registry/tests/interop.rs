@@ -3,7 +3,7 @@ use windows_registry::*;
 
 #[test]
 fn sys_interop() -> Result<()> {
-    use windows_sys::Win32::{minwindef::HKEY, winreg::*};
+    use windows_sys::{minwindef::HKEY, winreg::*};
 
     let test_key = "software\\windows-rs\\tests\\sys_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -42,7 +42,7 @@ fn sys_interop() -> Result<()> {
 
 #[test]
 fn windows_interop() -> Result<()> {
-    use windows::Win32::{minwindef::HKEY, winreg::*};
+    use windows::{minwindef::HKEY, winreg::*};
 
     let test_key = "software\\windows-rs\\tests\\windows_interop";
     _ = CURRENT_USER.remove_tree(test_key);

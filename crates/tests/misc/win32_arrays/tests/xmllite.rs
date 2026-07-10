@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::combaseapi::*, Win32::objidlbase::*, Win32::xmllite::*, core::*};
+use windows::{combaseapi::*, core::*, objidlbase::*, xmllite::*};
 
 #[test]
 fn test() -> Result<()> {

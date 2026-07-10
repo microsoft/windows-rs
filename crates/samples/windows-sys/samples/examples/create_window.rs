@@ -1,7 +1,6 @@
 fn main() {
     use windows_sys::{
-        Win32::libloaderapi::GetModuleHandleA, Win32::minwindef::*, Win32::windef::*,
-        Win32::winuser::*, core::*,
+        core::*, libloaderapi::GetModuleHandleA, minwindef::*, windef::*, winuser::*,
     };
 
     extern "system" fn wndproc(

@@ -1,7 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::{minwinbase::*, processthreadsapi::*, securitybaseapi::*, winbase::*, winnt::*},
-        core::*,
+        core::*, minwinbase::*, processthreadsapi::*, securitybaseapi::*, winbase::*, winnt::*,
     };
 
     unsafe {

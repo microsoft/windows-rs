@@ -1,7 +1,6 @@
 #![cfg(windows)]
 use windows_sys::{
-    Win32::{bcrypt::*, handleapi::*, ntstatus::*, synchapi::*, winerror::*, winnt::*, winuser::*},
-    core::*,
+    bcrypt::*, core::*, handleapi::*, ntstatus::*, synchapi::*, winerror::*, winnt::*, winuser::*,
 };
 
 #[test]

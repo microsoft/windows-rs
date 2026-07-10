@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Foundation::*, Win32::memorybuffer::IMemoryBufferByteAccess, core::*};
+    use windows::{Foundation::*, core::*, memorybuffer::IMemoryBufferByteAccess};
 
     // This example illustrates how to use IMemoryBufferByteAccess to access the underlying buffer
     // owned by the MemoryBuffer/IMemoryBufferReference. Note that this is inherently unsafe as

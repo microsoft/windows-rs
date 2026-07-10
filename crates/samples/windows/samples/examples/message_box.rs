@@ -1,8 +1,5 @@
 fn main() {
-    use windows::{
-        Win32::{shellapi::*, winuser::*},
-        core::*,
-    };
+    use windows::{core::*, shellapi::*, winuser::*};
 
     unsafe {
         MessageBoxA(None, s!("Ansi"), s!("World"), MB_OK);

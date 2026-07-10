@@ -1,7 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::wincred::{
-        CRED_ENUMERATE_ALL_CREDENTIALS, CREDENTIALW, CredEnumerateW, CredFree,
-    };
+    use windows::wincred::{CRED_ENUMERATE_ALL_CREDENTIALS, CREDENTIALW, CredEnumerateW, CredFree};
 
     let mut count = 0;
     let mut credentials_ptr = std::ptr::null_mut();

@@ -11,14 +11,24 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Wdk",
+    "mce",
+    "ntddk",
+    "ntdef",
+    "ntifs",
+    "ntnls",
+    "wdm",
     "offreg",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Wdk",
+    "mce",
+    "ntddk",
+    "ntdef",
+    "ntifs",
+    "ntnls",
+    "wdm",
     "offreg",
 ]
 

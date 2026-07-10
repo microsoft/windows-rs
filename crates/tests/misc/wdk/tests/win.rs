@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Wdk::offreg::*;
+use windows::offreg::*;
 
 #[test]
 fn test() {
