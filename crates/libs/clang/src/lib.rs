@@ -1741,6 +1741,12 @@ fn sweep_unreferenced(
 fn header_stem_to_namespace(file: &str) -> String {
     let base = file.rsplit(['/', '\\']).next().unwrap_or(file);
     let stem = base.rsplit_once('.').map_or(base, |(s, _)| s);
+    // A header whose own name is dotted (the WinRT interop headers, e.g.
+    // `Windows.Devices.Display.Core.Interop.h`) must collapse to a single flat
+    // partition segment. The flat Win32 surface ignores header namespacing, so the
+    // leftover dots must not survive to spawn a nested `Windows::Devices::…` module
+    // tree under `Win32`.
+    let stem: String = stem.chars().filter(|c| *c != '.').collect();
     let mut chars = stem.chars();
     match chars.next() {
         Some(first) => first.to_uppercase().collect::<String>() + chars.as_str(),

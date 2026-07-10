@@ -160,6 +160,8 @@ pub mod datetimeapi;
 pub mod dbgeng;
 #[cfg(feature = "dbghelp")]
 pub mod dbghelp;
+#[cfg(feature = "dbgprop")]
+pub mod dbgprop;
 #[cfg(feature = "dcommon")]
 pub mod dcommon;
 #[cfg(feature = "dcomp")]
@@ -570,6 +572,8 @@ pub mod ntddtape;
 pub mod ntddvol;
 #[cfg(feature = "ntdsapi")]
 pub mod ntdsapi;
+#[cfg(feature = "ntenclv")]
+pub mod ntenclv;
 #[cfg(feature = "ntquery")]
 pub mod ntquery;
 #[cfg(feature = "ntsecapi")]
@@ -954,6 +958,8 @@ pub mod windef;
 pub mod windns;
 #[cfg(feature = "windot11")]
 pub mod windot11;
+#[cfg(feature = "windowsdevicesdisplaycoreinterop")]
+pub mod windowsdevicesdisplaycoreinterop;
 #[cfg(feature = "windowsx")]
 pub mod windowsx;
 #[cfg(feature = "winefs")]

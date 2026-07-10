@@ -11,19 +11,15 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_System_Diagnostics_Debug",
-    "Win32_System_SystemServices",
-    "Win32_System_Environment",
-    "Win32_System_Kernel",
+    "winnt",
+    "ntenclv",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_System_Diagnostics_Debug",
-    "Win32_System_SystemServices",
-    "Win32_System_Environment",
-    "Win32_System_Kernel",
+    "winnt",
+    "ntenclv",
 ]
 
 [lints]

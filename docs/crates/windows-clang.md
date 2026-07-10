@@ -932,8 +932,9 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 5 remain in
-`exclude` on genuine metadata gaps. Six crates that only exercised deliberately-dropped surface were
+**Status: near-complete.** 41 test crates ported and back in the `crates/tests/*/*` glob; 3 remain in
+`exclude` (see BLOCKED below — one out-of-scope, one deferred-feature, one large mechanical port).
+Six crates that only exercised deliberately-dropped surface were
 **deleted**: the `test_extensions`/`test_variant` extension crates, plus the four curated-attribute
 crates `test_agile`/`test_alternate_success_code`/`test_handles`/`test_return_handle` (see
 "Un-inferable curated attributes removed" below). `cargo test --workspace
@@ -952,12 +953,33 @@ constructors, constructors_client, event_core, old, overloads, overloads_client}
 `winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
 conversions as example helpers).
 
-BLOCKED (4, genuine *scrapeable* metadata gaps — missing symbols/interfaces/headers, left unmodified
-and out of `members` — see Follow-up): `libs/implement`; `misc/{arch_feature, lib, structs}`.
-The gaps: missing interop interface `IDisplayPathInterop` (`implement`), missing `mscoree.h`/`ieframe.h`
-headers (`lib` — `GetFileVersion`/`IECreateFile` absent), and assorted absent symbols (`structs`,
-`arch_feature`). All four are fixable in `windows-clang` (add a header or surface an interface) — unlike
-the deleted curated-attribute crates below.
+BLOCKED (3, at the remaining metadata edges — see Follow-up): `libs/implement`; `misc/{lib, structs}`.
+The precise gaps:
+- `implement` — needs the WinRT interop interface `IDisplayPathInterop`. **Now scraped** by adding
+  `Windows.Devices.Display.Core.Interop.h` to `tool_win32` (a clean `IUnknown`-derived COM interface,
+  no `ABI::Windows::*` projection deps, unlike the `windows.ui.interop.h` scope-block above). The crate
+  still needs its editorial `Win32_*` features/paths ported to header stems (`Win32::System::Com`,
+  `::WinRT`, `::Ole`, `::Foundation`, `::UI::Shell`, …) — a large but mechanical port.
+- `structs` — the `propertykey` test needs `DEVPKEY_Device_BiosDeviceName`, a `DEFINE_DEVPROPKEY`
+  struct-valued constant. That is the deferred 3-crate constant-blob feature (see "Feature, not a
+  header add" above), *not* a header add. The other two tests are unblocked: `bstr` by scraping
+  `DbgProp.h` (`DebugPropertyInfo`), `winrt` needs no metadata (WinRT `Storage_Search::SortEntry`).
+- `lib` — the `clr` test needs `GetFileVersion` from `mscoree.h`, which ships **only in the NETFXSDK**
+  (`Windows Kits\NETFXSDK\4.8\…`), not the pinned Windows SDK NuGet — the same hermetic-build block as
+  `cor.h`/`RoMetadataApi.h` above, so it is genuinely **out of scope**, not a scrapable gap. The
+  `browser` test needs `IECreateFile` from `IEPMapi.h` (a clean header, but deprecated Internet
+  Explorer Protected-Mode API — low value).
+
+Newly un-blocked this pass: `misc/arch_feature` (scraped `ntenclv.h` for `VBS_BASIC_ENCLAVE_*`; `CONTEXT`
+already present in `winnt`). The `VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD` callback now faithfully
+takes the `PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR` typedef newtype (windows) / raw pointer (windows-sys),
+so the test uses that signature rather than a decayed `*const …DESCRIPTOR64`.
+
+Header-stem note: a header whose own file name is dotted (`Windows.Devices.Display.Core.Interop.h`)
+must collapse to a *single* flat partition (`windowsdevicesdisplaycoreinterop`), not a nested
+`Windows::Devices::…` module tree. `header_stem_to_namespace` strips the leftover dots from the stem;
+regression: `crates/tests/libs/clang/tests/header_partition.rs::dotted_header_flattens_to_single_partition`.
+
 (`libs/targets` was un-blocked by the general macro-alias pass, which recovers `RtlGenRandom` (and the
 `psapi` `K32*`/`EnumProcesses` family) — see Follow-up; `misc/wdk` by scraping `offreg.h` into
 `tool_wdk`; `misc/const_params` and `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to

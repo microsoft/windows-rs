@@ -134,3 +134,40 @@ fn scope_sweeps_unreferenced_out_of_scope() {
     assert!(!crt.contains("CRTNOISE"), "crt.rdl:\n{crt}");
     assert!(!crt.contains("CrtOnly"), "crt.rdl:\n{crt}");
 }
+
+// A dotted header file name (the WinRT interop headers, e.g.
+// `Windows.Devices.Display.Core.Interop.h`) must collapse to a single flat partition
+// leaf, not a nested namespace/module tree under the root. The leftover dots in the
+// stem are stripped so `Dotted.Name.Interop.h` → `dottednameinterop.rdl` in the flat
+// root namespace.
+#[test]
+fn dotted_header_flattens_to_single_partition() {
+    let scratch = format!("{}/header_dotted", env!("OUT_DIR"));
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .library("test.dll")
+        .input("partition_input/Dotted.Name.Interop.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    // The partition leaf has its dots stripped to a single flat segment; no nested
+    // `dotted.name.interop.rdl` or `Dotted/Name/Interop` tree is produced.
+    let dotted = read(&scratch, "dottednameinterop");
+    assert!(
+        !std::path::Path::new(&format!("{scratch}/dotted.name.interop.rdl")).exists(),
+        "a dotted-leaf rdl must not be produced"
+    );
+
+    // It emits the single flat root namespace and owns its function directly.
+    assert!(dotted.contains("mod Test {"), "dotted.rdl:\n{dotted}");
+    assert!(dotted.contains("fn DottedThing"), "dotted.rdl:\n{dotted}");
+}
+

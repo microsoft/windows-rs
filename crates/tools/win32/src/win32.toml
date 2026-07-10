@@ -131,6 +131,7 @@ headers = [
     "processthreadsapi.h",
     "sysinfoapi.h",
     "memoryapi.h",
+    "ntenclv.h",
     "psapi.h",
     "winreg.h",
     "winsvc.h",
@@ -160,6 +161,7 @@ headers = [
     "taskschd.h",
     "wuapi.h",
     "dbghelp.h",
+    "DbgProp.h",
     "evr.h",
     "codecapi.h",
     "directml.h",
@@ -342,6 +344,7 @@ headers = [
     "iiscnfg.h",
     "IntShCut.h",
     "cfapi.h",
+    "Windows.Devices.Display.Core.Interop.h",
     # WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     # scope_headers makes them roots). These are the flat COM/C interop headers that
     # win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
