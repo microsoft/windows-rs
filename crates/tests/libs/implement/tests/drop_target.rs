@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::{
-    Win32::Foundation::*, Win32::System::Com::*, Win32::System::Ole::*,
-    Win32::System::SystemServices::*, core::*,
+    Win32::{objidl::*, oleidl::*, windef::*, winuser::*},
+    core::*,
 };
 
 #[implement(IDataObject)]
@@ -14,10 +14,10 @@ impl IDataObject_Impl for DataObject_Impl {
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
         unimplemented!()
     }
-    fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
+    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
         unimplemented!()
     }
-    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> Result<()> {
         unimplemented!()
     }
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
@@ -47,9 +47,9 @@ impl IDropTarget_Impl for DropTarget_Impl {
     fn DragEnter(
         &self,
         object: Ref<IDataObject>,
-        state: MODIFIERKEYS_FLAGS,
+        state: u32,
         point: &POINTL,
-        effect: *mut DROPEFFECT,
+        effect: *mut u32,
     ) -> Result<()> {
         unsafe {
             assert_eq!(
@@ -63,19 +63,13 @@ impl IDropTarget_Impl for DropTarget_Impl {
             Ok(())
         }
     }
-    fn DragOver(&self, _: MODIFIERKEYS_FLAGS, _: &POINTL, _: *mut DROPEFFECT) -> Result<()> {
+    fn DragOver(&self, _: u32, _: &POINTL, _: *mut u32) -> Result<()> {
         unimplemented!()
     }
     fn DragLeave(&self) -> Result<()> {
         Ok(())
     }
-    fn Drop(
-        &self,
-        _: Ref<IDataObject>,
-        _: MODIFIERKEYS_FLAGS,
-        _: &POINTL,
-        _: *mut DROPEFFECT,
-    ) -> Result<()> {
+    fn Drop(&self, _: Ref<IDataObject>, _: u32, _: &POINTL, _: *mut u32) -> Result<()> {
         unimplemented!()
     }
 }

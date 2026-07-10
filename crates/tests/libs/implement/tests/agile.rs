@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::System::Com::{Marshal::*, *};
+use windows::Win32::objidlbase::*;
 use windows::core::*;
 
 #[interface("e9f8ddc5-7006-4c7f-9c1e-5a08e240cb13")]

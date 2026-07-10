@@ -3,7 +3,7 @@
 
 use std::sync::RwLock;
 use windows::Foundation::*;
-use windows::Win32::Foundation::*;
+use windows::Win32::winerror::*;
 use windows::core::*;
 use windows_collections::*;
 

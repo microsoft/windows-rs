@@ -1,12 +1,7 @@
-// Generates the Windows spell-checking API (`ISpellCheckerFactory`, `ISpellChecker`,
-// `IEnumSpellingError`, …) from the in-house Win32 metadata with `windows-bindgen`,
-// then checks a line of text supplied on the command line and prints corrections.
-
-#![allow(unused_qualifications, nonstandard_style, clippy::all)]
-
-include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
-
-use windows_core::*;
+use windows::Win32::combaseapi::*;
+use windows::Win32::objbase::*;
+use windows::Win32::spellcheck::*;
+use windows::core::*;
 
 fn main() -> Result<()> {
     let input = std::env::args()
@@ -14,7 +9,7 @@ fn main() -> Result<()> {
         .expect("Expected one command line argument for text to be spell-corrected");
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED.0 as u32).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let factory: ISpellCheckerFactory =
             CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)?;

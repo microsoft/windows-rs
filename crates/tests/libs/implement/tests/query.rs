@@ -1,7 +1,8 @@
 #![cfg(windows)]
 use windows::{
-    Foundation::*, Win32::Foundation::*, Win32::System::Com::Marshal::*, Win32::System::Com::*,
-    Win32::System::WinRT::*, core::*,
+    Foundation::*,
+    Win32::{objidlbase::*, weakreference::*, winerror::*},
+    core::*,
 };
 
 #[implement(IStringable)]

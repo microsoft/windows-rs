@@ -8,11 +8,6 @@ members = [
 ]
 exclude = [
     "crates/targets/baseline",
-    "crates/samples/windows/spellchecker",
-    # Test crates blocked on genuine metadata gaps in the regenerated windows/windows-sys crates
-    # (missing symbols/interfaces/headers). See docs/crates/windows-clang.md "Test migration status
-    # and recipe".
-    "crates/tests/libs/implement",
 ]
 
 [profile.release]

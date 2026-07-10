@@ -1,6 +1,5 @@
 #![cfg(windows)]
-use windows::Win32::Foundation::S_OK;
-use windows::Win32::System::Com::*;
+use windows::Win32::{objidl::*, objidlbase::*};
 use windows::core::*;
 
 #[implement(IPersistStream)]
@@ -13,8 +12,8 @@ impl IPersist_Impl for Test_Impl {
 }
 
 impl IPersistStream_Impl for Test_Impl {
-    fn IsDirty(&self) -> HRESULT {
-        S_OK
+    fn IsDirty(&self) -> Result<()> {
+        Ok(())
     }
 
     fn Load(&self, _: Ref<IStream>) -> Result<()> {

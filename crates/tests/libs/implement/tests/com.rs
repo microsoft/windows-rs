@@ -1,12 +1,12 @@
 #![cfg(windows)]
 use windows::Foundation::*;
-use windows::Win32::Foundation::HANDLE;
-use windows::Win32::System::WinRT::Display::*;
+use windows::Win32::windowsdevicesdisplaycoreinterop::*;
+use windows::Win32::winnt::HANDLE;
 use windows::core::*;
 
 #[implement(
     windows::Foundation::IStringable,
-    windows::Win32::System::WinRT::Display::IDisplayPathInterop
+    windows::Win32::windowsdevicesdisplaycoreinterop::IDisplayPathInterop
 )]
 struct Mix;
 

@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows::Foundation::*;
-use windows::Win32::System::Com::*;
+use windows::Win32::unknwnbase::*;
 use windows::core::*;
 
 #[implement(IClosable, IStringable)]
