@@ -4,6 +4,8 @@ windows_link::link!("d3d11.dll" "system" fn D3D11CreateDevice(padapter : *mut co
 windows_link::link!("d3d11.dll" "system" fn D3D11CreateDeviceAndSwapChain(padapter : *mut core::ffi::c_void, drivertype : super::d3dcommon::D3D_DRIVER_TYPE, software : super::minwindef::HMODULE, flags : u32, pfeaturelevels : *const super::d3dcommon::D3D_FEATURE_LEVEL, featurelevels : u32, sdkversion : u32, pswapchaindesc : *const super::dxgi::DXGI_SWAP_CHAIN_DESC, ppswapchain : *mut *mut core::ffi::c_void, ppdevice : *mut *mut core::ffi::c_void, pfeaturelevel : *mut super::d3dcommon::D3D_FEATURE_LEVEL, ppimmediatecontext : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(feature = "d3dcommon")]
 windows_link::link!("d3d11.dll" "system" fn D3D11On12CreateDevice(pdevice : *mut core::ffi::c_void, flags : u32, pfeaturelevels : *const super::d3dcommon::D3D_FEATURE_LEVEL, featurelevels : u32, ppcommandqueues : *const *mut core::ffi::c_void, numqueues : u32, nodemask : u32, ppdevice : *mut *mut core::ffi::c_void, ppimmediatecontext : *mut *mut core::ffi::c_void, pchosenfeaturelevel : *mut super::d3dcommon::D3D_FEATURE_LEVEL) -> windows_sys::core::HRESULT);
+#[cfg(feature = "d3dcommon")]
+windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 pub type APP_DEPRECATED_HRESULT = windows_sys::core::HRESULT;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -819,6 +821,19 @@ pub const D3D11_COMPARISON_LESS: D3D11_COMPARISON_FUNC = 2;
 pub const D3D11_COMPARISON_LESS_EQUAL: D3D11_COMPARISON_FUNC = 4;
 pub const D3D11_COMPARISON_NEVER: D3D11_COMPARISON_FUNC = 1;
 pub const D3D11_COMPARISON_NOT_EQUAL: D3D11_COMPARISON_FUNC = 6;
+pub const D3D11_COMPUTE_SHADER: D3D11_SHADER_TYPE = 6;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_COMPUTE_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+    pub ThreadIDInGroup: [u32; 3],
+    pub ThreadGroupID: [u32; 3],
+}
+impl Default for D3D11_COMPUTE_SHADER_TRACE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D11_CONSERVATIVE_RASTERIZATION_MODE = i32;
 pub const D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF: D3D11_CONSERVATIVE_RASTERIZATION_MODE = 0;
 pub const D3D11_CONSERVATIVE_RASTERIZATION_MODE_ON: D3D11_CONSERVATIVE_RASTERIZATION_MODE = 1;
@@ -1028,19 +1043,29 @@ pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: windows_sys::core::GUID = windows
 pub const D3D11_DECODER_PROFILE_WMV9_IDCT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
 pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
 pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_BLUE: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_GREEN: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_RED: f32 = 1.0;
+pub const D3D11_DEFAULT_BORDER_COLOR_COMPONENT: f32 = 0.0;
 pub const D3D11_DEFAULT_DEPTH_BIAS: u32 = 0;
+pub const D3D11_DEFAULT_DEPTH_BIAS_CLAMP: f32 = 0.0;
 pub const D3D11_DEFAULT_MAX_ANISOTROPY: u32 = 16;
+pub const D3D11_DEFAULT_MIP_LOD_BIAS: f32 = 0.0;
 pub const D3D11_DEFAULT_RENDER_TARGET_ARRAY_INDEX: u32 = 0;
 pub const D3D11_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
 pub const D3D11_DEFAULT_SCISSOR_ENDX: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_ENDY: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_STARTX: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_STARTY: u32 = 0;
+pub const D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS: f32 = 0.0;
 pub const D3D11_DEFAULT_STENCIL_READ_MASK: u32 = 255;
 pub const D3D11_DEFAULT_STENCIL_REFERENCE: u32 = 0;
 pub const D3D11_DEFAULT_STENCIL_WRITE_MASK: u32 = 255;
 pub const D3D11_DEFAULT_VIEWPORT_AND_SCISSORRECT_INDEX: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_HEIGHT: u32 = 0;
+pub const D3D11_DEFAULT_VIEWPORT_MAX_DEPTH: f32 = 0.0;
+pub const D3D11_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0.0;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
@@ -1102,6 +1127,12 @@ pub const D3D11_DEPTH_WRITE_MASK_ZERO: D3D11_DEPTH_WRITE_MASK = 0;
 pub const D3D11_DEVICE_CONTEXT_DEFERRED: D3D11_DEVICE_CONTEXT_TYPE = 1;
 pub const D3D11_DEVICE_CONTEXT_IMMEDIATE: D3D11_DEVICE_CONTEXT_TYPE = 0;
 pub type D3D11_DEVICE_CONTEXT_TYPE = i32;
+pub const D3D11_DOMAIN_SHADER: D3D11_SHADER_TYPE = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_DOMAIN_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
@@ -1395,6 +1426,15 @@ pub type D3D11_FILTER_TYPE = i32;
 pub const D3D11_FILTER_TYPE_LINEAR: D3D11_FILTER_TYPE = 1;
 pub const D3D11_FILTER_TYPE_MASK: u32 = 3;
 pub const D3D11_FILTER_TYPE_POINT: D3D11_FILTER_TYPE = 0;
+pub const D3D11_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
+pub const D3D11_FLOAT32_MAX: f32 = 340282350000000000000000000000000000000.0;
+pub const D3D11_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;
+pub const D3D11_FLOAT_TO_SRGB_EXPONENT_DENOMINATOR: f32 = 2.4;
+pub const D3D11_FLOAT_TO_SRGB_EXPONENT_NUMERATOR: f32 = 1.0;
+pub const D3D11_FLOAT_TO_SRGB_OFFSET: f32 = 0.055;
+pub const D3D11_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92;
+pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055;
+pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308;
 pub type D3D11_FORMAT_SUPPORT = i32;
 pub type D3D11_FORMAT_SUPPORT2 = i32;
 pub const D3D11_FORMAT_SUPPORT2_DISPLAYABLE: D3D11_FORMAT_SUPPORT2 = 65536;
@@ -1441,6 +1481,9 @@ pub const D3D11_FORMAT_SUPPORT_TYPED_UNORDERED_ACCESS_VIEW: D3D11_FORMAT_SUPPORT
 pub const D3D11_FORMAT_SUPPORT_VIDEO_ENCODER: D3D11_FORMAT_SUPPORT = 1073741824;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_INPUT: D3D11_FORMAT_SUPPORT = 536870912;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_OUTPUT: D3D11_FORMAT_SUPPORT = 268435456;
+pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
+pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
 #[derive(Clone, Copy)]
@@ -1484,6 +1527,12 @@ impl Default for D3D11_FUNCTION_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
+}
+pub const D3D11_GEOMETRY_SHADER: D3D11_SHADER_TYPE = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
+    pub Invocation: u64,
 }
 pub const D3D11_GS_INPUT_INSTANCE_ID_READS_PER_INST: u32 = 2;
 pub const D3D11_GS_INPUT_INSTANCE_ID_READ_PORTS: u32 = 1;
@@ -1530,6 +1579,8 @@ pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_COUNT: u32 = 1;
 pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_READ_PORTS: u32 = 1;
 pub const D3D11_HS_JOIN_PHASE_INSTANCE_COUNT_UPPER_BOUND: u32 = 4294967295;
+pub const D3D11_HS_MAXTESSFACTOR_LOWER_BOUND: f32 = 1.0;
+pub const D3D11_HS_MAXTESSFACTOR_UPPER_BOUND: f32 = 64.0;
 pub const D3D11_HS_OUTPUT_CONTROL_POINTS_MAX_TOTAL_SCALARS: u32 = 3968;
 pub const D3D11_HS_OUTPUT_CONTROL_POINT_ID_REGISTER_COMPONENTS: u32 = 1;
 pub const D3D11_HS_OUTPUT_CONTROL_POINT_ID_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
@@ -1542,6 +1593,12 @@ pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_COUNT: u32 = 32;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READ_PORTS: u32 = 1;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_SCALAR_COMPONENTS: u32 = 128;
+pub const D3D11_HULL_SHADER: D3D11_SHADER_TYPE = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_HULL_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 pub const D3D11_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
 pub const D3D11_IA_DEFAULT_PRIMITIVE_TOPOLOGY: u32 = 0;
 pub const D3D11_IA_DEFAULT_VERTEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
@@ -1655,6 +1712,7 @@ impl Default for D3D11_LIBRARY_DESC {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const D3D11_LINEAR_GAMMA: f32 = 1.0;
 pub type D3D11_LOGIC_OP = i32;
 pub const D3D11_LOGIC_OP_AND: D3D11_LOGIC_OP = 6;
 pub const D3D11_LOGIC_OP_AND_INVERTED: D3D11_LOGIC_OP = 13;
@@ -1694,8 +1752,11 @@ pub const D3D11_MAP_READ_WRITE: D3D11_MAP = 3;
 pub const D3D11_MAP_WRITE: D3D11_MAP = 2;
 pub const D3D11_MAP_WRITE_DISCARD: D3D11_MAP = 4;
 pub const D3D11_MAP_WRITE_NO_OVERWRITE: D3D11_MAP = 5;
+pub const D3D11_MAX_BORDER_COLOR_COMPONENT: f32 = 1.0;
+pub const D3D11_MAX_DEPTH: f32 = 1.0;
 pub const D3D11_MAX_MAXANISOTROPY: u32 = 16;
 pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
+pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3069,11 +3130,15 @@ pub const D3D11_MESSAGE_SEVERITY_INFO: D3D11_MESSAGE_SEVERITY = 3;
 pub const D3D11_MESSAGE_SEVERITY_MESSAGE: D3D11_MESSAGE_SEVERITY = 4;
 pub const D3D11_MESSAGE_SEVERITY_WARNING: D3D11_MESSAGE_SEVERITY = 2;
 pub const D3D11_MINOR_VERSION: u32 = 0;
+pub const D3D11_MIN_BORDER_COLOR_COMPONENT: f32 = 0.0;
+pub const D3D11_MIN_DEPTH: f32 = 0.0;
 pub const D3D11_MIN_FILTER_SHIFT: u32 = 4;
 pub const D3D11_MIN_MAXANISOTROPY: u32 = 0;
 pub const D3D11_MIP_FILTER_SHIFT: u32 = 0;
+pub const D3D11_MIP_LOD_BIAS_MAX: f32 = 15.99;
 pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8;
+pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3118,6 +3183,15 @@ impl Default for D3D11_PARAMETER_DESC {
     }
 }
 pub const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
+pub const D3D11_PIXEL_SHADER: D3D11_SHADER_TYPE = 5;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_PIXEL_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+    pub X: i32,
+    pub Y: i32,
+    pub SampleMask: u64,
+}
 pub const D3D11_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16;
 #[cfg(feature = "d3dcommon")]
 pub type D3D11_PRIMITIVE = super::d3dcommon::D3D_PRIMITIVE;
@@ -3138,6 +3212,7 @@ pub const D3D11_PS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_INPUT_REGISTER_COUNT: u32 = 32;
 pub const D3D11_PS_INPUT_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_PS_INPUT_REGISTER_READ_PORTS: u32 = 1;
+pub const D3D11_PS_LEGACY_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.0;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COMPONENTS: u32 = 1;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COUNT: u32 = 1;
@@ -3147,6 +3222,7 @@ pub const D3D11_PS_OUTPUT_MASK_REGISTER_COUNT: u32 = 1;
 pub const D3D11_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
 pub const D3D11_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
+pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D11_QUERY = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3363,6 +3439,7 @@ pub const D3D11_REQ_MULTI_ELEMENT_STRUCTURE_SIZE_IN_BYTES: u32 = 2048;
 pub const D3D11_REQ_RASTERIZER_OBJECT_COUNT_PER_DEVICE: u32 = 4096;
 pub const D3D11_REQ_RENDER_TO_BUFFER_WINDOW_WIDTH: u32 = 16384;
 pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_A_TERM: u32 = 128;
+pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_B_TERM: f32 = 0.25;
 pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_C_TERM: u32 = 2048;
 pub const D3D11_REQ_RESOURCE_VIEW_COUNT_PER_DEVICE_2_TO_EXP: u32 = 20;
 pub const D3D11_REQ_SAMPLER_OBJECT_COUNT_PER_DEVICE: u32 = 4096;
@@ -3617,6 +3694,35 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_SHADER_TRACE_DESC {
+    pub Type: D3D11_SHADER_TYPE,
+    pub Flags: u32,
+    pub Anonymous: D3D11_SHADER_TRACE_DESC_0,
+}
+impl Default for D3D11_SHADER_TRACE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D11_SHADER_TRACE_DESC_0 {
+    pub VertexShaderTraceDesc: D3D11_VERTEX_SHADER_TRACE_DESC,
+    pub HullShaderTraceDesc: D3D11_HULL_SHADER_TRACE_DESC,
+    pub DomainShaderTraceDesc: D3D11_DOMAIN_SHADER_TRACE_DESC,
+    pub GeometryShaderTraceDesc: D3D11_GEOMETRY_SHADER_TRACE_DESC,
+    pub PixelShaderTraceDesc: D3D11_PIXEL_SHADER_TRACE_DESC,
+    pub ComputeShaderTraceDesc: D3D11_COMPUTE_SHADER_TRACE_DESC,
+}
+impl Default for D3D11_SHADER_TRACE_DESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: u32 = 2;
+pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: u32 = 1;
 pub type D3D11_SHADER_TRACKING_OPTIONS = i32;
 pub const D3D11_SHADER_TRACKING_OPTION_ALLOW_SAME: D3D11_SHADER_TRACKING_OPTIONS = 16;
 pub const D3D11_SHADER_TRACKING_OPTION_ALL_HAZARDS: D3D11_SHADER_TRACKING_OPTIONS = 1006;
@@ -3642,6 +3748,7 @@ pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_GROUPSHARED_NON_UAV: D3D11_SHADER_
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NONE: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 0;
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NON_UAV_DEVICEMEMORY: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 2;
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_UAV_DEVICEMEMORY: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 1;
+pub type D3D11_SHADER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
 #[derive(Clone, Copy)]
@@ -3740,6 +3847,14 @@ pub const D3D11_SO_STREAM_COUNT: u32 = 4;
 pub const D3D11_SPEC_DATE_DAY: u32 = 16;
 pub const D3D11_SPEC_DATE_MONTH: u32 = 5;
 pub const D3D11_SPEC_DATE_YEAR: u32 = 2011;
+pub const D3D11_SPEC_VERSION: f64 = 1.07;
+pub const D3D11_SRGB_GAMMA: f32 = 2.2;
+pub const D3D11_SRGB_TO_FLOAT_DENOMINATOR_1: f32 = 12.92;
+pub const D3D11_SRGB_TO_FLOAT_DENOMINATOR_2: f32 = 1.055;
+pub const D3D11_SRGB_TO_FLOAT_EXPONENT: f32 = 2.4;
+pub const D3D11_SRGB_TO_FLOAT_OFFSET: f32 = 0.055;
+pub const D3D11_SRGB_TO_FLOAT_THRESHOLD: f32 = 0.04045;
+pub const D3D11_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5;
 #[cfg(feature = "d3dcommon")]
 pub type D3D11_SRV_DIMENSION = super::d3dcommon::D3D_SRV_DIMENSION;
 pub const D3D11_STANDARD_COMPONENT_BIT_COUNT: u32 = 32;
@@ -4160,6 +4275,142 @@ pub struct D3D11_TILE_SHAPE {
     pub HeightInTexels: u32,
     pub DepthInTexels: u32,
 }
+pub type D3D11_TRACE_COMPONENT_MASK = u8;
+pub const D3D11_TRACE_COMPONENT_W: u32 = 8;
+pub const D3D11_TRACE_COMPONENT_X: u32 = 1;
+pub const D3D11_TRACE_COMPONENT_Y: u32 = 2;
+pub const D3D11_TRACE_COMPONENT_Z: u32 = 4;
+pub const D3D11_TRACE_CONSTANT_BUFFER: D3D11_TRACE_REGISTER_TYPE = 8;
+pub type D3D11_TRACE_GS_INPUT_PRIMITIVE = i32;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_LINE: D3D11_TRACE_GS_INPUT_PRIMITIVE = 2;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_LINE_ADJ: D3D11_TRACE_GS_INPUT_PRIMITIVE = 6;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_POINT: D3D11_TRACE_GS_INPUT_PRIMITIVE = 1;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_TRIANGLE: D3D11_TRACE_GS_INPUT_PRIMITIVE = 3;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_TRIANGLE_ADJ: D3D11_TRACE_GS_INPUT_PRIMITIVE = 7;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_UNDEFINED: D3D11_TRACE_GS_INPUT_PRIMITIVE = 0;
+pub const D3D11_TRACE_IMMEDIATE32: D3D11_TRACE_REGISTER_TYPE = 9;
+pub const D3D11_TRACE_IMMEDIATE64: D3D11_TRACE_REGISTER_TYPE = 33;
+pub const D3D11_TRACE_IMMEDIATE_CONSTANT_BUFFER: D3D11_TRACE_REGISTER_TYPE = 3;
+pub const D3D11_TRACE_INDEXABLE_TEMP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 5;
+pub const D3D11_TRACE_INPUT_CONTROL_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 19;
+pub const D3D11_TRACE_INPUT_COVERAGE_MASK_REGISTER: D3D11_TRACE_REGISTER_TYPE = 28;
+pub const D3D11_TRACE_INPUT_CYCLE_COUNTER_REGISTER: D3D11_TRACE_REGISTER_TYPE = 34;
+pub const D3D11_TRACE_INPUT_DOMAIN_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 22;
+pub const D3D11_TRACE_INPUT_FORK_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 17;
+pub const D3D11_TRACE_INPUT_GS_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 30;
+pub const D3D11_TRACE_INPUT_JOIN_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 18;
+pub const D3D11_TRACE_INPUT_PATCH_CONSTANT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 21;
+pub const D3D11_TRACE_INPUT_PRIMITIVE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 2;
+pub const D3D11_TRACE_INPUT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 1;
+pub const D3D11_TRACE_INPUT_THREAD_GROUP_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 26;
+pub const D3D11_TRACE_INPUT_THREAD_ID_IN_GROUP_FLATTENED_REGISTER: D3D11_TRACE_REGISTER_TYPE = 29;
+pub const D3D11_TRACE_INPUT_THREAD_ID_IN_GROUP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 27;
+pub const D3D11_TRACE_INPUT_THREAD_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 25;
+pub const D3D11_TRACE_INTERFACE_POINTER: D3D11_TRACE_REGISTER_TYPE = 35;
+pub const D3D11_TRACE_MISC_GS_CUT: u32 = 2;
+pub const D3D11_TRACE_MISC_GS_CUT_STREAM: u32 = 16;
+pub const D3D11_TRACE_MISC_GS_EMIT: u32 = 1;
+pub const D3D11_TRACE_MISC_GS_EMIT_STREAM: u32 = 8;
+pub const D3D11_TRACE_MISC_HALT: u32 = 32;
+pub const D3D11_TRACE_MISC_MESSAGE: u32 = 64;
+pub type D3D11_TRACE_MISC_OPERATIONS_MASK = u16;
+pub const D3D11_TRACE_MISC_PS_DISCARD: u32 = 4;
+pub const D3D11_TRACE_OUTPUT_CONTROL_POINT_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 16;
+pub const D3D11_TRACE_OUTPUT_CONTROL_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 20;
+pub const D3D11_TRACE_OUTPUT_COVERAGE_MASK: D3D11_TRACE_REGISTER_TYPE = 13;
+pub const D3D11_TRACE_OUTPUT_DEPTH_GREATER_EQUAL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 31;
+pub const D3D11_TRACE_OUTPUT_DEPTH_LESS_EQUAL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 32;
+pub const D3D11_TRACE_OUTPUT_DEPTH_REGISTER: D3D11_TRACE_REGISTER_TYPE = 7;
+pub const D3D11_TRACE_OUTPUT_NULL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 0;
+pub const D3D11_TRACE_OUTPUT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 6;
+pub const D3D11_TRACE_RASTERIZER: D3D11_TRACE_REGISTER_TYPE = 12;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_TRACE_REGISTER {
+    pub RegType: D3D11_TRACE_REGISTER_TYPE,
+    pub Anonymous: D3D11_TRACE_REGISTER_0,
+    pub OperandIndex: u8,
+    pub Flags: u8,
+}
+impl Default for D3D11_TRACE_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D11_TRACE_REGISTER_0 {
+    pub Index1D: u16,
+    pub Index2D: [u16; 2],
+}
+impl Default for D3D11_TRACE_REGISTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1;
+pub type D3D11_TRACE_REGISTER_TYPE = i32;
+pub const D3D11_TRACE_RESOURCE: D3D11_TRACE_REGISTER_TYPE = 11;
+pub const D3D11_TRACE_SAMPLER: D3D11_TRACE_REGISTER_TYPE = 10;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_TRACE_STATS {
+    pub TraceDesc: D3D11_SHADER_TRACE_DESC,
+    pub NumInvocationsInStamp: u8,
+    pub TargetStampIndex: u8,
+    pub NumTraceSteps: u32,
+    pub InputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub OutputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub NumTemps: u16,
+    pub MaxIndexableTempIndex: u16,
+    pub IndexableTempSize: [u16; 4096],
+    pub ImmediateConstantBufferSize: u16,
+    pub PixelPosition: [[u32; 2]; 4],
+    pub PixelCoverageMask: [u64; 4],
+    pub PixelDiscardedMask: [u64; 4],
+    pub PixelCoverageMaskAfterShader: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMask: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepth: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [u64; 4],
+    pub PSOutputsDepth: windows_sys::core::BOOL,
+    pub PSOutputsMask: windows_sys::core::BOOL,
+    pub GSInputPrimitive: D3D11_TRACE_GS_INPUT_PRIMITIVE,
+    pub GSInputsPrimitiveID: windows_sys::core::BOOL,
+    pub HSOutputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub DSInputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+}
+impl Default for D3D11_TRACE_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_TRACE_STEP {
+    pub ID: u32,
+    pub InstructionActive: windows_sys::core::BOOL,
+    pub NumRegistersWritten: u8,
+    pub NumRegistersRead: u8,
+    pub MiscOperations: D3D11_TRACE_MISC_OPERATIONS_MASK,
+    pub OpcodeType: u32,
+    pub CurrentGlobalCycle: u64,
+}
+pub const D3D11_TRACE_STREAM: D3D11_TRACE_REGISTER_TYPE = 14;
+pub const D3D11_TRACE_TEMP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 4;
+pub const D3D11_TRACE_THIS_POINTER: D3D11_TRACE_REGISTER_TYPE = 15;
+pub const D3D11_TRACE_THREAD_GROUP_SHARED_MEMORY: D3D11_TRACE_REGISTER_TYPE = 24;
+pub const D3D11_TRACE_UNORDERED_ACCESS_VIEW: D3D11_TRACE_REGISTER_TYPE = 23;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_TRACE_VALUE {
+    pub Bits: [u32; 4],
+    pub ValidMask: D3D11_TRACE_COMPONENT_MASK,
+}
+impl Default for D3D11_TRACE_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D11_UAV_DIMENSION = i32;
 pub const D3D11_UAV_DIMENSION_BUFFER: D3D11_UAV_DIMENSION = 1;
 pub const D3D11_UAV_DIMENSION_TEXTURE1D: D3D11_UAV_DIMENSION = 2;
@@ -4239,6 +4490,12 @@ pub const D3D11_USAGE_STAGING: D3D11_USAGE = 3;
 pub type D3D11_VDOV_DIMENSION = i32;
 pub const D3D11_VDOV_DIMENSION_TEXTURE2D: D3D11_VDOV_DIMENSION = 1;
 pub const D3D11_VDOV_DIMENSION_UNKNOWN: D3D11_VDOV_DIMENSION = 0;
+pub const D3D11_VERTEX_SHADER: D3D11_SHADER_TYPE = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct D3D11_VERTEX_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_COLOR {

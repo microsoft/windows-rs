@@ -187,6 +187,11 @@ mod Windows {
         const PHOTO_FLASH_NONE_COMPULSORY: u32 = 16;
         const PHOTO_FLASH_WITHOUTSTROBE: u32 = 5;
         const PHOTO_FLASH_WITHSTROBE: u32 = 7;
+        const PHOTO_GAINCONTROL_HIGHGAINDOWN: f64 = 4.0;
+        const PHOTO_GAINCONTROL_HIGHGAINUP: f64 = 2.0;
+        const PHOTO_GAINCONTROL_LOWGAINDOWN: f64 = 3.0;
+        const PHOTO_GAINCONTROL_LOWGAINUP: f64 = 1.0;
+        const PHOTO_GAINCONTROL_NONE: f64 = 0.0;
         const PHOTO_LIGHTSOURCE_D55: u32 = 20;
         const PHOTO_LIGHTSOURCE_D65: u32 = 21;
         const PHOTO_LIGHTSOURCE_D75: u32 = 22;

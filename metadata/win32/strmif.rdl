@@ -37,6 +37,7 @@ mod Windows {
             cbSizeData: u32,
             COPPStatus: [u8; 4076],
         }
+        const AMF_AUTOMATICGAIN: f64 = -1.0;
         #[repr(i32)]
         enum AMOVERLAYFX {
             AMOVERFX_NOFX = 0,

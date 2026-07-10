@@ -1064,14 +1064,60 @@ Test-specific drift beyond the sample patterns:
      (parallel to `resolves_to_fixed_array`); a sys-mode struct with such a field now falls back to the
      manual zeroed `Default` impl instead of deriving. Regression fixture: `struct_typedef_pointer_sys.rdl`.
      RDL churn: `authz.rdl` (3 fns) + `setupapi.rdl` (2 fns) flip `system`→`C`; no other change.
-- **`cross.yml` hardcodes `-p test_win32` (still failing).** The `cross` workflow's cross-compile
-  smoke test (`.github/workflows/cross.yml:95`) runs `cargo test --no-run -p test_win32` for the
-  `gnu`/`gnullvm` targets, but `test_win32` is currently in the workspace `exclude` list → `error:
-  package ID specification 'test_win32' did not match any packages`. **TODO (next batch):** unblock
-  `test_win32` by porting its `Cargo.toml` from editorial features (`Win32_Graphics_Direct2D`, …) to
-  flat header stems and fixing any API drift in `win32.rs`/`winsock.rs`/`hresult.rs` — it is the
-  designated broad-surface cross-compile canary, so it should be the next test enabled. (Fallback if a
-  genuine gap blocks it: repoint the smoke test at an already-ported broad crate.)
+- **Floating-point constants scraped — done (systematic gap).** The flat Win32 metadata carried
+  **zero** floating-point constants (`Select-String "pub const \w+: f(32|64)"` over the whole
+  generated `windows` crate = 0 matches); every `windows-clang` const path handled only strings and
+  integers, so all float `#define`s and `const double` values were silently dropped. The whole
+  downstream pipeline was already float-capable (`metadata::Value::F32/F64`, the winmd R4/R8
+  reader/writer, riddle RDL emit/parse, `bindgen`'s `ValueExt::write`) — only the scraper was lossy.
+  Two clang sub-gaps, both fixed:
+  1. **Float `#define` macros** (`#define D2D1_DEFAULT_FLATTENING_TOLERANCE 0.25f`). `parse_literal`
+     (`const.rs`) only tried integer digits; added `parse_float_literal` (falls through when the
+     integer parse fails). A literal qualifies as float only if it has a `.` or a decimal exponent
+     `e`/`E` (so hex integers like `0xF` stay integers); an `f`/`F` suffix → `F32`, otherwise (or an
+     `l`/`L` long-double suffix) → `F64`. Hex floats (`0x1.8p3`) are rejected.
+  2. **File-scope `const float`/`const double` variables** (`const double UIA_ScrollPatternNoScroll =
+     -1;`). The `CXCursor_VarDecl` handler in `lib.rs` only scraped `IID_*` GUID vars; added
+     `Const::parse_var_decl` for const-qualified scalar `float`/`double`/`long double` VarDecls with an
+     evaluable initializer, backed by a new `Cursor::evaluate_double` (`cx.rs`) that reads
+     `CXEval_Float` *and* coerces a `CXEval_Int` result — libclang evaluates the integer initializer
+     `-1` of a `const double` as an int, so it must be coerced to the declared float type. Pointers,
+     aggregates, integer vars, and non-const vars are all rejected (keeps churn bounded and additive —
+     floats were entirely absent, so nothing collides). Regression fixture:
+     `crates/tests/libs/clang/input/const_float.h`.
+  Result: **251 float constants** now emit (D3D/D2D `*_DEFAULT_*`/`*_SRGB_*`/`FLOAT32_MAX`/…,
+  `UIA_*` doubles, etc.), all additive, all matching the retired editorial metadata's values.
+- **`expandedresources.h` + `d3d11shadertracing.h` scraped into `tool_win32` — done.** Both were
+  simply absent from `win32.toml`. `HasExpandedResources`/`GetExpandedResourceExclusiveCpuCount`/
+  `ReleaseExclusiveCpuSets` now emit (resolving to the `api-ms-win-gaming-expandedresources` apiset
+  via the `onecoreuap.lib` umbrella); `D3DDisassemble11Trace` + `ID3D11ShaderTrace`/`ID3D10ShaderTrace`
+  emit (resolving to `D3DCOMPILER_47.dll` via `d3dcompiler.lib`). Note `d3d11shadertracing.h`'s
+  content is attributed to the **`d3d11`** module (no separate `d3d11shadertracing` feature is
+  generated) — so `D3DDisassemble11Trace` lives at `Win32::d3d11`, gated by the `d3d11` feature.
+- **`cross.yml` hardcodes `-p test_win32` (partially unblocked; port in progress).** The `cross`
+  workflow's cross-compile smoke test (`.github/workflows/cross.yml:95`) runs
+  `cargo test --no-run -p test_win32`, but `test_win32` is in the workspace `exclude` list. The four
+  genuine metadata gaps that blocked it are now filled (above): `D3D12_DEFAULT_BLEND_FACTOR_ALPHA`
+  (f32), `UIA_ScrollPatternNoScroll` (f64), `HasExpandedResources`, `D3DDisassemble11Trace`. The
+  remaining work is **test-side API-drift adaptation**, not metadata gaps:
+  - **`win32.rs` / `hresult.rs` — portable.** Enum newtypes are now bare integer aliases
+    (`ACCESS_MODE`/`DXGI_ADAPTER_FLAG` → `type = i32`), so `X::default().0`→`X::default()`,
+    `both.0 == 3`→`both == 3`; DXGI flag params/returns are bare `u32`
+    (`MakeWindowAssociation(hwnd, 0)`, `GetCreationFlags() == 0`); `URI_CREATE_FLAGS::default()`→`0`.
+    BOOL-returning Win32 fns no longer auto-return `Result` (the flat metadata omits the error
+    transform) — use `windows_core::BOOL::ok()` (`SetEvent(e).ok()?`, `MiniDumpWriteDump(..).ok().unwrap_err()`);
+    `CreateEventW` now returns a bare `HANDLE` (drop the `?`). `hresult.rs`'s `ERROR_*` are bare `u32`
+    (wrap `WIN32_ERROR(ERROR_SUCCESS).into()`).
+  - **`winsock.rs` — BLOCKED on a genuine gap: the std ↔ WinSock interop `From`/`Into` conversions
+    are absent.** The flat output has **no** `From<std::net::Ipv4Addr> for IN_ADDR`,
+    `From<SocketAddrV4> for SOCKADDR_IN`, `From<IN_ADDR> for Ipv4Addr`, or the v6/`SOCKADDR_INET`
+    equivalents (grep for `Ipv4Addr` across `Win32/{inaddr,in6addr,ws2}` = 0). These were a
+    hand-authored/special-cased interop layer in the editorial projection; the in-house pipeline does
+    not (yet) emit them. Additional drift once that lands: `AF_INET`/`AF_INET6` are bare `u32` (was
+    the `ADDRESS_FAMILY` newtype) while `sin_family` stays `ADDRESS_FAMILY(pub u16)`, so comparisons
+    need `ADDRESS_FAMILY(AF_INET as u16)`. **TODO:** either build the std-net interop layer in the
+    projection (the larger, correct fix), or split `winsock.rs` out / gate it so `win32.rs` +
+    `hresult.rs` can enable the crate as the cross canary in the meantime.
 - **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
   `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
   explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add

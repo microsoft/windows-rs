@@ -248,6 +248,8 @@ pub mod excpt;
 pub mod exdisp;
 #[cfg(feature = "exdispid")]
 pub mod exdispid;
+#[cfg(feature = "expandedresources")]
+pub mod expandedresources;
 #[cfg(feature = "fhcfg")]
 pub mod fhcfg;
 #[cfg(feature = "fibersapi")]

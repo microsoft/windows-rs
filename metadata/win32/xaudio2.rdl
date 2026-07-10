@@ -207,7 +207,9 @@ mod Windows {
         }
         const XAUDIO2_DEBUG_ENGINE: u32 = 1;
         const XAUDIO2_DEFAULT_CHANNELS: u32 = 0;
+        const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1.0;
         const XAUDIO2_DEFAULT_FILTER_TYPE: u32 = 0;
+        const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2.0;
         const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1;
         const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0;
         #[encoding("ansi")]
@@ -260,12 +262,16 @@ mod Windows {
         const XAUDIO2_MAX_AUDIO_CHANNELS: u32 = 64;
         const XAUDIO2_MAX_BUFFERS_SYSTEM: u32 = 2;
         const XAUDIO2_MAX_BUFFER_BYTES: u32 = 2147483648;
+        const XAUDIO2_MAX_FILTER_FREQUENCY: f32 = 1.0;
+        const XAUDIO2_MAX_FILTER_ONEOVERQ: f32 = 1.5;
+        const XAUDIO2_MAX_FREQ_RATIO: f32 = 1024.0;
         const XAUDIO2_MAX_INSTANCES: u32 = 8;
         const XAUDIO2_MAX_LOOP_COUNT: u32 = 254;
         const XAUDIO2_MAX_QUEUED_BUFFERS: u32 = 64;
         const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: u32 = 600000;
         const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: u32 = 300000;
         const XAUDIO2_MAX_SAMPLE_RATE: u32 = 384000;
+        const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216.0;
         const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000;
         const XAUDIO2_NO_LOOP_REGION: u32 = 0;
         const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536;

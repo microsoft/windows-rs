@@ -214,6 +214,7 @@ pub type ToggleState = i32;
 pub const ToggleState_Indeterminate: ToggleState = 2;
 pub const ToggleState_Off: ToggleState = 0;
 pub const ToggleState_On: ToggleState = 1;
+pub const UIA_ScrollPatternNoScroll: f64 = -1.0;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct UIAutomationEventInfo {

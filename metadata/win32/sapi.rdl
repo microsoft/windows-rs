@@ -2936,6 +2936,7 @@ mod Windows {
             SWTAdded = 1,
             SWTDeleted = 2,
         }
+        const Speech_Default_Weight: f32 = 1.0;
         #[guid(0x7b8fcb42_0e9d_4f00_a048_7b04d6179d3d)]
         interface _ISpeechRecoContextEvents: IDispatch {}
         #[guid(0xa372acd1_3bef_4bbd_8ffb_cb3e2b416af8)]

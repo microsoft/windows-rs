@@ -48,6 +48,31 @@ impl Const {
         Ok(Some(Self { name, value }))
     }
 
+    /// Try to parse a file-scope floating-point `const` variable declaration
+    /// (e.g. `const double UIA_ScrollPatternNoScroll = -1;`) as a typed
+    /// constant. Win32 headers use this pattern for a handful of floating-point
+    /// API constants that have no other representation in the flat metadata, so
+    /// they would otherwise be dropped entirely. Only const-qualified scalar
+    /// `float`/`double` variables with an evaluable constant initializer are
+    /// accepted; pointers, aggregates, integers, non-const variables, and
+    /// anything that fails constant evaluation return `None`.
+    pub fn parse_var_decl(cursor: &Cursor) -> Option<Self> {
+        let name = cursor.name();
+        if name.is_empty() || name.starts_with('_') {
+            return None;
+        }
+        let ty = cursor.ty();
+        if !ty.is_const() {
+            return None;
+        }
+        let value = match ty.canonical_type().kind() {
+            CXType_Float => metadata::Value::F32(cursor.evaluate_double()? as f32),
+            CXType_Double | CXType_LongDouble => metadata::Value::F64(cursor.evaluate_double()?),
+            _ => return None,
+        };
+        Some(Self { name, value })
+    }
+
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
         let ty = write_type(namespace, &self.value.ty());
@@ -691,9 +716,48 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
 
     // Integer literal — strip suffix to isolate the digits.
     let (digits, suffix) = split_int_suffix(lit);
-    let raw: u64 = parse_int_digits(digits)?;
+    let Some(raw) = parse_int_digits(digits) else {
+        // Not an integer — try a floating-point literal (e.g. `1.0f`, `.5`, `1e3`).
+        return parse_float_literal(lit, negate);
+    };
 
     integer_value(raw, suffix, negate)
+}
+
+/// Parse a C floating-point literal (`1.0f`, `0.5`, `.5f`, `1e-3`, `3.14`) into a
+/// [`metadata::Value::F32`] (an `f`/`F` suffix) or [`metadata::Value::F64`] (no
+/// suffix, or an `l`/`L` long-double suffix which projects to `f64`).
+///
+/// A literal qualifies as floating-point only when it carries a decimal point or
+/// a decimal exponent (`e`/`E`), which is what distinguishes it from an integer:
+/// this keeps hex integers such as `0xF` (whose trailing `F` is a hex digit, not a
+/// float suffix) on the integer path. Hex float literals (`0x1.8p3`) are not
+/// represented and return `None`.
+fn parse_float_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
+    let lower = lit.to_ascii_lowercase();
+    if lower.starts_with("0x") {
+        return None;
+    }
+
+    let (body, is_f32) = if let Some(body) = lower.strip_suffix('f') {
+        (body, true)
+    } else if let Some(body) = lower.strip_suffix('l') {
+        (body, false)
+    } else {
+        (lower.as_str(), false)
+    };
+
+    if !body.contains('.') && !body.contains('e') {
+        return None;
+    }
+
+    if is_f32 {
+        let value = body.parse::<f32>().ok()?;
+        Some(metadata::Value::F32(if negate { -value } else { value }))
+    } else {
+        let value = body.parse::<f64>().ok()?;
+        Some(metadata::Value::F64(if negate { -value } else { value }))
+    }
 }
 
 /// Decode a C narrow-string literal body (the text between the quotes) into its

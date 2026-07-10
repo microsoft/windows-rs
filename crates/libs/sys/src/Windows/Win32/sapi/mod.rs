@@ -1637,6 +1637,7 @@ pub type SpeechVoicePriority = i32;
 pub type SpeechVoiceSpeakFlags = i32;
 pub type SpeechWordPronounceable = i32;
 pub type SpeechWordType = i32;
+pub const Speech_Default_Weight: f32 = 1.0;
 pub const Subsequence: SPMATCHINGMODE = 1;
 pub const SubsequenceContentRequired: SPMATCHINGMODE = 5;
 pub const eLEXTYPE_APP: SPLEXICONTYPE = 2;

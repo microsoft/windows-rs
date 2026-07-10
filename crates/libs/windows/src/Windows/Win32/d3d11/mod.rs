@@ -38,6 +38,18 @@ where
         )
     }
 }
+#[cfg(feature = "d3dcommon")]
+#[inline]
+pub unsafe fn D3DDisassemble11Trace<P2>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, ptrace: P2, startstep: u32, numsteps: u32, flags: u32) -> windows_core::Result<super::d3dcommon::ID3D10Blob>
+where
+    P2: windows_core::Param<ID3D11ShaderTrace>,
+{
+    windows_core::link!("d3dcompiler_47.dll" "system" fn D3DDisassemble11Trace(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ptrace : *mut core::ffi::c_void, startstep : u32, numsteps : u32, flags : u32, ppdisassembly : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        D3DDisassemble11Trace(psrcdata, srcdatasize, ptrace.param().abi(), startstep, numsteps, flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct APP_DEPRECATED_HRESULT(pub windows_core::HRESULT);
@@ -773,6 +785,19 @@ pub const D3D11_COMPARISON_LESS: D3D11_COMPARISON_FUNC = 2;
 pub const D3D11_COMPARISON_LESS_EQUAL: D3D11_COMPARISON_FUNC = 4;
 pub const D3D11_COMPARISON_NEVER: D3D11_COMPARISON_FUNC = 1;
 pub const D3D11_COMPARISON_NOT_EQUAL: D3D11_COMPARISON_FUNC = 6;
+pub const D3D11_COMPUTE_SHADER: D3D11_SHADER_TYPE = 6;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D11_COMPUTE_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+    pub ThreadIDInGroup: [u32; 3],
+    pub ThreadGroupID: [u32; 3],
+}
+impl Default for D3D11_COMPUTE_SHADER_TRACE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D11_CONSERVATIVE_RASTERIZATION_MODE = i32;
 pub const D3D11_CONSERVATIVE_RASTERIZATION_MODE_OFF: D3D11_CONSERVATIVE_RASTERIZATION_MODE = 0;
 pub const D3D11_CONSERVATIVE_RASTERIZATION_MODE_ON: D3D11_CONSERVATIVE_RASTERIZATION_MODE = 1;
@@ -982,19 +1007,29 @@ pub const D3D11_DECODER_PROFILE_WMV8_POSTPROC: windows_core::GUID = windows_core
 pub const D3D11_DECODER_PROFILE_WMV9_IDCT: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
 pub const D3D11_DECODER_PROFILE_WMV9_MOCOMP: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
 pub const D3D11_DECODER_PROFILE_WMV9_POSTPROC: windows_core::GUID = windows_core::GUID::from_u128(0x1b81be90_a0c7_11d3_b984_00c04f2e73c5);
+pub const D3D11_DEFAULT_BLEND_FACTOR_ALPHA: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_BLUE: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_GREEN: f32 = 1.0;
+pub const D3D11_DEFAULT_BLEND_FACTOR_RED: f32 = 1.0;
+pub const D3D11_DEFAULT_BORDER_COLOR_COMPONENT: f32 = 0.0;
 pub const D3D11_DEFAULT_DEPTH_BIAS: u32 = 0;
+pub const D3D11_DEFAULT_DEPTH_BIAS_CLAMP: f32 = 0.0;
 pub const D3D11_DEFAULT_MAX_ANISOTROPY: u32 = 16;
+pub const D3D11_DEFAULT_MIP_LOD_BIAS: f32 = 0.0;
 pub const D3D11_DEFAULT_RENDER_TARGET_ARRAY_INDEX: u32 = 0;
 pub const D3D11_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
 pub const D3D11_DEFAULT_SCISSOR_ENDX: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_ENDY: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_STARTX: u32 = 0;
 pub const D3D11_DEFAULT_SCISSOR_STARTY: u32 = 0;
+pub const D3D11_DEFAULT_SLOPE_SCALED_DEPTH_BIAS: f32 = 0.0;
 pub const D3D11_DEFAULT_STENCIL_READ_MASK: u32 = 255;
 pub const D3D11_DEFAULT_STENCIL_REFERENCE: u32 = 0;
 pub const D3D11_DEFAULT_STENCIL_WRITE_MASK: u32 = 255;
 pub const D3D11_DEFAULT_VIEWPORT_AND_SCISSORRECT_INDEX: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_HEIGHT: u32 = 0;
+pub const D3D11_DEFAULT_VIEWPORT_MAX_DEPTH: f32 = 0.0;
+pub const D3D11_DEFAULT_VIEWPORT_MIN_DEPTH: f32 = 0.0;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
@@ -1056,6 +1091,12 @@ pub const D3D11_DEPTH_WRITE_MASK_ZERO: D3D11_DEPTH_WRITE_MASK = 0;
 pub const D3D11_DEVICE_CONTEXT_DEFERRED: D3D11_DEVICE_CONTEXT_TYPE = 1;
 pub const D3D11_DEVICE_CONTEXT_IMMEDIATE: D3D11_DEVICE_CONTEXT_TYPE = 0;
 pub type D3D11_DEVICE_CONTEXT_TYPE = i32;
+pub const D3D11_DOMAIN_SHADER: D3D11_SHADER_TYPE = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_DOMAIN_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
@@ -1349,6 +1390,15 @@ pub type D3D11_FILTER_TYPE = i32;
 pub const D3D11_FILTER_TYPE_LINEAR: D3D11_FILTER_TYPE = 1;
 pub const D3D11_FILTER_TYPE_MASK: u32 = 3;
 pub const D3D11_FILTER_TYPE_POINT: D3D11_FILTER_TYPE = 0;
+pub const D3D11_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
+pub const D3D11_FLOAT32_MAX: f32 = 340282350000000000000000000000000000000.0;
+pub const D3D11_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;
+pub const D3D11_FLOAT_TO_SRGB_EXPONENT_DENOMINATOR: f32 = 2.4;
+pub const D3D11_FLOAT_TO_SRGB_EXPONENT_NUMERATOR: f32 = 1.0;
+pub const D3D11_FLOAT_TO_SRGB_OFFSET: f32 = 0.055;
+pub const D3D11_FLOAT_TO_SRGB_SCALE_1: f32 = 12.92;
+pub const D3D11_FLOAT_TO_SRGB_SCALE_2: f32 = 1.055;
+pub const D3D11_FLOAT_TO_SRGB_THRESHOLD: f32 = 0.0031308;
 pub type D3D11_FORMAT_SUPPORT = i32;
 pub type D3D11_FORMAT_SUPPORT2 = i32;
 pub const D3D11_FORMAT_SUPPORT2_DISPLAYABLE: D3D11_FORMAT_SUPPORT2 = 65536;
@@ -1395,6 +1445,9 @@ pub const D3D11_FORMAT_SUPPORT_TYPED_UNORDERED_ACCESS_VIEW: D3D11_FORMAT_SUPPORT
 pub const D3D11_FORMAT_SUPPORT_VIDEO_ENCODER: D3D11_FORMAT_SUPPORT = 1073741824;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_INPUT: D3D11_FORMAT_SUPPORT = 536870912;
 pub const D3D11_FORMAT_SUPPORT_VIDEO_PROCESSOR_OUTPUT: D3D11_FORMAT_SUPPORT = 268435456;
+pub const D3D11_FTOI_INSTRUCTION_MAX_INPUT: f32 = 2147483600.0;
+pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
+pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1432,6 +1485,12 @@ pub struct D3D11_FUNCTION_DESC {
     pub HasReturn: windows_core::BOOL,
     pub Has10Level9VertexShader: windows_core::BOOL,
     pub Has10Level9PixelShader: windows_core::BOOL,
+}
+pub const D3D11_GEOMETRY_SHADER: D3D11_SHADER_TYPE = 4;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
+    pub Invocation: u64,
 }
 pub const D3D11_GS_INPUT_INSTANCE_ID_READS_PER_INST: u32 = 2;
 pub const D3D11_GS_INPUT_INSTANCE_ID_READ_PORTS: u32 = 1;
@@ -1478,6 +1537,8 @@ pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_COUNT: u32 = 1;
 pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_HS_INPUT_PRIMITIVE_ID_REGISTER_READ_PORTS: u32 = 1;
 pub const D3D11_HS_JOIN_PHASE_INSTANCE_COUNT_UPPER_BOUND: u32 = 4294967295;
+pub const D3D11_HS_MAXTESSFACTOR_LOWER_BOUND: f32 = 1.0;
+pub const D3D11_HS_MAXTESSFACTOR_UPPER_BOUND: f32 = 64.0;
 pub const D3D11_HS_OUTPUT_CONTROL_POINTS_MAX_TOTAL_SCALARS: u32 = 3968;
 pub const D3D11_HS_OUTPUT_CONTROL_POINT_ID_REGISTER_COMPONENTS: u32 = 1;
 pub const D3D11_HS_OUTPUT_CONTROL_POINT_ID_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
@@ -1490,6 +1551,12 @@ pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_COUNT: u32 = 32;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READ_PORTS: u32 = 1;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_SCALAR_COMPONENTS: u32 = 128;
+pub const D3D11_HULL_SHADER: D3D11_SHADER_TYPE = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_HULL_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 pub const D3D11_IA_DEFAULT_INDEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
 pub const D3D11_IA_DEFAULT_PRIMITIVE_TOPOLOGY: u32 = 0;
 pub const D3D11_IA_DEFAULT_VERTEX_BUFFER_OFFSET_IN_BYTES: u32 = 0;
@@ -1592,6 +1659,7 @@ pub struct D3D11_LIBRARY_DESC {
     pub Flags: u32,
     pub FunctionCount: u32,
 }
+pub const D3D11_LINEAR_GAMMA: f32 = 1.0;
 pub type D3D11_LOGIC_OP = i32;
 pub const D3D11_LOGIC_OP_AND: D3D11_LOGIC_OP = 6;
 pub const D3D11_LOGIC_OP_AND_INVERTED: D3D11_LOGIC_OP = 13;
@@ -1631,8 +1699,11 @@ pub const D3D11_MAP_READ_WRITE: D3D11_MAP = 3;
 pub const D3D11_MAP_WRITE: D3D11_MAP = 2;
 pub const D3D11_MAP_WRITE_DISCARD: D3D11_MAP = 4;
 pub const D3D11_MAP_WRITE_NO_OVERWRITE: D3D11_MAP = 5;
+pub const D3D11_MAX_BORDER_COLOR_COMPONENT: f32 = 1.0;
+pub const D3D11_MAX_DEPTH: f32 = 1.0;
 pub const D3D11_MAX_MAXANISOTROPY: u32 = 16;
 pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
+pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3006,11 +3077,15 @@ pub const D3D11_MESSAGE_SEVERITY_INFO: D3D11_MESSAGE_SEVERITY = 3;
 pub const D3D11_MESSAGE_SEVERITY_MESSAGE: D3D11_MESSAGE_SEVERITY = 4;
 pub const D3D11_MESSAGE_SEVERITY_WARNING: D3D11_MESSAGE_SEVERITY = 2;
 pub const D3D11_MINOR_VERSION: u32 = 0;
+pub const D3D11_MIN_BORDER_COLOR_COMPONENT: f32 = 0.0;
+pub const D3D11_MIN_DEPTH: f32 = 0.0;
 pub const D3D11_MIN_FILTER_SHIFT: u32 = 4;
 pub const D3D11_MIN_MAXANISOTROPY: u32 = 0;
 pub const D3D11_MIP_FILTER_SHIFT: u32 = 0;
+pub const D3D11_MIP_LOD_BIAS_MAX: f32 = 15.99;
 pub const D3D11_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8;
 pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8;
+pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -3049,6 +3124,15 @@ pub struct D3D11_PARAMETER_DESC {
     pub FirstOutComponent: u32,
 }
 pub const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
+pub const D3D11_PIXEL_SHADER: D3D11_SHADER_TYPE = 5;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_PIXEL_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+    pub X: i32,
+    pub Y: i32,
+    pub SampleMask: u64,
+}
 pub const D3D11_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16;
 #[cfg(feature = "d3dcommon")]
 #[repr(transparent)]
@@ -3073,6 +3157,7 @@ pub const D3D11_PS_INPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_INPUT_REGISTER_COUNT: u32 = 32;
 pub const D3D11_PS_INPUT_REGISTER_READS_PER_INST: u32 = 2;
 pub const D3D11_PS_INPUT_REGISTER_READ_PORTS: u32 = 1;
+pub const D3D11_PS_LEGACY_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.0;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COMPONENTS: u32 = 1;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_OUTPUT_DEPTH_REGISTER_COUNT: u32 = 1;
@@ -3082,6 +3167,7 @@ pub const D3D11_PS_OUTPUT_MASK_REGISTER_COUNT: u32 = 1;
 pub const D3D11_PS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
 pub const D3D11_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
+pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D11_QUERY = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3298,6 +3384,7 @@ pub const D3D11_REQ_MULTI_ELEMENT_STRUCTURE_SIZE_IN_BYTES: u32 = 2048;
 pub const D3D11_REQ_RASTERIZER_OBJECT_COUNT_PER_DEVICE: u32 = 4096;
 pub const D3D11_REQ_RENDER_TO_BUFFER_WINDOW_WIDTH: u32 = 16384;
 pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_A_TERM: u32 = 128;
+pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_B_TERM: f32 = 0.25;
 pub const D3D11_REQ_RESOURCE_SIZE_IN_MEGABYTES_EXPRESSION_C_TERM: u32 = 2048;
 pub const D3D11_REQ_RESOURCE_VIEW_COUNT_PER_DEVICE_2_TO_EXP: u32 = 20;
 pub const D3D11_REQ_SAMPLER_OBJECT_COUNT_PER_DEVICE: u32 = 4096;
@@ -3536,6 +3623,35 @@ impl Default for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_SHADER_TRACE_DESC {
+    pub Type: D3D11_SHADER_TYPE,
+    pub Flags: u32,
+    pub Anonymous: D3D11_SHADER_TRACE_DESC_0,
+}
+impl Default for D3D11_SHADER_TRACE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D11_SHADER_TRACE_DESC_0 {
+    pub VertexShaderTraceDesc: D3D11_VERTEX_SHADER_TRACE_DESC,
+    pub HullShaderTraceDesc: D3D11_HULL_SHADER_TRACE_DESC,
+    pub DomainShaderTraceDesc: D3D11_DOMAIN_SHADER_TRACE_DESC,
+    pub GeometryShaderTraceDesc: D3D11_GEOMETRY_SHADER_TRACE_DESC,
+    pub PixelShaderTraceDesc: D3D11_PIXEL_SHADER_TRACE_DESC,
+    pub ComputeShaderTraceDesc: D3D11_COMPUTE_SHADER_TRACE_DESC,
+}
+impl Default for D3D11_SHADER_TRACE_DESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_READS: u32 = 2;
+pub const D3D11_SHADER_TRACE_FLAG_RECORD_REGISTER_WRITES: u32 = 1;
 pub type D3D11_SHADER_TRACKING_OPTIONS = i32;
 pub const D3D11_SHADER_TRACKING_OPTION_ALLOW_SAME: D3D11_SHADER_TRACKING_OPTIONS = 16;
 pub const D3D11_SHADER_TRACKING_OPTION_ALL_HAZARDS: D3D11_SHADER_TRACKING_OPTIONS = 1006;
@@ -3561,6 +3677,7 @@ pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_GROUPSHARED_NON_UAV: D3D11_SHADER_
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NONE: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 0;
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_NON_UAV_DEVICEMEMORY: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 2;
 pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_UAV_DEVICEMEMORY: D3D11_SHADER_TRACKING_RESOURCE_TYPE = 1;
+pub type D3D11_SHADER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3642,6 +3759,14 @@ pub const D3D11_SO_STREAM_COUNT: u32 = 4;
 pub const D3D11_SPEC_DATE_DAY: u32 = 16;
 pub const D3D11_SPEC_DATE_MONTH: u32 = 5;
 pub const D3D11_SPEC_DATE_YEAR: u32 = 2011;
+pub const D3D11_SPEC_VERSION: f64 = 1.07;
+pub const D3D11_SRGB_GAMMA: f32 = 2.2;
+pub const D3D11_SRGB_TO_FLOAT_DENOMINATOR_1: f32 = 12.92;
+pub const D3D11_SRGB_TO_FLOAT_DENOMINATOR_2: f32 = 1.055;
+pub const D3D11_SRGB_TO_FLOAT_EXPONENT: f32 = 2.4;
+pub const D3D11_SRGB_TO_FLOAT_OFFSET: f32 = 0.055;
+pub const D3D11_SRGB_TO_FLOAT_THRESHOLD: f32 = 0.04045;
+pub const D3D11_SRGB_TO_FLOAT_TOLERANCE_IN_ULP: f32 = 0.5;
 #[cfg(feature = "d3dcommon")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -4070,6 +4195,146 @@ pub struct D3D11_TILE_SHAPE {
     pub HeightInTexels: u32,
     pub DepthInTexels: u32,
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D11_TRACE_COMPONENT_MASK(pub u8);
+pub const D3D11_TRACE_COMPONENT_W: u32 = 8;
+pub const D3D11_TRACE_COMPONENT_X: u32 = 1;
+pub const D3D11_TRACE_COMPONENT_Y: u32 = 2;
+pub const D3D11_TRACE_COMPONENT_Z: u32 = 4;
+pub const D3D11_TRACE_CONSTANT_BUFFER: D3D11_TRACE_REGISTER_TYPE = 8;
+pub type D3D11_TRACE_GS_INPUT_PRIMITIVE = i32;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_LINE: D3D11_TRACE_GS_INPUT_PRIMITIVE = 2;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_LINE_ADJ: D3D11_TRACE_GS_INPUT_PRIMITIVE = 6;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_POINT: D3D11_TRACE_GS_INPUT_PRIMITIVE = 1;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_TRIANGLE: D3D11_TRACE_GS_INPUT_PRIMITIVE = 3;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_TRIANGLE_ADJ: D3D11_TRACE_GS_INPUT_PRIMITIVE = 7;
+pub const D3D11_TRACE_GS_INPUT_PRIMITIVE_UNDEFINED: D3D11_TRACE_GS_INPUT_PRIMITIVE = 0;
+pub const D3D11_TRACE_IMMEDIATE32: D3D11_TRACE_REGISTER_TYPE = 9;
+pub const D3D11_TRACE_IMMEDIATE64: D3D11_TRACE_REGISTER_TYPE = 33;
+pub const D3D11_TRACE_IMMEDIATE_CONSTANT_BUFFER: D3D11_TRACE_REGISTER_TYPE = 3;
+pub const D3D11_TRACE_INDEXABLE_TEMP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 5;
+pub const D3D11_TRACE_INPUT_CONTROL_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 19;
+pub const D3D11_TRACE_INPUT_COVERAGE_MASK_REGISTER: D3D11_TRACE_REGISTER_TYPE = 28;
+pub const D3D11_TRACE_INPUT_CYCLE_COUNTER_REGISTER: D3D11_TRACE_REGISTER_TYPE = 34;
+pub const D3D11_TRACE_INPUT_DOMAIN_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 22;
+pub const D3D11_TRACE_INPUT_FORK_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 17;
+pub const D3D11_TRACE_INPUT_GS_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 30;
+pub const D3D11_TRACE_INPUT_JOIN_INSTANCE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 18;
+pub const D3D11_TRACE_INPUT_PATCH_CONSTANT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 21;
+pub const D3D11_TRACE_INPUT_PRIMITIVE_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 2;
+pub const D3D11_TRACE_INPUT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 1;
+pub const D3D11_TRACE_INPUT_THREAD_GROUP_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 26;
+pub const D3D11_TRACE_INPUT_THREAD_ID_IN_GROUP_FLATTENED_REGISTER: D3D11_TRACE_REGISTER_TYPE = 29;
+pub const D3D11_TRACE_INPUT_THREAD_ID_IN_GROUP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 27;
+pub const D3D11_TRACE_INPUT_THREAD_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 25;
+pub const D3D11_TRACE_INTERFACE_POINTER: D3D11_TRACE_REGISTER_TYPE = 35;
+pub const D3D11_TRACE_MISC_GS_CUT: u32 = 2;
+pub const D3D11_TRACE_MISC_GS_CUT_STREAM: u32 = 16;
+pub const D3D11_TRACE_MISC_GS_EMIT: u32 = 1;
+pub const D3D11_TRACE_MISC_GS_EMIT_STREAM: u32 = 8;
+pub const D3D11_TRACE_MISC_HALT: u32 = 32;
+pub const D3D11_TRACE_MISC_MESSAGE: u32 = 64;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct D3D11_TRACE_MISC_OPERATIONS_MASK(pub u16);
+pub const D3D11_TRACE_MISC_PS_DISCARD: u32 = 4;
+pub const D3D11_TRACE_OUTPUT_CONTROL_POINT_ID_REGISTER: D3D11_TRACE_REGISTER_TYPE = 16;
+pub const D3D11_TRACE_OUTPUT_CONTROL_POINT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 20;
+pub const D3D11_TRACE_OUTPUT_COVERAGE_MASK: D3D11_TRACE_REGISTER_TYPE = 13;
+pub const D3D11_TRACE_OUTPUT_DEPTH_GREATER_EQUAL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 31;
+pub const D3D11_TRACE_OUTPUT_DEPTH_LESS_EQUAL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 32;
+pub const D3D11_TRACE_OUTPUT_DEPTH_REGISTER: D3D11_TRACE_REGISTER_TYPE = 7;
+pub const D3D11_TRACE_OUTPUT_NULL_REGISTER: D3D11_TRACE_REGISTER_TYPE = 0;
+pub const D3D11_TRACE_OUTPUT_REGISTER: D3D11_TRACE_REGISTER_TYPE = 6;
+pub const D3D11_TRACE_RASTERIZER: D3D11_TRACE_REGISTER_TYPE = 12;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_TRACE_REGISTER {
+    pub RegType: D3D11_TRACE_REGISTER_TYPE,
+    pub Anonymous: D3D11_TRACE_REGISTER_0,
+    pub OperandIndex: u8,
+    pub Flags: u8,
+}
+impl Default for D3D11_TRACE_REGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union D3D11_TRACE_REGISTER_0 {
+    pub Index1D: u16,
+    pub Index2D: [u16; 2],
+}
+impl Default for D3D11_TRACE_REGISTER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const D3D11_TRACE_REGISTER_FLAGS_RELATIVE_INDEXING: u32 = 1;
+pub type D3D11_TRACE_REGISTER_TYPE = i32;
+pub const D3D11_TRACE_RESOURCE: D3D11_TRACE_REGISTER_TYPE = 11;
+pub const D3D11_TRACE_SAMPLER: D3D11_TRACE_REGISTER_TYPE = 10;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct D3D11_TRACE_STATS {
+    pub TraceDesc: D3D11_SHADER_TRACE_DESC,
+    pub NumInvocationsInStamp: u8,
+    pub TargetStampIndex: u8,
+    pub NumTraceSteps: u32,
+    pub InputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub OutputMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub NumTemps: u16,
+    pub MaxIndexableTempIndex: u16,
+    pub IndexableTempSize: [u16; 4096],
+    pub ImmediateConstantBufferSize: u16,
+    pub PixelPosition: [[u32; 2]; 4],
+    pub PixelCoverageMask: [u64; 4],
+    pub PixelDiscardedMask: [u64; 4],
+    pub PixelCoverageMaskAfterShader: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMask: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepth: [u64; 4],
+    pub PixelCoverageMaskAfterA2CSampleMaskDepthStencil: [u64; 4],
+    pub PSOutputsDepth: windows_core::BOOL,
+    pub PSOutputsMask: windows_core::BOOL,
+    pub GSInputPrimitive: D3D11_TRACE_GS_INPUT_PRIMITIVE,
+    pub GSInputsPrimitiveID: windows_core::BOOL,
+    pub HSOutputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+    pub DSInputPatchConstantMask: [D3D11_TRACE_COMPONENT_MASK; 32],
+}
+impl Default for D3D11_TRACE_STATS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_TRACE_STEP {
+    pub ID: u32,
+    pub InstructionActive: windows_core::BOOL,
+    pub NumRegistersWritten: u8,
+    pub NumRegistersRead: u8,
+    pub MiscOperations: D3D11_TRACE_MISC_OPERATIONS_MASK,
+    pub OpcodeType: u32,
+    pub CurrentGlobalCycle: u64,
+}
+pub const D3D11_TRACE_STREAM: D3D11_TRACE_REGISTER_TYPE = 14;
+pub const D3D11_TRACE_TEMP_REGISTER: D3D11_TRACE_REGISTER_TYPE = 4;
+pub const D3D11_TRACE_THIS_POINTER: D3D11_TRACE_REGISTER_TYPE = 15;
+pub const D3D11_TRACE_THREAD_GROUP_SHARED_MEMORY: D3D11_TRACE_REGISTER_TYPE = 24;
+pub const D3D11_TRACE_UNORDERED_ACCESS_VIEW: D3D11_TRACE_REGISTER_TYPE = 23;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct D3D11_TRACE_VALUE {
+    pub Bits: [u32; 4],
+    pub ValidMask: D3D11_TRACE_COMPONENT_MASK,
+}
+impl Default for D3D11_TRACE_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D11_UAV_DIMENSION = i32;
 pub const D3D11_UAV_DIMENSION_BUFFER: D3D11_UAV_DIMENSION = 1;
 pub const D3D11_UAV_DIMENSION_TEXTURE1D: D3D11_UAV_DIMENSION = 2;
@@ -4149,6 +4414,12 @@ pub const D3D11_USAGE_STAGING: D3D11_USAGE = 3;
 pub type D3D11_VDOV_DIMENSION = i32;
 pub const D3D11_VDOV_DIMENSION_TEXTURE2D: D3D11_VDOV_DIMENSION = 1;
 pub const D3D11_VDOV_DIMENSION_UNKNOWN: D3D11_VDOV_DIMENSION = 0;
+pub const D3D11_VERTEX_SHADER: D3D11_SHADER_TYPE = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct D3D11_VERTEX_SHADER_TRACE_DESC {
+    pub Invocation: u64,
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3D11_VIDEO_COLOR {
@@ -12300,6 +12571,169 @@ impl ID3D11ShaderResourceView1_Vtbl {
 }
 #[cfg(all(feature = "d3dcommon", feature = "dxgi"))]
 impl windows_core::RuntimeName for ID3D11ShaderResourceView1 {}
+windows_core::imp::define_interface!(ID3D11ShaderTrace, ID3D11ShaderTrace_Vtbl, 0x36b013e6_2811_4845_baa7_d623fe0df104);
+windows_core::imp::interface_hierarchy!(ID3D11ShaderTrace, windows_core::IUnknown);
+impl ID3D11ShaderTrace {
+    pub unsafe fn TraceReady(&self, ptestcount: Option<*mut u64>) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).TraceReady)(windows_core::Interface::as_raw(self), ptestcount.unwrap_or(core::mem::zeroed()) as _) }
+    }
+    pub unsafe fn ResetTrace(&self) {
+        unsafe {
+            (windows_core::Interface::vtable(self).ResetTrace)(windows_core::Interface::as_raw(self));
+        }
+    }
+    pub unsafe fn GetTraceStats(&self, ptracestats: *mut D3D11_TRACE_STATS) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetTraceStats)(windows_core::Interface::as_raw(self), ptracestats as _) }
+    }
+    pub unsafe fn PSSelectStamp(&self, stampindex: u32) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).PSSelectStamp)(windows_core::Interface::as_raw(self), stampindex) }
+    }
+    pub unsafe fn GetInitialRegisterContents(&self, pregister: *const D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetInitialRegisterContents)(windows_core::Interface::as_raw(self), pregister, pvalue as _) }
+    }
+    pub unsafe fn GetStep(&self, stepindex: u32, ptracestep: *mut D3D11_TRACE_STEP) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetStep)(windows_core::Interface::as_raw(self), stepindex, ptracestep as _) }
+    }
+    pub unsafe fn GetWrittenRegister(&self, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetWrittenRegister)(windows_core::Interface::as_raw(self), stepindex, writtenregisterindex, pregister as _, pvalue as _) }
+    }
+    pub unsafe fn GetReadRegister(&self, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+        unsafe { (windows_core::Interface::vtable(self).GetReadRegister)(windows_core::Interface::as_raw(self), stepindex, readregisterindex, pregister as _, pvalue as _) }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D11ShaderTrace_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub TraceReady: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub ResetTrace: unsafe extern "system" fn(*mut core::ffi::c_void),
+    pub GetTraceStats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_TRACE_STATS) -> windows_core::HRESULT,
+    pub PSSelectStamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub GetInitialRegisterContents: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT,
+    pub GetStep: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D11_TRACE_STEP) -> windows_core::HRESULT,
+    pub GetWrittenRegister: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT,
+    pub GetReadRegister: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut D3D11_TRACE_REGISTER, *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT,
+}
+pub trait ID3D11ShaderTrace_Impl: windows_core::IUnknownImpl {
+    fn TraceReady(&self, ptestcount: *mut u64) -> windows_core::Result<()>;
+    fn ResetTrace(&self);
+    fn GetTraceStats(&self, ptracestats: *mut D3D11_TRACE_STATS) -> windows_core::Result<()>;
+    fn PSSelectStamp(&self, stampindex: u32) -> windows_core::Result<()>;
+    fn GetInitialRegisterContents(&self, pregister: *const D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::Result<()>;
+    fn GetStep(&self, stepindex: u32, ptracestep: *mut D3D11_TRACE_STEP) -> windows_core::Result<()>;
+    fn GetWrittenRegister(&self, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::Result<()>;
+    fn GetReadRegister(&self, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::Result<()>;
+}
+impl ID3D11ShaderTrace_Vtbl {
+    pub const fn new<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn TraceReady<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptestcount: *mut u64) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::TraceReady(this, core::mem::transmute_copy(&ptestcount)).into()
+            }
+        }
+        unsafe extern "system" fn ResetTrace<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::ResetTrace(this);
+            }
+        }
+        unsafe extern "system" fn GetTraceStats<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptracestats: *mut D3D11_TRACE_STATS) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::GetTraceStats(this, core::mem::transmute_copy(&ptracestats)).into()
+            }
+        }
+        unsafe extern "system" fn PSSelectStamp<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stampindex: u32) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::PSSelectStamp(this, core::mem::transmute_copy(&stampindex)).into()
+            }
+        }
+        unsafe extern "system" fn GetInitialRegisterContents<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pregister: *const D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::GetInitialRegisterContents(this, core::mem::transmute_copy(&pregister), core::mem::transmute_copy(&pvalue)).into()
+            }
+        }
+        unsafe extern "system" fn GetStep<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stepindex: u32, ptracestep: *mut D3D11_TRACE_STEP) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::GetStep(this, core::mem::transmute_copy(&stepindex), core::mem::transmute_copy(&ptracestep)).into()
+            }
+        }
+        unsafe extern "system" fn GetWrittenRegister<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stepindex: u32, writtenregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::GetWrittenRegister(this, core::mem::transmute_copy(&stepindex), core::mem::transmute_copy(&writtenregisterindex), core::mem::transmute_copy(&pregister), core::mem::transmute_copy(&pvalue)).into()
+            }
+        }
+        unsafe extern "system" fn GetReadRegister<Identity: ID3D11ShaderTrace_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, stepindex: u32, readregisterindex: u32, pregister: *mut D3D11_TRACE_REGISTER, pvalue: *mut D3D11_TRACE_VALUE) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ID3D11ShaderTrace_Impl::GetReadRegister(this, core::mem::transmute_copy(&stepindex), core::mem::transmute_copy(&readregisterindex), core::mem::transmute_copy(&pregister), core::mem::transmute_copy(&pvalue)).into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            TraceReady: TraceReady::<Identity, OFFSET>,
+            ResetTrace: ResetTrace::<Identity, OFFSET>,
+            GetTraceStats: GetTraceStats::<Identity, OFFSET>,
+            PSSelectStamp: PSSelectStamp::<Identity, OFFSET>,
+            GetInitialRegisterContents: GetInitialRegisterContents::<Identity, OFFSET>,
+            GetStep: GetStep::<Identity, OFFSET>,
+            GetWrittenRegister: GetWrittenRegister::<Identity, OFFSET>,
+            GetReadRegister: GetReadRegister::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D11ShaderTrace as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D11ShaderTrace {}
+windows_core::imp::define_interface!(ID3D11ShaderTraceFactory, ID3D11ShaderTraceFactory_Vtbl, 0x1fbad429_66ab_41cc_9617_667ac10e4459);
+windows_core::imp::interface_hierarchy!(ID3D11ShaderTraceFactory, windows_core::IUnknown);
+impl ID3D11ShaderTraceFactory {
+    pub unsafe fn CreateShaderTrace<P0>(&self, pshader: P0, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> windows_core::Result<ID3D11ShaderTrace>
+    where
+        P0: windows_core::Param<windows_core::IUnknown>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateShaderTrace)(windows_core::Interface::as_raw(self), pshader.param().abi(), ptracedesc, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID3D11ShaderTraceFactory_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub CreateShaderTrace: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const D3D11_SHADER_TRACE_DESC, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+pub trait ID3D11ShaderTraceFactory_Impl: windows_core::IUnknownImpl {
+    fn CreateShaderTrace(&self, pshader: windows_core::Ref<windows_core::IUnknown>, ptracedesc: *const D3D11_SHADER_TRACE_DESC) -> windows_core::Result<ID3D11ShaderTrace>;
+}
+impl ID3D11ShaderTraceFactory_Vtbl {
+    pub const fn new<Identity: ID3D11ShaderTraceFactory_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn CreateShaderTrace<Identity: ID3D11ShaderTraceFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pshader: *mut core::ffi::c_void, ptracedesc: *const D3D11_SHADER_TRACE_DESC, ppshadertrace: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match ID3D11ShaderTraceFactory_Impl::CreateShaderTrace(this, core::mem::transmute_copy(&pshader), core::mem::transmute_copy(&ptracedesc)) {
+                    Ok(ok__) => {
+                        ppshadertrace.write(core::mem::transmute(ok__));
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateShaderTrace: CreateShaderTrace::<Identity, OFFSET> }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ID3D11ShaderTraceFactory as windows_core::Interface>::IID
+    }
+}
+impl windows_core::RuntimeName for ID3D11ShaderTraceFactory {}
 windows_core::imp::define_interface!(ID3D11SwitchToRef, ID3D11SwitchToRef_Vtbl, 0x1ef337e3_58e7_4f83_a692_db221f5ed47e);
 windows_core::imp::interface_hierarchy!(ID3D11SwitchToRef, windows_core::IUnknown);
 impl ID3D11SwitchToRef {

@@ -641,6 +641,30 @@ impl Cursor {
         }
     }
 
+    /// Evaluate this cursor as a compile-time constant expression and return the
+    /// floating-point result, or `None` if evaluation fails or the result is not a
+    /// float. Integer results are *not* coerced — callers that want an integer use
+    /// [`evaluate_unsigned`](Self::evaluate_unsigned).
+    pub fn evaluate_double(&self) -> Option<f64> {
+        unsafe {
+            let result = clang_Cursor_Evaluate(self.0);
+            if result.is_null() {
+                return None;
+            }
+            let kind = clang_EvalResult_getKind(result);
+            let value = match kind {
+                CXEval_Float => Some(clang_EvalResult_getAsDouble(result)),
+                // A floating-point constant may have an integer initializer
+                // (e.g. `const double UIA_ScrollPatternNoScroll = -1;`), which
+                // libclang evaluates as an integer; coerce it to the float type.
+                CXEval_Int => Some(clang_EvalResult_getAsLongLong(result) as f64),
+                _ => None,
+            };
+            clang_EvalResult_dispose(result);
+            value
+        }
+    }
+
     pub fn ty(&self) -> Type {
         Type(unsafe { clang_getCursorType(self.0) })
     }

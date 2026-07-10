@@ -495,6 +495,11 @@ impl<'a> Parser<'a> {
                             self.iid_vars.insert(iface_name.to_string(), uuid);
                         }
                     }
+                } else if let Some(c) = Const::parse_var_decl(&child)
+                    && !self.ref_map.contains_key(&c.name)
+                    && !collector.contains_key(&c.name)
+                {
+                    collector.insert(Item::Const(c));
                 }
             }
             _ => {}

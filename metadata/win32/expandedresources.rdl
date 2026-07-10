@@ -1,0 +1,11 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
+        extern fn GetExpandedResourceExclusiveCpuCount(exclusiveCpuCount: *mut u32) -> HRESULT;
+        #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
+        extern fn HasExpandedResources(hasExpandedResources: *mut BOOL) -> HRESULT;
+        #[library("api-ms-win-gaming-expandedresources-l1-1-0.dll")]
+        extern fn ReleaseExclusiveCpuSets() -> HRESULT;
+    }
+}

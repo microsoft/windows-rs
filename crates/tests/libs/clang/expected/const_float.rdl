@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    const DConst: f64 = -1.0;
+    const DVAL: f64 = 3.14;
+    const FConst: f32 = 2.5;
+    const FVAL: f32 = 1.0;
+    const NEG_F: f32 = -0.5;
+}

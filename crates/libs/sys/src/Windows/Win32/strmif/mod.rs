@@ -70,6 +70,7 @@ impl Default for AMCOPPStatusOutput {
         unsafe { core::mem::zeroed() }
     }
 }
+pub const AMF_AUTOMATICGAIN: f64 = -1.0;
 pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = 8;
 pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = 2;
 pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = 4;

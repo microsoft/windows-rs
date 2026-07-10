@@ -102,6 +102,7 @@ mod Windows {
             D2D1_DEBUG_LEVEL_INFORMATION = 3,
             D2D1_DEBUG_LEVEL_FORCE_DWORD = -1,
         }
+        const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25;
         struct D2D1_DRAWING_STATE_DESCRIPTION {
             antialiasMode: D2D1_ANTIALIAS_MODE,
             textAntialiasMode: D2D1_TEXT_ANTIALIAS_MODE,
