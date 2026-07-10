@@ -4,8 +4,6 @@ pub trait TypeDefExt {
     fn type_name(&self) -> TypeName;
     fn generics(&self) -> Vec<Type>;
     fn underlying_type_ext(&self, reader: &Reader) -> Type;
-    fn invalid_values(&self) -> Vec<i64>;
-    fn free_function(&self, reader: &Reader) -> Option<CppFn>;
     fn is_agile(&self) -> bool;
     fn is_async(&self) -> bool;
 }
@@ -28,47 +26,15 @@ impl TypeDefExt for TypeDef {
         }
     }
 
-    fn invalid_values(&self) -> Vec<i64> {
-        let mut values = Vec::new();
-        for attribute in self.attributes() {
-            if attribute.name() == "InvalidHandleValueAttribute" {
-                if let Some((_, Value::I64(value))) = attribute.value().first() {
-                    values.push(*value);
-                }
-            }
-        }
-        values
-    }
-
-    fn free_function(&self, reader: &Reader) -> Option<CppFn> {
-        if let Some(attribute) = self.find_attribute("RAIIFreeAttribute") {
-            if let Some((_, Value::Utf8(name))) = attribute.value().first() {
-                if let Some(Type::CppFn(ty)) = reader.with_full_name(self.namespace(), name).next()
-                {
-                    let signature = ty.method.method_signature(ty.namespace, &[], reader);
-
-                    if signature.params.len() == 1 {
-                        return Some(ty);
-                    }
-                }
-            }
-        }
-        None
-    }
-
     fn is_agile(&self) -> bool {
         for attribute in self.attributes() {
-            match attribute.name() {
-                "AgileAttribute" => return true,
-                "MarshalingBehaviorAttribute" => {
-                    if matches!(
-                        attribute.value().first(),
-                        Some((_, Value::EnumValue(_, inner))) if matches!(**inner, Value::I32(2))
-                    ) {
-                        return true;
-                    }
-                }
-                _ => {}
+            if attribute.name() == "MarshalingBehaviorAttribute"
+                && matches!(
+                    attribute.value().first(),
+                    Some((_, Value::EnumValue(_, inner))) if matches!(**inner, Value::I32(2))
+                )
+            {
+                return true;
             }
         }
         self.is_async()

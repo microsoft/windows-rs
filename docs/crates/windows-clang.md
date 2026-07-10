@@ -823,11 +823,11 @@ Additional drift patterns surfaced by these:
   once added to the workspace `members`.
 - **Handle typedefs carry no `RAIIFree`, so `Owned<HANDLE>` does not compile.** The faithful
   in-house metadata scraped by `windows-clang` does not emit the `RAIIFreeAttribute` the editorial
-  winmd hand-added, so `windows-bindgen` generates no `windows_core::Free` impl for `HANDLE` and
-  friends (`cpp_handle.rs` only emits `Free` when `type_def.rs::free_function` finds the attribute).
+  winmd hand-added, so no `windows_core::Free` impl is generated for `HANDLE` and friends.
   `windows_overlapped` therefore keeps the raw `HANDLE` and calls `CloseHandle(...)` explicitly
-  instead of relying on `Owned` RAII. (Restoring `RAIIFree` would be a `windows-clang` metadata
-  enhancement, tracked separately from the sample port.)
+  instead of relying on `Owned` RAII. (The now-dead `Free`/`RAIIFree` handling was **removed** from
+  `windows-bindgen` in PR #4689 — see "Un-inferable curated attributes removed" in Follow-up — so this
+  is a settled scope decision, not a pending metadata enhancement.)
 - **Win32 error constants are bare `u32`, not `WIN32_ERROR`.** `ERROR_IO_PENDING` etc. are plain
   integers with no `Into<HRESULT>`; wrap for comparison against `Error::code()`:
   `WIN32_ERROR(ERROR_IO_PENDING).into()`.
@@ -906,9 +906,11 @@ for *every* `-p` build — so test crates are re-added to `members` one batch at
 ported (keeping the list always resolvable), and the `crates/tests/*/*` glob is restored only once
 all are green.
 
-**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 9 remain in
-`exclude` on genuine metadata gaps (the former `test_extensions`/`test_variant` were deleted — see
-Follow-up). `cargo test --workspace
+**Status: complete.** 39 test crates ported and back in the `crates/tests/*/*` glob; 5 remain in
+`exclude` on genuine metadata gaps. Six crates that only exercised deliberately-dropped surface were
+**deleted**: the `test_extensions`/`test_variant` extension crates, plus the four curated-attribute
+crates `test_agile`/`test_alternate_success_code`/`test_handles`/`test_return_handle` (see
+"Un-inferable curated attributes removed" below). `cargo test --workspace
 --exclude test_no_std --no-run` and `cargo clippy --workspace --all-targets --exclude test_no_std`
 are both green (`test_no_std` is excluded exactly as CI does — `--all-targets` feature-unification
 pulls `std` and duplicates its `panic_impl`; `cargo check -p test_no_std` stays clean).
@@ -924,18 +926,15 @@ constructors, constructors_client, event_core, old, overloads, overloads_client}
 `winuser`; `win32` → the flat DXGI/D3D/COM/UI stems, with `winsock.rs` inlining the removed std↔net
 conversions as example helpers).
 
-BLOCKED (9, genuine metadata gaps, left unmodified and out of `members` — see Follow-up):
-`libs/{implement, targets}`; `misc/{agile, alternate_success_code, arch_feature, handles, lib,
-return_handle, structs}`.
-The gaps: `RAIIFree`/`Owned<HANDLE>` (`return_handle`, `handles`), agile `Send`/`Sync` marker
-(`agile`), `AlternateSuccessCodes` (`alternate_success_code` — `DoDragDrop` now returns
-`Result<u32>`), missing interop interface `IDisplayPathInterop` (`implement`), missing
-`RtlGenRandom` alias (`targets`), missing `mscoree.h`/`ieframe.h` headers plus the `EnumProcesses`
-macro-alias (`lib` — `GetFileVersion`/`IECreateFile`/`EnumProcesses` all absent; `EnumProcesses` is
+BLOCKED (5, genuine *scrapeable* metadata gaps — missing symbols/interfaces/headers, left unmodified
+and out of `members` — see Follow-up): `libs/{implement, targets}`; `misc/{arch_feature, lib,
+structs}`.
+The gaps: missing interop interface `IDisplayPathInterop` (`implement`), missing `RtlGenRandom` alias
+(`targets`), missing `mscoree.h`/`ieframe.h` headers plus the `EnumProcesses` macro-alias (`lib` —
+`GetFileVersion`/`IECreateFile`/`EnumProcesses` all absent; `EnumProcesses` is
 `#define EnumProcesses K32EnumProcesses`, the same macro-alias class as `RtlGenRandom`), and assorted
-absent symbols/attributes (`structs`, `arch_feature`). The former `test_extensions` and
-`test_variant` crates were **deleted** (they only
-tested removed `windows`-crate extensions — see "Intentionally-removed `windows`-crate extensions").
+absent symbols (`structs`, `arch_feature`). All five are fixable in `windows-clang` (add a header,
+surface an interface, or handle a macro-alias) — unlike the deleted curated-attribute crates below.
 (`misc/wdk` was un-blocked by scraping `offreg.h` into `tool_wdk`; `misc/const_params` and
 `misc/const_ptrs` by adding `pathcch.h`/`propvarutil.h` to `tool_win32`; `misc/resources` by the
 negative-`MAKEINTRESOURCE`/char-pointer-sentinel `const.rs` arms — see Follow-up.)
@@ -1152,10 +1151,55 @@ Test-specific drift beyond the sample patterns:
   `test_extensions` and `test_variant` crates existed solely to test these removed helpers and have
   been **deleted** (`bool32.rs`/`ntstatus.rs` covered `windows-core`'s `BOOL`/`NTSTATUS`, which the
   `test_error`/`test_result` crates already exercise).
-- **Handle `RAIIFree`/`Owned` gap.** As noted above, no handle type carries `RAIIFreeAttribute`, so
-  `Owned<HANDLE>` (and `Owned<HLOCAL>`, `Owned<HMODULE>`, …) do not compile and samples fall back to
-  explicit `CloseHandle`/`LocalFree`. **TODO:** decide whether `windows-clang` should re-add
-  `RAIIFree` (and the `Owned` ergonomics) to the in-house metadata.
+- **Un-inferable curated attributes removed from `windows-bindgen` (decision, PR #4689).** The old
+  editorial Win32 metadata (Microsoft's `win32metadata` project) carried several *hand-curated*
+  attributes that no scraper can derive from C/C++ headers alone. `windows-clang` therefore emits
+  **none** of them, so the `windows-bindgen` code that consumed them was dead for the in-house
+  pipeline. Rather than carry dead branches (or fake the attributes), the handling was **removed** and
+  the four test crates that existed only to assert those transforms were **deleted**
+  (`test_agile`/`test_alternate_success_code`/`test_handles`/`test_return_handle`). The four attributes
+  and what each removal drops:
+  1. **`InvalidHandleValueAttribute`** (`type_def.rs::invalid_values`, `cpp_handle.rs`,
+     `cpp_method.rs::handle_last_error`). Supplied per-type invalid sentinels (e.g. `HANDLE` = `{0, -1}`,
+     `MSIHANDLE` = `{0, u32::MAX}`, `HANDLE_SDP_TYPE` = `{0, u64::MAX}`) so `is_invalid()` recognised them.
+     Without it, **pointer** handles keep a null-check `is_invalid()` (`self.0.is_null()` — independent of
+     the attribute) but non-pointer handles get no `is_invalid()`, and `HANDLE(-1)` is no longer reported
+     invalid. (`test_handles`.)
+  2. **`RAIIFreeAttribute`** (`type_def.rs::free_function`, `cpp_handle.rs`). Named the free routine for a
+     handle, driving the `windows_core::Free` impl behind `Owned<T>`. Without it no `Free` impls are
+     emitted, so `Owned<HANDLE>`/`Owned<HLOCAL>`/… do not compile; callers use explicit
+     `CloseHandle`/`LocalFree`.
+  3. **`AgileAttribute`** (one arm of `type_def.rs::is_agile`). Marked a type free-threaded → `Send`/`Sync`.
+     **Only the `AgileAttribute` arm was removed** — `is_agile` is retained because
+     **`MarshalingBehaviorAttribute`** (value `2` = agile) *does* survive in the WinRT `Windows.winmd`
+     (it is preserved through the SDK-contract merge in `tool_windows`), so WinRT types such as `Uri`
+     keep their `Send`/`Sync`. The gap is Win32-scraped COM interfaces (e.g. `IRestrictedErrorInfo`),
+     which carry neither attribute and so are not `Send`/`Sync`. (`test_agile`.)
+  4. **`CanReturnMultipleSuccessValuesAttribute`** (guard in `cpp_method.rs`). Opted a method *out* of the
+     `HRESULT → Result` transform so multi-success HRESULTs (e.g. `DoDragDrop` returning
+     `DRAGDROP_S_DROP`) stayed raw. With no method carrying it the guard was always taken, so it was
+     unwrapped; `DoDragDrop` now returns `Result<u32>`. (`test_alternate_success_code`.)
+
+  **Soundness / proof.** All four attributes occur **zero** times in every input winmd
+  (`crates/libs/bindgen/default/{Windows,Windows.Win32,Windows.Wdk}.winmd`; `MarshalingBehaviorAttribute`
+  — deliberately kept — is the lone survivor). Regenerating **every** downstream output after the removal
+  (`tool_package`, `tool_bindings`, `tool_reactor`, and all 88 `test_bindgen` goldens) produced a
+  **byte-identical** diff, confirming the code was truly unreachable for this repo's metadata. **Win:**
+  ~90 lines of attribute plumbing and four brittle drift-prone test crates gone. **Tradeoff:**
+  `windows-bindgen` is also a published, general-purpose tool — a consumer who feeds it Microsoft's
+  *official* `win32metadata` (which *does* set these attributes) will no longer get handle
+  invalid-sentinels, `Owned<T>`/`Free`, the `AgileAttribute`-driven marker, or `AlternateSuccessCodes`
+  preservation. This is an accepted, explicit narrowing of scope toward the in-house flat metadata as
+  the source of truth; the retained `MarshalingBehaviorAttribute` path keeps WinRT agility working for
+  both pipelines.
+- **`return_handle` / `SupportsLastError` is a separate un-inferable gap.** `test_return_handle`
+  (deleted above with the curated-attribute crates) expected `CreateEventA` to return `Result<HANDLE>`
+  and yield the last-error code on a duplicate-name collision. That transform is gated not by an invalid
+  sentinel but by the **`SupportsLastError`** PInvoke flag (`cpp_method.rs::handle_last_error`, and the
+  `BOOL → Result<()>` arm), which `win32metadata` set from documentation/annotations and which
+  **`windows-clang` cannot infer from headers** (`SupportsLastError` occurs zero times in
+  `Windows.Win32.winmd`). So `CreateEventA` returns a bare `HANDLE` and Win32 `BOOL` functions no longer
+  auto-`Result` — the same curated-attribute class as the four above.
 - **Move and rename the `spellchecker` sample.** `windows_spellchecker` does not use the `windows`
   crate — it generates its own bindings with `windows-bindgen` (`build.rs`) on top of `windows-core`,
   so it belongs with the other bindgen-driven samples, not under `crates/samples/windows/`. **TODO:**

@@ -10,16 +10,12 @@ exclude = [
     "crates/targets/baseline",
     "crates/samples/windows/spellchecker",
     # Test crates blocked on genuine metadata gaps in the regenerated windows/windows-sys crates
-    # (missing symbols/interfaces or dropped attributes: RAIIFree/Owned, agile, AlternateSuccessCodes,
-    # Result<HANDLE> transforms). See docs/crates/windows-clang.md "Test migration status and recipe".
+    # (missing symbols/interfaces/headers). See docs/crates/windows-clang.md "Test migration status
+    # and recipe".
     "crates/tests/libs/implement",
     "crates/tests/libs/targets",
-    "crates/tests/misc/agile",
-    "crates/tests/misc/alternate_success_code",
     "crates/tests/misc/arch_feature",
-    "crates/tests/misc/handles",
     "crates/tests/misc/lib",
-    "crates/tests/misc/return_handle",
     "crates/tests/misc/structs",
 ]
 

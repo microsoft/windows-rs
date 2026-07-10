@@ -76,57 +76,12 @@ impl Config<'_> {
                 quote! {}
             };
 
-            let invalid = def.invalid_values();
-
-            let is_invalid = if ty.is_pointer() && (invalid.is_empty() || invalid == [0]) {
+            let is_invalid = if ty.is_pointer() {
                 quote! {
                     #arches
                     impl #name {
                         pub fn is_invalid(&self) -> bool {
                             self.0.is_null()
-                        }
-                    }
-                }
-            } else if invalid.is_empty() {
-                quote! {}
-            } else {
-                let invalid = invalid.iter().map(|value| {
-                    let literal = Literal::i64_unsuffixed(*value);
-
-                    if ty.is_pointer() || (*value < 0 && ty.is_unsigned()) {
-                        quote! { self.0 == #literal as _ }
-                    } else {
-                        quote! { self.0 == #literal }
-                    }
-                });
-                quote! {
-                    #arches
-                    impl #name {
-                        pub fn is_invalid(&self) -> bool {
-                            #(#invalid)||*
-                        }
-                    }
-                }
-            };
-
-            let free = if let Some(function) = def.free_function(self.reader) {
-                if is_invalid.is_empty() {
-                    // TODO: https://github.com/microsoft/win32metadata/issues/1891
-                    quote! {}
-                } else {
-                    let link = function.write_link(self, true);
-                    let free = to_ident(function.method.name());
-
-                    quote! {
-                        #arches
-                        impl windows_core::Free for #name {
-                            #[inline]
-                            unsafe fn free(&mut self) {
-                                if !self.is_invalid() {
-                                    #link
-                                    unsafe { #free(self.0); }
-                                }
-                            }
                         }
                     }
                 }
@@ -140,7 +95,6 @@ impl Config<'_> {
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
                 #is_invalid
-                #free
                 #default
             };
 
