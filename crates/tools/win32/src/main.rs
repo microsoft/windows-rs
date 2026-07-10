@@ -56,6 +56,16 @@ const CLANG_ARGS: [&str; 2] = ["-x", "c++"];
 /// scraper can read. See the file header in `sal.h` for details.
 const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 
+/// A shadow include directory searched (via `-I`) ahead of the SDK `-isystem`
+/// directories. It holds hand-authored replacements for SDK headers that cannot
+/// be parsed under this scrape's C++ definition mode because they `#include` the
+/// C++/WinRT projection headers. Each shim declares only the flat COM/C interop
+/// interfaces (which depend on `windows.h` types alone), so the interfaces are
+/// scraped without dragging in the projection. Currently:
+/// `Windows.Graphics.Capture.Interop.h` (the projection includes trip a
+/// self-conflicting typedef in `Windows.Devices.Sensors.h`).
+const SHIM_DIR: &str = "crates/tools/win32/src/shims";
+
 /// Prelude included ahead of every API header. `winsock2.h` precedes `windows.h` so
 /// its include guard suppresses the legacy `winsock.h` that `windows.h` would otherwise
 /// pull (avoiding the `sockaddr` redefinition); most SDK headers then assume the
@@ -389,6 +399,7 @@ fn scrape_to_winmd(
         .target(arch.triple)
         .args(CLANG_ARGS)
         .args(["-include", SAL_SHIM])
+        .args(["-I", SHIM_DIR])
         .args(include_args)
         .drop_lib_less(true)
         .scope(&manifest.scope)

@@ -1053,16 +1053,29 @@ Test-specific drift beyond the sample patterns:
   crate). The `sys` flag is threaded through `Reader::new(files, sys)` — the decision must happen at
   `remap()` time because `reader.rs` *skips* any type whose `remap()` is non-`None`, so a
   resolution-time fallback is impossible.
-- **Missing WinRT `*Interop` bridge interfaces — partially resolved.** The in-house metadata was
-  missing several WinRT-to-Win32 interop interfaces the editorial winmd carried. `IUserConsentVerifierInterop`
-  (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`) and `IDisplayPathInterop`
-  (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`) are now
-  scraped by adding their headers to `win32.toml`; the `spellchecker`/`consent` sample was ported back
-  to the `windows` crate and the `test_implement` `com.rs` test (which `#[implement]`s
-  `IDisplayPathInterop`) is unblocked. These interop headers reference WinRT `ABI::` types, which
-  `windows-clang` now maps to their `Windows.winmd` WinRT equivalents in `cx.rs`'s `to_type`.
-  **TODO:** `IWindowNative` and `IGraphicsCaptureItemInterop` are still absent (present:
-  `IInitializeWithWindow`, `IMemoryBufferByteAccess`, `IBufferByteAccess`, `ICoreWindowInterop`).
+- **Missing WinRT `*Interop` bridge interfaces — resolved for the SDK-provided ones.** The in-house
+  metadata was missing several WinRT-to-Win32 interop interfaces the editorial winmd carried.
+  `IUserConsentVerifierInterop` (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`),
+  `IDisplayPathInterop` (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`),
+  and `IGraphicsCaptureItemInterop` (`windowsgraphicscaptureinterop.rdl`, from
+  `Windows.Graphics.Capture.Interop.h`) are now scraped by adding their headers to `win32.toml`; the
+  `spellchecker`/`consent` sample was ported back to the `windows` crate and the `test_implement`
+  `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is unblocked. Interop headers that
+  reference WinRT `ABI::` types are mapped to their `Windows.winmd` WinRT equivalents in `cx.rs`'s
+  `to_type`.
+
+  `Windows.Graphics.Capture.Interop.h` needed a **scrape shim** (`crates/tools/win32/src/shims/`,
+  searched via `-I` ahead of the SDK `-isystem` dirs — see `SHIM_DIR` in `tool_win32`). The real SDK
+  header `#include`s the C++/WinRT projection headers `windows.ui.composition.h` /
+  `windows.graphics.capture.h`, which do not parse under the C++ definition-mode scrape (a
+  self-conflicting `MagnetometerAccuracy` typedef in `Windows.Devices.Sensors.h`). The three interop
+  interfaces depend only on `HWND`/`HMONITOR`/`REFIID`/`IUnknown` (all from `windows.h`, already in the
+  prelude), so the shim declares them without the projection includes.
+
+  **Still absent:** `IWindowNative` — it is **not in the Windows SDK** (it ships in
+  `microsoft.ui.xaml.window.h`, part of the Windows App SDK / WinUI), so it is out of scope for the
+  Windows-SDK header scrape. (Present all along: `IInitializeWithWindow`, `IMemoryBufferByteAccess`,
+  `IBufferByteAccess`, `ICoreWindowInterop`.)
 - **Macro-alias function scraping — done (`test_targets` unblocked).** A general, entirely heuristic
   pass in `windows-clang` recovers functions the SDK declares under a documented name that an
   object-like `#define` textually rewrites to a raw export before clang parses. The prototype is
@@ -1317,27 +1330,19 @@ Test-specific drift beyond the sample patterns:
   **`windows-clang` cannot infer from headers** (`SupportsLastError` occurs zero times in
   `Windows.Win32.winmd`). So `CreateEventA` returns a bare `HANDLE` and Win32 `BOOL` functions no longer
   auto-`Result` — the same curated-attribute class as the four above.
-- **Follow-up: remove the now-dead `Owned`/`Free` runtime support from `windows-core`.** `RAIIFree`
-  was the only attribute with a *runtime* counterpart in `windows-core`: the `Free` trait and the
-  `Owned<T>` wrapper in `crates/libs/core/src/resources.rs` (wired via `mod resources; pub use
-  resources::*;` in `crates/libs/core/src/windows.rs`). With `RAIIFree` gone, `windows-bindgen`
-  emits **no `Free` impls**, so nothing in the generated projection uses `Owned<T>` anymore. The only
-  remaining consumer is the self-contained unit test `crates/tests/libs/core/tests/handles.rs`, which
-  exercises the machinery with a mock `FreeCounter` (no metadata dependency). **TODO:** delete
-  `resources.rs`, drop its `mod`/`pub use` in `windows.rs`, and remove `handles.rs`. This is a
-  breaking change to the public `windows-core` surface (`windows::core::Owned` / `windows::core::Free`
-  are exported), so it needs explicit sign-off before landing. The other three removed attributes
+- **Removed the now-dead `Owned`/`Free` runtime support from `windows-core` (done).** `RAIIFree`
+  was the only removed attribute with a *runtime* counterpart in `windows-core`: the `Free` trait and
+  the `Owned<T>` wrapper in `crates/libs/core/src/resources.rs` (wired via `mod resources; pub use
+  resources::*;` in `crates/libs/core/src/windows.rs`). With `RAIIFree` gone, `windows-bindgen` emits
+  **no `Free` impls**, so nothing in the generated projection used `Owned<T>` — the only consumer was
+  the self-contained unit test `crates/tests/libs/core/tests/handles.rs` (a mock `FreeCounter`, no
+  metadata dependency). Both files are deleted and the `mod`/`pub use` dropped from `windows.rs`. This
+  is a breaking change to the public `windows-core` surface (`windows::core::Owned` /
+  `windows::core::Free` are no longer exported). The other three removed attributes
   (`InvalidHandleValue`, `Agile`, `CanReturnMultipleSuccessValues`) and the `SupportsLastError` flag
-  have **no** `windows-core` runtime plumbing — their handling was entirely inside `windows-bindgen`
-  (inline `is_invalid`, `unsafe impl Send/Sync`, the HRESULT/last-error transforms) — so there is
-  nothing else of this kind to remove.
-- **Move and rename the `spellchecker` sample.** `windows_spellchecker` does not use the `windows`
-  crate — it generates its own bindings with `windows-bindgen` (`build.rs`) on top of `windows-core`,
-  so it belongs with the other bindgen-driven samples, not under `crates/samples/windows/`. **TODO:**
-  relocate it to the bindgen sample directory and rename it for consistency. It is intentionally left
-  out of the workspace `members` for now. Note it also still needs the one in-house-metadata fix its
-  peers needed (`COINIT_MULTITHREADED.0 as u32` → `COINIT_MULTITHREADED as u32`, since `COINIT` is now
-  a bare `i32` enum alias) before it will compile against the current default metadata.
-- **Restore the `crates/samples/*/*` glob** in the workspace `Cargo.toml` `members` — **done.** The
-  glob is restored; only `crates/samples/windows/spellchecker` remains in `exclude` (pending the
-  relocation/rename above).
+  had **no** `windows-core` runtime plumbing — their handling was entirely inside `windows-bindgen`
+  (inline `is_invalid`, `unsafe impl Send/Sync`, the HRESULT/last-error transforms).
+- **`spellchecker` sample — ported to the `windows` crate (done).** It was reworked to consume the
+  published `windows` crate (rather than generating its own bindings), so it now belongs alongside the
+  other `crates/samples/windows/` samples and stays there. It is in the workspace `members` (via the
+  `crates/samples/*/*` glob) and builds against the flat default metadata.
