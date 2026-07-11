@@ -280,11 +280,13 @@ becomes an optional downstream map over the flat namespace.
 
 `cargo run -p tool_win32` builds the in-house winmd. A small manifest
 (`crates/tools/win32/src/win32.toml`) lists the SDK headers, satellite rules, and
-import libs — deliberately **no type-level curation**. The driver builds one shared
-translation unit per target arch (`windows.h` prelude + every manifest header), emits
-it via a single `write_by_header` call (parsed once, USR-deduped), reads the per-arch
-RDLs to winmd, and coalesces the arches with the multi-arch merge. New APIs are added
-by **listing the defining header** in the manifest and regenerating — the reachability
+import libs — deliberately **no type-level curation**. The tool resolves its pinned
+toolchain, fills a `windows_scraper::Config`, and hands it to the shared
+[`windows-scraper`](windows-scraper.md) driver, which builds one shared translation
+unit per target arch (`windows.h` prelude + every manifest header), emits it via a
+single `write_by_header` call (parsed once, USR-deduped), reads the per-arch RDLs to
+winmd, and coalesces the arches with the multi-arch merge. New APIs are added by
+**listing the defining header** in the manifest and regenerating — the reachability
 closure is automatic. A full generational SDK bump (e.g. 24H2 → 25H2) is absorbed the
 same way, with no scraper changes.
 
@@ -307,8 +309,10 @@ leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSeal
 ## The WDK corpus: tool_wdk
 
 `cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the
-Win32 winmd — a whole-header scrape, not a symbol allowlist. It mirrors that driver with
-three deliberate simplifications:
+Win32 winmd — a whole-header scrape, not a symbol allowlist. Both tools run the *same*
+[`windows-scraper`](windows-scraper.md) driver from a declarative manifest
+(`crates/tools/wdk/src/wdk.toml`); the WDK is just that driver configured for three
+things:
 
 - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global,
   not-WinRT* namespace shared with Win32, so a WDK entity referencing a Win32 type
@@ -327,9 +331,9 @@ three deliberate simplifications:
   dropped. Crucially, **no fallback `library`** is set — one would make every function
   lib-ful and drag in the whole kernel export surface.
 
-New WDK APIs are added exactly like Win32 ones: list the defining header in `SOURCE_HEADERS`
-and regenerate. The WDK NuGet version is pinned independently of the SDK (its servicing build
-lags), but tracks the same marketing line.
+New WDK APIs are added exactly like Win32 ones: list the defining header in `wdk.toml`'s
+`source-headers` and regenerate. The WDK NuGet version is pinned independently of the SDK
+(its servicing build lags), but tracks the same marketing line.
 
 
 
@@ -555,38 +559,28 @@ signal for *which* headers matter. Not everything is reachable from the pinned S
 
 ### tool_wdk: whole-header model
 
-**Done** — `tool_wdk` now mirrors `tool_win32` (whole-header, flat `Windows.Win32`
-namespace, additive/exclusion-referenced, user-mode-only). See
-[The WDK corpus: tool_wdk](#the-wdk-corpus-tool_wdk). Remaining follow-ups: a shared
-manifest (`wdk.toml`) so both tools run the same driver from a declarative config, and
-per-arch WDK package wiring (the function → DLL map is arch-invariant, so the corpus is
-currently x64-derived).
+**Done** — `tool_wdk` mirrors `tool_win32` (whole-header, flat `Windows.Win32`
+namespace, additive/exclusion-referenced, user-mode-only) and both tools now run the
+same shared [`windows-scraper`](windows-scraper.md) driver from a declarative manifest.
+See [The WDK corpus: tool_wdk](#the-wdk-corpus-tool_wdk).
 
-**To investigate and resolve: `tool_win32` and `tool_wdk` still work quite differently.**
-`tool_win32` is the robust, general driver; `tool_wdk` reads like a thin hack bolted on to
-parse a few extra headers. They share `windows-clang`/`windows-rdl` but diverge in ways that
-are confusing and risk drift — the two should be streamlined onto one common path that
-configures headers and other parameters the same way. Concrete discrepancies observed
-(all confirmed against the current tree):
+The three discrepancies that previously made the two tools diverge are all resolved:
 
-- **Config mechanism.** `tool_win32` is driven by a declarative `win32.toml` manifest
-  (headers, satellite headers, import libs, arches — see [tool_win32](#the-in-house-corpus-tool_win32));
-  `tool_wdk` hardcodes its inputs as `const SOURCE_HEADERS`/`SCOPE` in `main.rs`
-  (~200 lines vs. ~490). The planned shared `wdk.toml`/manifest is the obvious unifier.
-- **Architecture coverage.** `tool_win32` scrapes **three** arches (x64 + aarch64 + i686)
-  and arch-merges them so subset-of-arch symbols get `SupportedArchitecture` tags;
-  `tool_wdk` scrapes **x64 only** (single `--target=x86_64-pc-windows-msvc`, no merge).
-  Any WDK symbol that differs across arches is therefore silently x64-shaped.
-- **Calling-convention emission.** `tool_win32` emits bare `extern fn` throughout (0
-  explicit `extern "system"` across the whole `metadata/win32` corpus — `"system"` is the
-  inferred default); `tool_wdk` emits **explicit** `extern "system" fn` for hundreds of
-  functions (≈452 in `metadata/wdk`), mixed inconsistently with bare `extern fn` even
-  within the same corpus. The two should agree on one representation (prefer the `tool_win32`
-  "infer and omit the default convention" style) so the RDL is uniform and diffs are clean.
+- **Config mechanism.** Both tools are now declarative: `tool_win32` reads `win32.toml`
+  and `tool_wdk` reads `wdk.toml` (headers, scope, import libs, arches, and — for the WDK —
+  the reference winmd). Each `main.rs` only resolves its own pinned toolchain, fills a
+  `windows_scraper::Config`, and calls `windows_scraper::run`; the scrape → per-arch RDL →
+  arch-merge → unified-winmd pipeline lives once in `windows-scraper`.
+- **Architecture coverage.** Both scrape **three** arches (x64 + aarch64 + i686) and
+  arch-merge them so subset-of-arch symbols get `SupportedArchitecture` tags. x64 is
+  canonical; the function → DLL map is arch-invariant, so the x64 import libs serve every pass.
+- **Calling-convention emission.** Both corpora emit bare `extern fn` throughout (0 explicit
+  `extern "system"` across `metadata/win32` *and* `metadata/wdk` — `"system"` is the inferred
+  default), so the RDL is uniform and diffs are clean.
 
-Resolving these means factoring the common scrape/emit/merge pipeline into one shared driver
-that both tools parameterize identically, then reducing `tool_wdk` to just its manifest
-(headers + scope + import lib) — eliminating the calling-convention and arch-coverage skew.
+A third-party scraper follows the same shape: resolve its own toolchain, fill a
+`Config`, and `run` — `tool_win32` (a base scrape) and `tool_wdk` (an additive
+reference-winmd scrape) stand as the two worked examples.
 
 ### IDL as the COM source of truth
 
@@ -1121,7 +1115,7 @@ Test-specific drift beyond the sample patterns:
 - **offreg.h scraped into `tool_wdk` — done (`test_wdk` unblocked).** `test_wdk`'s `win.rs`/`sys.rs`
   use `ORCreateHive`, `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, which `tool_wdk`
   previously did not scrape (only `ntifs.h`+`wdm.h`), so the offline-registry surface was absent.
-  `offreg.h` is now appended to `SOURCE_HEADERS` and `offreg.lib` (WDK `Lib/…/km/x64`) is fed to
+  `offreg.h` is now listed in `wdk.toml`'s `source-headers` and `offreg.lib` (WDK `Lib/…/km/x64`) is fed to
   `import_library` so `drop_lib_less` keeps the routines (they export from `offreg.dll`). One wrinkle:
   `offreg.h` ships in the WDK `km` folder but is really a *user-mode* API and references the standard
   Win32 `um` typedefs (`DWORD`/`PDWORD`/`BYTE`/`PBYTE`/`PWSTR`/`PCWSTR`/`PFILETIME`/

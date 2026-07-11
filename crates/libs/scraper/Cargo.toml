@@ -1,0 +1,19 @@
+[package]
+name = "windows-scraper"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+description = "Orchestrates a libclang header scrape into RDL + winmd metadata"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+publish = false
+
+[lints]
+workspace = true
+
+[dependencies]
+windows-clang = { workspace = true }
+windows-rdl = { workspace = true }
+windows-threading = { workspace = true }

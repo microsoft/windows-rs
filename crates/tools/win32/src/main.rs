@@ -1,7 +1,7 @@
 use serde::Deserialize;
 use std::path::Path;
 use windows_clang::*;
-use windows_rdl::*;
+use windows_scraper::{Arch, Config};
 
 /// Where intermediate binary winmd artifacts (per-arch throwaways and the x64
 /// scrape that feeds arch-merge) are written. This is under `target` and not
@@ -45,8 +45,7 @@ const SDK_INCLUDE_DIR: &str = "10.0.28000.0";
 
 /// Clang arguments: parse as C++ so the SDK headers' `extern "C"` blocks,
 /// `__declspec`, and SAL annotations are all understood. The target triple is set
-/// separately via `.target`; the SDK include directories are added from the
-/// `INCLUDE` environment as `-isystem` arguments.
+/// separately per architecture; the SDK include directories are added as `-isystem`.
 const CLANG_ARGS: [&str; 2] = ["-x", "c++"];
 
 /// SAL capture shim, force-included (`-include`) ahead of the translation unit.
@@ -153,9 +152,8 @@ fn main() {
     assert_no_duplicate_headers(&manifest, manifest_path);
     for name in &manifest.archs {
         assert!(
-            ARCHES.iter().any(|a| a.name == *name),
-            "`{manifest_path}`: unknown architecture `{name}` in `archs` (known: {})",
-            ARCHES.iter().map(|a| a.name).collect::<Vec<_>>().join(", ")
+            Arch::known(name).is_some(),
+            "`{manifest_path}`: unknown architecture `{name}` in `archs` (known: x64, arm64, x86)"
         );
     }
 
@@ -170,281 +168,106 @@ fn main() {
     let include_dirs = sdk_include_dirs();
     let lib_dirs = sdk_lib_dirs();
 
-    // The faithful function → DLL mapping the headers don't carry is recovered from the
-    // pinned SDK import libraries (per-DLL host libs first, `api-ms-win-*` umbrella last).
-    let import_libs = manifest.import_libs.clone();
+    // The faithful function → DLL mapping the headers don't carry, resolved to absolute
+    // paths against the pinned SDK import libraries (per-DLL host libs first, `api-ms-win-*`
+    // umbrella last).
+    let import_libs: Vec<String> = manifest
+        .import_libs
+        .iter()
+        .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
+        .collect();
     println!("Import libraries: {} entries", import_libs.len());
 
-    // SDK include directories, passed to clang as `-isystem` so `#include <…>` in the
-    // prelude and the API headers resolve.
+    // SDK include directories, passed to clang as `-isystem` so `#include <…>` resolves.
     let include_args: Vec<String> = include_dirs
         .iter()
         .flat_map(|dir| ["-isystem".to_string(), dir.clone()])
         .collect();
 
-    std::fs::create_dir_all(OUT_DIR)
-        .unwrap_or_else(|e| panic!("failed to create `{OUT_DIR}`: {e}"));
-    std::fs::create_dir_all(RDL_DIR)
-        .unwrap_or_else(|e| panic!("failed to create `{RDL_DIR}`: {e}"));
-
     // Build the main translation unit: the prelude (windows.h) followed by every API
-    // header. The SDK headers are parsed ONCE; every declaration is routed to its
-    // defining-header partition. This TU keeps `DEFINE_GUID` in its definition mode (an
-    // included header turns `INITGUID` on), so wrapper-macro GUIDs whose values exist only
-    // in the expanded initializer (`vfw.h`'s `DEFINE_AVIGUID`, …) are captured.
+    // header. This TU keeps `DEFINE_GUID` in its definition mode (an included header turns
+    // `INITGUID` on), so wrapper-macro GUIDs whose values exist only in the expanded
+    // initializer (`vfw.h`'s `DEFINE_AVIGUID`, …) are captured.
     let mut source = String::from(PRELUDE);
     for header in &manifest.headers {
         source.push_str(&format!("\n#include <{header}>"));
     }
 
     // Build a satellite translation unit for headers that cannot join the main TU because
-    // they place `DEFINE_GUID` blocks outside their include guards and collide under
-    // definition mode (the device-driver families). Parsed in isolation with `GUID_RESET`
-    // after every include, `INITGUID` stays undefined so the repeated blocks are harmless
-    // declarations; their plain `DEFINE_GUID` values come from the macro arguments. The
-    // satellite re-parses the prelude closure too, but every shared declaration is
-    // deduplicated against the main TU by clang USR, so only the new device partitions are
-    // added. Omitted entirely when no satellite headers are configured.
-    let mut sources = vec![source.as_str()];
-    let mut satellite = String::from(PRELUDE);
+    // they place `DEFINE_GUID` blocks outside their include guards (the device-driver
+    // families). Parsed in isolation with `GUID_RESET` after every include, `INITGUID`
+    // stays undefined so the repeated blocks are harmless declarations; every shared
+    // declaration is deduplicated against the main TU by clang USR. Omitted when no
+    // satellite headers are configured.
+    let mut sources = vec![source];
     if !manifest.satellite_headers.is_empty() {
+        let mut satellite = String::from(PRELUDE);
         satellite.push_str(GUID_RESET);
         for header in &manifest.satellite_headers {
             satellite.push_str(&format!("\n#include <{header}>"));
             satellite.push_str(GUID_RESET);
         }
-        sources.push(satellite.as_str());
+        sources.push(satellite);
     }
 
-    // Assemble every architecture pass as an independent job. The canonical x64 scrape
-    // writes the committed RDL snapshot (no resource dir — x64 has no builtin conflict);
-    // each extra arch writes a throwaway RDL dir + winmd. Every job writes to its own
-    // directory and winmd with no shared mutable state, so they parse concurrently.
-    // The x64 job's winmd is an intermediate (arch-merge input); the committed final
-    // winmd is re-derived into `WINMD` from the merged RDL corpus below.
-    let x64_winmd = format!("{OUT_DIR}/Windows.Win32.winmd");
-    let extra: Vec<&Arch> = ARCHES
-        .iter()
-        .filter(|a| a.bits != X64.bits && manifest.archs.iter().any(|n| n == a.name))
-        .collect();
-    // The non-x64 passes need clang's version-matched builtin headers; resolve (and, on
-    // first use, fetch + cache) them once here, before the parallel section, so concurrent
-    // workers never race the one-time download.
-    let resource_dir = (!extra.is_empty()).then(clang_resource_dir);
-
-    struct Job {
-        arch: &'static Arch,
-        rdl_dir: String,
-        winmd: String,
-    }
-    let mut jobs = vec![Job {
-        arch: X64,
-        rdl_dir: RDL_DIR.to_string(),
-        winmd: x64_winmd.clone(),
-    }];
-    for arch in &extra {
-        jobs.push(Job {
-            arch,
-            rdl_dir: format!("{OUT_DIR}/{}", arch.name),
-            winmd: format!("{OUT_DIR}/Windows.Win32.{}.winmd", arch.name),
-        });
-    }
-
-    // Scrape every architecture in parallel via the Win32 thread pool. `write_by_header`
-    // loads libclang into each worker thread's own TLS and uses its own index, so
-    // independent arch parses run concurrently; the SDK headers are large and clang-bound,
-    // so this scales with cores. Each job's own wall-clock time is recorded for the summary.
-    let timings = std::sync::Mutex::new(Vec::<(&'static str, f32)>::new());
-    let scrape_start = std::time::Instant::now();
-    windows_threading::for_each(jobs.iter(), |job| {
-        let t = std::time::Instant::now();
-        let resource = (job.arch.bits != X64.bits).then(|| resource_dir.as_deref().unwrap());
-        scrape_to_winmd(
-            job.arch,
-            &sources,
-            &include_args,
-            &import_libs,
-            &lib_dirs,
-            &manifest,
-            &job.rdl_dir,
-            &job.winmd,
-            resource,
-        );
-        timings
-            .lock()
-            .unwrap()
-            .push((job.arch.name, t.elapsed().as_secs_f32()));
-    });
-    let scrape_wall = scrape_start.elapsed().as_secs_f32();
-
-    let mut partition_count = count_rdl(RDL_DIR);
-    let mut merge_wall = 0.0;
-    let mut winmd_wall = 0.0;
-
-    // Multi-arch: arch-merge every per-arch winmd so symbols present on (or differing
-    // across) only a subset of arches gain `SupportedArchitecture`, route each item back to
-    // its defining-header `<stem>.rdl`, and re-derive the unified winmd from the merged
-    // corpus (the source of truth). The committed `metadata/win32` now describes every
-    // requested arch in text form. Single-arch (no extra) leaves the x64 corpus as-is.
-    if !extra.is_empty() {
-        let arch_inputs: Vec<ArchInput> = jobs
-            .iter()
-            .map(|j| ArchInput {
-                rdl_dir: j.rdl_dir.clone(),
-                winmd: j.winmd.clone(),
-                bits: j.arch.bits,
-            })
-            .collect();
-        let seed = format!("{RDL_DIR}/{METADATA_SEED}");
-        let m = std::time::Instant::now();
-        merge_arch_rdl(&arch_inputs, Some(&seed), RDL_DIR)
-            .unwrap_or_else(|e| panic!("arch-merge failed: {e}"));
-        merge_wall = m.elapsed().as_secs_f32();
-        let w = std::time::Instant::now();
-        reader()
-            .input(RDL_DIR)
-            .output(WINMD)
-            .write()
-            .unwrap_or_else(|e| panic!("failed to compile merged winmd: {e}"));
-        winmd_wall = w.elapsed().as_secs_f32();
-        partition_count = count_rdl(RDL_DIR);
-        println!(
-            "Arch-merged: x64 + {}",
-            extra.iter().map(|a| a.name).collect::<Vec<_>>().join(" + ")
-        );
-    } else {
-        // Single-arch: no arch-merge step, so the x64 job's winmd is already the
-        // canonical output — publish it to the committed location.
-        std::fs::copy(&x64_winmd, WINMD)
-            .unwrap_or_else(|e| panic!("failed to publish winmd to `{WINMD}`: {e}"));
-    }
-
-    // Per-phase timing summary. Scrape rows are per-arch wall-clock (they overlap), so the
-    // parallel wall time is what the scrape phase actually costs end to end.
-    let mut t = timings.into_inner().unwrap();
-    t.sort_by_key(|(name, _)| {
-        ARCHES
-            .iter()
-            .position(|a| a.name == *name)
-            .unwrap_or(usize::MAX)
-    });
-    println!("Timing:");
-    for (name, secs) in &t {
-        println!("  scrape {name:<6}         {secs:>8.2}s");
-    }
-    println!("  scrape (parallel wall) {scrape_wall:>8.2}s");
-    if !extra.is_empty() {
-        println!("  arch-merge             {merge_wall:>8.2}s");
-        println!("  final winmd            {winmd_wall:>8.2}s");
-    }
-    println!("Wrote {WINMD} ({partition_count} partition(s))");
-    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
-}
-
-/// A target architecture: clang triple plus the `SupportedArchitecture` bitmask
-/// (1=X86, 2=X64, 4=Arm64).
-struct Arch {
-    name: &'static str,
-    triple: &'static str,
-    bits: i32,
-}
-const X64: &Arch = &ARCHES[0];
-const ARCHES: [Arch; 3] = [
-    Arch {
-        name: "x64",
-        triple: "x86_64-pc-windows-msvc",
-        bits: 2,
-    },
-    Arch {
-        name: "arm64",
-        triple: "aarch64-pc-windows-msvc",
-        bits: 4,
-    },
-    Arch {
-        name: "x86",
-        triple: "i686-pc-windows-msvc",
-        bits: 1,
-    },
-];
-
-/// Scrapes the translation unit for one architecture into `rdl_dir` and merges those
-/// partitions (plus the metadata seed) into `winmd`.
-#[allow(clippy::too_many_arguments)]
-fn scrape_to_winmd(
-    arch: &Arch,
-    sources: &[&str],
-    include_args: &[String],
-    import_libs: &[String],
-    lib_dirs: &[String],
-    manifest: &Manifest,
-    rdl_dir: &str,
-    winmd: &str,
-    resource_dir: Option<&str>,
-) {
-    std::fs::create_dir_all(rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to create `{rdl_dir}`: {e}"));
-    for entry in
-        std::fs::read_dir(rdl_dir).unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
-    {
-        let path = entry.unwrap().path();
-        let is_seed = path.file_name().and_then(|n| n.to_str()) == Some(METADATA_SEED);
-        if !is_seed && path.extension().is_some_and(|x| x == "rdl") {
-            std::fs::remove_file(&path)
-                .unwrap_or_else(|e| panic!("failed to remove `{}`: {e}", path.display()));
+    // x64 is always canonical (its scrape writes the committed corpus); any other arch the
+    // manifest lists is folded in via arch-merge.
+    let mut archs = vec![Arch::known("x64").unwrap()];
+    for name in &manifest.archs {
+        if name != "x64" {
+            archs.push(Arch::known(name).unwrap());
         }
     }
 
-    let mut clang = clang();
-    clang
-        .target(arch.triple)
-        .args(CLANG_ARGS)
-        .args(["-include", SAL_SHIM])
-        .args(["-I", SHIM_DIR])
-        .args(include_args)
-        .drop_lib_less(true)
-        .scope(&manifest.scope)
-        .scope_headers(manifest.headers.iter().chain(&manifest.satellite_headers));
-    // The non-x64 arch passes need clang's version-matched builtin resource headers so
-    // MSVC's `intrin.h` reconciles with the target's compiler builtins (e.g. the aarch64
-    // `__prefetch` conflict). x64 has no such conflict and stays resource-dir-free so its
-    // committed corpus is byte-identical to before this wiring.
-    if arch.bits != X64.bits
-        && let Some(dir) = resource_dir
-    {
-        clang.args(["-resource-dir", dir]);
-    }
-    for source in sources {
-        clang.input_str(source);
-    }
-
-    for lib in import_libs {
-        clang
-            .import_library(&resolve(lib, lib_dirs, "import library", "pinned SDK lib"))
-            .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
-    }
-
-    clang
-        .write_by_header(&manifest.root, &[], rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to generate partitions: {e}"));
-
-    let mut rdl_paths: Vec<String> = std::fs::read_dir(rdl_dir)
-        .unwrap_or_else(|e| panic!("failed to read `{rdl_dir}`: {e}"))
-        .filter_map(|entry| entry.ok())
-        .map(|entry| entry.path())
-        .filter(|path| path.extension().is_some_and(|x| x == "rdl"))
-        .map(|path| path.to_string_lossy().replace('\\', "/"))
+    let scope_headers: Vec<String> = manifest
+        .headers
+        .iter()
+        .chain(&manifest.satellite_headers)
+        .cloned()
         .collect();
-    rdl_paths.sort();
-    let seed = format!("{RDL_DIR}/{METADATA_SEED}");
-    if !rdl_paths.iter().any(|p| p == &seed) {
-        rdl_paths.push(seed);
-    }
 
-    reader()
-        .inputs(&rdl_paths)
-        .output(winmd)
-        .write()
-        .unwrap_or_else(|e| panic!("failed to merge into `{winmd}`: {e}"));
+    let config = Config {
+        root: manifest.root,
+        rdl_dir: RDL_DIR.to_string(),
+        out_dir: OUT_DIR.to_string(),
+        winmd: WINMD.to_string(),
+        archs,
+        clang_args: CLANG_ARGS.iter().map(|s| s.to_string()).collect(),
+        force_includes: vec![SAL_SHIM.to_string()],
+        include_shim_dirs: vec![SHIM_DIR.to_string()],
+        include_args,
+        import_libs,
+        drop_lib_less: true,
+        scope: manifest.scope,
+        scope_headers,
+        sources,
+        reference_winmds: Vec::new(),
+        seed: Some(format!("{RDL_DIR}/{METADATA_SEED}")),
+        parallel: true,
+    };
+
+    let summary = windows_scraper::run(&config);
+
+    println!("Timing:");
+    for (name, secs) in &summary.arch_timings {
+        println!("  scrape {name:<6}         {secs:>8.2}s");
+    }
+    println!("  scrape (parallel wall) {:>8.2}s", summary.scrape_wall);
+    if summary.multi_arch {
+        println!(
+            "Arch-merged: {}",
+            config
+                .archs
+                .iter()
+                .map(|a| a.name.as_str())
+                .collect::<Vec<_>>()
+                .join(" + ")
+        );
+        println!("  arch-merge             {:>8.2}s", summary.merge_wall);
+        println!("  final winmd            {:>8.2}s", summary.winmd_wall);
+    }
+    println!("Wrote {WINMD} ({} partition(s))", summary.partitions);
+    println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
 /// Panics if any header name appears more than once across the manifest's `headers` and
@@ -458,16 +281,6 @@ fn assert_no_duplicate_headers(manifest: &Manifest, path: &str) {
             "duplicate header `{header}` in `{path}` (listed more than once across `headers` / `satellite-headers`)"
         );
     }
-}
-
-/// Counts the committed partition files (excluding the metadata seed) in a directory.
-fn count_rdl(dir: &str) -> usize {
-    std::fs::read_dir(dir).map_or(0, |rd| {
-        rd.filter_map(|e| e.ok())
-            .filter(|e| e.path().extension().is_some_and(|x| x == "rdl"))
-            .count()
-            .saturating_sub(1)
-    })
 }
 
 /// The pinned SDK include directories, in a fixed order so the parse is deterministic.
