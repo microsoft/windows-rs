@@ -1757,15 +1757,6 @@ impl windows_core::RuntimeName for IACList2 {}
 windows_core::imp::define_interface!(IActiveDesktop, IActiveDesktop_Vtbl, 0xf490eb00_1240_11d1_9888_006097deacf9);
 windows_core::imp::interface_hierarchy!(IActiveDesktop, windows_core::IUnknown);
 impl IActiveDesktop {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ApplyChanges(&self, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ApplyChanges)(windows_core::Interface::as_raw(self), dwflags) }
     }
@@ -1845,9 +1836,6 @@ impl IActiveDesktop {
 #[doc(hidden)]
 pub struct IActiveDesktop_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ApplyChanges: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetWallpaper: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, u32) -> windows_core::HRESULT,
     pub SetWallpaper: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
@@ -1876,9 +1864,6 @@ pub struct IActiveDesktop_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IActiveDesktop_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ApplyChanges(&self, dwflags: u32) -> windows_core::Result<()>;
     fn GetWallpaper(&self, pwszwallpaper: windows_core::PWSTR, cchwallpaper: u32, dwflags: u32) -> windows_core::Result<()>;
     fn SetWallpaper(&self, pwszwallpaper: &windows_core::PCWSTR, dwreserved: u32) -> windows_core::Result<()>;
@@ -1902,24 +1887,6 @@ pub trait IActiveDesktop_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl IActiveDesktop_Vtbl {
     pub const fn new<Identity: IActiveDesktop_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktop_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ApplyChanges<Identity: IActiveDesktop_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2036,9 +2003,6 @@ impl IActiveDesktop_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ApplyChanges: ApplyChanges::<Identity, OFFSET>,
             GetWallpaper: GetWallpaper::<Identity, OFFSET>,
             SetWallpaper: SetWallpaper::<Identity, OFFSET>,

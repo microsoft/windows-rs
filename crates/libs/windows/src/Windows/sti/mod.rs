@@ -19,15 +19,6 @@ pub const GUID_ScanPrintImage: windows_core::GUID = windows_core::GUID::from_u12
 windows_core::imp::define_interface!(IStiDevice, IStiDevice_Vtbl, 0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c);
 windows_core::imp::interface_hierarchy!(IStiDevice, windows_core::IUnknown);
 impl IStiDevice {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize<P1>(&self, hinst: super::minwindef::HINSTANCE, pwszdevicename: P1, dwversion: u32, dwmode: u32) -> windows_core::HRESULT
     where
@@ -96,9 +87,6 @@ impl IStiDevice {
 #[doc(hidden)]
 pub struct IStiDevice_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, windows_core::PCWSTR, u32, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -137,9 +125,6 @@ pub struct IStiDevice_Vtbl {
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Initialize(&self, hinst: super::minwindef::HINSTANCE, pwszdevicename: &windows_core::PCWSTR, dwversion: u32, dwmode: u32) -> windows_core::Result<()>;
     fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> windows_core::Result<()>;
     fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> windows_core::Result<()>;
@@ -161,24 +146,6 @@ pub trait IStiDevice_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IStiDevice_Vtbl {
     pub const fn new<Identity: IStiDevice_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStiDevice_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStiDevice_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStiDevice_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Initialize<Identity: IStiDevice_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hinst: super::minwindef::HINSTANCE, pwszdevicename: windows_core::PCWSTR, dwversion: u32, dwmode: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -289,9 +256,6 @@ impl IStiDevice_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, OFFSET>,
             GetStatus: GetStatus::<Identity, OFFSET>,
@@ -323,15 +287,6 @@ pub struct IStiDeviceW(pub u8);
 windows_core::imp::define_interface!(IStillImageW, IStillImageW_Vtbl, 0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
 windows_core::imp::interface_hierarchy!(IStillImageW, windows_core::IUnknown);
 impl IStillImageW {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, hinst: super::minwindef::HINSTANCE, dwversion: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), hinst, dwversion) }
@@ -400,9 +355,6 @@ impl IStillImageW {
 #[doc(hidden)]
 pub struct IStillImageW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -420,9 +372,6 @@ pub struct IStillImageW_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Initialize(&self, hinst: super::minwindef::HINSTANCE, dwversion: u32) -> windows_core::Result<()>;
     fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetDeviceInfo(&self, pwszdevicename: &windows_core::PCWSTR, ppbuffer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -438,24 +387,6 @@ pub trait IStillImageW_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "minwindef")]
 impl IStillImageW_Vtbl {
     pub const fn new<Identity: IStillImageW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStillImageW_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStillImageW_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IStillImageW_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Initialize<Identity: IStillImageW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, hinst: super::minwindef::HINSTANCE, dwversion: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -530,9 +461,6 @@ impl IStillImageW_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
             GetDeviceList: GetDeviceList::<Identity, OFFSET>,
             GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,

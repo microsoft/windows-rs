@@ -86,9 +86,6 @@ mod Windows {
         extern fn Direct3DCreate9Ex(SDKVersion: u32, param1: *mut IDirect3D9Ex) -> HRESULT;
         #[guid(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c)]
         interface IDirect3D9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn RegisterSoftwareDevice(&self, pInitializeFunction: *mut void) -> HRESULT;
             fn GetAdapterCount(&self) -> u32;
             fn GetAdapterIdentifier(&self, Adapter: u32, Flags: u32, pIdentifier: *mut D3DADAPTER_IDENTIFIER9) -> HRESULT;
@@ -106,23 +103,6 @@ mod Windows {
         }
         #[guid(0x02177241_69fc_400c_8ff1_93a44df6861d)]
         interface IDirect3D9Ex: IDirect3D9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn RegisterSoftwareDevice(&self, pInitializeFunction: *mut void) -> HRESULT;
-            fn GetAdapterCount(&self) -> u32;
-            fn GetAdapterIdentifier(&self, Adapter: u32, Flags: u32, pIdentifier: *mut D3DADAPTER_IDENTIFIER9) -> HRESULT;
-            fn GetAdapterModeCount(&self, Adapter: u32, Format: D3DFORMAT) -> u32;
-            fn EnumAdapterModes(&self, Adapter: u32, Format: D3DFORMAT, Mode: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            fn GetAdapterDisplayMode(&self, Adapter: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            fn CheckDeviceType(&self, Adapter: u32, DevType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, BackBufferFormat: D3DFORMAT, bWindowed: BOOL) -> HRESULT;
-            fn CheckDeviceFormat(&self, Adapter: u32, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, Usage: u32, RType: D3DRESOURCETYPE, CheckFormat: D3DFORMAT) -> HRESULT;
-            fn CheckDeviceMultiSampleType(&self, Adapter: u32, DeviceType: D3DDEVTYPE, SurfaceFormat: D3DFORMAT, Windowed: BOOL, MultiSampleType: D3DMULTISAMPLE_TYPE, pQualityLevels: *mut u32) -> HRESULT;
-            fn CheckDepthStencilMatch(&self, Adapter: u32, DeviceType: D3DDEVTYPE, AdapterFormat: D3DFORMAT, RenderTargetFormat: D3DFORMAT, DepthStencilFormat: D3DFORMAT) -> HRESULT;
-            fn CheckDeviceFormatConversion(&self, Adapter: u32, DeviceType: D3DDEVTYPE, SourceFormat: D3DFORMAT, TargetFormat: D3DFORMAT) -> HRESULT;
-            fn GetDeviceCaps(&self, Adapter: u32, DeviceType: D3DDEVTYPE, pCaps: *mut D3DCAPS9) -> HRESULT;
-            fn GetAdapterMonitor(&self, Adapter: u32) -> HMONITOR;
-            fn CreateDevice(&self, Adapter: u32, DeviceType: D3DDEVTYPE, hFocusWindow: HWND, BehaviorFlags: u32, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, ppReturnedDeviceInterface: *mut IDirect3DDevice9) -> HRESULT;
             fn GetAdapterModeCountEx(&self, Adapter: u32, pFilter: *const D3DDISPLAYMODEFILTER) -> u32;
             fn EnumAdapterModesEx(&self, Adapter: u32, pFilter: *const D3DDISPLAYMODEFILTER, Mode: u32, pMode: *mut D3DDISPLAYMODEEX) -> HRESULT;
             fn GetAdapterDisplayModeEx(&self, Adapter: u32, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
@@ -131,16 +111,10 @@ mod Windows {
         }
         #[guid(0x187aeb13_aaf5_4c59_876d_e059088c0df8)]
         interface IDirect3D9ExOverlayExtension: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CheckDeviceOverlayType(&self, Adapter: u32, DevType: D3DDEVTYPE, OverlayWidth: u32, OverlayHeight: u32, OverlayFormat: D3DFORMAT, pDisplayMode: *mut D3DDISPLAYMODEEX, DisplayRotation: D3DDISPLAYROTATION, pOverlayCaps: *mut D3DOVERLAYCAPS) -> HRESULT;
         }
         #[guid(0xff24beee_da21_4beb_98b5_d2f899f98af9)]
         interface IDirect3DAuthenticatedChannel9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
             fn GetCertificate(&self, CertifacteSize: u32, ppCertificate: *mut u8) -> HRESULT;
             fn NegotiateKeyExchange(&self, DataSize: u32, pData: *mut void) -> HRESULT;
@@ -149,17 +123,6 @@ mod Windows {
         }
         #[guid(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce)]
         interface IDirect3DBaseTexture9: IDirect3DResource9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
             fn SetLOD(&self, LODNew: u32) -> u32;
             fn GetLOD(&self) -> u32;
             fn GetLevelCount(&self) -> u32;
@@ -169,9 +132,6 @@ mod Windows {
         }
         #[guid(0xfa0ab799_7a9c_48ca_8c5b_237e71a54434)]
         interface IDirect3DCryptoSession9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCertificateSize(&self, pCertificateSize: *mut u32) -> HRESULT;
             fn GetCertificate(&self, CertifacteSize: u32, ppCertificate: *mut u8) -> HRESULT;
             fn NegotiateKeyExchange(&self, DataSize: u32, pData: *mut void) -> HRESULT;
@@ -184,23 +144,6 @@ mod Windows {
         }
         #[guid(0xfff32f81_d953_473a_9223_93d652aba93f)]
         interface IDirect3DCubeTexture9: IDirect3DBaseTexture9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            fn SetLOD(&self, LODNew: u32) -> u32;
-            fn GetLOD(&self) -> u32;
-            fn GetLevelCount(&self) -> u32;
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            fn GenerateMipSubLevels(&self);
             fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
             fn GetCubeMapSurface(&self, FaceType: D3DCUBEMAP_FACES, Level: u32, ppCubeMapSurface: *mut IDirect3DSurface9) -> HRESULT;
             fn LockRect(&self, FaceType: D3DCUBEMAP_FACES, Level: u32, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
@@ -209,9 +152,6 @@ mod Windows {
         }
         #[guid(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb)]
         interface IDirect3DDevice9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn TestCooperativeLevel(&self) -> HRESULT;
             fn GetAvailableTextureMem(&self) -> u32;
             fn EvictManagedResources(&self) -> HRESULT;
@@ -331,125 +271,6 @@ mod Windows {
         }
         #[guid(0xb18b10ce_2649_405a_870f_95f777d4313a)]
         interface IDirect3DDevice9Ex: IDirect3DDevice9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn TestCooperativeLevel(&self) -> HRESULT;
-            fn GetAvailableTextureMem(&self) -> u32;
-            fn EvictManagedResources(&self) -> HRESULT;
-            fn GetDirect3D(&self, ppD3D9: *mut IDirect3D9) -> HRESULT;
-            fn GetDeviceCaps(&self, pCaps: *mut D3DCAPS9) -> HRESULT;
-            fn GetDisplayMode(&self, iSwapChain: u32, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            fn GetCreationParameters(&self, pParameters: *mut D3DDEVICE_CREATION_PARAMETERS) -> HRESULT;
-            fn SetCursorProperties(&self, XHotSpot: u32, YHotSpot: u32, pCursorBitmap: IDirect3DSurface9) -> HRESULT;
-            fn SetCursorPosition(&self, X: i32, Y: i32, Flags: u32);
-            fn ShowCursor(&self, bShow: BOOL) -> BOOL;
-            fn CreateAdditionalSwapChain(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            fn GetSwapChain(&self, iSwapChain: u32, pSwapChain: *mut IDirect3DSwapChain9) -> HRESULT;
-            fn GetNumberOfSwapChains(&self) -> u32;
-            fn Reset(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
-            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA) -> HRESULT;
-            fn GetBackBuffer(&self, iSwapChain: u32, iBackBuffer: u32, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            fn GetRasterStatus(&self, iSwapChain: u32, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            fn SetDialogBoxMode(&self, bEnableDialogs: BOOL) -> HRESULT;
-            fn SetGammaRamp(&self, iSwapChain: u32, Flags: u32, pRamp: *const D3DGAMMARAMP);
-            fn GetGammaRamp(&self, iSwapChain: u32, pRamp: *mut D3DGAMMARAMP);
-            fn CreateTexture(&self, Width: u32, Height: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppTexture: *mut IDirect3DTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateVolumeTexture(&self, Width: u32, Height: u32, Depth: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppVolumeTexture: *mut IDirect3DVolumeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateCubeTexture(&self, EdgeLength: u32, Levels: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppCubeTexture: *mut IDirect3DCubeTexture9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateVertexBuffer(&self, Length: u32, Usage: u32, FVF: u32, Pool: D3DPOOL, ppVertexBuffer: *mut IDirect3DVertexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateIndexBuffer(&self, Length: u32, Usage: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppIndexBuffer: *mut IDirect3DIndexBuffer9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateRenderTarget(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Lockable: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn CreateDepthStencilSurface(&self, Width: u32, Height: u32, Format: D3DFORMAT, MultiSample: D3DMULTISAMPLE_TYPE, MultisampleQuality: u32, Discard: BOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn UpdateSurface(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestinationSurface: IDirect3DSurface9, pDestPoint: *const POINT) -> HRESULT;
-            fn UpdateTexture(&self, pSourceTexture: IDirect3DBaseTexture9, pDestinationTexture: IDirect3DBaseTexture9) -> HRESULT;
-            fn GetRenderTargetData(&self, pRenderTarget: IDirect3DSurface9, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            fn GetFrontBufferData(&self, iSwapChain: u32, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            fn StretchRect(&self, pSourceSurface: IDirect3DSurface9, pSourceRect: *const RECT, pDestSurface: IDirect3DSurface9, pDestRect: *const RECT, Filter: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            fn ColorFill(&self, pSurface: IDirect3DSurface9, pRect: *const RECT, color: D3DCOLOR) -> HRESULT;
-            fn CreateOffscreenPlainSurface(&self, Width: u32, Height: u32, Format: D3DFORMAT, Pool: D3DPOOL, ppSurface: *mut IDirect3DSurface9, pSharedHandle: *mut HANDLE) -> HRESULT;
-            fn SetRenderTarget(&self, RenderTargetIndex: u32, pRenderTarget: IDirect3DSurface9) -> HRESULT;
-            fn GetRenderTarget(&self, RenderTargetIndex: u32, ppRenderTarget: *mut IDirect3DSurface9) -> HRESULT;
-            fn SetDepthStencilSurface(&self, pNewZStencil: IDirect3DSurface9) -> HRESULT;
-            fn GetDepthStencilSurface(&self, ppZStencilSurface: *mut IDirect3DSurface9) -> HRESULT;
-            fn BeginScene(&self) -> HRESULT;
-            fn EndScene(&self) -> HRESULT;
-            fn Clear(&self, Count: u32, pRects: *const D3DRECT, Flags: u32, Color: D3DCOLOR, Z: f32, Stencil: u32) -> HRESULT;
-            fn SetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *const D3DMATRIX) -> HRESULT;
-            fn GetTransform(&self, State: D3DTRANSFORMSTATETYPE, pMatrix: *mut D3DMATRIX) -> HRESULT;
-            fn MultiplyTransform(&self, param0: D3DTRANSFORMSTATETYPE, param1: *const D3DMATRIX) -> HRESULT;
-            fn SetViewport(&self, pViewport: *const D3DVIEWPORT9) -> HRESULT;
-            fn GetViewport(&self, pViewport: *mut D3DVIEWPORT9) -> HRESULT;
-            fn SetMaterial(&self, pMaterial: *const D3DMATERIAL9) -> HRESULT;
-            fn GetMaterial(&self, pMaterial: *mut D3DMATERIAL9) -> HRESULT;
-            fn SetLight(&self, Index: u32, param1: *const D3DLIGHT9) -> HRESULT;
-            fn GetLight(&self, Index: u32, param1: *mut D3DLIGHT9) -> HRESULT;
-            fn LightEnable(&self, Index: u32, Enable: BOOL) -> HRESULT;
-            fn GetLightEnable(&self, Index: u32, pEnable: *mut BOOL) -> HRESULT;
-            fn SetClipPlane(&self, Index: u32, pPlane: *const f32) -> HRESULT;
-            fn GetClipPlane(&self, Index: u32, pPlane: *mut f32) -> HRESULT;
-            fn SetRenderState(&self, State: D3DRENDERSTATETYPE, Value: u32) -> HRESULT;
-            fn GetRenderState(&self, State: D3DRENDERSTATETYPE, pValue: *mut u32) -> HRESULT;
-            fn CreateStateBlock(&self, Type: D3DSTATEBLOCKTYPE, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            fn BeginStateBlock(&self) -> HRESULT;
-            fn EndStateBlock(&self, ppSB: *mut IDirect3DStateBlock9) -> HRESULT;
-            fn SetClipStatus(&self, pClipStatus: *const D3DCLIPSTATUS9) -> HRESULT;
-            fn GetClipStatus(&self, pClipStatus: *mut D3DCLIPSTATUS9) -> HRESULT;
-            fn GetTexture(&self, Stage: u32, ppTexture: *mut IDirect3DBaseTexture9) -> HRESULT;
-            fn SetTexture(&self, Stage: u32, pTexture: IDirect3DBaseTexture9) -> HRESULT;
-            fn GetTextureStageState(&self, Stage: u32, Type: D3DTEXTURESTAGESTATETYPE, pValue: *mut u32) -> HRESULT;
-            fn SetTextureStageState(&self, Stage: u32, Type: D3DTEXTURESTAGESTATETYPE, Value: u32) -> HRESULT;
-            fn GetSamplerState(&self, Sampler: u32, Type: D3DSAMPLERSTATETYPE, pValue: *mut u32) -> HRESULT;
-            fn SetSamplerState(&self, Sampler: u32, Type: D3DSAMPLERSTATETYPE, Value: u32) -> HRESULT;
-            fn ValidateDevice(&self, pNumPasses: *mut u32) -> HRESULT;
-            fn SetPaletteEntries(&self, PaletteNumber: u32, pEntries: *const PALETTEENTRY) -> HRESULT;
-            fn GetPaletteEntries(&self, PaletteNumber: u32, pEntries: *mut PALETTEENTRY) -> HRESULT;
-            fn SetCurrentTexturePalette(&self, PaletteNumber: u32) -> HRESULT;
-            fn GetCurrentTexturePalette(&self, PaletteNumber: *mut u32) -> HRESULT;
-            fn SetScissorRect(&self, pRect: *const RECT) -> HRESULT;
-            fn GetScissorRect(&self, pRect: *mut RECT) -> HRESULT;
-            fn SetSoftwareVertexProcessing(&self, bSoftware: BOOL) -> HRESULT;
-            fn GetSoftwareVertexProcessing(&self) -> BOOL;
-            fn SetNPatchMode(&self, nSegments: f32) -> HRESULT;
-            fn GetNPatchMode(&self) -> f32;
-            fn DrawPrimitive(&self, PrimitiveType: D3DPRIMITIVETYPE, StartVertex: u32, PrimitiveCount: u32) -> HRESULT;
-            fn DrawIndexedPrimitive(&self, param0: D3DPRIMITIVETYPE, BaseVertexIndex: i32, MinVertexIndex: u32, NumVertices: u32, startIndex: u32, primCount: u32) -> HRESULT;
-            fn DrawPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, PrimitiveCount: u32, pVertexStreamZeroData: *const void, VertexStreamZeroStride: u32) -> HRESULT;
-            fn DrawIndexedPrimitiveUP(&self, PrimitiveType: D3DPRIMITIVETYPE, MinVertexIndex: u32, NumVertices: u32, PrimitiveCount: u32, pIndexData: *const void, IndexDataFormat: D3DFORMAT, pVertexStreamZeroData: *const void, VertexStreamZeroStride: u32) -> HRESULT;
-            fn ProcessVertices(&self, SrcStartIndex: u32, DestIndex: u32, VertexCount: u32, pDestBuffer: IDirect3DVertexBuffer9, pVertexDecl: IDirect3DVertexDeclaration9, Flags: u32) -> HRESULT;
-            fn CreateVertexDeclaration(&self, pVertexElements: *const D3DVERTEXELEMENT9, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            fn SetVertexDeclaration(&self, pDecl: IDirect3DVertexDeclaration9) -> HRESULT;
-            fn GetVertexDeclaration(&self, ppDecl: *mut IDirect3DVertexDeclaration9) -> HRESULT;
-            fn SetFVF(&self, FVF: u32) -> HRESULT;
-            fn GetFVF(&self, pFVF: *mut u32) -> HRESULT;
-            fn CreateVertexShader(&self, pFunction: *const u32, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            fn SetVertexShader(&self, pShader: IDirect3DVertexShader9) -> HRESULT;
-            fn GetVertexShader(&self, ppShader: *mut IDirect3DVertexShader9) -> HRESULT;
-            fn SetVertexShaderConstantF(&self, StartRegister: u32, pConstantData: *const f32, Vector4fCount: u32) -> HRESULT;
-            fn GetVertexShaderConstantF(&self, StartRegister: u32, pConstantData: *mut f32, Vector4fCount: u32) -> HRESULT;
-            fn SetVertexShaderConstantI(&self, StartRegister: u32, pConstantData: *const i32, Vector4iCount: u32) -> HRESULT;
-            fn GetVertexShaderConstantI(&self, StartRegister: u32, pConstantData: *mut i32, Vector4iCount: u32) -> HRESULT;
-            fn SetVertexShaderConstantB(&self, StartRegister: u32, pConstantData: *const BOOL, BoolCount: u32) -> HRESULT;
-            fn GetVertexShaderConstantB(&self, StartRegister: u32, pConstantData: *mut BOOL, BoolCount: u32) -> HRESULT;
-            fn SetStreamSource(&self, StreamNumber: u32, pStreamData: IDirect3DVertexBuffer9, OffsetInBytes: u32, Stride: u32) -> HRESULT;
-            fn GetStreamSource(&self, StreamNumber: u32, ppStreamData: *mut IDirect3DVertexBuffer9, pOffsetInBytes: *mut u32, pStride: *mut u32) -> HRESULT;
-            fn SetStreamSourceFreq(&self, StreamNumber: u32, Setting: u32) -> HRESULT;
-            fn GetStreamSourceFreq(&self, StreamNumber: u32, pSetting: *mut u32) -> HRESULT;
-            fn SetIndices(&self, pIndexData: IDirect3DIndexBuffer9) -> HRESULT;
-            fn GetIndices(&self, ppIndexData: *mut IDirect3DIndexBuffer9) -> HRESULT;
-            fn CreatePixelShader(&self, pFunction: *const u32, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            fn SetPixelShader(&self, pShader: IDirect3DPixelShader9) -> HRESULT;
-            fn GetPixelShader(&self, ppShader: *mut IDirect3DPixelShader9) -> HRESULT;
-            fn SetPixelShaderConstantF(&self, StartRegister: u32, pConstantData: *const f32, Vector4fCount: u32) -> HRESULT;
-            fn GetPixelShaderConstantF(&self, StartRegister: u32, pConstantData: *mut f32, Vector4fCount: u32) -> HRESULT;
-            fn SetPixelShaderConstantI(&self, StartRegister: u32, pConstantData: *const i32, Vector4iCount: u32) -> HRESULT;
-            fn GetPixelShaderConstantI(&self, StartRegister: u32, pConstantData: *mut i32, Vector4iCount: u32) -> HRESULT;
-            fn SetPixelShaderConstantB(&self, StartRegister: u32, pConstantData: *const BOOL, BoolCount: u32) -> HRESULT;
-            fn GetPixelShaderConstantB(&self, StartRegister: u32, pConstantData: *mut BOOL, BoolCount: u32) -> HRESULT;
-            fn DrawRectPatch(&self, Handle: u32, pNumSegs: *const f32, pRectPatchInfo: *const D3DRECTPATCH_INFO) -> HRESULT;
-            fn DrawTriPatch(&self, Handle: u32, pNumSegs: *const f32, pTriPatchInfo: *const D3DTRIPATCH_INFO) -> HRESULT;
-            fn DeletePatch(&self, Handle: u32) -> HRESULT;
-            fn CreateQuery(&self, Type: D3DQUERYTYPE, ppQuery: *mut IDirect3DQuery9) -> HRESULT;
             fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> HRESULT;
             fn ComposeRects(&self, pSrc: IDirect3DSurface9, pDst: IDirect3DSurface9, pSrcRectDescs: IDirect3DVertexBuffer9, NumRects: u32, pDstRectDescs: IDirect3DVertexBuffer9, Operation: D3DCOMPOSERECTSOP, Xoffset: i32, Yoffset: i32) -> HRESULT;
             fn PresentEx(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: u32) -> HRESULT;
@@ -468,43 +289,23 @@ mod Windows {
         }
         #[guid(0x26dc4561_a1ee_4ae7_96da_118a36c0ec95)]
         interface IDirect3DDevice9Video: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetContentProtectionCaps(&self, pCryptoType: *const GUID, pDecodeProfile: *const GUID, pCaps: *mut D3DCONTENTPROTECTIONCAPS) -> HRESULT;
             fn CreateAuthenticatedChannel(&self, ChannelType: D3DAUTHENTICATEDCHANNELTYPE, ppAuthenticatedChannel: *mut IDirect3DAuthenticatedChannel9, pChannelHandle: *mut HANDLE) -> HRESULT;
             fn CreateCryptoSession(&self, pCryptoType: *const GUID, pDecodeProfile: *const GUID, ppCryptoSession: *mut IDirect3DCryptoSession9, pCryptoHandle: *mut HANDLE) -> HRESULT;
         }
         #[guid(0x7c9dd65e_d3f7_4529_acee_785830acde35)]
         interface IDirect3DIndexBuffer9: IDirect3DResource9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
             fn Lock(&self, OffsetToLock: u32, SizeToLock: u32, ppbData: *mut *mut void, Flags: u32) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DINDEXBUFFER_DESC) -> HRESULT;
         }
         #[guid(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289)]
         interface IDirect3DPixelShader9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut u32) -> HRESULT;
         }
         #[guid(0xd9771460_a695_4f26_bbd3_27b840b541cc)]
         interface IDirect3DQuery9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn GetType(&self) -> D3DQUERYTYPE;
             fn GetDataSize(&self) -> u32;
@@ -513,9 +314,6 @@ mod Windows {
         }
         #[guid(0x05eec05d_8f7d_4362_b999_d1baf357c704)]
         interface IDirect3DResource9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
             fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
@@ -527,26 +325,12 @@ mod Windows {
         }
         #[guid(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b)]
         interface IDirect3DStateBlock9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn Capture(&self) -> HRESULT;
             fn Apply(&self) -> HRESULT;
         }
         #[guid(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b)]
         interface IDirect3DSurface9: IDirect3DResource9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
             fn GetContainer(&self, riid: *const GUID, ppContainer: *mut *mut void) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
             fn LockRect(&self, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
@@ -556,9 +340,6 @@ mod Windows {
         }
         #[guid(0x794950f2_adfc_458a_905e_10a10b0b503b)]
         interface IDirect3DSwapChain9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: u32) -> HRESULT;
             fn GetFrontBufferData(&self, pDestSurface: IDirect3DSurface9) -> HRESULT;
             fn GetBackBuffer(&self, iBackBuffer: u32, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
@@ -569,39 +350,12 @@ mod Windows {
         }
         #[guid(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303)]
         interface IDirect3DSwapChain9Ex: IDirect3DSwapChain9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn Present(&self, pSourceRect: *const RECT, pDestRect: *const RECT, hDestWindowOverride: HWND, pDirtyRegion: *const RGNDATA, dwFlags: u32) -> HRESULT;
-            fn GetFrontBufferData(&self, pDestSurface: IDirect3DSurface9) -> HRESULT;
-            fn GetBackBuffer(&self, iBackBuffer: u32, Type: D3DBACKBUFFER_TYPE, ppBackBuffer: *mut IDirect3DSurface9) -> HRESULT;
-            fn GetRasterStatus(&self, pRasterStatus: *mut D3DRASTER_STATUS) -> HRESULT;
-            fn GetDisplayMode(&self, pMode: *mut D3DDISPLAYMODE) -> HRESULT;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn GetPresentParameters(&self, pPresentationParameters: *mut D3DPRESENT_PARAMETERS) -> HRESULT;
             fn GetLastPresentCount(&self, pLastPresentCount: *mut u32) -> HRESULT;
             fn GetPresentStats(&self, pPresentationStatistics: *mut D3DPRESENTSTATS) -> HRESULT;
             fn GetDisplayModeEx(&self, pMode: *mut D3DDISPLAYMODEEX, pRotation: *mut D3DDISPLAYROTATION) -> HRESULT;
         }
         #[guid(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5)]
         interface IDirect3DTexture9: IDirect3DBaseTexture9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            fn SetLOD(&self, LODNew: u32) -> u32;
-            fn GetLOD(&self) -> u32;
-            fn GetLevelCount(&self) -> u32;
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            fn GenerateMipSubLevels(&self);
             fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
             fn GetSurfaceLevel(&self, Level: u32, ppSurfaceLevel: *mut IDirect3DSurface9) -> HRESULT;
             fn LockRect(&self, Level: u32, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
@@ -610,42 +364,22 @@ mod Windows {
         }
         #[guid(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3)]
         interface IDirect3DVertexBuffer9: IDirect3DResource9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
             fn Lock(&self, OffsetToLock: u32, SizeToLock: u32, ppbData: *mut *mut void, Flags: u32) -> HRESULT;
             fn Unlock(&self) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DVERTEXBUFFER_DESC) -> HRESULT;
         }
         #[guid(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546)]
         interface IDirect3DVertexDeclaration9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn GetDeclaration(&self, pElement: *mut D3DVERTEXELEMENT9, pNumElements: *mut u32) -> HRESULT;
         }
         #[guid(0xefc5557e_6265_4613_8a94_43857889eb36)]
         interface IDirect3DVertexShader9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn GetFunction(&self, param0: *mut void, pSizeOfData: *mut u32) -> HRESULT;
         }
         #[guid(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1)]
         interface IDirect3DVolume9: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
             fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
             fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
@@ -657,23 +391,6 @@ mod Windows {
         }
         #[guid(0x2518526c_e789_4111_a7b9_47ef328d13e6)]
         interface IDirect3DVolumeTexture9: IDirect3DBaseTexture9 {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetDevice(&self, ppDevice: *mut IDirect3DDevice9) -> HRESULT;
-            fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
-            fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
-            fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn SetPriority(&self, PriorityNew: u32) -> u32;
-            fn GetPriority(&self) -> u32;
-            fn PreLoad(&self);
-            fn GetType(&self) -> D3DRESOURCETYPE;
-            fn SetLOD(&self, LODNew: u32) -> u32;
-            fn GetLOD(&self) -> u32;
-            fn GetLevelCount(&self) -> u32;
-            fn SetAutoGenFilterType(&self, FilterType: D3DTEXTUREFILTERTYPE) -> HRESULT;
-            fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE;
-            fn GenerateMipSubLevels(&self);
             fn GetLevelDesc(&self, Level: u32, pDesc: *mut D3DVOLUME_DESC) -> HRESULT;
             fn GetVolumeLevel(&self, Level: u32, ppVolumeLevel: *mut IDirect3DVolume9) -> HRESULT;
             fn LockBox(&self, Level: u32, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: u32) -> HRESULT;

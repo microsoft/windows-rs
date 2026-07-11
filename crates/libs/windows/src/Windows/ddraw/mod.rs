@@ -1386,15 +1386,6 @@ pub const FOURCC_DXT5: u32 = 894720068;
 windows_core::imp::define_interface!(IDirectDraw, IDirectDraw_Vtbl, 0x6c14db80_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDraw, windows_core::IUnknown);
 impl IDirectDraw {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Compact(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
@@ -1497,9 +1488,6 @@ impl IDirectDraw {
 #[doc(hidden)]
 pub struct IDirectDraw_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wingdi")]
@@ -1544,9 +1532,6 @@ pub struct IDirectDraw_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Compact(&self) -> windows_core::Result<()>;
     fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreatePalette(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1571,24 +1556,6 @@ pub trait IDirectDraw_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw_Vtbl {
     pub const fn new<Identity: IDirectDraw_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Compact<Identity: IDirectDraw_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1747,9 +1714,6 @@ impl IDirectDraw_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Compact: Compact::<Identity, OFFSET>,
             CreateClipper: CreateClipper::<Identity, OFFSET>,
             CreatePalette: CreatePalette::<Identity, OFFSET>,
@@ -1781,15 +1745,6 @@ impl windows_core::RuntimeName for IDirectDraw {}
 windows_core::imp::define_interface!(IDirectDraw2, IDirectDraw2_Vtbl, 0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
 windows_core::imp::interface_hierarchy!(IDirectDraw2, windows_core::IUnknown);
 impl IDirectDraw2 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Compact(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
@@ -1895,9 +1850,6 @@ impl IDirectDraw2 {
 #[doc(hidden)]
 pub struct IDirectDraw2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wingdi")]
@@ -1943,9 +1895,6 @@ pub struct IDirectDraw2_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Compact(&self) -> windows_core::Result<()>;
     fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreatePalette(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -1971,24 +1920,6 @@ pub trait IDirectDraw2_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw2_Vtbl {
     pub const fn new<Identity: IDirectDraw2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Compact<Identity: IDirectDraw2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2153,9 +2084,6 @@ impl IDirectDraw2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Compact: Compact::<Identity, OFFSET>,
             CreateClipper: CreateClipper::<Identity, OFFSET>,
             CreatePalette: CreatePalette::<Identity, OFFSET>,
@@ -2188,15 +2116,6 @@ impl windows_core::RuntimeName for IDirectDraw2 {}
 windows_core::imp::define_interface!(IDirectDraw4, IDirectDraw4_Vtbl, 0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
 windows_core::imp::interface_hierarchy!(IDirectDraw4, windows_core::IUnknown);
 impl IDirectDraw4 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Compact(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
@@ -2318,9 +2237,6 @@ impl IDirectDraw4 {
 #[doc(hidden)]
 pub struct IDirectDraw4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wingdi")]
@@ -2373,9 +2289,6 @@ pub struct IDirectDraw4_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Compact(&self) -> windows_core::Result<()>;
     fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreatePalette(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -2405,24 +2318,6 @@ pub trait IDirectDraw4_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw4_Vtbl {
     pub const fn new<Identity: IDirectDraw4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Compact<Identity: IDirectDraw4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2617,9 +2512,6 @@ impl IDirectDraw4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Compact: Compact::<Identity, OFFSET>,
             CreateClipper: CreateClipper::<Identity, OFFSET>,
             CreatePalette: CreatePalette::<Identity, OFFSET>,
@@ -2656,15 +2548,6 @@ impl windows_core::RuntimeName for IDirectDraw4 {}
 windows_core::imp::define_interface!(IDirectDraw7, IDirectDraw7_Vtbl, 0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDraw7, windows_core::IUnknown);
 impl IDirectDraw7 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Compact(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self)) }
     }
@@ -2796,9 +2679,6 @@ impl IDirectDraw7 {
 #[doc(hidden)]
 pub struct IDirectDraw7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Compact: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub CreateClipper: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "wingdi")]
@@ -2856,9 +2736,6 @@ pub struct IDirectDraw7_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Compact(&self) -> windows_core::Result<()>;
     fn CreateClipper(&self, param0: u32, param1: windows_core::OutRef<IDirectDrawClipper>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CreatePalette(&self, param0: u32, param1: *mut super::wingdi::PALETTEENTRY, param2: windows_core::OutRef<IDirectDrawPalette>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
@@ -2890,24 +2767,6 @@ pub trait IDirectDraw7_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi", feature = "winnt"))]
 impl IDirectDraw7_Vtbl {
     pub const fn new<Identity: IDirectDraw7_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDraw7_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Compact<Identity: IDirectDraw7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3120,9 +2979,6 @@ impl IDirectDraw7_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Compact: Compact::<Identity, OFFSET>,
             CreateClipper: CreateClipper::<Identity, OFFSET>,
             CreatePalette: CreatePalette::<Identity, OFFSET>,
@@ -3161,15 +3017,6 @@ impl windows_core::RuntimeName for IDirectDraw7 {}
 windows_core::imp::define_interface!(IDirectDrawClipper, IDirectDrawClipper_Vtbl, 0x6c14db85_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawClipper, windows_core::IUnknown);
 impl IDirectDrawClipper {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub unsafe fn GetClipList(&self, param0: *mut super::windef::RECT, param1: *mut super::wingdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetClipList)(windows_core::Interface::as_raw(self), param0 as _, param1 as _, param2 as _) }
@@ -3206,9 +3053,6 @@ impl IDirectDrawClipper {
 #[doc(hidden)]
 pub struct IDirectDrawClipper_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub GetClipList: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT, *mut super::wingdi::RGNDATA, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "windef", feature = "wingdi")))]
@@ -3230,9 +3074,6 @@ pub struct IDirectDrawClipper_Vtbl {
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetClipList(&self, param0: *mut super::windef::RECT, param1: *mut super::wingdi::RGNDATA, param2: *mut u32) -> windows_core::Result<()>;
     fn GetHWnd(&self) -> windows_core::Result<super::windef::HWND>;
     fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32) -> windows_core::Result<()>;
@@ -3243,24 +3084,6 @@ pub trait IDirectDrawClipper_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 impl IDirectDrawClipper_Vtbl {
     pub const fn new<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawClipper_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawClipper_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawClipper_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetClipList<Identity: IDirectDrawClipper_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut super::windef::RECT, param1: *mut super::wingdi::RGNDATA, param2: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3311,9 +3134,6 @@ impl IDirectDrawClipper_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetClipList: GetClipList::<Identity, OFFSET>,
             GetHWnd: GetHWnd::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
@@ -3331,15 +3151,6 @@ impl windows_core::RuntimeName for IDirectDrawClipper {}
 windows_core::imp::define_interface!(IDirectDrawColorControl, IDirectDrawColorControl_Vtbl, 0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
 windows_core::imp::interface_hierarchy!(IDirectDrawColorControl, windows_core::IUnknown);
 impl IDirectDrawColorControl {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetColorControls)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -3351,39 +3162,15 @@ impl IDirectDrawColorControl {
 #[doc(hidden)]
 pub struct IDirectDrawColorControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
     pub SetColorControls: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DDCOLORCONTROL) -> windows_core::HRESULT,
 }
 pub trait IDirectDrawColorControl_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
     fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> windows_core::Result<()>;
 }
 impl IDirectDrawColorControl_Vtbl {
     pub const fn new<Identity: IDirectDrawColorControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawColorControl_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawColorControl_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawColorControl_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetColorControls<Identity: IDirectDrawColorControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3398,9 +3185,6 @@ impl IDirectDrawColorControl_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetColorControls: GetColorControls::<Identity, OFFSET>,
             SetColorControls: SetColorControls::<Identity, OFFSET>,
         }
@@ -3413,15 +3197,6 @@ impl windows_core::RuntimeName for IDirectDrawColorControl {}
 windows_core::imp::define_interface!(IDirectDrawGammaControl, IDirectDrawGammaControl_Vtbl, 0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
 windows_core::imp::interface_hierarchy!(IDirectDrawGammaControl, windows_core::IUnknown);
 impl IDirectDrawGammaControl {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetGammaRamp)(windows_core::Interface::as_raw(self), param0, param1 as _) }
     }
@@ -3433,39 +3208,15 @@ impl IDirectDrawGammaControl {
 #[doc(hidden)]
 pub struct IDirectDrawGammaControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDGAMMARAMP) -> windows_core::HRESULT,
     pub SetGammaRamp: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DDGAMMARAMP) -> windows_core::HRESULT,
 }
 pub trait IDirectDrawGammaControl_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::Result<()>;
     fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::Result<()>;
 }
 impl IDirectDrawGammaControl_Vtbl {
     pub const fn new<Identity: IDirectDrawGammaControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawGammaControl_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawGammaControl_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawGammaControl_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetGammaRamp<Identity: IDirectDrawGammaControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3480,9 +3231,6 @@ impl IDirectDrawGammaControl_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetGammaRamp: GetGammaRamp::<Identity, OFFSET>,
             SetGammaRamp: SetGammaRamp::<Identity, OFFSET>,
         }
@@ -3495,15 +3243,6 @@ impl windows_core::RuntimeName for IDirectDrawGammaControl {}
 windows_core::imp::define_interface!(IDirectDrawPalette, IDirectDrawPalette_Vtbl, 0x6c14db84_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawPalette, windows_core::IUnknown);
 impl IDirectDrawPalette {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetCaps(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3539,9 +3278,6 @@ impl IDirectDrawPalette {
 #[doc(hidden)]
 pub struct IDirectDrawPalette_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCaps: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     #[cfg(feature = "wingdi")]
     pub GetEntries: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, *mut super::wingdi::PALETTEENTRY) -> windows_core::HRESULT,
@@ -3558,9 +3294,6 @@ pub struct IDirectDrawPalette_Vtbl {
 }
 #[cfg(feature = "wingdi")]
 pub trait IDirectDrawPalette_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCaps(&self) -> windows_core::Result<u32>;
     fn GetEntries(&self, param0: u32, param1: u32, param2: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
     fn Initialize(&self, param0: windows_core::Ref<IDirectDraw>, param1: u32) -> windows_core::Result<super::wingdi::PALETTEENTRY>;
@@ -3569,24 +3302,6 @@ pub trait IDirectDrawPalette_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "wingdi")]
 impl IDirectDrawPalette_Vtbl {
     pub const fn new<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawPalette_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawPalette_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawPalette_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCaps<Identity: IDirectDrawPalette_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3637,9 +3352,6 @@ impl IDirectDrawPalette_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCaps: GetCaps::<Identity, OFFSET>,
             GetEntries: GetEntries::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
@@ -3655,15 +3367,6 @@ impl windows_core::RuntimeName for IDirectDrawPalette {}
 windows_core::imp::define_interface!(IDirectDrawSurface, IDirectDrawSurface_Vtbl, 0x6c14db81_a733_11ce_a521_0020af0be560);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface, windows_core::IUnknown);
 impl IDirectDrawSurface {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -3832,9 +3535,6 @@ impl IDirectDrawSurface {
 #[doc(hidden)]
 pub struct IDirectDrawSurface_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
@@ -3910,9 +3610,6 @@ pub struct IDirectDrawSurface_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn Blt(&self, param0: *mut super::windef::RECT, param1: windows_core::Ref<IDirectDrawSurface>, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
@@ -3950,24 +3647,6 @@ pub trait IDirectDrawSurface_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4210,9 +3889,6 @@ impl IDirectDrawSurface_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
             Blt: Blt::<Identity, OFFSET>,
@@ -4257,15 +3933,6 @@ impl windows_core::RuntimeName for IDirectDrawSurface {}
 windows_core::imp::define_interface!(IDirectDrawSurface2, IDirectDrawSurface2_Vtbl, 0x57805885_6eec_11cf_9441_a82303c10e27);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface2, windows_core::IUnknown);
 impl IDirectDrawSurface2 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -4443,9 +4110,6 @@ impl IDirectDrawSurface2 {
 #[doc(hidden)]
 pub struct IDirectDrawSurface2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
@@ -4524,9 +4188,6 @@ pub struct IDirectDrawSurface2_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface2>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn Blt(&self, param0: *mut super::windef::RECT, param1: windows_core::Ref<IDirectDrawSurface2>, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
@@ -4567,24 +4228,6 @@ pub trait IDirectDrawSurface2_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface2_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4845,9 +4488,6 @@ impl IDirectDrawSurface2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
             Blt: Blt::<Identity, OFFSET>,
@@ -4895,15 +4535,6 @@ impl windows_core::RuntimeName for IDirectDrawSurface2 {}
 windows_core::imp::define_interface!(IDirectDrawSurface3, IDirectDrawSurface3_Vtbl, 0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface3, windows_core::IUnknown);
 impl IDirectDrawSurface3 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -5085,9 +4716,6 @@ impl IDirectDrawSurface3 {
 #[doc(hidden)]
 pub struct IDirectDrawSurface3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
@@ -5170,9 +4798,6 @@ pub struct IDirectDrawSurface3_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface3>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn Blt(&self, param0: *mut super::windef::RECT, param1: windows_core::Ref<IDirectDrawSurface3>, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
@@ -5214,24 +4839,6 @@ pub trait IDirectDrawSurface3_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface3_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5498,9 +5105,6 @@ impl IDirectDrawSurface3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
             Blt: Blt::<Identity, OFFSET>,
@@ -5549,15 +5153,6 @@ impl windows_core::RuntimeName for IDirectDrawSurface3 {}
 windows_core::imp::define_interface!(IDirectDrawSurface4, IDirectDrawSurface4_Vtbl, 0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface4, windows_core::IUnknown);
 impl IDirectDrawSurface4 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -5761,9 +5356,6 @@ impl IDirectDrawSurface4 {
 #[doc(hidden)]
 pub struct IDirectDrawSurface4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
@@ -5854,9 +5446,6 @@ pub struct IDirectDrawSurface4_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface4>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn Blt(&self, param0: *mut super::windef::RECT, param1: windows_core::Ref<IDirectDrawSurface4>, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
@@ -5903,24 +5492,6 @@ pub trait IDirectDrawSurface4_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface4_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6229,9 +5800,6 @@ impl IDirectDrawSurface4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
             Blt: Blt::<Identity, OFFSET>,
@@ -6285,15 +5853,6 @@ impl windows_core::RuntimeName for IDirectDrawSurface4 {}
 windows_core::imp::define_interface!(IDirectDrawSurface7, IDirectDrawSurface7_Vtbl, 0x06675a80_3b9b_11d2_b92f_00609797ea5b);
 windows_core::imp::interface_hierarchy!(IDirectDrawSurface7, windows_core::IUnknown);
 impl IDirectDrawSurface7 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AddAttachedSurface<P0>(&self, param0: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
@@ -6515,9 +6074,6 @@ impl IDirectDrawSurface7 {
 #[doc(hidden)]
 pub struct IDirectDrawSurface7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AddAttachedSurface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
     pub AddOverlayDirtyRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::windef::RECT) -> windows_core::HRESULT,
@@ -6612,9 +6168,6 @@ pub struct IDirectDrawSurface7_Vtbl {
 }
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AddAttachedSurface(&self, param0: windows_core::Ref<IDirectDrawSurface7>) -> windows_core::Result<()>;
     fn AddOverlayDirtyRect(&self) -> windows_core::Result<super::windef::RECT>;
     fn Blt(&self, param0: *mut super::windef::RECT, param1: windows_core::Ref<IDirectDrawSurface7>, param2: *mut super::windef::RECT, param3: u32, param4: *mut DDBLTFX) -> windows_core::Result<()>;
@@ -6665,24 +6218,6 @@ pub trait IDirectDrawSurface7_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "winnt"))]
 impl IDirectDrawSurface7_Vtbl {
     pub const fn new<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectDrawSurface7_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AddAttachedSurface<Identity: IDirectDrawSurface7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7027,9 +6562,6 @@ impl IDirectDrawSurface7_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AddAttachedSurface: AddAttachedSurface::<Identity, OFFSET>,
             AddOverlayDirtyRect: AddOverlayDirtyRect::<Identity, OFFSET>,
             Blt: Blt::<Identity, OFFSET>,

@@ -79,6 +79,15 @@ impl Interface {
                 continue;
             }
 
+            // Old-style `DECLARE_INTERFACE_` headers redeclare the entire inherited method
+            // chain in each derived interface. Those redeclarations override base-class
+            // virtuals and reuse their vtable slots, so skip them — the emitted `base__`
+            // vtable already reconstructs the full inherited chain. Emitting them again
+            // would double the inherited slots and corrupt the vtable layout.
+            if child.overrides_base_method() {
+                continue;
+            }
+
             let method_name = demacro_member_name(child.name(), parser);
             let tokens = parser
                 .tu

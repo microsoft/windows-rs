@@ -1248,15 +1248,6 @@ pub const ERROR_DBG_TIMEOUT: u32 = 3221226932;
 windows_core::imp::define_interface!(IDebugAdvanced, IDebugAdvanced_Vtbl, 0xf2df5f53_071f_47bd_9de6_5734c3fed689);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced, windows_core::IUnknown);
 impl IDebugAdvanced {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize) }
     }
@@ -1268,39 +1259,15 @@ impl IDebugAdvanced {
 #[doc(hidden)]
 pub struct IDebugAdvanced_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
 }
 impl IDebugAdvanced_Vtbl {
     pub const fn new<Identity: IDebugAdvanced_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetThreadContext<Identity: IDebugAdvanced_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1315,9 +1282,6 @@ impl IDebugAdvanced_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetThreadContext: GetThreadContext::<Identity, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, OFFSET>,
         }
@@ -1330,15 +1294,6 @@ impl windows_core::RuntimeName for IDebugAdvanced {}
 windows_core::imp::define_interface!(IDebugAdvanced2, IDebugAdvanced2_Vtbl, 0x716d14c9_119b_4ba5_af1f_0890e672416a);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced2, windows_core::IUnknown);
 impl IDebugAdvanced2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize) }
     }
@@ -1371,9 +1326,6 @@ impl IDebugAdvanced2 {
 #[doc(hidden)]
 pub struct IDebugAdvanced2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1383,9 +1335,6 @@ pub struct IDebugAdvanced2_Vtbl {
     pub GetSystemObjectInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
@@ -1396,24 +1345,6 @@ pub trait IDebugAdvanced2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugAdvanced2_Vtbl {
     pub const fn new<Identity: IDebugAdvanced2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetThreadContext<Identity: IDebugAdvanced2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1458,9 +1389,6 @@ impl IDebugAdvanced2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetThreadContext: GetThreadContext::<Identity, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, OFFSET>,
             Request: Request::<Identity, OFFSET>,
@@ -1478,15 +1406,6 @@ impl windows_core::RuntimeName for IDebugAdvanced2 {}
 windows_core::imp::define_interface!(IDebugAdvanced3, IDebugAdvanced3_Vtbl, 0xcba4abb4_84c4_444d_87ca_a04e13286739);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced3, windows_core::IUnknown);
 impl IDebugAdvanced3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize) }
     }
@@ -1534,9 +1453,6 @@ impl IDebugAdvanced3 {
 #[doc(hidden)]
 pub struct IDebugAdvanced3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1549,9 +1465,6 @@ pub struct IDebugAdvanced3_Vtbl {
     pub GetSymbolInformationWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
@@ -1565,24 +1478,6 @@ pub trait IDebugAdvanced3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugAdvanced3_Vtbl {
     pub const fn new<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetThreadContext<Identity: IDebugAdvanced3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1645,9 +1540,6 @@ impl IDebugAdvanced3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetThreadContext: GetThreadContext::<Identity, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, OFFSET>,
             Request: Request::<Identity, OFFSET>,
@@ -1668,15 +1560,6 @@ impl windows_core::RuntimeName for IDebugAdvanced3 {}
 windows_core::imp::define_interface!(IDebugAdvanced4, IDebugAdvanced4_Vtbl, 0xd1069067_2a65_4bf0_ae97_76184b67856b);
 windows_core::imp::interface_hierarchy!(IDebugAdvanced4, windows_core::IUnknown);
 impl IDebugAdvanced4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetThreadContext)(windows_core::Interface::as_raw(self), context as _, contextsize) }
     }
@@ -1727,9 +1610,6 @@ impl IDebugAdvanced4 {
 #[doc(hidden)]
 pub struct IDebugAdvanced4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub SetThreadContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub Request: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const core::ffi::c_void, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
@@ -1743,9 +1623,6 @@ pub struct IDebugAdvanced4_Vtbl {
     pub GetSymbolInformationWideEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u64, u32, *mut core::ffi::c_void, u32, *mut u32, windows_core::PWSTR, u32, *mut u32, *mut SYMBOL_INFO_EX) -> windows_core::HRESULT,
 }
 pub trait IDebugAdvanced4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetThreadContext(&self, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn SetThreadContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn Request(&self, request: u32, inbuffer: *const core::ffi::c_void, inbuffersize: u32, outbuffer: *mut core::ffi::c_void, outbuffersize: u32, outsize: *mut u32) -> windows_core::Result<()>;
@@ -1760,24 +1637,6 @@ pub trait IDebugAdvanced4_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugAdvanced4_Vtbl {
     pub const fn new<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugAdvanced4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetThreadContext<Identity: IDebugAdvanced4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, context: *mut core::ffi::c_void, contextsize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1846,9 +1705,6 @@ impl IDebugAdvanced4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetThreadContext: GetThreadContext::<Identity, OFFSET>,
             SetThreadContext: SetThreadContext::<Identity, OFFSET>,
             Request: Request::<Identity, OFFSET>,
@@ -1870,15 +1726,6 @@ impl windows_core::RuntimeName for IDebugAdvanced4 {}
 windows_core::imp::define_interface!(IDebugBreakpoint, IDebugBreakpoint_Vtbl, 0x5bd9d474_5975_423a_b88b_65a8e7110e65);
 windows_core::imp::interface_hierarchy!(IDebugBreakpoint, windows_core::IUnknown);
 impl IDebugBreakpoint {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetId(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1974,9 +1821,6 @@ impl IDebugBreakpoint {
 #[doc(hidden)]
 pub struct IDebugBreakpoint_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2000,9 +1844,6 @@ pub struct IDebugBreakpoint_Vtbl {
     pub GetParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::HRESULT,
 }
 pub trait IDebugBreakpoint_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetId(&self) -> windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> windows_core::Result<()>;
     fn GetAdder(&self) -> windows_core::Result<IDebugClient>;
@@ -2027,24 +1868,6 @@ pub trait IDebugBreakpoint_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugBreakpoint_Vtbl {
     pub const fn new<Identity: IDebugBreakpoint_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetId<Identity: IDebugBreakpoint_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2215,9 +2038,6 @@ impl IDebugBreakpoint_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetId: GetId::<Identity, OFFSET>,
             GetType: GetType::<Identity, OFFSET>,
             GetAdder: GetAdder::<Identity, OFFSET>,
@@ -2249,15 +2069,6 @@ impl windows_core::RuntimeName for IDebugBreakpoint {}
 windows_core::imp::define_interface!(IDebugBreakpoint2, IDebugBreakpoint2_Vtbl, 0x1b278d20_79f2_426e_a3f9_c1ddf375d48e);
 windows_core::imp::interface_hierarchy!(IDebugBreakpoint2, windows_core::IUnknown);
 impl IDebugBreakpoint2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetId(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2371,9 +2182,6 @@ impl IDebugBreakpoint2 {
 #[doc(hidden)]
 pub struct IDebugBreakpoint2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2401,9 +2209,6 @@ pub struct IDebugBreakpoint2_Vtbl {
     pub SetOffsetExpressionWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugBreakpoint2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetId(&self) -> windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> windows_core::Result<()>;
     fn GetAdder(&self) -> windows_core::Result<IDebugClient>;
@@ -2432,24 +2237,6 @@ pub trait IDebugBreakpoint2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugBreakpoint2_Vtbl {
     pub const fn new<Identity: IDebugBreakpoint2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugBreakpoint2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugBreakpoint2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugBreakpoint2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetId<Identity: IDebugBreakpoint2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2644,9 +2431,6 @@ impl IDebugBreakpoint2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetId: GetId::<Identity, OFFSET>,
             GetType: GetType::<Identity, OFFSET>,
             GetAdder: GetAdder::<Identity, OFFSET>,
@@ -2682,15 +2466,6 @@ impl windows_core::RuntimeName for IDebugBreakpoint2 {}
 windows_core::imp::define_interface!(IDebugBreakpoint3, IDebugBreakpoint3_Vtbl, 0x38f5c249_b448_43bb_9835_579d4ec02249);
 windows_core::imp::interface_hierarchy!(IDebugBreakpoint3, windows_core::IUnknown);
 impl IDebugBreakpoint3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetId(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2810,9 +2585,6 @@ impl IDebugBreakpoint3 {
 #[doc(hidden)]
 pub struct IDebugBreakpoint3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub GetAdder: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2841,9 +2613,6 @@ pub struct IDebugBreakpoint3_Vtbl {
     pub GetGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IDebugBreakpoint3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetId(&self) -> windows_core::Result<u32>;
     fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> windows_core::Result<()>;
     fn GetAdder(&self) -> windows_core::Result<IDebugClient>;
@@ -2873,24 +2642,6 @@ pub trait IDebugBreakpoint3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugBreakpoint3_Vtbl {
     pub const fn new<Identity: IDebugBreakpoint3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugBreakpoint3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugBreakpoint3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugBreakpoint3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugBreakpoint3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetId<Identity: IDebugBreakpoint3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3097,9 +2848,6 @@ impl IDebugBreakpoint3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetId: GetId::<Identity, OFFSET>,
             GetType: GetType::<Identity, OFFSET>,
             GetAdder: GetAdder::<Identity, OFFSET>,
@@ -3136,15 +2884,6 @@ impl windows_core::RuntimeName for IDebugBreakpoint3 {}
 windows_core::imp::define_interface!(IDebugClient, IDebugClient_Vtbl, 0x27fe5639_8407_4f47_8364_ee118fb08ac8);
 windows_core::imp::interface_hierarchy!(IDebugClient, windows_core::IUnknown);
 impl IDebugClient {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -3388,9 +3127,6 @@ impl IDebugClient {
 #[doc(hidden)]
 pub struct IDebugClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -3438,9 +3174,6 @@ pub struct IDebugClient_Vtbl {
     pub FlushCallbacks: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugClient_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -3489,24 +3222,6 @@ pub trait IDebugClient_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient_Vtbl {
     pub const fn new<Identity: IDebugClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3845,9 +3560,6 @@ impl IDebugClient_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -3903,15 +3615,6 @@ impl windows_core::RuntimeName for IDebugClient {}
 windows_core::imp::define_interface!(IDebugClient2, IDebugClient2_Vtbl, 0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
 windows_core::imp::interface_hierarchy!(IDebugClient2, windows_core::IUnknown);
 impl IDebugClient2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -4186,9 +3889,6 @@ impl IDebugClient2 {
 #[doc(hidden)]
 pub struct IDebugClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -4244,9 +3944,6 @@ pub struct IDebugClient2_Vtbl {
     pub AbandonCurrentProcess: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugClient2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -4303,24 +4000,6 @@ pub trait IDebugClient2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient2_Vtbl {
     pub const fn new<Identity: IDebugClient2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4707,9 +4386,6 @@ impl IDebugClient2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -4773,15 +4449,6 @@ impl windows_core::RuntimeName for IDebugClient2 {}
 windows_core::imp::define_interface!(IDebugClient3, IDebugClient3_Vtbl, 0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
 windows_core::imp::interface_hierarchy!(IDebugClient3, windows_core::IUnknown);
 impl IDebugClient3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -5093,9 +4760,6 @@ impl IDebugClient3 {
 #[doc(hidden)]
 pub struct IDebugClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -5155,9 +4819,6 @@ pub struct IDebugClient3_Vtbl {
     pub CreateProcessAndAttachWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u32, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -5218,24 +4879,6 @@ pub trait IDebugClient3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient3_Vtbl {
     pub const fn new<Identity: IDebugClient3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5652,9 +5295,6 @@ impl IDebugClient3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -5722,15 +5362,6 @@ impl windows_core::RuntimeName for IDebugClient3 {}
 windows_core::imp::define_interface!(IDebugClient4, IDebugClient4_Vtbl, 0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
 windows_core::imp::interface_hierarchy!(IDebugClient4, windows_core::IUnknown);
 impl IDebugClient4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -6073,9 +5704,6 @@ impl IDebugClient4 {
 #[doc(hidden)]
 pub struct IDebugClient4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -6141,9 +5769,6 @@ pub struct IDebugClient4_Vtbl {
     pub GetDumpFileWide: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, u32, *mut u32, *mut u64, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -6210,24 +5835,6 @@ pub trait IDebugClient4_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient4_Vtbl {
     pub const fn new<Identity: IDebugClient4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6686,9 +6293,6 @@ impl IDebugClient4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -6762,15 +6366,6 @@ impl windows_core::RuntimeName for IDebugClient4 {}
 windows_core::imp::define_interface!(IDebugClient5, IDebugClient5_Vtbl, 0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628);
 windows_core::imp::interface_hierarchy!(IDebugClient5, windows_core::IUnknown);
 impl IDebugClient5 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -7286,9 +6881,6 @@ impl IDebugClient5 {
 #[doc(hidden)]
 pub struct IDebugClient5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -7383,9 +6975,6 @@ pub struct IDebugClient5_Vtbl {
     pub SetQuitLockStringWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugClient5_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -7481,24 +7070,6 @@ pub trait IDebugClient5_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient5_Vtbl {
     pub const fn new<Identity: IDebugClient5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient5_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient5_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient5_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -8179,9 +7750,6 @@ impl IDebugClient5_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -8284,15 +7852,6 @@ impl windows_core::RuntimeName for IDebugClient5 {}
 windows_core::imp::define_interface!(IDebugClient6, IDebugClient6_Vtbl, 0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
 windows_core::imp::interface_hierarchy!(IDebugClient6, windows_core::IUnknown);
 impl IDebugClient6 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -8814,9 +8373,6 @@ impl IDebugClient6 {
 #[doc(hidden)]
 pub struct IDebugClient6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -8912,9 +8468,6 @@ pub struct IDebugClient6_Vtbl {
     pub SetEventContextCallbacks: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -9011,24 +8564,6 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient6_Vtbl {
     pub const fn new<Identity: IDebugClient6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient6_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient6_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient6_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9715,9 +9250,6 @@ impl IDebugClient6_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -9821,15 +9353,6 @@ impl windows_core::RuntimeName for IDebugClient6 {}
 windows_core::imp::define_interface!(IDebugClient7, IDebugClient7_Vtbl, 0x13586be3_542e_481e_b1f2_8497ba74f9a9);
 windows_core::imp::interface_hierarchy!(IDebugClient7, windows_core::IUnknown);
 impl IDebugClient7 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -10354,9 +9877,6 @@ impl IDebugClient7 {
 #[doc(hidden)]
 pub struct IDebugClient7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -10453,9 +9973,6 @@ pub struct IDebugClient7_Vtbl {
     pub SetClientContext: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -10553,24 +10070,6 @@ pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient7_Vtbl {
     pub const fn new<Identity: IDebugClient7_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient7_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient7_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient7_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11263,9 +10762,6 @@ impl IDebugClient7_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -11370,15 +10866,6 @@ impl windows_core::RuntimeName for IDebugClient7 {}
 windows_core::imp::define_interface!(IDebugClient8, IDebugClient8_Vtbl, 0xcec43add_6375_469e_83d5_414e4033c19a);
 windows_core::imp::interface_hierarchy!(IDebugClient8, windows_core::IUnknown);
 impl IDebugClient8 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -11909,9 +11396,6 @@ impl IDebugClient8 {
 #[doc(hidden)]
 pub struct IDebugClient8_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -12009,9 +11493,6 @@ pub struct IDebugClient8_Vtbl {
     pub OpenDumpFileWide2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u64, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -12110,24 +11591,6 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient8_Vtbl {
     pub const fn new<Identity: IDebugClient8_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient8_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient8_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient8_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient8_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -12826,9 +12289,6 @@ impl IDebugClient8_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -12934,15 +12394,6 @@ impl windows_core::RuntimeName for IDebugClient8 {}
 windows_core::imp::define_interface!(IDebugClient9, IDebugClient9_Vtbl, 0x2c24cd5b_4d9e_4df4_8a70_3d37440d119f);
 windows_core::imp::interface_hierarchy!(IDebugClient9, windows_core::IUnknown);
 impl IDebugClient9 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn AttachKernel<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -13485,9 +12936,6 @@ impl IDebugClient9 {
 #[doc(hidden)]
 pub struct IDebugClient9_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub AttachKernel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
     pub SetKernelConnectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -13587,9 +13035,6 @@ pub struct IDebugClient9_Vtbl {
     pub OpenDumpDirectory: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugClient9_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn AttachKernel(&self, flags: u32, connectoptions: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetKernelConnectionOptions(&self, buffer: windows_core::PSTR, buffersize: u32, optionssize: *mut u32) -> windows_core::Result<()>;
     fn SetKernelConnectionOptions(&self, options: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -13690,24 +13135,6 @@ pub trait IDebugClient9_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugClient9_Vtbl {
     pub const fn new<Identity: IDebugClient9_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugClient9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient9_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugClient9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient9_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugClient9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugClient9_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn AttachKernel<Identity: IDebugClient9_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flags: u32, connectoptions: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -14418,9 +13845,6 @@ impl IDebugClient9_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             AttachKernel: AttachKernel::<Identity, OFFSET>,
             GetKernelConnectionOptions: GetKernelConnectionOptions::<Identity, OFFSET>,
             SetKernelConnectionOptions: SetKernelConnectionOptions::<Identity, OFFSET>,
@@ -14528,15 +13952,6 @@ impl windows_core::RuntimeName for IDebugClient9 {}
 windows_core::imp::define_interface!(IDebugControl, IDebugControl_Vtbl, 0x5182e668_105e_416e_ad92_24ef800424ba);
 windows_core::imp::interface_hierarchy!(IDebugControl, windows_core::IUnknown);
 impl IDebugControl {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -14988,9 +14403,6 @@ impl IDebugControl {
 #[doc(hidden)]
 pub struct IDebugControl_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -15095,9 +14507,6 @@ pub struct IDebugControl_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -15194,24 +14603,6 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl_Vtbl {
     pub const fn new<Identity: IDebugControl_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -15922,9 +15313,6 @@ impl IDebugControl_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -16028,15 +15416,6 @@ impl windows_core::RuntimeName for IDebugControl {}
 windows_core::imp::define_interface!(IDebugControl2, IDebugControl2_Vtbl, 0xd4366723_44df_4bed_8c7e_4c05424f4588);
 windows_core::imp::interface_hierarchy!(IDebugControl2, windows_core::IUnknown);
 impl IDebugControl2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -16543,9 +15922,6 @@ impl IDebugControl2 {
 #[doc(hidden)]
 pub struct IDebugControl2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -16658,9 +16034,6 @@ pub struct IDebugControl2_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -16765,24 +16138,6 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl2_Vtbl {
     pub const fn new<Identity: IDebugControl2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -17565,9 +16920,6 @@ impl IDebugControl2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -17679,15 +17031,6 @@ impl windows_core::RuntimeName for IDebugControl2 {}
 windows_core::imp::define_interface!(IDebugControl3, IDebugControl3_Vtbl, 0x7df74a86_b03f_407f_90ab_a20dadcead08);
 windows_core::imp::interface_hierarchy!(IDebugControl3, windows_core::IUnknown);
 impl IDebugControl3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -18268,9 +17611,6 @@ impl IDebugControl3 {
 #[doc(hidden)]
 pub struct IDebugControl3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -18396,9 +17736,6 @@ pub struct IDebugControl3_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -18516,24 +17853,6 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl3_Vtbl {
     pub const fn new<Identity: IDebugControl3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -19430,9 +18749,6 @@ impl IDebugControl3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -19557,15 +18873,6 @@ impl windows_core::RuntimeName for IDebugControl3 {}
 windows_core::imp::define_interface!(IDebugControl4, IDebugControl4_Vtbl, 0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
 windows_core::imp::interface_hierarchy!(IDebugControl4, windows_core::IUnknown);
 impl IDebugControl4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -20444,9 +19751,6 @@ impl IDebugControl4 {
 #[doc(hidden)]
 pub struct IDebugControl4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -20628,9 +19932,6 @@ pub struct IDebugControl4_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -20801,24 +20102,6 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl4_Vtbl {
     pub const fn new<Identity: IDebugControl4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -22075,9 +21358,6 @@ impl IDebugControl4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -22255,15 +21535,6 @@ impl windows_core::RuntimeName for IDebugControl4 {}
 windows_core::imp::define_interface!(IDebugControl5, IDebugControl5_Vtbl, 0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
 windows_core::imp::interface_hierarchy!(IDebugControl5, windows_core::IUnknown);
 impl IDebugControl5 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -23160,9 +22431,6 @@ impl IDebugControl5 {
 #[doc(hidden)]
 pub struct IDebugControl5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -23349,9 +22617,6 @@ pub struct IDebugControl5_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -23527,24 +22792,6 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl5_Vtbl {
     pub const fn new<Identity: IDebugControl5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl5_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl5_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl5_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -24837,9 +24084,6 @@ impl IDebugControl5_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -25022,15 +24266,6 @@ impl windows_core::RuntimeName for IDebugControl5 {}
 windows_core::imp::define_interface!(IDebugControl6, IDebugControl6_Vtbl, 0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
 windows_core::imp::interface_hierarchy!(IDebugControl6, windows_core::IUnknown);
 impl IDebugControl6 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -25936,9 +25171,6 @@ impl IDebugControl6 {
 #[doc(hidden)]
 pub struct IDebugControl6_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -26127,9 +25359,6 @@ pub struct IDebugControl6_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -26307,24 +25536,6 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl6_Vtbl {
     pub const fn new<Identity: IDebugControl6_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl6_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl6_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl6_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl6_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -27635,9 +26846,6 @@ impl IDebugControl6_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -27822,15 +27030,6 @@ impl windows_core::RuntimeName for IDebugControl6 {}
 windows_core::imp::define_interface!(IDebugControl7, IDebugControl7_Vtbl, 0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
 windows_core::imp::interface_hierarchy!(IDebugControl7, windows_core::IUnknown);
 impl IDebugControl7 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterrupt(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetInterrupt)(windows_core::Interface::as_raw(self)) }
     }
@@ -28739,9 +27938,6 @@ impl IDebugControl7 {
 #[doc(hidden)]
 pub struct IDebugControl7_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetInterrupt: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetInterruptTimeout: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -28931,9 +28127,6 @@ pub struct IDebugControl7_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterrupt(&self) -> windows_core::Result<()>;
     fn SetInterrupt(&self, flags: u32) -> windows_core::Result<()>;
     fn GetInterruptTimeout(&self) -> windows_core::Result<u32>;
@@ -29112,24 +28305,6 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "wdbgexts", feature = "winnt"))]
 impl IDebugControl7_Vtbl {
     pub const fn new<Identity: IDebugControl7_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl7_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl7_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugControl7_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterrupt<Identity: IDebugControl7_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -30446,9 +29621,6 @@ impl IDebugControl7_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterrupt: GetInterrupt::<Identity, OFFSET>,
             SetInterrupt: SetInterrupt::<Identity, OFFSET>,
             GetInterruptTimeout: GetInterruptTimeout::<Identity, OFFSET>,
@@ -30634,15 +29806,6 @@ impl windows_core::RuntimeName for IDebugControl7 {}
 windows_core::imp::define_interface!(IDebugDataSpaces, IDebugDataSpaces_Vtbl, 0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces, windows_core::IUnknown);
 impl IDebugDataSpaces {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -30714,9 +29877,6 @@ impl IDebugDataSpaces {
 #[doc(hidden)]
 pub struct IDebugDataSpaces_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
@@ -30739,9 +29899,6 @@ pub struct IDebugDataSpaces_Vtbl {
     pub ReadProcessorSystemData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugDataSpaces_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
     fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
@@ -30765,24 +29922,6 @@ pub trait IDebugDataSpaces_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugDataSpaces_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ReadVirtual<Identity: IDebugDataSpaces_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -30917,9 +30056,6 @@ impl IDebugDataSpaces_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ReadVirtual: ReadVirtual::<Identity, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, OFFSET>,
@@ -30950,15 +30086,6 @@ impl windows_core::RuntimeName for IDebugDataSpaces {}
 windows_core::imp::define_interface!(IDebugDataSpaces2, IDebugDataSpaces2_Vtbl, 0x7a5e852f_96e9_468f_ac1b_0b3addc4a049);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces2, windows_core::IUnknown);
 impl IDebugDataSpaces2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -31052,9 +30179,6 @@ impl IDebugDataSpaces2 {
 #[doc(hidden)]
 pub struct IDebugDataSpaces2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
@@ -31087,9 +30211,6 @@ pub struct IDebugDataSpaces2_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
     fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
@@ -31120,24 +30241,6 @@ pub trait IDebugDataSpaces2_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugDataSpaces2_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ReadVirtual<Identity: IDebugDataSpaces2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -31314,9 +30417,6 @@ impl IDebugDataSpaces2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ReadVirtual: ReadVirtual::<Identity, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, OFFSET>,
@@ -31354,15 +30454,6 @@ impl windows_core::RuntimeName for IDebugDataSpaces2 {}
 windows_core::imp::define_interface!(IDebugDataSpaces3, IDebugDataSpaces3_Vtbl, 0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, windows_core::IUnknown);
 impl IDebugDataSpaces3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -31475,9 +30566,6 @@ impl IDebugDataSpaces3 {
 #[doc(hidden)]
 pub struct IDebugDataSpaces3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
@@ -31518,9 +30606,6 @@ pub struct IDebugDataSpaces3_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
     fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
@@ -31556,24 +30641,6 @@ pub trait IDebugDataSpaces3_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugDataSpaces3_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ReadVirtual<Identity: IDebugDataSpaces3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -31786,9 +30853,6 @@ impl IDebugDataSpaces3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ReadVirtual: ReadVirtual::<Identity, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, OFFSET>,
@@ -31831,15 +30895,6 @@ impl windows_core::RuntimeName for IDebugDataSpaces3 {}
 windows_core::imp::define_interface!(IDebugDataSpaces4, IDebugDataSpaces4_Vtbl, 0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
 windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, windows_core::IUnknown);
 impl IDebugDataSpaces4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadVirtual)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
     }
@@ -31988,9 +31043,6 @@ impl IDebugDataSpaces4 {
 #[doc(hidden)]
 pub struct IDebugDataSpaces4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ReadVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub WriteVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const core::ffi::c_void, u32, *mut u32) -> windows_core::HRESULT,
     pub SearchVirtual: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *const core::ffi::c_void, u32, u32, *mut u64) -> windows_core::HRESULT,
@@ -32041,9 +31093,6 @@ pub struct IDebugDataSpaces4_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugDataSpaces4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ReadVirtual(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::Result<()>;
     fn WriteVirtual(&self, offset: u64, buffer: *const core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> windows_core::Result<()>;
     fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> windows_core::Result<u64>;
@@ -32089,24 +31138,6 @@ pub trait IDebugDataSpaces4_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugDataSpaces4_Vtbl {
     pub const fn new<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugDataSpaces4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ReadVirtual<Identity: IDebugDataSpaces4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -32391,9 +31422,6 @@ impl IDebugDataSpaces4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ReadVirtual: ReadVirtual::<Identity, OFFSET>,
             WriteVirtual: WriteVirtual::<Identity, OFFSET>,
             SearchVirtual: SearchVirtual::<Identity, OFFSET>,
@@ -32446,15 +31474,6 @@ impl windows_core::RuntimeName for IDebugDataSpaces4 {}
 windows_core::imp::define_interface!(IDebugEventCallbacks, IDebugEventCallbacks_Vtbl, 0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, windows_core::IUnknown);
 impl IDebugEventCallbacks {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -32520,9 +31539,6 @@ impl IDebugEventCallbacks {
 #[doc(hidden)]
 pub struct IDebugEventCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
@@ -32543,9 +31559,6 @@ pub struct IDebugEventCallbacks_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
@@ -32564,24 +31577,6 @@ pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugEventCallbacks_Vtbl {
     pub const fn new<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacks_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacks_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacks_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterestMask<Identity: IDebugEventCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -32674,9 +31669,6 @@ impl IDebugEventCallbacks_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterestMask: GetInterestMask::<Identity, OFFSET>,
             Breakpoint: Breakpoint::<Identity, OFFSET>,
             Exception: Exception::<Identity, OFFSET>,
@@ -32702,15 +31694,6 @@ impl windows_core::RuntimeName for IDebugEventCallbacks {}
 windows_core::imp::define_interface!(IDebugEventCallbacksWide, IDebugEventCallbacksWide_Vtbl, 0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
 windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, windows_core::IUnknown);
 impl IDebugEventCallbacksWide {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -32776,9 +31759,6 @@ impl IDebugEventCallbacksWide {
 #[doc(hidden)]
 pub struct IDebugEventCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
@@ -32799,9 +31779,6 @@ pub struct IDebugEventCallbacksWide_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
@@ -32820,24 +31797,6 @@ pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugEventCallbacksWide_Vtbl {
     pub const fn new<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacksWide_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacksWide_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventCallbacksWide_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterestMask<Identity: IDebugEventCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -32930,9 +31889,6 @@ impl IDebugEventCallbacksWide_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterestMask: GetInterestMask::<Identity, OFFSET>,
             Breakpoint: Breakpoint::<Identity, OFFSET>,
             Exception: Exception::<Identity, OFFSET>,
@@ -32958,15 +31914,6 @@ impl windows_core::RuntimeName for IDebugEventCallbacksWide {}
 windows_core::imp::define_interface!(IDebugEventContextCallbacks, IDebugEventContextCallbacks_Vtbl, 0x61a4905b_23f9_4247_b3c5_53d087529ab7);
 windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, windows_core::IUnknown);
 impl IDebugEventContextCallbacks {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetInterestMask(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -33032,9 +31979,6 @@ impl IDebugEventContextCallbacks {
 #[doc(hidden)]
 pub struct IDebugEventContextCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Breakpoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(feature = "winnt")]
@@ -33055,9 +31999,6 @@ pub struct IDebugEventContextCallbacks_Vtbl {
 }
 #[cfg(feature = "winnt")]
 pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::winnt::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
@@ -33076,24 +32017,6 @@ pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "winnt")]
 impl IDebugEventContextCallbacks_Vtbl {
     pub const fn new<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventContextCallbacks_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventContextCallbacks_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugEventContextCallbacks_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetInterestMask<Identity: IDebugEventContextCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -33202,9 +32125,6 @@ impl IDebugEventContextCallbacks_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetInterestMask: GetInterestMask::<Identity, OFFSET>,
             Breakpoint: Breakpoint::<Identity, OFFSET>,
             Exception: Exception::<Identity, OFFSET>,
@@ -33230,15 +32150,6 @@ impl windows_core::RuntimeName for IDebugEventContextCallbacks {}
 windows_core::imp::define_interface!(IDebugInputCallbacks, IDebugInputCallbacks_Vtbl, 0x9f50e42c_f136_499e_9a97_73036c94ed2d);
 windows_core::imp::interface_hierarchy!(IDebugInputCallbacks, windows_core::IUnknown);
 impl IDebugInputCallbacks {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn StartInput(&self, buffersize: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).StartInput)(windows_core::Interface::as_raw(self), buffersize) }
     }
@@ -33250,39 +32161,15 @@ impl IDebugInputCallbacks {
 #[doc(hidden)]
 pub struct IDebugInputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub StartInput: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub EndInput: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugInputCallbacks_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn StartInput(&self, buffersize: u32) -> windows_core::Result<()>;
     fn EndInput(&self) -> windows_core::Result<()>;
 }
 impl IDebugInputCallbacks_Vtbl {
     pub const fn new<Identity: IDebugInputCallbacks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugInputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugInputCallbacks_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugInputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugInputCallbacks_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugInputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugInputCallbacks_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn StartInput<Identity: IDebugInputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -33297,9 +32184,6 @@ impl IDebugInputCallbacks_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             StartInput: StartInput::<Identity, OFFSET>,
             EndInput: EndInput::<Identity, OFFSET>,
         }
@@ -33312,15 +32196,6 @@ impl windows_core::RuntimeName for IDebugInputCallbacks {}
 windows_core::imp::define_interface!(IDebugOutputCallbacks, IDebugOutputCallbacks_Vtbl, 0x4bf58045_d654_4c40_b0af_683090f356dc);
 windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, windows_core::IUnknown);
 impl IDebugOutputCallbacks {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Output<P1>(&self, mask: u32, text: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -33332,50 +32207,20 @@ impl IDebugOutputCallbacks {
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugOutputCallbacks_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Output(&self, mask: u32, text: &windows_core::PCSTR) -> windows_core::Result<()>;
 }
 impl IDebugOutputCallbacks_Vtbl {
     pub const fn new<Identity: IDebugOutputCallbacks_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugOutputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugOutputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugOutputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Output<Identity: IDebugOutputCallbacks_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, text: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugOutputCallbacks_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&text)).into()
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            Output: Output::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugOutputCallbacks as windows_core::Interface>::IID
@@ -33385,15 +32230,6 @@ impl windows_core::RuntimeName for IDebugOutputCallbacks {}
 windows_core::imp::define_interface!(IDebugOutputCallbacks2, IDebugOutputCallbacks2_Vtbl, 0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
 windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, windows_core::IUnknown);
 impl IDebugOutputCallbacks2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Output<P1>(&self, mask: u32, text: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -33417,41 +32253,17 @@ impl IDebugOutputCallbacks2 {
 #[doc(hidden)]
 pub struct IDebugOutputCallbacks2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
     pub GetInterestMask: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Output2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u64, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugOutputCallbacks2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Output(&self, mask: u32, text: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
     fn Output2(&self, which: u32, flags: u32, arg: u64, text: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDebugOutputCallbacks2_Vtbl {
     pub const fn new<Identity: IDebugOutputCallbacks2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugOutputCallbacks2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugOutputCallbacks2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugOutputCallbacks2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacks2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Output<Identity: IDebugOutputCallbacks2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, text: windows_core::PCSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -33478,9 +32290,6 @@ impl IDebugOutputCallbacks2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Output: Output::<Identity, OFFSET>,
             GetInterestMask: GetInterestMask::<Identity, OFFSET>,
             Output2: Output2::<Identity, OFFSET>,
@@ -33494,15 +32303,6 @@ impl windows_core::RuntimeName for IDebugOutputCallbacks2 {}
 windows_core::imp::define_interface!(IDebugOutputCallbacksWide, IDebugOutputCallbacksWide_Vtbl, 0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c);
 windows_core::imp::interface_hierarchy!(IDebugOutputCallbacksWide, windows_core::IUnknown);
 impl IDebugOutputCallbacksWide {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Output<P1>(&self, mask: u32, text: P1) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -33514,50 +32314,20 @@ impl IDebugOutputCallbacksWide {
 #[doc(hidden)]
 pub struct IDebugOutputCallbacksWide_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Output: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugOutputCallbacksWide_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Output(&self, mask: u32, text: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDebugOutputCallbacksWide_Vtbl {
     pub const fn new<Identity: IDebugOutputCallbacksWide_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugOutputCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacksWide_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugOutputCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacksWide_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugOutputCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputCallbacksWide_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Output<Identity: IDebugOutputCallbacksWide_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mask: u32, text: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugOutputCallbacksWide_Impl::Output(this, core::mem::transmute_copy(&mask), core::mem::transmute(&text)).into()
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            Output: Output::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Output: Output::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugOutputCallbacksWide as windows_core::Interface>::IID
@@ -33567,15 +32337,6 @@ impl windows_core::RuntimeName for IDebugOutputCallbacksWide {}
 windows_core::imp::define_interface!(IDebugOutputStream, IDebugOutputStream_Vtbl, 0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
 windows_core::imp::interface_hierarchy!(IDebugOutputStream, windows_core::IUnknown);
 impl IDebugOutputStream {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Write<P0>(&self, psz: P0) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -33587,50 +32348,20 @@ impl IDebugOutputStream {
 #[doc(hidden)]
 pub struct IDebugOutputStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Write: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugOutputStream_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Write(&self, psz: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDebugOutputStream_Vtbl {
     pub const fn new<Identity: IDebugOutputStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputStream_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputStream_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugOutputStream_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Write<Identity: IDebugOutputStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psz: windows_core::PCWSTR) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugOutputStream_Impl::Write(this, core::mem::transmute(&psz)).into()
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            Write: Write::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Write: Write::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugOutputStream as windows_core::Interface>::IID
@@ -33640,15 +32371,6 @@ impl windows_core::RuntimeName for IDebugOutputStream {}
 windows_core::imp::define_interface!(IDebugPlmClient, IDebugPlmClient_Vtbl, 0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
 windows_core::imp::interface_hierarchy!(IDebugPlmClient, windows_core::IUnknown);
 impl IDebugPlmClient {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn LaunchPlmPackageForDebugWide<P2, P3, P4>(&self, server: u64, timeout: u32, packagefullname: P2, appname: P3, arguments: P4, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -33662,50 +32384,20 @@ impl IDebugPlmClient {
 #[doc(hidden)]
 pub struct IDebugPlmClient_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugPlmClient_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
 }
 impl IDebugPlmClient_Vtbl {
     pub const fn new<Identity: IDebugPlmClient_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugPlmClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugPlmClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugPlmClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn LaunchPlmPackageForDebugWide<Identity: IDebugPlmClient_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, timeout: u32, packagefullname: windows_core::PCWSTR, appname: windows_core::PCWSTR, arguments: windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDebugPlmClient_Impl::LaunchPlmPackageForDebugWide(this, core::mem::transmute_copy(&server), core::mem::transmute_copy(&timeout), core::mem::transmute(&packagefullname), core::mem::transmute(&appname), core::mem::transmute(&arguments), core::mem::transmute_copy(&processid), core::mem::transmute_copy(&threadid)).into()
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDebugPlmClient as windows_core::Interface>::IID
@@ -33715,15 +32407,6 @@ impl windows_core::RuntimeName for IDebugPlmClient {}
 windows_core::imp::define_interface!(IDebugPlmClient2, IDebugPlmClient2_Vtbl, 0x597c980d_e7bd_4309_962c_9d9b69a7372c);
 windows_core::imp::interface_hierarchy!(IDebugPlmClient2, windows_core::IUnknown);
 impl IDebugPlmClient2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn LaunchPlmPackageForDebugWide<P2, P3, P4>(&self, server: u64, timeout: u32, packagefullname: P2, appname: P3, arguments: P4, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -33744,39 +32427,15 @@ impl IDebugPlmClient2 {
 #[doc(hidden)]
 pub struct IDebugPlmClient2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub LaunchPlmBgTaskForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugPlmClient2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
     fn LaunchPlmBgTaskForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, backgroundtaskid: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
 }
 impl IDebugPlmClient2_Vtbl {
     pub const fn new<Identity: IDebugPlmClient2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugPlmClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugPlmClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugPlmClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn LaunchPlmPackageForDebugWide<Identity: IDebugPlmClient2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, timeout: u32, packagefullname: windows_core::PCWSTR, appname: windows_core::PCWSTR, arguments: windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -33791,9 +32450,6 @@ impl IDebugPlmClient2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, OFFSET>,
             LaunchPlmBgTaskForDebugWide: LaunchPlmBgTaskForDebugWide::<Identity, OFFSET>,
         }
@@ -33806,15 +32462,6 @@ impl windows_core::RuntimeName for IDebugPlmClient2 {}
 windows_core::imp::define_interface!(IDebugPlmClient3, IDebugPlmClient3_Vtbl, 0xd4a5dbd1_ca02_4d90_856a_2a92bfd0f20f);
 windows_core::imp::interface_hierarchy!(IDebugPlmClient3, windows_core::IUnknown);
 impl IDebugPlmClient3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn LaunchPlmPackageForDebugWide<P2, P3, P4>(&self, server: u64, timeout: u32, packagefullname: P2, appname: P3, arguments: P4, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -33893,9 +32540,6 @@ impl IDebugPlmClient3 {
 #[doc(hidden)]
 pub struct IDebugPlmClient3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub LaunchPlmPackageForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub LaunchPlmBgTaskForDebugWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
     pub QueryPlmPackageWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, *mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -33909,9 +32553,6 @@ pub struct IDebugPlmClient3_Vtbl {
     pub ActivateAndDebugPlmBgTaskWide: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugPlmClient3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
     fn LaunchPlmBgTaskForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, backgroundtaskid: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
     fn QueryPlmPackageWide(&self, server: u64, packagefullname: &windows_core::PCWSTR, stream: windows_core::Ref<IDebugOutputStream>) -> windows_core::Result<()>;
@@ -33926,24 +32567,6 @@ pub trait IDebugPlmClient3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugPlmClient3_Vtbl {
     pub const fn new<Identity: IDebugPlmClient3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugPlmClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugPlmClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugPlmClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugPlmClient3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn LaunchPlmPackageForDebugWide<Identity: IDebugPlmClient3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, server: u64, timeout: u32, packagefullname: windows_core::PCWSTR, appname: windows_core::PCWSTR, arguments: windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -34012,9 +32635,6 @@ impl IDebugPlmClient3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             LaunchPlmPackageForDebugWide: LaunchPlmPackageForDebugWide::<Identity, OFFSET>,
             LaunchPlmBgTaskForDebugWide: LaunchPlmBgTaskForDebugWide::<Identity, OFFSET>,
             QueryPlmPackageWide: QueryPlmPackageWide::<Identity, OFFSET>,
@@ -34036,15 +32656,6 @@ impl windows_core::RuntimeName for IDebugPlmClient3 {}
 windows_core::imp::define_interface!(IDebugRegisters, IDebugRegisters_Vtbl, 0xce289126_9e84_45a7_937e_67bb18691493);
 windows_core::imp::interface_hierarchy!(IDebugRegisters, windows_core::IUnknown);
 impl IDebugRegisters {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetNumberRegisters(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -34101,9 +32712,6 @@ impl IDebugRegisters {
 #[doc(hidden)]
 pub struct IDebugRegisters_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32, *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::HRESULT,
     pub GetIndexByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
@@ -34117,9 +32725,6 @@ pub struct IDebugRegisters_Vtbl {
     pub GetFrameOffset: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IDebugRegisters_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNumberRegisters(&self) -> windows_core::Result<u32>;
     fn GetDescription(&self, register: u32, namebuffer: windows_core::PSTR, namebuffersize: u32, namesize: *mut u32, desc: *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::Result<()>;
     fn GetIndexByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<u32>;
@@ -34134,24 +32739,6 @@ pub trait IDebugRegisters_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugRegisters_Vtbl {
     pub const fn new<Identity: IDebugRegisters_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugRegisters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugRegisters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugRegisters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNumberRegisters<Identity: IDebugRegisters_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, number: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -34250,9 +32837,6 @@ impl IDebugRegisters_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNumberRegisters: GetNumberRegisters::<Identity, OFFSET>,
             GetDescription: GetDescription::<Identity, OFFSET>,
             GetIndexByName: GetIndexByName::<Identity, OFFSET>,
@@ -34274,15 +32858,6 @@ impl windows_core::RuntimeName for IDebugRegisters {}
 windows_core::imp::define_interface!(IDebugRegisters2, IDebugRegisters2_Vtbl, 0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
 windows_core::imp::interface_hierarchy!(IDebugRegisters2, windows_core::IUnknown);
 impl IDebugRegisters2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetNumberRegisters(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -34414,9 +32989,6 @@ impl IDebugRegisters2 {
 #[doc(hidden)]
 pub struct IDebugRegisters2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetNumberRegisters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetDescription: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PSTR, u32, *mut u32, *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::HRESULT,
     pub GetIndexByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
@@ -34445,9 +33017,6 @@ pub struct IDebugRegisters2_Vtbl {
     pub GetFrameOffset2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IDebugRegisters2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNumberRegisters(&self) -> windows_core::Result<u32>;
     fn GetDescription(&self, register: u32, namebuffer: windows_core::PSTR, namebuffersize: u32, namesize: *mut u32, desc: *mut DEBUG_REGISTER_DESCRIPTION) -> windows_core::Result<()>;
     fn GetIndexByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<u32>;
@@ -34477,24 +33046,6 @@ pub trait IDebugRegisters2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugRegisters2_Vtbl {
     pub const fn new<Identity: IDebugRegisters2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugRegisters2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNumberRegisters<Identity: IDebugRegisters2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, number: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -34725,9 +33276,6 @@ impl IDebugRegisters2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNumberRegisters: GetNumberRegisters::<Identity, OFFSET>,
             GetDescription: GetDescription::<Identity, OFFSET>,
             GetIndexByName: GetIndexByName::<Identity, OFFSET>,
@@ -34764,15 +33312,6 @@ impl windows_core::RuntimeName for IDebugRegisters2 {}
 windows_core::imp::define_interface!(IDebugSymbolGroup, IDebugSymbolGroup_Vtbl, 0xf2528316_0f1a_4431_aeed_11d096e1e2ab);
 windows_core::imp::interface_hierarchy!(IDebugSymbolGroup, windows_core::IUnknown);
 impl IDebugSymbolGroup {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetNumberSymbols(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -34823,9 +33362,6 @@ impl IDebugSymbolGroup {
 #[doc(hidden)]
 pub struct IDebugSymbolGroup_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
     pub RemoveSymbolByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -34838,9 +33374,6 @@ pub struct IDebugSymbolGroup_Vtbl {
     pub OutputAsType: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbolGroup_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNumberSymbols(&self) -> windows_core::Result<u32>;
     fn AddSymbol(&self, name: &windows_core::PCSTR, index: *mut u32) -> windows_core::Result<()>;
     fn RemoveSymbolByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -34854,24 +33387,6 @@ pub trait IDebugSymbolGroup_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbolGroup_Vtbl {
     pub const fn new<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNumberSymbols<Identity: IDebugSymbolGroup_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, number: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -34940,9 +33455,6 @@ impl IDebugSymbolGroup_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNumberSymbols: GetNumberSymbols::<Identity, OFFSET>,
             AddSymbol: AddSymbol::<Identity, OFFSET>,
             RemoveSymbolByName: RemoveSymbolByName::<Identity, OFFSET>,
@@ -34963,15 +33475,6 @@ impl windows_core::RuntimeName for IDebugSymbolGroup {}
 windows_core::imp::define_interface!(IDebugSymbolGroup2, IDebugSymbolGroup2_Vtbl, 0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7);
 windows_core::imp::interface_hierarchy!(IDebugSymbolGroup2, windows_core::IUnknown);
 impl IDebugSymbolGroup2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetNumberSymbols(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -35082,9 +33585,6 @@ impl IDebugSymbolGroup2 {
 #[doc(hidden)]
 pub struct IDebugSymbolGroup2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetNumberSymbols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u32) -> windows_core::HRESULT,
     pub RemoveSymbolByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR) -> windows_core::HRESULT,
@@ -35110,9 +33610,6 @@ pub struct IDebugSymbolGroup2_Vtbl {
     pub GetSymbolEntryInformation: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbolGroup2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNumberSymbols(&self) -> windows_core::Result<u32>;
     fn AddSymbol(&self, name: &windows_core::PCSTR, index: *mut u32) -> windows_core::Result<()>;
     fn RemoveSymbolByName(&self, name: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -35139,24 +33636,6 @@ pub trait IDebugSymbolGroup2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbolGroup2_Vtbl {
     pub const fn new<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbolGroup2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNumberSymbols<Identity: IDebugSymbolGroup2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, number: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -35321,9 +33800,6 @@ impl IDebugSymbolGroup2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNumberSymbols: GetNumberSymbols::<Identity, OFFSET>,
             AddSymbol: AddSymbol::<Identity, OFFSET>,
             RemoveSymbolByName: RemoveSymbolByName::<Identity, OFFSET>,
@@ -35357,15 +33833,6 @@ impl windows_core::RuntimeName for IDebugSymbolGroup2 {}
 windows_core::imp::define_interface!(IDebugSymbols, IDebugSymbols_Vtbl, 0x8c31e98c_983a_48a5_9016_6fe5d667a950);
 windows_core::imp::interface_hierarchy!(IDebugSymbols, windows_core::IUnknown);
 impl IDebugSymbols {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -35620,9 +34087,6 @@ impl IDebugSymbols {
 #[doc(hidden)]
 pub struct IDebugSymbols_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -35674,9 +34138,6 @@ pub struct IDebugSymbols_Vtbl {
     pub GetSourceFileLineOffsets: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut u64, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbols_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetSymbolOptions(&self) -> windows_core::Result<u32>;
     fn AddSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
     fn RemoveSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
@@ -35729,24 +34190,6 @@ pub trait IDebugSymbols_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbols_Vtbl {
     pub const fn new<Identity: IDebugSymbols_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbols_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbols_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbols_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetSymbolOptions<Identity: IDebugSymbols_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -36123,9 +34566,6 @@ impl IDebugSymbols_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetSymbolOptions: GetSymbolOptions::<Identity, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, OFFSET>,
@@ -36185,15 +34625,6 @@ impl windows_core::RuntimeName for IDebugSymbols {}
 windows_core::imp::define_interface!(IDebugSymbols2, IDebugSymbols2_Vtbl, 0x3a707211_afdd_4495_ad4f_56fecdf8163f);
 windows_core::imp::interface_hierarchy!(IDebugSymbols2, windows_core::IUnknown);
 impl IDebugSymbols2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -36478,9 +34909,6 @@ impl IDebugSymbols2 {
 #[doc(hidden)]
 pub struct IDebugSymbols2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -36540,9 +34968,6 @@ pub struct IDebugSymbols2_Vtbl {
     pub SetTypeOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbols2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetSymbolOptions(&self) -> windows_core::Result<u32>;
     fn AddSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
     fn RemoveSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
@@ -36603,24 +35028,6 @@ pub trait IDebugSymbols2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbols2_Vtbl {
     pub const fn new<Identity: IDebugSymbols2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbols2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbols2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbols2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetSymbolOptions<Identity: IDebugSymbols2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -37051,9 +35458,6 @@ impl IDebugSymbols2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetSymbolOptions: GetSymbolOptions::<Identity, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, OFFSET>,
@@ -37121,15 +35525,6 @@ impl windows_core::RuntimeName for IDebugSymbols2 {}
 windows_core::imp::define_interface!(IDebugSymbols3, IDebugSymbols3_Vtbl, 0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8);
 windows_core::imp::interface_hierarchy!(IDebugSymbols3, windows_core::IUnknown);
 impl IDebugSymbols3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -37740,9 +36135,6 @@ impl IDebugSymbols3 {
 #[doc(hidden)]
 pub struct IDebugSymbols3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -37868,9 +36260,6 @@ pub struct IDebugSymbols3_Vtbl {
     pub GetSourceEntryBySourceEntry: unsafe extern "system" fn(*mut core::ffi::c_void, *const DEBUG_SYMBOL_SOURCE_ENTRY, u32, *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbols3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetSymbolOptions(&self) -> windows_core::Result<u32>;
     fn AddSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
     fn RemoveSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
@@ -37997,24 +36386,6 @@ pub trait IDebugSymbols3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbols3_Vtbl {
     pub const fn new<Identity: IDebugSymbols3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbols3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbols3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbols3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetSymbolOptions<Identity: IDebugSymbols3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -38907,9 +37278,6 @@ impl IDebugSymbols3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetSymbolOptions: GetSymbolOptions::<Identity, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, OFFSET>,
@@ -39043,15 +37411,6 @@ impl windows_core::RuntimeName for IDebugSymbols3 {}
 windows_core::imp::define_interface!(IDebugSymbols4, IDebugSymbols4_Vtbl, 0xe391bbd8_9d8c_4418_840b_c006592a1752);
 windows_core::imp::interface_hierarchy!(IDebugSymbols4, windows_core::IUnknown);
 impl IDebugSymbols4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -39683,9 +38042,6 @@ impl IDebugSymbols4 {
 #[doc(hidden)]
 pub struct IDebugSymbols4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -39818,9 +38174,6 @@ pub struct IDebugSymbols4_Vtbl {
     pub OutputSymbolByInlineContext: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u64, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbols4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetSymbolOptions(&self) -> windows_core::Result<u32>;
     fn AddSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
     fn RemoveSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
@@ -39954,24 +38307,6 @@ pub trait IDebugSymbols4_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbols4_Vtbl {
     pub const fn new<Identity: IDebugSymbols4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbols4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbols4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbols4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetSymbolOptions<Identity: IDebugSymbols4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -40906,9 +39241,6 @@ impl IDebugSymbols4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetSymbolOptions: GetSymbolOptions::<Identity, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, OFFSET>,
@@ -41049,15 +39381,6 @@ impl windows_core::RuntimeName for IDebugSymbols4 {}
 windows_core::imp::define_interface!(IDebugSymbols5, IDebugSymbols5_Vtbl, 0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
 windows_core::imp::interface_hierarchy!(IDebugSymbols5, windows_core::IUnknown);
 impl IDebugSymbols5 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetSymbolOptions(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -41698,9 +40021,6 @@ impl IDebugSymbols5 {
 #[doc(hidden)]
 pub struct IDebugSymbols5_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub AddSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub RemoveSymbolOptions: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -41835,9 +40155,6 @@ pub struct IDebugSymbols5_Vtbl {
     pub SetScopeFrameByIndexEx: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetSymbolOptions(&self) -> windows_core::Result<u32>;
     fn AddSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
     fn RemoveSymbolOptions(&self, options: u32) -> windows_core::Result<()>;
@@ -41973,24 +40290,6 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSymbols5_Vtbl {
     pub const fn new<Identity: IDebugSymbols5_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSymbols5_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetSymbolOptions<Identity: IDebugSymbols5_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, options: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -42943,9 +41242,6 @@ impl IDebugSymbols5_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetSymbolOptions: GetSymbolOptions::<Identity, OFFSET>,
             AddSymbolOptions: AddSymbolOptions::<Identity, OFFSET>,
             RemoveSymbolOptions: RemoveSymbolOptions::<Identity, OFFSET>,
@@ -43088,15 +41384,6 @@ impl windows_core::RuntimeName for IDebugSymbols5 {}
 windows_core::imp::define_interface!(IDebugSystemObjects, IDebugSystemObjects_Vtbl, 0x6b86fe2c_2c4f_4f0c_9da2_174311acc327);
 windows_core::imp::interface_hierarchy!(IDebugSystemObjects, windows_core::IUnknown);
 impl IDebugSystemObjects {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetEventThread(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -43258,9 +41545,6 @@ impl IDebugSystemObjects {
 #[doc(hidden)]
 pub struct IDebugSystemObjects_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -43292,9 +41576,6 @@ pub struct IDebugSystemObjects_Vtbl {
     pub GetCurrentProcessExecutableName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSystemObjects_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetEventThread(&self) -> windows_core::Result<u32>;
     fn GetEventProcess(&self) -> windows_core::Result<u32>;
     fn GetCurrentThreadId(&self) -> windows_core::Result<u32>;
@@ -43327,24 +41608,6 @@ pub trait IDebugSystemObjects_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSystemObjects_Vtbl {
     pub const fn new<Identity: IDebugSystemObjects_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSystemObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSystemObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSystemObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetEventThread<Identity: IDebugSystemObjects_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -43659,9 +41922,6 @@ impl IDebugSystemObjects_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetEventThread: GetEventThread::<Identity, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, OFFSET>,
@@ -43701,15 +41961,6 @@ impl windows_core::RuntimeName for IDebugSystemObjects {}
 windows_core::imp::define_interface!(IDebugSystemObjects2, IDebugSystemObjects2_Vtbl, 0x0ae9f5ff_1852_4679_b055_494bee6407ee);
 windows_core::imp::interface_hierarchy!(IDebugSystemObjects2, windows_core::IUnknown);
 impl IDebugSystemObjects2 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetEventThread(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -43895,9 +42146,6 @@ impl IDebugSystemObjects2 {
 #[doc(hidden)]
 pub struct IDebugSystemObjects2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -43934,9 +42182,6 @@ pub struct IDebugSystemObjects2_Vtbl {
     pub SetImplicitProcessDataOffset: unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
 }
 pub trait IDebugSystemObjects2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetEventThread(&self) -> windows_core::Result<u32>;
     fn GetEventProcess(&self) -> windows_core::Result<u32>;
     fn GetCurrentThreadId(&self) -> windows_core::Result<u32>;
@@ -43974,24 +42219,6 @@ pub trait IDebugSystemObjects2_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSystemObjects2_Vtbl {
     pub const fn new<Identity: IDebugSystemObjects2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSystemObjects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects2_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSystemObjects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSystemObjects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetEventThread<Identity: IDebugSystemObjects2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -44354,9 +42581,6 @@ impl IDebugSystemObjects2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetEventThread: GetEventThread::<Identity, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, OFFSET>,
@@ -44401,15 +42625,6 @@ impl windows_core::RuntimeName for IDebugSystemObjects2 {}
 windows_core::imp::define_interface!(IDebugSystemObjects3, IDebugSystemObjects3_Vtbl, 0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
 windows_core::imp::interface_hierarchy!(IDebugSystemObjects3, windows_core::IUnknown);
 impl IDebugSystemObjects3 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetEventThread(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -44637,9 +42852,6 @@ impl IDebugSystemObjects3 {
 #[doc(hidden)]
 pub struct IDebugSystemObjects3_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -44685,9 +42897,6 @@ pub struct IDebugSystemObjects3_Vtbl {
     pub GetCurrentSystemServerName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSystemObjects3_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetEventThread(&self) -> windows_core::Result<u32>;
     fn GetEventProcess(&self) -> windows_core::Result<u32>;
     fn GetCurrentThreadId(&self) -> windows_core::Result<u32>;
@@ -44734,24 +42943,6 @@ pub trait IDebugSystemObjects3_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSystemObjects3_Vtbl {
     pub const fn new<Identity: IDebugSystemObjects3_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSystemObjects3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects3_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSystemObjects3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects3_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSystemObjects3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects3_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetEventThread<Identity: IDebugSystemObjects3_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -45198,9 +43389,6 @@ impl IDebugSystemObjects3_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetEventThread: GetEventThread::<Identity, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, OFFSET>,
@@ -45254,15 +43442,6 @@ impl windows_core::RuntimeName for IDebugSystemObjects3 {}
 windows_core::imp::define_interface!(IDebugSystemObjects4, IDebugSystemObjects4_Vtbl, 0x489468e6_7d0f_4af5_87ab_25207454d553);
 windows_core::imp::interface_hierarchy!(IDebugSystemObjects4, windows_core::IUnknown);
 impl IDebugSystemObjects4 {
-    pub unsafe fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), interfaceid, interface as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetEventThread(&self) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -45496,9 +43675,6 @@ impl IDebugSystemObjects4 {
 #[doc(hidden)]
 pub struct IDebugSystemObjects4_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetEventThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetCurrentThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -45546,9 +43722,6 @@ pub struct IDebugSystemObjects4_Vtbl {
     pub GetCurrentSystemServerNameWide: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDebugSystemObjects4_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetEventThread(&self) -> windows_core::Result<u32>;
     fn GetEventProcess(&self) -> windows_core::Result<u32>;
     fn GetCurrentThreadId(&self) -> windows_core::Result<u32>;
@@ -45597,24 +43770,6 @@ pub trait IDebugSystemObjects4_Impl: windows_core::IUnknownImpl {
 }
 impl IDebugSystemObjects4_Vtbl {
     pub const fn new<Identity: IDebugSystemObjects4_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDebugSystemObjects4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, interfaceid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects4_Impl::QueryInterface(this, core::mem::transmute_copy(&interfaceid), core::mem::transmute_copy(&interface)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDebugSystemObjects4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects4_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDebugSystemObjects4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDebugSystemObjects4_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetEventThread<Identity: IDebugSystemObjects4_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, id: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -46073,9 +44228,6 @@ impl IDebugSystemObjects4_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetEventThread: GetEventThread::<Identity, OFFSET>,
             GetEventProcess: GetEventProcess::<Identity, OFFSET>,
             GetCurrentThreadId: GetCurrentThreadId::<Identity, OFFSET>,

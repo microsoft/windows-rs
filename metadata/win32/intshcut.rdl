@@ -20,18 +20,12 @@ mod Windows {
         }
         #[guid(0xfbf23b80_e3f0_101b_8488_00aa003e56f8)]
         interface IUniformResourceLocatorA: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetURL(&self, pcszURL: PCSTR, dwInFlags: u32) -> HRESULT;
             fn GetURL(&self, ppszURL: *mut PSTR) -> HRESULT;
             fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOA) -> HRESULT;
         }
         #[guid(0xcabb0da0_da57_11cf_9974_0020afd79762)]
         interface IUniformResourceLocatorW: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetURL(&self, pcszURL: PCWSTR, dwInFlags: u32) -> HRESULT;
             fn GetURL(&self, ppszURL: *mut PWSTR) -> HRESULT;
             fn InvokeCommand(&self, purlici: *mut URLINVOKECOMMANDINFOW) -> HRESULT;

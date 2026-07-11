@@ -142,9 +142,6 @@ mod Windows {
         }
         #[guid(0xc3457783_a846_47ce_9520_cea6f66e7447)]
         interface ID3D10ShaderReflection1: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDesc(&self, pDesc: *mut D3D10_SHADER_DESC) -> HRESULT;
             fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D10ShaderReflectionConstantBuffer;
             fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D10ShaderReflectionConstantBuffer;

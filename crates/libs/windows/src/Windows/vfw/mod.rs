@@ -1240,15 +1240,6 @@ impl Default for HVIDEO {
 windows_core::imp::define_interface!(IAVIEditStream, IAVIEditStream_Vtbl, 0x00020024_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIEditStream, windows_core::IUnknown);
 impl IAVIEditStream {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut Option<IAVIStream>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Cut)(windows_core::Interface::as_raw(self), plstart as _, pllength as _, core::mem::transmute(ppresult)) }
     }
@@ -1273,9 +1264,6 @@ impl IAVIEditStream {
 #[doc(hidden)]
 pub struct IAVIEditStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Cut: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Copy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Paste: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32, *mut i32, *mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
@@ -1287,9 +1275,6 @@ pub struct IAVIEditStream_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<IAVIStream>) -> windows_core::Result<()>;
     fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<IAVIStream>) -> windows_core::Result<()>;
     fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::OutRef<IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
@@ -1299,24 +1284,6 @@ pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl IAVIEditStream_Vtbl {
     pub const fn new<Identity: IAVIEditStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIEditStream_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Cut<Identity: IAVIEditStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, plstart: *mut i32, pllength: *mut i32, ppresult: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1355,9 +1322,6 @@ impl IAVIEditStream_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Cut: Cut::<Identity, OFFSET>,
             Copy: Copy::<Identity, OFFSET>,
             Paste: Paste::<Identity, OFFSET>,
@@ -1374,15 +1338,6 @@ impl windows_core::RuntimeName for IAVIEditStream {}
 windows_core::imp::define_interface!(IAVIFile, IAVIFile_Vtbl, 0x00020020_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIFile, windows_core::IUnknown);
 impl IAVIFile {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), pfi as _, lsize) }
     }
@@ -1410,9 +1365,6 @@ impl IAVIFile {
 #[doc(hidden)]
 pub struct IAVIFile_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Info: unsafe extern "system" fn(*mut core::ffi::c_void, *mut AVIFILEINFOW, i32) -> windows_core::HRESULT,
     pub GetStream: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, u32, i32) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
@@ -1426,9 +1378,6 @@ pub struct IAVIFile_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>;
     fn GetStream(&self, ppstream: windows_core::OutRef<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
     fn CreateStream(&self, ppstream: windows_core::OutRef<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
@@ -1440,24 +1389,6 @@ pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl IAVIFile_Vtbl {
     pub const fn new<Identity: IAVIFile_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIFile_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Info<Identity: IAVIFile_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1502,9 +1433,6 @@ impl IAVIFile_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Info: Info::<Identity, OFFSET>,
             GetStream: GetStream::<Identity, OFFSET>,
             CreateStream: CreateStream::<Identity, OFFSET>,
@@ -1568,15 +1496,6 @@ impl windows_core::RuntimeName for IAVIPersistFile {}
 windows_core::imp::define_interface!(IAVIStream, IAVIStream_Vtbl, 0x00020021_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStream, windows_core::IUnknown);
 impl IAVIStream {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn Create(&self, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), lparam1, lparam2) }
@@ -1618,9 +1537,6 @@ impl IAVIStream {
 #[doc(hidden)]
 pub struct IAVIStream_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "minwindef")]
     pub Create: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::LPARAM, super::minwindef::LPARAM) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -1644,9 +1560,6 @@ pub struct IAVIStream_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Create(&self, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> windows_core::Result<()>;
     fn Info(&self, psi: *mut AVISTREAMINFOW, lsize: i32) -> windows_core::Result<()>;
     fn FindSample(&self, lpos: i32, lflags: i32) -> i32;
@@ -1662,24 +1575,6 @@ pub trait IAVIStream_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IAVIStream_Vtbl {
     pub const fn new<Identity: IAVIStream_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStream_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Create<Identity: IAVIStream_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1748,9 +1643,6 @@ impl IAVIStream_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Create: Create::<Identity, OFFSET>,
             Info: Info::<Identity, OFFSET>,
             FindSample: FindSample::<Identity, OFFSET>,
@@ -1773,15 +1665,6 @@ impl windows_core::RuntimeName for IAVIStream {}
 windows_core::imp::define_interface!(IAVIStreaming, IAVIStreaming_Vtbl, 0x00020022_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IAVIStreaming, windows_core::IUnknown);
 impl IAVIStreaming {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), lstart, lend, lrate) }
     }
@@ -1793,39 +1676,15 @@ impl IAVIStreaming {
 #[doc(hidden)]
 pub struct IAVIStreaming_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAVIStreaming_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
 }
 impl IAVIStreaming_Vtbl {
     pub const fn new<Identity: IAVIStreaming_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStreaming_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStreaming_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IAVIStreaming_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Begin<Identity: IAVIStreaming_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lstart: i32, lend: i32, lrate: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1838,14 +1697,7 @@ impl IAVIStreaming_Vtbl {
                 IAVIStreaming_Impl::End(this).into()
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            Begin: Begin::<Identity, OFFSET>,
-            End: End::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Begin: Begin::<Identity, OFFSET>, End: End::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IAVIStreaming as windows_core::Interface>::IID
@@ -2239,15 +2091,6 @@ pub const IDS_CAP_WRITEERROR: u32 = 414;
 windows_core::imp::define_interface!(IGetFrame, IGetFrame_Vtbl, 0x00020023_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IGetFrame, windows_core::IUnknown);
 impl IGetFrame {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void {
         unsafe { (windows_core::Interface::vtable(self).GetFrame)(windows_core::Interface::as_raw(self), lpos) }
     }
@@ -2266,9 +2109,6 @@ impl IGetFrame {
 #[doc(hidden)]
 pub struct IGetFrame_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetFrame: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> *mut core::ffi::c_void,
     pub Begin: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32, i32) -> windows_core::HRESULT,
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -2279,9 +2119,6 @@ pub struct IGetFrame_Vtbl {
 }
 #[cfg(feature = "wingdi")]
 pub trait IGetFrame_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetFrame(&self, lpos: i32) -> *mut core::ffi::c_void;
     fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> windows_core::Result<()>;
     fn End(&self) -> windows_core::Result<()>;
@@ -2290,24 +2127,6 @@ pub trait IGetFrame_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "wingdi")]
 impl IGetFrame_Vtbl {
     pub const fn new<Identity: IGetFrame_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGetFrame_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetFrame<Identity: IGetFrame_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lpos: i32) -> *mut core::ffi::c_void {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2334,9 +2153,6 @@ impl IGetFrame_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetFrame: GetFrame::<Identity, OFFSET>,
             Begin: Begin::<Identity, OFFSET>,
             End: End::<Identity, OFFSET>,

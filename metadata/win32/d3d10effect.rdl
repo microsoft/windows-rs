@@ -143,9 +143,6 @@ mod Windows {
         }
         #[guid(0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7)]
         interface ID3D10Effect: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn IsValid(&self) -> BOOL;
             fn IsPool(&self) -> BOOL;
             fn GetDevice(&self, ppDevice: *mut ID3D10Device) -> HRESULT;
@@ -162,59 +159,11 @@ mod Windows {
         }
         #[guid(0x1fcd2294_df6d_4eae_86b3_0e9160cfb07b)]
         interface ID3D10EffectBlendVariable: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetBlendState(&self, Index: u32, ppBlendState: *mut ID3D10BlendState) -> HRESULT;
             fn GetBackingStore(&self, Index: u32, pBlendDesc: *mut D3D10_BLEND_DESC) -> HRESULT;
         }
         #[guid(0x56648f4d_cc8b_4444_a5ad_b5a3d76e91b3)]
         interface ID3D10EffectConstantBuffer: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn SetConstantBuffer(&self, #[opt] pConstantBuffer: ID3D10Buffer) -> HRESULT;
             fn GetConstantBuffer(&self, ppConstantBuffer: *mut ID3D10Buffer) -> HRESULT;
             fn SetTextureBuffer(&self, #[opt] pTextureBuffer: ID3D10ShaderResourceView) -> HRESULT;
@@ -222,60 +171,11 @@ mod Windows {
         }
         #[guid(0xaf482368_330a_46a5_9a5c_01c71af24c8d)]
         interface ID3D10EffectDepthStencilVariable: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetDepthStencilState(&self, Index: u32, ppDepthStencilState: *mut ID3D10DepthStencilState) -> HRESULT;
             fn GetBackingStore(&self, Index: u32, pDepthStencilDesc: *mut D3D10_DEPTH_STENCIL_DESC) -> HRESULT;
         }
         #[guid(0x3e02c918_cc79_4985_b622_2d92ad701623)]
         interface ID3D10EffectDepthStencilViewVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn SetDepthStencil(&self, #[opt] pResource: ID3D10DepthStencilView) -> HRESULT;
             fn GetDepthStencil(&self, ppResource: *mut ID3D10DepthStencilView) -> HRESULT;
             fn SetDepthStencilArray(&self, #[len_param(2)] ppResources: *const ID3D10DepthStencilView, Offset: u32, Count: u32) -> HRESULT;
@@ -283,31 +183,6 @@ mod Windows {
         }
         #[guid(0x50666c24_b82f_4eed_a172_5b6e7e8522e0)]
         interface ID3D10EffectMatrixVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
             fn SetMatrix(&self, pData: *mut f32) -> HRESULT;
             fn GetMatrix(&self, pData: *mut f32) -> HRESULT;
             fn SetMatrixArray(&self, pData: *mut f32, Offset: u32, Count: u32) -> HRESULT;
@@ -331,67 +206,15 @@ mod Windows {
         }
         #[guid(0x9537ab04_3250_412e_8213_fcd2f8677933)]
         interface ID3D10EffectPool: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AsEffect(&self) -> ID3D10Effect;
         }
         #[guid(0x21af9f0e_4d94_4ea9_9785_2cb76b8c0b34)]
         interface ID3D10EffectRasterizerVariable: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetRasterizerState(&self, Index: u32, ppRasterizerState: *mut ID3D10RasterizerState) -> HRESULT;
             fn GetBackingStore(&self, Index: u32, pRasterizerDesc: *mut D3D10_RASTERIZER_DESC) -> HRESULT;
         }
         #[guid(0x28ca0cc3_c2c9_40bb_b57f_67b737122b17)]
         interface ID3D10EffectRenderTargetViewVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn SetRenderTarget(&self, #[opt] pResource: ID3D10RenderTargetView) -> HRESULT;
             fn GetRenderTarget(&self, ppResource: *mut ID3D10RenderTargetView) -> HRESULT;
             fn SetRenderTargetArray(&self, #[len_param(2)] ppResources: *const ID3D10RenderTargetView, Offset: u32, Count: u32) -> HRESULT;
@@ -399,60 +222,11 @@ mod Windows {
         }
         #[guid(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480)]
         interface ID3D10EffectSamplerVariable: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetSampler(&self, Index: u32, ppSampler: *mut ID3D10SamplerState) -> HRESULT;
             fn GetBackingStore(&self, Index: u32, pSamplerDesc: *mut D3D10_SAMPLER_DESC) -> HRESULT;
         }
         #[guid(0x00e48f7b_d2c8_49e8_a86c_022dee53431f)]
         interface ID3D10EffectScalarVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
             fn SetFloat(&self, Value: f32) -> HRESULT;
             fn GetFloat(&self, pValue: *mut f32) -> HRESULT;
             fn SetFloatArray(&self, #[len_param(2)] pData: *const f32, Offset: u32, Count: u32) -> HRESULT;
@@ -468,31 +242,6 @@ mod Windows {
         }
         #[guid(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc)]
         interface ID3D10EffectShaderResourceVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn SetResource(&self, #[opt] pResource: ID3D10ShaderResourceView) -> HRESULT;
             fn GetResource(&self, ppResource: *mut ID3D10ShaderResourceView) -> HRESULT;
             fn SetResourceArray(&self, #[len_param(2)] ppResources: *const ID3D10ShaderResourceView, Offset: u32, Count: u32) -> HRESULT;
@@ -500,30 +249,6 @@ mod Windows {
         }
         #[guid(0x80849279_c799_4797_8c33_0407a07d9e06)]
         interface ID3D10EffectShaderVariable: ID3D10EffectVariable {
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetShaderDesc(&self, ShaderIndex: u32, pDesc: *mut D3D10_EFFECT_SHADER_DESC) -> HRESULT;
             fn GetVertexShader(&self, ShaderIndex: u32, ppVS: *mut ID3D10VertexShader) -> HRESULT;
             fn GetGeometryShader(&self, ShaderIndex: u32, ppGS: *mut ID3D10GeometryShader) -> HRESULT;
@@ -533,31 +258,6 @@ mod Windows {
         }
         #[guid(0x71417501_8df9_4e0a_a78a_255f9756baff)]
         interface ID3D10EffectStringVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, Offset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, Offset: u32, ByteCount: u32) -> HRESULT;
             fn GetString(&self, ppString: *mut PCSTR) -> HRESULT;
             fn GetStringArray(&self, #[len_param(2)] ppStrings: *mut PCSTR, Offset: u32, Count: u32) -> HRESULT;
         }
@@ -611,31 +311,6 @@ mod Windows {
         }
         #[guid(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81)]
         interface ID3D10EffectVectorVariable: ID3D10EffectVariable {
-            fn IsValid(&self) -> BOOL;
-            fn GetType(&self) -> ID3D10EffectType;
-            fn GetDesc(&self, pDesc: *mut D3D10_EFFECT_VARIABLE_DESC) -> HRESULT;
-            fn GetAnnotationByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetAnnotationByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberByIndex(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetMemberByName(&self, Name: PCSTR) -> ID3D10EffectVariable;
-            fn GetMemberBySemantic(&self, Semantic: PCSTR) -> ID3D10EffectVariable;
-            fn GetElement(&self, Index: u32) -> ID3D10EffectVariable;
-            fn GetParentConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsScalar(&self) -> ID3D10EffectScalarVariable;
-            fn AsVector(&self) -> ID3D10EffectVectorVariable;
-            fn AsMatrix(&self) -> ID3D10EffectMatrixVariable;
-            fn AsString(&self) -> ID3D10EffectStringVariable;
-            fn AsShaderResource(&self) -> ID3D10EffectShaderResourceVariable;
-            fn AsRenderTargetView(&self) -> ID3D10EffectRenderTargetViewVariable;
-            fn AsDepthStencilView(&self) -> ID3D10EffectDepthStencilViewVariable;
-            fn AsConstantBuffer(&self) -> ID3D10EffectConstantBuffer;
-            fn AsShader(&self) -> ID3D10EffectShaderVariable;
-            fn AsBlend(&self) -> ID3D10EffectBlendVariable;
-            fn AsDepthStencil(&self) -> ID3D10EffectDepthStencilVariable;
-            fn AsRasterizer(&self) -> ID3D10EffectRasterizerVariable;
-            fn AsSampler(&self) -> ID3D10EffectSamplerVariable;
-            fn SetRawValue(&self, #[size_param(2)] pData: *const void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
-            fn GetRawValue(&self, #[size_param(2)] pData: *mut void, ByteOffset: u32, ByteCount: u32) -> HRESULT;
             fn SetBoolVector(&self, pData: *mut BOOL) -> HRESULT;
             fn SetIntVector(&self, pData: *mut i32) -> HRESULT;
             fn SetFloatVector(&self, pData: *mut f32) -> HRESULT;
@@ -651,9 +326,6 @@ mod Windows {
         }
         #[guid(0x0803425a_57f5_4dd6_9465_a87570834a08)]
         interface ID3D10StateBlock: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Capture(&self) -> HRESULT;
             fn Apply(&self) -> HRESULT;
             fn ReleaseAllDeviceObjects(&self) -> HRESULT;

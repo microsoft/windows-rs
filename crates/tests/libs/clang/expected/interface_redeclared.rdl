@@ -1,0 +1,17 @@
+#[win32]
+mod Test {
+    #[guid(0x10000000_0000_0000_c000_000000000046)]
+    interface IResource: IUnknown {
+        fn GetType(&self,) -> i32;
+    }
+    #[guid(0x20000000_0000_0000_c000_000000000046)]
+    interface ISurface: IResource {
+        fn GetDesc(&self, desc: *mut void) -> i32;
+    }
+    #[guid(0x00000000_0000_0000_c000_000000000046)]
+    interface IUnknown {
+        fn QueryInterface(&self, riid: *const void, ppvObject: *mut *mut void) -> i32;
+        fn AddRef(&self,) -> u32;
+        fn Release(&self,) -> u32;
+    }
+}

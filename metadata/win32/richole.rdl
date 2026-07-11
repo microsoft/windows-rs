@@ -3,9 +3,6 @@ mod Windows {
     mod Win32 {
         #[guid(0x00020d00_0000_0000_c000_000000000046)]
         interface IRichEditOle: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetClientSite(&self, lplpolesite: *mut IOleClientSite) -> HRESULT;
             fn GetObjectCount(&self) -> i32;
             fn GetLinkCount(&self) -> i32;
@@ -25,9 +22,6 @@ mod Windows {
         }
         #[guid(0x00020d03_0000_0000_c000_000000000046)]
         interface IRichEditOleCallback: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, lplpObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNewStorage(&self, lplpstg: *mut IStorage) -> HRESULT;
             fn GetInPlaceContext(&self, lplpFrame: *mut IOleInPlaceFrame, lplpDoc: *mut IOleInPlaceUIWindow, lpFrameInfo: *mut OLEINPLACEFRAMEINFO) -> HRESULT;
             fn ShowContainerUI(&self, fShow: BOOL) -> HRESULT;

@@ -44,9 +44,6 @@ mod Windows {
         }
         #[no_guid]
         interface IDirectDrawVideo: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSwitches(&self, pSwitches: *mut u32) -> HRESULT;
             fn SetSwitches(&self, Switches: u32) -> HRESULT;
             fn GetCaps(&self, pCaps: *mut DDCAPS) -> HRESULT;
@@ -66,9 +63,6 @@ mod Windows {
         }
         #[no_guid]
         interface IFullScreenVideo: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CountModes(&self, pModes: *mut i32) -> HRESULT;
             fn GetModeInfo(&self, Mode: i32, pWidth: *mut i32, pHeight: *mut i32, pDepth: *mut i32) -> HRESULT;
             fn GetCurrentMode(&self, pMode: *mut i32) -> HRESULT;
@@ -89,26 +83,6 @@ mod Windows {
         }
         #[no_guid]
         interface IFullScreenVideoEx: IFullScreenVideo {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn CountModes(&self, pModes: *mut i32) -> HRESULT;
-            fn GetModeInfo(&self, Mode: i32, pWidth: *mut i32, pHeight: *mut i32, pDepth: *mut i32) -> HRESULT;
-            fn GetCurrentMode(&self, pMode: *mut i32) -> HRESULT;
-            fn IsModeAvailable(&self, Mode: i32) -> HRESULT;
-            fn IsModeEnabled(&self, Mode: i32) -> HRESULT;
-            fn SetEnabled(&self, Mode: i32, bEnabled: i32) -> HRESULT;
-            fn GetClipFactor(&self, pClipFactor: *mut i32) -> HRESULT;
-            fn SetClipFactor(&self, ClipFactor: i32) -> HRESULT;
-            fn SetMessageDrain(&self, hwnd: HWND) -> HRESULT;
-            fn GetMessageDrain(&self, hwnd: *mut HWND) -> HRESULT;
-            fn SetMonitor(&self, Monitor: i32) -> HRESULT;
-            fn GetMonitor(&self, Monitor: *mut i32) -> HRESULT;
-            fn HideOnDeactivate(&self, Hide: i32) -> HRESULT;
-            fn IsHideOnDeactivate(&self) -> HRESULT;
-            fn SetCaption(&self, strCaption: BSTR) -> HRESULT;
-            fn GetCaption(&self, pstrCaption: *mut BSTR) -> HRESULT;
-            fn SetDefault(&self) -> HRESULT;
             fn SetAcceleratorTable(&self, hwnd: HWND, hAccel: HACCEL) -> HRESULT;
             fn GetAcceleratorTable(&self, phwnd: *mut HWND, phAccel: *mut HACCEL) -> HRESULT;
             fn KeepPixelAspectRatio(&self, KeepAspect: i32) -> HRESULT;
@@ -116,9 +90,6 @@ mod Windows {
         }
         #[no_guid]
         interface IQualProp: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn get_FramesDroppedInRenderer(&self, pcFrames: *mut i32) -> HRESULT;
             fn get_FramesDrawn(&self, pcFramesDrawn: *mut i32) -> HRESULT;
             fn get_AvgFrameRate(&self, piAvgFrameRate: *mut i32) -> HRESULT;

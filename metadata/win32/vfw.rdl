@@ -518,9 +518,6 @@ mod Windows {
         type HVIDEO = *mut void;
         #[guid(0x00020024_0000_0000_c000_000000000046)]
         interface IAVIEditStream: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Cut(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
             fn Copy(&self, #[in] #[out] plStart: *mut i32, #[in] #[out] plLength: *mut i32, ppResult: *mut IAVIStream) -> HRESULT;
             fn Paste(&self, #[in] #[out] plPos: *mut i32, #[in] #[out] plLength: *mut i32, #[in] #[out] pstream: IAVIStream, lStart: i32, lEnd: i32) -> HRESULT;
@@ -529,9 +526,6 @@ mod Windows {
         }
         #[guid(0x00020020_0000_0000_c000_000000000046)]
         interface IAVIFile: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Info(&self, #[size_param(1)] pfi: *mut AVIFILEINFOW, lSize: i32) -> HRESULT;
             fn GetStream(&self, ppStream: *mut IAVIStream, fccType: u32, lParam: i32) -> HRESULT;
             fn CreateStream(&self, ppStream: *mut IAVIStream, psi: *const AVISTREAMINFOW) -> HRESULT;
@@ -546,9 +540,6 @@ mod Windows {
         }
         #[guid(0x00020021_0000_0000_c000_000000000046)]
         interface IAVIStream: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Create(&self, lParam1: LPARAM, lParam2: LPARAM) -> HRESULT;
             fn Info(&self, #[size_param(1)] psi: *mut AVISTREAMINFOW, lSize: i32) -> HRESULT;
             fn FindSample(&self, lPos: i32, lFlags: i32) -> i32;
@@ -563,9 +554,6 @@ mod Windows {
         }
         #[guid(0x00020022_0000_0000_c000_000000000046)]
         interface IAVIStreaming: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Begin(&self, lStart: i32, lEnd: i32, lRate: i32) -> HRESULT;
             fn End(&self) -> HRESULT;
         }
@@ -920,9 +908,6 @@ mod Windows {
         const IDS_CAP_WRITEERROR: u32 = 414;
         #[guid(0x00020023_0000_0000_c000_000000000046)]
         interface IGetFrame: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetFrame(&self, lPos: i32) -> *mut void;
             fn Begin(&self, lStart: i32, lEnd: i32, lRate: i32) -> HRESULT;
             fn End(&self) -> HRESULT;

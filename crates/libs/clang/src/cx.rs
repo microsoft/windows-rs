@@ -448,6 +448,25 @@ impl Cursor {
         unsafe { clang_CXXMethod_isPureVirtual(self.0) != 0 }
     }
 
+    /// Returns `true` if this method overrides a virtual method from a base class.
+    ///
+    /// Old-style COM headers (`DECLARE_INTERFACE_`) redeclare every inherited method
+    /// (`QueryInterface`/`AddRef`/`Release` and the whole ancestor chain) in each derived
+    /// interface. Those redeclarations override the base virtuals — they occupy existing
+    /// vtable slots rather than adding new ones — so they must not be re-emitted on top of
+    /// the inherited base vtable.
+    pub fn overrides_base_method(&self) -> bool {
+        let mut cursors = std::ptr::null_mut();
+        let mut count = 0;
+        unsafe {
+            clang_getOverriddenCursors(self.0, &mut cursors, &mut count);
+            if !cursors.is_null() {
+                clang_disposeOverriddenCursors(cursors);
+            }
+        }
+        count > 0
+    }
+
     /// Returns `true` if a definition for this cursor's class/struct exists in the
     /// translation unit.
     ///

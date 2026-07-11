@@ -159,15 +159,6 @@ pub const GETPROPS_NONE: u32 = 0;
 windows_core::imp::define_interface!(IADesktopP2, IADesktopP2_Vtbl, 0xb22754e2_4574_11d1_9888_006097deacf9);
 windows_core::imp::interface_hierarchy!(IADesktopP2, windows_core::IUnknown);
 impl IADesktopP2 {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn ReReadWallpaper(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReReadWallpaper)(windows_core::Interface::as_raw(self)) }
     }
@@ -189,9 +180,6 @@ impl IADesktopP2 {
 #[doc(hidden)]
 pub struct IADesktopP2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub ReReadWallpaper: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetADObjectFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, u32) -> windows_core::HRESULT,
     pub UpdateAllDesktopSubscriptions: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -202,9 +190,6 @@ pub struct IADesktopP2_Vtbl {
 }
 #[cfg(feature = "oleidl")]
 pub trait IADesktopP2_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn ReReadWallpaper(&self) -> windows_core::Result<()>;
     fn GetADObjectFlags(&self, pdwflags: *mut u32, dwmask: u32) -> windows_core::Result<()>;
     fn UpdateAllDesktopSubscriptions(&self) -> windows_core::Result<()>;
@@ -213,24 +198,6 @@ pub trait IADesktopP2_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "oleidl")]
 impl IADesktopP2_Vtbl {
     pub const fn new<Identity: IADesktopP2_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IADesktopP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IADesktopP2_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IADesktopP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IADesktopP2_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IADesktopP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IADesktopP2_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn ReReadWallpaper<Identity: IADesktopP2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -257,9 +224,6 @@ impl IADesktopP2_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             ReReadWallpaper: ReReadWallpaper::<Identity, OFFSET>,
             GetADObjectFlags: GetADObjectFlags::<Identity, OFFSET>,
             UpdateAllDesktopSubscriptions: UpdateAllDesktopSubscriptions::<Identity, OFFSET>,
@@ -275,15 +239,6 @@ impl windows_core::RuntimeName for IADesktopP2 {}
 windows_core::imp::define_interface!(IActiveDesktopP, IActiveDesktopP_Vtbl, 0x52502ee0_ec80_11d0_89ab_00c04fc2972d);
 windows_core::imp::interface_hierarchy!(IActiveDesktopP, windows_core::IUnknown);
 impl IActiveDesktopP {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn SetSafeMode(&self, dwflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSafeMode)(windows_core::Interface::as_raw(self), dwflags) }
     }
@@ -304,18 +259,12 @@ impl IActiveDesktopP {
 #[doc(hidden)]
 pub struct IActiveDesktopP_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub SetSafeMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub EnsureUpdateHTML: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetScheme: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetScheme: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, *mut u32, u32) -> windows_core::HRESULT,
 }
 pub trait IActiveDesktopP_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn SetSafeMode(&self, dwflags: u32) -> windows_core::Result<()>;
     fn EnsureUpdateHTML(&self) -> windows_core::Result<()>;
     fn SetScheme(&self, pwszschemename: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
@@ -323,24 +272,6 @@ pub trait IActiveDesktopP_Impl: windows_core::IUnknownImpl {
 }
 impl IActiveDesktopP_Vtbl {
     pub const fn new<Identity: IActiveDesktopP_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktopP_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktopP_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IActiveDesktopP_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn SetSafeMode<Identity: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -367,9 +298,6 @@ impl IActiveDesktopP_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             SetSafeMode: SetSafeMode::<Identity, OFFSET>,
             EnsureUpdateHTML: EnsureUpdateHTML::<Identity, OFFSET>,
             SetScheme: SetScheme::<Identity, OFFSET>,
@@ -483,15 +411,6 @@ impl windows_core::RuntimeName for IBanneredBar {}
 windows_core::imp::define_interface!(IColumnProvider, IColumnProvider_Vtbl, 0xe8025004_1c42_11d2_be2c_00a0c9a83da1);
 windows_core::imp::interface_hierarchy!(IColumnProvider, windows_core::IUnknown);
 impl IColumnProvider {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn Initialize(&self, psci: *const SHCOLUMNINIT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), psci) }
     }
@@ -511,9 +430,6 @@ impl IColumnProvider {
 #[doc(hidden)]
 pub struct IColumnProvider_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, *const SHCOLUMNINIT) -> windows_core::HRESULT,
     #[cfg(all(feature = "shtypes", feature = "wtypes"))]
     pub GetColumnInfo: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut SHCOLUMNINFO) -> windows_core::HRESULT,
@@ -526,9 +442,6 @@ pub struct IColumnProvider_Vtbl {
 }
 #[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 pub trait IColumnProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Initialize(&self, psci: *const SHCOLUMNINIT) -> windows_core::Result<()>;
     fn GetColumnInfo(&self, dwindex: u32, psci: *mut SHCOLUMNINFO) -> windows_core::Result<()>;
     fn GetItemData(&self, pscid: *const super::shtypes::SHCOLUMNID, pscd: *const SHCOLUMNDATA) -> windows_core::Result<super::oaidl::VARIANT>;
@@ -536,24 +449,6 @@ pub trait IColumnProvider_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "oaidl", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
 impl IColumnProvider_Vtbl {
     pub const fn new<Identity: IColumnProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnProvider_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnProvider_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IColumnProvider_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Initialize<Identity: IColumnProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, psci: *const SHCOLUMNINIT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -580,9 +475,6 @@ impl IColumnProvider_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
             GetColumnInfo: GetColumnInfo::<Identity, OFFSET>,
             GetItemData: GetItemData::<Identity, OFFSET>,
@@ -987,15 +879,6 @@ impl windows_core::RuntimeName for IInitializeObject {}
 windows_core::imp::define_interface!(INewShortcutHookA, INewShortcutHookA_Vtbl, 0x000214e1_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(INewShortcutHookA, windows_core::IUnknown);
 impl INewShortcutHookA {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "windef")]
     pub unsafe fn SetReferent<P0>(&self, pcszreferent: P0, hwnd: Option<super::windef::HWND>) -> windows_core::HRESULT
     where
@@ -1026,9 +909,6 @@ impl INewShortcutHookA {
 #[doc(hidden)]
 pub struct INewShortcutHookA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "windef")]
     pub SetReferent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, super::windef::HWND) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
@@ -1041,9 +921,6 @@ pub struct INewShortcutHookA_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait INewShortcutHookA_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn SetReferent(&self, pcszreferent: &windows_core::PCSTR, hwnd: super::windef::HWND) -> windows_core::Result<()>;
     fn GetReferent(&self, pszreferent: windows_core::PSTR, cchreferent: i32) -> windows_core::Result<()>;
     fn SetFolder(&self, pcszfolder: &windows_core::PCSTR) -> windows_core::Result<()>;
@@ -1054,24 +931,6 @@ pub trait INewShortcutHookA_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl INewShortcutHookA_Vtbl {
     pub const fn new<Identity: INewShortcutHookA_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: INewShortcutHookA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookA_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: INewShortcutHookA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookA_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: INewShortcutHookA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookA_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn SetReferent<Identity: INewShortcutHookA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszreferent: windows_core::PCSTR, hwnd: super::windef::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1110,9 +969,6 @@ impl INewShortcutHookA_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             SetReferent: SetReferent::<Identity, OFFSET>,
             GetReferent: GetReferent::<Identity, OFFSET>,
             SetFolder: SetFolder::<Identity, OFFSET>,
@@ -1130,15 +986,6 @@ impl windows_core::RuntimeName for INewShortcutHookA {}
 windows_core::imp::define_interface!(INewShortcutHookW, INewShortcutHookW_Vtbl, 0x000214f7_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(INewShortcutHookW, windows_core::IUnknown);
 impl INewShortcutHookW {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "windef")]
     pub unsafe fn SetReferent<P0>(&self, pcszreferent: P0, hwnd: Option<super::windef::HWND>) -> windows_core::HRESULT
     where
@@ -1169,9 +1016,6 @@ impl INewShortcutHookW {
 #[doc(hidden)]
 pub struct INewShortcutHookW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "windef")]
     pub SetReferent: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, super::windef::HWND) -> windows_core::HRESULT,
     #[cfg(not(feature = "windef"))]
@@ -1184,9 +1028,6 @@ pub struct INewShortcutHookW_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait INewShortcutHookW_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn SetReferent(&self, pcszreferent: &windows_core::PCWSTR, hwnd: super::windef::HWND) -> windows_core::Result<()>;
     fn GetReferent(&self, pszreferent: windows_core::PWSTR, cchreferent: i32) -> windows_core::Result<()>;
     fn SetFolder(&self, pcszfolder: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -1197,24 +1038,6 @@ pub trait INewShortcutHookW_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl INewShortcutHookW_Vtbl {
     pub const fn new<Identity: INewShortcutHookW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: INewShortcutHookW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookW_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: INewShortcutHookW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookW_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: INewShortcutHookW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INewShortcutHookW_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn SetReferent<Identity: INewShortcutHookW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszreferent: windows_core::PCWSTR, hwnd: super::windef::HWND) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -1253,9 +1076,6 @@ impl INewShortcutHookW_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             SetReferent: SetReferent::<Identity, OFFSET>,
             GetReferent: GetReferent::<Identity, OFFSET>,
             SetFolder: SetFolder::<Identity, OFFSET>,

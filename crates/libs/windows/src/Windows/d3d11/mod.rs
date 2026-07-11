@@ -9548,15 +9548,6 @@ impl windows_core::RuntimeName for ID3D11Fence {}
 windows_core::imp::define_interface!(ID3D11FunctionLinkingGraph, ID3D11FunctionLinkingGraph_Vtbl, 0x54133220_1ce8_43d3_8236_9855c5ceecff);
 windows_core::imp::interface_hierarchy!(ID3D11FunctionLinkingGraph, windows_core::IUnknown);
 impl ID3D11FunctionLinkingGraph {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn CreateModuleInstance(&self, ppmoduleinstance: *mut Option<ID3D11ModuleInstance>, pperrorbuffer: *mut Option<super::d3dcommon::ID3D10Blob>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateModuleInstance)(windows_core::Interface::as_raw(self), core::mem::transmute(ppmoduleinstance), core::mem::transmute(pperrorbuffer)) }
@@ -9621,9 +9612,6 @@ impl ID3D11FunctionLinkingGraph {
 #[doc(hidden)]
 pub struct ID3D11FunctionLinkingGraph_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "d3dcommon")]
     pub CreateModuleInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "d3dcommon"))]
@@ -9650,9 +9638,6 @@ pub struct ID3D11FunctionLinkingGraph_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D11FunctionLinkingGraph_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateModuleInstance(&self, ppmoduleinstance: windows_core::OutRef<ID3D11ModuleInstance>, pperrorbuffer: windows_core::OutRef<super::d3dcommon::ID3D10Blob>) -> windows_core::Result<()>;
     fn SetInputSignature(&self, pinputparameters: *const D3D11_PARAMETER_DESC, cinputparameters: u32) -> windows_core::Result<ID3D11LinkingNode>;
     fn SetOutputSignature(&self, poutputparameters: *const D3D11_PARAMETER_DESC, coutputparameters: u32) -> windows_core::Result<ID3D11LinkingNode>;
@@ -9665,24 +9650,6 @@ pub trait ID3D11FunctionLinkingGraph_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "d3dcommon")]
 impl ID3D11FunctionLinkingGraph_Vtbl {
     pub const fn new<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11FunctionLinkingGraph_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateModuleInstance<Identity: ID3D11FunctionLinkingGraph_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ppmoduleinstance: *mut *mut core::ffi::c_void, pperrorbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -9763,9 +9730,6 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             CreateModuleInstance: CreateModuleInstance::<Identity, OFFSET>,
             SetInputSignature: SetInputSignature::<Identity, OFFSET>,
             SetOutputSignature: SetOutputSignature::<Identity, OFFSET>,
@@ -10503,15 +10467,6 @@ impl windows_core::RuntimeName for ID3D11InputLayout {}
 windows_core::imp::define_interface!(ID3D11LibraryReflection, ID3D11LibraryReflection_Vtbl, 0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6);
 windows_core::imp::interface_hierarchy!(ID3D11LibraryReflection, windows_core::IUnknown);
 impl ID3D11LibraryReflection {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D11_LIBRARY_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -10526,39 +10481,15 @@ impl ID3D11LibraryReflection {
 #[doc(hidden)]
 pub struct ID3D11LibraryReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_LIBRARY_DESC) -> windows_core::HRESULT,
     pub GetFunctionByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D11FunctionReflection>,
 }
 pub trait ID3D11LibraryReflection_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetDesc(&self) -> windows_core::Result<D3D11_LIBRARY_DESC>;
     fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D11FunctionReflection>;
 }
 impl ID3D11LibraryReflection_Vtbl {
     pub const fn new<Identity: ID3D11LibraryReflection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LibraryReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LibraryReflection_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LibraryReflection_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetDesc<Identity: ID3D11LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D11_LIBRARY_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10579,9 +10510,6 @@ impl ID3D11LibraryReflection_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetDesc: GetDesc::<Identity, OFFSET>,
             GetFunctionByIndex: GetFunctionByIndex::<Identity, OFFSET>,
         }
@@ -10594,15 +10522,6 @@ impl windows_core::RuntimeName for ID3D11LibraryReflection {}
 windows_core::imp::define_interface!(ID3D11Linker, ID3D11Linker_Vtbl, 0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e);
 windows_core::imp::interface_hierarchy!(ID3D11Linker, windows_core::IUnknown);
 impl ID3D11Linker {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn Link<P0, P1, P2>(&self, pentry: P0, pentryname: P1, ptargetname: P2, uflags: u32, ppshaderblob: *mut Option<super::d3dcommon::ID3D10Blob>, pperrorbuffer: *mut Option<super::d3dcommon::ID3D10Blob>) -> windows_core::HRESULT
     where
@@ -10626,9 +10545,6 @@ impl ID3D11Linker {
 #[doc(hidden)]
 pub struct ID3D11Linker_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "d3dcommon")]
     pub Link: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCSTR, windows_core::PCSTR, u32, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "d3dcommon"))]
@@ -10638,9 +10554,6 @@ pub struct ID3D11Linker_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D11Linker_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Link(&self, pentry: windows_core::Ref<ID3D11ModuleInstance>, pentryname: &windows_core::PCSTR, ptargetname: &windows_core::PCSTR, uflags: u32, ppshaderblob: windows_core::OutRef<super::d3dcommon::ID3D10Blob>, pperrorbuffer: windows_core::OutRef<super::d3dcommon::ID3D10Blob>) -> windows_core::Result<()>;
     fn UseLibrary(&self, plibrarymi: windows_core::Ref<ID3D11ModuleInstance>) -> windows_core::Result<()>;
     fn AddClipPlaneFromCBuffer(&self, ucbufferslot: u32, ucbufferentry: u32) -> windows_core::Result<()>;
@@ -10648,24 +10561,6 @@ pub trait ID3D11Linker_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "d3dcommon")]
 impl ID3D11Linker_Vtbl {
     pub const fn new<Identity: ID3D11Linker_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11Linker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Linker_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11Linker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Linker_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11Linker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Linker_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Link<Identity: ID3D11Linker_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pentry: *mut core::ffi::c_void, pentryname: windows_core::PCSTR, ptargetname: windows_core::PCSTR, uflags: u32, ppshaderblob: *mut *mut core::ffi::c_void, pperrorbuffer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10686,9 +10581,6 @@ impl ID3D11Linker_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Link: Link::<Identity, OFFSET>,
             UseLibrary: UseLibrary::<Identity, OFFSET>,
             AddClipPlaneFromCBuffer: AddClipPlaneFromCBuffer::<Identity, OFFSET>,
@@ -10702,56 +10594,15 @@ impl ID3D11Linker_Vtbl {
 impl windows_core::RuntimeName for ID3D11Linker {}
 windows_core::imp::define_interface!(ID3D11LinkingNode, ID3D11LinkingNode_Vtbl, 0xd80dd70c_8d2f_4751_94a1_03c79b3556db);
 windows_core::imp::interface_hierarchy!(ID3D11LinkingNode, windows_core::IUnknown);
-impl ID3D11LinkingNode {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID3D11LinkingNode_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
 }
-pub trait ID3D11LinkingNode_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-}
+pub trait ID3D11LinkingNode_Impl: windows_core::IUnknownImpl {}
 impl ID3D11LinkingNode_Vtbl {
     pub const fn new<Identity: ID3D11LinkingNode_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11LinkingNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LinkingNode_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11LinkingNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LinkingNode_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11LinkingNode_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11LinkingNode_Impl::Release(this)
-            }
-        }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11LinkingNode as windows_core::Interface>::IID
@@ -10761,15 +10612,6 @@ impl windows_core::RuntimeName for ID3D11LinkingNode {}
 windows_core::imp::define_interface!(ID3D11Module, ID3D11Module_Vtbl, 0xcac701ee_80fc_4122_8242_10b39c8cec34);
 windows_core::imp::interface_hierarchy!(ID3D11Module, windows_core::IUnknown);
 impl ID3D11Module {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn CreateInstance<P0>(&self, pnamespace: P0) -> windows_core::Result<ID3D11ModuleInstance>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
@@ -10784,37 +10626,13 @@ impl ID3D11Module {
 #[doc(hidden)]
 pub struct ID3D11Module_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ID3D11Module_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateInstance(&self, pnamespace: &windows_core::PCSTR) -> windows_core::Result<ID3D11ModuleInstance>;
 }
 impl ID3D11Module_Vtbl {
     pub const fn new<Identity: ID3D11Module_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11Module_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Module_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11Module_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Module_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11Module_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11Module_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateInstance<Identity: ID3D11Module_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pnamespace: windows_core::PCSTR, ppmoduleinstance: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -10827,13 +10645,7 @@ impl ID3D11Module_Vtbl {
                 }
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            CreateInstance: CreateInstance::<Identity, OFFSET>,
-        }
+        Self { base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateInstance: CreateInstance::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<ID3D11Module as windows_core::Interface>::IID
@@ -10843,15 +10655,6 @@ impl windows_core::RuntimeName for ID3D11Module {}
 windows_core::imp::define_interface!(ID3D11ModuleInstance, ID3D11ModuleInstance_Vtbl, 0x469e07f7_045a_48d5_aa12_68a478cdf75d);
 windows_core::imp::interface_hierarchy!(ID3D11ModuleInstance, windows_core::IUnknown);
 impl ID3D11ModuleInstance {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn BindConstantBuffer(&self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BindConstantBuffer)(windows_core::Interface::as_raw(self), usrcslot, udstslot, cbdstoffset) }
     }
@@ -10902,9 +10705,6 @@ impl ID3D11ModuleInstance {
 #[doc(hidden)]
 pub struct ID3D11ModuleInstance_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub BindConstantBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
     pub BindConstantBufferByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
     pub BindResource: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32) -> windows_core::HRESULT,
@@ -10917,9 +10717,6 @@ pub struct ID3D11ModuleInstance_Vtbl {
     pub BindResourceAsUnorderedAccessViewByName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32, u32) -> windows_core::HRESULT,
 }
 pub trait ID3D11ModuleInstance_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn BindConstantBuffer(&self, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> windows_core::Result<()>;
     fn BindConstantBufferByName(&self, pname: &windows_core::PCSTR, udstslot: u32, cbdstoffset: u32) -> windows_core::Result<()>;
     fn BindResource(&self, usrcslot: u32, udstslot: u32, ucount: u32) -> windows_core::Result<()>;
@@ -10933,24 +10730,6 @@ pub trait ID3D11ModuleInstance_Impl: windows_core::IUnknownImpl {
 }
 impl ID3D11ModuleInstance_Vtbl {
     pub const fn new<Identity: ID3D11ModuleInstance_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11ModuleInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ModuleInstance_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11ModuleInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ModuleInstance_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11ModuleInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ModuleInstance_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn BindConstantBuffer<Identity: ID3D11ModuleInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, usrcslot: u32, udstslot: u32, cbdstoffset: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -11013,9 +10792,6 @@ impl ID3D11ModuleInstance_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             BindConstantBuffer: BindConstantBuffer::<Identity, OFFSET>,
             BindConstantBufferByName: BindConstantBufferByName::<Identity, OFFSET>,
             BindResource: BindResource::<Identity, OFFSET>,
@@ -11807,15 +11583,6 @@ impl windows_core::RuntimeName for ID3D11SamplerState {}
 windows_core::imp::define_interface!(ID3D11ShaderReflection, ID3D11ShaderReflection_Vtbl, 0x8d536ca1_0cca_4956_a837_786963755584);
 windows_core::imp::interface_hierarchy!(ID3D11ShaderReflection, windows_core::IUnknown);
 impl ID3D11ShaderReflection {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
@@ -11898,9 +11665,6 @@ impl ID3D11ShaderReflection {
 #[doc(hidden)]
 pub struct ID3D11ShaderReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "d3dcommon")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D11_SHADER_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "d3dcommon"))]
@@ -11947,9 +11711,6 @@ pub struct ID3D11ShaderReflection_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D11ShaderReflection_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetDesc(&self, pdesc: *mut D3D11_SHADER_DESC) -> windows_core::Result<()>;
     fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D11ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D11ShaderReflectionConstantBuffer>;
@@ -11973,24 +11734,6 @@ pub trait ID3D11ShaderReflection_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "d3dcommon")]
 impl ID3D11ShaderReflection_Vtbl {
     pub const fn new<Identity: ID3D11ShaderReflection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D11ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ShaderReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D11ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ShaderReflection_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D11ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D11ShaderReflection_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetDesc<Identity: ID3D11ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D11_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -12113,9 +11856,6 @@ impl ID3D11ShaderReflection_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetDesc: GetDesc::<Identity, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, OFFSET>,

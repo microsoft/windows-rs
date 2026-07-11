@@ -569,9 +569,6 @@ mod Windows {
         extern fn GetDeviceID(#[opt] pGuidSrc: *const GUID, pGuidDest: *mut GUID) -> HRESULT;
         #[guid(0x279afa83_4981_11ce_a521_0020af0be560)]
         interface IDirectSound: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CreateSoundBuffer(&self, pcDSBufferDesc: *const DSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
             fn GetCaps(&self, pDSCaps: *mut DSCAPS) -> HRESULT;
             fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
@@ -583,9 +580,6 @@ mod Windows {
         }
         #[guid(0x279afa86_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DBuffer: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetAllParameters(&self, pDs3dBuffer: *mut DS3DBUFFER) -> HRESULT;
             fn GetConeAngles(&self, pdwInsideConeAngle: *mut u32, pdwOutsideConeAngle: *mut u32) -> HRESULT;
             fn GetConeOrientation(&self, pvOrientation: *mut D3DVECTOR) -> HRESULT;
@@ -607,9 +601,6 @@ mod Windows {
         }
         #[guid(0x279afa84_4981_11ce_a521_0020af0be560)]
         interface IDirectSound3DListener: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetAllParameters(&self, pListener: *mut DS3DLISTENER) -> HRESULT;
             fn GetDistanceFactor(&self, pflDistanceFactor: *mut f32) -> HRESULT;
             fn GetDopplerFactor(&self, pflDopplerFactor: *mut f32) -> HRESULT;
@@ -628,24 +619,10 @@ mod Windows {
         }
         #[guid(0xc50a7e93_f395_4834_9ef6_7fa99de50966)]
         interface IDirectSound8: IDirectSound {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn CreateSoundBuffer(&self, pcDSBufferDesc: *const DSBUFFERDESC, ppDSBuffer: *mut IDirectSoundBuffer, pUnkOuter: IUnknown) -> HRESULT;
-            fn GetCaps(&self, pDSCaps: *mut DSCAPS) -> HRESULT;
-            fn DuplicateSoundBuffer(&self, pDSBufferOriginal: IDirectSoundBuffer, ppDSBufferDuplicate: *mut IDirectSoundBuffer) -> HRESULT;
-            fn SetCooperativeLevel(&self, hwnd: HWND, dwLevel: u32) -> HRESULT;
-            fn Compact(&self) -> HRESULT;
-            fn GetSpeakerConfig(&self, pdwSpeakerConfig: *mut u32) -> HRESULT;
-            fn SetSpeakerConfig(&self, dwSpeakerConfig: u32) -> HRESULT;
-            fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
             fn VerifyCertification(&self, pdwCertified: *mut u32) -> HRESULT;
         }
         #[guid(0x279afa85_4981_11ce_a521_0020af0be560)]
         interface IDirectSoundBuffer: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCaps(&self, pDSBufferCaps: *mut DSBCAPS) -> HRESULT;
             fn GetCurrentPosition(&self, #[opt] pdwCurrentPlayCursor: *mut u32, #[opt] pdwCurrentWriteCursor: *mut u32) -> HRESULT;
             fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
@@ -667,45 +644,18 @@ mod Windows {
         }
         #[guid(0x6825a449_7524_4d82_920f_50e36ab3ab1e)]
         interface IDirectSoundBuffer8: IDirectSoundBuffer {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetCaps(&self, pDSBufferCaps: *mut DSBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[opt] pdwCurrentPlayCursor: *mut u32, #[opt] pdwCurrentWriteCursor: *mut u32) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
-            fn GetVolume(&self, plVolume: *mut i32) -> HRESULT;
-            fn GetPan(&self, plPan: *mut i32) -> HRESULT;
-            fn GetFrequency(&self, pdwFrequency: *mut u32) -> HRESULT;
-            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn Initialize(&self, pDirectSound: IDirectSound, pcDSBufferDesc: *const DSBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
-            fn Play(&self, dwReserved1: u32, dwPriority: u32, dwFlags: u32) -> HRESULT;
-            fn SetCurrentPosition(&self, dwNewPosition: u32) -> HRESULT;
-            fn SetFormat(&self, pcfxFormat: *const WAVEFORMATEX) -> HRESULT;
-            fn SetVolume(&self, lVolume: i32) -> HRESULT;
-            fn SetPan(&self, lPan: i32) -> HRESULT;
-            fn SetFrequency(&self, dwFrequency: u32) -> HRESULT;
-            fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
-            fn Restore(&self) -> HRESULT;
             fn SetFX(&self, dwEffectsCount: u32, #[len_param(0)] #[opt] pDSFXDesc: *const DSEFFECTDESC, #[len_param(0)] #[opt] pdwResultCodes: *mut u32) -> HRESULT;
             fn AcquireResources(&self, dwFlags: u32, dwEffectsCount: u32, #[len_param(1)] pdwResultCodes: *mut u32) -> HRESULT;
             fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xb0210781_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCapture: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CreateCaptureBuffer(&self, pcDSCBufferDesc: *const DSCBUFFERDESC, ppDSCBuffer: *mut IDirectSoundCaptureBuffer, pUnkOuter: IUnknown) -> HRESULT;
             fn GetCaps(&self, pDSCCaps: *mut DSCCAPS) -> HRESULT;
             fn Initialize(&self, #[opt] pcGuidDevice: *const GUID) -> HRESULT;
         }
         #[guid(0xb0210782_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundCaptureBuffer: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCaps(&self, pDSCBCaps: *mut DSCBCAPS) -> HRESULT;
             fn GetCurrentPosition(&self, #[opt] pdwCapturePosition: *mut u32, #[opt] pdwReadPosition: *mut u32) -> HRESULT;
             fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
@@ -718,26 +668,11 @@ mod Windows {
         }
         #[guid(0x00990df4_0dbb_4872_833e_6d303e80aeb6)]
         interface IDirectSoundCaptureBuffer8: IDirectSoundCaptureBuffer {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-            fn GetCaps(&self, pDSCBCaps: *mut DSCBCAPS) -> HRESULT;
-            fn GetCurrentPosition(&self, #[opt] pdwCapturePosition: *mut u32, #[opt] pdwReadPosition: *mut u32) -> HRESULT;
-            fn GetFormat(&self, #[size_param(1)] #[opt] pwfxFormat: *mut WAVEFORMATEX, dwSizeAllocated: u32, #[opt] pdwSizeWritten: *mut u32) -> HRESULT;
-            fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
-            fn Initialize(&self, pDirectSoundCapture: IDirectSoundCapture, pcDSCBufferDesc: *const DSCBUFFERDESC) -> HRESULT;
-            fn Lock(&self, dwOffset: u32, dwBytes: u32, ppvAudioPtr1: *mut *mut void, pdwAudioBytes1: *mut u32, ppvAudioPtr2: *mut *mut void, #[opt] pdwAudioBytes2: *mut u32, dwFlags: u32) -> HRESULT;
-            fn Start(&self, dwFlags: u32) -> HRESULT;
-            fn Stop(&self) -> HRESULT;
-            fn Unlock(&self, #[size_param(1)] pvAudioPtr1: *const void, dwAudioBytes1: u32, #[size_param(3)] #[opt] pvAudioPtr2: *const void, dwAudioBytes2: u32) -> HRESULT;
             fn GetObjectInPath(&self, rguidObject: *const GUID, dwIndex: u32, rguidInterface: *const GUID, ppObject: *mut *mut void) -> HRESULT;
             fn GetFXStatus(&self, dwEffectsCount: u32, #[len_param(0)] pdwFXStatus: *mut u32) -> HRESULT;
         }
         #[guid(0xad74143d_903d_4ab7_8066_28d363036d65)]
         interface IDirectSoundCaptureFXAec: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pDscFxAec: *const DSCFXAec) -> HRESULT;
             fn GetAllParameters(&self, pDscFxAec: *mut DSCFXAec) -> HRESULT;
             fn GetStatus(&self, pdwStatus: *mut u32) -> HRESULT;
@@ -745,66 +680,42 @@ mod Windows {
         }
         #[guid(0xed311e41_fbae_4175_9625_cd0854f693ca)]
         interface IDirectSoundCaptureFXNoiseSuppress: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDscFxNoiseSuppress: *const DSCFXNoiseSuppress) -> HRESULT;
             fn GetAllParameters(&self, pDscFxNoiseSuppress: *mut DSCFXNoiseSuppress) -> HRESULT;
             fn Reset(&self) -> HRESULT;
         }
         #[guid(0x880842e3_145f_43e6_a934_a71806e50547)]
         interface IDirectSoundFXChorus: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxChorus: *const DSFXChorus) -> HRESULT;
             fn GetAllParameters(&self, pDsFxChorus: *mut DSFXChorus) -> HRESULT;
         }
         #[guid(0x4bbd1154_62f6_4e2c_a15c_d3b6c417f7a0)]
         interface IDirectSoundFXCompressor: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxCompressor: *const DSFXCompressor) -> HRESULT;
             fn GetAllParameters(&self, pDsFxCompressor: *mut DSFXCompressor) -> HRESULT;
         }
         #[guid(0x8ecf4326_455f_4d8b_bda9_8d5d3e9e3e0b)]
         interface IDirectSoundFXDistortion: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxDistortion: *const DSFXDistortion) -> HRESULT;
             fn GetAllParameters(&self, pDsFxDistortion: *mut DSFXDistortion) -> HRESULT;
         }
         #[guid(0x8bd28edf_50db_4e92_a2bd_445488d1ed42)]
         interface IDirectSoundFXEcho: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxEcho: *const DSFXEcho) -> HRESULT;
             fn GetAllParameters(&self, pDsFxEcho: *mut DSFXEcho) -> HRESULT;
         }
         #[guid(0x903e9878_2c92_4072_9b2c_ea68f5396783)]
         interface IDirectSoundFXFlanger: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxFlanger: *const DSFXFlanger) -> HRESULT;
             fn GetAllParameters(&self, pDsFxFlanger: *mut DSFXFlanger) -> HRESULT;
         }
         #[guid(0xd616f352_d622_11ce_aac5_0020af0b99a3)]
         interface IDirectSoundFXGargle: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxGargle: *const DSFXGargle) -> HRESULT;
             fn GetAllParameters(&self, pDsFxGargle: *mut DSFXGargle) -> HRESULT;
         }
         #[guid(0x4b166a6a_0d66_43f3_80e3_ee6280dee1a4)]
         interface IDirectSoundFXI3DL2Reverb: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxI3DL2Reverb: *const DSFXI3DL2Reverb) -> HRESULT;
             fn GetAllParameters(&self, pDsFxI3DL2Reverb: *mut DSFXI3DL2Reverb) -> HRESULT;
             fn SetPreset(&self, dwPreset: u32) -> HRESULT;
@@ -814,48 +725,30 @@ mod Windows {
         }
         #[guid(0xc03ca9fe_fe90_4204_8078_82334cd177da)]
         interface IDirectSoundFXParamEq: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxParamEq: *const DSFXParamEq) -> HRESULT;
             fn GetAllParameters(&self, pDsFxParamEq: *mut DSFXParamEq) -> HRESULT;
         }
         #[guid(0x46858c3a_0dc6_45e3_b760_d4eef16cb325)]
         interface IDirectSoundFXWavesReverb: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetAllParameters(&self, pcDsFxWavesReverb: *const DSFXWavesReverb) -> HRESULT;
             fn GetAllParameters(&self, pDsFxWavesReverb: *mut DSFXWavesReverb) -> HRESULT;
         }
         #[guid(0xedcb4c7a_daab_4216_a42e_6c50596ddc1d)]
         interface IDirectSoundFullDuplex: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Initialize(&self, pCaptureGuid: *const GUID, pRenderGuid: *const GUID, lpDscBufferDesc: *const DSCBUFFERDESC, lpDsBufferDesc: *const DSBUFFERDESC, hWnd: HWND, dwLevel: u32, lplpDirectSoundCaptureBuffer8: *mut IDirectSoundCaptureBuffer8, lplpDirectSoundBuffer8: *mut IDirectSoundBuffer8) -> HRESULT;
         }
         #[guid(0xb0210783_89cd_11d0_af08_00a0c925cd16)]
         interface IDirectSoundNotify: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetNotificationPositions(&self, dwPositionNotifies: u32, #[len_param(0)] pcPositionNotifies: *const DSBPOSITIONNOTIFY) -> HRESULT;
         }
         #[guid(0x31efac30_515c_11d0_a9aa_00aa0061be93)]
         interface IKsPropertySet: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Get(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *mut void, ulDataLength: u32, #[opt] pulBytesReturned: *mut u32) -> HRESULT;
             fn Set(&self, rguidPropSet: *const GUID, ulId: u32, #[size_param(3)] #[opt] pInstanceData: *const void, ulInstanceLength: u32, #[size_param(5)] pPropertyData: *const void, ulDataLength: u32) -> HRESULT;
             fn QuerySupport(&self, rguidPropSet: *const GUID, ulId: u32, pulTypeSupport: *mut u32) -> HRESULT;
         }
         #[guid(0x56a86897_0ad4_11ce_b03a_0020af0ba770)]
         interface IReferenceClock: IUnknown {
-            fn QueryInterface(&self, param0: *const GUID, param1: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetTime(&self, pTime: *mut REFERENCE_TIME) -> HRESULT;
             fn AdviseTime(&self, rtBaseTime: REFERENCE_TIME, rtStreamTime: REFERENCE_TIME, hEvent: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;
             fn AdvisePeriodic(&self, rtStartTime: REFERENCE_TIME, rtPeriodTime: REFERENCE_TIME, hSemaphore: HANDLE, pdwAdviseCookie: *mut u32) -> HRESULT;

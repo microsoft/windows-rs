@@ -497,15 +497,6 @@ pub const HELPMSGSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_help"
 windows_core::imp::define_interface!(IPrintDialogCallback, IPrintDialogCallback_Vtbl, 0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 windows_core::imp::interface_hierarchy!(IPrintDialogCallback, windows_core::IUnknown);
 impl IPrintDialogCallback {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn InitDone(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InitDone)(windows_core::Interface::as_raw(self)) }
     }
@@ -524,9 +515,6 @@ impl IPrintDialogCallback {
 #[doc(hidden)]
 pub struct IPrintDialogCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub InitDone: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SelectionChange: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(all(feature = "minwindef", feature = "windef"))]
@@ -536,9 +524,6 @@ pub struct IPrintDialogCallback_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IPrintDialogCallback_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn InitDone(&self) -> windows_core::Result<()>;
     fn SelectionChange(&self) -> windows_core::Result<()>;
     fn HandleMessage(&self, hdlg: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::Result<super::minwindef::LRESULT>;
@@ -546,24 +531,6 @@ pub trait IPrintDialogCallback_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IPrintDialogCallback_Vtbl {
     pub const fn new<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogCallback_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn InitDone<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -590,9 +557,6 @@ impl IPrintDialogCallback_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             InitDone: InitDone::<Identity, OFFSET>,
             SelectionChange: SelectionChange::<Identity, OFFSET>,
             HandleMessage: HandleMessage::<Identity, OFFSET>,
@@ -607,15 +571,6 @@ impl windows_core::RuntimeName for IPrintDialogCallback {}
 windows_core::imp::define_interface!(IPrintDialogServices, IPrintDialogServices_Vtbl, 0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
 windows_core::imp::interface_hierarchy!(IPrintDialogServices, windows_core::IUnknown);
 impl IPrintDialogServices {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub unsafe fn GetCurrentDevMode(&self, pdevmode: super::wingdi::LPDEVMODE, pcbsize: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentDevMode)(windows_core::Interface::as_raw(self), pdevmode as _, pcbsize as _) }
@@ -631,9 +586,6 @@ impl IPrintDialogServices {
 #[doc(hidden)]
 pub struct IPrintDialogServices_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(all(feature = "windef", feature = "wingdi"))]
     pub GetCurrentDevMode: unsafe extern "system" fn(*mut core::ffi::c_void, super::wingdi::LPDEVMODE, *mut u32) -> windows_core::HRESULT,
     #[cfg(not(all(feature = "windef", feature = "wingdi")))]
@@ -643,9 +595,6 @@ pub struct IPrintDialogServices_Vtbl {
 }
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 pub trait IPrintDialogServices_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCurrentDevMode(&self, pdevmode: super::wingdi::LPDEVMODE, pcbsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()>;
     fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()>;
@@ -653,24 +602,6 @@ pub trait IPrintDialogServices_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "windef", feature = "wingdi"))]
 impl IPrintDialogServices_Vtbl {
     pub const fn new<Identity: IPrintDialogServices_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IPrintDialogServices_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCurrentDevMode<Identity: IPrintDialogServices_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdevmode: super::wingdi::LPDEVMODE, pcbsize: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -691,9 +622,6 @@ impl IPrintDialogServices_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCurrentDevMode: GetCurrentDevMode::<Identity, OFFSET>,
             GetCurrentPrinterName: GetCurrentPrinterName::<Identity, OFFSET>,
             GetCurrentPortName: GetCurrentPortName::<Identity, OFFSET>,

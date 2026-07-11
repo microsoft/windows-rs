@@ -1054,9 +1054,6 @@ mod Windows {
         const FOURCC_DXT5: u32 = 894720068;
         #[guid(0x6c14db80_a733_11ce_a521_0020af0be560)]
         interface IDirectDraw: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Compact(&self) -> HRESULT;
             fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
             fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
@@ -1080,9 +1077,6 @@ mod Windows {
         }
         #[guid(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356)]
         interface IDirectDraw2: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Compact(&self) -> HRESULT;
             fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
             fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
@@ -1107,9 +1101,6 @@ mod Windows {
         }
         #[guid(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5)]
         interface IDirectDraw4: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Compact(&self) -> HRESULT;
             fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
             fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
@@ -1138,9 +1129,6 @@ mod Windows {
         }
         #[guid(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b)]
         interface IDirectDraw7: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Compact(&self) -> HRESULT;
             fn CreateClipper(&self, param0: u32, param1: *mut IDirectDrawClipper, param2: IUnknown) -> HRESULT;
             fn CreatePalette(&self, param0: u32, param1: *mut PALETTEENTRY, param2: *mut IDirectDrawPalette, param3: IUnknown) -> HRESULT;
@@ -1171,9 +1159,6 @@ mod Windows {
         }
         #[guid(0x6c14db85_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawClipper: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetClipList(&self, param0: *mut RECT, param1: *mut RGNDATA, param2: *mut u32) -> HRESULT;
             fn GetHWnd(&self, param0: *mut HWND) -> HRESULT;
             fn Initialize(&self, param0: IDirectDraw, param1: u32) -> HRESULT;
@@ -1183,25 +1168,16 @@ mod Windows {
         }
         #[guid(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8)]
         interface IDirectDrawColorControl: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetColorControls(&self, param0: *mut DDCOLORCONTROL) -> HRESULT;
             fn SetColorControls(&self, param0: *mut DDCOLORCONTROL) -> HRESULT;
         }
         #[guid(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e)]
         interface IDirectDrawGammaControl: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> HRESULT;
             fn SetGammaRamp(&self, param0: u32, param1: *mut DDGAMMARAMP) -> HRESULT;
         }
         #[guid(0x6c14db84_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawPalette: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCaps(&self, param0: *mut u32) -> HRESULT;
             fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: *mut PALETTEENTRY) -> HRESULT;
             fn Initialize(&self, param0: IDirectDraw, param1: u32, param2: *mut PALETTEENTRY) -> HRESULT;
@@ -1209,9 +1185,6 @@ mod Windows {
         }
         #[guid(0x6c14db81_a733_11ce_a521_0020af0be560)]
         interface IDirectDrawSurface: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AddAttachedSurface(&self, param0: IDirectDrawSurface) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
             fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
@@ -1248,9 +1221,6 @@ mod Windows {
         }
         #[guid(0x57805885_6eec_11cf_9441_a82303c10e27)]
         interface IDirectDrawSurface2: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AddAttachedSurface(&self, param0: IDirectDrawSurface2) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
             fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface2, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
@@ -1290,9 +1260,6 @@ mod Windows {
         }
         #[guid(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb)]
         interface IDirectDrawSurface3: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AddAttachedSurface(&self, param0: IDirectDrawSurface3) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
             fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface3, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
@@ -1333,9 +1300,6 @@ mod Windows {
         }
         #[guid(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b)]
         interface IDirectDrawSurface4: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AddAttachedSurface(&self, param0: IDirectDrawSurface4) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
             fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface4, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;
@@ -1381,9 +1345,6 @@ mod Windows {
         }
         #[guid(0x06675a80_3b9b_11d2_b92f_00609797ea5b)]
         interface IDirectDrawSurface7: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AddAttachedSurface(&self, param0: IDirectDrawSurface7) -> HRESULT;
             fn AddOverlayDirtyRect(&self, param0: *mut RECT) -> HRESULT;
             fn Blt(&self, param0: *mut RECT, param1: IDirectDrawSurface7, param2: *mut RECT, param3: u32, param4: *mut DDBLTFX) -> HRESULT;

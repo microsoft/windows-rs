@@ -1,15 +1,6 @@
 windows_core::imp::define_interface!(IRichEditOle, IRichEditOle_Vtbl, 0x00020d00_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IRichEditOle, windows_core::IUnknown);
 impl IRichEditOle {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, lplpobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "oleidl")]
     pub unsafe fn GetClientSite(&self) -> windows_core::Result<super::oleidl::IOleClientSite> {
         unsafe {
@@ -85,9 +76,6 @@ impl IRichEditOle {
 #[doc(hidden)]
 pub struct IRichEditOle_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "oleidl")]
     pub GetClientSite: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "oleidl"))]
@@ -125,9 +113,6 @@ pub struct IRichEditOle_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetClientSite(&self) -> windows_core::Result<super::oleidl::IOleClientSite>;
     fn GetObjectCount(&self) -> i32;
     fn GetLinkCount(&self) -> i32;
@@ -148,24 +133,6 @@ pub trait IRichEditOle_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IRichEditOle_Vtbl {
     pub const fn new<Identity: IRichEditOle_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&lplpobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOle_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetClientSite<Identity: IRichEditOle_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpolesite: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -270,9 +237,6 @@ impl IRichEditOle_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetClientSite: GetClientSite::<Identity, OFFSET>,
             GetObjectCount: GetObjectCount::<Identity, OFFSET>,
             GetLinkCount: GetLinkCount::<Identity, OFFSET>,
@@ -300,15 +264,6 @@ impl windows_core::RuntimeName for IRichEditOle {}
 windows_core::imp::define_interface!(IRichEditOleCallback, IRichEditOleCallback_Vtbl, 0x00020d03_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IRichEditOleCallback, windows_core::IUnknown);
 impl IRichEditOleCallback {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, lplpobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "objidl")]
     pub unsafe fn GetNewStorage(&self) -> windows_core::Result<super::objidl::IStorage> {
         unsafe {
@@ -369,9 +324,6 @@ impl IRichEditOleCallback {
 #[doc(hidden)]
 pub struct IRichEditOleCallback_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "objidl")]
     pub GetNewStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "objidl"))]
@@ -406,9 +358,6 @@ pub struct IRichEditOleCallback_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNewStorage(&self) -> windows_core::Result<super::objidl::IStorage>;
     fn GetInPlaceContext(&self, lplpframe: windows_core::OutRef<super::oleidl::IOleInPlaceFrame>, lplpdoc: windows_core::OutRef<super::oleidl::IOleInPlaceUIWindow>, lpframeinfo: *mut super::oleidl::OLEINPLACEFRAMEINFO) -> windows_core::Result<()>;
     fn ShowContainerUI(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
@@ -423,24 +372,6 @@ pub trait IRichEditOleCallback_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "oleidl", feature = "richedit", feature = "windef", feature = "winnt", feature = "wtypes"))]
 impl IRichEditOleCallback_Vtbl {
     pub const fn new<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, lplpobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&lplpobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRichEditOleCallback_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNewStorage<Identity: IRichEditOleCallback_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, lplpstg: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -515,9 +446,6 @@ impl IRichEditOleCallback_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNewStorage: GetNewStorage::<Identity, OFFSET>,
             GetInPlaceContext: GetInPlaceContext::<Identity, OFFSET>,
             ShowContainerUI: ShowContainerUI::<Identity, OFFSET>,

@@ -54,9 +54,6 @@ mod Windows {
         const GETPROPS_NONE: u32 = 0;
         #[guid(0xb22754e2_4574_11d1_9888_006097deacf9)]
         interface IADesktopP2: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ReReadWallpaper(&self) -> HRESULT;
             fn GetADObjectFlags(&self, pdwFlags: *mut u32, dwMask: u32) -> HRESULT;
             fn UpdateAllDesktopSubscriptions(&self) -> HRESULT;
@@ -64,9 +61,6 @@ mod Windows {
         }
         #[guid(0x52502ee0_ec80_11d0_89ab_00c04fc2972d)]
         interface IActiveDesktopP: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetSafeMode(&self, dwFlags: u32) -> HRESULT;
             fn EnsureUpdateHTML(&self) -> HRESULT;
             fn SetScheme(&self, pwszSchemeName: PCWSTR, dwFlags: u32) -> HRESULT;
@@ -81,9 +75,6 @@ mod Windows {
         }
         #[guid(0xe8025004_1c42_11d2_be2c_00a0c9a83da1)]
         interface IColumnProvider: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Initialize(&self, psci: *const SHCOLUMNINIT) -> HRESULT;
             fn GetColumnInfo(&self, dwIndex: u32, psci: *mut SHCOLUMNINFO) -> HRESULT;
             fn GetItemData(&self, pscid: *const SHCOLUMNID, pscd: *const SHCOLUMNDATA, pvarData: *mut VARIANT) -> HRESULT;
@@ -128,9 +119,6 @@ mod Windows {
         }
         #[guid(0x000214e1_0000_0000_c000_000000000046)]
         interface INewShortcutHookA: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetReferent(&self, pcszReferent: PCSTR, #[opt] hwnd: HWND) -> HRESULT;
             fn GetReferent(&self, #[len_param(1)] #[out] pszReferent: PSTR, cchReferent: i32) -> HRESULT;
             fn SetFolder(&self, pcszFolder: PCSTR) -> HRESULT;
@@ -140,9 +128,6 @@ mod Windows {
         }
         #[guid(0x000214f7_0000_0000_c000_000000000046)]
         interface INewShortcutHookW: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn SetReferent(&self, pcszReferent: PCWSTR, #[opt] hwnd: HWND) -> HRESULT;
             fn GetReferent(&self, #[len_param(1)] #[out] pszReferent: PWSTR, cchReferent: i32) -> HRESULT;
             fn SetFolder(&self, pcszFolder: PCWSTR) -> HRESULT;

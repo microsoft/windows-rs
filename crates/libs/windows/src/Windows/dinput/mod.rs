@@ -2393,35 +2393,6 @@ impl core::ops::Deref for IDirectInput2A {
 }
 windows_core::imp::interface_hierarchy!(IDirectInput2A, windows_core::IUnknown, IDirectInputA);
 impl IDirectInput2A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceA>, param2: P2) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
-    }
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
-    pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
     pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1) -> windows_core::Result<windows_core::GUID>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
@@ -2436,85 +2407,15 @@ impl IDirectInput2A {
 #[doc(hidden)]
 pub struct IDirectInput2A_Vtbl {
     pub base__: IDirectInputA_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput2A_Impl: IDirectInputA_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceA>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR) -> windows_core::Result<windows_core::GUID>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput2A_Vtbl {
     pub const fn new<Identity: IDirectInput2A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn CreateDevice<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn EnumDevices<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
         unsafe extern "system" fn FindDevice<Identity: IDirectInput2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCSTR, param2: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2527,18 +2428,7 @@ impl IDirectInput2A_Vtbl {
                 }
             }
         }
-        Self {
-            base__: IDirectInputA_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            CreateDevice: CreateDevice::<Identity, OFFSET>,
-            EnumDevices: EnumDevices::<Identity, OFFSET>,
-            GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            FindDevice: FindDevice::<Identity, OFFSET>,
-        }
+        Self { base__: IDirectInputA_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectInput2A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID
@@ -2555,35 +2445,6 @@ impl core::ops::Deref for IDirectInput2W {
 }
 windows_core::imp::interface_hierarchy!(IDirectInput2W, windows_core::IUnknown, IDirectInputW);
 impl IDirectInput2W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceW>, param2: P2) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
-    }
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
-    pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
     pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1) -> windows_core::Result<windows_core::GUID>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -2598,85 +2459,15 @@ impl IDirectInput2W {
 #[doc(hidden)]
 pub struct IDirectInput2W_Vtbl {
     pub base__: IDirectInputW_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
     pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput2W_Impl: IDirectInputW_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceW>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
     fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput2W_Vtbl {
     pub const fn new<Identity: IDirectInput2W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn CreateDevice<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn EnumDevices<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput2W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
         unsafe extern "system" fn FindDevice<Identity: IDirectInput2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCWSTR, param2: *mut windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -2689,18 +2480,7 @@ impl IDirectInput2W_Vtbl {
                 }
             }
         }
-        Self {
-            base__: IDirectInputW_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            CreateDevice: CreateDevice::<Identity, OFFSET>,
-            EnumDevices: EnumDevices::<Identity, OFFSET>,
-            GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            FindDevice: FindDevice::<Identity, OFFSET>,
-        }
+        Self { base__: IDirectInputW_Vtbl::new::<Identity, OFFSET>(), FindDevice: FindDevice::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectInput2W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID
@@ -2717,44 +2497,6 @@ impl core::ops::Deref for IDirectInput7A {
 }
 windows_core::imp::interface_hierarchy!(IDirectInput7A, windows_core::IUnknown, IDirectInputA, IDirectInput2A);
 impl IDirectInput7A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceA>, param2: P2) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
-    }
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
-    pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1) -> windows_core::Result<windows_core::GUID>
-    where
-        P1: windows_core::Param<windows_core::PCSTR>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDevice)(windows_core::Interface::as_raw(self), param0, param1.param().abi(), &mut result__).map(|| result__)
-        }
-    }
     pub unsafe fn CreateDeviceEx<P3>(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -2766,118 +2508,22 @@ impl IDirectInput7A {
 #[doc(hidden)]
 pub struct IDirectInput7A_Vtbl {
     pub base__: IDirectInput2A_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
-    pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput7A_Impl: IDirectInput2A_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceA>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCSTR) -> windows_core::Result<windows_core::GUID>;
     fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput7A_Vtbl {
     pub const fn new<Identity: IDirectInput7A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn CreateDevice<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn EnumDevices<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn FindDevice<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCSTR, param2: *mut windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInput7A_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1)) {
-                    Ok(ok__) => {
-                        param2.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
         unsafe extern "system" fn CreateDeviceEx<Identity: IDirectInput7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectInput7A_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
             }
         }
-        Self {
-            base__: IDirectInput2A_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            CreateDevice: CreateDevice::<Identity, OFFSET>,
-            EnumDevices: EnumDevices::<Identity, OFFSET>,
-            GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            FindDevice: FindDevice::<Identity, OFFSET>,
-            CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET>,
-        }
+        Self { base__: IDirectInput2A_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectInput7A as windows_core::Interface>::IID || iid == &<IDirectInputA as windows_core::Interface>::IID || iid == &<IDirectInput2A as windows_core::Interface>::IID
@@ -2894,44 +2540,6 @@ impl core::ops::Deref for IDirectInput7W {
 }
 windows_core::imp::interface_hierarchy!(IDirectInput7W, windows_core::IUnknown, IDirectInputW, IDirectInput2W);
 impl IDirectInput7W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceW>, param2: P2) -> windows_core::HRESULT
-    where
-        P2: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2.param().abi()) }
-    }
-    pub unsafe fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
-    pub unsafe fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceStatus)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn FindDevice<P1>(&self, param0: *const windows_core::GUID, param1: P1) -> windows_core::Result<windows_core::GUID>
-    where
-        P1: windows_core::Param<windows_core::PCWSTR>,
-    {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindDevice)(windows_core::Interface::as_raw(self), param0, param1.param().abi(), &mut result__).map(|| result__)
-        }
-    }
     pub unsafe fn CreateDeviceEx<P3>(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::IUnknown>,
@@ -2943,118 +2551,22 @@ impl IDirectInput7W {
 #[doc(hidden)]
 pub struct IDirectInput7W_Vtbl {
     pub base__: IDirectInput2W_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
-    pub FindDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, windows_core::PCWSTR, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput7W_Impl: IDirectInput2W_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceW>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
-    fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::Result<()>;
-    fn FindDevice(&self, param0: *const windows_core::GUID, param1: &windows_core::PCWSTR) -> windows_core::Result<windows_core::GUID>;
     fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInput7W_Vtbl {
     pub const fn new<Identity: IDirectInput7W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn CreateDevice<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::CreateDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn EnumDevices<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::EnumDevices(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceStatus<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::GetDeviceStatus(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput7W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn FindDevice<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: windows_core::PCWSTR, param2: *mut windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInput7W_Impl::FindDevice(this, core::mem::transmute_copy(&param0), core::mem::transmute(&param1)) {
-                    Ok(ok__) => {
-                        param2.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
         unsafe extern "system" fn CreateDeviceEx<Identity: IDirectInput7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDirectInput7W_Impl::CreateDeviceEx(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
             }
         }
-        Self {
-            base__: IDirectInput2W_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            CreateDevice: CreateDevice::<Identity, OFFSET>,
-            EnumDevices: EnumDevices::<Identity, OFFSET>,
-            GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            FindDevice: FindDevice::<Identity, OFFSET>,
-            CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET>,
-        }
+        Self { base__: IDirectInput2W_Vtbl::new::<Identity, OFFSET>(), CreateDeviceEx: CreateDeviceEx::<Identity, OFFSET> }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
         iid == &<IDirectInput7W as windows_core::Interface>::IID || iid == &<IDirectInputW as windows_core::Interface>::IID || iid == &<IDirectInput2W as windows_core::Interface>::IID
@@ -3065,15 +2577,6 @@ impl windows_core::RuntimeName for IDirectInput7W {}
 windows_core::imp::define_interface!(IDirectInput8A, IDirectInput8A_Vtbl, 0xbf798030_483a_4da2_aa99_5d64ed369700);
 windows_core::imp::interface_hierarchy!(IDirectInput8A, windows_core::IUnknown);
 impl IDirectInput8A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDevice8A>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3119,9 +2622,6 @@ impl IDirectInput8A {
 #[doc(hidden)]
 pub struct IDirectInput8A_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3145,9 +2645,6 @@ pub struct IDirectInput8A_Vtbl {
 }
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDevice8A>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -3160,24 +2657,6 @@ pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl IDirectInput8A_Vtbl {
     pub const fn new<Identity: IDirectInput8A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8A_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateDevice<Identity: IDirectInput8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3234,9 +2713,6 @@ impl IDirectInput8A_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             CreateDevice: CreateDevice::<Identity, OFFSET>,
             EnumDevices: EnumDevices::<Identity, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
@@ -3256,15 +2732,6 @@ impl windows_core::RuntimeName for IDirectInput8A {}
 windows_core::imp::define_interface!(IDirectInput8W, IDirectInput8W_Vtbl, 0xbf798031_483a_4da2_aa99_5d64ed369700);
 windows_core::imp::interface_hierarchy!(IDirectInput8W, windows_core::IUnknown);
 impl IDirectInput8W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDevice8W>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3310,9 +2777,6 @@ impl IDirectInput8W {
 #[doc(hidden)]
 pub struct IDirectInput8W_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3336,9 +2800,6 @@ pub struct IDirectInput8W_Vtbl {
 }
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDevice8W>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -3351,24 +2812,6 @@ pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
 impl IDirectInput8W_Vtbl {
     pub const fn new<Identity: IDirectInput8W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInput8W_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateDevice<Identity: IDirectInput8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3425,9 +2868,6 @@ impl IDirectInput8W_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             CreateDevice: CreateDevice::<Identity, OFFSET>,
             EnumDevices: EnumDevices::<Identity, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
@@ -3447,15 +2887,6 @@ impl windows_core::RuntimeName for IDirectInput8W {}
 windows_core::imp::define_interface!(IDirectInputA, IDirectInputA_Vtbl, 0x89521360_aa8a_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputA, windows_core::IUnknown);
 impl IDirectInputA {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceA>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3481,9 +2912,6 @@ impl IDirectInputA {
 #[doc(hidden)]
 pub struct IDirectInputA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -3498,9 +2926,6 @@ pub struct IDirectInputA_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceA>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -3510,24 +2935,6 @@ pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInputA_Vtbl {
     pub const fn new<Identity: IDirectInputA_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputA_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateDevice<Identity: IDirectInputA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3560,9 +2967,6 @@ impl IDirectInputA_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             CreateDevice: CreateDevice::<Identity, OFFSET>,
             EnumDevices: EnumDevices::<Identity, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,
@@ -3585,67 +2989,6 @@ impl core::ops::Deref for IDirectInputDevice2A {
 }
 windows_core::imp::interface_hierarchy!(IDirectInputDevice2A, windows_core::IUnknown, IDirectInputDeviceA);
 impl IDirectInputDevice2A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn Acquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Unacquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceState)(windows_core::Interface::as_raw(self), param0, param1 as _) }
-    }
-    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
-    }
-    pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
-    }
-    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
@@ -3685,36 +3028,6 @@ impl IDirectInputDevice2A {
 #[doc(hidden)]
 pub struct IDirectInputDevice2A_Vtbl {
     pub base__: IDirectInputDeviceA_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIPROPHEADER) -> windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
-    SetEventNotification: usize,
-    #[cfg(feature = "windef")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetCooperativeLevel: usize,
-    pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
     #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -3730,24 +3043,6 @@ pub struct IDirectInputDevice2A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
     fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -3761,120 +3056,6 @@ pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice2A_Impl::GetProperty(this, core::mem::transmute_copy(&param0)) {
-                    Ok(ok__) => {
-                        param1.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Acquire<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Acquire(this).into()
-            }
-        }
-        unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Unacquire(this).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice2A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -3937,24 +3118,6 @@ impl IDirectInputDevice2A_Vtbl {
         }
         Self {
             base__: IDirectInputDeviceA_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
-            EnumObjects: EnumObjects::<Identity, OFFSET>,
-            GetProperty: GetProperty::<Identity, OFFSET>,
-            SetProperty: SetProperty::<Identity, OFFSET>,
-            Acquire: Acquire::<Identity, OFFSET>,
-            Unacquire: Unacquire::<Identity, OFFSET>,
-            GetDeviceState: GetDeviceState::<Identity, OFFSET>,
-            GetDeviceData: GetDeviceData::<Identity, OFFSET>,
-            SetDataFormat: SetDataFormat::<Identity, OFFSET>,
-            SetEventNotification: SetEventNotification::<Identity, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
-            GetObjectInfo: GetObjectInfo::<Identity, OFFSET>,
-            GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
             CreateEffect: CreateEffect::<Identity, OFFSET>,
             EnumEffects: EnumEffects::<Identity, OFFSET>,
             GetEffectInfo: GetEffectInfo::<Identity, OFFSET>,
@@ -3981,67 +3144,6 @@ impl core::ops::Deref for IDirectInputDevice2W {
 }
 windows_core::imp::interface_hierarchy!(IDirectInputDevice2W, windows_core::IUnknown, IDirectInputDeviceW);
 impl IDirectInputDevice2W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn Acquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Unacquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceState)(windows_core::Interface::as_raw(self), param0, param1 as _) }
-    }
-    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
-    }
-    pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
-    }
-    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
     where
@@ -4081,36 +3183,6 @@ impl IDirectInputDevice2W {
 #[doc(hidden)]
 pub struct IDirectInputDevice2W_Vtbl {
     pub base__: IDirectInputDeviceW_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIPROPHEADER) -> windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
-    SetEventNotification: usize,
-    #[cfg(feature = "windef")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetCooperativeLevel: usize,
-    pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
     #[cfg(feature = "minwindef")]
     pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -4126,24 +3198,6 @@ pub struct IDirectInputDevice2W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
     fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -4157,120 +3211,6 @@ pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice2W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice2W_Impl::GetProperty(this, core::mem::transmute_copy(&param0)) {
-                    Ok(ok__) => {
-                        param1.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Acquire<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Acquire(this).into()
-            }
-        }
-        unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Unacquire(this).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice2W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
         unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice2W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4333,24 +3273,6 @@ impl IDirectInputDevice2W_Vtbl {
         }
         Self {
             base__: IDirectInputDeviceW_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
-            EnumObjects: EnumObjects::<Identity, OFFSET>,
-            GetProperty: GetProperty::<Identity, OFFSET>,
-            SetProperty: SetProperty::<Identity, OFFSET>,
-            Acquire: Acquire::<Identity, OFFSET>,
-            Unacquire: Unacquire::<Identity, OFFSET>,
-            GetDeviceState: GetDeviceState::<Identity, OFFSET>,
-            GetDeviceData: GetDeviceData::<Identity, OFFSET>,
-            SetDataFormat: SetDataFormat::<Identity, OFFSET>,
-            SetEventNotification: SetEventNotification::<Identity, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
-            GetObjectInfo: GetObjectInfo::<Identity, OFFSET>,
-            GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
             CreateEffect: CreateEffect::<Identity, OFFSET>,
             EnumEffects: EnumEffects::<Identity, OFFSET>,
             GetEffectInfo: GetEffectInfo::<Identity, OFFSET>,
@@ -4377,101 +3299,6 @@ impl core::ops::Deref for IDirectInputDevice7A {
 }
 windows_core::imp::interface_hierarchy!(IDirectInputDevice7A, windows_core::IUnknown, IDirectInputDeviceA, IDirectInputDevice2A);
 impl IDirectInputDevice7A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn Acquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Unacquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceState)(windows_core::Interface::as_raw(self), param0, param1 as _) }
-    }
-    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
-    }
-    pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
-    }
-    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
-    where
-        P3: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute(param2), param3.param().abi()) }
-    }
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumEffects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1) }
-    }
-    pub unsafe fn GetForceFeedbackState(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetForceFeedbackState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendForceFeedbackCommand)(windows_core::Interface::as_raw(self), param0) }
-    }
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCreatedEffectObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn Poll(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Poll)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
@@ -4491,48 +3318,6 @@ impl IDirectInputDevice7A {
 #[doc(hidden)]
 pub struct IDirectInputDevice7A_Vtbl {
     pub base__: IDirectInputDevice2A_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIPROPHEADER) -> windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
-    SetEventNotification: usize,
-    #[cfg(feature = "windef")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetCooperativeLevel: usize,
-    pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEA, u32, u32) -> windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
-    #[cfg(feature = "minwindef")]
-    pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    CreateEffect: usize,
-    pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOA, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -4544,213 +3329,12 @@ pub struct IDirectInputDevice7A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7A_Impl: IDirectInputDevice2A_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self) -> windows_core::Result<u32>;
-    fn SendForceFeedbackCommand(&self, param0: u32) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn Escape(&self, param0: *mut DIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
     fn EnumEffectsInFile(&self, param0: &windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn WriteEffectToFile(&self, param0: &windows_core::PCSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice7A_Impl::GetProperty(this, core::mem::transmute_copy(&param0)) {
-                    Ok(ok__) => {
-                        param1.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Acquire<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Acquire(this).into()
-            }
-        }
-        unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Unacquire(this).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEINSTANCEA) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice7A_Impl::GetForceFeedbackState(this) {
-                    Ok(ok__) => {
-                        param0.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn Escape<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIEFFESCAPE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn Poll<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::Poll(this).into()
-            }
-        }
-        unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7A_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice7A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -4765,33 +3349,6 @@ impl IDirectInputDevice7A_Vtbl {
         }
         Self {
             base__: IDirectInputDevice2A_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
-            EnumObjects: EnumObjects::<Identity, OFFSET>,
-            GetProperty: GetProperty::<Identity, OFFSET>,
-            SetProperty: SetProperty::<Identity, OFFSET>,
-            Acquire: Acquire::<Identity, OFFSET>,
-            Unacquire: Unacquire::<Identity, OFFSET>,
-            GetDeviceState: GetDeviceState::<Identity, OFFSET>,
-            GetDeviceData: GetDeviceData::<Identity, OFFSET>,
-            SetDataFormat: SetDataFormat::<Identity, OFFSET>,
-            SetEventNotification: SetEventNotification::<Identity, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
-            GetObjectInfo: GetObjectInfo::<Identity, OFFSET>,
-            GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            CreateEffect: CreateEffect::<Identity, OFFSET>,
-            EnumEffects: EnumEffects::<Identity, OFFSET>,
-            GetEffectInfo: GetEffectInfo::<Identity, OFFSET>,
-            GetForceFeedbackState: GetForceFeedbackState::<Identity, OFFSET>,
-            SendForceFeedbackCommand: SendForceFeedbackCommand::<Identity, OFFSET>,
-            EnumCreatedEffectObjects: EnumCreatedEffectObjects::<Identity, OFFSET>,
-            Escape: Escape::<Identity, OFFSET>,
-            Poll: Poll::<Identity, OFFSET>,
-            SendDeviceData: SendDeviceData::<Identity, OFFSET>,
             EnumEffectsInFile: EnumEffectsInFile::<Identity, OFFSET>,
             WriteEffectToFile: WriteEffectToFile::<Identity, OFFSET>,
         }
@@ -4811,101 +3368,6 @@ impl core::ops::Deref for IDirectInputDevice7W {
 }
 windows_core::imp::interface_hierarchy!(IDirectInputDevice7W, windows_core::IUnknown, IDirectInputDeviceW, IDirectInputDevice2W);
 impl IDirectInputDevice7W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), param0, &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn Acquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Acquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Unacquire(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unacquire)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceState)(windows_core::Interface::as_raw(self), param0, param1 as _) }
-    }
-    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceData)(windows_core::Interface::as_raw(self), param0, param1 as _, param2 as _, param3) }
-    }
-    pub unsafe fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDataFormat)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "winnt")]
-    pub unsafe fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetEventNotification)(windows_core::Interface::as_raw(self), param0) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCooperativeLevel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObjectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1, param2) }
-    }
-    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDeviceInfo)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    #[cfg(feature = "windef")]
-    pub unsafe fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RunControlPanel)(windows_core::Interface::as_raw(self), param0, param1) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
-    }
-    #[cfg(feature = "minwindef")]
-    pub unsafe fn CreateEffect<P3>(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut Option<IDirectInputEffect>, param3: P3) -> windows_core::HRESULT
-    where
-        P3: windows_core::Param<windows_core::IUnknown>,
-    {
-        unsafe { (windows_core::Interface::vtable(self).CreateEffect)(windows_core::Interface::as_raw(self), param0, param1, core::mem::transmute(param2), param3.param().abi()) }
-    }
-    pub unsafe fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumEffects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectInfo)(windows_core::Interface::as_raw(self), param0 as _, param1) }
-    }
-    pub unsafe fn GetForceFeedbackState(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetForceFeedbackState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
-    }
-    pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendForceFeedbackCommand)(windows_core::Interface::as_raw(self), param0) }
-    }
-    pub unsafe fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EnumCreatedEffectObjects)(windows_core::Interface::as_raw(self), param0, param1 as _, param2) }
-    }
-    pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Escape)(windows_core::Interface::as_raw(self), param0 as _) }
-    }
-    pub unsafe fn Poll(&self) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Poll)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendDeviceData)(windows_core::Interface::as_raw(self), param0, param1, param2 as _, param3) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn EnumEffectsInFile<P0>(&self, param0: P0, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT
     where
@@ -4925,48 +3387,6 @@ impl IDirectInputDevice7W {
 #[doc(hidden)]
 pub struct IDirectInputDevice7W_Vtbl {
     pub base__: IDirectInputDevice2W_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
-    pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
-    pub SetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIPROPHEADER) -> windows_core::HRESULT,
-    pub Acquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Unacquire: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceState: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
-    pub SetDataFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *const DIDATAFORMAT) -> windows_core::HRESULT,
-    #[cfg(feature = "winnt")]
-    pub SetEventNotification: unsafe extern "system" fn(*mut core::ffi::c_void, super::winnt::HANDLE) -> windows_core::HRESULT,
-    #[cfg(not(feature = "winnt"))]
-    SetEventNotification: usize,
-    #[cfg(feature = "windef")]
-    pub SetCooperativeLevel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    SetCooperativeLevel: usize,
-    pub GetObjectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEOBJECTINSTANCEW, u32, u32) -> windows_core::HRESULT,
-    pub GetDeviceInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT,
-    #[cfg(feature = "windef")]
-    pub RunControlPanel: unsafe extern "system" fn(*mut core::ffi::c_void, super::windef::HWND, u32) -> windows_core::HRESULT,
-    #[cfg(not(feature = "windef"))]
-    RunControlPanel: usize,
-    #[cfg(feature = "minwindef")]
-    pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    Initialize: usize,
-    #[cfg(feature = "minwindef")]
-    pub CreateEffect: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const DIEFFECT, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "minwindef"))]
-    CreateEffect: usize,
-    pub EnumEffects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMEFFECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub GetEffectInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFECTINFOW, *const windows_core::GUID) -> windows_core::HRESULT,
-    pub GetForceFeedbackState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
-    pub SendForceFeedbackCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub EnumCreatedEffectObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Escape: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIEFFESCAPE) -> windows_core::HRESULT,
-    pub Poll: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
     #[cfg(feature = "minwindef")]
     pub EnumEffectsInFile: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, LPDIENUMEFFECTSINFILECALLBACK, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -4978,213 +3398,12 @@ pub struct IDirectInputDevice7W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice7W_Impl: IDirectInputDevice2W_Impl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
-    fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
-    fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
-    fn SetProperty(&self, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::Result<()>;
-    fn Acquire(&self) -> windows_core::Result<()>;
-    fn Unacquire(&self) -> windows_core::Result<()>;
-    fn GetDeviceState(&self, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
-    fn SetDataFormat(&self, param0: *const DIDATAFORMAT) -> windows_core::Result<()>;
-    fn SetEventNotification(&self, param0: super::winnt::HANDLE) -> windows_core::Result<()>;
-    fn SetCooperativeLevel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::Result<()>;
-    fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::Result<()>;
-    fn RunControlPanel(&self, param0: super::windef::HWND, param1: u32) -> windows_core::Result<()>;
-    fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetForceFeedbackState(&self) -> windows_core::Result<u32>;
-    fn SendForceFeedbackCommand(&self, param0: u32) -> windows_core::Result<()>;
-    fn EnumCreatedEffectObjects(&self, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
-    fn Escape(&self, param0: *mut DIEFFESCAPE) -> windows_core::Result<()>;
-    fn Poll(&self) -> windows_core::Result<()>;
-    fn SendDeviceData(&self, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::Result<()>;
     fn EnumEffectsInFile(&self, param0: &windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn WriteEffectToFile(&self, param0: &windows_core::PCWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice7W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Release(this)
-            }
-        }
-        unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetCapabilities(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumObjects<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::EnumObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetProperty<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice7W_Impl::GetProperty(this, core::mem::transmute_copy(&param0)) {
-                    Ok(ok__) => {
-                        param1.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SetProperty<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIPROPHEADER) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SetProperty(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Acquire<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Acquire(this).into()
-            }
-        }
-        unsafe extern "system" fn Unacquire<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Unacquire(this).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceState<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetDeviceState(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceData<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn SetDataFormat<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const DIDATAFORMAT) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SetDataFormat(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetEventNotification<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::winnt::HANDLE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SetEventNotification(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn SetCooperativeLevel<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SetCooperativeLevel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetObjectInfo<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetObjectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetDeviceInfo<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVICEINSTANCEW) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetDeviceInfo(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn RunControlPanel<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::windef::HWND, param1: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::RunControlPanel(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn Initialize<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Initialize(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn CreateEffect<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *const DIEFFECT, param2: *mut *mut core::ffi::c_void, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::CreateEffect(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
-        unsafe extern "system" fn EnumEffects<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::EnumEffects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn GetEffectInfo<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::GetEffectInfo(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1)).into()
-            }
-        }
-        unsafe extern "system" fn GetForceFeedbackState<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IDirectInputDevice7W_Impl::GetForceFeedbackState(this) {
-                    Ok(ok__) => {
-                        param0.write(ok__);
-                        windows_core::HRESULT(0)
-                    }
-                    Err(err) => err.into(),
-                }
-            }
-        }
-        unsafe extern "system" fn SendForceFeedbackCommand<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SendForceFeedbackCommand(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn EnumCreatedEffectObjects<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: LPDIENUMCREATEDEFFECTOBJECTSCALLBACK, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::EnumCreatedEffectObjects(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2)).into()
-            }
-        }
-        unsafe extern "system" fn Escape<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIEFFESCAPE) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Escape(this, core::mem::transmute_copy(&param0)).into()
-            }
-        }
-        unsafe extern "system" fn Poll<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::Poll(this).into()
-            }
-        }
-        unsafe extern "system" fn SendDeviceData<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: u32, param1: *const DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice7W_Impl::SendDeviceData(this, core::mem::transmute_copy(&param0), core::mem::transmute_copy(&param1), core::mem::transmute_copy(&param2), core::mem::transmute_copy(&param3)).into()
-            }
-        }
         unsafe extern "system" fn EnumEffectsInFile<Identity: IDirectInputDevice7W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: windows_core::PCWSTR, param1: LPDIENUMEFFECTSINFILECALLBACK, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5199,33 +3418,6 @@ impl IDirectInputDevice7W_Vtbl {
         }
         Self {
             base__: IDirectInputDevice2W_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
-            GetCapabilities: GetCapabilities::<Identity, OFFSET>,
-            EnumObjects: EnumObjects::<Identity, OFFSET>,
-            GetProperty: GetProperty::<Identity, OFFSET>,
-            SetProperty: SetProperty::<Identity, OFFSET>,
-            Acquire: Acquire::<Identity, OFFSET>,
-            Unacquire: Unacquire::<Identity, OFFSET>,
-            GetDeviceState: GetDeviceState::<Identity, OFFSET>,
-            GetDeviceData: GetDeviceData::<Identity, OFFSET>,
-            SetDataFormat: SetDataFormat::<Identity, OFFSET>,
-            SetEventNotification: SetEventNotification::<Identity, OFFSET>,
-            SetCooperativeLevel: SetCooperativeLevel::<Identity, OFFSET>,
-            GetObjectInfo: GetObjectInfo::<Identity, OFFSET>,
-            GetDeviceInfo: GetDeviceInfo::<Identity, OFFSET>,
-            RunControlPanel: RunControlPanel::<Identity, OFFSET>,
-            Initialize: Initialize::<Identity, OFFSET>,
-            CreateEffect: CreateEffect::<Identity, OFFSET>,
-            EnumEffects: EnumEffects::<Identity, OFFSET>,
-            GetEffectInfo: GetEffectInfo::<Identity, OFFSET>,
-            GetForceFeedbackState: GetForceFeedbackState::<Identity, OFFSET>,
-            SendForceFeedbackCommand: SendForceFeedbackCommand::<Identity, OFFSET>,
-            EnumCreatedEffectObjects: EnumCreatedEffectObjects::<Identity, OFFSET>,
-            Escape: Escape::<Identity, OFFSET>,
-            Poll: Poll::<Identity, OFFSET>,
-            SendDeviceData: SendDeviceData::<Identity, OFFSET>,
             EnumEffectsInFile: EnumEffectsInFile::<Identity, OFFSET>,
             WriteEffectToFile: WriteEffectToFile::<Identity, OFFSET>,
         }
@@ -5239,15 +3431,6 @@ impl windows_core::RuntimeName for IDirectInputDevice7W {}
 windows_core::imp::define_interface!(IDirectInputDevice8A, IDirectInputDevice8A_Vtbl, 0x54d41080_dc15_4833_a41b_748f73a38179);
 windows_core::imp::interface_hierarchy!(IDirectInputDevice8A, windows_core::IUnknown);
 impl IDirectInputDevice8A {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -5371,9 +3554,6 @@ impl IDirectInputDevice8A {
 #[doc(hidden)]
 pub struct IDirectInputDevice8A_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
@@ -5436,9 +3616,6 @@ pub struct IDirectInputDevice8A_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
     fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
@@ -5472,24 +3649,6 @@ pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8A_Vtbl {
     pub const fn new<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8A_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice8A_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -5678,9 +3837,6 @@ impl IDirectInputDevice8A_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, OFFSET>,
             EnumObjects: EnumObjects::<Identity, OFFSET>,
             GetProperty: GetProperty::<Identity, OFFSET>,
@@ -5721,15 +3877,6 @@ impl windows_core::RuntimeName for IDirectInputDevice8A {}
 windows_core::imp::define_interface!(IDirectInputDevice8W, IDirectInputDevice8W_Vtbl, 0x54d41081_dc15_4833_a41b_748f73a38179);
 windows_core::imp::interface_hierarchy!(IDirectInputDevice8W, windows_core::IUnknown);
 impl IDirectInputDevice8W {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -5853,9 +4000,6 @@ impl IDirectInputDevice8W {
 #[doc(hidden)]
 pub struct IDirectInputDevice8W_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
@@ -5918,9 +4062,6 @@ pub struct IDirectInputDevice8W_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
     fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
@@ -5954,24 +4095,6 @@ pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDevice8W_Vtbl {
     pub const fn new<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDevice8W_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDevice8W_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6160,9 +4283,6 @@ impl IDirectInputDevice8W_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, OFFSET>,
             EnumObjects: EnumObjects::<Identity, OFFSET>,
             GetProperty: GetProperty::<Identity, OFFSET>,
@@ -6203,15 +4323,6 @@ impl windows_core::RuntimeName for IDirectInputDevice8W {}
 windows_core::imp::define_interface!(IDirectInputDeviceA, IDirectInputDeviceA_Vtbl, 0x5944e680_c92e_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputDeviceA, windows_core::IUnknown);
 impl IDirectInputDeviceA {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -6269,9 +4380,6 @@ impl IDirectInputDeviceA {
 #[doc(hidden)]
 pub struct IDirectInputDeviceA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKA, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
@@ -6302,9 +4410,6 @@ pub struct IDirectInputDeviceA_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceA_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
     fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
@@ -6324,24 +4429,6 @@ pub trait IDirectInputDeviceA_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceA_Vtbl {
     pub const fn new<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceA_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDeviceA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6440,9 +4527,6 @@ impl IDirectInputDeviceA_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, OFFSET>,
             EnumObjects: EnumObjects::<Identity, OFFSET>,
             GetProperty: GetProperty::<Identity, OFFSET>,
@@ -6469,15 +4553,6 @@ impl windows_core::RuntimeName for IDirectInputDeviceA {}
 windows_core::imp::define_interface!(IDirectInputDeviceW, IDirectInputDeviceW_Vtbl, 0x5944e681_c92e_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputDeviceW, windows_core::IUnknown);
 impl IDirectInputDeviceW {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), param0 as _) }
     }
@@ -6535,9 +4610,6 @@ impl IDirectInputDeviceW {
 #[doc(hidden)]
 pub struct IDirectInputDeviceW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DIDEVCAPS) -> windows_core::HRESULT,
     pub EnumObjects: unsafe extern "system" fn(*mut core::ffi::c_void, LPDIENUMDEVICEOBJECTSCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut DIPROPHEADER) -> windows_core::HRESULT,
@@ -6568,9 +4640,6 @@ pub struct IDirectInputDeviceW_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 pub trait IDirectInputDeviceW_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> windows_core::Result<()>;
     fn EnumObjects(&self, param0: LPDIENUMDEVICEOBJECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetProperty(&self, param0: *const windows_core::GUID) -> windows_core::Result<DIPROPHEADER>;
@@ -6590,24 +4659,6 @@ pub trait IDirectInputDeviceW_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl IDirectInputDeviceW_Vtbl {
     pub const fn new<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputDeviceW_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetCapabilities<Identity: IDirectInputDeviceW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *mut DIDEVCAPS) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6706,9 +4757,6 @@ impl IDirectInputDeviceW_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetCapabilities: GetCapabilities::<Identity, OFFSET>,
             EnumObjects: EnumObjects::<Identity, OFFSET>,
             GetProperty: GetProperty::<Identity, OFFSET>,
@@ -6735,15 +4783,6 @@ impl windows_core::RuntimeName for IDirectInputDeviceW {}
 windows_core::imp::define_interface!(IDirectInputEffect, IDirectInputEffect_Vtbl, 0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
 windows_core::imp::interface_hierarchy!(IDirectInputEffect, windows_core::IUnknown);
 impl IDirectInputEffect {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "minwindef")]
     pub unsafe fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), param0, param1, param2) }
@@ -6788,9 +4827,6 @@ impl IDirectInputEffect {
 #[doc(hidden)]
 pub struct IDirectInputEffect_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "minwindef")]
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::minwindef::HINSTANCE, u32, *const windows_core::GUID) -> windows_core::HRESULT,
     #[cfg(not(feature = "minwindef"))]
@@ -6813,9 +4849,6 @@ pub struct IDirectInputEffect_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait IDirectInputEffect_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn Initialize(&self, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetEffectGuid(&self) -> windows_core::Result<windows_core::GUID>;
     fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> windows_core::Result<()>;
@@ -6830,24 +4863,6 @@ pub trait IDirectInputEffect_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "minwindef")]
 impl IDirectInputEffect_Vtbl {
     pub const fn new<Identity: IDirectInputEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputEffect_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn Initialize<Identity: IDirectInputEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: super::minwindef::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -6922,9 +4937,6 @@ impl IDirectInputEffect_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             Initialize: Initialize::<Identity, OFFSET>,
             GetEffectGuid: GetEffectGuid::<Identity, OFFSET>,
             GetParameters: GetParameters::<Identity, OFFSET>,
@@ -6946,15 +4958,6 @@ impl windows_core::RuntimeName for IDirectInputEffect {}
 windows_core::imp::define_interface!(IDirectInputW, IDirectInputW_Vtbl, 0x89521361_aa8a_11cf_bfc7_444553540000);
 windows_core::imp::interface_hierarchy!(IDirectInputW, windows_core::IUnknown);
 impl IDirectInputW {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn CreateDevice<P2>(&self, param0: *const windows_core::GUID, param1: *mut Option<IDirectInputDeviceW>, param2: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -6980,9 +4983,6 @@ impl IDirectInputW {
 #[doc(hidden)]
 pub struct IDirectInputW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, LPDIENUMDEVICESCALLBACKW, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub GetDeviceStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
@@ -6997,9 +4997,6 @@ pub struct IDirectInputW_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceW>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
@@ -7009,24 +5006,6 @@ pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl IDirectInputW_Vtbl {
     pub const fn new<Identity: IDirectInputW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IDirectInputW_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn CreateDevice<Identity: IDirectInputW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, param0: *const windows_core::GUID, param1: *mut *mut core::ffi::c_void, param2: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -7059,9 +5038,6 @@ impl IDirectInputW_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             CreateDevice: CreateDevice::<Identity, OFFSET>,
             EnumDevices: EnumDevices::<Identity, OFFSET>,
             GetDeviceStatus: GetDeviceStatus::<Identity, OFFSET>,

@@ -15968,15 +15968,6 @@ impl windows_core::RuntimeName for ID3D12InfoQueue1 {}
 windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryReflection_Vtbl, 0x8e349d19_54db_4a56_9dc9_119d87bdb804);
 windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
 impl ID3D12LibraryReflection {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -15991,39 +15982,15 @@ impl ID3D12LibraryReflection {
 #[doc(hidden)]
 pub struct ID3D12LibraryReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT,
     pub GetFunctionByIndex: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> Option<ID3D12FunctionReflection>,
 }
 pub trait ID3D12LibraryReflection_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC>;
     fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D12FunctionReflection>;
 }
 impl ID3D12LibraryReflection_Vtbl {
     pub const fn new<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12LibraryReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12LibraryReflection_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12LibraryReflection_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetDesc<Identity: ID3D12LibraryReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -16044,9 +16011,6 @@ impl ID3D12LibraryReflection_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetDesc: GetDesc::<Identity, OFFSET>,
             GetFunctionByIndex: GetFunctionByIndex::<Identity, OFFSET>,
         }
@@ -17188,15 +17152,6 @@ impl windows_core::RuntimeName for ID3D12ShaderCacheSession {}
 windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflection_Vtbl, 0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
 windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, windows_core::IUnknown);
 impl ID3D12ShaderReflection {
-    pub unsafe fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), iid, ppv as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _) }
@@ -17279,9 +17234,6 @@ impl ID3D12ShaderReflection {
 #[doc(hidden)]
 pub struct ID3D12ShaderReflection_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     #[cfg(feature = "d3dcommon")]
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_SHADER_DESC) -> windows_core::HRESULT,
     #[cfg(not(feature = "d3dcommon"))]
@@ -17328,9 +17280,6 @@ pub struct ID3D12ShaderReflection_Vtbl {
 }
 #[cfg(feature = "d3dcommon")]
 pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::Result<()>;
     fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>;
@@ -17354,24 +17303,6 @@ pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "d3dcommon")]
 impl ID3D12ShaderReflection_Vtbl {
     pub const fn new<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12ShaderReflection_Impl::QueryInterface(this, core::mem::transmute_copy(&iid), core::mem::transmute_copy(&ppv)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12ShaderReflection_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ID3D12ShaderReflection_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetDesc<Identity: ID3D12ShaderReflection_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -17494,9 +17425,6 @@ impl ID3D12ShaderReflection_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetDesc: GetDesc::<Identity, OFFSET>,
             GetConstantBufferByIndex: GetConstantBufferByIndex::<Identity, OFFSET>,
             GetConstantBufferByName: GetConstantBufferByName::<Identity, OFFSET>,

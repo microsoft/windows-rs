@@ -16,15 +16,6 @@ pub const IURL_SETURL_FL_USE_DEFAULT_PROTOCOL: IURL_SETURL_FLAGS = 2;
 windows_core::imp::define_interface!(IUniformResourceLocatorA, IUniformResourceLocatorA_Vtbl, 0xfbf23b80_e3f0_101b_8488_00aa003e56f8);
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorA, windows_core::IUnknown);
 impl IUniformResourceLocatorA {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn SetURL<P0>(&self, pcszurl: P0, dwinflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
@@ -49,9 +40,6 @@ impl IUniformResourceLocatorA {
 #[doc(hidden)]
 pub struct IUniformResourceLocatorA_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PSTR) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
@@ -61,9 +49,6 @@ pub struct IUniformResourceLocatorA_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn SetURL(&self, pcszurl: &windows_core::PCSTR, dwinflags: u32) -> windows_core::Result<()>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PSTR>;
     fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOA>;
@@ -71,24 +56,6 @@ pub trait IUniformResourceLocatorA_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl IUniformResourceLocatorA_Vtbl {
     pub const fn new<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorA_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorA_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCSTR, dwinflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -121,9 +88,6 @@ impl IUniformResourceLocatorA_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             SetURL: SetURL::<Identity, OFFSET>,
             GetURL: GetURL::<Identity, OFFSET>,
             InvokeCommand: InvokeCommand::<Identity, OFFSET>,
@@ -138,15 +102,6 @@ impl windows_core::RuntimeName for IUniformResourceLocatorA {}
 windows_core::imp::define_interface!(IUniformResourceLocatorW, IUniformResourceLocatorW_Vtbl, 0xcabb0da0_da57_11cf_9974_0020afd79762);
 windows_core::imp::interface_hierarchy!(IUniformResourceLocatorW, windows_core::IUnknown);
 impl IUniformResourceLocatorW {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn SetURL<P0>(&self, pcszurl: P0, dwinflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -171,9 +126,6 @@ impl IUniformResourceLocatorW {
 #[doc(hidden)]
 pub struct IUniformResourceLocatorW_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub SetURL: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub GetURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
     #[cfg(feature = "windef")]
@@ -183,9 +135,6 @@ pub struct IUniformResourceLocatorW_Vtbl {
 }
 #[cfg(feature = "windef")]
 pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn SetURL(&self, pcszurl: &windows_core::PCWSTR, dwinflags: u32) -> windows_core::Result<()>;
     fn GetURL(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn InvokeCommand(&self) -> windows_core::Result<URLINVOKECOMMANDINFOW>;
@@ -193,24 +142,6 @@ pub trait IUniformResourceLocatorW_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "windef")]
 impl IUniformResourceLocatorW_Vtbl {
     pub const fn new<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IUniformResourceLocatorW_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn SetURL<Identity: IUniformResourceLocatorW_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcszurl: windows_core::PCWSTR, dwinflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -243,9 +174,6 @@ impl IUniformResourceLocatorW_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             SetURL: SetURL::<Identity, OFFSET>,
             GetURL: GetURL::<Identity, OFFSET>,
             InvokeCommand: InvokeCommand::<Identity, OFFSET>,

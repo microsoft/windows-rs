@@ -96,15 +96,6 @@ pub type GROUP_POLICY_OBJECT_TYPE = i32;
 windows_core::imp::define_interface!(IGPEInformation, IGPEInformation_Vtbl, 0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
 windows_core::imp::interface_hierarchy!(IGPEInformation, windows_core::IUnknown);
 impl IGPEInformation {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
     }
@@ -150,9 +141,6 @@ impl IGPEInformation {
 #[doc(hidden)]
 pub struct IGPEInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetDisplayName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     #[cfg(feature = "minwindef")]
@@ -168,9 +156,6 @@ pub struct IGPEInformation_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 pub trait IGPEInformation_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetDisplayName(&self, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::minwindef::HKEY>;
@@ -184,24 +169,6 @@ pub trait IGPEInformation_Impl: windows_core::IUnknownImpl {
 #[cfg(feature = "minwindef")]
 impl IGPEInformation_Vtbl {
     pub const fn new<Identity: IGPEInformation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGPEInformation_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGPEInformation_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGPEInformation_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetName<Identity: IGPEInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -282,9 +249,6 @@ impl IGPEInformation_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetName: GetName::<Identity, OFFSET>,
             GetDisplayName: GetDisplayName::<Identity, OFFSET>,
             GetRegistryKey: GetRegistryKey::<Identity, OFFSET>,
@@ -305,15 +269,6 @@ impl windows_core::RuntimeName for IGPEInformation {}
 windows_core::imp::define_interface!(IGroupPolicyObject, IGroupPolicyObject_Vtbl, 0xea502723_a23d_11d1_a7d3_0000f87571e3);
 windows_core::imp::interface_hierarchy!(IGroupPolicyObject, windows_core::IUnknown);
 impl IGroupPolicyObject {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn New<P0, P1>(&self, pszdomainname: P0, pszdisplayname: P1, dwflags: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -397,9 +352,6 @@ impl IGroupPolicyObject {
 #[doc(hidden)]
 pub struct IGroupPolicyObject_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub New: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub OpenDSGPO: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
     pub OpenLocalMachineGPO: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
@@ -427,9 +379,6 @@ pub struct IGroupPolicyObject_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 pub trait IGroupPolicyObject_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn New(&self, pszdomainname: &windows_core::PCWSTR, pszdisplayname: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn OpenDSGPO(&self, pszpath: &windows_core::PCWSTR, dwflags: u32) -> windows_core::Result<()>;
     fn OpenLocalMachineGPO(&self, dwflags: u32) -> windows_core::Result<()>;
@@ -452,24 +401,6 @@ pub trait IGroupPolicyObject_Impl: windows_core::IUnknownImpl {
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 impl IGroupPolicyObject_Vtbl {
     pub const fn new<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGroupPolicyObject_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGroupPolicyObject_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGroupPolicyObject_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn New<Identity: IGroupPolicyObject_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pszdomainname: windows_core::PCWSTR, pszdisplayname: windows_core::PCWSTR, dwflags: u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -598,9 +529,6 @@ impl IGroupPolicyObject_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             New: New::<Identity, OFFSET>,
             OpenDSGPO: OpenDSGPO::<Identity, OFFSET>,
             OpenLocalMachineGPO: OpenLocalMachineGPO::<Identity, OFFSET>,
@@ -630,15 +558,6 @@ impl windows_core::RuntimeName for IGroupPolicyObject {}
 windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
 impl IRSOPInformation {
-    pub unsafe fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryInterface)(windows_core::Interface::as_raw(self), riid, ppvobj as _) }
-    }
-    pub unsafe fn AddRef(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).AddRef)(windows_core::Interface::as_raw(self)) }
-    }
-    pub unsafe fn Release(&self) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).Release)(windows_core::Interface::as_raw(self)) }
-    }
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: &mut [u16]) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetNamespace)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
     }
@@ -664,41 +583,17 @@ impl IRSOPInformation {
 #[doc(hidden)]
 pub struct IRSOPInformation_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub QueryInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub AddRef: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
-    pub Release: unsafe extern "system" fn(*mut core::ffi::c_void) -> u32,
     pub GetNamespace: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PWSTR, i32) -> windows_core::HRESULT,
     pub GetFlags: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub GetEventLogEntryText: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, windows_core::PCWSTR, u32, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IRSOPInformation_Impl: windows_core::IUnknownImpl {
-    fn QueryInterface(&self, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn AddRef(&self) -> u32;
-    fn Release(&self) -> u32;
     fn GetNamespace(&self, dwsection: u32, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::Result<()>;
     fn GetFlags(&self) -> windows_core::Result<u32>;
     fn GetEventLogEntryText(&self, pszeventsource: &windows_core::PCWSTR, pszeventlogname: &windows_core::PCWSTR, pszeventtime: &windows_core::PCWSTR, dweventid: u32) -> windows_core::Result<windows_core::PWSTR>;
 }
 impl IRSOPInformation_Vtbl {
     pub const fn new<Identity: IRSOPInformation_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn QueryInterface<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRSOPInformation_Impl::QueryInterface(this, core::mem::transmute_copy(&riid), core::mem::transmute_copy(&ppvobj)).into()
-            }
-        }
-        unsafe extern "system" fn AddRef<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRSOPInformation_Impl::AddRef(this)
-            }
-        }
-        unsafe extern "system" fn Release<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void) -> u32 {
-            unsafe {
-                let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IRSOPInformation_Impl::Release(this)
-            }
-        }
         unsafe extern "system" fn GetNamespace<Identity: IRSOPInformation_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, dwsection: u32, pszname: windows_core::PWSTR, cchmaxlength: i32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -731,9 +626,6 @@ impl IRSOPInformation_Vtbl {
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            QueryInterface: QueryInterface::<Identity, OFFSET>,
-            AddRef: AddRef::<Identity, OFFSET>,
-            Release: Release::<Identity, OFFSET>,
             GetNamespace: GetNamespace::<Identity, OFFSET>,
             GetFlags: GetFlags::<Identity, OFFSET>,
             GetEventLogEntryText: GetEventLogEntryText::<Identity, OFFSET>,

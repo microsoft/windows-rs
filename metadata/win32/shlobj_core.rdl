@@ -497,9 +497,6 @@ mod Windows {
         }
         #[guid(0xf490eb00_1240_11d1_9888_006097deacf9)]
         interface IActiveDesktop: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ApplyChanges(&self, dwFlags: u32) -> HRESULT;
             fn GetWallpaper(&self, #[len_param(1)] #[out] pwszWallpaper: PWSTR, cchWallpaper: u32, dwFlags: u32) -> HRESULT;
             fn SetWallpaper(&self, pwszWallpaper: PCWSTR, dwReserved: u32) -> HRESULT;
