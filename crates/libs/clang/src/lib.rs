@@ -603,7 +603,7 @@ impl<'a> Parser<'a> {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 /// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
     input: Vec<String>,
@@ -2397,11 +2397,16 @@ fn is_c_identifier(s: &str) -> bool {
         .is_some_and(|c| c.is_ascii_alphabetic() || c == '_')
         && chars.all(|c| c.is_ascii_alphanumeric() || c == '_')
 }
-/// tokens that matter for calling-convention detection.
+/// Strip a leading `__declspec(...)` / `_declspec(...)` storage-class specifier (either MSVC
+/// spelling) from a macro body, leaving only the tokens that matter for calling-convention
+/// detection — so an export macro like `#define ORAPI _declspec(dllimport) __stdcall` keeps its
+/// `__stdcall` and stays within the small-macro length gate.
 fn strip_declspec(body: &mut Vec<String>) {
     let mut i = 0;
     while i < body.len() {
-        if body[i] == "__declspec" && body.get(i + 1).map(String::as_str) == Some("(") {
+        if matches!(body[i].as_str(), "__declspec" | "_declspec")
+            && body.get(i + 1).map(String::as_str) == Some("(")
+        {
             let mut depth = 0usize;
             let mut end = None;
             for (idx, token) in body.iter().enumerate().skip(i + 1) {

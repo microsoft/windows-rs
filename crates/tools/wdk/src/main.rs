@@ -128,27 +128,35 @@ fn main() {
     // `windows.h` closure that would otherwise define them.
     let archs = Arch::canonical_plus(&manifest.archs, arch);
 
-    let config = Config {
+    // Configure the arch-invariant parse: C++ mode plus the API-level define, the shared SAL capture
+    // shim and the `offreg.h` prelude force-included ahead of the TU, the WDK/SDK include dirs, and
+    // the `km` reachability scope. The per-arch target/defines are set by `scrape`.
+    let mut clang = clang();
+    clang
+        .args(CLANG_ARGS)
+        .args(["-include", SAL_SHIM])
+        .args(["-include", OFFREG_PRELUDE])
+        .args(include_args)
+        .drop_lib_less(true)
+        .scope(&manifest.scope)
+        .scope_headers(manifest.source_headers.iter());
+    clang.input_str(&source);
+    for lib in &import_libs {
+        clang
+            .import_library(lib)
+            .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
+    }
+
+    let summary = clang.scrape(&ScrapePlan {
         root: manifest.root,
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
         winmd: WINMD.to_string(),
         archs,
-        clang_args: CLANG_ARGS.iter().map(|s| s.to_string()).collect(),
-        force_includes: vec![SAL_SHIM.to_string(), OFFREG_PRELUDE.to_string()],
-        include_shim_dirs: Vec::new(),
-        include_args,
-        import_libs,
-        drop_lib_less: true,
-        scope: manifest.scope,
-        scope_headers: manifest.source_headers,
-        sources: vec![source],
         reference_winmds: manifest.reference_winmds,
         seed: None,
         parallel: true,
-    };
-
-    let summary = run(&config);
+    });
 
     print!("{summary}");
     println!(

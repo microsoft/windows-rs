@@ -20,6 +20,13 @@
 // stripped before the small-macro length gate so the `WINAPI` convention survives.
 #define DWRITE_EXPORT __declspec(dllimport) WINAPI
 
+// The legacy single-underscore `_declspec` spelling the WDK's offreg.h uses
+// (`#define ORAPI _declspec(dllimport) __stdcall`). It must be stripped exactly like
+// `__declspec` so the `__stdcall` survives the small-macro length gate; otherwise the
+// macro is dropped and the function falls back to its `extern "C"` linkage, corrupting
+// the stack on the x86 `__stdcall`/`__cdecl` ABI split.
+#define ORAPI _declspec(dllimport) __stdcall
+
 typedef long HRESULT;
 
 // STDAPI -> extern "system", returning HRESULT.
@@ -48,6 +55,10 @@ extern "C" {
     // A callback parameter carries its own (__cdecl) convention; the function's
     // own (__stdcall) convention must still be recovered correctly.
     void WINAPI WithCallback(int (__cdecl *callback)(int));
+
+    // ORAPI (_declspec(dllimport) __stdcall) inside an extern "C" block -> extern "system"
+    // (regression: the single-underscore `_declspec` must be stripped like `__declspec`).
+    int ORAPI LegacyDeclspecFunc(int a);
 
     // A variadic function is always __cdecl on Windows even when spelled WINAPI,
     // so it must be emitted as extern "C" (an extern "system" C-variadic is a

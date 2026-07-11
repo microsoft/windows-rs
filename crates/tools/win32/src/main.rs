@@ -218,27 +218,37 @@ fn main() {
         .cloned()
         .collect();
 
-    let config = Config {
+    // Configure the arch-invariant parse: C++ mode, the SAL capture shim force-included ahead of the
+    // TU, the shadow shim directory (`-I`) searched before the SDK `-isystem` dirs, the SDK include
+    // dirs, and the reachability scope. The per-arch target/defines are set by `scrape`.
+    let mut clang = clang();
+    clang
+        .args(CLANG_ARGS)
+        .args(["-include", SAL_SHIM])
+        .args(["-I", SHIM_DIR])
+        .args(include_args)
+        .drop_lib_less(true)
+        .scope(&manifest.scope)
+        .scope_headers(scope_headers.iter());
+    for source in &sources {
+        clang.input_str(source);
+    }
+    for lib in &import_libs {
+        clang
+            .import_library(lib)
+            .unwrap_or_else(|e| panic!("failed to read import library `{lib}`: {e}"));
+    }
+
+    let summary = clang.scrape(&ScrapePlan {
         root: manifest.root,
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
         winmd: WINMD.to_string(),
         archs,
-        clang_args: CLANG_ARGS.iter().map(|s| s.to_string()).collect(),
-        force_includes: vec![SAL_SHIM.to_string()],
-        include_shim_dirs: vec![SHIM_DIR.to_string()],
-        include_args,
-        import_libs,
-        drop_lib_less: true,
-        scope: manifest.scope,
-        scope_headers,
-        sources,
         reference_winmds: Vec::new(),
         seed: Some(format!("{RDL_DIR}/{METADATA_SEED}")),
         parallel: true,
-    };
-
-    let summary = run(&config);
+    });
 
     print!("{summary}");
     println!("Wrote {WINMD} ({} partition(s))", summary.partitions);
