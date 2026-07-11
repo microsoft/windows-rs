@@ -239,9 +239,10 @@ remaining consumers of the reference winmd are the frozen monolithic `windows` /
   written by `tool_wdk`.
 - `crates/tools/package/reference/Windows.Win32.winmd` / `Windows.Wdk.winmd` — the
   frozen **win32metadata reference** winmd, and `crates/tools/package/reference/Windows.winmd`
-  — a frozen snapshot of the in-house WinRT winmd. Together they back the published
-  `windows` / `windows-sys` crates and the `tool_features` page (and the parity probes),
-  pinning those outputs so a live-metadata refresh never churns them.
+  — a frozen snapshot of the in-house WinRT winmd. These are **no longer read by any tool**;
+  their only remaining consumers are the `#[ignore]`d parity probes
+  (`crates/tests/libs/metadata/tests/*_probe.rs`), kept as an in-house-vs-reference safety net
+  while the corpus soaks.
 
 The committed RDL snapshot (`metadata/win32/*.rdl`) is the reviewable source of
 truth — every scrape change is a readable `git diff`; the merged binary winmd is
@@ -260,18 +261,23 @@ its documentation for the signature that drives it. `merge_arch_rdl` itself is t
 orchestration: it reads each arch's RDL, runs the merge, and writes the combined
 result, using a per-process scratch directory cleaned up on every return path.
 
-### Frozen: tool_package and the monolithic crates
+### Published crates: the header-namespace remap
 
-`tool_package` and the monolithic `windows` / `windows-sys` crates stay on the
-win32metadata reference winmd as **frozen legacy**. They do not migrate to the flat
-in-house winmd: the reference winmd's 337 editorial sub-namespaces map 1:1 to 337
-Cargo features, and a flat swap would collapse the published surface into one
-feature-less module — a breaking change not worth making. The reference winmd is
-retained at `crates/tools/package/reference/` and `tool_package` points `--in` at
-it explicitly. Once nothing consumes the reference winmd, `windows-bindgen`'s
-`to_const_type` / `to_const_ptr` const-wrapper reconstruction (a compatibility shim
-for the reference winmd's missing const string wrappers) becomes dead and can be
-removed.
+`tool_package` generates the monolithic `windows` / `windows-sys` crates from the
+**in-house** winmds (`crates/libs/bindgen/default/Windows.{Win32,Wdk}.winmd`), *not*
+the win32metadata reference. The flat in-house metadata lives in a single
+`Windows.Win32` namespace, but the published crates expose their API behind hundreds
+of Cargo features, so `tool_package`'s `remap` step re-partitions the flat winmd into
+header-stem namespaces (written to the git-ignored `target/package/`), using the
+committed `metadata/win32` RDL directory as the routing signal, then runs
+`windows-bindgen` over that partition. `tool_features` reuses the same remap so the
+feature-search page reports the real header stems. The in-house WinRT `Windows.winmd`
+is projected alongside the remapped Win32/WDK partition.
+
+The frozen `crates/tools/package/reference/*.winmd` are retained only as the
+in-house-vs-reference parity net (the `#[ignore]`d probes); once the corpus has
+soaked they, and the probes, can be deleted. See
+[windows-clang](windows-clang.md#deferred--upcoming-work).
 
 ### Outstanding work
 
