@@ -9198,75 +9198,75 @@ pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 3;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueAfdWorkQueueLock: u32 = 13;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13 as _);
+pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = 13 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueBcbLock: u32 = 14;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14 as _);
+pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = 14 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCancelLock: u32 = 7;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7 as _);
+pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = 7 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCompletionLock: u32 = 11;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11 as _);
+pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = 11 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoDatabaseLock: u32 = 10;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10 as _);
+pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = 10 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoVpbLock: u32 = 9;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9 as _);
+pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = 9 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMasterLock: u32 = 5;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5 as _);
+pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = 5 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMaximumLock: u32 = 17;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17 as _);
+pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = 17 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNonPagedPoolLock: u32 = 6;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6 as _);
+pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = 6 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNtfsStructLock: u32 = 12;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12 as _);
+pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = 12 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare0: u32 = 0;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0 as _);
+pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = 0 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare1: u32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1 as _);
+pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = 1 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare15: u32 = 15;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15 as _);
+pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = 15 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare16: u32 = 16;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16 as _);
+pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = 16 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare2: u32 = 2;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2 as _);
+pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = 2 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare3: u32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3 as _);
+pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = 3 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare8: u32 = 8;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8 as _);
+pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = 8 as _;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueVacbLock: u32 = 4;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4 as _);
+pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = 4 as _;
 pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = 10;
 pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = 8;
 pub const LowImportance: KDPC_IMPORTANCE = 0;

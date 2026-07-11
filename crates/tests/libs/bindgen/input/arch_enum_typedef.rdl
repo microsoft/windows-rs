@@ -1,0 +1,12 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    #[arch(X64)]
+    type LockNumber = u64;
+    #[repr(i32)]
+    #[arch(X86 | Arm64)]
+    enum LockNumber {
+        LockFirst = 0,
+        LockLast = 13,
+    }
+}

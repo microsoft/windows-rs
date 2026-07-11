@@ -33,7 +33,7 @@ fn main() -> windows::core::Result<()> {
         config.cButtons = buttons.len() as _;
         config.pfCallback = Some(callback);
 
-        config.dwFlags = TASKDIALOG_FLAGS(TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION);
+        config.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION;
 
         let mut selection = 0;
 

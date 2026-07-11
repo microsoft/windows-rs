@@ -1460,7 +1460,15 @@ mod Windows {
             StartOfRange: i64,
             CountOfRange: i64,
         }
-        type LCN_WEAK_REFERENCE_STATE = u32;
+        #[repr(u32)]
+        enum LCN_WEAK_REFERENCE_STATE {
+            LCN_WEAK_REFERENCE_VALID = 1,
+            LCN_WEAK_REFERENCE_BROKEN = 2,
+            LCN_CHECKSUM_VALID = 4,
+            LCN_IS_VALID = 8,
+            LCN_IS_STREAM_RESERVED = 16,
+            LCN_IS_READ_ONLY = 32,
+        }
         struct LCN_WEAK_REFERENCE_VCN_MAPPING {
             Vcn: i64,
             Lcn: i64,
@@ -2400,7 +2408,16 @@ mod Windows {
             Length: i64,
             Properties: REFS_STREAM_EXTENT_PROPERTIES,
         }
-        type REFS_STREAM_EXTENT_PROPERTIES = u16;
+        #[repr(u16)]
+        enum REFS_STREAM_EXTENT_PROPERTIES {
+            REFS_STREAM_EXTENT_PROPERTY_VALID = 16,
+            REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED = 32,
+            REFS_STREAM_EXTENT_PROPERTY_CRC32 = 128,
+            REFS_STREAM_EXTENT_PROPERTY_CRC64 = 256,
+            REFS_STREAM_EXTENT_PROPERTY_GHOSTED = 512,
+            REFS_STREAM_EXTENT_PROPERTY_READONLY = 1024,
+            REFS_STREAM_EXTENT_PROPERTY_SPARSE = 8,
+        }
         struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
             EntryCount: u32,
             BufferSizeRequiredForQuery: u32,
@@ -3209,26 +3226,7 @@ mod Windows {
         extern fn ZwUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern fn ZwWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: *const LARGE_INTEGER) -> NTSTATUS;
-        #[repr(i32)]
-        enum _LCN_WEAK_REFERENCE_STATE {
-            LCN_WEAK_REFERENCE_VALID = 1,
-            LCN_WEAK_REFERENCE_BROKEN = 2,
-            LCN_CHECKSUM_VALID = 4,
-            LCN_IS_VALID = 8,
-            LCN_IS_STREAM_RESERVED = 16,
-            LCN_IS_READ_ONLY = 32,
-        }
         struct _REAL_NOTIFY_SYNC {}
-        #[repr(i32)]
-        enum _REFS_STREAM_EXTENT_PROPERTIES {
-            REFS_STREAM_EXTENT_PROPERTY_VALID = 16,
-            REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED = 32,
-            REFS_STREAM_EXTENT_PROPERTY_CRC32 = 128,
-            REFS_STREAM_EXTENT_PROPERTY_CRC64 = 256,
-            REFS_STREAM_EXTENT_PROPERTY_GHOSTED = 512,
-            REFS_STREAM_EXTENT_PROPERTY_READONLY = 1024,
-            REFS_STREAM_EXTENT_PROPERTY_SPARSE = 8,
-        }
         struct sockaddr_storage {}
     }
 }

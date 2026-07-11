@@ -116,9 +116,9 @@ windows_link::link!("propsys.dll" "system" fn PSUnregisterPropertySchema(pszpath
 windows_link::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const super::propidlbase::PROPVARIANT, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 windows_link::link!("propsys.dll" "system" fn WinRTPropertyValueToPropVariant(punkpropertyvalue : *mut core::ffi::c_void, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_sys::core::HRESULT);
-pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0;
-pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1;
-pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = 2;
+pub const FPSPS_DEFAULT: PERSIST_SPROPSTORE_FLAGS = 0;
+pub const FPSPS_READONLY: PERSIST_SPROPSTORE_FLAGS = 1;
+pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: PERSIST_SPROPSTORE_FLAGS = 2;
 pub type GETPROPERTYSTOREFLAGS = u32;
 pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = 64;
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = 0;
@@ -279,4 +279,3 @@ pub const PropertySystem: windows_sys::core::GUID = windows_sys::core::GUID::fro
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
-pub type _PERSIST_SPROPSTORE_FLAGS = i32;

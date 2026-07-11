@@ -813,43 +813,75 @@ left open as a modelling question:
    bare-aliased everything); `windows --all-features` compiles. `typedef_emits_bare` is the single
    shared predicate for this decision, used by both `write_cpp_handle` and the constant emitter.
 
-   Primitive-backed scalar typedefs (`JET_GRBIT = u32`, `TASKDIALOG_FLAGS = i32`) still keep their
-   newtype in `--package` (their underlying is not a handle/pointer, and their `TYPE(value)`
-   tuple-constructed constants require it). Harmonizing *those* against the C flags/enum idiom
-   (`typedef int TASKDIALOG_FLAGS;` + `enum _TASKDIALOG_FLAGS { TDF_… }` forcing
-   `TASKDIALOG_FLAGS(TDF_A | TDF_B)`) is the separate scraper-side TODO below.
+   Primitive-backed scalar typedefs that are *not* part of the flags/enum idiom (`JET_GRBIT = u32`) still
+   keep their newtype in `--package`. The `TASKDIALOG_FLAGS` family — a `typedef` paired with a sibling
+   `enum _FOO` — is harmonized at the scraper by the merge described next.
 
-**TODO (deferred — harmonize the C flags/enum idiom in the canonical RDL).** The cleanest fix for
-the `TASKDIALOG_FLAGS` wart above is at the *scraper*, not per-style in bindgen: recognize the C
-idiom `enum _FOO { … }; typedef int FOO;` (enum tag = `_` + the sibling integer typedef name) and
-emit a **single unscoped enum `FOO`** — rename the enum dropping the leading `_`, drop the redundant
-typedef. The existing unscoped-enum rule then projects it as `pub type FOO = <int>;` + bare
-`pub const MEMBER: FOO = …;` in *every* style (sys/minimal/package), so `dwFlags = TDF_A | TDF_B`
-just works and the field type still reads `FOO`. This is what the retired editorial win32metadata
-did. Scope measured across `metadata/win32|wdk/*.rdl`: **41 pairs**, all integer (`i32`/`u16`/`u32`),
-concentrated in common shell/media headers — `shobjidl_core`/`shobjidl`/`shtypes` (28, incl.
-`FILEOPENDIALOGOPTIONS`, `SHCONTF`, `SHGDNF`, `SIIGBF`, `SVGIO`, `SVSIF`, `KF_*`, `TRANSFER_*`),
-`commctrl` (`TASKDIALOG_FLAGS`, `TASKDIALOG_COMMON_BUTTON_FLAGS`), `mfplay` (3), `ntifs` (2),
-`propsys` (1) — so it is a recurring idiom, not a one-off. Implementation sketch: a pre-pass (sibling
-to `build_tag_rename_map` in `lib.rs`) builds an `enum_rename` map `_FOO → FOO` whenever an integer
-`typedef FOO` has a matching `enum _FOO`; `Enum::parse` applies the rename *before* the
-`flag_enums`/repr check (so `DEFINE_ENUM_FLAG_OPERATORS(FOO)`, keyed on the public name, still
-promotes to the unsigned repr and matches the old `u32` typedefs), and `Typedef::parse` skips the
-now-redundant typedef. Must NOT touch: typedefs with no matching `_FOO` enum (`HWND`, `WPARAM`,
-`DXGI_USAGE`), or `_`-prefixed enums with no matching typedef. Regenerating rescrapes ~41 `*.rdl`
-files (`_FOO → FOO`, typedef dropped) and the downstream `windows`/`windows-sys` output; samples then
-drop the `TASKDIALOG_FLAGS(…)` / `FILEOPENDIALOGOPTIONS(…)` wraps. **Two edge cases raise this from
-low to moderate complexity** (found while investigating): (a) `DEFINE_ENUM_FLAG_OPERATORS` keying is
-*inconsistent* — most headers key on the public name `FOO`, but a few key on the tag `_FOO` (e.g.
-`_SVGIO` already carries `#[flags]`+`u32`), so the `_FOO → FOO` rename must also propagate
-`flag_enums` membership (`if flag_enums.contains("_FOO") { insert "FOO" }`) or the rename silently
-loses the flags promotion; (b) the enum repr (often `i32`) differs from the sibling typedef repr
-(`u32` for 32 of the 40 pairs) — after rename the repr follows the enum + flags promotion, which for
-`FOO`-keyed flag enums yields `u32` (matches the old editorial typedef) but leaves non-flag pairs at
-`i32`, so a repr audit against the dropped typedefs is needed. Deferred until sample migration is
-further along; when picked up, do it as a **separate focused change** (moderate + a ~4-min win32
-rescrape + wdk rescrape + a large published-crate diff that should not be stacked on an unrelated
-regen), not folded into another regeneration.
+**DONE — the C flags/enum idiom is harmonized in the canonical RDL.** The `TASKDIALOG_FLAGS` wart is
+fixed at the *scraper*, not per-style in bindgen: [`merge_enum_typedef_idiom`](../../crates/libs/clang/src/naming.rs)
+recognizes the C idiom `enum _FOO { … }; typedef <int> FOO;` (enum tag = `_` + the sibling integer
+typedef name) and collapses it to a **single unscoped enum `FOO`** — it inserts `_FOO → FOO` into
+`tag_rename` (so the enum is renamed and every reference resolves to it) and returns `FOO → <repr>` so
+the enum collection sets `enum.repr` from the typedef's storage type while `Typedef::parse` drops the
+now-redundant integer typedef. The existing unscoped-enum rule then projects it as `pub type FOO = <int>;`
++ bare `pub const MEMBER: FOO = …;` in *every* style (sys/minimal/package), so `dwFlags = TDF_A | TDF_B`
+just works (native integer ops) and the field type still reads `FOO`. **No bindgen change was needed** —
+`cpp_enum.rs` already bare-aliases unscoped enums; the merge only makes the enum *own* the public name.
+
+*Empirical basis (probed across `metadata/win32|wdk/*.rdl` + the 26100 SDK headers):*
+
+- **41 pairs**, all integer (33× `u32`, 7× `i32`, 1× `u16`), concentrated in shell/media headers —
+  `shobjidl_core`/`shobjidl` (incl. `FILEOPENDIALOGOPTIONS`, `SHCONTF`, `SHGDNF`, `SIIGBF`, `SVGIO`,
+  `SVSIF`, `KF_*`, `TRANSFER_*`), `commctrl` (`TASKDIALOG_FLAGS`, `TASKDIALOG_COMMON_BUTTON_FLAGS`),
+  `mfplay` (3), `ntifs`/wdk (`LCN_WEAK_REFERENCE_STATE`, `REFS_STREAM_EXTENT_PROPERTIES` — the `u16`),
+  `propsys` (1).
+- **Detection is unambiguous.** Zero base names have *both* a `_FOO` and a `FOO` enum; the 46 other
+  `_`-prefixed enums have **no** matching integer typedef and are correctly excluded by the pairing
+  requirement. The header idiom is literally separate declarations linked only by the `_` convention —
+  e.g. `enum _SHCONTF { … }; typedef DWORD SHCONTF;` and `enum _TASKDIALOG_FLAGS { … }; typedef int
+  TASKDIALOG_FLAGS;`. The typedef carries the authoritative API storage type (`DWORD`→`u32`, `int`→`i32`).
+- **Signedness is deterministic from the typedef, not from flag macros.** Only **1 of 41** (`SVGIO`)
+  carries `DEFINE_ENUM_FLAG_OPERATORS` at all; the other 40 have none. So the merged repr = the dropped
+  typedef's int type, **unless** the enum is already flag-marked (`SVGIO` → keep the unsigned-promoted
+  `u32`, overriding its `i32` typedef). `TASKDIALOG_FLAGS` therefore stays `i32` with `TDF_ALL =
+  -2147483648`; `SHCONTF` becomes `u32`; `SVGIO` stays a `u32` `#[flags]` enum with `SVGIO_FLAG_VIEWORDER
+  = 2147483648` (positive).
+- **Value reinterpretation is already handled.** 6 pairs store high-bit/all-ones flag values as signed
+  `i32` (`BFO_QUERY_ALL = -1`, `FOS_SUPPORTSTREAMABLEITEMS = 0x8000_0000`, etc.). `Enum::write` already
+  re-casts each variant into the chosen repr (`*value as u32`), so setting the repr to the typedef's
+  unsigned type converts `-1 → 0xFFFF_FFFF` automatically — no bespoke value math.
+
+*Two edge cases surfaced during implementation (both handled, both regression-guarded by the
+`flags_enum` fixture):*
+
+- **MIDL `[v1_enum]` self-named typedef.** `SVGIO`/`SVSIF` are declared `typedef enum _SVGIO { … }
+  _SVGIO; DEFINE_ENUM_FLAG_OPERATORS(_SVGIO) typedef int SVGIO;` — the enum's *own* typedef name equals
+  its tag (`_SVGIO`), and the flag macro keys on the tag. Renaming `_SVGIO → SVGIO` therefore (a) left
+  the self-named typedef emitting a dangling `type _SVGIO = SVGIO`, and (b) lost the `#[flags]` mark
+  (the macro handler and the flags lookup both keyed on the pre-rename tag). Fixes: `Typedef::parse`
+  drops the self-alias (`name == tag && inner is Enum && enum_merge` contains the public name); the
+  `DEFINE_ENUM_FLAG_OPERATORS` handler resolves its argument through `tag_rename` before marking; and
+  the enum collection checks `flag_enums` against both the renamed name and the original tag.
+- **Anonymous multi-typedef struct.** `typedef struct { … } DNS_SIG_DATAA, *P…, DNS_RRSIG_DATAA, *P…;`
+  gives clang an anonymous record whose tag is renamed to a *different* preferred alias
+  (`DNS_RRSIG_DATAA`); a blanket `name == tag` drop wrongly deleted the legitimate `type DNS_SIG_DATAA =
+  DNS_RRSIG_DATAA` alias, dangling every field that used it. The self-alias drop is therefore gated to
+  `inner is Enum && enum_merge.contains(public)`, leaving record aliases untouched.
+
+*Note on the reference target:* editorial win32metadata is itself **inconsistent** here — some pairs
+were hand-merged into typed flags-newtypes (`FILEOPENDIALOGOPTIONS(pub u32)` + `impl BitOr` + typed
+consts) while others kept the identical wart (`master` still emits `SHCONTF_FOLDERS: _SHCONTF`). A
+uniform bare-integer-alias is therefore *more* consistent than the gold standard and matches this
+crate's own stated philosophy ("an unscoped C enum is logically a set of global integer constants, not
+a distinct type", `cpp_enum.rs`). Reproducing editorial's *typed* flags-newtypes would instead require a
+per-type hand-curated "is-flags" list (the headers give no signal for 40/41), which is exactly the
+non-automatable path avoided here.
+
+*Verification:* win32 + wdk rescrape + `tool_package` regen touched 7 `*.rdl` files and 14
+`windows`/`windows-sys` `mod.rs` files (`windows-sys` is intentionally **not** byte-identical — the
+`_FOO`→`FOO` rename + signedness is the point); `test_clang` (77 incl. `flags_enum`), `windows
+--all-features`, and the full workspace build all pass. One consumer updated: `windows_task_dialog`
+dropped its `TASKDIALOG_FLAGS(…)` wrap.
 2. *(fixed)* `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) emitted only
    `#arches` and never a per-item `#[cfg(feature = …)]`, so a handle referencing a type from
    another header namespace was not gated on that header's feature — under a partial feature set
@@ -1496,9 +1528,17 @@ above). None blocks CI.
   [Type remapping](#type-remapping--one-canon-surface), but no scraper code loads these frozen files —
   `tool_wdk`'s exclusion reference is the in-house `Windows.Win32.winmd`.) Keep the frozen winmds
   until the corpus has soaked, then drop the probes and delete the files.
-- **C flags/enum idiom harmonization.** ~41 flag/enum pairs still differ in idiom between the
-  canonical RDL and the old editorial shape (bitflag-vs-enum, signedness). Harmonise in the canonical
-  RDL emitted by `windows-clang` rather than downstream (doc ~line 710).
+- **C flags/enum idiom harmonization — DONE (see the [detailed writeup](#type-remapping--one-canon-surface)
+  ~line 822).** 41 `enum _FOO` + `typedef <int> FOO` pairs that previously emitted a bare `type FOO =
+  <int>` plus a stray `_FOO` enum (with `_FOO`-typed consts). `merge_enum_typedef_idiom` now renames
+  `_FOO → FOO`, sets the enum repr from the typedef (unless flag-marked → keep unsigned), and drops the
+  redundant typedef; the existing unscoped-enum bare-alias projection + `Enum::write` value re-cast do
+  the rest — **no bindgen change**. Two edge cases handled: the MIDL `[v1_enum]` self-named typedef
+  (`SVGIO`/`SVSIF` — self-alias drop + flag-mark/macro resolved through `tag_rename`) and anonymous
+  multi-typedef structs (`DNS_SIG_DATAA` — self-alias drop gated to enums). `flags_enum` fixture guards
+  it. `windows-sys` intentionally **not** byte-identical (the `_FOO`→`FOO` rename + signedness is the
+  point); `windows --all-features` + full workspace build pass; `windows_task_dialog` dropped its
+  `TASKDIALOG_FLAGS(…)` wrap.
 - **Handle-in-handle / pointer-alias newtype modelling — DONE.** `--package` (default) mode used to
   nest handle aliases as newtype structs (`pub struct GLOBALHANDLE(pub super::winnt::HANDLE)`) and
   wrap pointer-to-named typedefs (`pub struct PCOMPRESSOR_HANDLE(pub *mut COMPRESSOR_HANDLE)`).

@@ -11,6 +11,14 @@ impl Typedef {
         let name = cursor.name();
         let underlying = cursor.typedef_underlying_type();
 
+        // The public side of the C flags/enum idiom (`enum _FOO {...}; typedef DWORD FOO;`):
+        // `merge_enum_typedef_idiom` renamed the enum tag `_FOO` to `FOO`, which now carries
+        // the members and this typedef's storage type, so the integer typedef is redundant.
+        // Dropping it leaves a single unscoped enum `FOO` projecting as a bare integer alias.
+        if parser.enum_merge.contains_key(&name) {
+            return Ok(None);
+        }
+
         // `LSTATUS` is the Win32 error-code domain (signed `LONG` in C, but carrying
         // `ERROR_*` values); remap it to a plain `type WIN32_ERROR = u32`. See
         // [`error_code_typedef`]. References are remapped in the same place in `to_type`.
@@ -140,8 +148,15 @@ impl Typedef {
                 .get(&tag)
                 .cloned()
                 .unwrap_or_else(|| tag.clone());
-            if name == public {
-                // This typedef *is* the struct's public name.
+            if name == public
+                || (name == tag
+                    && inner_kind == CXType_Enum
+                    && parser.enum_merge.contains_key(&public))
+            {
+                // This typedef *is* the record/enum's public name, or the MIDL
+                // `[v1_enum]` self-alias (`typedef enum _FOO {...} _FOO;`) whose tag the
+                // flags/enum merge renamed to the public integer typedef `FOO` — either
+                // way the enum is already emitted under `FOO`, so this alias is redundant.
                 return Ok(None);
             }
             let ty = inner.to_type(parser);

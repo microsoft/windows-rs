@@ -202,7 +202,16 @@ impl CppConst {
                 let emit_alias_const =
                     config.bindgen.style.is_sys() || unscoped_enum_const || field_ty_bare_alias;
                 if emit_alias_const || field_ty == Type::Bool {
-                    let value = write_newtype_wrap(&field_ty, &value, config);
+                    // An unscoped enum member is always a plain integer, so it must never be
+                    // newtype-wrapped. When such an enum is arch-divergent (e.g.
+                    // `KSPIN_LOCK_QUEUE_NUMBER` is an enum on x86/arm64 but a `u64` handle typedef
+                    // on x64), the arch-blind name resolution picks the sibling `CppStruct`, which
+                    // `write_newtype_wrap` would otherwise wrap in an invalid tuple constructor.
+                    let value = if unscoped_enum_const {
+                        value
+                    } else {
+                        write_newtype_wrap(&field_ty, &value, config)
+                    };
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;

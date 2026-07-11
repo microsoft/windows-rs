@@ -2850,7 +2850,15 @@ mod Windows {
             nButtonID: i32,
             pszButtonText: PCWSTR,
         }
-        type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
+        #[repr(i32)]
+        enum TASKDIALOG_COMMON_BUTTON_FLAGS {
+            TDCBF_OK_BUTTON = 1,
+            TDCBF_YES_BUTTON = 2,
+            TDCBF_NO_BUTTON = 4,
+            TDCBF_CANCEL_BUTTON = 8,
+            TDCBF_RETRY_BUTTON = 16,
+            TDCBF_CLOSE_BUTTON = 32,
+        }
         #[repr(i32)]
         enum TASKDIALOG_ELEMENTS {
             TDE_CONTENT = 0,
@@ -2858,7 +2866,27 @@ mod Windows {
             TDE_FOOTER = 2,
             TDE_MAIN_INSTRUCTION = 3,
         }
-        type TASKDIALOG_FLAGS = i32;
+        #[repr(i32)]
+        enum TASKDIALOG_FLAGS {
+            TDF_ENABLE_HYPERLINKS = 1,
+            TDF_USE_HICON_MAIN = 2,
+            TDF_USE_HICON_FOOTER = 4,
+            TDF_ALLOW_DIALOG_CANCELLATION = 8,
+            TDF_USE_COMMAND_LINKS = 16,
+            TDF_USE_COMMAND_LINKS_NO_ICON = 32,
+            TDF_EXPAND_FOOTER_AREA = 64,
+            TDF_EXPANDED_BY_DEFAULT = 128,
+            TDF_VERIFICATION_FLAG_CHECKED = 256,
+            TDF_SHOW_PROGRESS_BAR = 512,
+            TDF_SHOW_MARQUEE_PROGRESS_BAR = 1024,
+            TDF_CALLBACK_TIMER = 2048,
+            TDF_POSITION_RELATIVE_TO_WINDOW = 4096,
+            TDF_RTL_LAYOUT = 8192,
+            TDF_NO_DEFAULT_RADIO_BUTTON = 16384,
+            TDF_CAN_BE_MINIMIZED = 32768,
+            TDF_NO_SET_FOREGROUND = 65536,
+            TDF_SIZE_TO_CONTENT = 16777216,
+        }
         #[repr(i32)]
         enum TASKDIALOG_ICON_ELEMENTS {
             TDIE_ICON_MAIN = 0,
@@ -3987,36 +4015,6 @@ mod Windows {
         enum _LI_METRIC {
             LIM_SMALL = 0,
             LIM_LARGE = 1,
-        }
-        #[repr(i32)]
-        enum _TASKDIALOG_COMMON_BUTTON_FLAGS {
-            TDCBF_OK_BUTTON = 1,
-            TDCBF_YES_BUTTON = 2,
-            TDCBF_NO_BUTTON = 4,
-            TDCBF_CANCEL_BUTTON = 8,
-            TDCBF_RETRY_BUTTON = 16,
-            TDCBF_CLOSE_BUTTON = 32,
-        }
-        #[repr(i32)]
-        enum _TASKDIALOG_FLAGS {
-            TDF_ENABLE_HYPERLINKS = 1,
-            TDF_USE_HICON_MAIN = 2,
-            TDF_USE_HICON_FOOTER = 4,
-            TDF_ALLOW_DIALOG_CANCELLATION = 8,
-            TDF_USE_COMMAND_LINKS = 16,
-            TDF_USE_COMMAND_LINKS_NO_ICON = 32,
-            TDF_EXPAND_FOOTER_AREA = 64,
-            TDF_EXPANDED_BY_DEFAULT = 128,
-            TDF_VERIFICATION_FLAG_CHECKED = 256,
-            TDF_SHOW_PROGRESS_BAR = 512,
-            TDF_SHOW_MARQUEE_PROGRESS_BAR = 1024,
-            TDF_CALLBACK_TIMER = 2048,
-            TDF_POSITION_RELATIVE_TO_WINDOW = 4096,
-            TDF_RTL_LAYOUT = 8192,
-            TDF_NO_DEFAULT_RADIO_BUTTON = 16384,
-            TDF_CAN_BE_MINIMIZED = 32768,
-            TDF_NO_SET_FOREGROUND = 65536,
-            TDF_SIZE_TO_CONTENT = 16777216,
         }
         struct _TREEITEM {}
         #[library("COMCTL32.dll")]

@@ -35,15 +35,13 @@ pub const AccessibilityDockingService: windows_core::GUID = windows_core::GUID::
 pub const AlphabeticalCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x3c2654c6_7372_4f6b_b310_55d6128f49d2);
 pub const ApplicationAssociationRegistrationUI: windows_core::GUID = windows_core::GUID::from_u128(0x1968106d_f3b5_44cf_890e_116fcb9ecef1);
 pub const AttachmentServices: windows_core::GUID = windows_core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CDBE_ACTIONS(pub u32);
+pub type CDBE_ACTIONS = u32;
 pub const CDBE_RET_DEFAULT: tagCDBURNINGEXTENSIONRET = 0;
 pub const CDBE_RET_DONTRUNOTHEREXTS: tagCDBURNINGEXTENSIONRET = 1;
 pub const CDBE_RET_STOPWIZARD: tagCDBURNINGEXTENSIONRET = 2;
-pub const CDBE_TYPE_ALL: _CDBE_ACTIONS = -1;
-pub const CDBE_TYPE_DATA: _CDBE_ACTIONS = 2;
-pub const CDBE_TYPE_MUSIC: _CDBE_ACTIONS = 1;
+pub const CDBE_TYPE_ALL: CDBE_ACTIONS = 4294967295;
+pub const CDBE_TYPE_DATA: CDBE_ACTIONS = 2;
+pub const CDBE_TYPE_MUSIC: CDBE_ACTIONS = 1;
 pub const CDBurn: windows_core::GUID = windows_core::GUID::from_u128(0xfbeb8a05_beee_4442_804e_409d6c4515e9);
 pub const DSH_ALLOWDROPDESCRIPTIONTEXT: DSH_FLAGS = 1;
 pub type DSH_FLAGS = u32;
@@ -3798,26 +3796,22 @@ pub struct NSTCCUSTOMDRAW {
     pub iIndent: i32,
 }
 pub const NSTCDHPOS_ONTOP: i32 = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NSTCECLICKTYPE(pub u32);
-pub const NSTCECT_BUTTON: _NSTCECLICKTYPE = 3;
-pub const NSTCECT_DBLCLICK: _NSTCECLICKTYPE = 4;
-pub const NSTCECT_LBUTTON: _NSTCECLICKTYPE = 1;
-pub const NSTCECT_MBUTTON: _NSTCECLICKTYPE = 2;
-pub const NSTCECT_RBUTTON: _NSTCECLICKTYPE = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NSTCEHITTEST(pub u32);
-pub const NSTCEHT_NOWHERE: _NSTCEHITTEST = 1;
-pub const NSTCEHT_ONITEM: _NSTCEHITTEST = 70;
-pub const NSTCEHT_ONITEMBUTTON: _NSTCEHITTEST = 16;
-pub const NSTCEHT_ONITEMICON: _NSTCEHITTEST = 2;
-pub const NSTCEHT_ONITEMINDENT: _NSTCEHITTEST = 8;
-pub const NSTCEHT_ONITEMLABEL: _NSTCEHITTEST = 4;
-pub const NSTCEHT_ONITEMRIGHT: _NSTCEHITTEST = 32;
-pub const NSTCEHT_ONITEMSTATEICON: _NSTCEHITTEST = 64;
-pub const NSTCEHT_ONITEMTABBUTTON: _NSTCEHITTEST = 4096;
+pub type NSTCECLICKTYPE = u32;
+pub const NSTCECT_BUTTON: NSTCECLICKTYPE = 3;
+pub const NSTCECT_DBLCLICK: NSTCECLICKTYPE = 4;
+pub const NSTCECT_LBUTTON: NSTCECLICKTYPE = 1;
+pub const NSTCECT_MBUTTON: NSTCECLICKTYPE = 2;
+pub const NSTCECT_RBUTTON: NSTCECLICKTYPE = 3;
+pub type NSTCEHITTEST = u32;
+pub const NSTCEHT_NOWHERE: NSTCEHITTEST = 1;
+pub const NSTCEHT_ONITEM: NSTCEHITTEST = 70;
+pub const NSTCEHT_ONITEMBUTTON: NSTCEHITTEST = 16;
+pub const NSTCEHT_ONITEMICON: NSTCEHITTEST = 2;
+pub const NSTCEHT_ONITEMINDENT: NSTCEHITTEST = 8;
+pub const NSTCEHT_ONITEMLABEL: NSTCEHITTEST = 4;
+pub const NSTCEHT_ONITEMRIGHT: NSTCEHITTEST = 32;
+pub const NSTCEHT_ONITEMSTATEICON: NSTCEHITTEST = 64;
+pub const NSTCEHT_ONITEMTABBUTTON: NSTCEHITTEST = 4096;
 pub const NSTCS2_ALLMASK: u32 = 7;
 pub const NSTCS2_DEFAULT: NSTCSTYLE2 = 0;
 pub const NSTCS2_DISPLAYPADDING: NSTCSTYLE2 = 4;
@@ -3851,13 +3845,11 @@ pub const SHPWHF_NORECOMPRESS: u32 = 1;
 pub const SHPWHF_USEMRU: u32 = 8;
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536;
 pub const SID_SCommandBarState: windows_core::GUID = windows_core::GUID::from_u128(0xb99eaa5c_3850_4400_bc33_2ce534048bf8);
-pub const SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SV3CVW3_FLAGS(pub u32);
-pub const SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = 4;
-pub const SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = 2;
-pub const SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = 1;
+pub const SV3CVW3_DEFAULT: SV3CVW3_FLAGS = 0;
+pub type SV3CVW3_FLAGS = u32;
+pub const SV3CVW3_FORCEFOLDERFLAGS: SV3CVW3_FLAGS = 4;
+pub const SV3CVW3_FORCEVIEWMODE: SV3CVW3_FLAGS = 2;
+pub const SV3CVW3_NONINTERACTIVE: SV3CVW3_FLAGS = 1;
 pub type SYNC_ENGINE_STATE_FLAGS = u32;
 pub const StartMenuPin: windows_core::GUID = windows_core::GUID::from_u128(0xa2a9545d_a0c2_42b4_9708_a0b2badd77c8);
 pub const StorageProviderBanners: windows_core::GUID = windows_core::GUID::from_u128(0x7ccdf9f4_e576_455a_8bc7_f6ec68d6f063);
@@ -3878,8 +3870,4 @@ pub const VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1;
 pub const VPWF_DEFAULT: VPWATERMARKFLAGS = 0;
 pub const VirtualDesktopManager: windows_core::GUID = windows_core::GUID::from_u128(0xaa509086_5ca9_4c25_8f95_589d3c07b48a);
 pub const WebWizardHost: windows_core::GUID = windows_core::GUID::from_u128(0xc827f149_55c1_4d28_935e_57e47caed973);
-pub type _CDBE_ACTIONS = i32;
-pub type _NSTCECLICKTYPE = i32;
-pub type _NSTCEHITTEST = i32;
-pub type _SV3CVW3_FLAGS = i32;
 pub type tagCDBURNINGEXTENSIONRET = i32;

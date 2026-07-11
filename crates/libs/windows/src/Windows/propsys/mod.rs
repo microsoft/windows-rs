@@ -647,9 +647,9 @@ where
         WinRTPropertyValueToPropVariant(punkpropertyvalue.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
-pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = 0;
-pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = 1;
-pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = 2;
+pub const FPSPS_DEFAULT: PERSIST_SPROPSTORE_FLAGS = 0;
+pub const FPSPS_READONLY: PERSIST_SPROPSTORE_FLAGS = 1;
+pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: PERSIST_SPROPSTORE_FLAGS = 2;
 pub type GETPROPERTYSTOREFLAGS = u32;
 pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = 64;
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = 0;
@@ -3010,9 +3010,7 @@ pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = 128;
 pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = 256;
 pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = 32;
 pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PERSIST_SPROPSTORE_FLAGS(pub i32);
+pub type PERSIST_SPROPSTORE_FLAGS = i32;
 pub const PET_DEFAULTVALUE: PROPENUMTYPE = 2;
 pub const PET_DISCRETEVALUE: PROPENUMTYPE = 0;
 pub const PET_ENDRANGE: PROPENUMTYPE = 3;
@@ -3046,4 +3044,3 @@ pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
-pub type _PERSIST_SPROPSTORE_FLAGS = i32;

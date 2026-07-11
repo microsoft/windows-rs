@@ -6,7 +6,12 @@ mod Windows {
         const AlphabeticalCategorizer: GUID = 0x3c2654c6_7372_4f6b_b310_55d6128f49d2;
         const ApplicationAssociationRegistrationUI: GUID = 0x1968106d_f3b5_44cf_890e_116fcb9ecef1;
         const AttachmentServices: GUID = 0x4125dd96_e03a_4103_8f70_e0597d803b9c;
-        type CDBE_ACTIONS = u32;
+        #[repr(u32)]
+        enum CDBE_ACTIONS {
+            CDBE_TYPE_MUSIC = 1,
+            CDBE_TYPE_DATA = 2,
+            CDBE_TYPE_ALL = 4294967295,
+        }
         const CDBurn: GUID = 0xfbeb8a05_beee_4442_804e_409d6c4515e9;
         #[repr(u32)]
         #[flags]
@@ -343,8 +348,26 @@ mod Windows {
             iIndent: i32,
         }
         const NSTCDHPOS_ONTOP: i32 = -1;
-        type NSTCECLICKTYPE = u32;
-        type NSTCEHITTEST = u32;
+        #[repr(u32)]
+        enum NSTCECLICKTYPE {
+            NSTCECT_LBUTTON = 1,
+            NSTCECT_MBUTTON = 2,
+            NSTCECT_RBUTTON = 3,
+            NSTCECT_BUTTON = 3,
+            NSTCECT_DBLCLICK = 4,
+        }
+        #[repr(u32)]
+        enum NSTCEHITTEST {
+            NSTCEHT_NOWHERE = 1,
+            NSTCEHT_ONITEMICON = 2,
+            NSTCEHT_ONITEMLABEL = 4,
+            NSTCEHT_ONITEMINDENT = 8,
+            NSTCEHT_ONITEMBUTTON = 16,
+            NSTCEHT_ONITEMRIGHT = 32,
+            NSTCEHT_ONITEMSTATEICON = 64,
+            NSTCEHT_ONITEM = 70,
+            NSTCEHT_ONITEMTABBUTTON = 4096,
+        }
         const NSTCS2_ALLMASK: u32 = 7;
         #[repr(u32)]
         #[flags]
@@ -377,7 +400,13 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHSetDefaultProperties(#[opt] hwnd: HWND, psi: IShellItem, dwFileOpFlags: u32, #[opt] pfops: IFileOperationProgressSink) -> HRESULT;
         const SID_SCommandBarState: GUID = 0xb99eaa5c_3850_4400_bc33_2ce534048bf8;
-        type SV3CVW3_FLAGS = u32;
+        #[repr(u32)]
+        enum SV3CVW3_FLAGS {
+            SV3CVW3_DEFAULT = 0,
+            SV3CVW3_NONINTERACTIVE = 1,
+            SV3CVW3_FORCEVIEWMODE = 2,
+            SV3CVW3_FORCEFOLDERFLAGS = 4,
+        }
         #[repr(u32)]
         #[flags]
         enum SYNC_ENGINE_STATE_FLAGS {
@@ -419,39 +448,6 @@ mod Windows {
         }
         const VirtualDesktopManager: GUID = 0xaa509086_5ca9_4c25_8f95_589d3c07b48a;
         const WebWizardHost: GUID = 0xc827f149_55c1_4d28_935e_57e47caed973;
-        #[repr(i32)]
-        enum _CDBE_ACTIONS {
-            CDBE_TYPE_MUSIC = 1,
-            CDBE_TYPE_DATA = 2,
-            CDBE_TYPE_ALL = -1,
-        }
-        #[repr(i32)]
-        enum _NSTCECLICKTYPE {
-            NSTCECT_LBUTTON = 1,
-            NSTCECT_MBUTTON = 2,
-            NSTCECT_RBUTTON = 3,
-            NSTCECT_BUTTON = 3,
-            NSTCECT_DBLCLICK = 4,
-        }
-        #[repr(i32)]
-        enum _NSTCEHITTEST {
-            NSTCEHT_NOWHERE = 1,
-            NSTCEHT_ONITEMICON = 2,
-            NSTCEHT_ONITEMLABEL = 4,
-            NSTCEHT_ONITEMINDENT = 8,
-            NSTCEHT_ONITEMBUTTON = 16,
-            NSTCEHT_ONITEMRIGHT = 32,
-            NSTCEHT_ONITEMSTATEICON = 64,
-            NSTCEHT_ONITEM = 70,
-            NSTCEHT_ONITEMTABBUTTON = 4096,
-        }
-        #[repr(i32)]
-        enum _SV3CVW3_FLAGS {
-            SV3CVW3_DEFAULT = 0,
-            SV3CVW3_NONINTERACTIVE = 1,
-            SV3CVW3_FORCEVIEWMODE = 2,
-            SV3CVW3_FORCEFOLDERFLAGS = 4,
-        }
         #[repr(i32)]
         enum tagCDBURNINGEXTENSIONRET {
             CDBE_RET_DEFAULT = 0,

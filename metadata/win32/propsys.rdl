@@ -185,7 +185,12 @@ mod Windows {
         const InMemoryPropertyStore: GUID = 0x9a02e012_6303_4e1e_b9a1_630f802592c5;
         const InMemoryPropertyStoreMarshalByValue: GUID = 0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc;
         type PCUSERIALIZEDPROPSTORAGE = *const SERIALIZEDPROPSTORAGE;
-        type PERSIST_SPROPSTORE_FLAGS = i32;
+        #[repr(i32)]
+        enum PERSIST_SPROPSTORE_FLAGS {
+            FPSPS_DEFAULT = 0,
+            FPSPS_READONLY = 1,
+            FPSPS_TREAT_NEW_VALUES_AS_DIRTY = 2,
+        }
         #[repr(i32)]
         enum PKA_FLAGS {
             PKA_SET = 0,
@@ -491,11 +496,5 @@ mod Windows {
         struct SERIALIZEDPROPSTORAGE {}
         #[library("PROPSYS.dll")]
         extern fn WinRTPropertyValueToPropVariant(#[opt] punkPropertyValue: IUnknown, ppropvar: *mut PROPVARIANT) -> HRESULT;
-        #[repr(i32)]
-        enum _PERSIST_SPROPSTORE_FLAGS {
-            FPSPS_DEFAULT = 0,
-            FPSPS_READONLY = 1,
-            FPSPS_TREAT_NEW_VALUES_AS_DIRTY = 2,
-        }
     }
 }

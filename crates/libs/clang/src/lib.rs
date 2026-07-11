@@ -89,6 +89,12 @@ pub(crate) struct Parser<'a> {
     /// legacy mode (const casts then resolve via [`ref_map`](Self::ref_map)).
     pub header_names: Option<&'a HashMap<String, String>>,
     pub tag_rename: &'a HashMap<String, String>,
+    /// Public integer typedef names (`SHCONTF`, `TASKDIALOG_FLAGS`, ...) that absorbed a
+    /// sibling `enum _FOO` via the C flags/enum idiom, mapped to the enum `repr` the
+    /// typedef's storage type dictates. Populated by [`naming::merge_enum_typedef_idiom`];
+    /// the redundant typedef is dropped in [`Typedef::parse`] and the renamed enum adopts
+    /// this repr at emission.
+    pub enum_merge: &'a HashMap<String, &'static str>,
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
     pub pending_macros: Vec<String>,
@@ -156,6 +162,7 @@ impl<'a> Parser<'a> {
         libraries: &'a HashMap<String, String>,
         ref_map: &'a HashMap<String, String>,
         tag_rename: &'a HashMap<String, String>,
+        enum_merge: &'a HashMap<String, &'static str>,
         macro_defs: &'a HashMap<String, Vec<String>>,
         tu: &'a TranslationUnit,
         symbols: &'a HashSet<String>,
@@ -168,6 +175,7 @@ impl<'a> Parser<'a> {
             ref_map,
             header_names: None,
             tag_rename,
+            enum_merge,
             tu,
             pending_typedefs: vec![],
             pending_macros: vec![],
@@ -346,6 +354,7 @@ impl<'a> Parser<'a> {
             }
             CXCursor_EnumDecl if child.is_definition() => {
                 let mut e = Enum::parse(child)?;
+                let tag = e.name.clone();
                 // Use the public typedef alias if one exists (e.g. `_EXCEPTION_DISPOSITION`
                 // → `EXCEPTION_DISPOSITION`), matching how references and structs resolve
                 // the name. Without this the enum definition would keep its internal tag
@@ -368,9 +377,17 @@ impl<'a> Parser<'a> {
                     }
                 } else if !self.ref_map.contains_key(&e.name) {
                     // If DEFINE_ENUM_FLAG_OPERATORS was seen before the enum
-                    // definition (unusual but possible), mark it now.
-                    if self.flag_enums.contains(&e.name) {
+                    // definition (unusual but possible), mark it now. The macro may key
+                    // on either the internal tag or the renamed public name, so check
+                    // both — the flags/enum merge renames `_FOO` to `FOO` before this.
+                    if self.flag_enums.contains(&e.name) || self.flag_enums.contains(&tag) {
                         e.flags = true;
+                    }
+                    // The C flags/enum idiom renamed `_FOO` to the public integer
+                    // typedef `FOO`; adopt that typedef's storage type over the enum's
+                    // accidental `int`. See `merge_enum_typedef_idiom`.
+                    if let Some(&repr) = self.enum_merge.get(&e.name) {
+                        e.repr = repr;
                     }
                     collector.insert(Item::Enum(e));
                 }
@@ -468,6 +485,15 @@ impl<'a> Parser<'a> {
                     && lp == "("
                 {
                     let enum_name = enum_name.clone();
+                    // The flags/enum merge (and the inline tag→typedef idiom) may rename
+                    // the enum before it is inserted, while `DEFINE_ENUM_FLAG_OPERATORS`
+                    // can key on the internal tag (`_SVGIO`); resolve the argument to the
+                    // enum's emitted public name so the mark lands on the right type.
+                    let enum_name = self
+                        .tag_rename
+                        .get(&enum_name)
+                        .cloned()
+                        .unwrap_or(enum_name);
                     // Mark the enum in the collector if already inserted.
                     collector.mark_flags(&enum_name);
                     // Also record for the case where the enum definition
@@ -1149,6 +1175,7 @@ impl Clang {
 
         let mut tag_rename = build_tag_rename_map(tu);
         assign_nested_names(tu, &mut tag_rename);
+        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         // `macro_defs` depends only on the TU, so compute it once and share it across every
         // per-header bucket below (each `Parser` borrows it) instead of re-scanning the whole
         // TU per bucket.
@@ -1252,6 +1279,7 @@ impl Clang {
                 &self.libraries,
                 &empty_ref,
                 &tag_rename,
+                &enum_merge,
                 &macro_defs,
                 tu,
                 &empty_symbols,
@@ -1453,6 +1481,7 @@ impl Clang {
         // definition among all struct/union definitions in the parent.  All nested
         // types use synthetic names regardless of their C name to avoid collisions.
         assign_nested_names(tu, &mut tag_rename);
+        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         let macro_defs = collect_macro_defs(tu);
 
         let mut parser = Parser::new(
@@ -1461,6 +1490,7 @@ impl Clang {
             spec.libraries,
             ref_map,
             &tag_rename,
+            &enum_merge,
             &macro_defs,
             tu,
             spec.symbols,

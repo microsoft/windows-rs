@@ -22,6 +22,95 @@ pub(crate) fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, Stri
     map
 }
 
+/// Collapse the C flags/enum idiom where a tagged enum and an integer typedef are
+/// *separate* declarations linked only by the `_` naming convention:
+///
+/// ```c
+/// enum _SHCONTF { SHCONTF_FOLDERS = 0x20, ... };
+/// typedef DWORD SHCONTF;
+/// ```
+///
+/// Unlike `typedef struct _T {} T;` (handled by [`build_tag_rename_map`]), the typedef
+/// here aliases an *integer* (`DWORD`/`int`/...), not the enum tag, so the two never
+/// merge on their own: the scrape would emit both a `pub type SHCONTF = u32` (typedef)
+/// and a stray `pub type _SHCONTF = i32` alias whose `SHCONTF_*` members are typed by
+/// the internal tag rather than the public name.
+///
+/// For each integer typedef `FOO` with a matching `enum _FOO`, this inserts
+/// `_FOO -> FOO` into `tag_rename` (renaming the enum to the public name so every
+/// reference resolves to it) and returns `FOO -> <repr>` so the caller can override the
+/// merged enum's backing type with the typedef's authoritative storage type and drop the
+/// now-redundant typedef. The typedef's type is authoritative because it carries the
+/// intended signedness (`typedef DWORD SHCONTF` -> `u32`, `typedef int TASKDIALOG_FLAGS`
+/// -> `i32`), so high-bit flag members project as positive `u32` constants rather than
+/// negative `int`s. Any `DEFINE_ENUM_FLAG_OPERATORS` promotion in [`Enum::write`] still
+/// applies on top.
+pub(crate) fn merge_enum_typedef_idiom(
+    tu: &TranslationUnit,
+    tag_rename: &mut HashMap<String, String>,
+) -> HashMap<String, &'static str> {
+    let mut enum_tags: HashSet<String> = HashSet::new();
+    let mut int_typedefs: Vec<(String, &'static str)> = Vec::new();
+    collect_enum_typedef_pairs(tu.cursor(), &mut enum_tags, &mut int_typedefs);
+
+    let mut merge = HashMap::new();
+    for (name, repr) in int_typedefs {
+        let tag = format!("_{name}");
+        if enum_tags.contains(&tag) && !tag_rename.contains_key(&tag) {
+            tag_rename.insert(tag, name.clone());
+            merge.insert(name, repr);
+        }
+    }
+    merge
+}
+
+/// Gather top-level enum tag names and integer typedef `(name, repr)` pairs, recursing
+/// into `CXCursor_LinkageSpec` blocks. Only typedefs whose fully-resolved canonical type
+/// is a builtin integer are collected, so `typedef enum _FOO {} FOO;` inline aliases
+/// (canonical kind `CXType_Enum`) and handle/pointer typedefs are excluded.
+fn collect_enum_typedef_pairs(
+    cursor: Cursor,
+    enum_tags: &mut HashSet<String>,
+    int_typedefs: &mut Vec<(String, &'static str)>,
+) {
+    for child in cursor.children() {
+        match child.kind() {
+            CXCursor_LinkageSpec => {
+                collect_enum_typedef_pairs(child, enum_tags, int_typedefs);
+            }
+            CXCursor_EnumDecl if child.is_definition() => {
+                let name = child.name();
+                if !name.is_empty() {
+                    enum_tags.insert(name);
+                }
+            }
+            CXCursor_TypedefDecl => {
+                let canonical = child.typedef_underlying_type().canonical_type();
+                if let Some(repr) = builtin_int_repr(canonical.kind()) {
+                    int_typedefs.push((child.name(), repr));
+                }
+            }
+            _ => {}
+        }
+    }
+}
+
+/// The enum `repr` string for a builtin integer type kind, or `None` for any
+/// non-integer kind. Mirrors the storage-type mapping in [`Enum::parse`].
+fn builtin_int_repr(kind: CXTypeKind) -> Option<&'static str> {
+    Some(match kind {
+        CXType_Int | CXType_Long => "i32",
+        CXType_UInt | CXType_ULong => "u32",
+        CXType_Short => "i16",
+        CXType_UShort => "u16",
+        CXType_Char_S | CXType_SChar => "i8",
+        CXType_Char_U | CXType_UChar => "u8",
+        CXType_LongLong => "i64",
+        CXType_ULongLong => "u64",
+        _ => return None,
+    })
+}
+
 /// Inspect a single cursor for tag→typedef rename candidates and recurse
 /// into `CXCursor_LinkageSpec` blocks.
 pub(crate) fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, String>) {

@@ -1072,18 +1072,14 @@ pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub flags: MFP_CREDENTIAL_FLAGS,
     pub pCredential: core::mem::ManuallyDrop<Option<super::mfidl::IMFNetCredential>>,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MFP_CREATION_OPTIONS(pub u32);
-pub const MFP_CREDENTIAL_CLEAR_TEXT: _MFP_CREDENTIAL_FLAGS = 8;
-pub const MFP_CREDENTIAL_DO_NOT_CACHE: _MFP_CREDENTIAL_FLAGS = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MFP_CREDENTIAL_FLAGS(pub u32);
-pub const MFP_CREDENTIAL_LOGGED_ON_USER: _MFP_CREDENTIAL_FLAGS = 32;
-pub const MFP_CREDENTIAL_PROMPT: _MFP_CREDENTIAL_FLAGS = 1;
-pub const MFP_CREDENTIAL_PROXY: _MFP_CREDENTIAL_FLAGS = 16;
-pub const MFP_CREDENTIAL_SAVE: _MFP_CREDENTIAL_FLAGS = 2;
+pub type MFP_CREATION_OPTIONS = u32;
+pub const MFP_CREDENTIAL_CLEAR_TEXT: MFP_CREDENTIAL_FLAGS = 8;
+pub const MFP_CREDENTIAL_DO_NOT_CACHE: MFP_CREDENTIAL_FLAGS = 4;
+pub type MFP_CREDENTIAL_FLAGS = u32;
+pub const MFP_CREDENTIAL_LOGGED_ON_USER: MFP_CREDENTIAL_FLAGS = 32;
+pub const MFP_CREDENTIAL_PROMPT: MFP_CREDENTIAL_FLAGS = 1;
+pub const MFP_CREDENTIAL_PROXY: MFP_CREDENTIAL_FLAGS = 16;
+pub const MFP_CREDENTIAL_SAVE: MFP_CREDENTIAL_FLAGS = 2;
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -1121,11 +1117,9 @@ pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-pub const MFP_MEDIAITEM_CAN_PAUSE: _MFP_MEDIAITEM_CHARACTERISTICS = 4;
-pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MFP_MEDIAITEM_CHARACTERISTICS(pub u32);
+pub const MFP_MEDIAITEM_CAN_PAUSE: MFP_MEDIAITEM_CHARACTERISTICS = 4;
+pub const MFP_MEDIAITEM_CAN_SEEK: MFP_MEDIAITEM_CHARACTERISTICS = 2;
+pub type MFP_MEDIAITEM_CHARACTERISTICS = u32;
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -1141,8 +1135,8 @@ pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
     pub dwUserData: usize,
 }
-pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 8;
-pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = 1;
+pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: MFP_MEDIAITEM_CHARACTERISTICS = 8;
+pub const MFP_MEDIAITEM_IS_LIVE: MFP_MEDIAITEM_CHARACTERISTICS = 1;
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -1165,10 +1159,10 @@ pub struct MFP_MF_EVENT {
     pub pMFMediaEvent: core::mem::ManuallyDrop<Option<super::mfobjects::IMFMediaEvent>>,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-pub const MFP_OPTION_FREE_THREADED_CALLBACK: _MFP_CREATION_OPTIONS = 1;
-pub const MFP_OPTION_NONE: _MFP_CREATION_OPTIONS = 0;
-pub const MFP_OPTION_NO_MMCSS: _MFP_CREATION_OPTIONS = 2;
-pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: _MFP_CREATION_OPTIONS = 4;
+pub const MFP_OPTION_FREE_THREADED_CALLBACK: MFP_CREATION_OPTIONS = 1;
+pub const MFP_OPTION_NONE: MFP_CREATION_OPTIONS = 0;
+pub const MFP_OPTION_NO_MMCSS: MFP_CREATION_OPTIONS = 2;
+pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: MFP_CREATION_OPTIONS = 4;
 #[repr(C)]
 #[cfg(feature = "propsys")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -1212,6 +1206,3 @@ pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
-pub type _MFP_CREATION_OPTIONS = i32;
-pub type _MFP_CREDENTIAL_FLAGS = i32;
-pub type _MFP_MEDIAITEM_CHARACTERISTICS = i32;
