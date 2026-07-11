@@ -53,48 +53,8 @@ impl Default for MIB_IFTABLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFNUMBER(pub *mut MIB_IFNUMBER);
-impl PMIB_IFNUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IFNUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IFNUMBER = *mut MIB_IFNUMBER;
 #[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFROW(pub *mut MIB_IFROW);
+pub type PMIB_IFROW = *mut MIB_IFROW;
 #[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-impl PMIB_IFROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-impl Default for PMIB_IFROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFTABLE(pub *mut MIB_IFTABLE);
-#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-impl PMIB_IFTABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-impl Default for PMIB_IFTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IFTABLE = *mut MIB_IFTABLE;

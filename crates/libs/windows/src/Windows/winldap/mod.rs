@@ -1861,19 +1861,7 @@ pub struct BerElement {
 }
 #[cfg(feature = "winnt")]
 pub type BerValue = LDAP_BERVAL;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DBGPRINT(pub *mut u8);
-impl DBGPRINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for DBGPRINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type DBGPRINT = *mut u8;
 #[cfg(feature = "winnt")]
 pub type DEREFERENCECONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, connectiontodereference: *mut LDAP) -> u32>;
 pub const LAPI_MAJOR_VER1: u32 = 1;
@@ -2360,236 +2348,32 @@ pub const LDAP_VLVINFO_VERSION: u32 = 1;
 #[cfg(feature = "winnt")]
 pub type NOTIFYOFNEWCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mut LDAP, referralfromconnection: *mut LDAP, newdn: *mut u16, hostname: *mut i8, newconnection: *mut LDAP, portnumber: u32, secauthidentity: *mut core::ffi::c_void, currentuser: *mut core::ffi::c_void, errorcodefrombind: u32) -> bool>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBERVAL(pub *mut LDAP_BERVAL);
+pub type PBERVAL = *mut LDAP_BERVAL;
 #[cfg(feature = "winnt")]
-impl PBERVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLDAP = *mut LDAP;
 #[cfg(feature = "winnt")]
-impl Default for PBERVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLDAPControlA = *mut LDAPControlA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAP(pub *mut LDAP);
+pub type PLDAPControlW = *mut LDAPControlW;
 #[cfg(feature = "winnt")]
-impl PLDAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLDAPMessage = *mut LDAPMessage;
 #[cfg(feature = "winnt")]
-impl Default for PLDAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLDAPModA = *mut LDAPModA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPControlA(pub *mut LDAPControlA);
+pub type PLDAPModW = *mut LDAPModW;
+pub type PLDAPSearch = *mut ldapsearch;
 #[cfg(feature = "winnt")]
-impl PLDAPControlA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLDAPSortKeyA = *mut LDAPSortKeyA;
 #[cfg(feature = "winnt")]
-impl Default for PLDAPControlA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLDAPSortKeyW = *mut LDAPSortKeyW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPControlW(pub *mut LDAPControlW);
+pub type PLDAPVLVInfo = *mut LDAPVLVInfo;
 #[cfg(feature = "winnt")]
-impl PLDAPControlW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLDAP_BERVAL = *mut LDAP_BERVAL;
 #[cfg(feature = "winnt")]
-impl Default for PLDAPControlW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPMessage(pub *mut LDAPMessage);
-#[cfg(feature = "winnt")]
-impl PLDAPMessage {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPMessage {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPModA(pub *mut LDAPModA);
-#[cfg(feature = "winnt")]
-impl PLDAPModA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPModA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPModW(pub *mut LDAPModW);
-#[cfg(feature = "winnt")]
-impl PLDAPModW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPModW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPSearch(pub *mut ldapsearch);
-impl PLDAPSearch {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLDAPSearch {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPSortKeyA(pub *mut LDAPSortKeyA);
-#[cfg(feature = "winnt")]
-impl PLDAPSortKeyA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPSortKeyA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPSortKeyW(pub *mut LDAPSortKeyW);
-#[cfg(feature = "winnt")]
-impl PLDAPSortKeyW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPSortKeyW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAPVLVInfo(pub *mut LDAPVLVInfo);
-#[cfg(feature = "winnt")]
-impl PLDAPVLVInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAPVLVInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAP_BERVAL(pub *mut LDAP_BERVAL);
-#[cfg(feature = "winnt")]
-impl PLDAP_BERVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAP_BERVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAP_REFERRAL_CALLBACK(pub *mut LDAP_REFERRAL_CALLBACK);
-#[cfg(feature = "winnt")]
-impl PLDAP_REFERRAL_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLDAP_REFERRAL_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAP_TIMEVAL(pub *mut LDAP_TIMEVAL);
-impl PLDAP_TIMEVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLDAP_TIMEVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDAP_VERSION_INFO(pub *mut LDAP_VERSION_INFO);
-impl PLDAP_VERSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLDAP_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLDAP_REFERRAL_CALLBACK = *mut LDAP_REFERRAL_CALLBACK;
+pub type PLDAP_TIMEVAL = *mut LDAP_TIMEVAL;
+pub type PLDAP_VERSION_INFO = *mut LDAP_VERSION_INFO;
 #[cfg(all(feature = "minwindef", feature = "schannel", feature = "wincrypt", feature = "winnt"))]
 pub type QUERYCLIENTCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, trusted_cas: *mut super::schannel::SecPkgContext_IssuerListInfoEx, ppcertificate: *mut super::wincrypt::PCCERT_CONTEXT) -> bool>;
 #[cfg(feature = "winnt")]

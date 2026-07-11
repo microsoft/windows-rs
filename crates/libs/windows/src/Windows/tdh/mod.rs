@@ -344,139 +344,17 @@ pub struct PAYLOAD_FILTER_PREDICATE {
     pub Value: windows_core::PWSTR,
 }
 pub type PAYLOAD_OPERATOR = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_MAP_ENTRY(pub *mut EVENT_MAP_ENTRY);
-impl PEVENT_MAP_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_MAP_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_MAP_INFO(pub *mut EVENT_MAP_INFO);
-impl PEVENT_MAP_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_MAP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_PROPERTY_INFO(pub *mut EVENT_PROPERTY_INFO);
-impl PEVENT_PROPERTY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPAYLOAD_FILTER_PREDICATE(pub *mut PAYLOAD_FILTER_PREDICATE);
-impl PPAYLOAD_FILTER_PREDICATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPAYLOAD_FILTER_PREDICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPERTY_DATA_DESCRIPTOR(pub *mut PROPERTY_DATA_DESCRIPTOR);
-impl PPROPERTY_DATA_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROPERTY_DATA_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER_ENUMERATION_INFO(pub *mut PROVIDER_ENUMERATION_INFO);
-impl PPROVIDER_ENUMERATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDER_ENUMERATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_MAP_ENTRY = *mut EVENT_MAP_ENTRY;
+pub type PEVENT_MAP_INFO = *mut EVENT_MAP_INFO;
+pub type PEVENT_PROPERTY_INFO = *mut EVENT_PROPERTY_INFO;
+pub type PPAYLOAD_FILTER_PREDICATE = *mut PAYLOAD_FILTER_PREDICATE;
+pub type PPROPERTY_DATA_DESCRIPTOR = *mut PROPERTY_DATA_DESCRIPTOR;
+pub type PPROVIDER_ENUMERATION_INFO = *mut PROVIDER_ENUMERATION_INFO;
 #[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER_EVENT_INFO(pub *mut PROVIDER_EVENT_INFO);
-#[cfg(feature = "evntprov")]
-impl PPROVIDER_EVENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PPROVIDER_EVENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER_FIELD_INFO(pub *mut PROVIDER_FIELD_INFO);
-impl PPROVIDER_FIELD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDER_FIELD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER_FIELD_INFOARRAY(pub *mut PROVIDER_FIELD_INFOARRAY);
-impl PPROVIDER_FIELD_INFOARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDER_FIELD_INFOARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER_FILTER_INFO(pub *mut PROVIDER_FILTER_INFO);
-impl PPROVIDER_FILTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDER_FILTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROVIDER_EVENT_INFO = *mut PROVIDER_EVENT_INFO;
+pub type PPROVIDER_FIELD_INFO = *mut PROVIDER_FIELD_INFO;
+pub type PPROVIDER_FIELD_INFOARRAY = *mut PROVIDER_FIELD_INFOARRAY;
+pub type PPROVIDER_FILTER_INFO = *mut PROVIDER_FILTER_INFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_DATA_DESCRIPTOR {
@@ -545,64 +423,12 @@ impl Default for PROVIDER_FILTER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTDH_CONTEXT(pub *mut TDH_CONTEXT);
-impl PTDH_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTDH_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTDH_CONTEXT = *mut TDH_CONTEXT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTDH_HANDLE(pub *mut super::winnt::HANDLE);
-#[cfg(feature = "winnt")]
-impl PTDH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTDH_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTDH_HANDLE = *mut super::winnt::HANDLE;
 #[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_EVENT_INFO(pub *mut TRACE_EVENT_INFO);
-#[cfg(feature = "evntprov")]
-impl PTRACE_EVENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PTRACE_EVENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_PROVIDER_INFO(pub *mut TRACE_PROVIDER_INFO);
-impl PTRACE_PROVIDER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_PROVIDER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRACE_EVENT_INFO = *mut TRACE_EVENT_INFO;
+pub type PTRACE_PROVIDER_INFO = *mut TRACE_PROVIDER_INFO;
 pub const PropertyHasCustomSchema: PROPERTY_FLAGS = 128;
 pub const PropertyHasTags: PROPERTY_FLAGS = 64;
 pub const PropertyParamCount: PROPERTY_FLAGS = 4;
@@ -629,9 +455,7 @@ pub const TDH_CONTEXT_WPP_GMT: TDH_CONTEXT_TYPE = 2;
 pub const TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = 0;
 pub const TDH_CONTEXT_WPP_TMFSEARCHPATH: TDH_CONTEXT_TYPE = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct TDH_HANDLE(pub super::winnt::HANDLE);
+pub type TDH_HANDLE = super::winnt::HANDLE;
 pub const TDH_INTYPE_ANSICHAR: _TDH_IN_TYPE = 307;
 pub const TDH_INTYPE_ANSISTRING: _TDH_IN_TYPE = 2;
 pub const TDH_INTYPE_BINARY: _TDH_IN_TYPE = 14;

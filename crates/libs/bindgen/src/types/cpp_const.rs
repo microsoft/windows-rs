@@ -188,16 +188,21 @@ impl CppConst {
                 }
                 // Constants of a bare-alias type must drop the `Self(value)` newtype constructor.
                 // Unscoped (C-style) enums are emitted as bare `pub type = <int>` aliases in every
-                // style (see `cpp_enum`), so their constants are plain integers everywhere. In
-                // `--sys` every wrapper is a bare alias; in `--minimal` handle structs are too.
-                // Scoped enums and (in default/minimal) handle newtypes still get the constructor.
+                // style (see `cpp_enum`), so their constants are plain integers everywhere. A native
+                // typedef that projects as a transparent `pub type` alias — a handle-of-handle
+                // (`HCERTCHAINENGINE = HANDLE`) or pointer alias (`PESILO = *mut ...`) in every
+                // style, and any handle in `--sys`/`--minimal` — likewise cannot be a tuple
+                // constructor. `write_newtype_wrap` still wraps the value through whatever concrete
+                // newtype the alias resolves to (`HANDLE(value)` for a handle-of-handle), skipping
+                // the bare-alias layers.
                 let unscoped_enum_const = self.is_enum_member
                     || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
-                let emit_alias_const = config.bindgen.style.is_sys()
-                    || unscoped_enum_const
-                    || (config.bindgen.style.is_minimal()
-                        && matches!(&field_ty, Type::CppStruct(ty) if ty.is_handle(config.reader)));
+                let field_ty_bare_alias =
+                    matches!(&field_ty, Type::CppStruct(s) if config.typedef_emits_bare(s.def));
+                let emit_alias_const =
+                    config.bindgen.style.is_sys() || unscoped_enum_const || field_ty_bare_alias;
                 if emit_alias_const || field_ty == Type::Bool {
+                    let value = write_newtype_wrap(&field_ty, &value, config);
                     quote! {
                         #cfg
                         pub const #name: #ty = #value;

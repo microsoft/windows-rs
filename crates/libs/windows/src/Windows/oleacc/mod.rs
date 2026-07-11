@@ -1168,19 +1168,7 @@ pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: 
 pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_core::GUID, wparam: super::minwindef::WPARAM, punk: windows_core::Ref<windows_core::IUnknown>) -> super::minwindef::LRESULT>;
 #[cfg(feature = "minwindef")]
 pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::minwindef::LRESULT, riid: *const windows_core::GUID, wparam: super::minwindef::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMSAAMENUINFO(pub *mut MSAAMENUINFO);
-impl LPMSAAMENUINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMSAAMENUINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMSAAMENUINFO = *mut MSAAMENUINFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct MSAAMENUINFO {

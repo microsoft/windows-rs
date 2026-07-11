@@ -841,19 +841,7 @@ impl ID3DInclude {
         unsafe { windows_core::ScopedInterface::new(core::mem::transmute(&this.vtable)) }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D_SHADER_MACRO(pub *mut D3D_SHADER_MACRO);
-impl LPD3D_SHADER_MACRO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPD3D_SHADER_MACRO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPD3D_SHADER_MACRO = *mut D3D_SHADER_MACRO;
 pub type PFN_DESTRUCTION_CALLBACK = Option<unsafe extern "system" fn(pdata: *mut core::ffi::c_void)>;
 pub const WKPDID_CommentStringW: windows_core::GUID = windows_core::GUID::from_u128(0xd0149dc0_90e8_4ec8_8144_e900ad266bb2);
 pub const WKPDID_D3D12UniqueObjectId: windows_core::GUID = windows_core::GUID::from_u128(0x1b39de15_ec04_4bae_ba4d_8cef79fc04c1);

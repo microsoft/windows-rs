@@ -43,84 +43,12 @@ pub const LM20_SERVICE_PAUSED: u32 = 12;
 pub const LM20_SERVICE_PAUSE_PENDING: u32 = 8;
 pub const LOWER_GET_HINT_MASK: u32 = 65280;
 pub const LOWER_HINT_MASK: u32 = 255;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_INFO_0(pub *mut SERVICE_INFO_0);
-impl LPSERVICE_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_INFO_1(pub *mut SERVICE_INFO_1);
-impl LPSERVICE_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_INFO_2(pub *mut SERVICE_INFO_2);
-impl LPSERVICE_INFO_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_INFO_0(pub *mut SERVICE_INFO_0);
-impl PSERVICE_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_INFO_1(pub *mut SERVICE_INFO_1);
-impl PSERVICE_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_INFO_2(pub *mut SERVICE_INFO_2);
-impl PSERVICE_INFO_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+pub type LPSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+pub type LPSERVICE_INFO_2 = *mut SERVICE_INFO_2;
+pub type PSERVICE_INFO_0 = *mut SERVICE_INFO_0;
+pub type PSERVICE_INFO_1 = *mut SERVICE_INFO_1;
+pub type PSERVICE_INFO_2 = *mut SERVICE_INFO_2;
 pub const SERVICE2_BASE: u32 = 5600;
 pub const SERVICE_BASE: u32 = 3050;
 pub const SERVICE_CCP_CHKPT_NUM: u32 = 255;

@@ -30,142 +30,18 @@ where
     windows_core::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
     unsafe { WcmSetProperty(pinterface.unwrap_or(core::mem::zeroed()) as _, strprofilename.param().abi(), property, preserved.unwrap_or(core::mem::zeroed()) as _, pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_CONNECTION_COST(pub *mut WCM_CONNECTION_COST);
-impl PWCM_CONNECTION_COST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_CONNECTION_COST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_CONNECTION_COST_DATA(pub *mut WCM_CONNECTION_COST_DATA);
-impl PWCM_CONNECTION_COST_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_CONNECTION_COST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_CONNECTION_COST_SOURCE(pub *mut WCM_CONNECTION_COST_SOURCE);
-impl PWCM_CONNECTION_COST_SOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_CONNECTION_COST_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;
+pub type PWCM_CONNECTION_COST_DATA = *mut WCM_CONNECTION_COST_DATA;
+pub type PWCM_CONNECTION_COST_SOURCE = *mut WCM_CONNECTION_COST_SOURCE;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_DATAPLAN_STATUS(pub *mut WCM_DATAPLAN_STATUS);
+pub type PWCM_DATAPLAN_STATUS = *mut WCM_DATAPLAN_STATUS;
+pub type PWCM_MEDIA_TYPE = *mut WCM_MEDIA_TYPE;
+pub type PWCM_POLICY_VALUE = *mut WCM_POLICY_VALUE;
+pub type PWCM_PROFILE_INFO = *mut WCM_PROFILE_INFO;
+pub type PWCM_PROFILE_INFO_LIST = *mut WCM_PROFILE_INFO_LIST;
+pub type PWCM_PROPERTY = *mut WCM_PROPERTY;
 #[cfg(feature = "minwindef")]
-impl PWCM_DATAPLAN_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWCM_DATAPLAN_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_MEDIA_TYPE(pub *mut WCM_MEDIA_TYPE);
-impl PWCM_MEDIA_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_MEDIA_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_POLICY_VALUE(pub *mut WCM_POLICY_VALUE);
-impl PWCM_POLICY_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_POLICY_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_PROFILE_INFO(pub *mut WCM_PROFILE_INFO);
-impl PWCM_PROFILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_PROFILE_INFO_LIST(pub *mut WCM_PROFILE_INFO_LIST);
-impl PWCM_PROFILE_INFO_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_PROFILE_INFO_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_PROPERTY(pub *mut WCM_PROPERTY);
-impl PWCM_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCM_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCM_USAGE_DATA(pub *mut WCM_USAGE_DATA);
-#[cfg(feature = "minwindef")]
-impl PWCM_USAGE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWCM_USAGE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWCM_USAGE_DATA = *mut WCM_USAGE_DATA;
 pub const WCM_API_VERSION: u32 = 1;
 pub const WCM_API_VERSION_1_0: u32 = 1;
 #[repr(C)]

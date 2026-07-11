@@ -3198,952 +3198,126 @@ pub const NDW_INSTALLFLAG_PCMCIAMODE: u32 = 65536;
 pub const NDW_INSTALLFLAG_SKIPCLASSLIST: u32 = 16384;
 pub const NDW_INSTALLFLAG_SKIPISDEVINSTALLED: u32 = 2048;
 pub const NDW_INSTALLFLAG_USERCANCEL: u32 = 262144;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCABINET_INFO(pub PCABINET_INFO_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCABINET_INFO_A(pub *mut CABINET_INFO_A);
-impl PCABINET_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCABINET_INFO_W(pub *mut CABINET_INFO_W);
-impl PCABINET_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOINSTALLER_CONTEXT_DATA(pub *mut COINSTALLER_CONTEXT_DATA);
-impl PCOINSTALLER_CONTEXT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCABINET_INFO = PCABINET_INFO_A;
+pub type PCABINET_INFO_A = *mut CABINET_INFO_A;
+pub type PCABINET_INFO_W = *mut CABINET_INFO_W;
+pub type PCOINSTALLER_CONTEXT_DATA = *mut COINSTALLER_CONTEXT_DATA;
 pub type PDETECT_PROGRESS_NOTIFY = Option<unsafe extern "system" fn(progressnotifyparam: *const core::ffi::c_void, detectcomplete: u32) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFILEPATHS(pub PFILEPATHS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILEPATHS_A(pub *mut FILEPATHS_A);
-impl PFILEPATHS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILEPATHS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFILEPATHS_SIGNERINFO(pub PFILEPATHS_SIGNERINFO_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILEPATHS_SIGNERINFO_A(pub *mut FILEPATHS_SIGNERINFO_A);
-impl PFILEPATHS_SIGNERINFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILEPATHS_SIGNERINFO_W(pub *mut FILEPATHS_SIGNERINFO_W);
-impl PFILEPATHS_SIGNERINFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILEPATHS_W(pub *mut FILEPATHS_W);
-impl PFILEPATHS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILEPATHS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFILE_IN_CABINET_INFO(pub PFILE_IN_CABINET_INFO_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IN_CABINET_INFO_A(pub *mut FILE_IN_CABINET_INFO_A);
-impl PFILE_IN_CABINET_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IN_CABINET_INFO_W(pub *mut FILE_IN_CABINET_INFO_W);
-impl PFILE_IN_CABINET_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINFCONTEXT(pub *mut INFCONTEXT);
-impl PINFCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINFCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSOURCE_MEDIA(pub PSOURCE_MEDIA_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOURCE_MEDIA_A(pub *mut SOURCE_MEDIA_A);
-impl PSOURCE_MEDIA_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOURCE_MEDIA_W(pub *mut SOURCE_MEDIA_W);
-impl PSOURCE_MEDIA_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILEPATHS = PFILEPATHS_A;
+pub type PFILEPATHS_A = *mut FILEPATHS_A;
+pub type PFILEPATHS_SIGNERINFO = PFILEPATHS_SIGNERINFO_A;
+pub type PFILEPATHS_SIGNERINFO_A = *mut FILEPATHS_SIGNERINFO_A;
+pub type PFILEPATHS_SIGNERINFO_W = *mut FILEPATHS_SIGNERINFO_W;
+pub type PFILEPATHS_W = *mut FILEPATHS_W;
+pub type PFILE_IN_CABINET_INFO = PFILE_IN_CABINET_INFO_A;
+pub type PFILE_IN_CABINET_INFO_A = *mut FILE_IN_CABINET_INFO_A;
+pub type PFILE_IN_CABINET_INFO_W = *mut FILE_IN_CABINET_INFO_W;
+pub type PINFCONTEXT = *mut INFCONTEXT;
+pub type PSOURCE_MEDIA = PSOURCE_MEDIA_A;
+pub type PSOURCE_MEDIA_A = *mut SOURCE_MEDIA_A;
+pub type PSOURCE_MEDIA_W = *mut SOURCE_MEDIA_W;
 #[cfg(all(feature = "prsht", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_ADDPROPERTYPAGE_DATA(pub PSP_NEWDEVICEWIZARD_DATA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_ALTPLATFORM_INFO(pub PSP_ALTPLATFORM_INFO_V2);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ALTPLATFORM_INFO_V1(pub *mut SP_ALTPLATFORM_INFO_V1);
-impl PSP_ALTPLATFORM_INFO_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ALTPLATFORM_INFO_V2(pub *mut SP_ALTPLATFORM_INFO_V2);
-impl PSP_ALTPLATFORM_INFO_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ALTPLATFORM_INFO_V3(pub *mut SP_ALTPLATFORM_INFO_V3);
-impl PSP_ALTPLATFORM_INFO_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ALTPLATFORM_INFO_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_BACKUP_QUEUE_PARAMS(pub PSP_BACKUP_QUEUE_PARAMS_V2);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_A(pub PSP_BACKUP_QUEUE_PARAMS_V2_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V1(pub PSP_BACKUP_QUEUE_PARAMS_V1_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V1_A(pub *mut SP_BACKUP_QUEUE_PARAMS_V1_A);
-impl PSP_BACKUP_QUEUE_PARAMS_V1_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V1_W(pub *mut SP_BACKUP_QUEUE_PARAMS_V1_W);
-impl PSP_BACKUP_QUEUE_PARAMS_V1_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V2(pub PSP_BACKUP_QUEUE_PARAMS_V2_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V2_A(pub *mut SP_BACKUP_QUEUE_PARAMS_V2_A);
-impl PSP_BACKUP_QUEUE_PARAMS_V2_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_V2_W(pub *mut SP_BACKUP_QUEUE_PARAMS_V2_W);
-impl PSP_BACKUP_QUEUE_PARAMS_V2_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_BACKUP_QUEUE_PARAMS_W(pub PSP_BACKUP_QUEUE_PARAMS_V2_W);
+pub type PSP_ADDPROPERTYPAGE_DATA = PSP_NEWDEVICEWIZARD_DATA;
+pub type PSP_ALTPLATFORM_INFO = PSP_ALTPLATFORM_INFO_V2;
+pub type PSP_ALTPLATFORM_INFO_V1 = *mut SP_ALTPLATFORM_INFO_V1;
+pub type PSP_ALTPLATFORM_INFO_V2 = *mut SP_ALTPLATFORM_INFO_V2;
+pub type PSP_ALTPLATFORM_INFO_V3 = *mut SP_ALTPLATFORM_INFO_V3;
+pub type PSP_BACKUP_QUEUE_PARAMS = PSP_BACKUP_QUEUE_PARAMS_V2;
+pub type PSP_BACKUP_QUEUE_PARAMS_A = PSP_BACKUP_QUEUE_PARAMS_V2_A;
+pub type PSP_BACKUP_QUEUE_PARAMS_V1 = PSP_BACKUP_QUEUE_PARAMS_V1_A;
+pub type PSP_BACKUP_QUEUE_PARAMS_V1_A = *mut SP_BACKUP_QUEUE_PARAMS_V1_A;
+pub type PSP_BACKUP_QUEUE_PARAMS_V1_W = *mut SP_BACKUP_QUEUE_PARAMS_V1_W;
+pub type PSP_BACKUP_QUEUE_PARAMS_V2 = PSP_BACKUP_QUEUE_PARAMS_V2_A;
+pub type PSP_BACKUP_QUEUE_PARAMS_V2_A = *mut SP_BACKUP_QUEUE_PARAMS_V2_A;
+pub type PSP_BACKUP_QUEUE_PARAMS_V2_W = *mut SP_BACKUP_QUEUE_PARAMS_V2_W;
+pub type PSP_BACKUP_QUEUE_PARAMS_W = PSP_BACKUP_QUEUE_PARAMS_V2_W;
 #[cfg(feature = "commctrl")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_CLASSIMAGELIST_DATA(pub *mut SP_CLASSIMAGELIST_DATA);
-#[cfg(feature = "commctrl")]
-impl PSP_CLASSIMAGELIST_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "commctrl")]
-impl Default for PSP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_CLASSINSTALL_HEADER(pub *mut SP_CLASSINSTALL_HEADER);
-impl PSP_CLASSINSTALL_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_CLASSINSTALL_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DETECTDEVICE_PARAMS(pub *mut SP_DETECTDEVICE_PARAMS);
-impl PSP_DETECTDEVICE_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_CLASSIMAGELIST_DATA = *mut SP_CLASSIMAGELIST_DATA;
+pub type PSP_CLASSINSTALL_HEADER = *mut SP_CLASSINSTALL_HEADER;
+pub type PSP_DETECTDEVICE_PARAMS = *mut SP_DETECTDEVICE_PARAMS;
 pub type PSP_DETSIG_CMPPROC = Option<unsafe extern "system" fn(deviceinfoset: HDEVINFO, newdevicedata: *const SP_DEVINFO_DATA, existingdevicedata: *const SP_DEVINFO_DATA, comparecontext: *const core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVICE_INTERFACE_DATA(pub *mut SP_DEVICE_INTERFACE_DATA);
-impl PSP_DEVICE_INTERFACE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DEVICE_INTERFACE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DEVICE_INTERFACE_DETAIL_DATA(pub PSP_DEVICE_INTERFACE_DETAIL_DATA_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVICE_INTERFACE_DETAIL_DATA_A(pub *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A);
-impl PSP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVICE_INTERFACE_DETAIL_DATA_W(pub *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W);
-impl PSP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVINFO_DATA(pub *mut SP_DEVINFO_DATA);
-impl PSP_DEVINFO_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DEVINFO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_DEVICE_INTERFACE_DATA = *mut SP_DEVICE_INTERFACE_DATA;
+pub type PSP_DEVICE_INTERFACE_DETAIL_DATA = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
+pub type PSP_DEVICE_INTERFACE_DETAIL_DATA_A = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_A;
+pub type PSP_DEVICE_INTERFACE_DETAIL_DATA_W = *mut SP_DEVICE_INTERFACE_DETAIL_DATA_W;
+pub type PSP_DEVINFO_DATA = *mut SP_DEVINFO_DATA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DEVINFO_LIST_DETAIL_DATA(pub PSP_DEVINFO_LIST_DETAIL_DATA_A);
+pub type PSP_DEVINFO_LIST_DETAIL_DATA = PSP_DEVINFO_LIST_DETAIL_DATA_A;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVINFO_LIST_DETAIL_DATA_A(pub *mut SP_DEVINFO_LIST_DETAIL_DATA_A);
+pub type PSP_DEVINFO_LIST_DETAIL_DATA_A = *mut SP_DEVINFO_LIST_DETAIL_DATA_A;
 #[cfg(feature = "winnt")]
-impl PSP_DEVINFO_LIST_DETAIL_DATA_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVINFO_LIST_DETAIL_DATA_W(pub *mut SP_DEVINFO_LIST_DETAIL_DATA_W);
-#[cfg(feature = "winnt")]
-impl PSP_DEVINFO_LIST_DETAIL_DATA_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_DEVINFO_LIST_DETAIL_DATA_W = *mut SP_DEVINFO_LIST_DETAIL_DATA_W;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DEVINSTALL_PARAMS(pub PSP_DEVINSTALL_PARAMS_A);
+pub type PSP_DEVINSTALL_PARAMS = PSP_DEVINSTALL_PARAMS_A;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVINSTALL_PARAMS_A(pub *mut SP_DEVINSTALL_PARAMS_A);
+pub type PSP_DEVINSTALL_PARAMS_A = *mut SP_DEVINSTALL_PARAMS_A;
 #[cfg(feature = "windef")]
-impl PSP_DEVINSTALL_PARAMS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PSP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DEVINSTALL_PARAMS_W(pub *mut SP_DEVINSTALL_PARAMS_W);
-#[cfg(feature = "windef")]
-impl PSP_DEVINSTALL_PARAMS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PSP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_DEVINSTALL_PARAMS_W = *mut SP_DEVINSTALL_PARAMS_W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DATA(pub PSP_DRVINFO_DATA_V2);
+pub type PSP_DRVINFO_DATA = PSP_DRVINFO_DATA_V2;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DATA_A(pub PSP_DRVINFO_DATA_V2_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DATA_V1(pub PSP_DRVINFO_DATA_V1_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DATA_V1_A(pub *mut SP_DRVINFO_DATA_V1_A);
-impl PSP_DRVINFO_DATA_V1_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DATA_V1_W(pub *mut SP_DRVINFO_DATA_V1_W);
-impl PSP_DRVINFO_DATA_V1_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DRVINFO_DATA_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_DRVINFO_DATA_A = PSP_DRVINFO_DATA_V2_A;
+pub type PSP_DRVINFO_DATA_V1 = PSP_DRVINFO_DATA_V1_A;
+pub type PSP_DRVINFO_DATA_V1_A = *mut SP_DRVINFO_DATA_V1_A;
+pub type PSP_DRVINFO_DATA_V1_W = *mut SP_DRVINFO_DATA_V1_W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DATA_V2(pub PSP_DRVINFO_DATA_V2_A);
+pub type PSP_DRVINFO_DATA_V2 = PSP_DRVINFO_DATA_V2_A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DATA_V2_A(pub *mut SP_DRVINFO_DATA_V2_A);
+pub type PSP_DRVINFO_DATA_V2_A = *mut SP_DRVINFO_DATA_V2_A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PSP_DRVINFO_DATA_V2_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSP_DRVINFO_DATA_V2_W = *mut SP_DRVINFO_DATA_V2_W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PSP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DATA_V2_W(pub *mut SP_DRVINFO_DATA_V2_W);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PSP_DRVINFO_DATA_V2_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PSP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DATA_W(pub PSP_DRVINFO_DATA_V2_W);
+pub type PSP_DRVINFO_DATA_W = PSP_DRVINFO_DATA_V2_W;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_DRVINFO_DETAIL_DATA(pub PSP_DRVINFO_DETAIL_DATA_A);
+pub type PSP_DRVINFO_DETAIL_DATA = PSP_DRVINFO_DETAIL_DATA_A;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DETAIL_DATA_A(pub *mut SP_DRVINFO_DETAIL_DATA_A);
+pub type PSP_DRVINFO_DETAIL_DATA_A = *mut SP_DRVINFO_DETAIL_DATA_A;
 #[cfg(feature = "minwindef")]
-impl PSP_DRVINFO_DETAIL_DATA_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINFO_DETAIL_DATA_W(pub *mut SP_DRVINFO_DETAIL_DATA_W);
-#[cfg(feature = "minwindef")]
-impl PSP_DRVINFO_DETAIL_DATA_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_DRVINSTALL_PARAMS(pub *mut SP_DRVINSTALL_PARAMS);
-impl PSP_DRVINSTALL_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_DRVINSTALL_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ENABLECLASS_PARAMS(pub *mut SP_ENABLECLASS_PARAMS);
-impl PSP_ENABLECLASS_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ENABLECLASS_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_DRVINFO_DETAIL_DATA_W = *mut SP_DRVINFO_DETAIL_DATA_W;
+pub type PSP_DRVINSTALL_PARAMS = *mut SP_DRVINSTALL_PARAMS;
+pub type PSP_ENABLECLASS_PARAMS = *mut SP_ENABLECLASS_PARAMS;
 pub type PSP_FILE_CALLBACK_A = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
 pub type PSP_FILE_CALLBACK_W = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_FILE_COPY_PARAMS(pub PSP_FILE_COPY_PARAMS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_FILE_COPY_PARAMS_A(pub *mut SP_FILE_COPY_PARAMS_A);
-impl PSP_FILE_COPY_PARAMS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_FILE_COPY_PARAMS_W(pub *mut SP_FILE_COPY_PARAMS_W);
-impl PSP_FILE_COPY_PARAMS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INF_INFORMATION(pub *mut SP_INF_INFORMATION);
-impl PSP_INF_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_INF_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INF_SIGNER_INFO(pub PSP_INF_SIGNER_INFO_V2);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INF_SIGNER_INFO_A(pub PSP_INF_SIGNER_INFO_V2_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INF_SIGNER_INFO_V1(pub PSP_INF_SIGNER_INFO_V1_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INF_SIGNER_INFO_V1_A(pub *mut SP_INF_SIGNER_INFO_V1_A);
-impl PSP_INF_SIGNER_INFO_V1_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INF_SIGNER_INFO_V1_W(pub *mut SP_INF_SIGNER_INFO_V1_W);
-impl PSP_INF_SIGNER_INFO_V1_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_INF_SIGNER_INFO_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INF_SIGNER_INFO_V2(pub PSP_INF_SIGNER_INFO_V2_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INF_SIGNER_INFO_V2_A(pub *mut SP_INF_SIGNER_INFO_V2_A);
-impl PSP_INF_SIGNER_INFO_V2_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INF_SIGNER_INFO_V2_W(pub *mut SP_INF_SIGNER_INFO_V2_W);
-impl PSP_INF_SIGNER_INFO_V2_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_INF_SIGNER_INFO_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INF_SIGNER_INFO_W(pub PSP_INF_SIGNER_INFO_V2_W);
+pub type PSP_FILE_COPY_PARAMS = PSP_FILE_COPY_PARAMS_A;
+pub type PSP_FILE_COPY_PARAMS_A = *mut SP_FILE_COPY_PARAMS_A;
+pub type PSP_FILE_COPY_PARAMS_W = *mut SP_FILE_COPY_PARAMS_W;
+pub type PSP_INF_INFORMATION = *mut SP_INF_INFORMATION;
+pub type PSP_INF_SIGNER_INFO = PSP_INF_SIGNER_INFO_V2;
+pub type PSP_INF_SIGNER_INFO_A = PSP_INF_SIGNER_INFO_V2_A;
+pub type PSP_INF_SIGNER_INFO_V1 = PSP_INF_SIGNER_INFO_V1_A;
+pub type PSP_INF_SIGNER_INFO_V1_A = *mut SP_INF_SIGNER_INFO_V1_A;
+pub type PSP_INF_SIGNER_INFO_V1_W = *mut SP_INF_SIGNER_INFO_V1_W;
+pub type PSP_INF_SIGNER_INFO_V2 = PSP_INF_SIGNER_INFO_V2_A;
+pub type PSP_INF_SIGNER_INFO_V2_A = *mut SP_INF_SIGNER_INFO_V2_A;
+pub type PSP_INF_SIGNER_INFO_V2_W = *mut SP_INF_SIGNER_INFO_V2_W;
+pub type PSP_INF_SIGNER_INFO_W = PSP_INF_SIGNER_INFO_V2_W;
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_INSTALLWIZARD_DATA(pub *mut SP_INSTALLWIZARD_DATA);
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
-impl PSP_INSTALLWIZARD_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef"))]
-impl Default for PSP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INTERFACE_DEVICE_DATA(pub PSP_DEVICE_INTERFACE_DATA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INTERFACE_DEVICE_DETAIL_DATA(pub PSP_INTERFACE_DEVICE_DETAIL_DATA_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INTERFACE_DEVICE_DETAIL_DATA_A(pub PSP_DEVICE_INTERFACE_DETAIL_DATA_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_INTERFACE_DEVICE_DETAIL_DATA_W(pub PSP_DEVICE_INTERFACE_DETAIL_DATA_W);
+pub type PSP_INSTALLWIZARD_DATA = *mut SP_INSTALLWIZARD_DATA;
+pub type PSP_INTERFACE_DEVICE_DATA = PSP_DEVICE_INTERFACE_DATA;
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA = PSP_INTERFACE_DEVICE_DETAIL_DATA_A;
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_A = PSP_DEVICE_INTERFACE_DETAIL_DATA_A;
+pub type PSP_INTERFACE_DEVICE_DETAIL_DATA_W = PSP_DEVICE_INTERFACE_DETAIL_DATA_W;
 #[cfg(all(feature = "prsht", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_NEWDEVICEWIZARD_DATA(pub *mut SP_NEWDEVICEWIZARD_DATA);
-#[cfg(all(feature = "prsht", feature = "windef"))]
-impl PSP_NEWDEVICEWIZARD_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "prsht", feature = "windef"))]
-impl Default for PSP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_ORIGINAL_FILE_INFO(pub PSP_ORIGINAL_FILE_INFO_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ORIGINAL_FILE_INFO_A(pub *mut SP_ORIGINAL_FILE_INFO_A);
-impl PSP_ORIGINAL_FILE_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_ORIGINAL_FILE_INFO_W(pub *mut SP_ORIGINAL_FILE_INFO_W);
-impl PSP_ORIGINAL_FILE_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_ORIGINAL_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_POWERMESSAGEWAKE_PARAMS(pub PSP_POWERMESSAGEWAKE_PARAMS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_POWERMESSAGEWAKE_PARAMS_A(pub *mut SP_POWERMESSAGEWAKE_PARAMS_A);
-impl PSP_POWERMESSAGEWAKE_PARAMS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_POWERMESSAGEWAKE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_POWERMESSAGEWAKE_PARAMS_W(pub *mut SP_POWERMESSAGEWAKE_PARAMS_W);
-impl PSP_POWERMESSAGEWAKE_PARAMS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_POWERMESSAGEWAKE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_PROPCHANGE_PARAMS(pub *mut SP_PROPCHANGE_PARAMS);
-impl PSP_PROPCHANGE_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_PROPCHANGE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_PROPSHEETPAGE_REQUEST(pub *mut SP_PROPSHEETPAGE_REQUEST);
-impl PSP_PROPSHEETPAGE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_PROPSHEETPAGE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_REGISTER_CONTROL_STATUS(pub PSP_REGISTER_CONTROL_STATUSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_REGISTER_CONTROL_STATUSA(pub *mut SP_REGISTER_CONTROL_STATUSA);
-impl PSP_REGISTER_CONTROL_STATUSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_REGISTER_CONTROL_STATUSW(pub *mut SP_REGISTER_CONTROL_STATUSW);
-impl PSP_REGISTER_CONTROL_STATUSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_REMOVEDEVICE_PARAMS(pub *mut SP_REMOVEDEVICE_PARAMS);
-impl PSP_REMOVEDEVICE_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_REMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_SELECTDEVICE_PARAMS(pub PSP_SELECTDEVICE_PARAMS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_SELECTDEVICE_PARAMS_A(pub *mut SP_SELECTDEVICE_PARAMS_A);
-impl PSP_SELECTDEVICE_PARAMS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_SELECTDEVICE_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_SELECTDEVICE_PARAMS_W(pub *mut SP_SELECTDEVICE_PARAMS_W);
-impl PSP_SELECTDEVICE_PARAMS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_SELECTDEVICE_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSP_TROUBLESHOOTER_PARAMS(pub PSP_TROUBLESHOOTER_PARAMS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_TROUBLESHOOTER_PARAMS_A(pub *mut SP_TROUBLESHOOTER_PARAMS_A);
-impl PSP_TROUBLESHOOTER_PARAMS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_TROUBLESHOOTER_PARAMS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_TROUBLESHOOTER_PARAMS_W(pub *mut SP_TROUBLESHOOTER_PARAMS_W);
-impl PSP_TROUBLESHOOTER_PARAMS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_TROUBLESHOOTER_PARAMS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_UNREMOVEDEVICE_PARAMS(pub *mut SP_UNREMOVEDEVICE_PARAMS);
-impl PSP_UNREMOVEDEVICE_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSP_NEWDEVICEWIZARD_DATA = *mut SP_NEWDEVICEWIZARD_DATA;
+pub type PSP_ORIGINAL_FILE_INFO = PSP_ORIGINAL_FILE_INFO_A;
+pub type PSP_ORIGINAL_FILE_INFO_A = *mut SP_ORIGINAL_FILE_INFO_A;
+pub type PSP_ORIGINAL_FILE_INFO_W = *mut SP_ORIGINAL_FILE_INFO_W;
+pub type PSP_POWERMESSAGEWAKE_PARAMS = PSP_POWERMESSAGEWAKE_PARAMS_A;
+pub type PSP_POWERMESSAGEWAKE_PARAMS_A = *mut SP_POWERMESSAGEWAKE_PARAMS_A;
+pub type PSP_POWERMESSAGEWAKE_PARAMS_W = *mut SP_POWERMESSAGEWAKE_PARAMS_W;
+pub type PSP_PROPCHANGE_PARAMS = *mut SP_PROPCHANGE_PARAMS;
+pub type PSP_PROPSHEETPAGE_REQUEST = *mut SP_PROPSHEETPAGE_REQUEST;
+pub type PSP_REGISTER_CONTROL_STATUS = PSP_REGISTER_CONTROL_STATUSA;
+pub type PSP_REGISTER_CONTROL_STATUSA = *mut SP_REGISTER_CONTROL_STATUSA;
+pub type PSP_REGISTER_CONTROL_STATUSW = *mut SP_REGISTER_CONTROL_STATUSW;
+pub type PSP_REMOVEDEVICE_PARAMS = *mut SP_REMOVEDEVICE_PARAMS;
+pub type PSP_SELECTDEVICE_PARAMS = PSP_SELECTDEVICE_PARAMS_A;
+pub type PSP_SELECTDEVICE_PARAMS_A = *mut SP_SELECTDEVICE_PARAMS_A;
+pub type PSP_SELECTDEVICE_PARAMS_W = *mut SP_SELECTDEVICE_PARAMS_W;
+pub type PSP_TROUBLESHOOTER_PARAMS = PSP_TROUBLESHOOTER_PARAMS_A;
+pub type PSP_TROUBLESHOOTER_PARAMS_A = *mut SP_TROUBLESHOOTER_PARAMS_A;
+pub type PSP_TROUBLESHOOTER_PARAMS_W = *mut SP_TROUBLESHOOTER_PARAMS_W;
+pub type PSP_UNREMOVEDEVICE_PARAMS = *mut SP_UNREMOVEDEVICE_PARAMS;
 pub const SCWMI_CLOBBER_SECURITY: u32 = 1;
 pub const SETDIRID_NOT_FULL_PATH: u32 = 1;
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240;

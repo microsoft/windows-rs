@@ -393,592 +393,72 @@ pub const FIREWALL_PORT_CLOSE_GUID: windows_core::GUID = windows_core::GUID::fro
 pub const FIREWALL_PORT_OPEN_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xb7569e07_8421_4ee0_ad10_86915afdad09);
 pub type HANDLER_FUNCTION = Option<unsafe extern "system" fn(dwcontrol: u32)>;
 pub type HANDLER_FUNCTION_EX = Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut core::ffi::c_void, lpcontext: *mut core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUM_SERVICE_STATUS(pub LPENUM_SERVICE_STATUSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUM_SERVICE_STATUSA(pub *mut ENUM_SERVICE_STATUSA);
-impl LPENUM_SERVICE_STATUSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUM_SERVICE_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUM_SERVICE_STATUSW(pub *mut ENUM_SERVICE_STATUSW);
-impl LPENUM_SERVICE_STATUSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUM_SERVICE_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUM_SERVICE_STATUS_PROCESS(pub LPENUM_SERVICE_STATUS_PROCESSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUM_SERVICE_STATUS_PROCESSA(pub *mut ENUM_SERVICE_STATUS_PROCESSA);
-impl LPENUM_SERVICE_STATUS_PROCESSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUM_SERVICE_STATUS_PROCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUM_SERVICE_STATUS_PROCESSW(pub *mut ENUM_SERVICE_STATUS_PROCESSW);
-impl LPENUM_SERVICE_STATUS_PROCESSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUM_SERVICE_STATUS_PROCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPENUM_SERVICE_STATUS = LPENUM_SERVICE_STATUSA;
+pub type LPENUM_SERVICE_STATUSA = *mut ENUM_SERVICE_STATUSA;
+pub type LPENUM_SERVICE_STATUSW = *mut ENUM_SERVICE_STATUSW;
+pub type LPENUM_SERVICE_STATUS_PROCESS = LPENUM_SERVICE_STATUS_PROCESSA;
+pub type LPENUM_SERVICE_STATUS_PROCESSA = *mut ENUM_SERVICE_STATUS_PROCESSA;
+pub type LPENUM_SERVICE_STATUS_PROCESSW = *mut ENUM_SERVICE_STATUS_PROCESSW;
 pub type LPHANDLER_FUNCTION = Option<unsafe extern "system" fn(dwcontrol: u32)>;
 pub type LPHANDLER_FUNCTION_EX = Option<unsafe extern "system" fn(dwcontrol: u32, dweventtype: u32, lpeventdata: *mut core::ffi::c_void, lpcontext: *mut core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPQUERY_SERVICE_CONFIG(pub LPQUERY_SERVICE_CONFIGA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQUERY_SERVICE_CONFIGA(pub *mut QUERY_SERVICE_CONFIGA);
-impl LPQUERY_SERVICE_CONFIGA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQUERY_SERVICE_CONFIGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQUERY_SERVICE_CONFIGW(pub *mut QUERY_SERVICE_CONFIGW);
-impl LPQUERY_SERVICE_CONFIGW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQUERY_SERVICE_CONFIGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPQUERY_SERVICE_LOCK_STATUS(pub LPQUERY_SERVICE_LOCK_STATUSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQUERY_SERVICE_LOCK_STATUSA(pub *mut QUERY_SERVICE_LOCK_STATUSA);
-impl LPQUERY_SERVICE_LOCK_STATUSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQUERY_SERVICE_LOCK_STATUSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQUERY_SERVICE_LOCK_STATUSW(pub *mut QUERY_SERVICE_LOCK_STATUSW);
-impl LPQUERY_SERVICE_LOCK_STATUSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQUERY_SERVICE_LOCK_STATUSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSC_ACTION(pub *mut SC_ACTION);
-impl LPSC_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSC_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSC_HANDLE(pub *mut SC_HANDLE);
-impl LPSC_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSC_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM(pub *mut SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM);
-impl LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_DELAYED_AUTO_START_INFO(pub *mut SERVICE_DELAYED_AUTO_START_INFO);
-impl LPSERVICE_DELAYED_AUTO_START_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_DELAYED_AUTO_START_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSERVICE_DESCRIPTION(pub LPSERVICE_DESCRIPTIONA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_DESCRIPTIONA(pub *mut SERVICE_DESCRIPTIONA);
-impl LPSERVICE_DESCRIPTIONA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_DESCRIPTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_DESCRIPTIONW(pub *mut SERVICE_DESCRIPTIONW);
-impl LPSERVICE_DESCRIPTIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_DESCRIPTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSERVICE_FAILURE_ACTIONS(pub LPSERVICE_FAILURE_ACTIONSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_FAILURE_ACTIONSA(pub *mut SERVICE_FAILURE_ACTIONSA);
-impl LPSERVICE_FAILURE_ACTIONSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_FAILURE_ACTIONSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_FAILURE_ACTIONSW(pub *mut SERVICE_FAILURE_ACTIONSW);
-impl LPSERVICE_FAILURE_ACTIONSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_FAILURE_ACTIONSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_FAILURE_ACTIONS_FLAG(pub *mut SERVICE_FAILURE_ACTIONS_FLAG);
-impl LPSERVICE_FAILURE_ACTIONS_FLAG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_FAILURE_ACTIONS_FLAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQUERY_SERVICE_CONFIG = LPQUERY_SERVICE_CONFIGA;
+pub type LPQUERY_SERVICE_CONFIGA = *mut QUERY_SERVICE_CONFIGA;
+pub type LPQUERY_SERVICE_CONFIGW = *mut QUERY_SERVICE_CONFIGW;
+pub type LPQUERY_SERVICE_LOCK_STATUS = LPQUERY_SERVICE_LOCK_STATUSA;
+pub type LPQUERY_SERVICE_LOCK_STATUSA = *mut QUERY_SERVICE_LOCK_STATUSA;
+pub type LPQUERY_SERVICE_LOCK_STATUSW = *mut QUERY_SERVICE_LOCK_STATUSW;
+pub type LPSC_ACTION = *mut SC_ACTION;
+pub type LPSC_HANDLE = *mut SC_HANDLE;
+pub type LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM = *mut SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM;
+pub type LPSERVICE_DELAYED_AUTO_START_INFO = *mut SERVICE_DELAYED_AUTO_START_INFO;
+pub type LPSERVICE_DESCRIPTION = LPSERVICE_DESCRIPTIONA;
+pub type LPSERVICE_DESCRIPTIONA = *mut SERVICE_DESCRIPTIONA;
+pub type LPSERVICE_DESCRIPTIONW = *mut SERVICE_DESCRIPTIONW;
+pub type LPSERVICE_FAILURE_ACTIONS = LPSERVICE_FAILURE_ACTIONSA;
+pub type LPSERVICE_FAILURE_ACTIONSA = *mut SERVICE_FAILURE_ACTIONSA;
+pub type LPSERVICE_FAILURE_ACTIONSW = *mut SERVICE_FAILURE_ACTIONSW;
+pub type LPSERVICE_FAILURE_ACTIONS_FLAG = *mut SERVICE_FAILURE_ACTIONS_FLAG;
 pub type LPSERVICE_MAIN_FUNCTIONA = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut windows_core::PSTR)>;
 pub type LPSERVICE_MAIN_FUNCTIONW = Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut windows_core::PWSTR)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_PREFERRED_NODE_INFO(pub *mut SERVICE_PREFERRED_NODE_INFO);
-impl LPSERVICE_PREFERRED_NODE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_PREFERRED_NODE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_PRESHUTDOWN_INFO(pub *mut SERVICE_PRESHUTDOWN_INFO);
-impl LPSERVICE_PRESHUTDOWN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_PRESHUTDOWN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSERVICE_REQUIRED_PRIVILEGES_INFO(pub LPSERVICE_REQUIRED_PRIVILEGES_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_REQUIRED_PRIVILEGES_INFOA(pub *mut SERVICE_REQUIRED_PRIVILEGES_INFOA);
-impl LPSERVICE_REQUIRED_PRIVILEGES_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_REQUIRED_PRIVILEGES_INFOW(pub *mut SERVICE_REQUIRED_PRIVILEGES_INFOW);
-impl LPSERVICE_REQUIRED_PRIVILEGES_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_SID_INFO(pub *mut SERVICE_SID_INFO);
-impl LPSERVICE_SID_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_SID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_STATUS(pub *mut SERVICE_STATUS);
-impl LPSERVICE_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_STATUS_PROCESS(pub *mut SERVICE_STATUS_PROCESS);
-impl LPSERVICE_STATUS_PROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_STATUS_PROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSERVICE_TABLE_ENTRY(pub LPSERVICE_TABLE_ENTRYA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_TABLE_ENTRYA(pub *mut SERVICE_TABLE_ENTRYA);
-impl LPSERVICE_TABLE_ENTRYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_TABLE_ENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVICE_TABLE_ENTRYW(pub *mut SERVICE_TABLE_ENTRYW);
-impl LPSERVICE_TABLE_ENTRYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVICE_TABLE_ENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSERVICE_PREFERRED_NODE_INFO = *mut SERVICE_PREFERRED_NODE_INFO;
+pub type LPSERVICE_PRESHUTDOWN_INFO = *mut SERVICE_PRESHUTDOWN_INFO;
+pub type LPSERVICE_REQUIRED_PRIVILEGES_INFO = LPSERVICE_REQUIRED_PRIVILEGES_INFOA;
+pub type LPSERVICE_REQUIRED_PRIVILEGES_INFOA = *mut SERVICE_REQUIRED_PRIVILEGES_INFOA;
+pub type LPSERVICE_REQUIRED_PRIVILEGES_INFOW = *mut SERVICE_REQUIRED_PRIVILEGES_INFOW;
+pub type LPSERVICE_SID_INFO = *mut SERVICE_SID_INFO;
+pub type LPSERVICE_STATUS = *mut SERVICE_STATUS;
+pub type LPSERVICE_STATUS_PROCESS = *mut SERVICE_STATUS_PROCESS;
+pub type LPSERVICE_TABLE_ENTRY = LPSERVICE_TABLE_ENTRYA;
+pub type LPSERVICE_TABLE_ENTRYA = *mut SERVICE_TABLE_ENTRYA;
+pub type LPSERVICE_TABLE_ENTRYW = *mut SERVICE_TABLE_ENTRYW;
 pub const MACHINE_POLICY_PRESENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = 2;
 pub const NAMED_PIPE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
 pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
 pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcc4ba62a_162e_4648_847a_b6bdf993e335);
 pub type PFN_SC_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(pparameter: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSC_EVENT_TYPE(pub *mut SC_EVENT_TYPE);
-impl PSC_EVENT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSC_EVENT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSC_EVENT_TYPE = *mut SC_EVENT_TYPE;
 pub type PSC_NOTIFICATION_CALLBACK = Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSC_NOTIFICATION_REGISTRATION(pub *mut _SC_NOTIFICATION_REGISTRATION);
-impl PSC_NOTIFICATION_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSC_NOTIFICATION_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSERVICE_CONTROL_STATUS_REASON_PARAMS(pub PSERVICE_CONTROL_STATUS_REASON_PARAMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_CONTROL_STATUS_REASON_PARAMSA(pub *mut SERVICE_CONTROL_STATUS_REASON_PARAMSA);
-impl PSERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_CONTROL_STATUS_REASON_PARAMSW(pub *mut SERVICE_CONTROL_STATUS_REASON_PARAMSW);
-impl PSERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_LAUNCH_PROTECTED_INFO(pub *mut SERVICE_LAUNCH_PROTECTED_INFO);
-impl PSERVICE_LAUNCH_PROTECTED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_LAUNCH_PROTECTED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSERVICE_NOTIFY(pub PSERVICE_NOTIFYA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_NOTIFYA(pub *mut SERVICE_NOTIFY_2A);
-impl PSERVICE_NOTIFYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_NOTIFYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_NOTIFYW(pub *mut SERVICE_NOTIFY_2W);
-impl PSERVICE_NOTIFYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_NOTIFYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_NOTIFY_1(pub *mut SERVICE_NOTIFY_1);
-impl PSERVICE_NOTIFY_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_NOTIFY_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSERVICE_NOTIFY_2(pub PSERVICE_NOTIFY_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_NOTIFY_2A(pub *mut SERVICE_NOTIFY_2A);
-impl PSERVICE_NOTIFY_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_NOTIFY_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_NOTIFY_2W(pub *mut SERVICE_NOTIFY_2W);
-impl PSERVICE_NOTIFY_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_NOTIFY_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_START_REASON(pub *mut SERVICE_START_REASON);
-impl PSERVICE_START_REASON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_START_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_TIMECHANGE_INFO(pub *mut SERVICE_TIMECHANGE_INFO);
-impl PSERVICE_TIMECHANGE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVICE_TIMECHANGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSC_NOTIFICATION_REGISTRATION = *mut _SC_NOTIFICATION_REGISTRATION;
+pub type PSERVICE_CONTROL_STATUS_REASON_PARAMS = PSERVICE_CONTROL_STATUS_REASON_PARAMSA;
+pub type PSERVICE_CONTROL_STATUS_REASON_PARAMSA = *mut SERVICE_CONTROL_STATUS_REASON_PARAMSA;
+pub type PSERVICE_CONTROL_STATUS_REASON_PARAMSW = *mut SERVICE_CONTROL_STATUS_REASON_PARAMSW;
+pub type PSERVICE_LAUNCH_PROTECTED_INFO = *mut SERVICE_LAUNCH_PROTECTED_INFO;
+pub type PSERVICE_NOTIFY = PSERVICE_NOTIFYA;
+pub type PSERVICE_NOTIFYA = *mut SERVICE_NOTIFY_2A;
+pub type PSERVICE_NOTIFYW = *mut SERVICE_NOTIFY_2W;
+pub type PSERVICE_NOTIFY_1 = *mut SERVICE_NOTIFY_1;
+pub type PSERVICE_NOTIFY_2 = PSERVICE_NOTIFY_2A;
+pub type PSERVICE_NOTIFY_2A = *mut SERVICE_NOTIFY_2A;
+pub type PSERVICE_NOTIFY_2W = *mut SERVICE_NOTIFY_2W;
+pub type PSERVICE_START_REASON = *mut SERVICE_START_REASON;
+pub type PSERVICE_TIMECHANGE_INFO = *mut SERVICE_TIMECHANGE_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_TRIGGER(pub *mut SERVICE_TRIGGER);
+pub type PSERVICE_TRIGGER = *mut SERVICE_TRIGGER;
 #[cfg(feature = "minwindef")]
-impl PSERVICE_TRIGGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSERVICE_TRIGGER_INFO = *mut SERVICE_TRIGGER_INFO;
 #[cfg(feature = "minwindef")]
-impl Default for PSERVICE_TRIGGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_TRIGGER_INFO(pub *mut SERVICE_TRIGGER_INFO);
-#[cfg(feature = "minwindef")]
-impl PSERVICE_TRIGGER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSERVICE_TRIGGER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM(pub *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM);
-#[cfg(feature = "minwindef")]
-impl PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM = *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM;
 pub type QUERY_SERVICE_CONFIG = QUERY_SERVICE_CONFIGA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

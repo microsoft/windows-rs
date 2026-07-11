@@ -3547,29 +3547,5 @@ impl IEnumBitsPeers_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IEnumBitsPeers {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBG_AUTH_CREDENTIALS(pub *mut BG_AUTH_CREDENTIALS);
-impl PBG_AUTH_CREDENTIALS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBG_AUTH_CREDENTIALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBG_BASIC_CREDENTIALS(pub *mut BG_BASIC_CREDENTIALS);
-impl PBG_BASIC_CREDENTIALS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBG_BASIC_CREDENTIALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBG_AUTH_CREDENTIALS = *mut BG_AUTH_CREDENTIALS;
+pub type PBG_BASIC_CREDENTIALS = *mut BG_BASIC_CREDENTIALS;

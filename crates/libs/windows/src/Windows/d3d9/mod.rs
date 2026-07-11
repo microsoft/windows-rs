@@ -6444,58 +6444,10 @@ impl IDirect3DVolumeTexture9_Vtbl {
 }
 impl windows_core::RuntimeName for IDirect3DVolumeTexture9 {}
 pub const IID_HelperName: windows_core::GUID = windows_core::GUID::from_u128(0xe4a36723_fdfe_4b22_b146_3c04c07f4cc8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3DDEVINFO_D3DVERTEXSTATS(pub *mut D3DDEVINFO_D3DVERTEXSTATS);
-impl LPD3DDEVINFO_D3DVERTEXSTATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPD3DDEVINFO_D3DVERTEXSTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3DDEVINFO_RESOURCEMANAGER(pub *mut D3DDEVINFO_RESOURCEMANAGER);
-impl LPD3DDEVINFO_RESOURCEMANAGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPD3DDEVINFO_RESOURCEMANAGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3DDEVINFO_VCACHE(pub *mut D3DDEVINFO_VCACHE);
-impl LPD3DDEVINFO_VCACHE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPD3DDEVINFO_VCACHE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3DVERTEXELEMENT9(pub *mut D3DVERTEXELEMENT9);
-impl LPD3DVERTEXELEMENT9 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPD3DVERTEXELEMENT9 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPD3DDEVINFO_D3DVERTEXSTATS = *mut D3DDEVINFO_D3DVERTEXSTATS;
+pub type LPD3DDEVINFO_RESOURCEMANAGER = *mut D3DDEVINFO_RESOURCEMANAGER;
+pub type LPD3DDEVINFO_VCACHE = *mut D3DDEVINFO_VCACHE;
+pub type LPD3DVERTEXELEMENT9 = *mut D3DVERTEXELEMENT9;
 pub const MAXD3DDECLLENGTH: u32 = 64;
 pub const MAXD3DDECLMETHOD: u32 = 6;
 pub const MAXD3DDECLTYPE: u32 = 17;

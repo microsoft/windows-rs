@@ -185,122 +185,16 @@ impl Default for PAUDIT_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_IP_ADDRESS(pub *mut AUDIT_IP_ADDRESS);
-impl PAUDIT_IP_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUDIT_IP_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUDIT_IP_ADDRESS = *mut AUDIT_IP_ADDRESS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_OBJECT_TYPE(pub *mut AUDIT_OBJECT_TYPE);
+pub type PAUDIT_OBJECT_TYPE = *mut AUDIT_OBJECT_TYPE;
 #[cfg(feature = "winnt")]
-impl PAUDIT_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PAUDIT_OBJECT_TYPES = *mut AUDIT_OBJECT_TYPES;
 #[cfg(feature = "winnt")]
-impl Default for PAUDIT_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUDIT_PARAM = *mut AUDIT_PARAM;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_OBJECT_TYPES(pub *mut AUDIT_OBJECT_TYPES);
+pub type PAUDIT_PARAMS = *mut AUDIT_PARAMS;
+pub type PAUTHZ_AUDIT_EVENT_TYPE_LEGACY = *mut AUTHZ_AUDIT_EVENT_TYPE_LEGACY;
 #[cfg(feature = "winnt")]
-impl PAUDIT_OBJECT_TYPES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUDIT_OBJECT_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_PARAM(pub *mut AUDIT_PARAM);
-#[cfg(feature = "winnt")]
-impl PAUDIT_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUDIT_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_PARAMS(pub *mut AUDIT_PARAMS);
-#[cfg(feature = "winnt")]
-impl PAUDIT_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUDIT_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_AUDIT_EVENT_TYPE_LEGACY(pub *mut AUTHZ_AUDIT_EVENT_TYPE_LEGACY);
-impl PAUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_AUDIT_EVENT_TYPE_OLD(pub *mut AUTHZ_AUDIT_EVENT_TYPE_OLD);
-#[cfg(feature = "winnt")]
-impl PAUTHZ_AUDIT_EVENT_TYPE_OLD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_AUDIT_EVENT_TYPE_UNION(pub *mut AUTHZ_AUDIT_EVENT_TYPE_UNION);
-impl PAUTHZ_AUDIT_EVENT_TYPE_UNION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUTHZ_AUDIT_EVENT_TYPE_OLD = *mut AUTHZ_AUDIT_EVENT_TYPE_OLD;
+pub type PAUTHZ_AUDIT_EVENT_TYPE_UNION = *mut AUTHZ_AUDIT_EVENT_TYPE_UNION;

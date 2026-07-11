@@ -346,560 +346,84 @@ impl Default for OBJECTS_AND_SID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACCESS_RIGHTS(pub *mut u32);
-impl PACCESS_RIGHTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACCESS_RIGHTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACCESS_RIGHTS = *mut u32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_ACCESS(pub PACTRL_ACCESSA);
+pub type PACTRL_ACCESS = PACTRL_ACCESSA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESSA(pub *mut ACTRL_ACCESSA);
+pub type PACTRL_ACCESSA = *mut ACTRL_ACCESSA;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PACTRL_ACCESSW = *mut ACTRL_ACCESSW;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTRL_ACCESS_ENTRY = PACTRL_ACCESS_ENTRYA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESSW(pub *mut ACTRL_ACCESSW);
+pub type PACTRL_ACCESS_ENTRYA = *mut ACTRL_ACCESS_ENTRYA;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PACTRL_ACCESS_ENTRYW = *mut ACTRL_ACCESS_ENTRYW;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTRL_ACCESS_ENTRY_LIST = PACTRL_ACCESS_ENTRY_LISTA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_ACCESS_ENTRY(pub PACTRL_ACCESS_ENTRYA);
+pub type PACTRL_ACCESS_ENTRY_LISTA = *mut ACTRL_ACCESS_ENTRY_LISTA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_ENTRYA(pub *mut ACTRL_ACCESS_ENTRYA);
+pub type PACTRL_ACCESS_ENTRY_LISTW = *mut ACTRL_ACCESS_ENTRY_LISTW;
+pub type PACTRL_ACCESS_INFO = PACTRL_ACCESS_INFOA;
+pub type PACTRL_ACCESS_INFOA = *mut ACTRL_ACCESS_INFOA;
+pub type PACTRL_ACCESS_INFOW = *mut ACTRL_ACCESS_INFOW;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESS_ENTRYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PACTRL_AUDIT = PACTRL_AUDITA;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESS_ENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTRL_AUDITA = *mut ACTRL_ACCESSA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_ENTRYW(pub *mut ACTRL_ACCESS_ENTRYW);
+pub type PACTRL_AUDITW = *mut ACTRL_ACCESSW;
+pub type PACTRL_CONTROL_INFO = PACTRL_CONTROL_INFOA;
+pub type PACTRL_CONTROL_INFOA = *mut ACTRL_CONTROL_INFOA;
+pub type PACTRL_CONTROL_INFOW = *mut ACTRL_CONTROL_INFOW;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESS_ENTRYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PACTRL_OVERLAPPED = *mut ACTRL_OVERLAPPED;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESS_ENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTRL_PROPERTY_ENTRY = PACTRL_PROPERTY_ENTRYA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_ACCESS_ENTRY_LIST(pub PACTRL_ACCESS_ENTRY_LISTA);
+pub type PACTRL_PROPERTY_ENTRYA = *mut ACTRL_PROPERTY_ENTRYA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_ENTRY_LISTA(pub *mut ACTRL_ACCESS_ENTRY_LISTA);
+pub type PACTRL_PROPERTY_ENTRYW = *mut ACTRL_PROPERTY_ENTRYW;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESS_ENTRY_LISTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PEXPLICIT_ACCESS = PEXPLICIT_ACCESSA;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESS_ENTRY_LISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXPLICIT_ACCESSA = *mut EXPLICIT_ACCESS_A;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_ENTRY_LISTW(pub *mut ACTRL_ACCESS_ENTRY_LISTW);
+pub type PEXPLICIT_ACCESSW = *mut EXPLICIT_ACCESS_W;
 #[cfg(feature = "winnt")]
-impl PACTRL_ACCESS_ENTRY_LISTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PEXPLICIT_ACCESS_ = PEXPLICIT_ACCESS_A;
 #[cfg(feature = "winnt")]
-impl Default for PACTRL_ACCESS_ENTRY_LISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_ACCESS_INFO(pub PACTRL_ACCESS_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_INFOA(pub *mut ACTRL_ACCESS_INFOA);
-impl PACTRL_ACCESS_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTRL_ACCESS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_ACCESS_INFOW(pub *mut ACTRL_ACCESS_INFOW);
-impl PACTRL_ACCESS_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTRL_ACCESS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXPLICIT_ACCESS_A = *mut EXPLICIT_ACCESS_A;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_AUDIT(pub PACTRL_AUDITA);
+pub type PEXPLICIT_ACCESS_W = *mut EXPLICIT_ACCESS_W;
+pub type PFN_OBJECT_MGR_FUNCTS = *mut FN_OBJECT_MGR_FUNCTS;
+pub type PINHERITED_FROM = PINHERITED_FROMA;
+pub type PINHERITED_FROMA = *mut INHERITED_FROMA;
+pub type PINHERITED_FROMW = *mut INHERITED_FROMW;
+pub type PINHERIT_FLAGS = *mut u32;
+pub type POBJECTS_AND_NAME_ = POBJECTS_AND_NAME_A;
+pub type POBJECTS_AND_NAME_A = *mut OBJECTS_AND_NAME_A;
+pub type POBJECTS_AND_NAME_W = *mut OBJECTS_AND_NAME_W;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_AUDITA(pub *mut ACTRL_ACCESSA);
-#[cfg(feature = "winnt")]
-impl PACTRL_AUDITA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTRL_AUDITA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_AUDITW(pub *mut ACTRL_ACCESSW);
-#[cfg(feature = "winnt")]
-impl PACTRL_AUDITW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTRL_AUDITW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_CONTROL_INFO(pub PACTRL_CONTROL_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_CONTROL_INFOA(pub *mut ACTRL_CONTROL_INFOA);
-impl PACTRL_CONTROL_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTRL_CONTROL_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_CONTROL_INFOW(pub *mut ACTRL_CONTROL_INFOW);
-impl PACTRL_CONTROL_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTRL_CONTROL_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_OVERLAPPED(pub *mut ACTRL_OVERLAPPED);
-#[cfg(feature = "winnt")]
-impl PACTRL_OVERLAPPED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTRL_OVERLAPPED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTRL_PROPERTY_ENTRY(pub PACTRL_PROPERTY_ENTRYA);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_PROPERTY_ENTRYA(pub *mut ACTRL_PROPERTY_ENTRYA);
-#[cfg(feature = "winnt")]
-impl PACTRL_PROPERTY_ENTRYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTRL_PROPERTY_ENTRYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTRL_PROPERTY_ENTRYW(pub *mut ACTRL_PROPERTY_ENTRYW);
-#[cfg(feature = "winnt")]
-impl PACTRL_PROPERTY_ENTRYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTRL_PROPERTY_ENTRYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PEXPLICIT_ACCESS(pub PEXPLICIT_ACCESSA);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXPLICIT_ACCESSA(pub *mut EXPLICIT_ACCESS_A);
-#[cfg(feature = "winnt")]
-impl PEXPLICIT_ACCESSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXPLICIT_ACCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXPLICIT_ACCESSW(pub *mut EXPLICIT_ACCESS_W);
-#[cfg(feature = "winnt")]
-impl PEXPLICIT_ACCESSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXPLICIT_ACCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PEXPLICIT_ACCESS_(pub PEXPLICIT_ACCESS_A);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXPLICIT_ACCESS_A(pub *mut EXPLICIT_ACCESS_A);
-#[cfg(feature = "winnt")]
-impl PEXPLICIT_ACCESS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXPLICIT_ACCESS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXPLICIT_ACCESS_W(pub *mut EXPLICIT_ACCESS_W);
-#[cfg(feature = "winnt")]
-impl PEXPLICIT_ACCESS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXPLICIT_ACCESS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFN_OBJECT_MGR_FUNCTS(pub *mut FN_OBJECT_MGR_FUNCTS);
-impl PFN_OBJECT_MGR_FUNCTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFN_OBJECT_MGR_FUNCTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PINHERITED_FROM(pub PINHERITED_FROMA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINHERITED_FROMA(pub *mut INHERITED_FROMA);
-impl PINHERITED_FROMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINHERITED_FROMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINHERITED_FROMW(pub *mut INHERITED_FROMW);
-impl PINHERITED_FROMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINHERITED_FROMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINHERIT_FLAGS(pub *mut u32);
-impl PINHERIT_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINHERIT_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POBJECTS_AND_NAME_(pub POBJECTS_AND_NAME_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECTS_AND_NAME_A(pub *mut OBJECTS_AND_NAME_A);
-impl POBJECTS_AND_NAME_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POBJECTS_AND_NAME_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECTS_AND_NAME_W(pub *mut OBJECTS_AND_NAME_W);
-impl POBJECTS_AND_NAME_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POBJECTS_AND_NAME_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECTS_AND_SID(pub *mut OBJECTS_AND_SID);
-#[cfg(feature = "winnt")]
-impl POBJECTS_AND_SID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POBJECTS_AND_SID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROG_INVOKE_SETTING(pub *mut PROG_INVOKE_SETTING);
-impl PPROG_INVOKE_SETTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROG_INVOKE_SETTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POBJECTS_AND_SID = *mut OBJECTS_AND_SID;
+pub type PPROG_INVOKE_SETTING = *mut PROG_INVOKE_SETTING;
 pub type PROG_INVOKE_SETTING = i32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTRUSTEE(pub PTRUSTEEA);
+pub type PTRUSTEE = PTRUSTEEA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEEA(pub *mut TRUSTEE_A);
+pub type PTRUSTEEA = *mut TRUSTEE_A;
 #[cfg(feature = "winnt")]
-impl PTRUSTEEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PTRUSTEEW = *mut TRUSTEE_W;
 #[cfg(feature = "winnt")]
-impl Default for PTRUSTEEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTEE_ = PTRUSTEE_A;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEEW(pub *mut TRUSTEE_W);
+pub type PTRUSTEE_A = *mut TRUSTEE_A;
+pub type PTRUSTEE_ACCESS = PTRUSTEE_ACCESSA;
+pub type PTRUSTEE_ACCESSA = *mut TRUSTEE_ACCESSA;
+pub type PTRUSTEE_ACCESSW = *mut TRUSTEE_ACCESSW;
 #[cfg(feature = "winnt")]
-impl PTRUSTEEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTRUSTEEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTRUSTEE_(pub PTRUSTEE_A);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEE_A(pub *mut TRUSTEE_A);
-#[cfg(feature = "winnt")]
-impl PTRUSTEE_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTRUSTEE_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTRUSTEE_ACCESS(pub PTRUSTEE_ACCESSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEE_ACCESSA(pub *mut TRUSTEE_ACCESSA);
-impl PTRUSTEE_ACCESSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRUSTEE_ACCESSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEE_ACCESSW(pub *mut TRUSTEE_ACCESSW);
-impl PTRUSTEE_ACCESSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRUSTEE_ACCESSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTEE_W(pub *mut TRUSTEE_W);
-#[cfg(feature = "winnt")]
-impl PTRUSTEE_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTRUSTEE_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTEE_W = *mut TRUSTEE_W;
 pub const ProgressCancelOperation: PROG_INVOKE_SETTING = 4;
 pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = 2;
 pub const ProgressInvokeNever: PROG_INVOKE_SETTING = 1;

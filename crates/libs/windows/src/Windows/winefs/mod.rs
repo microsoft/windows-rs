@@ -259,247 +259,31 @@ impl Default for ENCRYPTION_PROTECTOR_LIST {
 }
 pub const MAX_SID_SIZE: u32 = 256;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_CERTIFICATE_BLOB(pub *mut EFS_CERTIFICATE_BLOB);
+pub type PEFS_CERTIFICATE_BLOB = *mut EFS_CERTIFICATE_BLOB;
+pub type PEFS_COMPATIBILITY_INFO = *mut EFS_COMPATIBILITY_INFO;
+pub type PEFS_DECRYPTION_STATUS_INFO = *mut EFS_DECRYPTION_STATUS_INFO;
+pub type PEFS_ENCRYPTION_STATUS_INFO = *mut EFS_ENCRYPTION_STATUS_INFO;
 #[cfg(feature = "minwindef")]
-impl PEFS_CERTIFICATE_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PEFS_CERTIFICATE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_COMPATIBILITY_INFO(pub *mut EFS_COMPATIBILITY_INFO);
-impl PEFS_COMPATIBILITY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEFS_COMPATIBILITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_DECRYPTION_STATUS_INFO(pub *mut EFS_DECRYPTION_STATUS_INFO);
-impl PEFS_DECRYPTION_STATUS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEFS_DECRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_ENCRYPTION_STATUS_INFO(pub *mut EFS_ENCRYPTION_STATUS_INFO);
-impl PEFS_ENCRYPTION_STATUS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEFS_ENCRYPTION_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_HASH_BLOB(pub *mut EFS_HASH_BLOB);
-#[cfg(feature = "minwindef")]
-impl PEFS_HASH_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PEFS_HASH_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEFS_HASH_BLOB = *mut EFS_HASH_BLOB;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_KEY_INFO(pub *mut EFS_KEY_INFO);
-#[cfg(feature = "wincrypt")]
-impl PEFS_KEY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PEFS_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEFS_KEY_INFO = *mut EFS_KEY_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_PIN_BLOB(pub *mut EFS_PIN_BLOB);
+pub type PEFS_PIN_BLOB = *mut EFS_PIN_BLOB;
 #[cfg(feature = "minwindef")]
-impl PEFS_PIN_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PEFS_PIN_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_RPC_BLOB(pub *mut EFS_RPC_BLOB);
-#[cfg(feature = "minwindef")]
-impl PEFS_RPC_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PEFS_RPC_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEFS_VERSION_INFO(pub *mut EFS_VERSION_INFO);
-impl PEFS_VERSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEFS_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEFS_RPC_BLOB = *mut EFS_RPC_BLOB;
+pub type PEFS_VERSION_INFO = *mut EFS_VERSION_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTED_FILE_METADATA_SIGNATURE(pub *mut ENCRYPTED_FILE_METADATA_SIGNATURE);
+pub type PENCRYPTED_FILE_METADATA_SIGNATURE = *mut ENCRYPTED_FILE_METADATA_SIGNATURE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PENCRYPTED_FILE_METADATA_SIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PENCRYPTION_CERTIFICATE = *mut ENCRYPTION_CERTIFICATE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PENCRYPTED_FILE_METADATA_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENCRYPTION_CERTIFICATE_HASH = *mut ENCRYPTION_CERTIFICATE_HASH;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_CERTIFICATE(pub *mut ENCRYPTION_CERTIFICATE);
+pub type PENCRYPTION_CERTIFICATE_HASH_LIST = *mut ENCRYPTION_CERTIFICATE_HASH_LIST;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PENCRYPTION_CERTIFICATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PENCRYPTION_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_CERTIFICATE_HASH(pub *mut ENCRYPTION_CERTIFICATE_HASH);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PENCRYPTION_CERTIFICATE_HASH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PENCRYPTION_CERTIFICATE_HASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_CERTIFICATE_HASH_LIST(pub *mut ENCRYPTION_CERTIFICATE_HASH_LIST);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PENCRYPTION_CERTIFICATE_HASH_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PENCRYPTION_CERTIFICATE_HASH_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_CERTIFICATE_LIST(pub *mut ENCRYPTION_CERTIFICATE_LIST);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PENCRYPTION_CERTIFICATE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PENCRYPTION_CERTIFICATE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENCRYPTION_CERTIFICATE_LIST = *mut ENCRYPTION_CERTIFICATE_LIST;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_PROTECTOR(pub *mut ENCRYPTION_PROTECTOR);
+pub type PENCRYPTION_PROTECTOR = *mut ENCRYPTION_PROTECTOR;
 #[cfg(feature = "winnt")]
-impl PENCRYPTION_PROTECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PENCRYPTION_PROTECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCRYPTION_PROTECTOR_LIST(pub *mut ENCRYPTION_PROTECTOR_LIST);
-#[cfg(feature = "winnt")]
-impl PENCRYPTION_PROTECTOR_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PENCRYPTION_PROTECTOR_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENCRYPTION_PROTECTOR_LIST = *mut ENCRYPTION_PROTECTOR_LIST;
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1;

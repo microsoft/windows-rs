@@ -1,29 +1,5 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHEDULE(pub *mut SCHEDULE);
-impl PSCHEDULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCHEDULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHEDULE_HEADER(pub *mut SCHEDULE_HEADER);
-impl PSCHEDULE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCHEDULE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCHEDULE = *mut SCHEDULE;
+pub type PSCHEDULE_HEADER = *mut SCHEDULE_HEADER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SCHEDULE {

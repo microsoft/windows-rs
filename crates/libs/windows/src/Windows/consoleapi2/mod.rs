@@ -281,48 +281,8 @@ pub const FOREGROUND_BLUE: u32 = 1;
 pub const FOREGROUND_GREEN: u32 = 2;
 pub const FOREGROUND_INTENSITY: u32 = 8;
 pub const FOREGROUND_RED: u32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_CURSOR_INFO(pub *mut CONSOLE_CURSOR_INFO);
-impl PCONSOLE_CURSOR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONSOLE_CURSOR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONSOLE_CURSOR_INFO = *mut CONSOLE_CURSOR_INFO;
 #[cfg(feature = "wincontypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_SCREEN_BUFFER_INFO(pub *mut CONSOLE_SCREEN_BUFFER_INFO);
-#[cfg(feature = "wincontypes")]
-impl PCONSOLE_SCREEN_BUFFER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincontypes")]
-impl Default for PCONSOLE_SCREEN_BUFFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONSOLE_SCREEN_BUFFER_INFO = *mut CONSOLE_SCREEN_BUFFER_INFO;
 #[cfg(all(feature = "wincontypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_SCREEN_BUFFER_INFOEX(pub *mut CONSOLE_SCREEN_BUFFER_INFOEX);
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
-impl PCONSOLE_SCREEN_BUFFER_INFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
-impl Default for PCONSOLE_SCREEN_BUFFER_INFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONSOLE_SCREEN_BUFFER_INFOEX = *mut CONSOLE_SCREEN_BUFFER_INFOEX;

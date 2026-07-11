@@ -1,96 +1,14 @@
 #[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_DIFFSERV(pub *mut QOS_DIFFSERV);
+pub type LPQOS_DIFFSERV = *mut QOS_DIFFSERV;
+pub type LPQOS_DIFFSERV_RULE = *mut QOS_DIFFSERV_RULE;
 #[cfg(feature = "qos")]
-impl LPQOS_DIFFSERV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPQOS_DS_CLASS = *mut QOS_DS_CLASS;
 #[cfg(feature = "qos")]
-impl Default for LPQOS_DIFFSERV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_DIFFSERV_RULE(pub *mut QOS_DIFFSERV_RULE);
-impl LPQOS_DIFFSERV_RULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQOS_DIFFSERV_RULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQOS_FRIENDLY_NAME = *mut QOS_FRIENDLY_NAME;
 #[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_DS_CLASS(pub *mut QOS_DS_CLASS);
+pub type LPQOS_TCP_TRAFFIC = *mut QOS_TCP_TRAFFIC;
 #[cfg(feature = "qos")]
-impl LPQOS_DS_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for LPQOS_DS_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_FRIENDLY_NAME(pub *mut QOS_FRIENDLY_NAME);
-#[cfg(feature = "qos")]
-impl LPQOS_FRIENDLY_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for LPQOS_FRIENDLY_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_TCP_TRAFFIC(pub *mut QOS_TCP_TRAFFIC);
-#[cfg(feature = "qos")]
-impl LPQOS_TCP_TRAFFIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for LPQOS_TCP_TRAFFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_TRAFFIC_CLASS(pub *mut QOS_TRAFFIC_CLASS);
-#[cfg(feature = "qos")]
-impl LPQOS_TRAFFIC_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for LPQOS_TRAFFIC_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQOS_TRAFFIC_CLASS = *mut QOS_TRAFFIC_CLASS;
 #[repr(C)]
 #[cfg(feature = "qos")]
 #[derive(Clone, Copy, Debug, PartialEq)]

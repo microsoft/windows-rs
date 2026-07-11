@@ -5060,1169 +5060,137 @@ pub const JOY_HWS_ISHEADTRACKER: u32 = 33554432;
 pub const JOY_HWS_NODEVNODE: u32 = 536870912;
 pub const JOY_PASSDRIVERDATA: u32 = 268435456;
 pub const JOY_US_VOLATILE: u32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDIACTION(pub LPCDIACTIONA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIACTIONA(pub *const DIACTIONA);
-impl LPCDIACTIONA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIACTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCDIACTION = LPCDIACTIONA;
+pub type LPCDIACTIONA = *const DIACTIONA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDIACTIONFORMAT(pub LPCDIACTIONFORMATA);
+pub type LPCDIACTIONFORMAT = LPCDIACTIONFORMATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIACTIONFORMATA(pub *const DIACTIONFORMATA);
+pub type LPCDIACTIONFORMATA = *const DIACTIONFORMATA;
 #[cfg(feature = "minwindef")]
-impl LPCDIACTIONFORMATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDIACTIONFORMATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIACTIONFORMATW(pub *const DIACTIONFORMATW);
-#[cfg(feature = "minwindef")]
-impl LPCDIACTIONFORMATW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDIACTIONFORMATW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIACTIONW(pub *const DIACTIONW);
-impl LPCDIACTIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIACTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCDIACTIONFORMATW = *const DIACTIONFORMATW;
+pub type LPCDIACTIONW = *const DIACTIONW;
 #[cfg(feature = "dsound")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICOLORSET(pub *const DICOLORSET);
+pub type LPCDICOLORSET = *const DICOLORSET;
+pub type LPCDICONDITION = *const DICONDITION;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+pub type LPCDICONFIGUREDEVICESPARAMS = LPCDICONFIGUREDEVICESPARAMSA;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+pub type LPCDICONFIGUREDEVICESPARAMSA = *const DICONFIGUREDEVICESPARAMSA;
+#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
+pub type LPCDICONFIGUREDEVICESPARAMSW = *const DICONFIGUREDEVICESPARAMSW;
+pub type LPCDICONSTANTFORCE = *const DICONSTANTFORCE;
+#[cfg(feature = "minwindef")]
+pub type LPCDICUSTOMFORCE = *const DICUSTOMFORCE;
+pub type LPCDIDATAFORMAT = *const DIDATAFORMAT;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFO = LPCDIDEVICEIMAGEINFOA;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFOA = *const DIDEVICEIMAGEINFOA;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFOHEADER = LPCDIDEVICEIMAGEINFOHEADERA;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFOHEADERA = *const DIDEVICEIMAGEINFOHEADERA;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFOHEADERW = *const DIDEVICEIMAGEINFOHEADERW;
+#[cfg(feature = "windef")]
+pub type LPCDIDEVICEIMAGEINFOW = *const DIDEVICEIMAGEINFOW;
+pub type LPCDIDEVICEINSTANCE = LPCDIDEVICEINSTANCEA;
+pub type LPCDIDEVICEINSTANCEA = *const DIDEVICEINSTANCEA;
+pub type LPCDIDEVICEINSTANCEW = *const DIDEVICEINSTANCEW;
+pub type LPCDIDEVICEINSTANCE_DX3 = *const DIDEVICEINSTANCE_DX3;
+pub type LPCDIDEVICEINSTANCE_DX3A = *const DIDEVICEINSTANCE_DX3A;
+pub type LPCDIDEVICEINSTANCE_DX3W = *const DIDEVICEINSTANCE_DX3W;
+pub type LPCDIDEVICEOBJECTDATA = *const DIDEVICEOBJECTDATA;
+pub type LPCDIDEVICEOBJECTDATA_DX = *const DIDEVICEOBJECTDATA_DX3;
+pub type LPCDIDEVICEOBJECTINSTANCE = *const DIDEVICEOBJECTINSTANCE;
+pub type LPCDIDEVICEOBJECTINSTANCEA = *const DIDEVICEOBJECTINSTANCEA;
+pub type LPCDIDEVICEOBJECTINSTANCEW = *const DIDEVICEOBJECTINSTANCEW;
+pub type LPCDIDEVICEOBJECTINSTANCE_DX3 = *const DIDEVICEOBJECTINSTANCE_DX3;
+pub type LPCDIDEVICEOBJECTINSTANCE_DX3A = *const DIDEVICEOBJECTINSTANCE_DX3A;
+pub type LPCDIDEVICEOBJECTINSTANCE_DX3W = *const DIDEVICEOBJECTINSTANCE_DX3W;
+#[cfg(feature = "minwindef")]
+pub type LPCDIEFFECT = *const DIEFFECT;
+pub type LPCDIEFFECTINFO = *const DIEFFECTINFO;
+pub type LPCDIEFFECTINFOA = *const DIEFFECTINFOA;
+pub type LPCDIEFFECTINFOW = *const DIEFFECTINFOW;
+#[cfg(feature = "minwindef")]
+pub type LPCDIEFFECT_DX5 = *const DIEFFECT_DX5;
+pub type LPCDIENVELOPE = *const DIENVELOPE;
+#[cfg(feature = "minwindef")]
+pub type LPCDIFILEEFFECT = *const DIFILEEFFECT;
+pub type LPCDIOBJECTDATAFORMAT = *const DIOBJECTDATAFORMAT;
+pub type LPCDIPERIODIC = *const DIPERIODIC;
+pub type LPCDIPROPCAL = *const DIPROPCAL;
+pub type LPCDIPROPCALPOV = *const DIPROPCALPOV;
+pub type LPCDIPROPCPOINTS = *const DIPROPCPOINTS;
+pub type LPCDIPROPDWORD = *const DIPROPDWORD;
+pub type LPCDIPROPGUIDANDPATH = *const DIPROPGUIDANDPATH;
+pub type LPCDIPROPHEADER = *const DIPROPHEADER;
+pub type LPCDIPROPPOINTER = *const DIPROPPOINTER;
+pub type LPCDIPROPRANGE = *const DIPROPRANGE;
+pub type LPCDIPROPSTRING = *const DIPROPSTRING;
+pub type LPCDIRAMPFORCE = *const DIRAMPFORCE;
+pub type LPDIACTION = LPDIACTIONA;
+pub type LPDIACTIONA = *mut DIACTIONA;
+#[cfg(feature = "minwindef")]
+pub type LPDIACTIONFORMAT = LPDIACTIONFORMATA;
+#[cfg(feature = "minwindef")]
+pub type LPDIACTIONFORMATA = *mut DIACTIONFORMATA;
+#[cfg(feature = "minwindef")]
+pub type LPDIACTIONFORMATW = *mut DIACTIONFORMATW;
+pub type LPDIACTIONW = *mut DIACTIONW;
 #[cfg(feature = "dsound")]
-impl LPCDICOLORSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "dsound")]
-impl Default for LPCDICOLORSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICONDITION(pub *const DICONDITION);
-impl LPCDICONDITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDICONDITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDICONFIGUREDEVICESPARAMS(pub LPCDICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICONFIGUREDEVICESPARAMSA(pub *const DICONFIGUREDEVICESPARAMSA);
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl LPCDICONFIGUREDEVICESPARAMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for LPCDICONFIGUREDEVICESPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICONFIGUREDEVICESPARAMSW(pub *const DICONFIGUREDEVICESPARAMSW);
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl LPCDICONFIGUREDEVICESPARAMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for LPCDICONFIGUREDEVICESPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICONSTANTFORCE(pub *const DICONSTANTFORCE);
-impl LPCDICONSTANTFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDICONSTANTFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDICUSTOMFORCE(pub *const DICUSTOMFORCE);
-#[cfg(feature = "minwindef")]
-impl LPCDICUSTOMFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDICUSTOMFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDATAFORMAT(pub *const DIDATAFORMAT);
-impl LPCDIDATAFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDIDEVICEIMAGEINFO(pub LPCDIDEVICEIMAGEINFOA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEIMAGEINFOA(pub *const DIDEVICEIMAGEINFOA);
-#[cfg(feature = "windef")]
-impl LPCDIDEVICEIMAGEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCDIDEVICEIMAGEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDIDEVICEIMAGEINFOHEADER(pub LPCDIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEIMAGEINFOHEADERA(pub *const DIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "windef")]
-impl LPCDIDEVICEIMAGEINFOHEADERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCDIDEVICEIMAGEINFOHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEIMAGEINFOHEADERW(pub *const DIDEVICEIMAGEINFOHEADERW);
-#[cfg(feature = "windef")]
-impl LPCDIDEVICEIMAGEINFOHEADERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCDIDEVICEIMAGEINFOHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEIMAGEINFOW(pub *const DIDEVICEIMAGEINFOW);
-#[cfg(feature = "windef")]
-impl LPCDIDEVICEIMAGEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCDIDEVICEIMAGEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCDIDEVICEINSTANCE(pub LPCDIDEVICEINSTANCEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEINSTANCEA(pub *const DIDEVICEINSTANCEA);
-impl LPCDIDEVICEINSTANCEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEINSTANCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEINSTANCEW(pub *const DIDEVICEINSTANCEW);
-impl LPCDIDEVICEINSTANCEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEINSTANCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEINSTANCE_DX3(pub *const DIDEVICEINSTANCE_DX3);
-impl LPCDIDEVICEINSTANCE_DX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEINSTANCE_DX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEINSTANCE_DX3A(pub *const DIDEVICEINSTANCE_DX3A);
-impl LPCDIDEVICEINSTANCE_DX3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEINSTANCE_DX3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEINSTANCE_DX3W(pub *const DIDEVICEINSTANCE_DX3W);
-impl LPCDIDEVICEINSTANCE_DX3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEINSTANCE_DX3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTDATA(pub *const DIDEVICEOBJECTDATA);
-impl LPCDIDEVICEOBJECTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTDATA_DX(pub *const DIDEVICEOBJECTDATA_DX3);
-impl LPCDIDEVICEOBJECTDATA_DX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTDATA_DX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCE(pub *const DIDEVICEOBJECTINSTANCE);
-impl LPCDIDEVICEOBJECTINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCEA(pub *const DIDEVICEOBJECTINSTANCEA);
-impl LPCDIDEVICEOBJECTINSTANCEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCEW(pub *const DIDEVICEOBJECTINSTANCEW);
-impl LPCDIDEVICEOBJECTINSTANCEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCE_DX3(pub *const DIDEVICEOBJECTINSTANCE_DX3);
-impl LPCDIDEVICEOBJECTINSTANCE_DX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCE_DX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCE_DX3A(pub *const DIDEVICEOBJECTINSTANCE_DX3A);
-impl LPCDIDEVICEOBJECTINSTANCE_DX3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCE_DX3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIDEVICEOBJECTINSTANCE_DX3W(pub *const DIDEVICEOBJECTINSTANCE_DX3W);
-impl LPCDIDEVICEOBJECTINSTANCE_DX3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIDEVICEOBJECTINSTANCE_DX3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIEFFECT(pub *const DIEFFECT);
-#[cfg(feature = "minwindef")]
-impl LPCDIEFFECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDIEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIEFFECTINFO(pub *const DIEFFECTINFO);
-impl LPCDIEFFECTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIEFFECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIEFFECTINFOA(pub *const DIEFFECTINFOA);
-impl LPCDIEFFECTINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIEFFECTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIEFFECTINFOW(pub *const DIEFFECTINFOW);
-impl LPCDIEFFECTINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIEFFECTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIEFFECT_DX5(pub *const DIEFFECT_DX5);
-#[cfg(feature = "minwindef")]
-impl LPCDIEFFECT_DX5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDIEFFECT_DX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIENVELOPE(pub *const DIENVELOPE);
-impl LPCDIENVELOPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIENVELOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIFILEEFFECT(pub *const DIFILEEFFECT);
-#[cfg(feature = "minwindef")]
-impl LPCDIFILEEFFECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCDIFILEEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIOBJECTDATAFORMAT(pub *const DIOBJECTDATAFORMAT);
-impl LPCDIOBJECTDATAFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIOBJECTDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPERIODIC(pub *const DIPERIODIC);
-impl LPCDIPERIODIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPERIODIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPCAL(pub *const DIPROPCAL);
-impl LPCDIPROPCAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPCAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPCALPOV(pub *const DIPROPCALPOV);
-impl LPCDIPROPCALPOV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPCALPOV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPCPOINTS(pub *const DIPROPCPOINTS);
-impl LPCDIPROPCPOINTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPCPOINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPDWORD(pub *const DIPROPDWORD);
-impl LPCDIPROPDWORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPDWORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPGUIDANDPATH(pub *const DIPROPGUIDANDPATH);
-impl LPCDIPROPGUIDANDPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPGUIDANDPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPHEADER(pub *const DIPROPHEADER);
-impl LPCDIPROPHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPPOINTER(pub *const DIPROPPOINTER);
-impl LPCDIPROPPOINTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPRANGE(pub *const DIPROPRANGE);
-impl LPCDIPROPRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIPROPSTRING(pub *const DIPROPSTRING);
-impl LPCDIPROPSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIPROPSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCDIRAMPFORCE(pub *const DIRAMPFORCE);
-impl LPCDIRAMPFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCDIRAMPFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIACTION(pub LPDIACTIONA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIACTIONA(pub *mut DIACTIONA);
-impl LPDIACTIONA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIACTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIACTIONFORMAT(pub LPDIACTIONFORMATA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIACTIONFORMATA(pub *mut DIACTIONFORMATA);
-#[cfg(feature = "minwindef")]
-impl LPDIACTIONFORMATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPDIACTIONFORMATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIACTIONFORMATW(pub *mut DIACTIONFORMATW);
-#[cfg(feature = "minwindef")]
-impl LPDIACTIONFORMATW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPDIACTIONFORMATW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIACTIONW(pub *mut DIACTIONW);
-impl LPDIACTIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIACTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "dsound")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICOLORSET(pub *mut DICOLORSET);
-#[cfg(feature = "dsound")]
-impl LPDICOLORSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "dsound")]
-impl Default for LPDICOLORSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICONDITION(pub *mut DICONDITION);
-impl LPDICONDITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDICONDITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDICOLORSET = *mut DICOLORSET;
+pub type LPDICONDITION = *mut DICONDITION;
 pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::IUnknown>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDICONFIGUREDEVICESPARAMS(pub LPDICONFIGUREDEVICESPARAMSA);
+pub type LPDICONFIGUREDEVICESPARAMS = LPDICONFIGUREDEVICESPARAMSA;
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICONFIGUREDEVICESPARAMSA(pub *mut DICONFIGUREDEVICESPARAMSA);
+pub type LPDICONFIGUREDEVICESPARAMSA = *mut DICONFIGUREDEVICESPARAMSA;
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl LPDICONFIGUREDEVICESPARAMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for LPDICONFIGUREDEVICESPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICONFIGUREDEVICESPARAMSW(pub *mut DICONFIGUREDEVICESPARAMSW);
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl LPDICONFIGUREDEVICESPARAMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-impl Default for LPDICONFIGUREDEVICESPARAMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICONSTANTFORCE(pub *mut DICONSTANTFORCE);
-impl LPDICONSTANTFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDICONSTANTFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDICONFIGUREDEVICESPARAMSW = *mut DICONFIGUREDEVICESPARAMSW;
+pub type LPDICONSTANTFORCE = *mut DICONSTANTFORCE;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDICUSTOMFORCE(pub *mut DICUSTOMFORCE);
+pub type LPDICUSTOMFORCE = *mut DICUSTOMFORCE;
+pub type LPDIDATAFORMAT = *mut DIDATAFORMAT;
+pub type LPDIDEVCAPS = *mut DIDEVCAPS;
+pub type LPDIDEVCAPS_DX3 = *mut DIDEVCAPS_DX3;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFO = LPDIDEVICEIMAGEINFOA;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFOA = *mut DIDEVICEIMAGEINFOA;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFOHEADER = LPDIDEVICEIMAGEINFOHEADERA;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFOHEADERA = *mut DIDEVICEIMAGEINFOHEADERA;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFOHEADERW = *mut DIDEVICEIMAGEINFOHEADERW;
+#[cfg(feature = "windef")]
+pub type LPDIDEVICEIMAGEINFOW = *mut DIDEVICEIMAGEINFOW;
+pub type LPDIDEVICEINSTANCE = LPDIDEVICEINSTANCEA;
+pub type LPDIDEVICEINSTANCEA = *mut DIDEVICEINSTANCEA;
+pub type LPDIDEVICEINSTANCEW = *mut DIDEVICEINSTANCEW;
+pub type LPDIDEVICEINSTANCE_DX3 = LPDIDEVICEINSTANCE_DX3A;
+pub type LPDIDEVICEINSTANCE_DX3A = *mut DIDEVICEINSTANCE_DX3A;
+pub type LPDIDEVICEINSTANCE_DX3W = *mut DIDEVICEINSTANCE_DX3W;
+pub type LPDIDEVICEOBJECTDATA = *mut DIDEVICEOBJECTDATA;
+pub type LPDIDEVICEOBJECTDATA_DX3 = *mut DIDEVICEOBJECTDATA_DX3;
+pub type LPDIDEVICEOBJECTINSTANCE = LPDIDEVICEOBJECTINSTANCEA;
+pub type LPDIDEVICEOBJECTINSTANCEA = *mut DIDEVICEOBJECTINSTANCEA;
+pub type LPDIDEVICEOBJECTINSTANCEW = *mut DIDEVICEOBJECTINSTANCEW;
+pub type LPDIDEVICEOBJECTINSTANCE_DX3 = LPDIDEVICEOBJECTINSTANCE_DX3A;
+pub type LPDIDEVICEOBJECTINSTANCE_DX3A = *mut DIDEVICEOBJECTINSTANCE_DX3A;
+pub type LPDIDEVICEOBJECTINSTANCE_DX3W = *mut DIDEVICEOBJECTINSTANCE_DX3W;
 #[cfg(feature = "minwindef")]
-impl LPDICUSTOMFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPDIEFFECT = *mut DIEFFECT;
+pub type LPDIEFFECTINFO = LPDIEFFECTINFOA;
+pub type LPDIEFFECTINFOA = *mut DIEFFECTINFOA;
+pub type LPDIEFFECTINFOW = *mut DIEFFECTINFOW;
 #[cfg(feature = "minwindef")]
-impl Default for LPDICUSTOMFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDATAFORMAT(pub *mut DIDATAFORMAT);
-impl LPDIDATAFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVCAPS(pub *mut DIDEVCAPS);
-impl LPDIDEVCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVCAPS_DX3(pub *mut DIDEVCAPS_DX3);
-impl LPDIDEVCAPS_DX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVCAPS_DX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEIMAGEINFO(pub LPDIDEVICEIMAGEINFOA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEIMAGEINFOA(pub *mut DIDEVICEIMAGEINFOA);
-#[cfg(feature = "windef")]
-impl LPDIDEVICEIMAGEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDIDEVICEIMAGEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEIMAGEINFOHEADER(pub LPDIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEIMAGEINFOHEADERA(pub *mut DIDEVICEIMAGEINFOHEADERA);
-#[cfg(feature = "windef")]
-impl LPDIDEVICEIMAGEINFOHEADERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDIDEVICEIMAGEINFOHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEIMAGEINFOHEADERW(pub *mut DIDEVICEIMAGEINFOHEADERW);
-#[cfg(feature = "windef")]
-impl LPDIDEVICEIMAGEINFOHEADERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDIDEVICEIMAGEINFOHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEIMAGEINFOW(pub *mut DIDEVICEIMAGEINFOW);
-#[cfg(feature = "windef")]
-impl LPDIDEVICEIMAGEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDIDEVICEIMAGEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEINSTANCE(pub LPDIDEVICEINSTANCEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEINSTANCEA(pub *mut DIDEVICEINSTANCEA);
-impl LPDIDEVICEINSTANCEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEINSTANCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEINSTANCEW(pub *mut DIDEVICEINSTANCEW);
-impl LPDIDEVICEINSTANCEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEINSTANCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEINSTANCE_DX3(pub LPDIDEVICEINSTANCE_DX3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEINSTANCE_DX3A(pub *mut DIDEVICEINSTANCE_DX3A);
-impl LPDIDEVICEINSTANCE_DX3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEINSTANCE_DX3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEINSTANCE_DX3W(pub *mut DIDEVICEINSTANCE_DX3W);
-impl LPDIDEVICEINSTANCE_DX3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEINSTANCE_DX3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTDATA(pub *mut DIDEVICEOBJECTDATA);
-impl LPDIDEVICEOBJECTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTDATA_DX3(pub *mut DIDEVICEOBJECTDATA_DX3);
-impl LPDIDEVICEOBJECTDATA_DX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTDATA_DX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEOBJECTINSTANCE(pub LPDIDEVICEOBJECTINSTANCEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTINSTANCEA(pub *mut DIDEVICEOBJECTINSTANCEA);
-impl LPDIDEVICEOBJECTINSTANCEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTINSTANCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTINSTANCEW(pub *mut DIDEVICEOBJECTINSTANCEW);
-impl LPDIDEVICEOBJECTINSTANCEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTINSTANCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIDEVICEOBJECTINSTANCE_DX3(pub LPDIDEVICEOBJECTINSTANCE_DX3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTINSTANCE_DX3A(pub *mut DIDEVICEOBJECTINSTANCE_DX3A);
-impl LPDIDEVICEOBJECTINSTANCE_DX3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTINSTANCE_DX3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIDEVICEOBJECTINSTANCE_DX3W(pub *mut DIDEVICEOBJECTINSTANCE_DX3W);
-impl LPDIDEVICEOBJECTINSTANCE_DX3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIDEVICEOBJECTINSTANCE_DX3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIEFFECT_DX5 = *mut DIEFFECT_DX5;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIEFFECT(pub *mut DIEFFECT);
-#[cfg(feature = "minwindef")]
-impl LPDIEFFECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPDIEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIEFFECTINFO(pub LPDIEFFECTINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIEFFECTINFOA(pub *mut DIEFFECTINFOA);
-impl LPDIEFFECTINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIEFFECTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIEFFECTINFOW(pub *mut DIEFFECTINFOW);
-impl LPDIEFFECTINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIEFFECTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIEFFECT_DX5(pub *mut DIEFFECT_DX5);
-#[cfg(feature = "minwindef")]
-impl LPDIEFFECT_DX5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPDIEFFECT_DX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIEFFECT_DX6(pub LPDIEFFECT);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIEFFESCAPE(pub *mut DIEFFESCAPE);
-impl LPDIEFFESCAPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIEFFESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIEFFECT_DX6 = LPDIEFFECT;
+pub type LPDIEFFESCAPE = *mut DIEFFESCAPE;
 pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectInputEffect>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *const DIDEVICEOBJECTINSTANCEA, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIDEVICEOBJECTINSTANCEW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
@@ -6234,256 +5202,26 @@ pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *co
 pub type LPDIENUMEFFECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *const DIEFFECTINFOW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
 pub type LPDIENUMEFFECTSINFILECALLBACK = Option<unsafe extern "system" fn(param0: *const DIFILEEFFECT, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIENVELOPE(pub *mut DIENVELOPE);
-impl LPDIENVELOPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIENVELOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIENVELOPE = *mut DIENVELOPE;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIFILEEFFECT(pub *mut DIFILEEFFECT);
-#[cfg(feature = "minwindef")]
-impl LPDIFILEEFFECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPDIFILEEFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIJOYSTATE(pub *mut DIJOYSTATE);
-impl LPDIJOYSTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIJOYSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIJOYSTATE2(pub *mut DIJOYSTATE2);
-impl LPDIJOYSTATE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIJOYSTATE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIMOUSESTATE(pub *mut DIMOUSESTATE);
-impl LPDIMOUSESTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIMOUSESTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIMOUSESTATE2(pub *mut DIMOUSESTATE2);
-impl LPDIMOUSESTATE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIMOUSESTATE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIOBJECTDATAFORMAT(pub *mut DIOBJECTDATAFORMAT);
-impl LPDIOBJECTDATAFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIOBJECTDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPERIODIC(pub *mut DIPERIODIC);
-impl LPDIPERIODIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPERIODIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPCAL(pub *mut DIPROPCAL);
-impl LPDIPROPCAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPCAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPCALPOV(pub *mut DIPROPCALPOV);
-impl LPDIPROPCALPOV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPCALPOV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPCPOINTS(pub *mut DIPROPCPOINTS);
-impl LPDIPROPCPOINTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPCPOINTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPDWORD(pub *mut DIPROPDWORD);
-impl LPDIPROPDWORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPDWORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPGUIDANDPATH(pub *mut DIPROPGUIDANDPATH);
-impl LPDIPROPGUIDANDPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPGUIDANDPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPHEADER(pub *mut DIPROPHEADER);
-impl LPDIPROPHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPPOINTER(pub *mut DIPROPPOINTER);
-impl LPDIPROPPOINTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPRANGE(pub *mut DIPROPRANGE);
-impl LPDIPROPRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIPROPSTRING(pub *mut DIPROPSTRING);
-impl LPDIPROPSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIPROPSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIRAMPFORCE(pub *mut DIRAMPFORCE);
-impl LPDIRAMPFORCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDIRAMPFORCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIFILEEFFECT = *mut DIFILEEFFECT;
+pub type LPDIJOYSTATE = *mut DIJOYSTATE;
+pub type LPDIJOYSTATE2 = *mut DIJOYSTATE2;
+pub type LPDIMOUSESTATE = *mut DIMOUSESTATE;
+pub type LPDIMOUSESTATE2 = *mut DIMOUSESTATE2;
+pub type LPDIOBJECTDATAFORMAT = *mut DIOBJECTDATAFORMAT;
+pub type LPDIPERIODIC = *mut DIPERIODIC;
+pub type LPDIPROPCAL = *mut DIPROPCAL;
+pub type LPDIPROPCALPOV = *mut DIPROPCALPOV;
+pub type LPDIPROPCPOINTS = *mut DIPROPCPOINTS;
+pub type LPDIPROPDWORD = *mut DIPROPDWORD;
+pub type LPDIPROPGUIDANDPATH = *mut DIPROPGUIDANDPATH;
+pub type LPDIPROPHEADER = *mut DIPROPHEADER;
+pub type LPDIPROPPOINTER = *mut DIPROPPOINTER;
+pub type LPDIPROPRANGE = *mut DIPROPRANGE;
+pub type LPDIPROPSTRING = *mut DIPROPSTRING;
+pub type LPDIRAMPFORCE = *mut DIRAMPFORCE;
 #[cfg(feature = "windef")]
 pub type LPFNSHOWJOYCPL = Option<unsafe extern "system" fn(hwnd: super::windef::HWND)>;
 pub const MAXCPOINTSNUM: u32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPOINT(pub *mut CPOINT);
-impl PCPOINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCPOINT = *mut CPOINT;

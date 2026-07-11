@@ -90,64 +90,12 @@ pub unsafe fn WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKE
     windows_core::link!("websocket.dll" "system" fn WebSocketSend(hwebsocket : WEB_SOCKET_HANDLE, buffertype : WEB_SOCKET_BUFFER_TYPE, pbuffer : *const WEB_SOCKET_BUFFER, context : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { WebSocketSend(hwebsocket, buffertype, pbuffer.unwrap_or(core::mem::zeroed()) as _, context.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWEB_SOCKET_ACTION(pub *mut WEB_SOCKET_ACTION);
-impl PWEB_SOCKET_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWEB_SOCKET_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWEB_SOCKET_ACTION = *mut WEB_SOCKET_ACTION;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWEB_SOCKET_BUFFER(pub *mut WEB_SOCKET_BUFFER);
-#[cfg(feature = "minwindef")]
-impl PWEB_SOCKET_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWEB_SOCKET_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWEB_SOCKET_BUFFER = *mut WEB_SOCKET_BUFFER;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWEB_SOCKET_HTTP_HEADER(pub *mut WEB_SOCKET_HTTP_HEADER);
-#[cfg(feature = "winnt")]
-impl PWEB_SOCKET_HTTP_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWEB_SOCKET_HTTP_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWEB_SOCKET_PROPERTY(pub *mut WEB_SOCKET_PROPERTY);
-impl PWEB_SOCKET_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWEB_SOCKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWEB_SOCKET_HTTP_HEADER = *mut WEB_SOCKET_HTTP_HEADER;
+pub type PWEB_SOCKET_PROPERTY = *mut WEB_SOCKET_PROPERTY;
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1006;
 pub type WEB_SOCKET_ACTION = i32;
 pub type WEB_SOCKET_ACTION_QUEUE = i32;

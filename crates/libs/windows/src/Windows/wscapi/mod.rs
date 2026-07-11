@@ -36,32 +36,8 @@ pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::winnt::HANDLE) ->
     windows_core::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::winnt::HANDLE) -> windows_core::HRESULT);
     unsafe { WscUnRegisterChanges(hregistrationhandle) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSC_SECURITY_PROVIDER(pub *mut WSC_SECURITY_PROVIDER);
-impl PWSC_SECURITY_PROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSC_SECURITY_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSC_SECURITY_PROVIDER_HEALTH(pub *mut WSC_SECURITY_PROVIDER_HEALTH);
-impl PWSC_SECURITY_PROVIDER_HEALTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSC_SECURITY_PROVIDER_HEALTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSC_SECURITY_PROVIDER = *mut WSC_SECURITY_PROVIDER;
+pub type PWSC_SECURITY_PROVIDER_HEALTH = *mut WSC_SECURITY_PROVIDER_HEALTH;
 pub type WSC_SECURITY_PROVIDER = i32;
 pub const WSC_SECURITY_PROVIDER_ALL: WSC_SECURITY_PROVIDER = 127;
 pub const WSC_SECURITY_PROVIDER_ANTISPYWARE: WSC_SECURITY_PROVIDER = 8;

@@ -121,105 +121,15 @@ pub const LF32_FIXED: u32 = 1;
 pub const LF32_FREE: u32 = 2;
 pub const LF32_MOVEABLE: u32 = 4;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHEAPENTRY32(pub *mut HEAPENTRY32);
-#[cfg(feature = "winnt")]
-impl LPHEAPENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPHEAPENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHEAPLIST32(pub *mut HEAPLIST32);
-impl LPHEAPLIST32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHEAPLIST32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHEAPENTRY32 = *mut HEAPENTRY32;
+pub type LPHEAPLIST32 = *mut HEAPLIST32;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMODULEENTRY32(pub *mut MODULEENTRY32);
+pub type LPMODULEENTRY32 = *mut MODULEENTRY32;
 #[cfg(feature = "minwindef")]
-impl LPMODULEENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPMODULEENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMODULEENTRY32W(pub *mut MODULEENTRY32W);
-#[cfg(feature = "minwindef")]
-impl LPMODULEENTRY32W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPMODULEENTRY32W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROCESSENTRY32(pub *mut PROCESSENTRY32);
-impl LPPROCESSENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROCESSENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROCESSENTRY32W(pub *mut PROCESSENTRY32W);
-impl LPPROCESSENTRY32W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROCESSENTRY32W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTHREADENTRY32(pub *mut THREADENTRY32);
-impl LPTHREADENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTHREADENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMODULEENTRY32W = *mut MODULEENTRY32W;
+pub type LPPROCESSENTRY32 = *mut PROCESSENTRY32;
+pub type LPPROCESSENTRY32W = *mut PROCESSENTRY32W;
+pub type LPTHREADENTRY32 = *mut THREADENTRY32;
 pub const MAX_MODULE_NAME32: u32 = 255;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
@@ -264,92 +174,14 @@ impl Default for MODULEENTRY32W {
     }
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHEAPENTRY32(pub *mut HEAPENTRY32);
-#[cfg(feature = "winnt")]
-impl PHEAPENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHEAPENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHEAPLIST32(pub *mut HEAPLIST32);
-impl PHEAPLIST32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHEAPLIST32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHEAPENTRY32 = *mut HEAPENTRY32;
+pub type PHEAPLIST32 = *mut HEAPLIST32;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODULEENTRY32(pub *mut MODULEENTRY32);
+pub type PMODULEENTRY32 = *mut MODULEENTRY32;
 #[cfg(feature = "minwindef")]
-impl PMODULEENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMODULEENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODULEENTRY32W(pub *mut MODULEENTRY32W);
-#[cfg(feature = "minwindef")]
-impl PMODULEENTRY32W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMODULEENTRY32W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSENTRY32(pub *mut PROCESSENTRY32);
-impl PPROCESSENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESSENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSENTRY32W(pub *mut PROCESSENTRY32W);
-impl PPROCESSENTRY32W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESSENTRY32W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMODULEENTRY32W = *mut MODULEENTRY32W;
+pub type PPROCESSENTRY32 = *mut PROCESSENTRY32;
+pub type PPROCESSENTRY32W = *mut PROCESSENTRY32W;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESSENTRY32 {
@@ -388,19 +220,7 @@ impl Default for PROCESSENTRY32W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHREADENTRY32(pub *mut THREADENTRY32);
-impl PTHREADENTRY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTHREADENTRY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTHREADENTRY32 = *mut THREADENTRY32;
 pub const TH32CS_INHERIT: u32 = 2147483648;
 pub const TH32CS_SNAPALL: u32 = 15;
 pub const TH32CS_SNAPHEAPLIST: u32 = 1;

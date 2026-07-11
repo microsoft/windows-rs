@@ -745,307 +745,35 @@ pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1;
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXT_API_VERSION(pub *mut EXT_API_VERSION);
-impl LPEXT_API_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXT_API_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPEXT_API_VERSION = *mut EXT_API_VERSION;
 pub const MEMORY_READ_ERROR: u32 = 1;
 pub const NULL_FIELD_NAME: u32 = 6;
 pub const NULL_SYM_DUMP_PARAM: u32 = 5;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUSDATA(pub *mut BUSDATA);
-impl PBUSDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUSDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBUSDATA = *mut BUSDATA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBGKD_DEBUG_DATA_HEADER32(pub *mut DBGKD_DEBUG_DATA_HEADER32);
+pub type PDBGKD_DEBUG_DATA_HEADER32 = *mut DBGKD_DEBUG_DATA_HEADER32;
 #[cfg(feature = "winnt")]
-impl PDBGKD_DEBUG_DATA_HEADER32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDBGKD_DEBUG_DATA_HEADER64 = *mut DBGKD_DEBUG_DATA_HEADER64;
+pub type PDBGKD_GET_VERSION32 = *mut DBGKD_GET_VERSION32;
+pub type PDBGKD_GET_VERSION64 = *mut DBGKD_GET_VERSION64;
+pub type PDEBUG_TYPED_DATA = *mut DEBUG_TYPED_DATA;
+pub type PEXTSTACKTRACE = *mut EXTSTACKTRACE;
+pub type PEXTSTACKTRACE32 = *mut EXTSTACKTRACE32;
+pub type PEXTSTACKTRACE64 = *mut EXTSTACKTRACE64;
 #[cfg(feature = "winnt")]
-impl Default for PDBGKD_DEBUG_DATA_HEADER32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBGKD_DEBUG_DATA_HEADER64(pub *mut DBGKD_DEBUG_DATA_HEADER64);
-#[cfg(feature = "winnt")]
-impl PDBGKD_DEBUG_DATA_HEADER64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDBGKD_DEBUG_DATA_HEADER64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBGKD_GET_VERSION32(pub *mut DBGKD_GET_VERSION32);
-impl PDBGKD_GET_VERSION32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDBGKD_GET_VERSION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBGKD_GET_VERSION64(pub *mut DBGKD_GET_VERSION64);
-impl PDBGKD_GET_VERSION64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDBGKD_GET_VERSION64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_TYPED_DATA(pub *mut DEBUG_TYPED_DATA);
-impl PDEBUG_TYPED_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_TYPED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTSTACKTRACE(pub *mut EXTSTACKTRACE);
-impl PEXTSTACKTRACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTSTACKTRACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTSTACKTRACE32(pub *mut EXTSTACKTRACE32);
-impl PEXTSTACKTRACE32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTSTACKTRACE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTSTACKTRACE64(pub *mut EXTSTACKTRACE64);
-impl PEXTSTACKTRACE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTSTACKTRACE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_FIND_FILE(pub *mut EXT_FIND_FILE);
-#[cfg(feature = "winnt")]
-impl PEXT_FIND_FILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXT_FIND_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_MATCH_PATTERN_A(pub *mut EXT_MATCH_PATTERN_A);
-impl PEXT_MATCH_PATTERN_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_MATCH_PATTERN_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_TYPED_DATA(pub *mut EXT_TYPED_DATA);
-impl PEXT_TYPED_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_TYPED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXT_FIND_FILE = *mut EXT_FIND_FILE;
+pub type PEXT_MATCH_PATTERN_A = *mut EXT_MATCH_PATTERN_A;
+pub type PEXT_TYPED_DATA = *mut EXT_TYPED_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFIELD_INFO(pub *mut FIELD_INFO);
-#[cfg(feature = "minwindef")]
-impl PFIELD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PFIELD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_CONTEXT_EX(pub *mut GET_CONTEXT_EX);
-impl PGET_CONTEXT_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_CONTEXT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_CURRENT_PROCESS_ADDRESS(pub *mut GET_CURRENT_PROCESS_ADDRESS);
-impl PGET_CURRENT_PROCESS_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_CURRENT_PROCESS_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_CURRENT_THREAD_ADDRESS(pub *mut GET_CURRENT_THREAD_ADDRESS);
-impl PGET_CURRENT_THREAD_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_CURRENT_THREAD_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_EXPRESSION_EX(pub *mut GET_EXPRESSION_EX);
-impl PGET_EXPRESSION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_EXPRESSION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_INPUT_LINE(pub *mut GET_INPUT_LINE);
-impl PGET_INPUT_LINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_INPUT_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_PEB_ADDRESS(pub *mut GET_PEB_ADDRESS);
-impl PGET_PEB_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_PEB_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_SET_SYMPATH(pub *mut GET_SET_SYMPATH);
-impl PGET_SET_SYMPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_SET_SYMPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_TEB_ADDRESS(pub *mut GET_TEB_ADDRESS);
-impl PGET_TEB_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_TEB_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFIELD_INFO = *mut FIELD_INFO;
+pub type PGET_CONTEXT_EX = *mut GET_CONTEXT_EX;
+pub type PGET_CURRENT_PROCESS_ADDRESS = *mut GET_CURRENT_PROCESS_ADDRESS;
+pub type PGET_CURRENT_THREAD_ADDRESS = *mut GET_CURRENT_THREAD_ADDRESS;
+pub type PGET_EXPRESSION_EX = *mut GET_EXPRESSION_EX;
+pub type PGET_INPUT_LINE = *mut GET_INPUT_LINE;
+pub type PGET_PEB_ADDRESS = *mut GET_PEB_ADDRESS;
+pub type PGET_SET_SYMPATH = *mut GET_SET_SYMPATH;
+pub type PGET_TEB_ADDRESS = *mut GET_TEB_ADDRESS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL {
@@ -1082,116 +810,16 @@ pub const PHYS_FLAG_CACHED: u32 = 1;
 pub const PHYS_FLAG_DEFAULT: u32 = 0;
 pub const PHYS_FLAG_UNCACHED: u32 = 2;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE(pub *mut IOSPACE);
-impl PIOSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE32(pub *mut IOSPACE32);
-impl PIOSPACE32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE64(pub *mut IOSPACE64);
-impl PIOSPACE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE_EX(pub *mut IOSPACE_EX);
-impl PIOSPACE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE_EX32(pub *mut IOSPACE_EX32);
-impl PIOSPACE_EX32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE_EX32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOSPACE_EX64(pub *mut IOSPACE_EX64);
-impl PIOSPACE_EX64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOSPACE_EX64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOSPACE = *mut IOSPACE;
+pub type PIOSPACE32 = *mut IOSPACE32;
+pub type PIOSPACE64 = *mut IOSPACE64;
+pub type PIOSPACE_EX = *mut IOSPACE_EX;
+pub type PIOSPACE_EX32 = *mut IOSPACE_EX32;
+pub type PIOSPACE_EX64 = *mut IOSPACE_EX64;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDDEBUGGER_DATA32(pub *mut KDDEBUGGER_DATA32);
+pub type PKDDEBUGGER_DATA32 = *mut KDDEBUGGER_DATA32;
 #[cfg(feature = "winnt")]
-impl PKDDEBUGGER_DATA32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKDDEBUGGER_DATA32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDDEBUGGER_DATA64(pub *mut KDDEBUGGER_DATA64);
-#[cfg(feature = "winnt")]
-impl PKDDEBUGGER_DATA64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKDDEBUGGER_DATA64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDDEBUGGER_DATA64 = *mut KDDEBUGGER_DATA64;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1225,294 +853,48 @@ pub struct POOL_HEADER_SIZE_64_0 {
     pub UnsafeSize: u8,
     pub UnsafePoolType: u8,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPHYSICAL(pub *mut PHYSICAL);
-impl PPHYSICAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPHYSICAL_TO_VIRTUAL(pub *mut PHYSICAL_TO_VIRTUAL);
-impl PPHYSICAL_TO_VIRTUAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPHYSICAL_TO_VIRTUAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPHYSICAL_WITH_FLAGS(pub *mut PHYSICAL_WITH_FLAGS);
-impl PPHYSICAL_WITH_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPHYSICAL_WITH_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPHYSICAL = *mut PHYSICAL;
+pub type PPHYSICAL_TO_VIRTUAL = *mut PHYSICAL_TO_VIRTUAL;
+pub type PPHYSICAL_WITH_FLAGS = *mut PHYSICAL_WITH_FLAGS;
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOINTER_SEARCH_PHYSICAL(pub *mut POINTER_SEARCH_PHYSICAL);
-#[cfg(feature = "basetsd")]
-impl PPOINTER_SEARCH_PHYSICAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PPOINTER_SEARCH_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_HEADER_SIZE_64(pub *mut POOL_HEADER_SIZE_64);
-impl PPOOL_HEADER_SIZE_64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOOL_HEADER_SIZE_64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSORINFO(pub *mut PROCESSORINFO);
-impl PPROCESSORINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESSORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREADCONTROLSPACE(pub *mut READCONTROLSPACE);
-impl PREADCONTROLSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREADCONTROLSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREADCONTROLSPACE32(pub *mut READCONTROLSPACE32);
-impl PREADCONTROLSPACE32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREADCONTROLSPACE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREADCONTROLSPACE64(pub *mut READCONTROLSPACE64);
-impl PREADCONTROLSPACE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREADCONTROLSPACE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREAD_WRITE_MSR(pub *mut READ_WRITE_MSR);
-impl PREAD_WRITE_MSR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREAD_WRITE_MSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOINTER_SEARCH_PHYSICAL = *mut POINTER_SEARCH_PHYSICAL;
+pub type PPOOL_HEADER_SIZE_64 = *mut POOL_HEADER_SIZE_64;
+pub type PPROCESSORINFO = *mut PROCESSORINFO;
+pub type PREADCONTROLSPACE = *mut READCONTROLSPACE;
+pub type PREADCONTROLSPACE32 = *mut READCONTROLSPACE32;
+pub type PREADCONTROLSPACE64 = *mut READCONTROLSPACE64;
+pub type PREAD_WRITE_MSR = *mut READ_WRITE_MSR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEARCHMEMORY(pub *mut SEARCHMEMORY);
-impl PSEARCHMEMORY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEARCHMEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSEARCHMEMORY = *mut SEARCHMEMORY;
 #[cfg(feature = "minwindef")]
 pub type PSYM_DUMP_FIELD_CALLBACK = Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYM_DUMP_PARAM(pub *mut SYM_DUMP_PARAM);
-#[cfg(feature = "minwindef")]
-impl PSYM_DUMP_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSYM_DUMP_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSLATE_VIRTUAL_TO_PHYSICAL(pub *mut TRANSLATE_VIRTUAL_TO_PHYSICAL);
-impl PTRANSLATE_VIRTUAL_TO_PHYSICAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSLATE_VIRTUAL_TO_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSYM_DUMP_PARAM = *mut SYM_DUMP_PARAM;
+pub type PTRANSLATE_VIRTUAL_TO_PHYSICAL = *mut TRANSLATE_VIRTUAL_TO_PHYSICAL;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648;
 pub const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1;
 pub const PTR_SEARCH_PHYS_PTE: u32 = 2;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4;
 pub const PTR_SEARCH_PHYS_SIZE_MASK: u32 = 120;
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_TO_PHYSICAL(pub *mut VIRTUAL_TO_PHYSICAL);
-impl PVIRTUAL_TO_PHYSICAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_TO_PHYSICAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWDBGEXTS_CLR_DATA_INTERFACE(pub *mut WDBGEXTS_CLR_DATA_INTERFACE);
-impl PWDBGEXTS_CLR_DATA_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWDBGEXTS_CLR_DATA_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWDBGEXTS_DISASSEMBLE_BUFFER(pub *mut WDBGEXTS_DISASSEMBLE_BUFFER);
-impl PWDBGEXTS_DISASSEMBLE_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWDBGEXTS_DISASSEMBLE_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWDBGEXTS_MODULE_IN_RANGE(pub *mut WDBGEXTS_MODULE_IN_RANGE);
-impl PWDBGEXTS_MODULE_IN_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWDBGEXTS_MODULE_IN_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWDBGEXTS_QUERY_INTERFACE(pub *mut WDBGEXTS_QUERY_INTERFACE);
-impl PWDBGEXTS_QUERY_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWDBGEXTS_QUERY_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWDBGEXTS_THREAD_OS_INFO(pub *mut WDBGEXTS_THREAD_OS_INFO);
-impl PWDBGEXTS_THREAD_OS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWDBGEXTS_THREAD_OS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVIRTUAL_TO_PHYSICAL = *mut VIRTUAL_TO_PHYSICAL;
+pub type PWDBGEXTS_CLR_DATA_INTERFACE = *mut WDBGEXTS_CLR_DATA_INTERFACE;
+pub type PWDBGEXTS_DISASSEMBLE_BUFFER = *mut WDBGEXTS_DISASSEMBLE_BUFFER;
+pub type PWDBGEXTS_MODULE_IN_RANGE = *mut WDBGEXTS_MODULE_IN_RANGE;
+pub type PWDBGEXTS_QUERY_INTERFACE = *mut WDBGEXTS_QUERY_INTERFACE;
+pub type PWDBGEXTS_THREAD_OS_INFO = *mut WDBGEXTS_THREAD_OS_INFO;
 pub type PWINDBG_CHECK_CONTROL_C = Option<unsafe extern "system" fn() -> u32>;
 pub type PWINDBG_CHECK_VERSION = Option<unsafe extern "system" fn() -> u32>;
 pub type PWINDBG_DISASM = Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM32 = Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
 pub type PWINDBG_DISASM64 = Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: windows_core::PSTR, fshoweffectiveaddress: u32) -> u32>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_EXTENSION_APIS(pub *mut WINDBG_EXTENSION_APIS);
-#[cfg(feature = "winnt")]
-impl PWINDBG_EXTENSION_APIS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWINDBG_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINDBG_EXTENSION_APIS = *mut WINDBG_EXTENSION_APIS;
 pub type PWINDBG_EXTENSION_API_VERSION = Option<unsafe extern "system" fn() -> LPEXT_API_VERSION>;
 #[cfg(feature = "winnt")]
 pub type PWINDBG_EXTENSION_DLL_INIT = Option<unsafe extern "system" fn(lpextensionapis: *const WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
@@ -1539,50 +921,14 @@ pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(p
 #[cfg(feature = "winnt")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut super::winnt::ARM64_NT_CONTEXT, cbsizeofcontext: u32) -> u32>;
 pub type PWINDBG_IOCTL_ROUTINE = Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut core::ffi::c_void, cbsize: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_OLDKD_EXTENSION_APIS(pub *mut WINDBG_OLDKD_EXTENSION_APIS);
-impl PWINDBG_OLDKD_EXTENSION_APIS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINDBG_OLDKD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINDBG_OLDKD_EXTENSION_APIS = *mut WINDBG_OLDKD_EXTENSION_APIS;
 pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *const WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: windows_core::PCSTR)>;
 pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *mut core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
 pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = Option<unsafe extern "system" fn(address: u64, buffer: *const core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_OLD_EXTENSION_APIS(pub *mut WINDBG_OLD_EXTENSION_APIS);
-impl PWINDBG_OLD_EXTENSION_APIS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINDBG_OLD_EXTENSION_APIS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINDBG_OLD_EXTENSION_APIS = *mut WINDBG_OLD_EXTENSION_APIS;
 #[cfg(feature = "winnt")]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *const WINDBG_EXTENSION_APIS, lpargumentstring: windows_core::PCSTR)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_OUTPUT_ROUTINE(pub *mut u8);
-impl PWINDBG_OUTPUT_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINDBG_OUTPUT_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINDBG_OUTPUT_ROUTINE = *mut u8;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;

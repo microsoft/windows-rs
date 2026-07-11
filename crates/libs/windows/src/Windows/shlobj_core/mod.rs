@@ -3713,565 +3713,61 @@ pub const KF_FLAG_RETURN_FILTER_REDIRECTION_TARGET: KNOWN_FOLDER_FLAG = 262144;
 pub const KF_FLAG_SIMPLE_IDLIST: KNOWN_FOLDER_FLAG = 256;
 pub type KNOWN_FOLDER_FLAG = u32;
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBROWSEINFOA(pub *mut BROWSEINFOA);
+pub type LPBROWSEINFOA = *mut BROWSEINFOA;
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl LPBROWSEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for LPBROWSEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBROWSEINFOW(pub *mut BROWSEINFOW);
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl LPBROWSEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for LPBROWSEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCABINETSTATE(pub *mut CABINETSTATE);
-impl LPCABINETSTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCABINETSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCCOMPONENT(pub *const COMPONENT);
-impl LPCCOMPONENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCCOMPONENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCCOMPONENTSOPT(pub *const COMPONENTSOPT);
-impl LPCCOMPONENTSOPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCCOMPONENTSOPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCCOMPPOS(pub *const COMPPOS);
-impl LPCCOMPPOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCCOMPPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCCOMPSTATEINFO(pub *const COMPSTATEINFO);
-impl LPCCOMPSTATEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCCOMPSTATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCIE4COMPONENT(pub *const IE4COMPONENT);
-impl LPCIE4COMPONENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCIE4COMPONENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMPONENT(pub *mut COMPONENT);
-impl LPCOMPONENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMPONENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMPONENTSOPT(pub *mut COMPONENTSOPT);
-impl LPCOMPONENTSOPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMPONENTSOPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMPPOS(pub *mut COMPPOS);
-impl LPCOMPPOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMPPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMPSTATEINFO(pub *mut COMPSTATEINFO);
-impl LPCOMPSTATEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMPSTATEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPPRG(pub *const PROPPRG);
-impl LPCPROPPRG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCPROPPRG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBROWSEINFOW = *mut BROWSEINFOW;
+pub type LPCABINETSTATE = *mut CABINETSTATE;
+pub type LPCCOMPONENT = *const COMPONENT;
+pub type LPCCOMPONENTSOPT = *const COMPONENTSOPT;
+pub type LPCCOMPPOS = *const COMPPOS;
+pub type LPCCOMPSTATEINFO = *const COMPSTATEINFO;
+pub type LPCIE4COMPONENT = *const IE4COMPONENT;
+pub type LPCOMPONENT = *mut COMPONENT;
+pub type LPCOMPONENTSOPT = *mut COMPONENTSOPT;
+pub type LPCOMPPOS = *mut COMPPOS;
+pub type LPCOMPSTATEINFO = *mut COMPSTATEINFO;
+pub type LPCPROPPRG = *const PROPPRG;
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSFV(pub *mut CSFV);
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl LPCSFV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for LPCSFV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCWALLPAPEROPT(pub *const WALLPAPEROPT);
-impl LPCWALLPAPEROPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCWALLPAPEROPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDATABLOCK_HEADER(pub *mut DATABLOCK_HEADER);
-impl LPDATABLOCK_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDATABLOCK_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDBLIST(pub *mut DATABLOCK_HEADER);
-impl LPDBLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDBLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCSFV = *mut CSFV;
+pub type LPCWALLPAPEROPT = *const WALLPAPEROPT;
+pub type LPDATABLOCK_HEADER = *mut DATABLOCK_HEADER;
+pub type LPDBLIST = *mut DATABLOCK_HEADER;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDROPFILES(pub *mut DROPFILES);
-#[cfg(feature = "windef")]
-impl LPDROPFILES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDROPFILES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXP_DARWIN_LINK(pub *mut EXP_DARWIN_LINK);
-impl LPEXP_DARWIN_LINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXP_DARWIN_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXP_SPECIAL_FOLDER(pub *mut EXP_SPECIAL_FOLDER);
-impl LPEXP_SPECIAL_FOLDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXP_SPECIAL_FOLDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXP_SZ_LINK(pub *mut EXP_SZ_LINK);
-impl LPEXP_SZ_LINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXP_SZ_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDROPFILES = *mut DROPFILES;
+pub type LPEXP_DARWIN_LINK = *mut EXP_DARWIN_LINK;
+pub type LPEXP_SPECIAL_FOLDER = *mut EXP_SPECIAL_FOLDER;
+pub type LPEXP_SZ_LINK = *mut EXP_SZ_LINK;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFILEDESCRIPTORA(pub *mut FILEDESCRIPTORA);
+pub type LPFILEDESCRIPTORA = *mut FILEDESCRIPTORA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFILEDESCRIPTORA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPFILEDESCRIPTORW = *mut FILEDESCRIPTORW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFILEDESCRIPTORA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFILEGROUPDESCRIPTORA = *mut FILEGROUPDESCRIPTORA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFILEDESCRIPTORW(pub *mut FILEDESCRIPTORW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFILEDESCRIPTORW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFILEDESCRIPTORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFILEGROUPDESCRIPTORA(pub *mut FILEGROUPDESCRIPTORA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFILEGROUPDESCRIPTORA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFILEGROUPDESCRIPTORA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFILEGROUPDESCRIPTORW(pub *mut FILEGROUPDESCRIPTORW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFILEGROUPDESCRIPTORW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFILEGROUPDESCRIPTORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFILEGROUPDESCRIPTORW = *mut FILEGROUPDESCRIPTORW;
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNDFMCALLBACK = Option<unsafe extern "system" fn(psf: windows_core::Ref<super::shobjidl_core::IShellFolder>, hwnd: super::windef::HWND, pdtobj: windows_core::Ref<super::objidl::IDataObject>, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT>;
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
 pub type LPFNVIEWCALLBACK = Option<unsafe extern "system" fn(psvouter: windows_core::Ref<super::shobjidl_core::IShellView>, psf: windows_core::Ref<super::shobjidl_core::IShellFolder>, hwndmain: super::windef::HWND, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIDA(pub *mut CIDA);
-impl LPIDA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPIDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIE4COMPONENT(pub *mut IE4COMPONENT);
-impl LPIE4COMPONENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPIE4COMPONENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPIDA = *mut CIDA;
+pub type LPIE4COMPONENT = *mut IE4COMPONENT;
 #[cfg(feature = "winnetwk")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNRESARRAY(pub *mut NRESARRAY);
-#[cfg(feature = "winnetwk")]
-impl LPNRESARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnetwk")]
-impl Default for LPNRESARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNRESARRAY = *mut NRESARRAY;
 #[cfg(all(feature = "wincontypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNT_CONSOLE_PROPS(pub *mut NT_CONSOLE_PROPS);
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
-impl LPNT_CONSOLE_PROPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wincontypes", feature = "windef"))]
-impl Default for LPNT_CONSOLE_PROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNT_FE_CONSOLE_PROPS(pub *mut NT_FE_CONSOLE_PROPS);
-impl LPNT_FE_CONSOLE_PROPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNT_FE_CONSOLE_PROPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPPRG(pub *mut PROPPRG);
-impl LPPROPPRG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROPPRG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNT_CONSOLE_PROPS = *mut NT_CONSOLE_PROPS;
+pub type LPNT_FE_CONSOLE_PROPS = *mut NT_FE_CONSOLE_PROPS;
+pub type LPPROPPRG = *mut PROPPRG;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQCMINFO(pub *mut QCMINFO);
-#[cfg(feature = "windef")]
-impl LPQCMINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPQCMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHChangeDWORDAsIDList(pub *mut SHChangeDWORDAsIDList);
-impl LPSHChangeDWORDAsIDList {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHChangeDWORDAsIDList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHChangeUpdateImageIDList(pub *mut SHChangeUpdateImageIDList);
-impl LPSHChangeUpdateImageIDList {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHChangeUpdateImageIDList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHDESCRIPTIONID(pub *mut SHDESCRIPTIONID);
-impl LPSHDESCRIPTIONID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHDESCRIPTIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLFLAGSTATE(pub *mut SHELLFLAGSTATE);
-impl LPSHELLFLAGSTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHELLFLAGSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLSTATEA(pub *mut SHELLSTATEA);
-impl LPSHELLSTATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHELLSTATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLSTATEW(pub *mut SHELLSTATEW);
-impl LPSHELLSTATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHELLSTATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQCMINFO = *mut QCMINFO;
+pub type LPSHChangeDWORDAsIDList = *mut SHChangeDWORDAsIDList;
+pub type LPSHChangeUpdateImageIDList = *mut SHChangeUpdateImageIDList;
+pub type LPSHDESCRIPTIONID = *mut SHDESCRIPTIONID;
+pub type LPSHELLFLAGSTATE = *mut SHELLFLAGSTATE;
+pub type LPSHELLSTATEA = *mut SHELLSTATEA;
+pub type LPSHELLSTATEW = *mut SHELLSTATEW;
 #[cfg(feature = "shobjidl_core")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHFOLDERCUSTOMSETTINGS(pub *mut SHFOLDERCUSTOMSETTINGS);
-#[cfg(feature = "shobjidl_core")]
-impl LPSHFOLDERCUSTOMSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shobjidl_core")]
-impl Default for LPSHFOLDERCUSTOMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWALLPAPEROPT(pub *mut WALLPAPEROPT);
-impl LPWALLPAPEROPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWALLPAPEROPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSHFOLDERCUSTOMSETTINGS = *mut SHFOLDERCUSTOMSETTINGS;
+pub type LPWALLPAPEROPT = *mut WALLPAPEROPT;
 pub const MAX_COLUMN_DESC_LEN: u32 = 128;
 pub const MAX_COLUMN_NAME_LEN: u32 = 80;
 pub const MM_ADDSEPARATOR: u32 = 1;
@@ -4353,74 +3849,18 @@ pub struct OPENASINFO {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OPEN_AS_INFO_FLAGS(pub i32);
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBROWSEINFOA(pub *mut BROWSEINFOA);
+pub type PBROWSEINFOA = *mut BROWSEINFOA;
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl PBROWSEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for PBROWSEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBROWSEINFOW(pub *mut BROWSEINFOW);
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl PBROWSEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
-impl Default for PBROWSEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBROWSEINFOW = *mut BROWSEINFOW;
 pub const PCS_FATAL: u32 = 2147483648;
 pub const PCS_PATHTOOLONG: u32 = 8;
 pub const PCS_REMOVEDCHAR: u32 = 2;
 pub const PCS_REPLACEDCHAR: u32 = 1;
 pub const PCS_TRUNCATED: u32 = 4;
 #[cfg(feature = "shtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDETAILSINFO(pub *mut DETAILSINFO);
-#[cfg(feature = "shtypes")]
-impl PDETAILSINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shtypes")]
-impl Default for PDETAILSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDETAILSINFO = *mut DETAILSINFO;
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDFMICS(pub *mut DFMICS);
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-impl PDFMICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-impl Default for PDFMICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDFMICS = *mut DFMICS;
 pub const PDTIMER_PAUSE: u32 = 2;
 pub const PDTIMER_RESET: u32 = 1;
 pub const PDTIMER_RESUME: u32 = 3;
@@ -4475,32 +3915,8 @@ pub const PIFPARAMSSIZE: u32 = 64;
 pub const PIFSHDATASIZE: u32 = 64;
 pub const PIFSHPROGSIZE: u32 = 64;
 pub const PIFSTARTLOCSIZE: u32 = 63;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENASINFO(pub *mut OPENASINFO);
-impl POPENASINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POPENASINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPPRG(pub *mut PROPPRG);
-impl PPROPPRG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROPPRG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPENASINFO = *mut OPENASINFO;
+pub type PPROPPRG = *mut PROPPRG;
 pub const PRF_DONTFINDLNK: u32 = 8;
 pub const PRF_FIRSTDIRDEF: u32 = 4;
 pub const PRF_REQUIREABSOLUTE: u32 = 16;

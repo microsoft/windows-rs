@@ -48,331 +48,35 @@ pub const CREATE_PERSIST_MAPPING: u32 = 32;
 pub const CREATE_REQUIRE_CONNECTION_INTEGRITY: u32 = 8;
 pub const CREATE_REQUIRE_CONNECTION_PRIVACY: u32 = 16;
 pub const CREATE_WRITE_THROUGH_SEMANTICS: u32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_0(pub *mut USE_INFO_0);
-impl LPUSE_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUSE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_1(pub *mut USE_INFO_1);
-impl LPUSE_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUSE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_2(pub *mut USE_INFO_2);
-impl LPUSE_INFO_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUSE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_3(pub *mut USE_INFO_3);
-impl LPUSE_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUSE_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPUSE_INFO_0 = *mut USE_INFO_0;
+pub type LPUSE_INFO_1 = *mut USE_INFO_1;
+pub type LPUSE_INFO_2 = *mut USE_INFO_2;
+pub type LPUSE_INFO_3 = *mut USE_INFO_3;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_4(pub *mut USE_INFO_4);
+pub type LPUSE_INFO_4 = *mut USE_INFO_4;
 #[cfg(feature = "minwindef")]
-impl LPUSE_INFO_4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPUSE_INFO_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSE_INFO_5(pub *mut USE_INFO_5);
-#[cfg(feature = "minwindef")]
-impl LPUSE_INFO_5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPUSE_INFO_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPUSE_INFO_5 = *mut USE_INFO_5;
 pub const NoneFlag: TRANSPORT_INFO_FLAG = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLOCK_NTLM_INFO(pub *mut BLOCK_NTLM_INFO);
-impl PBLOCK_NTLM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLOCK_NTLM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMB_COMPRESSION_INFO(pub *mut SMB_COMPRESSION_INFO);
-impl PSMB_COMPRESSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSMB_COMPRESSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMB_TREE_CONNECT_PARAMETERS(pub *mut SMB_TREE_CONNECT_PARAMETERS);
-impl PSMB_TREE_CONNECT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSMB_TREE_CONNECT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMB_USE_OPTION_COMPRESSION_PARAMETERS(pub *mut SMB_USE_OPTION_COMPRESSION_PARAMETERS);
-impl PSMB_USE_OPTION_COMPRESSION_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSMB_USE_OPTION_COMPRESSION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORT_INFO(pub *mut TRANSPORT_INFO);
-impl PTRANSPORT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORT_INFO_FLAG(pub *mut TRANSPORT_INFO_FLAG);
-impl PTRANSPORT_INFO_FLAG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORT_INFO_FLAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORT_TYPE(pub *mut TRANSPORT_TYPE);
-impl PTRANSPORT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_0(pub *mut USE_INFO_0);
-impl PUSE_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_1(pub *mut USE_INFO_1);
-impl PUSE_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_2(pub *mut USE_INFO_2);
-impl PUSE_INFO_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_INFO_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_3(pub *mut USE_INFO_3);
-impl PUSE_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBLOCK_NTLM_INFO = *mut BLOCK_NTLM_INFO;
+pub type PSMB_COMPRESSION_INFO = *mut SMB_COMPRESSION_INFO;
+pub type PSMB_TREE_CONNECT_PARAMETERS = *mut SMB_TREE_CONNECT_PARAMETERS;
+pub type PSMB_USE_OPTION_COMPRESSION_PARAMETERS = *mut SMB_USE_OPTION_COMPRESSION_PARAMETERS;
+pub type PTRANSPORT_INFO = *mut TRANSPORT_INFO;
+pub type PTRANSPORT_INFO_FLAG = *mut TRANSPORT_INFO_FLAG;
+pub type PTRANSPORT_TYPE = *mut TRANSPORT_TYPE;
+pub type PUSE_INFO_0 = *mut USE_INFO_0;
+pub type PUSE_INFO_1 = *mut USE_INFO_1;
+pub type PUSE_INFO_2 = *mut USE_INFO_2;
+pub type PUSE_INFO_3 = *mut USE_INFO_3;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_4(pub *mut USE_INFO_4);
+pub type PUSE_INFO_4 = *mut USE_INFO_4;
 #[cfg(feature = "minwindef")]
-impl PUSE_INFO_4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PUSE_INFO_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_INFO_5(pub *mut USE_INFO_5);
-#[cfg(feature = "minwindef")]
-impl PUSE_INFO_5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PUSE_INFO_5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_OPTION_BLOCK_NTLM_PARAMETERS(pub *mut USE_OPTION_BLOCK_NTLM_PARAMETERS);
-impl PUSE_OPTION_BLOCK_NTLM_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_OPTION_BLOCK_NTLM_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS(pub *mut USE_OPTION_DEFERRED_CONNECTION_PARAMETERS);
-impl PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_OPTION_GENERIC(pub *mut USE_OPTION_GENERIC);
-impl PUSE_OPTION_GENERIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_OPTION_GENERIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_OPTION_PROPERTIES(pub *mut USE_OPTION_PROPERTIES);
-impl PUSE_OPTION_PROPERTIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_OPTION_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSE_OPTION_TRANSPORT_PARAMETERS(pub *mut USE_OPTION_TRANSPORT_PARAMETERS);
-impl PUSE_OPTION_TRANSPORT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSE_OPTION_TRANSPORT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSE_INFO_5 = *mut USE_INFO_5;
+pub type PUSE_OPTION_BLOCK_NTLM_PARAMETERS = *mut USE_OPTION_BLOCK_NTLM_PARAMETERS;
+pub type PUSE_OPTION_DEFERRED_CONNECTION_PARAMETERS = *mut USE_OPTION_DEFERRED_CONNECTION_PARAMETERS;
+pub type PUSE_OPTION_GENERIC = *mut USE_OPTION_GENERIC;
+pub type PUSE_OPTION_PROPERTIES = *mut USE_OPTION_PROPERTIES;
+pub type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS;
 pub const QuicPortSetFlag: TRANSPORT_INFO_FLAG = 2;
 pub const RdmaPortSetFlag: TRANSPORT_INFO_FLAG = 4;
 #[repr(C)]

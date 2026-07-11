@@ -2087,1285 +2087,167 @@ pub const JOB_STATUS_RETAINED: u32 = 8192;
 pub const JOB_STATUS_SPOOLING: u32 = 8;
 pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024;
 pub const JOB_WRITE: u32 = 131088;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPADDJOB_INFO_1(pub LPADDJOB_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDJOB_INFO_1A(pub *mut ADDJOB_INFO_1A);
-impl LPADDJOB_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADDJOB_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDJOB_INFO_1W(pub *mut ADDJOB_INFO_1W);
-impl LPADDJOB_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADDJOB_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDJOB_INFO_1 = LPADDJOB_INFO_1A;
+pub type LPADDJOB_INFO_1A = *mut ADDJOB_INFO_1A;
+pub type LPADDJOB_INFO_1W = *mut ADDJOB_INFO_1W;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIDI_DATA(pub *mut BIDI_DATA);
+pub type LPBIDI_DATA = *mut BIDI_DATA;
 #[cfg(feature = "minwindef")]
-impl LPBIDI_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPBIDI_REQUEST_CONTAINER = *mut BIDI_REQUEST_CONTAINER;
 #[cfg(feature = "minwindef")]
-impl Default for LPBIDI_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBIDI_REQUEST_DATA = *mut BIDI_REQUEST_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIDI_REQUEST_CONTAINER(pub *mut BIDI_REQUEST_CONTAINER);
+pub type LPBIDI_RESPONSE_CONTAINER = *mut BIDI_RESPONSE_CONTAINER;
 #[cfg(feature = "minwindef")]
-impl LPBIDI_REQUEST_CONTAINER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPBIDI_REQUEST_CONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIDI_REQUEST_DATA(pub *mut BIDI_REQUEST_DATA);
-#[cfg(feature = "minwindef")]
-impl LPBIDI_REQUEST_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPBIDI_REQUEST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIDI_RESPONSE_CONTAINER(pub *mut BIDI_RESPONSE_CONTAINER);
-#[cfg(feature = "minwindef")]
-impl LPBIDI_RESPONSE_CONTAINER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPBIDI_RESPONSE_CONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIDI_RESPONSE_DATA(pub *mut BIDI_RESPONSE_DATA);
-#[cfg(feature = "minwindef")]
-impl LPBIDI_RESPONSE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPBIDI_RESPONSE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDATATYPES_INFO_1(pub LPDATATYPES_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDATATYPES_INFO_1A(pub *mut DATATYPES_INFO_1A);
-impl LPDATATYPES_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDATATYPES_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDATATYPES_INFO_1W(pub *mut DATATYPES_INFO_1W);
-impl LPDATATYPES_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDATATYPES_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDOC_INFO_1(pub LPDOC_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_1A(pub *mut DOC_INFO_1A);
-impl LPDOC_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_1W(pub *mut DOC_INFO_1W);
-impl LPDOC_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDOC_INFO_2(pub LPDOC_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_2A(pub *mut DOC_INFO_2A);
-impl LPDOC_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_2W(pub *mut DOC_INFO_2W);
-impl LPDOC_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDOC_INFO_3(pub LPDOC_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_3A(pub *mut DOC_INFO_3A);
-impl LPDOC_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOC_INFO_3W(pub *mut DOC_INFO_3W);
-impl LPDOC_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOC_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_1(pub LPDRIVER_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_1A(pub *mut DRIVER_INFO_1A);
-impl LPDRIVER_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_1W(pub *mut DRIVER_INFO_1W);
-impl LPDRIVER_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_2(pub LPDRIVER_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_2A(pub *mut DRIVER_INFO_2A);
-impl LPDRIVER_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_2W(pub *mut DRIVER_INFO_2W);
-impl LPDRIVER_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_3(pub LPDRIVER_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_3A(pub *mut DRIVER_INFO_3A);
-impl LPDRIVER_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_3W(pub *mut DRIVER_INFO_3W);
-impl LPDRIVER_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_4(pub LPDRIVER_INFO_4A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_4A(pub *mut DRIVER_INFO_4A);
-impl LPDRIVER_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_4W(pub *mut DRIVER_INFO_4W);
-impl LPDRIVER_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_5(pub LPDRIVER_INFO_5A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_5A(pub *mut DRIVER_INFO_5A);
-impl LPDRIVER_INFO_5A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_5A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_5W(pub *mut DRIVER_INFO_5W);
-impl LPDRIVER_INFO_5W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRIVER_INFO_5W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBIDI_RESPONSE_DATA = *mut BIDI_RESPONSE_DATA;
+pub type LPDATATYPES_INFO_1 = LPDATATYPES_INFO_1A;
+pub type LPDATATYPES_INFO_1A = *mut DATATYPES_INFO_1A;
+pub type LPDATATYPES_INFO_1W = *mut DATATYPES_INFO_1W;
+pub type LPDOC_INFO_1 = LPDOC_INFO_1A;
+pub type LPDOC_INFO_1A = *mut DOC_INFO_1A;
+pub type LPDOC_INFO_1W = *mut DOC_INFO_1W;
+pub type LPDOC_INFO_2 = LPDOC_INFO_2A;
+pub type LPDOC_INFO_2A = *mut DOC_INFO_2A;
+pub type LPDOC_INFO_2W = *mut DOC_INFO_2W;
+pub type LPDOC_INFO_3 = LPDOC_INFO_3A;
+pub type LPDOC_INFO_3A = *mut DOC_INFO_3A;
+pub type LPDOC_INFO_3W = *mut DOC_INFO_3W;
+pub type LPDRIVER_INFO_1 = LPDRIVER_INFO_1A;
+pub type LPDRIVER_INFO_1A = *mut DRIVER_INFO_1A;
+pub type LPDRIVER_INFO_1W = *mut DRIVER_INFO_1W;
+pub type LPDRIVER_INFO_2 = LPDRIVER_INFO_2A;
+pub type LPDRIVER_INFO_2A = *mut DRIVER_INFO_2A;
+pub type LPDRIVER_INFO_2W = *mut DRIVER_INFO_2W;
+pub type LPDRIVER_INFO_3 = LPDRIVER_INFO_3A;
+pub type LPDRIVER_INFO_3A = *mut DRIVER_INFO_3A;
+pub type LPDRIVER_INFO_3W = *mut DRIVER_INFO_3W;
+pub type LPDRIVER_INFO_4 = LPDRIVER_INFO_4A;
+pub type LPDRIVER_INFO_4A = *mut DRIVER_INFO_4A;
+pub type LPDRIVER_INFO_4W = *mut DRIVER_INFO_4W;
+pub type LPDRIVER_INFO_5 = LPDRIVER_INFO_5A;
+pub type LPDRIVER_INFO_5A = *mut DRIVER_INFO_5A;
+pub type LPDRIVER_INFO_5W = *mut DRIVER_INFO_5W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_6(pub LPDRIVER_INFO_6A);
+pub type LPDRIVER_INFO_6 = LPDRIVER_INFO_6A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_6A(pub *mut DRIVER_INFO_6A);
+pub type LPDRIVER_INFO_6A = *mut DRIVER_INFO_6A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPDRIVER_INFO_6A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPDRIVER_INFO_6W = *mut DRIVER_INFO_6W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPDRIVER_INFO_6A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDRIVER_INFO_8 = LPDRIVER_INFO_8A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_6W(pub *mut DRIVER_INFO_6W);
+pub type LPDRIVER_INFO_8A = *mut DRIVER_INFO_8A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPDRIVER_INFO_6W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPDRIVER_INFO_6W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRIVER_INFO_8(pub LPDRIVER_INFO_8A);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_8A(pub *mut DRIVER_INFO_8A);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPDRIVER_INFO_8A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPDRIVER_INFO_8A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRIVER_INFO_8W(pub *mut DRIVER_INFO_8W);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPDRIVER_INFO_8W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPDRIVER_INFO_8W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDRIVER_INFO_8W = *mut DRIVER_INFO_8W;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPFORM_INFO_1(pub LPFORM_INFO_1A);
+pub type LPFORM_INFO_1 = LPFORM_INFO_1A;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFORM_INFO_1A(pub *mut FORM_INFO_1A);
+pub type LPFORM_INFO_1A = *mut FORM_INFO_1A;
 #[cfg(feature = "windef")]
-impl LPFORM_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPFORM_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFORM_INFO_1W(pub *mut FORM_INFO_1W);
-#[cfg(feature = "windef")]
-impl LPFORM_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPFORM_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFORM_INFO_1W = *mut FORM_INFO_1W;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPFORM_INFO_2(pub LPFORM_INFO_2A);
+pub type LPFORM_INFO_2 = LPFORM_INFO_2A;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFORM_INFO_2A(pub *mut FORM_INFO_2A);
+pub type LPFORM_INFO_2A = *mut FORM_INFO_2A;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPFORM_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPFORM_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFORM_INFO_2W(pub *mut FORM_INFO_2W);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPFORM_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPFORM_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFORM_INFO_2W = *mut FORM_INFO_2W;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPJOB_INFO_1(pub LPJOB_INFO_1A);
+pub type LPJOB_INFO_1 = LPJOB_INFO_1A;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_1A(pub *mut JOB_INFO_1A);
+pub type LPJOB_INFO_1A = *mut JOB_INFO_1A;
 #[cfg(feature = "minwinbase")]
-impl LPJOB_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for LPJOB_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_1W(pub *mut JOB_INFO_1W);
-#[cfg(feature = "minwinbase")]
-impl LPJOB_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for LPJOB_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPJOB_INFO_1W = *mut JOB_INFO_1W;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPJOB_INFO_2(pub LPJOB_INFO_2A);
+pub type LPJOB_INFO_2 = LPJOB_INFO_2A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_2A(pub *mut JOB_INFO_2A);
+pub type LPJOB_INFO_2A = *mut JOB_INFO_2A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPJOB_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPJOB_INFO_2W = *mut JOB_INFO_2W;
+pub type LPJOB_INFO_3 = *mut JOB_INFO_3;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPJOB_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPJOB_INFO_4 = LPJOB_INFO_4A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_2W(pub *mut JOB_INFO_2W);
+pub type LPJOB_INFO_4A = *mut JOB_INFO_4A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPJOB_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPJOB_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_3(pub *mut JOB_INFO_3);
-impl LPJOB_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOB_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPJOB_INFO_4(pub LPJOB_INFO_4A);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_4A(pub *mut JOB_INFO_4A);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPJOB_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPJOB_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOB_INFO_4W(pub *mut JOB_INFO_4W);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPJOB_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPJOB_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMONITOR_INFO_1(pub LPMONITOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMONITOR_INFO_1A(pub *mut MONITOR_INFO_1A);
-impl LPMONITOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMONITOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMONITOR_INFO_1W(pub *mut MONITOR_INFO_1W);
-impl LPMONITOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMONITOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMONITOR_INFO_2(pub LPMONITOR_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMONITOR_INFO_2A(pub *mut MONITOR_INFO_2A);
-impl LPMONITOR_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMONITOR_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMONITOR_INFO_2W(pub *mut MONITOR_INFO_2W);
-impl LPMONITOR_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMONITOR_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPORT_INFO_1(pub LPPORT_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_1A(pub *mut PORT_INFO_1A);
-impl LPPORT_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_1W(pub *mut PORT_INFO_1W);
-impl LPPORT_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPORT_INFO_2(pub LPPORT_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_2A(pub *mut PORT_INFO_2A);
-impl LPPORT_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_2W(pub *mut PORT_INFO_2W);
-impl LPPORT_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPORT_INFO_3(pub LPPORT_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_3A(pub *mut PORT_INFO_3A);
-impl LPPORT_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPORT_INFO_3W(pub *mut PORT_INFO_3W);
-impl LPPORT_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPORT_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPJOB_INFO_4W = *mut JOB_INFO_4W;
+pub type LPMONITOR_INFO_1 = LPMONITOR_INFO_1A;
+pub type LPMONITOR_INFO_1A = *mut MONITOR_INFO_1A;
+pub type LPMONITOR_INFO_1W = *mut MONITOR_INFO_1W;
+pub type LPMONITOR_INFO_2 = LPMONITOR_INFO_2A;
+pub type LPMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
+pub type LPMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
+pub type LPPORT_INFO_1 = LPPORT_INFO_1A;
+pub type LPPORT_INFO_1A = *mut PORT_INFO_1A;
+pub type LPPORT_INFO_1W = *mut PORT_INFO_1W;
+pub type LPPORT_INFO_2 = LPPORT_INFO_2A;
+pub type LPPORT_INFO_2A = *mut PORT_INFO_2A;
+pub type LPPORT_INFO_2W = *mut PORT_INFO_2W;
+pub type LPPORT_INFO_3 = LPPORT_INFO_3A;
+pub type LPPORT_INFO_3A = *mut PORT_INFO_3A;
+pub type LPPORT_INFO_3W = *mut PORT_INFO_3W;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_DEFAULTS(pub LPPRINTER_DEFAULTSA);
+pub type LPPRINTER_DEFAULTS = LPPRINTER_DEFAULTSA;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_DEFAULTSA(pub *mut PRINTER_DEFAULTSA);
+pub type LPPRINTER_DEFAULTSA = *mut PRINTER_DEFAULTSA;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPPRINTER_DEFAULTSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPPRINTER_DEFAULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_DEFAULTSW(pub *mut PRINTER_DEFAULTSW);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPPRINTER_DEFAULTSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPPRINTER_DEFAULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_DEFAULTSW = *mut PRINTER_DEFAULTSW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_ENUM_VALUES(pub LPPRINTER_ENUM_VALUESA);
+pub type LPPRINTER_ENUM_VALUES = LPPRINTER_ENUM_VALUESA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_ENUM_VALUESA(pub *mut PRINTER_ENUM_VALUESA);
+pub type LPPRINTER_ENUM_VALUESA = *mut PRINTER_ENUM_VALUESA;
 #[cfg(feature = "minwindef")]
-impl LPPRINTER_ENUM_VALUESA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPPRINTER_ENUM_VALUESA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_ENUM_VALUESW(pub *mut PRINTER_ENUM_VALUESW);
-#[cfg(feature = "minwindef")]
-impl LPPRINTER_ENUM_VALUESW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPPRINTER_ENUM_VALUESW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_1(pub LPPRINTER_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_1A(pub *mut PRINTER_INFO_1A);
-impl LPPRINTER_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_1W(pub *mut PRINTER_INFO_1W);
-impl LPPRINTER_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_ENUM_VALUESW = *mut PRINTER_ENUM_VALUESW;
+pub type LPPRINTER_INFO_1 = LPPRINTER_INFO_1A;
+pub type LPPRINTER_INFO_1A = *mut PRINTER_INFO_1A;
+pub type LPPRINTER_INFO_1W = *mut PRINTER_INFO_1W;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_2(pub LPPRINTER_INFO_2A);
+pub type LPPRINTER_INFO_2 = LPPRINTER_INFO_2A;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_2A(pub *mut PRINTER_INFO_2A);
+pub type LPPRINTER_INFO_2A = *mut PRINTER_INFO_2A;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPPRINTER_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPPRINTER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_2W(pub *mut PRINTER_INFO_2W);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl LPPRINTER_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for LPPRINTER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_INFO_2W = *mut PRINTER_INFO_2W;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_3(pub *mut PRINTER_INFO_3);
-#[cfg(feature = "winnt")]
-impl LPPRINTER_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPPRINTER_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_4(pub LPPRINTER_INFO_4A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_4A(pub *mut PRINTER_INFO_4A);
-impl LPPRINTER_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_4W(pub *mut PRINTER_INFO_4W);
-impl LPPRINTER_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_5(pub LPPRINTER_INFO_5A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_5A(pub *mut PRINTER_INFO_5A);
-impl LPPRINTER_INFO_5A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_5A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_5W(pub *mut PRINTER_INFO_5W);
-impl LPPRINTER_INFO_5W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_5W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_6(pub *mut PRINTER_INFO_6);
-impl LPPRINTER_INFO_6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_7(pub LPPRINTER_INFO_7A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_7A(pub *mut PRINTER_INFO_7A);
-impl LPPRINTER_INFO_7A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_7A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_7W(pub *mut PRINTER_INFO_7W);
-impl LPPRINTER_INFO_7W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_INFO_7W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_INFO_3 = *mut PRINTER_INFO_3;
+pub type LPPRINTER_INFO_4 = LPPRINTER_INFO_4A;
+pub type LPPRINTER_INFO_4A = *mut PRINTER_INFO_4A;
+pub type LPPRINTER_INFO_4W = *mut PRINTER_INFO_4W;
+pub type LPPRINTER_INFO_5 = LPPRINTER_INFO_5A;
+pub type LPPRINTER_INFO_5A = *mut PRINTER_INFO_5A;
+pub type LPPRINTER_INFO_5W = *mut PRINTER_INFO_5W;
+pub type LPPRINTER_INFO_6 = *mut PRINTER_INFO_6;
+pub type LPPRINTER_INFO_7 = LPPRINTER_INFO_7A;
+pub type LPPRINTER_INFO_7A = *mut PRINTER_INFO_7A;
+pub type LPPRINTER_INFO_7W = *mut PRINTER_INFO_7W;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_8(pub LPPRINTER_INFO_8A);
+pub type LPPRINTER_INFO_8 = LPPRINTER_INFO_8A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_8A(pub *mut PRINTER_INFO_8A);
+pub type LPPRINTER_INFO_8A = *mut PRINTER_INFO_8A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl LPPRINTER_INFO_8A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPRINTER_INFO_8W = *mut PRINTER_INFO_8W;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for LPPRINTER_INFO_8A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_INFO_9 = LPPRINTER_INFO_9A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_8W(pub *mut PRINTER_INFO_8W);
+pub type LPPRINTER_INFO_9A = *mut PRINTER_INFO_9A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl LPPRINTER_INFO_8W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for LPPRINTER_INFO_8W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_INFO_9(pub LPPRINTER_INFO_9A);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_9A(pub *mut PRINTER_INFO_9A);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl LPPRINTER_INFO_9A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for LPPRINTER_INFO_9A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_INFO_9W(pub *mut PRINTER_INFO_9W);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl LPPRINTER_INFO_9W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for LPPRINTER_INFO_9W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_NOTIFY_INFO(pub *mut PRINTER_NOTIFY_INFO);
-impl LPPRINTER_NOTIFY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_NOTIFY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_NOTIFY_INFO_DATA(pub *mut PRINTER_NOTIFY_INFO_DATA);
-impl LPPRINTER_NOTIFY_INFO_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_NOTIFY_INFO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_INFO_9W = *mut PRINTER_INFO_9W;
+pub type LPPRINTER_NOTIFY_INFO = *mut PRINTER_NOTIFY_INFO;
+pub type LPPRINTER_NOTIFY_INFO_DATA = *mut PRINTER_NOTIFY_INFO_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_NOTIFY_OPTIONS(pub *mut PRINTER_NOTIFY_OPTIONS);
+pub type LPPRINTER_NOTIFY_OPTIONS = *mut PRINTER_NOTIFY_OPTIONS;
 #[cfg(feature = "minwindef")]
-impl LPPRINTER_NOTIFY_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPPRINTER_NOTIFY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_NOTIFY_OPTIONS_TYPE(pub *mut PRINTER_NOTIFY_OPTIONS_TYPE);
-#[cfg(feature = "minwindef")]
-impl LPPRINTER_NOTIFY_OPTIONS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPPRINTER_NOTIFY_OPTIONS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTER_OPTIONS(pub LPPRINTER_OPTIONSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_OPTIONSA(pub *mut PRINTER_OPTIONSA);
-impl LPPRINTER_OPTIONSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_OPTIONSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTER_OPTIONSW(pub *mut PRINTER_OPTIONSW);
-impl LPPRINTER_OPTIONSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTER_OPTIONSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTPROCESSOR_INFO_1(pub LPPRINTPROCESSOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTPROCESSOR_INFO_1A(pub *mut PRINTPROCESSOR_INFO_1A);
-impl LPPRINTPROCESSOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTPROCESSOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTPROCESSOR_INFO_1W(pub *mut PRINTPROCESSOR_INFO_1W);
-impl LPPRINTPROCESSOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTPROCESSOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROVIDOR_INFO_1(pub LPPROVIDOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROVIDOR_INFO_1A(pub *mut PROVIDOR_INFO_1A);
-impl LPPROVIDOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROVIDOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROVIDOR_INFO_1W(pub *mut PROVIDOR_INFO_1W);
-impl LPPROVIDOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROVIDOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROVIDOR_INFO_2(pub LPPROVIDOR_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROVIDOR_INFO_2A(pub *mut PROVIDOR_INFO_2A);
-impl LPPROVIDOR_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROVIDOR_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROVIDOR_INFO_2W(pub *mut PROVIDOR_INFO_2W);
-impl LPPROVIDOR_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROVIDOR_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTER_NOTIFY_OPTIONS_TYPE = *mut PRINTER_NOTIFY_OPTIONS_TYPE;
+pub type LPPRINTER_OPTIONS = LPPRINTER_OPTIONSA;
+pub type LPPRINTER_OPTIONSA = *mut PRINTER_OPTIONSA;
+pub type LPPRINTER_OPTIONSW = *mut PRINTER_OPTIONSW;
+pub type LPPRINTPROCESSOR_INFO_1 = LPPRINTPROCESSOR_INFO_1A;
+pub type LPPRINTPROCESSOR_INFO_1A = *mut PRINTPROCESSOR_INFO_1A;
+pub type LPPRINTPROCESSOR_INFO_1W = *mut PRINTPROCESSOR_INFO_1W;
+pub type LPPROVIDOR_INFO_1 = LPPROVIDOR_INFO_1A;
+pub type LPPROVIDOR_INFO_1A = *mut PROVIDOR_INFO_1A;
+pub type LPPROVIDOR_INFO_1W = *mut PROVIDOR_INFO_1W;
+pub type LPPROVIDOR_INFO_2 = LPPROVIDOR_INFO_2A;
+pub type LPPROVIDOR_INFO_2A = *mut PROVIDOR_INFO_2A;
+pub type LPPROVIDOR_INFO_2W = *mut PROVIDOR_INFO_2W;
 pub const MAX_FORM_KEYWORD_LENGTH: u32 = 64;
 pub const MAX_PRIORITY: u32 = 99;
 pub const MIN_PRIORITY: u32 = 1;
@@ -3398,751 +2280,103 @@ pub struct MONITOR_INFO_2W {
 pub const MS_PRINT_JOB_OUTPUT_FILE: windows_core::PCWSTR = windows_core::w!("MsPrintJobOutputFile");
 pub const NORMAL_PRINT: u32 = 0;
 pub const NO_PRIORITY: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PADDJOB_INFO_1(pub PADDJOB_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDJOB_INFO_1A(pub *mut ADDJOB_INFO_1A);
-impl PADDJOB_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADDJOB_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDJOB_INFO_1W(pub *mut ADDJOB_INFO_1W);
-impl PADDJOB_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADDJOB_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDJOB_INFO_1 = PADDJOB_INFO_1A;
+pub type PADDJOB_INFO_1A = *mut ADDJOB_INFO_1A;
+pub type PADDJOB_INFO_1W = *mut ADDJOB_INFO_1W;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBIDI_DATA(pub *mut BIDI_DATA);
+pub type PBIDI_DATA = *mut BIDI_DATA;
 #[cfg(feature = "minwindef")]
-impl PBIDI_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PBIDI_REQUEST_CONTAINER = *mut BIDI_REQUEST_CONTAINER;
 #[cfg(feature = "minwindef")]
-impl Default for PBIDI_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBIDI_REQUEST_DATA = *mut BIDI_REQUEST_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBIDI_REQUEST_CONTAINER(pub *mut BIDI_REQUEST_CONTAINER);
+pub type PBIDI_RESPONSE_CONTAINER = *mut BIDI_RESPONSE_CONTAINER;
 #[cfg(feature = "minwindef")]
-impl PBIDI_REQUEST_CONTAINER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PBIDI_RESPONSE_DATA = *mut BIDI_RESPONSE_DATA;
 #[cfg(feature = "minwindef")]
-impl Default for PBIDI_REQUEST_CONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBIDI_REQUEST_DATA(pub *mut BIDI_REQUEST_DATA);
-#[cfg(feature = "minwindef")]
-impl PBIDI_REQUEST_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PBIDI_REQUEST_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBIDI_RESPONSE_CONTAINER(pub *mut BIDI_RESPONSE_CONTAINER);
-#[cfg(feature = "minwindef")]
-impl PBIDI_RESPONSE_CONTAINER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PBIDI_RESPONSE_CONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBIDI_RESPONSE_DATA(pub *mut BIDI_RESPONSE_DATA);
-#[cfg(feature = "minwindef")]
-impl PBIDI_RESPONSE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PBIDI_RESPONSE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBINARY_CONTAINER(pub *mut BINARY_CONTAINER);
-#[cfg(feature = "minwindef")]
-impl PBINARY_CONTAINER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PBINARY_CONTAINER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBINARY_CONTAINER = *mut BINARY_CONTAINER;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCORE_PRINTER_DRIVER(pub PCORE_PRINTER_DRIVERA);
+pub type PCORE_PRINTER_DRIVER = PCORE_PRINTER_DRIVERA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCORE_PRINTER_DRIVERA(pub *mut CORE_PRINTER_DRIVERA);
+pub type PCORE_PRINTER_DRIVERA = *mut CORE_PRINTER_DRIVERA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PCORE_PRINTER_DRIVERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCORE_PRINTER_DRIVERW = *mut CORE_PRINTER_DRIVERW;
+pub type PDATATYPES_INFO_1 = PDATATYPES_INFO_1A;
+pub type PDATATYPES_INFO_1A = *mut DATATYPES_INFO_1A;
+pub type PDATATYPES_INFO_1W = *mut DATATYPES_INFO_1W;
+pub type PDOC_INFO_1 = PDOC_INFO_1A;
+pub type PDOC_INFO_1A = *mut DOC_INFO_1A;
+pub type PDOC_INFO_1W = *mut DOC_INFO_1W;
+pub type PDOC_INFO_2 = PDOC_INFO_2A;
+pub type PDOC_INFO_2A = *mut DOC_INFO_2A;
+pub type PDOC_INFO_2W = *mut DOC_INFO_2W;
+pub type PDOC_INFO_3 = PDOC_INFO_3A;
+pub type PDOC_INFO_3A = *mut DOC_INFO_3A;
+pub type PDOC_INFO_3W = *mut DOC_INFO_3W;
+pub type PDRIVER_INFO_1 = PDRIVER_INFO_1A;
+pub type PDRIVER_INFO_1A = *mut DRIVER_INFO_1A;
+pub type PDRIVER_INFO_1W = *mut DRIVER_INFO_1W;
+pub type PDRIVER_INFO_2 = PDRIVER_INFO_2A;
+pub type PDRIVER_INFO_2A = *mut DRIVER_INFO_2A;
+pub type PDRIVER_INFO_2W = *mut DRIVER_INFO_2W;
+pub type PDRIVER_INFO_3 = PDRIVER_INFO_3A;
+pub type PDRIVER_INFO_3A = *mut DRIVER_INFO_3A;
+pub type PDRIVER_INFO_3W = *mut DRIVER_INFO_3W;
+pub type PDRIVER_INFO_4 = PDRIVER_INFO_4A;
+pub type PDRIVER_INFO_4A = *mut DRIVER_INFO_4A;
+pub type PDRIVER_INFO_4W = *mut DRIVER_INFO_4W;
+pub type PDRIVER_INFO_5 = PDRIVER_INFO_5A;
+pub type PDRIVER_INFO_5A = *mut DRIVER_INFO_5A;
+pub type PDRIVER_INFO_5W = *mut DRIVER_INFO_5W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PCORE_PRINTER_DRIVERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_INFO_6 = PDRIVER_INFO_6A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCORE_PRINTER_DRIVERW(pub *mut CORE_PRINTER_DRIVERW);
+pub type PDRIVER_INFO_6A = *mut DRIVER_INFO_6A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PCORE_PRINTER_DRIVERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDRIVER_INFO_6W = *mut DRIVER_INFO_6W;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PCORE_PRINTER_DRIVERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDATATYPES_INFO_1(pub PDATATYPES_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDATATYPES_INFO_1A(pub *mut DATATYPES_INFO_1A);
-impl PDATATYPES_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDATATYPES_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDATATYPES_INFO_1W(pub *mut DATATYPES_INFO_1W);
-impl PDATATYPES_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDATATYPES_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDOC_INFO_1(pub PDOC_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_1A(pub *mut DOC_INFO_1A);
-impl PDOC_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_1W(pub *mut DOC_INFO_1W);
-impl PDOC_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDOC_INFO_2(pub PDOC_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_2A(pub *mut DOC_INFO_2A);
-impl PDOC_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_2W(pub *mut DOC_INFO_2W);
-impl PDOC_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDOC_INFO_3(pub PDOC_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_3A(pub *mut DOC_INFO_3A);
-impl PDOC_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOC_INFO_3W(pub *mut DOC_INFO_3W);
-impl PDOC_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOC_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_1(pub PDRIVER_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_1A(pub *mut DRIVER_INFO_1A);
-impl PDRIVER_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_1W(pub *mut DRIVER_INFO_1W);
-impl PDRIVER_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_2(pub PDRIVER_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_2A(pub *mut DRIVER_INFO_2A);
-impl PDRIVER_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_2W(pub *mut DRIVER_INFO_2W);
-impl PDRIVER_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_3(pub PDRIVER_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_3A(pub *mut DRIVER_INFO_3A);
-impl PDRIVER_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_3W(pub *mut DRIVER_INFO_3W);
-impl PDRIVER_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_4(pub PDRIVER_INFO_4A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_4A(pub *mut DRIVER_INFO_4A);
-impl PDRIVER_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_4W(pub *mut DRIVER_INFO_4W);
-impl PDRIVER_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_5(pub PDRIVER_INFO_5A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_5A(pub *mut DRIVER_INFO_5A);
-impl PDRIVER_INFO_5A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_5A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_5W(pub *mut DRIVER_INFO_5W);
-impl PDRIVER_INFO_5W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_INFO_5W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_INFO_8 = PDRIVER_INFO_8A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_6(pub PDRIVER_INFO_6A);
+pub type PDRIVER_INFO_8A = *mut DRIVER_INFO_8A;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_6A(pub *mut DRIVER_INFO_6A);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PDRIVER_INFO_6A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PDRIVER_INFO_6A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_6W(pub *mut DRIVER_INFO_6W);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PDRIVER_INFO_6W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PDRIVER_INFO_6W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDRIVER_INFO_8(pub PDRIVER_INFO_8A);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_8A(pub *mut DRIVER_INFO_8A);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PDRIVER_INFO_8A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PDRIVER_INFO_8A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INFO_8W(pub *mut DRIVER_INFO_8W);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PDRIVER_INFO_8W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PDRIVER_INFO_8W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_INFO_8W = *mut DRIVER_INFO_8W;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFORM_INFO_1(pub PFORM_INFO_1A);
+pub type PFORM_INFO_1 = PFORM_INFO_1A;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFORM_INFO_1A(pub *mut FORM_INFO_1A);
+pub type PFORM_INFO_1A = *mut FORM_INFO_1A;
 #[cfg(feature = "windef")]
-impl PFORM_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PFORM_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFORM_INFO_1W(pub *mut FORM_INFO_1W);
-#[cfg(feature = "windef")]
-impl PFORM_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PFORM_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFORM_INFO_1W = *mut FORM_INFO_1W;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PFORM_INFO_2(pub PFORM_INFO_2A);
+pub type PFORM_INFO_2 = PFORM_INFO_2A;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFORM_INFO_2A(pub *mut FORM_INFO_2A);
+pub type PFORM_INFO_2A = *mut FORM_INFO_2A;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl PFORM_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PFORM_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFORM_INFO_2W(pub *mut FORM_INFO_2W);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PFORM_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PFORM_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFORM_INFO_2W = *mut FORM_INFO_2W;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PJOB_INFO_1(pub PJOB_INFO_1A);
+pub type PJOB_INFO_1 = PJOB_INFO_1A;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_1A(pub *mut JOB_INFO_1A);
+pub type PJOB_INFO_1A = *mut JOB_INFO_1A;
 #[cfg(feature = "minwinbase")]
-impl PJOB_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PJOB_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_1W(pub *mut JOB_INFO_1W);
-#[cfg(feature = "minwinbase")]
-impl PJOB_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PJOB_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PJOB_INFO_1W = *mut JOB_INFO_1W;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PJOB_INFO_2(pub PJOB_INFO_2A);
+pub type PJOB_INFO_2 = PJOB_INFO_2A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_2A(pub *mut JOB_INFO_2A);
+pub type PJOB_INFO_2A = *mut JOB_INFO_2A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PJOB_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PJOB_INFO_2W = *mut JOB_INFO_2W;
+pub type PJOB_INFO_3 = *mut JOB_INFO_3;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PJOB_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PJOB_INFO_4 = PJOB_INFO_4A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_2W(pub *mut JOB_INFO_2W);
+pub type PJOB_INFO_4A = *mut JOB_INFO_4A;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PJOB_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PJOB_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_3(pub *mut JOB_INFO_3);
-impl PJOB_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOB_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PJOB_INFO_4(pub PJOB_INFO_4A);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_4A(pub *mut JOB_INFO_4A);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PJOB_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PJOB_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOB_INFO_4W(pub *mut JOB_INFO_4W);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PJOB_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PJOB_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMONITOR_INFO_1(pub PMONITOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONITOR_INFO_1A(pub *mut MONITOR_INFO_1A);
-impl PMONITOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMONITOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONITOR_INFO_1W(pub *mut MONITOR_INFO_1W);
-impl PMONITOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMONITOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMONITOR_INFO_2(pub PMONITOR_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONITOR_INFO_2A(pub *mut MONITOR_INFO_2A);
-impl PMONITOR_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMONITOR_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONITOR_INFO_2W(pub *mut MONITOR_INFO_2W);
-impl PMONITOR_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMONITOR_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PJOB_INFO_4W = *mut JOB_INFO_4W;
+pub type PMONITOR_INFO_1 = PMONITOR_INFO_1A;
+pub type PMONITOR_INFO_1A = *mut MONITOR_INFO_1A;
+pub type PMONITOR_INFO_1W = *mut MONITOR_INFO_1W;
+pub type PMONITOR_INFO_2 = PMONITOR_INFO_2A;
+pub type PMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
+pub type PMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
 pub type PORT_INFO_1 = PORT_INFO_1A;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4216,647 +2450,83 @@ pub const PPCAPS_LEFT_THEN_DOWN: u32 = 4;
 pub const PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1;
 pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1;
 pub const PPCAPS_SQUARE_SCALING: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPORT_INFO_1(pub PPORT_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_1A(pub *mut PORT_INFO_1A);
-impl PPORT_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_1W(pub *mut PORT_INFO_1W);
-impl PPORT_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPORT_INFO_2(pub PPORT_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_2A(pub *mut PORT_INFO_2A);
-impl PPORT_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_2W(pub *mut PORT_INFO_2W);
-impl PPORT_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPORT_INFO_3(pub PPORT_INFO_3A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_3A(pub *mut PORT_INFO_3A);
-impl PPORT_INFO_3A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_3A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPORT_INFO_3W(pub *mut PORT_INFO_3W);
-impl PPORT_INFO_3W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPORT_INFO_3W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_CONNECTION_INFO_1(pub PPRINTER_CONNECTION_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_CONNECTION_INFO_1A(pub *mut PRINTER_CONNECTION_INFO_1A);
-impl PPRINTER_CONNECTION_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_CONNECTION_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_CONNECTION_INFO_1W(pub *mut PRINTER_CONNECTION_INFO_1W);
-impl PPRINTER_CONNECTION_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_CONNECTION_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPORT_INFO_1 = PPORT_INFO_1A;
+pub type PPORT_INFO_1A = *mut PORT_INFO_1A;
+pub type PPORT_INFO_1W = *mut PORT_INFO_1W;
+pub type PPORT_INFO_2 = PPORT_INFO_2A;
+pub type PPORT_INFO_2A = *mut PORT_INFO_2A;
+pub type PPORT_INFO_2W = *mut PORT_INFO_2W;
+pub type PPORT_INFO_3 = PPORT_INFO_3A;
+pub type PPORT_INFO_3A = *mut PORT_INFO_3A;
+pub type PPORT_INFO_3W = *mut PORT_INFO_3W;
+pub type PPRINTER_CONNECTION_INFO_1 = PPRINTER_CONNECTION_INFO_1A;
+pub type PPRINTER_CONNECTION_INFO_1A = *mut PRINTER_CONNECTION_INFO_1A;
+pub type PPRINTER_CONNECTION_INFO_1W = *mut PRINTER_CONNECTION_INFO_1W;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_DEFAULTS(pub PPRINTER_DEFAULTSA);
+pub type PPRINTER_DEFAULTS = PPRINTER_DEFAULTSA;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_DEFAULTSA(pub *mut PRINTER_DEFAULTSA);
+pub type PPRINTER_DEFAULTSA = *mut PRINTER_DEFAULTSA;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PPRINTER_DEFAULTSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PPRINTER_DEFAULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_DEFAULTSW(pub *mut PRINTER_DEFAULTSW);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PPRINTER_DEFAULTSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PPRINTER_DEFAULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_DEFAULTSW = *mut PRINTER_DEFAULTSW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_ENUM_VALUES(pub PPRINTER_ENUM_VALUESA);
+pub type PPRINTER_ENUM_VALUES = PPRINTER_ENUM_VALUESA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_ENUM_VALUESA(pub *mut PRINTER_ENUM_VALUESA);
+pub type PPRINTER_ENUM_VALUESA = *mut PRINTER_ENUM_VALUESA;
 #[cfg(feature = "minwindef")]
-impl PPRINTER_ENUM_VALUESA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPRINTER_ENUM_VALUESA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_ENUM_VALUESW(pub *mut PRINTER_ENUM_VALUESW);
-#[cfg(feature = "minwindef")]
-impl PPRINTER_ENUM_VALUESW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPRINTER_ENUM_VALUESW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_1(pub PPRINTER_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_1A(pub *mut PRINTER_INFO_1A);
-impl PPRINTER_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_1W(pub *mut PRINTER_INFO_1W);
-impl PPRINTER_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_ENUM_VALUESW = *mut PRINTER_ENUM_VALUESW;
+pub type PPRINTER_INFO_1 = PPRINTER_INFO_1A;
+pub type PPRINTER_INFO_1A = *mut PRINTER_INFO_1A;
+pub type PPRINTER_INFO_1W = *mut PRINTER_INFO_1W;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_2(pub PPRINTER_INFO_2A);
+pub type PPRINTER_INFO_2 = PPRINTER_INFO_2A;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_2A(pub *mut PRINTER_INFO_2A);
+pub type PPRINTER_INFO_2A = *mut PRINTER_INFO_2A;
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PPRINTER_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PPRINTER_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_2W(pub *mut PRINTER_INFO_2W);
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl PPRINTER_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-impl Default for PPRINTER_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_INFO_2W = *mut PRINTER_INFO_2W;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_3(pub *mut PRINTER_INFO_3);
-#[cfg(feature = "winnt")]
-impl PPRINTER_INFO_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPRINTER_INFO_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_4(pub PPRINTER_INFO_4A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_4A(pub *mut PRINTER_INFO_4A);
-impl PPRINTER_INFO_4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_4W(pub *mut PRINTER_INFO_4W);
-impl PPRINTER_INFO_4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_5(pub PPRINTER_INFO_5A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_5A(pub *mut PRINTER_INFO_5A);
-impl PPRINTER_INFO_5A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_5A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_5W(pub *mut PRINTER_INFO_5W);
-impl PPRINTER_INFO_5W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_5W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_6(pub *mut PRINTER_INFO_6);
-impl PPRINTER_INFO_6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_7(pub PPRINTER_INFO_7A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_7A(pub *mut PRINTER_INFO_7A);
-impl PPRINTER_INFO_7A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_7A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_7W(pub *mut PRINTER_INFO_7W);
-impl PPRINTER_INFO_7W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_INFO_7W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_INFO_3 = *mut PRINTER_INFO_3;
+pub type PPRINTER_INFO_4 = PPRINTER_INFO_4A;
+pub type PPRINTER_INFO_4A = *mut PRINTER_INFO_4A;
+pub type PPRINTER_INFO_4W = *mut PRINTER_INFO_4W;
+pub type PPRINTER_INFO_5 = PPRINTER_INFO_5A;
+pub type PPRINTER_INFO_5A = *mut PRINTER_INFO_5A;
+pub type PPRINTER_INFO_5W = *mut PRINTER_INFO_5W;
+pub type PPRINTER_INFO_6 = *mut PRINTER_INFO_6;
+pub type PPRINTER_INFO_7 = PPRINTER_INFO_7A;
+pub type PPRINTER_INFO_7A = *mut PRINTER_INFO_7A;
+pub type PPRINTER_INFO_7W = *mut PRINTER_INFO_7W;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_8(pub PPRINTER_INFO_8A);
+pub type PPRINTER_INFO_8 = PPRINTER_INFO_8A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_8A(pub *mut PRINTER_INFO_8A);
+pub type PPRINTER_INFO_8A = *mut PRINTER_INFO_8A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl PPRINTER_INFO_8A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPRINTER_INFO_8W = *mut PRINTER_INFO_8W;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for PPRINTER_INFO_8A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_INFO_9 = PPRINTER_INFO_9A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_8W(pub *mut PRINTER_INFO_8W);
+pub type PPRINTER_INFO_9A = *mut PRINTER_INFO_9A;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-impl PPRINTER_INFO_8W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for PPRINTER_INFO_8W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_INFO_9(pub PPRINTER_INFO_9A);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_9A(pub *mut PRINTER_INFO_9A);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl PPRINTER_INFO_9A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for PPRINTER_INFO_9A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_INFO_9W(pub *mut PRINTER_INFO_9W);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl PPRINTER_INFO_9W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for PPRINTER_INFO_9W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_NOTIFY_INFO(pub *mut PRINTER_NOTIFY_INFO);
-impl PPRINTER_NOTIFY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_NOTIFY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_NOTIFY_INFO_DATA(pub *mut PRINTER_NOTIFY_INFO_DATA);
-impl PPRINTER_NOTIFY_INFO_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_NOTIFY_INFO_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_INFO_9W = *mut PRINTER_INFO_9W;
+pub type PPRINTER_NOTIFY_INFO = *mut PRINTER_NOTIFY_INFO;
+pub type PPRINTER_NOTIFY_INFO_DATA = *mut PRINTER_NOTIFY_INFO_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_NOTIFY_OPTIONS(pub *mut PRINTER_NOTIFY_OPTIONS);
+pub type PPRINTER_NOTIFY_OPTIONS = *mut PRINTER_NOTIFY_OPTIONS;
 #[cfg(feature = "minwindef")]
-impl PPRINTER_NOTIFY_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPRINTER_NOTIFY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_NOTIFY_OPTIONS_TYPE(pub *mut PRINTER_NOTIFY_OPTIONS_TYPE);
-#[cfg(feature = "minwindef")]
-impl PPRINTER_NOTIFY_OPTIONS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPRINTER_NOTIFY_OPTIONS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTER_OPTIONS(pub PPRINTER_OPTIONSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_OPTIONSA(pub *mut PRINTER_OPTIONSA);
-impl PPRINTER_OPTIONSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_OPTIONSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTER_OPTIONSW(pub *mut PRINTER_OPTIONSW);
-impl PPRINTER_OPTIONSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTER_OPTIONSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTPROCESSOR_CAPS_1(pub *mut PRINTPROCESSOR_CAPS_1);
-impl PPRINTPROCESSOR_CAPS_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTPROCESSOR_CAPS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTPROCESSOR_CAPS_2(pub *mut PRINTPROCESSOR_CAPS_2);
-impl PPRINTPROCESSOR_CAPS_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTPROCESSOR_CAPS_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPRINTPROCESSOR_INFO_1(pub PPRINTPROCESSOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTPROCESSOR_INFO_1A(pub *mut PRINTPROCESSOR_INFO_1A);
-impl PPRINTPROCESSOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTPROCESSOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINTPROCESSOR_INFO_1W(pub *mut PRINTPROCESSOR_INFO_1W);
-impl PPRINTPROCESSOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINTPROCESSOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPROVIDOR_INFO_1(pub PPROVIDOR_INFO_1A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDOR_INFO_1A(pub *mut PROVIDOR_INFO_1A);
-impl PPROVIDOR_INFO_1A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDOR_INFO_1A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDOR_INFO_1W(pub *mut PROVIDOR_INFO_1W);
-impl PPROVIDOR_INFO_1W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDOR_INFO_1W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPROVIDOR_INFO_2(pub PPROVIDOR_INFO_2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDOR_INFO_2A(pub *mut PROVIDOR_INFO_2A);
-impl PPROVIDOR_INFO_2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDOR_INFO_2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDOR_INFO_2W(pub *mut PROVIDOR_INFO_2W);
-impl PPROVIDOR_INFO_2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDOR_INFO_2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPRINTER_NOTIFY_OPTIONS_TYPE = *mut PRINTER_NOTIFY_OPTIONS_TYPE;
+pub type PPRINTER_OPTIONS = PPRINTER_OPTIONSA;
+pub type PPRINTER_OPTIONSA = *mut PRINTER_OPTIONSA;
+pub type PPRINTER_OPTIONSW = *mut PRINTER_OPTIONSW;
+pub type PPRINTPROCESSOR_CAPS_1 = *mut PRINTPROCESSOR_CAPS_1;
+pub type PPRINTPROCESSOR_CAPS_2 = *mut PRINTPROCESSOR_CAPS_2;
+pub type PPRINTPROCESSOR_INFO_1 = PPRINTPROCESSOR_INFO_1A;
+pub type PPRINTPROCESSOR_INFO_1A = *mut PRINTPROCESSOR_INFO_1A;
+pub type PPRINTPROCESSOR_INFO_1W = *mut PRINTPROCESSOR_INFO_1W;
+pub type PPROVIDOR_INFO_1 = PPROVIDOR_INFO_1A;
+pub type PPROVIDOR_INFO_1A = *mut PROVIDOR_INFO_1A;
+pub type PPROVIDOR_INFO_1W = *mut PROVIDOR_INFO_1W;
+pub type PPROVIDOR_INFO_2 = PPROVIDOR_INFO_2A;
+pub type PPROVIDOR_INFO_2A = *mut PROVIDOR_INFO_2A;
+pub type PPROVIDOR_INFO_2W = *mut PROVIDOR_INFO_2W;
 pub const PRINTER_ACCESS_ADMINISTER: u32 = 4;
 pub const PRINTER_ACCESS_MANAGE_LIMITED: u32 = 64;
 pub const PRINTER_ACCESS_USE: u32 = 8;

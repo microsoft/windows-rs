@@ -253,241 +253,25 @@ pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876;
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884;
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACPI_REAL_TIME(pub *mut ACPI_REAL_TIME);
-impl PACPI_REAL_TIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACPI_REAL_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACPI_TIME_AND_ALARM_CAPABILITIES(pub *mut ACPI_TIME_AND_ALARM_CAPABILITIES);
-impl PACPI_TIME_AND_ALARM_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACPI_TIME_AND_ALARM_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACPI_TIME_RESOLUTION(pub *mut ACPI_TIME_RESOLUTION);
-impl PACPI_TIME_RESOLUTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACPI_TIME_RESOLUTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACPI_REAL_TIME = *mut ACPI_REAL_TIME;
+pub type PACPI_TIME_AND_ALARM_CAPABILITIES = *mut ACPI_TIME_AND_ALARM_CAPABILITIES;
+pub type PACPI_TIME_RESOLUTION = *mut ACPI_TIME_RESOLUTION;
 pub const PASSIVE_COOLING: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_CHARGER_ID(pub *mut windows_core::GUID);
-impl PBATTERY_CHARGER_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_CHARGER_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_CHARGER_STATUS(pub *mut BATTERY_CHARGER_STATUS);
-impl PBATTERY_CHARGER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_CHARGER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_CHARGING_SOURCE(pub *mut BATTERY_CHARGING_SOURCE);
-impl PBATTERY_CHARGING_SOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_CHARGING_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_CHARGING_SOURCE_INFORMATION(pub *mut BATTERY_CHARGING_SOURCE_INFORMATION);
-impl PBATTERY_CHARGING_SOURCE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_CHARGING_SOURCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_CHARGING_SOURCE_TYPE(pub *mut BATTERY_CHARGING_SOURCE_TYPE);
-impl PBATTERY_CHARGING_SOURCE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_CHARGING_SOURCE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_INFORMATION(pub *mut BATTERY_INFORMATION);
-impl PBATTERY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_MANUFACTURE_DATE(pub *mut BATTERY_MANUFACTURE_DATE);
-impl PBATTERY_MANUFACTURE_DATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_MANUFACTURE_DATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_QUERY_INFORMATION(pub *mut BATTERY_QUERY_INFORMATION);
-impl PBATTERY_QUERY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_QUERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_SET_INFORMATION(pub *mut BATTERY_SET_INFORMATION);
-impl PBATTERY_SET_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_STATUS(pub *mut BATTERY_STATUS);
-impl PBATTERY_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_USB_CHARGER_STATUS(pub *mut BATTERY_USB_CHARGER_STATUS);
-impl PBATTERY_USB_CHARGER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_USB_CHARGER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBATTERY_WAIT_STATUS(pub *mut BATTERY_WAIT_STATUS);
-impl PBATTERY_WAIT_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBATTERY_WAIT_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCUSTOMIZED_IO_CAPABILITIES(pub *mut CUSTOMIZED_IO_CAPABILITIES);
-impl PCUSTOMIZED_IO_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCUSTOMIZED_IO_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCUSTOMIZED_IO_QUERY_INPUT_RETURN(pub *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN);
-impl PCUSTOMIZED_IO_QUERY_INPUT_RETURN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCUSTOMIZED_IO_QUERY_INPUT_RETURN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER(pub *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER);
-impl PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBATTERY_CHARGER_ID = *mut windows_core::GUID;
+pub type PBATTERY_CHARGER_STATUS = *mut BATTERY_CHARGER_STATUS;
+pub type PBATTERY_CHARGING_SOURCE = *mut BATTERY_CHARGING_SOURCE;
+pub type PBATTERY_CHARGING_SOURCE_INFORMATION = *mut BATTERY_CHARGING_SOURCE_INFORMATION;
+pub type PBATTERY_CHARGING_SOURCE_TYPE = *mut BATTERY_CHARGING_SOURCE_TYPE;
+pub type PBATTERY_INFORMATION = *mut BATTERY_INFORMATION;
+pub type PBATTERY_MANUFACTURE_DATE = *mut BATTERY_MANUFACTURE_DATE;
+pub type PBATTERY_QUERY_INFORMATION = *mut BATTERY_QUERY_INFORMATION;
+pub type PBATTERY_SET_INFORMATION = *mut BATTERY_SET_INFORMATION;
+pub type PBATTERY_STATUS = *mut BATTERY_STATUS;
+pub type PBATTERY_USB_CHARGER_STATUS = *mut BATTERY_USB_CHARGER_STATUS;
+pub type PBATTERY_WAIT_STATUS = *mut BATTERY_WAIT_STATUS;
+pub type PCUSTOMIZED_IO_CAPABILITIES = *mut CUSTOMIZED_IO_CAPABILITIES;
+pub type PCUSTOMIZED_IO_QUERY_INPUT_RETURN = *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN;
+pub type PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER = *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POWER_ADAPTER_CHARGE_REQUIREMENT {
@@ -542,84 +326,12 @@ impl Default for POWER_ADAPTER_STATUS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_ADAPTER_CHARGE_REQUIREMENT(pub *mut POWER_ADAPTER_CHARGE_REQUIREMENT);
-impl PPOWER_ADAPTER_CHARGE_REQUIREMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_ADAPTER_CHARGE_REQUIREMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_ADAPTER_POWER_STATES(pub *mut POWER_ADAPTER_POWER_STATES);
-impl PPOWER_ADAPTER_POWER_STATES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_ADAPTER_POWER_STATES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_ADAPTER_SET_STATUS_BUFFER(pub *mut POWER_ADAPTER_SET_STATUS_BUFFER);
-impl PPOWER_ADAPTER_SET_STATUS_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_ADAPTER_SET_STATUS_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_ADAPTER_STATUS(pub *mut POWER_ADAPTER_STATUS);
-impl PPOWER_ADAPTER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_ADAPTER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSOR_OBJECT_INFO(pub *mut PROCESSOR_OBJECT_INFO);
-impl PPROCESSOR_OBJECT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESSOR_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSOR_OBJECT_INFO_EX(pub *mut PROCESSOR_OBJECT_INFO_EX);
-impl PPROCESSOR_OBJECT_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESSOR_OBJECT_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOWER_ADAPTER_CHARGE_REQUIREMENT = *mut POWER_ADAPTER_CHARGE_REQUIREMENT;
+pub type PPOWER_ADAPTER_POWER_STATES = *mut POWER_ADAPTER_POWER_STATES;
+pub type PPOWER_ADAPTER_SET_STATUS_BUFFER = *mut POWER_ADAPTER_SET_STATUS_BUFFER;
+pub type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
+pub type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
+pub type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
 #[cfg(feature = "devpropdef")]
 pub const PROCESSOR_NUMBER_PKEY: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: super::devpropdef::DEVPROPID(1) };
 #[repr(C)]
@@ -638,73 +350,11 @@ pub struct PROCESSOR_OBJECT_INFO_EX {
     pub InitialApicId: u32,
 }
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHERMAL_INFORMATION(pub *mut THERMAL_INFORMATION);
-#[cfg(feature = "basetsd")]
-impl PTHERMAL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PTHERMAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHERMAL_POLICY(pub *mut THERMAL_POLICY);
-impl PTHERMAL_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTHERMAL_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHERMAL_WAIT_READ(pub *mut THERMAL_WAIT_READ);
-impl PTHERMAL_WAIT_READ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTHERMAL_WAIT_READ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSB_CHARGER_PORT(pub *mut USB_CHARGER_PORT);
-impl PUSB_CHARGER_PORT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSB_CHARGER_PORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAKE_ALARM_INFORMATION(pub *mut WAKE_ALARM_INFORMATION);
-impl PWAKE_ALARM_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWAKE_ALARM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTHERMAL_INFORMATION = *mut THERMAL_INFORMATION;
+pub type PTHERMAL_POLICY = *mut THERMAL_POLICY;
+pub type PTHERMAL_WAIT_READ = *mut THERMAL_WAIT_READ;
+pub type PUSB_CHARGER_PORT = *mut USB_CHARGER_PORT;
+pub type PWAKE_ALARM_INFORMATION = *mut WAKE_ALARM_INFORMATION;
 pub const SYS_BUTTON_LID: u32 = 4;
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288;
 pub const SYS_BUTTON_LID_CLOSED: u32 = 131072;

@@ -369,45 +369,9 @@ pub struct EapUsernamePasswordCredential {
 }
 pub const MAX_EAP_CONFIG_INPUT_FIELD_LENGTH: u32 = 256;
 pub const MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH: u32 = 1024;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEAP_CONFIG_INPUT_FIELD_ARRAY(pub *mut EAP_CONFIG_INPUT_FIELD_ARRAY);
-impl PEAP_CONFIG_INPUT_FIELD_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEAP_CONFIG_INPUT_FIELD_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEAP_CONFIG_INPUT_FIELD_DATA(pub *mut EAP_CONFIG_INPUT_FIELD_DATA);
-impl PEAP_CONFIG_INPUT_FIELD_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEAP_CONFIG_INPUT_FIELD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEAP_CONFIG_INPUT_FIELD_TYPE(pub *mut EAP_CONFIG_INPUT_FIELD_TYPE);
-impl PEAP_CONFIG_INPUT_FIELD_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEAP_CONFIG_INPUT_FIELD_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEAP_CONFIG_INPUT_FIELD_ARRAY = *mut EAP_CONFIG_INPUT_FIELD_ARRAY;
+pub type PEAP_CONFIG_INPUT_FIELD_DATA = *mut EAP_CONFIG_INPUT_FIELD_DATA;
+pub type PEAP_CONFIG_INPUT_FIELD_TYPE = *mut EAP_CONFIG_INPUT_FIELD_TYPE;
 pub const eapPropCertifiedMethod: u32 = 4194304;
 pub const eapPropChannelBinding: u32 = 65536;
 pub const eapPropCipherSuiteNegotiation: u32 = 1;

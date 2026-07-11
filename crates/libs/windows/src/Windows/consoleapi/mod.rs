@@ -170,44 +170,8 @@ pub const ENABLE_VIRTUAL_TERMINAL_INPUT: u32 = 512;
 pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: u32 = 4;
 pub const ENABLE_WINDOW_INPUT: u32 = 8;
 pub const ENABLE_WRAP_AT_EOL_OUTPUT: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PALLOC_CONSOLE_OPTIONS(pub *mut ALLOC_CONSOLE_OPTIONS);
-impl PALLOC_CONSOLE_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PALLOC_CONSOLE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PALLOC_CONSOLE_RESULT(pub *mut ALLOC_CONSOLE_RESULT);
-impl PALLOC_CONSOLE_RESULT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PALLOC_CONSOLE_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_READCONSOLE_CONTROL(pub *mut CONSOLE_READCONSOLE_CONTROL);
-impl PCONSOLE_READCONSOLE_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONSOLE_READCONSOLE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PALLOC_CONSOLE_OPTIONS = *mut ALLOC_CONSOLE_OPTIONS;
+pub type PALLOC_CONSOLE_RESULT = *mut ALLOC_CONSOLE_RESULT;
+pub type PCONSOLE_READCONSOLE_CONTROL = *mut CONSOLE_READCONSOLE_CONTROL;
 pub type PHANDLER_ROUTINE = Option<unsafe extern "system" fn(ctrltype: u32) -> windows_core::BOOL>;
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1;

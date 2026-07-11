@@ -538,81 +538,9 @@ impl IAntimalwareUacProvider_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IAntimalwareUacProvider {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_AX_INFO(pub *mut AMSI_UAC_REQUEST_AX_INFO);
-impl LPAMSI_UAC_REQUEST_AX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_AX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_COM_INFO(pub *mut AMSI_UAC_REQUEST_COM_INFO);
-impl LPAMSI_UAC_REQUEST_COM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_COM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_CONTEXT(pub *mut AMSI_UAC_REQUEST_CONTEXT);
-impl LPAMSI_UAC_REQUEST_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_EXE_INFO(pub *mut AMSI_UAC_REQUEST_EXE_INFO);
-impl LPAMSI_UAC_REQUEST_EXE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_EXE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_MSI_INFO(pub *mut AMSI_UAC_REQUEST_MSI_INFO);
-impl LPAMSI_UAC_REQUEST_MSI_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_MSI_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO(pub *mut AMSI_UAC_REQUEST_PACKAGED_APP_INFO);
-impl LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAMSI_UAC_REQUEST_AX_INFO = *mut AMSI_UAC_REQUEST_AX_INFO;
+pub type LPAMSI_UAC_REQUEST_COM_INFO = *mut AMSI_UAC_REQUEST_COM_INFO;
+pub type LPAMSI_UAC_REQUEST_CONTEXT = *mut AMSI_UAC_REQUEST_CONTEXT;
+pub type LPAMSI_UAC_REQUEST_EXE_INFO = *mut AMSI_UAC_REQUEST_EXE_INFO;
+pub type LPAMSI_UAC_REQUEST_MSI_INFO = *mut AMSI_UAC_REQUEST_MSI_INFO;
+pub type LPAMSI_UAC_REQUEST_PACKAGED_APP_INFO = *mut AMSI_UAC_REQUEST_PACKAGED_APP_INFO;

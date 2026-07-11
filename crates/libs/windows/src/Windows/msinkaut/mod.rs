@@ -10175,21 +10175,7 @@ pub const InkTablets: windows_core::GUID = windows_core::GUID::from_u128(0x6e4fc
 pub const InkTransform: windows_core::GUID = windows_core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: windows_core::GUID = windows_core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINKMETRIC(pub *mut INKMETRIC);
-#[cfg(feature = "windef")]
-impl PINKMETRIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PINKMETRIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINKMETRIC = *mut INKMETRIC;
 pub const SHR_E: SelectionHitResult = 5;
 pub const SHR_N: SelectionHitResult = 7;
 pub const SHR_NE: SelectionHitResult = 3;

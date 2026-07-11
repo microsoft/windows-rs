@@ -57,55 +57,7 @@ pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = 1;
 pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = 5;
 pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = 2;
 pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSROLE_OPERATION_STATE_INFO(pub *mut DSROLE_OPERATION_STATE_INFO);
-impl PDSROLE_OPERATION_STATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSROLE_OPERATION_STATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSROLE_PRIMARY_DOMAIN_INFO_BASIC(pub *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC);
-impl PDSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSROLE_SERVER_STATE(pub *mut DSROLE_SERVER_STATE);
-impl PDSROLE_SERVER_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSROLE_SERVER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSROLE_UPGRADE_STATUS_INFO(pub *mut DSROLE_UPGRADE_STATUS_INFO);
-impl PDSROLE_UPGRADE_STATUS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSROLE_UPGRADE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDSROLE_OPERATION_STATE_INFO = *mut DSROLE_OPERATION_STATE_INFO;
+pub type PDSROLE_PRIMARY_DOMAIN_INFO_BASIC = *mut DSROLE_PRIMARY_DOMAIN_INFO_BASIC;
+pub type PDSROLE_SERVER_STATE = *mut DSROLE_SERVER_STATE;
+pub type PDSROLE_UPGRADE_STATUS_INFO = *mut DSROLE_UPGRADE_STATUS_INFO;

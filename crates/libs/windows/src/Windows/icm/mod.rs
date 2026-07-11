@@ -993,17 +993,11 @@ pub struct GRAYCOLOR {
     pub gray: u16,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCMTRANSFORM(pub super::winnt::HANDLE);
+pub type HCMTRANSFORM = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HPROFILE(pub super::winnt::HANDLE);
+pub type HPROFILE = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTRANSFORM(pub super::winnt::HANDLE);
+pub type HTRANSFORM = super::winnt::HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HiFiCOLOR {
@@ -1021,129 +1015,17 @@ pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1;
 pub const INTENT_SATURATION: u32 = 2;
 #[cfg(feature = "minwindef")]
 pub type LPBMCALLBACKFN = PBMCALLBACKFN;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBMFORMAT(pub *mut BMFORMAT);
-impl LPBMFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBMFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLOR(pub *mut COLOR);
-impl LPCOLOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORDATATYPE(pub *mut COLORDATATYPE);
-impl LPCOLORDATATYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLORDATATYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBMFORMAT = *mut BMFORMAT;
+pub type LPCOLOR = *mut COLOR;
+pub type LPCOLORDATATYPE = *mut COLORDATATYPE;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORMATCHSETUPA(pub *mut COLORMATCHSETUPA);
+pub type LPCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPCOLORMATCHSETUPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPCOLORMATCHSETUPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORMATCHSETUPW(pub *mut COLORMATCHSETUPW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPCOLORMATCHSETUPW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPCOLORMATCHSETUPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORPROFILESUBTYPE(pub *mut COLORPROFILESUBTYPE);
-impl LPCOLORPROFILESUBTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLORPROFILESUBTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORPROFILETYPE(pub *mut COLORPROFILETYPE);
-impl LPCOLORPROFILETYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLORPROFILETYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORTYPE(pub *mut COLORTYPE);
-impl LPCOLORTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLORTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLOR_NAME(pub *mut COLOR_NAME);
-impl LPCOLOR_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLOR_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
+pub type LPCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
+pub type LPCOLORPROFILETYPE = *mut COLORPROFILETYPE;
+pub type LPCOLORTYPE = *mut COLORTYPE;
+pub type LPCOLOR_NAME = *mut COLOR_NAME;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDEVCHARACTER(pub *mut core::ffi::c_void);
@@ -1157,87 +1039,13 @@ impl Default for LPDEVCHARACTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMTYPEA(pub *mut ENUMTYPEA);
-impl LPENUMTYPEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMTYPEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMTYPEW(pub *mut ENUMTYPEW);
-impl LPENUMTYPEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMTYPEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNAMED_PROFILE_INFO(pub *mut NAMED_PROFILE_INFO);
-impl LPNAMED_PROFILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNAMED_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROFILE(pub *mut PROFILE);
-impl LPPROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPENUMTYPEA = *mut ENUMTYPEA;
+pub type LPENUMTYPEW = *mut ENUMTYPEW;
+pub type LPNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
+pub type LPPROFILE = *mut PROFILE;
 #[cfg(feature = "wingdi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROFILEHEADER(pub *mut PROFILEHEADER);
-#[cfg(feature = "wingdi")]
-impl LPPROFILEHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wingdi")]
-impl Default for LPPROFILEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTAGTYPE(pub *mut TAGTYPE);
-impl LPTAGTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTAGTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROFILEHEADER = *mut PROFILEHEADER;
+pub type LPTAGTYPE = *mut TAGTYPE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct LabCOLOR {
@@ -1269,217 +1077,29 @@ impl Default for NAMED_PROFILE_INFO {
 pub const NORMAL_MODE: u32 = 2;
 #[cfg(feature = "minwindef")]
 pub type PBMCALLBACKFN = Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::minwindef::LPARAM) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBMFORMAT(pub *mut BMFORMAT);
-impl PBMFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBMFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBMFORMAT = *mut BMFORMAT;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCMSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPA, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 pub type PCMSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLOR(pub *mut COLOR);
-impl PCOLOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORDATATYPE(pub *mut COLORDATATYPE);
-impl PCOLORDATATYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLORDATATYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOLOR = *mut COLOR;
+pub type PCOLORDATATYPE = *mut COLORDATATYPE;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORMATCHSETUPA(pub *mut COLORMATCHSETUPA);
+pub type PCOLORMATCHSETUPA = *mut COLORMATCHSETUPA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl PCOLORMATCHSETUPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for PCOLORMATCHSETUPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORMATCHSETUPW(pub *mut COLORMATCHSETUPW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl PCOLORMATCHSETUPW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for PCOLORMATCHSETUPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORPROFILESUBTYPE(pub *mut COLORPROFILESUBTYPE);
-impl PCOLORPROFILESUBTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLORPROFILESUBTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORPROFILETYPE(pub *mut COLORPROFILETYPE);
-impl PCOLORPROFILETYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLORPROFILETYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORTYPE(pub *mut COLORTYPE);
-impl PCOLORTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLORTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLOR_NAME(pub *mut COLOR_NAME);
-impl PCOLOR_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLOR_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMTYPEA(pub *mut ENUMTYPEA);
-impl PENUMTYPEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMTYPEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMTYPEW(pub *mut ENUMTYPEW);
-impl PENUMTYPEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMTYPEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOLORMATCHSETUPW = *mut COLORMATCHSETUPW;
+pub type PCOLORPROFILESUBTYPE = *mut COLORPROFILESUBTYPE;
+pub type PCOLORPROFILETYPE = *mut COLORPROFILETYPE;
+pub type PCOLORTYPE = *mut COLORTYPE;
+pub type PCOLOR_NAME = *mut COLOR_NAME;
+pub type PENUMTYPEA = *mut ENUMTYPEA;
+pub type PENUMTYPEW = *mut ENUMTYPEW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHPROFILE(pub *mut HPROFILE);
-#[cfg(feature = "winnt")]
-impl PHPROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNAMED_PROFILE_INFO(pub *mut NAMED_PROFILE_INFO);
-impl PNAMED_PROFILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNAMED_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROFILE(pub *mut PROFILE);
-impl PPROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHPROFILE = *mut HPROFILE;
+pub type PNAMED_PROFILE_INFO = *mut NAMED_PROFILE_INFO;
+pub type PPROFILE = *mut PROFILE;
 #[cfg(feature = "wingdi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROFILEHEADER(pub *mut PROFILEHEADER);
-#[cfg(feature = "wingdi")]
-impl PPROFILEHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wingdi")]
-impl Default for PPROFILEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: u32 = 1048576;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1526,19 +1146,7 @@ pub const PROFILE_MEMBUFFER: u32 = 2;
 pub const PROFILE_READ: u32 = 1;
 pub const PROFILE_READWRITE: u32 = 2;
 pub const PROOF_MODE: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTAGTYPE(pub *mut TAGTYPE);
-impl PTAGTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTAGTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTAGTYPE = *mut TAGTYPE;
 pub const RESERVED: u32 = 2147483648;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

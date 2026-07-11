@@ -1059,64 +1059,12 @@ pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: super::mfobjects::MF_STREAM_STATE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDeviceStreamState(pub *mut DeviceStreamState);
-impl PDeviceStreamState {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDeviceStreamState {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDeviceStreamState = *mut DeviceStreamState;
 #[cfg(feature = "mfobjects")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFT_OUTPUT_DATA_BUFFER(pub *mut MFT_OUTPUT_DATA_BUFFER);
+pub type PMFT_OUTPUT_DATA_BUFFER = *mut MFT_OUTPUT_DATA_BUFFER;
 #[cfg(feature = "mfobjects")]
-impl PMFT_OUTPUT_DATA_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mfobjects")]
-impl Default for PMFT_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mfobjects")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFT_STREAM_STATE_PARAM(pub *mut MFT_STREAM_STATE_PARAM);
-#[cfg(feature = "mfobjects")]
-impl PMFT_STREAM_STATE_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mfobjects")]
-impl Default for PMFT_STREAM_STATE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTREAM_MEDIUM(pub *mut STREAM_MEDIUM);
-impl PSTREAM_MEDIUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTREAM_MEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMFT_STREAM_STATE_PARAM = *mut MFT_STREAM_STATE_PARAM;
+pub type PSTREAM_MEDIUM = *mut STREAM_MEDIUM;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct STREAM_MEDIUM {

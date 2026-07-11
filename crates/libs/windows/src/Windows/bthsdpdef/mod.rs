@@ -1,71 +1,11 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSDP_LARGE_INTEGER_16(pub *mut SDP_LARGE_INTEGER_16);
-impl LPSDP_LARGE_INTEGER_16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSDP_LARGE_INTEGER_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSDP_ULARGE_INTEGER_16(pub *mut SDP_ULARGE_INTEGER_16);
-impl LPSDP_ULARGE_INTEGER_16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSDP_ULARGE_INTEGER_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+pub type LPSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
 pub type NodeContainerType = i32;
 pub const NodeContainerTypeAlternative: NodeContainerType = 1;
 pub const NodeContainerTypeSequence: NodeContainerType = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDP_ERROR(pub *mut u16);
-impl PSDP_ERROR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSDP_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDP_LARGE_INTEGER_16(pub *mut SDP_LARGE_INTEGER_16);
-impl PSDP_LARGE_INTEGER_16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSDP_LARGE_INTEGER_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDP_ULARGE_INTEGER_16(pub *mut SDP_ULARGE_INTEGER_16);
-impl PSDP_ULARGE_INTEGER_16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSDP_ULARGE_INTEGER_16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSDP_ERROR = *mut u16;
+pub type PSDP_LARGE_INTEGER_16 = *mut SDP_LARGE_INTEGER_16;
+pub type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SDP_ERROR(pub u16);

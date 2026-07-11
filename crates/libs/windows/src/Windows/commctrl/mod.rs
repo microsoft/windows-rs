@@ -1091,19 +1091,7 @@ pub const HICF_MOUSE: u32 = 1;
 pub const HICF_OTHER: u32 = 0;
 pub const HICF_RESELECT: u32 = 64;
 pub const HICF_TOGGLEDROPDOWN: u32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HIMAGELIST(pub *mut _IMAGELIST);
-impl HIMAGELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HIMAGELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type HIMAGELIST = *mut _IMAGELIST;
 #[cfg(feature = "minwindef")]
 pub const HINST_COMMCTRL: super::minwindef::HINSTANCE = super::minwindef::HINSTANCE(-1 as _);
 pub const HIST_ADDTOFAVORITES: u32 = 3;
@@ -1128,19 +1116,7 @@ pub const HOTKEYF_EXT: u32 = 8;
 pub const HOTKEYF_SHIFT: u32 = 1;
 pub const HOTKEY_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_hotkey32");
 pub const HOTKEY_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_hotkey32");
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HTREEITEM(pub *mut _TREEITEM);
-impl HTREEITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HTREEITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type HTREEITEM = *mut _TREEITEM;
 pub const ICC_ANIMATE_CLASS: u32 = 128;
 pub const ICC_BAR_CLASSES: u32 = 4;
 pub const ICC_COOL_CLASSES: u32 = 1024;
@@ -1307,2198 +1283,272 @@ pub const LM_GETITEM: u32 = 1795;
 pub const LM_HITTEST: u32 = 1792;
 pub const LM_SETITEM: u32 = 1794;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORMAP(pub *mut COLORMAP);
+pub type LPCOLORMAP = *mut COLORMAP;
 #[cfg(feature = "windef")]
-impl LPCOLORMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCOLORSCHEME = *mut COLORSCHEME;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPCREBARBANDINFOA = *const REBARBANDINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPCREBARBANDINFOW = *const REBARBANDINFOW;
+pub type LPCTBBUTTON = *const TBBUTTON;
 #[cfg(feature = "windef")]
-impl Default for LPCOLORMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDATETIMEPICKERINFO = *mut DATETIMEPICKERINFO;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORSCHEME(pub *mut COLORSCHEME);
+pub type LPDRAGLISTINFO = *mut DRAGLISTINFO;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPFINDINFOA = *mut LVFINDINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPFINDINFOW = *mut LVFINDINFOW;
 #[cfg(feature = "windef")]
-impl LPCOLORSCHEME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCOLORSCHEME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHDHITTESTINFO = *mut HDHITTESTINFO;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREBARBANDINFOA(pub *const REBARBANDINFOA);
+pub type LPHDITEMA = *mut HDITEMA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPCREBARBANDINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPCREBARBANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREBARBANDINFOW(pub *const REBARBANDINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPCREBARBANDINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPCREBARBANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCTBBUTTON(pub *const TBBUTTON);
-impl LPCTBBUTTON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCTBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDATETIMEPICKERINFO(pub *mut DATETIMEPICKERINFO);
-#[cfg(feature = "windef")]
-impl LPDATETIMEPICKERINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDATETIMEPICKERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRAGLISTINFO(pub *mut DRAGLISTINFO);
-#[cfg(feature = "windef")]
-impl LPDRAGLISTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDRAGLISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFINDINFOA(pub *mut LVFINDINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFINDINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFINDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFINDINFOW(pub *mut LVFINDINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFINDINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFINDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHDHITTESTINFO(pub *mut HDHITTESTINFO);
-#[cfg(feature = "windef")]
-impl LPHDHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPHDHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHDITEMA(pub *mut HDITEMA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPHDITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPHDITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHDITEMW(pub *mut HDITEMW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPHDITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPHDITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHDITEMW = *mut HDITEMW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHDLAYOUT(pub *mut HDLAYOUT);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPHDLAYOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPHDLAYOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHD_TEXTFILTERA(pub *mut HD_TEXTFILTERA);
-impl LPHD_TEXTFILTERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHD_TEXTFILTERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHD_TEXTFILTERW(pub *mut HD_TEXTFILTERW);
-impl LPHD_TEXTFILTERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHD_TEXTFILTERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHDLAYOUT = *mut HDLAYOUT;
+pub type LPHD_TEXTFILTERA = *mut HD_TEXTFILTERA;
+pub type LPHD_TEXTFILTERW = *mut HD_TEXTFILTERW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMAGEINFO(pub *mut IMAGEINFO);
+pub type LPIMAGEINFO = *mut IMAGEINFO;
 #[cfg(feature = "windef")]
-impl LPIMAGEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPIMAGELISTDRAWPARAMS = *mut IMAGELISTDRAWPARAMS;
+pub type LPINITCOMMONCONTROLSEX = *mut INITCOMMONCONTROLSEX;
 #[cfg(feature = "windef")]
-impl Default for LPIMAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPLVBKIMAGEA = *mut LVBKIMAGEA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMAGELISTDRAWPARAMS(pub *mut IMAGELISTDRAWPARAMS);
+pub type LPLVBKIMAGEW = *mut LVBKIMAGEW;
+pub type LPLVCOLUMNA = *mut LVCOLUMNA;
+pub type LPLVCOLUMNW = *mut LVCOLUMNW;
+pub type LPLVFOOTERINFO = *mut LVFOOTERINFO;
+pub type LPLVFOOTERITEM = *mut LVFOOTERITEM;
 #[cfg(feature = "windef")]
-impl LPIMAGELISTDRAWPARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPIMAGELISTDRAWPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINITCOMMONCONTROLSEX(pub *mut INITCOMMONCONTROLSEX);
-impl LPINITCOMMONCONTROLSEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINITCOMMONCONTROLSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVBKIMAGEA(pub *mut LVBKIMAGEA);
-#[cfg(feature = "windef")]
-impl LPLVBKIMAGEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLVBKIMAGEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVBKIMAGEW(pub *mut LVBKIMAGEW);
-#[cfg(feature = "windef")]
-impl LPLVBKIMAGEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLVBKIMAGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVCOLUMNA(pub *mut LVCOLUMNA);
-impl LPLVCOLUMNA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLVCOLUMNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVCOLUMNW(pub *mut LVCOLUMNW);
-impl LPLVCOLUMNW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLVCOLUMNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVFOOTERINFO(pub *mut LVFOOTERINFO);
-impl LPLVFOOTERINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLVFOOTERINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVFOOTERITEM(pub *mut LVFOOTERITEM);
-impl LPLVFOOTERITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLVFOOTERITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVHITTESTINFO(pub *mut LVHITTESTINFO);
-#[cfg(feature = "windef")]
-impl LPLVHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLVHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVINSERTMARK(pub *mut LVINSERTMARK);
-impl LPLVINSERTMARK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLVINSERTMARK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPLVHITTESTINFO = *mut LVHITTESTINFO;
+pub type LPLVINSERTMARK = *mut LVINSERTMARK;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVITEMA(pub *mut LVITEMA);
+pub type LPLVITEMA = *mut LVITEMA;
 #[cfg(feature = "minwindef")]
-impl LPLVITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPLVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLVITEMW(pub *mut LVITEMW);
-#[cfg(feature = "minwindef")]
-impl LPLVITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPLVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMONTHDAYSTATE(pub *mut u32);
-impl LPMONTHDAYSTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMONTHDAYSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPLVITEMW = *mut LVITEMW;
+pub type LPMONTHDAYSTATE = *mut u32;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMBCDROPDOWN(pub *mut NMBCDROPDOWN);
+pub type LPNMBCDROPDOWN = *mut NMBCDROPDOWN;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMBCDROPDOWN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMBCHOTITEM = *mut NMBCHOTITEM;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMBCDROPDOWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMCBEDRAGBEGINA = *mut NMCBEDRAGBEGINA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMBCHOTITEM(pub *mut NMBCHOTITEM);
+pub type LPNMCBEDRAGBEGINW = *mut NMCBEDRAGBEGINW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMBCHOTITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMCBEENDEDITA = *mut NMCBEENDEDITA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMBCHOTITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMCBEENDEDITW = *mut NMCBEENDEDITW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCBEDRAGBEGINA(pub *mut NMCBEDRAGBEGINA);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCBEDRAGBEGINA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCBEDRAGBEGINA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCBEDRAGBEGINW(pub *mut NMCBEDRAGBEGINW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCBEDRAGBEGINW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCBEDRAGBEGINW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCBEENDEDITA(pub *mut NMCBEENDEDITA);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCBEENDEDITA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCBEENDEDITA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCBEENDEDITW(pub *mut NMCBEENDEDITW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCBEENDEDITW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCBEENDEDITW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCHAR(pub *mut NMCHAR);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCHAR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCHAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMCHAR = *mut NMCHAR;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPNMCLICK(pub LPNMMOUSE);
+pub type LPNMCLICK = LPNMMOUSE;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCUSTOMDRAW(pub *mut NMCUSTOMDRAW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMCUSTOMDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMCUSTOMDRAW = *mut NMCUSTOMDRAW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCUSTOMSPLITRECTINFO(pub *mut NMCUSTOMSPLITRECTINFO);
+pub type LPNMCUSTOMSPLITRECTINFO = *mut NMCUSTOMSPLITRECTINFO;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCUSTOMSPLITRECTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCUSTOMSPLITRECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMCUSTOMTEXT(pub *mut NMCUSTOMTEXT);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMCUSTOMTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMCUSTOMTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMCUSTOMTEXT = *mut NMCUSTOMTEXT;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMECHANGE(pub *mut NMDATETIMECHANGE);
+pub type LPNMDATETIMECHANGE = *mut NMDATETIMECHANGE;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMECHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMDATETIMEFORMATA = *mut NMDATETIMEFORMATA;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMDATETIMEFORMATQUERYA = *mut NMDATETIMEFORMATQUERYA;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMDATETIMEFORMATQUERYW = *mut NMDATETIMEFORMATQUERYW;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMECHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMDATETIMEFORMATW = *mut NMDATETIMEFORMATW;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEFORMATA(pub *mut NMDATETIMEFORMATA);
+pub type LPNMDATETIMESTRINGA = *mut NMDATETIMESTRINGA;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEFORMATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMDATETIMESTRINGW = *mut NMDATETIMESTRINGW;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEFORMATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEFORMATQUERYA(pub *mut NMDATETIMEFORMATQUERYA);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEFORMATQUERYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEFORMATQUERYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEFORMATQUERYW(pub *mut NMDATETIMEFORMATQUERYW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEFORMATQUERYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEFORMATQUERYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMDATETIMEWMKEYDOWNA = *mut NMDATETIMEWMKEYDOWNA;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEFORMATW(pub *mut NMDATETIMEFORMATW);
+pub type LPNMDATETIMEWMKEYDOWNW = *mut NMDATETIMEWMKEYDOWNW;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEFORMATW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMDAYSTATE = *mut NMDAYSTATE;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMHDDISPINFOA = *mut NMHDDISPINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMHDDISPINFOW = *mut NMHDDISPINFOW;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMHDFILTERBTNCLICK = *mut NMHDFILTERBTNCLICK;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMHEADERA = *mut NMHEADERA;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMHEADERW = *mut NMHEADERW;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMIPADDRESS = *mut NMIPADDRESS;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMITEMACTIVATE = *mut NMITEMACTIVATE;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMKEY = *mut NMKEY;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLISTVIEW = *mut NMLISTVIEW;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMLVCACHEHINT = *mut NMLVCACHEHINT;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVCUSTOMDRAW = *mut NMLVCUSTOMDRAW;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVDISPINFOA = *mut NMLVDISPINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVDISPINFOW = *mut NMLVDISPINFOW;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVFINDITEMA = *mut NMLVFINDITEMA;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVFINDITEMW = *mut NMLVFINDITEMW;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVGETINFOTIPA = *mut NMLVGETINFOTIPA;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMLVGETINFOTIPW = *mut NMLVGETINFOTIPW;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMLVKEYDOWN = *mut NMLVKEYDOWN;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMLVODSTATECHANGE = *mut NMLVODSTATECHANGE;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMLVSCROLL = *mut NMLVSCROLL;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMMOUSE = *mut NMMOUSE;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMOBJECTNOTIFY = *mut NMOBJECTNOTIFY;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMPGCALCSIZE = *mut NMPGCALCSIZE;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMPGHOTITEM = *mut NMPGHOTITEM;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMPGSCROLL = *mut NMPGSCROLL;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMRBAUTOSIZE = *mut NMRBAUTOSIZE;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMREBAR = *mut NMREBAR;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMREBARAUTOBREAK = *mut NMREBARAUTOBREAK;
+#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
+pub type LPNMREBARCHEVRON = *mut NMREBARCHEVRON;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMREBARCHILDSIZE = *mut NMREBARCHILDSIZE;
+#[cfg(all(feature = "windef", feature = "winuser"))]
+pub type LPNMREBARSPLITTER = *mut NMREBARSPLITTER;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEFORMATW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMSELCHANGE = *mut NMSELCHANGE;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMESTRINGA(pub *mut NMDATETIMESTRINGA);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMESTRINGA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMESTRINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMESTRINGW(pub *mut NMDATETIMESTRINGW);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMESTRINGW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMESTRINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEWMKEYDOWNA(pub *mut NMDATETIMEWMKEYDOWNA);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEWMKEYDOWNA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEWMKEYDOWNA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDATETIMEWMKEYDOWNW(pub *mut NMDATETIMEWMKEYDOWNW);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDATETIMEWMKEYDOWNW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDATETIMEWMKEYDOWNW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMDAYSTATE(pub *mut NMDAYSTATE);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMDAYSTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMDAYSTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMSELECT = *mut NMSELCHANGE;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMHDDISPINFOA(pub *mut NMHDDISPINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMHDDISPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMHDDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMHDDISPINFOW(pub *mut NMHDDISPINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMHDDISPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMHDDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMHDFILTERBTNCLICK(pub *mut NMHDFILTERBTNCLICK);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMHDFILTERBTNCLICK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMHDFILTERBTNCLICK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMHEADERA(pub *mut NMHEADERA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMHEADERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMHEADERW(pub *mut NMHEADERW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMHEADERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMIPADDRESS(pub *mut NMIPADDRESS);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMIPADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMIPADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMITEMACTIVATE(pub *mut NMITEMACTIVATE);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMITEMACTIVATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMITEMACTIVATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMKEY(pub *mut NMKEY);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLISTVIEW(pub *mut NMLISTVIEW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLISTVIEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLISTVIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVCACHEHINT(pub *mut NMLVCACHEHINT);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMLVCACHEHINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVCACHEHINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVCUSTOMDRAW(pub *mut NMLVCUSTOMDRAW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVCUSTOMDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVDISPINFOA(pub *mut NMLVDISPINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVDISPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVDISPINFOW(pub *mut NMLVDISPINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVDISPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVFINDITEMA(pub *mut NMLVFINDITEMA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVFINDITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVFINDITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVFINDITEMW(pub *mut NMLVFINDITEMW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVFINDITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVFINDITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVGETINFOTIPA(pub *mut NMLVGETINFOTIPA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVGETINFOTIPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVGETINFOTIPW(pub *mut NMLVGETINFOTIPW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMLVGETINFOTIPW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVKEYDOWN(pub *mut NMLVKEYDOWN);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMLVKEYDOWN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVKEYDOWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVODSTATECHANGE(pub *mut NMLVODSTATECHANGE);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMLVODSTATECHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVODSTATECHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMLVSCROLL(pub *mut NMLVSCROLL);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMLVSCROLL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMLVSCROLL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMMOUSE(pub *mut NMMOUSE);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMMOUSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMMOUSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMOBJECTNOTIFY(pub *mut NMOBJECTNOTIFY);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMOBJECTNOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMOBJECTNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMPGCALCSIZE(pub *mut NMPGCALCSIZE);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMPGCALCSIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMPGCALCSIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMPGHOTITEM(pub *mut NMPGHOTITEM);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMPGHOTITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMPGHOTITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMPGSCROLL(pub *mut NMPGSCROLL);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMPGSCROLL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTBCUSTOMDRAW = *mut NMTBCUSTOMDRAW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMPGSCROLL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTBDISPINFOA = *mut NMTBDISPINFOA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMRBAUTOSIZE(pub *mut NMRBAUTOSIZE);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMRBAUTOSIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMRBAUTOSIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMREBAR(pub *mut NMREBAR);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMREBAR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMREBAR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMREBARAUTOBREAK(pub *mut NMREBARAUTOBREAK);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMREBARAUTOBREAK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMREBARAUTOBREAK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMREBARCHEVRON(pub *mut NMREBARCHEVRON);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMREBARCHEVRON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMREBARCHEVRON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMREBARCHILDSIZE(pub *mut NMREBARCHILDSIZE);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMREBARCHILDSIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMREBARCHILDSIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMREBARSPLITTER(pub *mut NMREBARSPLITTER);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMREBARSPLITTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMREBARSPLITTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMSELCHANGE(pub *mut NMSELCHANGE);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMSELCHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMSELCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMSELECT(pub *mut NMSELCHANGE);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl LPNMSELECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-impl Default for LPNMSELECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBCUSTOMDRAW(pub *mut NMTBCUSTOMDRAW);
+pub type LPNMTBDISPINFOW = *mut NMTBDISPINFOW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTBCUSTOMDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTBGETINFOTIPA = *mut NMTBGETINFOTIPA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBDISPINFOA(pub *mut NMTBDISPINFOA);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTBDISPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBDISPINFOW(pub *mut NMTBDISPINFOW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTBDISPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBGETINFOTIPA(pub *mut NMTBGETINFOTIPA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTBGETINFOTIPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBGETINFOTIPW(pub *mut NMTBGETINFOTIPW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTBGETINFOTIPW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBHOTITEM(pub *mut NMTBHOTITEM);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTBHOTITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBHOTITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBRESTORE(pub *mut NMTBRESTORE);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTBRESTORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBRESTORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTBSAVE(pub *mut NMTBSAVE);
+pub type LPNMTBGETINFOTIPW = *mut NMTBGETINFOTIPW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTBSAVE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTBHOTITEM = *mut NMTBHOTITEM;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTBSAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTBRESTORE = *mut NMTBRESTORE;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTOOLBARA(pub *mut NMTOOLBARA);
+pub type LPNMTBSAVE = *mut NMTBSAVE;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTOOLBARA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTOOLBARA = *mut NMTOOLBARA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTOOLBARA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTOOLBARW = *mut NMTOOLBARW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTOOLBARW(pub *mut NMTOOLBARW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTOOLBARW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTOOLBARW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTOOLTIPSCREATED(pub *mut NMTOOLTIPSCREATED);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTOOLTIPSCREATED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTOOLTIPSCREATED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTREEVIEWA(pub *mut NMTREEVIEWA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTREEVIEWA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTREEVIEWA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTREEVIEWW(pub *mut NMTREEVIEWW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTREEVIEWW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTREEVIEWW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTTCUSTOMDRAW(pub *mut NMTTCUSTOMDRAW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTTCUSTOMDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTTCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTTDISPINFOA(pub *mut NMTTDISPINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTTDISPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTTDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTTDISPINFOW(pub *mut NMTTDISPINFOW);
+pub type LPNMTOOLTIPSCREATED = *mut NMTOOLTIPSCREATED;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTTDISPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTREEVIEWA = *mut NMTREEVIEWA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTTDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTREEVIEWW = *mut NMTREEVIEWW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVCUSTOMDRAW(pub *mut NMTVCUSTOMDRAW);
+pub type LPNMTTCUSTOMDRAW = *mut NMTTCUSTOMDRAW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVCUSTOMDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTTDISPINFOA = *mut NMTTDISPINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVCUSTOMDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTTDISPINFOW = *mut NMTTDISPINFOW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVDISPINFOA(pub *mut NMTVDISPINFOA);
+pub type LPNMTVCUSTOMDRAW = *mut NMTVCUSTOMDRAW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVDISPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTVDISPINFOA = *mut NMTVDISPINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVDISPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTVDISPINFOEXA = *mut NMTVDISPINFOEXA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVDISPINFOEXA(pub *mut NMTVDISPINFOEXA);
+pub type LPNMTVDISPINFOEXW = *mut NMTVDISPINFOEXW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVDISPINFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTVDISPINFOW = *mut NMTVDISPINFOW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVDISPINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTVGETINFOTIPA = *mut NMTVGETINFOTIPA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVDISPINFOEXW(pub *mut NMTVDISPINFOEXW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVDISPINFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVDISPINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVDISPINFOW(pub *mut NMTVDISPINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVDISPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVDISPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVGETINFOTIPA(pub *mut NMTVGETINFOTIPA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVGETINFOTIPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVGETINFOTIPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVGETINFOTIPW(pub *mut NMTVGETINFOTIPW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPNMTVGETINFOTIPW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVGETINFOTIPW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVKEYDOWN(pub *mut NMTVKEYDOWN);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTVKEYDOWN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVKEYDOWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMTVSTATEIMAGECHANGING(pub *mut NMTVSTATEIMAGECHANGING);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMTVSTATEIMAGECHANGING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMTVSTATEIMAGECHANGING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMUPDOWN(pub *mut NMUPDOWN);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMUPDOWN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMTVGETINFOTIPW = *mut NMTVGETINFOTIPW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMUPDOWN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMTVKEYDOWN = *mut NMTVKEYDOWN;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMVIEWCHANGE(pub *mut NMVIEWCHANGE);
+pub type LPNMTVSTATEIMAGECHANGING = *mut NMTVSTATEIMAGECHANGING;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl LPNMVIEWCHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPNMUPDOWN = *mut NMUPDOWN;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for LPNMVIEWCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNMVIEWCHANGE = *mut NMVIEWCHANGE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRBHITTESTINFO(pub *mut RBHITTESTINFO);
-#[cfg(feature = "windef")]
-impl LPRBHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPRBHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPRBHITTESTINFO = *mut RBHITTESTINFO;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREBARBANDINFOA(pub *mut REBARBANDINFOA);
+pub type LPREBARBANDINFOA = *mut REBARBANDINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPREBARBANDINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPREBARBANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREBARBANDINFOW(pub *mut REBARBANDINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPREBARBANDINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPREBARBANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREBARINFO(pub *mut REBARINFO);
-impl LPREBARINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREBARINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPREBARBANDINFOW = *mut REBARBANDINFOW;
+pub type LPREBARINFO = *mut REBARINFO;
 pub const LPSTR_TEXTCALLBACKA: windows_core::PCSTR = windows_core::PCSTR(-1 as _);
 pub const LPSTR_TEXTCALLBACKW: windows_core::PCWSTR = windows_core::PCWSTR(-1 as _);
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBADDBITMAP(pub *mut TBADDBITMAP);
+pub type LPTBADDBITMAP = *mut TBADDBITMAP;
+pub type LPTBBUTTON = *mut TBBUTTON;
+pub type LPTBBUTTONINFOA = *mut TBBUTTONINFOA;
+pub type LPTBBUTTONINFOW = *mut TBBUTTONINFOW;
+pub type LPTBINSERTMARK = *mut TBINSERTMARK;
+pub type LPTBMETRICS = *mut TBMETRICS;
 #[cfg(feature = "minwindef")]
-impl LPTBADDBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPTBREPLACEBITMAP = *mut TBREPLACEBITMAP;
 #[cfg(feature = "minwindef")]
-impl Default for LPTBADDBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBBUTTON(pub *mut TBBUTTON);
-impl LPTBBUTTON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBBUTTONINFOA(pub *mut TBBUTTONINFOA);
-impl LPTBBUTTONINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBBUTTONINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBBUTTONINFOW(pub *mut TBBUTTONINFOW);
-impl LPTBBUTTONINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBBUTTONINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBINSERTMARK(pub *mut TBINSERTMARK);
-impl LPTBINSERTMARK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBINSERTMARK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBMETRICS(pub *mut TBMETRICS);
-impl LPTBMETRICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTBSAVEPARAMSA = *mut TBSAVEPARAMSA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBREPLACEBITMAP(pub *mut TBREPLACEBITMAP);
-#[cfg(feature = "minwindef")]
-impl LPTBREPLACEBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTBREPLACEBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBSAVEPARAMSA(pub *mut TBSAVEPARAMSA);
-#[cfg(feature = "minwindef")]
-impl LPTBSAVEPARAMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTBSAVEPARAMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBSAVEPARAMW(pub *mut TBSAVEPARAMSW);
-#[cfg(feature = "minwindef")]
-impl LPTBSAVEPARAMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTBSAVEPARAMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTBSAVEPARAMW = *mut TBSAVEPARAMSW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTCHITTESTINFO(pub *mut TCHITTESTINFO);
+pub type LPTCHITTESTINFO = *mut TCHITTESTINFO;
+#[cfg(feature = "minwindef")]
+pub type LPTCITEMA = *mut TCITEMA;
+pub type LPTCITEMHEADERA = *mut TCITEMHEADERA;
+pub type LPTCITEMHEADERW = *mut TCITEMHEADERW;
+#[cfg(feature = "minwindef")]
+pub type LPTCITEMW = *mut TCITEMW;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTTHITTESTINFOA = *mut TTHITTESTINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTTHITTESTINFOW = *mut TTHITTESTINFOW;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTTTOOLINFOA = *mut TTTOOLINFOA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTTTOOLINFOW = *mut TTTOOLINFOW;
 #[cfg(feature = "windef")]
-impl LPTCHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPTCHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTVHITTESTINFO = *mut TVHITTESTINFO;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTVINSERTSTRUCTA = *mut TVINSERTSTRUCTA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTVINSERTSTRUCTW = *mut TVINSERTSTRUCTW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTCITEMA(pub *mut TCITEMA);
+pub type LPTVITEMA = *mut TVITEMA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTVITEMEX = LPTVITEMEXA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTVITEMEXA = *mut TVITEMEXA;
+#[cfg(all(feature = "minwindef", feature = "windef"))]
+pub type LPTVITEMEXW = *mut TVITEMEXW;
 #[cfg(feature = "minwindef")]
-impl LPTCITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPTVITEMW = *mut TVITEMW;
 #[cfg(feature = "minwindef")]
-impl Default for LPTCITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTCITEMHEADERA(pub *mut TCITEMHEADERA);
-impl LPTCITEMHEADERA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTCITEMHEADERA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTCITEMHEADERW(pub *mut TCITEMHEADERW);
-impl LPTCITEMHEADERW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTCITEMHEADERW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTCITEMW(pub *mut TCITEMW);
-#[cfg(feature = "minwindef")]
-impl LPTCITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTCITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTHITTESTINFOA(pub *mut TTHITTESTINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTTHITTESTINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTTHITTESTINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTHITTESTINFOW(pub *mut TTHITTESTINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTTHITTESTINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTTHITTESTINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTTOOLINFOA(pub *mut TTTOOLINFOA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTTTOOLINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTTTOOLINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTTOOLINFOW(pub *mut TTTOOLINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTTTOOLINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTTTOOLINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVHITTESTINFO(pub *mut TVHITTESTINFO);
-#[cfg(feature = "windef")]
-impl LPTVHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPTVHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVINSERTSTRUCTA(pub *mut TVINSERTSTRUCTA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTVINSERTSTRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTVINSERTSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVINSERTSTRUCTW(pub *mut TVINSERTSTRUCTW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTVINSERTSTRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTVINSERTSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVITEMA(pub *mut TVITEMA);
-#[cfg(feature = "minwindef")]
-impl LPTVITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTVITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPTVITEMEX(pub LPTVITEMEXA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVITEMEXA(pub *mut TVITEMEXA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTVITEMEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTVITEMEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVITEMEXW(pub *mut TVITEMEXW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPTVITEMEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPTVITEMEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVITEMW(pub *mut TVITEMW);
-#[cfg(feature = "minwindef")]
-impl LPTVITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTVITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTVSORTCB(pub *mut TVSORTCB);
-#[cfg(feature = "minwindef")]
-impl LPTVSORTCB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPTVSORTCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUDACCEL(pub *mut UDACCEL);
-impl LPUDACCEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUDACCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTVSORTCB = *mut TVSORTCB;
+pub type LPUDACCEL = *mut UDACCEL;
 pub const LVA_ALIGNLEFT: u32 = 1;
 pub const LVA_ALIGNTOP: u32 = 2;
 pub const LVA_DEFAULT: u32 = 0;
@@ -5396,114 +3446,18 @@ pub const PBS_SMOOTH: u32 = 1;
 pub const PBS_SMOOTHREVERSE: u32 = 16;
 pub const PBS_VERTICAL: u32 = 4;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUTTON_IMAGELIST(pub *mut BUTTON_IMAGELIST);
+pub type PBUTTON_IMAGELIST = *mut BUTTON_IMAGELIST;
 #[cfg(feature = "windef")]
-impl PBUTTON_IMAGELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PBUTTON_IMAGELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUTTON_SPLITINFO(pub *mut BUTTON_SPLITINFO);
-#[cfg(feature = "windef")]
-impl PBUTTON_SPLITINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PBUTTON_SPLITINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBUTTON_SPLITINFO = *mut BUTTON_SPLITINFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCOMBOEXITEMA(pub *const COMBOBOXEXITEMA);
+pub type PCCOMBOEXITEMA = *const COMBOBOXEXITEMA;
 #[cfg(feature = "minwindef")]
-impl PCCOMBOEXITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCCOMBOEXITEMW = *const COMBOBOXEXITEMW;
 #[cfg(feature = "minwindef")]
-impl Default for PCCOMBOEXITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOMBOBOXEXITEMA = *mut COMBOBOXEXITEMA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCOMBOEXITEMW(pub *const COMBOBOXEXITEMW);
-#[cfg(feature = "minwindef")]
-impl PCCOMBOEXITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCCOMBOEXITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMBOBOXEXITEMA(pub *mut COMBOBOXEXITEMA);
-#[cfg(feature = "minwindef")]
-impl PCOMBOBOXEXITEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCOMBOBOXEXITEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMBOBOXEXITEMW(pub *mut COMBOBOXEXITEMW);
-#[cfg(feature = "minwindef")]
-impl PCOMBOBOXEXITEMW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCOMBOBOXEXITEMW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEDITBALLOONTIP(pub *mut EDITBALLOONTIP);
-impl PEDITBALLOONTIP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEDITBALLOONTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOMBOBOXEXITEMW = *mut COMBOBOXEXITEMW;
+pub type PEDITBALLOONTIP = *mut EDITBALLOONTIP;
 #[cfg(feature = "minwindef")]
 pub type PFNLVCOMPARE = Option<unsafe extern "system" fn(param0: super::minwindef::LPARAM, param1: super::minwindef::LPARAM, param2: super::minwindef::LPARAM) -> i32>;
 pub type PFNLVGROUPCOMPARE = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut core::ffi::c_void) -> i32>;
@@ -5552,367 +3506,47 @@ pub const PGS_DRAGNDROP: u32 = 4;
 pub const PGS_HORZ: u32 = 1;
 pub const PGS_VERT: u32 = 0;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLHITTESTINFO(pub *mut LHITTESTINFO);
+pub type PLHITTESTINFO = *mut LHITTESTINFO;
+pub type PLITEM = *mut LITEM;
+pub type PLVGROUP = *mut LVGROUP;
 #[cfg(feature = "windef")]
-impl PLHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLITEM(pub *mut LITEM);
-impl PLITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVGROUP(pub *mut LVGROUP);
-impl PLVGROUP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLVGROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVGROUPMETRICS(pub *mut LVGROUPMETRICS);
-#[cfg(feature = "windef")]
-impl PLVGROUPMETRICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLVGROUPMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVINSERTGROUPSORTED(pub *mut LVINSERTGROUPSORTED);
-impl PLVINSERTGROUPSORTED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLVINSERTGROUPSORTED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVITEMINDEX(pub *mut LVITEMINDEX);
-impl PLVITEMINDEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLVITEMINDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVSETINFOTIP(pub *mut LVSETINFOTIP);
-impl PLVSETINFOTIP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLVSETINFOTIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLVGROUPMETRICS = *mut LVGROUPMETRICS;
+pub type PLVINSERTGROUPSORTED = *mut LVINSERTGROUPSORTED;
+pub type PLVITEMINDEX = *mut LVITEMINDEX;
+pub type PLVSETINFOTIP = *mut LVSETINFOTIP;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVTILEINFO(pub *mut LVTILEINFO);
-#[cfg(feature = "minwindef")]
-impl PLVTILEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PLVTILEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLVTILEINFO = *mut LVTILEINFO;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLVTILEVIEWINFO(pub *mut LVTILEVIEWINFO);
-#[cfg(feature = "windef")]
-impl PLVTILEVIEWINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLVTILEVIEWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLVTILEVIEWINFO = *mut LVTILEVIEWINFO;
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCGRIDINFO(pub *mut MCGRIDINFO);
+pub type PMCGRIDINFO = *mut MCGRIDINFO;
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
-impl PMCGRIDINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
-impl Default for PMCGRIDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCHITTESTINFO(pub *mut MCHITTESTINFO);
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
-impl PMCHITTESTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef"))]
-impl Default for PMCHITTESTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCHITTESTINFO = *mut MCHITTESTINFO;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCBEDRAGBEGINA(pub *mut NMCBEDRAGBEGINA);
+pub type PNMCBEDRAGBEGINA = *mut NMCBEDRAGBEGINA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMCBEDRAGBEGINA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PNMCBEDRAGBEGINW = *mut NMCBEDRAGBEGINW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMCBEDRAGBEGINA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNMCBEENDEDITA = *mut NMCBEENDEDITA;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCBEDRAGBEGINW(pub *mut NMCBEDRAGBEGINW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMCBEDRAGBEGINW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMCBEDRAGBEGINW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCBEENDEDITA(pub *mut NMCBEENDEDITA);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMCBEENDEDITA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMCBEENDEDITA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCBEENDEDITW(pub *mut NMCBEENDEDITW);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMCBEENDEDITW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMCBEENDEDITW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNMCBEENDEDITW = *mut NMCBEENDEDITW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCOMBOBOXEXA(pub *mut NMCOMBOBOXEXA);
+pub type PNMCOMBOBOXEXA = *mut NMCOMBOBOXEXA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl PNMCOMBOBOXEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for PNMCOMBOBOXEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMCOMBOBOXEXW(pub *mut NMCOMBOBOXEXW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl PNMCOMBOBOXEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for PNMCOMBOBOXEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNMCOMBOBOXEXW = *mut NMCOMBOBOXEXW;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMLINK(pub *mut NMLINK);
+pub type PNMLINK = *mut NMLINK;
 #[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMLINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMLVLINK(pub *mut NMLVLINK);
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl PNMLVLINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winuser"))]
-impl Default for PNMLVLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPBRANGE(pub *mut PBRANGE);
-impl PPBRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPBRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNMLVLINK = *mut NMLVLINK;
+pub type PPBRANGE = *mut PBRANGE;
 pub const PROGRESS_CLASSA: windows_core::PCSTR = windows_core::s!("msctls_progress32");
 pub const PROGRESS_CLASSW: windows_core::PCWSTR = windows_core::w!("msctls_progress32");
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTBBUTTON(pub *mut TBBUTTON);
-impl PTBBUTTON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTBBUTTON = *mut TBBUTTON;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTOOLINFOA(pub *mut TTTOOLINFOA);
+pub type PTOOLINFOA = *mut TTTOOLINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl PTOOLINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PTOOLINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTOOLINFOW(pub *mut TTTOOLINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl PTOOLINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PTOOLINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTTGETTITLE(pub *mut TTGETTITLE);
-impl PTTGETTITLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTTGETTITLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTOOLINFOW = *mut TTTOOLINFOW;
+pub type PTTGETTITLE = *mut TTGETTITLE;
 pub const RBAB_ADDBAND: u32 = 2;
 pub const RBAB_AUTOSIZE: u32 = 1;
 pub const RBBIM_BACKGROUND: u32 = 128;
@@ -7247,10 +4881,10 @@ pub struct TVITEMW {
     pub cChildren: i32,
     pub lParam: super::minwindef::LPARAM,
 }
-pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535 as _);
-pub const TVI_LAST: HTREEITEM = HTREEITEM(-65534 as _);
-pub const TVI_ROOT: HTREEITEM = HTREEITEM(-65536 as _);
-pub const TVI_SORT: HTREEITEM = HTREEITEM(-65533 as _);
+pub const TVI_FIRST: HTREEITEM = -65535 as _;
+pub const TVI_LAST: HTREEITEM = -65534 as _;
+pub const TVI_ROOT: HTREEITEM = -65536 as _;
+pub const TVI_SORT: HTREEITEM = -65533 as _;
 pub const TVM_CREATEDRAGIMAGE: u32 = 4370;
 pub const TVM_DELETEITEM: u32 = 4353;
 pub const TVM_EDITLABEL: u32 = 4366;

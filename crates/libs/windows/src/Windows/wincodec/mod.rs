@@ -5602,19 +5602,7 @@ impl IWICStream_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IWICStream {}
 pub type PFNProgressNotification = Option<unsafe extern "system" fn(pvdata: *mut core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFWICPixelFormatGUID(pub *const windows_core::GUID);
-impl REFWICPixelFormatGUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFWICPixelFormatGUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type REFWICPixelFormatGUID = *const windows_core::GUID;
 pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = 2;
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = 1;
 pub type WIC8BIMIptcDigestProperties = i32;
@@ -5886,19 +5874,7 @@ pub struct WICImageParameters {
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WICInProcPointer(pub *mut u8);
-impl WICInProcPointer {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for WICInProcPointer {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type WICInProcPointer = *mut u8;
 pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = 2147483647;
 pub type WICJpegChrominanceProperties = i32;
 pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = 2147483647;

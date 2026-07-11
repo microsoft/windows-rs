@@ -20,33 +20,9 @@ pub const ALLOCATE_RESPONSE: u32 = 2;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DESC_CHAR(pub i8);
 pub type LPDESC = windows_core::PSTR;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTIME_OF_DAY_INFO(pub *mut TIME_OF_DAY_INFO);
-impl LPTIME_OF_DAY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTIME_OF_DAY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
 pub const NO_PERMISSION_REQUIRED: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIME_OF_DAY_INFO(pub *mut TIME_OF_DAY_INFO);
-impl PTIME_OF_DAY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTIME_OF_DAY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTIME_OF_DAY_INFO = *mut TIME_OF_DAY_INFO;
 pub const SUPPORTS_ANY: u32 = 4294967295;
 pub const SUPPORTS_LOCAL: u32 = 32;
 pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: u32 = 2;

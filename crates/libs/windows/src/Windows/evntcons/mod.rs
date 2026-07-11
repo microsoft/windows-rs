@@ -223,193 +223,21 @@ pub const EventSecurityMax: EVENTSECURITYOPERATION = 4;
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = 0;
 pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = 1;
 #[cfg(all(feature = "evntprov", feature = "evntrace"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCEVENT_RECORD(pub *const EVENT_RECORD);
-#[cfg(all(feature = "evntprov", feature = "evntrace"))]
-impl PCEVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "evntprov", feature = "evntrace"))]
-impl Default for PCEVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_EVENT_KEY(pub *mut EVENT_EXTENDED_ITEM_EVENT_KEY);
-impl PEVENT_EXTENDED_ITEM_EVENT_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_EVENT_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_INSTANCE(pub *mut EVENT_EXTENDED_ITEM_INSTANCE);
-impl PEVENT_EXTENDED_ITEM_INSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_PEBS_INDEX(pub *mut EVENT_EXTENDED_ITEM_PEBS_INDEX);
-impl PEVENT_EXTENDED_ITEM_PEBS_INDEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_PEBS_INDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_PMC_COUNTERS(pub *mut EVENT_EXTENDED_ITEM_PMC_COUNTERS);
-impl PEVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_PMC_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_PROCESS_START_KEY(pub *mut EVENT_EXTENDED_ITEM_PROCESS_START_KEY);
-impl PEVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_PROCESS_START_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID(pub *mut EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID);
-impl PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_STACK_KEY32(pub *mut EVENT_EXTENDED_ITEM_STACK_KEY32);
-impl PEVENT_EXTENDED_ITEM_STACK_KEY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_STACK_KEY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_STACK_KEY64(pub *mut EVENT_EXTENDED_ITEM_STACK_KEY64);
-impl PEVENT_EXTENDED_ITEM_STACK_KEY64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_STACK_KEY64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_STACK_TRACE32(pub *mut EVENT_EXTENDED_ITEM_STACK_TRACE32);
-impl PEVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_STACK_TRACE32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_STACK_TRACE64(pub *mut EVENT_EXTENDED_ITEM_STACK_TRACE64);
-impl PEVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_STACK_TRACE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_EXTENDED_ITEM_TS_ID(pub *mut EVENT_EXTENDED_ITEM_TS_ID);
-impl PEVENT_EXTENDED_ITEM_TS_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_EXTENDED_ITEM_TS_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCEVENT_RECORD = *const EVENT_RECORD;
+pub type PEVENT_EXTENDED_ITEM_EVENT_KEY = *mut EVENT_EXTENDED_ITEM_EVENT_KEY;
+pub type PEVENT_EXTENDED_ITEM_INSTANCE = *mut EVENT_EXTENDED_ITEM_INSTANCE;
+pub type PEVENT_EXTENDED_ITEM_PEBS_INDEX = *mut EVENT_EXTENDED_ITEM_PEBS_INDEX;
+pub type PEVENT_EXTENDED_ITEM_PMC_COUNTERS = *mut EVENT_EXTENDED_ITEM_PMC_COUNTERS;
+pub type PEVENT_EXTENDED_ITEM_PROCESS_START_KEY = *mut EVENT_EXTENDED_ITEM_PROCESS_START_KEY;
+pub type PEVENT_EXTENDED_ITEM_RELATED_ACTIVITYID = *mut EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID;
+pub type PEVENT_EXTENDED_ITEM_STACK_KEY32 = *mut EVENT_EXTENDED_ITEM_STACK_KEY32;
+pub type PEVENT_EXTENDED_ITEM_STACK_KEY64 = *mut EVENT_EXTENDED_ITEM_STACK_KEY64;
+pub type PEVENT_EXTENDED_ITEM_STACK_TRACE32 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE32;
+pub type PEVENT_EXTENDED_ITEM_STACK_TRACE64 = *mut EVENT_EXTENDED_ITEM_STACK_TRACE64;
+pub type PEVENT_EXTENDED_ITEM_TS_ID = *mut EVENT_EXTENDED_ITEM_TS_ID;
 #[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_HEADER(pub *mut EVENT_HEADER);
-#[cfg(feature = "evntprov")]
-impl PEVENT_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PEVENT_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_HEADER_EXTENDED_DATA_ITEM(pub *mut EVENT_HEADER_EXTENDED_DATA_ITEM);
-impl PEVENT_HEADER_EXTENDED_DATA_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_HEADER_EXTENDED_DATA_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_HEADER = *mut EVENT_HEADER;
+pub type PEVENT_HEADER_EXTENDED_DATA_ITEM = *mut EVENT_HEADER_EXTENDED_DATA_ITEM;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256;

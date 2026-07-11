@@ -1431,31 +1431,5 @@ impl IHlinkTarget_Vtbl {
 #[cfg(feature = "objidl")]
 impl windows_core::RuntimeName for IHlinkTarget {}
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHLBWINFO(pub *mut HLBWINFO);
-#[cfg(feature = "windef")]
-impl LPHLBWINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPHLBWINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHLITEM(pub *mut HLITEM);
-impl LPHLITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHLITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHLBWINFO = *mut HLBWINFO;
+pub type LPHLITEM = *mut HLITEM;

@@ -103,19 +103,5 @@ pub struct HEAP_SUMMARY {
     pub cbReserved: usize,
     pub cbMaxReserve: usize,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPHEAP_SUMMARY(pub PHEAP_SUMMARY);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHEAP_SUMMARY(pub *mut HEAP_SUMMARY);
-impl PHEAP_SUMMARY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHEAP_SUMMARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHEAP_SUMMARY = PHEAP_SUMMARY;
+pub type PHEAP_SUMMARY = *mut HEAP_SUMMARY;

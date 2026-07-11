@@ -317,32 +317,8 @@ pub const LOAD_LIBRARY_SEARCH_SYSTEM32: u32 = 2048;
 pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: u32 = 16384;
 pub const LOAD_LIBRARY_SEARCH_USER_DIRS: u32 = 1024;
 pub const LOAD_WITH_ALTERED_SEARCH_PATH: u32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDIRECTION_DESCRIPTOR(pub *const REDIRECTION_DESCRIPTOR);
-impl PCREDIRECTION_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCREDIRECTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDIRECTION_FUNCTION_DESCRIPTOR(pub *const REDIRECTION_FUNCTION_DESCRIPTOR);
-impl PCREDIRECTION_FUNCTION_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCREDIRECTION_FUNCTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREDIRECTION_DESCRIPTOR = *const REDIRECTION_DESCRIPTOR;
+pub type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDLL_DIRECTORY_COOKIE(pub *mut *mut core::ffi::c_void);
@@ -357,51 +333,13 @@ impl Default for PDLL_DIRECTORY_COOKIE {
     }
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMUILANG(pub *mut ENUMUILANG);
-#[cfg(feature = "winnt")]
-impl PENUMUILANG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PENUMUILANG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENUMUILANG = *mut ENUMUILANG;
 #[cfg(feature = "minwindef")]
 pub type PGET_MODULE_HANDLE_EXA = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCSTR, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
 pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: windows_core::PCWSTR, phmodule: *mut super::minwindef::HMODULE) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREDIRECTION_DESCRIPTOR(pub *mut REDIRECTION_DESCRIPTOR);
-impl PREDIRECTION_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREDIRECTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREDIRECTION_FUNCTION_DESCRIPTOR(pub *mut REDIRECTION_FUNCTION_DESCRIPTOR);
-impl PREDIRECTION_FUNCTION_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREDIRECTION_FUNCTION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
+pub type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {

@@ -21,19 +21,7 @@ pub const HCD_GET_STATS_1: u32 = 255;
 pub const HCD_GET_STATS_2: u32 = 266;
 pub const HCD_TRACE_READ_REQUEST: u32 = 275;
 pub const HCD_USER_REQUEST: u32 = 270;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSB_IDLE_CALLBACK_INFO(pub *mut USB_IDLE_CALLBACK_INFO);
-impl PUSB_IDLE_CALLBACK_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSB_IDLE_CALLBACK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSB_IDLE_CALLBACK_INFO = *mut USB_IDLE_CALLBACK_INFO;
 pub const USB_CYCLE_PORT: u32 = 7;
 pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263;
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262;

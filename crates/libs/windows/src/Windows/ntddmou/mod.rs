@@ -76,45 +76,9 @@ pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
 pub const MOUSE_WHEEL: u32 = 1024;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMOUSE_ATTRIBUTES(pub *mut MOUSE_ATTRIBUTES);
-impl PMOUSE_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMOUSE_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMOUSE_INPUT_DATA(pub *mut MOUSE_INPUT_DATA);
-impl PMOUSE_INPUT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMOUSE_INPUT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMOUSE_UNIT_ID_PARAMETER(pub *mut MOUSE_UNIT_ID_PARAMETER);
-impl PMOUSE_UNIT_ID_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMOUSE_UNIT_ID_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMOUSE_ATTRIBUTES = *mut MOUSE_ATTRIBUTES;
+pub type PMOUSE_INPUT_DATA = *mut MOUSE_INPUT_DATA;
+pub type PMOUSE_UNIT_ID_PARAMETER = *mut MOUSE_UNIT_ID_PARAMETER;
 pub const WHEELMOUSE_HID_HARDWARE: u32 = 256;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64;

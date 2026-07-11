@@ -391,21 +391,11 @@ pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2;
 pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1;
 pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32;
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_CLIENT_CONNECTION_ID(pub HTTP_OPAQUE_ID);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_CLIENT_CREDENTIAL_ID(pub HTTP_OPAQUE_ID);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_CLIENT_REQUEST_ID(pub HTTP_OPAQUE_ID);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_CLIENT_STREAM_ID(pub HTTP_OPAQUE_ID);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_CONNECTION_ID(pub HTTP_OPAQUE_ID);
+pub type HTTP_CLIENT_CONNECTION_ID = HTTP_OPAQUE_ID;
+pub type HTTP_CLIENT_CREDENTIAL_ID = HTTP_OPAQUE_ID;
+pub type HTTP_CLIENT_REQUEST_ID = HTTP_OPAQUE_ID;
+pub type HTTP_CLIENT_STREAM_ID = HTTP_OPAQUE_ID;
+pub type HTTP_CONNECTION_ID = HTTP_OPAQUE_ID;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct HTTP_CONNECTION_LIMIT_INFO {
@@ -798,9 +788,7 @@ pub struct HTTP_QUIC_STREAM_REQUEST_STATS {
     pub RequestHeadersCompressedSize: u64,
     pub ResponseHeadersCompressedSize: u64,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_RAW_CONNECTION_ID(pub HTTP_OPAQUE_ID);
+pub type HTTP_RAW_CONNECTION_ID = HTTP_OPAQUE_ID;
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2;
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: u32 = 1;
@@ -868,9 +856,7 @@ impl Default for HTTP_REQUEST_HEADERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_REQUEST_ID(pub HTTP_OPAQUE_ID);
+pub type HTTP_REQUEST_ID = HTTP_OPAQUE_ID;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct HTTP_REQUEST_INFO {
@@ -1081,9 +1067,7 @@ pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
 }
 pub type HTTP_SERVER_PROPERTY = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_SERVER_SESSION_ID(pub HTTP_OPAQUE_ID);
+pub type HTTP_SERVER_SESSION_ID = HTTP_OPAQUE_ID;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1474,9 +1458,7 @@ pub struct HTTP_UNKNOWN_HEADER {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HTTP_URL_CONTEXT(pub u64);
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTTP_URL_GROUP_ID(pub HTTP_OPAQUE_ID);
+pub type HTTP_URL_GROUP_ID = HTTP_OPAQUE_ID;
 pub type HTTP_VERB = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1763,1973 +1745,185 @@ pub const HttpVerbUnknown: HTTP_VERB = 1;
 pub const HttpVerbUnparsed: HTTP_VERB = 0;
 pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = 0;
 pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP2_SETTINGS_LIMITS_PARAM(pub *mut HTTP2_SETTINGS_LIMITS_PARAM);
-impl PHTTP2_SETTINGS_LIMITS_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP2_SETTINGS_LIMITS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP2_WINDOW_SIZE_PARAM(pub *mut HTTP2_WINDOW_SIZE_PARAM);
-impl PHTTP2_WINDOW_SIZE_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP2_WINDOW_SIZE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTPAPI_VERSION(pub *mut HTTPAPI_VERSION);
-impl PHTTPAPI_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTPAPI_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_503_RESPONSE_VERBOSITY(pub *mut HTTP_503_RESPONSE_VERBOSITY);
-impl PHTTP_503_RESPONSE_VERBOSITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_503_RESPONSE_VERBOSITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_AUTH_STATUS(pub *mut HTTP_AUTH_STATUS);
-impl PHTTP_AUTH_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_AUTH_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_BANDWIDTH_LIMIT_INFO(pub *mut HTTP_BANDWIDTH_LIMIT_INFO);
-impl PHTTP_BANDWIDTH_LIMIT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_BANDWIDTH_LIMIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP2_SETTINGS_LIMITS_PARAM = *mut HTTP2_SETTINGS_LIMITS_PARAM;
+pub type PHTTP2_WINDOW_SIZE_PARAM = *mut HTTP2_WINDOW_SIZE_PARAM;
+pub type PHTTPAPI_VERSION = *mut HTTPAPI_VERSION;
+pub type PHTTP_503_RESPONSE_VERBOSITY = *mut HTTP_503_RESPONSE_VERBOSITY;
+pub type PHTTP_AUTH_STATUS = *mut HTTP_AUTH_STATUS;
+pub type PHTTP_BANDWIDTH_LIMIT_INFO = *mut HTTP_BANDWIDTH_LIMIT_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_BINDING_INFO(pub *mut HTTP_BINDING_INFO);
+pub type PHTTP_BINDING_INFO = *mut HTTP_BINDING_INFO;
+pub type PHTTP_BYTE_RANGE = *mut HTTP_BYTE_RANGE;
+pub type PHTTP_CACHE_POLICY = *mut HTTP_CACHE_POLICY;
+pub type PHTTP_CACHE_POLICY_TYPE = *mut HTTP_CACHE_POLICY_TYPE;
+pub type PHTTP_CERT_CONFIG_ENTRY = *mut HTTP_CERT_CONFIG_ENTRY;
+pub type PHTTP_CERT_CONFIG_PARAM = *mut HTTP_CERT_CONFIG_PARAM;
+pub type PHTTP_CHANNEL_BIND_INFO = *mut HTTP_CHANNEL_BIND_INFO;
+pub type PHTTP_CLIENT_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CLIENT_CREDENTIAL_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CLIENT_REQUEST_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CLIENT_STREAM_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_CONNECTION_LIMIT_INFO = *mut HTTP_CONNECTION_LIMIT_INFO;
+pub type PHTTP_COOKED_URL = *mut HTTP_COOKED_URL;
+pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID;
+pub type PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO = *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO;
 #[cfg(feature = "winnt")]
-impl PHTTP_BINDING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_DATA_CHUNK = *mut HTTP_DATA_CHUNK;
+pub type PHTTP_DATA_CHUNK_TYPE = *mut HTTP_DATA_CHUNK_TYPE;
+pub type PHTTP_DELEGATE_REQUEST_PROPERTY_ID = *mut HTTP_DELEGATE_REQUEST_PROPERTY_ID;
+pub type PHTTP_DELEGATE_REQUEST_PROPERTY_INFO = *mut HTTP_DELEGATE_REQUEST_PROPERTY_INFO;
+pub type PHTTP_ENABLED_STATE = *mut HTTP_ENABLED_STATE;
+pub type PHTTP_ERROR_HEADERS_PARAM = *mut HTTP_ERROR_HEADERS_PARAM;
+pub type PHTTP_FAST_FORWARD_INFO = *mut HTTP_FAST_FORWARD_INFO;
+pub type PHTTP_FEATURE_ID = *mut HTTP_FEATURE_ID;
+pub type PHTTP_FLOWRATE_INFO = *mut HTTP_FLOWRATE_INFO;
+pub type PHTTP_HEADER_ID = *mut HTTP_HEADER_ID;
+pub type PHTTP_KNOWN_HEADER = *mut HTTP_KNOWN_HEADER;
+pub type PHTTP_LISTEN_ENDPOINT_INFO = *mut HTTP_LISTEN_ENDPOINT_INFO;
 #[cfg(feature = "winnt")]
-impl Default for PHTTP_BINDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_BYTE_RANGE(pub *mut HTTP_BYTE_RANGE);
-impl PHTTP_BYTE_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_BYTE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CACHE_POLICY(pub *mut HTTP_CACHE_POLICY);
-impl PHTTP_CACHE_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CACHE_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CACHE_POLICY_TYPE(pub *mut HTTP_CACHE_POLICY_TYPE);
-impl PHTTP_CACHE_POLICY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CACHE_POLICY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CERT_CONFIG_ENTRY(pub *mut HTTP_CERT_CONFIG_ENTRY);
-impl PHTTP_CERT_CONFIG_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CERT_CONFIG_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CERT_CONFIG_PARAM(pub *mut HTTP_CERT_CONFIG_PARAM);
-impl PHTTP_CERT_CONFIG_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CERT_CONFIG_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CHANNEL_BIND_INFO(pub *mut HTTP_CHANNEL_BIND_INFO);
-impl PHTTP_CHANNEL_BIND_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CHANNEL_BIND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CLIENT_CONNECTION_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_CLIENT_CONNECTION_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CLIENT_CONNECTION_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CLIENT_CREDENTIAL_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_CLIENT_CREDENTIAL_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CLIENT_CREDENTIAL_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CLIENT_REQUEST_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_CLIENT_REQUEST_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CLIENT_REQUEST_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CLIENT_STREAM_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_CLIENT_STREAM_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CLIENT_STREAM_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CONNECTION_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_CONNECTION_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CONNECTION_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CONNECTION_LIMIT_INFO(pub *mut HTTP_CONNECTION_LIMIT_INFO);
-impl PHTTP_CONNECTION_LIMIT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CONNECTION_LIMIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_COOKED_URL(pub *mut HTTP_COOKED_URL);
-impl PHTTP_COOKED_URL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_COOKED_URL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID);
-impl PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO(pub *mut HTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO);
-impl PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_CREATE_REQUEST_QUEUE_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_LOGGING_INFO = *mut HTTP_LOGGING_INFO;
+pub type PHTTP_LOGGING_ROLLOVER_TYPE = *mut HTTP_LOGGING_ROLLOVER_TYPE;
+pub type PHTTP_LOGGING_TYPE = *mut HTTP_LOGGING_TYPE;
+pub type PHTTP_LOG_DATA = *mut HTTP_LOG_DATA;
+pub type PHTTP_LOG_DATA_TYPE = *mut HTTP_LOG_DATA_TYPE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_DATA_CHUNK(pub *mut HTTP_DATA_CHUNK);
-#[cfg(feature = "winnt")]
-impl PHTTP_DATA_CHUNK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_DATA_CHUNK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_DATA_CHUNK_TYPE(pub *mut HTTP_DATA_CHUNK_TYPE);
-impl PHTTP_DATA_CHUNK_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_DATA_CHUNK_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_DELEGATE_REQUEST_PROPERTY_ID(pub *mut HTTP_DELEGATE_REQUEST_PROPERTY_ID);
-impl PHTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_DELEGATE_REQUEST_PROPERTY_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_DELEGATE_REQUEST_PROPERTY_INFO(pub *mut HTTP_DELEGATE_REQUEST_PROPERTY_INFO);
-impl PHTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_DELEGATE_REQUEST_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_ENABLED_STATE(pub *mut HTTP_ENABLED_STATE);
-impl PHTTP_ENABLED_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_ENABLED_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_ERROR_HEADERS_PARAM(pub *mut HTTP_ERROR_HEADERS_PARAM);
-impl PHTTP_ERROR_HEADERS_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_ERROR_HEADERS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FAST_FORWARD_INFO(pub *mut HTTP_FAST_FORWARD_INFO);
-impl PHTTP_FAST_FORWARD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FAST_FORWARD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FEATURE_ID(pub *mut HTTP_FEATURE_ID);
-impl PHTTP_FEATURE_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FEATURE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FLOWRATE_INFO(pub *mut HTTP_FLOWRATE_INFO);
-impl PHTTP_FLOWRATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FLOWRATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_HEADER_ID(pub *mut HTTP_HEADER_ID);
-impl PHTTP_HEADER_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_HEADER_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_KNOWN_HEADER(pub *mut HTTP_KNOWN_HEADER);
-impl PHTTP_KNOWN_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_KNOWN_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LISTEN_ENDPOINT_INFO(pub *mut HTTP_LISTEN_ENDPOINT_INFO);
-impl PHTTP_LISTEN_ENDPOINT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_LISTEN_ENDPOINT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOGGING_INFO(pub *mut HTTP_LOGGING_INFO);
-#[cfg(feature = "winnt")]
-impl PHTTP_LOGGING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOGGING_ROLLOVER_TYPE(pub *mut HTTP_LOGGING_ROLLOVER_TYPE);
-impl PHTTP_LOGGING_ROLLOVER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_LOGGING_ROLLOVER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOGGING_TYPE(pub *mut HTTP_LOGGING_TYPE);
-impl PHTTP_LOGGING_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_LOGGING_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOG_DATA(pub *mut HTTP_LOG_DATA);
-impl PHTTP_LOG_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_LOG_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOG_DATA_TYPE(pub *mut HTTP_LOG_DATA_TYPE);
-impl PHTTP_LOG_DATA_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_LOG_DATA_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_LOG_FIELDS_DATA(pub *mut HTTP_LOG_FIELDS_DATA);
-#[cfg(feature = "winnt")]
-impl PHTTP_LOG_FIELDS_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_LOG_FIELDS_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_MULTIPLE_KNOWN_HEADERS(pub *mut HTTP_MULTIPLE_KNOWN_HEADERS);
-impl PHTTP_MULTIPLE_KNOWN_HEADERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_MULTIPLE_KNOWN_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_OPAQUE_ID(pub *mut u64);
-impl PHTTP_OPAQUE_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_OPAQUE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_PERFORMANCE_PARAM(pub *mut HTTP_PERFORMANCE_PARAM);
-impl PHTTP_PERFORMANCE_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_PERFORMANCE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_PERFORMANCE_PARAM_TYPE(pub *mut HTTP_PERFORMANCE_PARAM_TYPE);
-impl PHTTP_PERFORMANCE_PARAM_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_PERFORMANCE_PARAM_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_PROPERTY_FLAGS(pub *mut HTTP_PROPERTY_FLAGS);
-impl PHTTP_PROPERTY_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_PROPERTY_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_PROTECTION_LEVEL_INFO(pub *mut HTTP_PROTECTION_LEVEL_INFO);
-impl PHTTP_PROTECTION_LEVEL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_PROTECTION_LEVEL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_PROTECTION_LEVEL_TYPE(pub *mut HTTP_PROTECTION_LEVEL_TYPE);
-impl PHTTP_PROTECTION_LEVEL_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_PROTECTION_LEVEL_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QOS_SETTING_INFO(pub *mut HTTP_QOS_SETTING_INFO);
-impl PHTTP_QOS_SETTING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QOS_SETTING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QOS_SETTING_TYPE(pub *mut HTTP_QOS_SETTING_TYPE);
-impl PHTTP_QOS_SETTING_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QOS_SETTING_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUERY_REQUEST_QUALIFIER_QUIC(pub *mut HTTP_QUERY_REQUEST_QUALIFIER_QUIC);
-impl PHTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUERY_REQUEST_QUALIFIER_QUIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUERY_REQUEST_QUALIFIER_TCP(pub *mut HTTP_QUERY_REQUEST_QUALIFIER_TCP);
-impl PHTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUERY_REQUEST_QUALIFIER_TCP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUIC_API_TIMINGS(pub *mut HTTP_QUIC_API_TIMINGS);
-impl PHTTP_QUIC_API_TIMINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUIC_API_TIMINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUIC_CONNECTION_API_TIMINGS(pub *mut HTTP_QUIC_CONNECTION_API_TIMINGS);
-impl PHTTP_QUIC_CONNECTION_API_TIMINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUIC_CONNECTION_API_TIMINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUIC_STREAM_API_TIMINGS(pub *mut HTTP_QUIC_STREAM_API_TIMINGS);
-impl PHTTP_QUIC_STREAM_API_TIMINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUIC_STREAM_API_TIMINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_QUIC_STREAM_REQUEST_STATS(pub *mut HTTP_QUIC_STREAM_REQUEST_STATS);
-impl PHTTP_QUIC_STREAM_REQUEST_STATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_QUIC_STREAM_REQUEST_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RAW_CONNECTION_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_RAW_CONNECTION_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_RAW_CONNECTION_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_LOG_FIELDS_DATA = *mut HTTP_LOG_FIELDS_DATA;
+pub type PHTTP_MULTIPLE_KNOWN_HEADERS = *mut HTTP_MULTIPLE_KNOWN_HEADERS;
+pub type PHTTP_OPAQUE_ID = *mut u64;
+pub type PHTTP_PERFORMANCE_PARAM = *mut HTTP_PERFORMANCE_PARAM;
+pub type PHTTP_PERFORMANCE_PARAM_TYPE = *mut HTTP_PERFORMANCE_PARAM_TYPE;
+pub type PHTTP_PROPERTY_FLAGS = *mut HTTP_PROPERTY_FLAGS;
+pub type PHTTP_PROTECTION_LEVEL_INFO = *mut HTTP_PROTECTION_LEVEL_INFO;
+pub type PHTTP_PROTECTION_LEVEL_TYPE = *mut HTTP_PROTECTION_LEVEL_TYPE;
+pub type PHTTP_QOS_SETTING_INFO = *mut HTTP_QOS_SETTING_INFO;
+pub type PHTTP_QOS_SETTING_TYPE = *mut HTTP_QOS_SETTING_TYPE;
+pub type PHTTP_QUERY_REQUEST_QUALIFIER_QUIC = *mut HTTP_QUERY_REQUEST_QUALIFIER_QUIC;
+pub type PHTTP_QUERY_REQUEST_QUALIFIER_TCP = *mut HTTP_QUERY_REQUEST_QUALIFIER_TCP;
+pub type PHTTP_QUIC_API_TIMINGS = *mut HTTP_QUIC_API_TIMINGS;
+pub type PHTTP_QUIC_CONNECTION_API_TIMINGS = *mut HTTP_QUIC_CONNECTION_API_TIMINGS;
+pub type PHTTP_QUIC_STREAM_API_TIMINGS = *mut HTTP_QUIC_STREAM_API_TIMINGS;
+pub type PHTTP_QUIC_STREAM_REQUEST_STATS = *mut HTTP_QUIC_STREAM_REQUEST_STATS;
+pub type PHTTP_RAW_CONNECTION_ID = *mut HTTP_OPAQUE_ID;
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST(pub *mut HTTP_REQUEST);
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl PHTTP_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl Default for PHTTP_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_REQUEST = *mut HTTP_REQUEST;
 #[cfg(all(feature = "ncrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_AUTH_INFO(pub *mut HTTP_REQUEST_AUTH_INFO);
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
-impl PHTTP_REQUEST_AUTH_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ncrypt", feature = "winnt"))]
-impl Default for PHTTP_REQUEST_AUTH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_AUTH_TYPE(pub *mut HTTP_REQUEST_AUTH_TYPE);
-impl PHTTP_REQUEST_AUTH_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_AUTH_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_REQUEST_AUTH_INFO = *mut HTTP_REQUEST_AUTH_INFO;
+pub type PHTTP_REQUEST_AUTH_TYPE = *mut HTTP_REQUEST_AUTH_TYPE;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_CHANNEL_BIND_STATUS(pub *mut HTTP_REQUEST_CHANNEL_BIND_STATUS);
+pub type PHTTP_REQUEST_CHANNEL_BIND_STATUS = *mut HTTP_REQUEST_CHANNEL_BIND_STATUS;
+pub type PHTTP_REQUEST_DSCP_INFO = *mut HTTP_REQUEST_DSCP_INFO;
+pub type PHTTP_REQUEST_HEADERS = *mut HTTP_REQUEST_HEADERS;
+pub type PHTTP_REQUEST_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_REQUEST_INFO = *mut HTTP_REQUEST_INFO;
+pub type PHTTP_REQUEST_INFO_PROPERTY_INFO = *mut HTTP_REQUEST_INFO_PROPERTY_INFO;
+pub type PHTTP_REQUEST_INFO_TYPE = *mut HTTP_REQUEST_INFO_TYPE;
+pub type PHTTP_REQUEST_INITIAL_PACKET_TTL_INFO = *mut HTTP_REQUEST_INITIAL_PACKET_TTL_INFO;
+pub type PHTTP_REQUEST_PROPERTY = *mut HTTP_REQUEST_PROPERTY;
+pub type PHTTP_REQUEST_PROPERTY_SNI = *mut HTTP_REQUEST_PROPERTY_SNI;
+pub type PHTTP_REQUEST_PROPERTY_STREAM_ERROR = *mut HTTP_REQUEST_PROPERTY_STREAM_ERROR;
+pub type PHTTP_REQUEST_SIZING_INFO = *mut HTTP_REQUEST_SIZING_INFO;
+pub type PHTTP_REQUEST_SIZING_TYPE = *mut HTTP_REQUEST_SIZING_TYPE;
+pub type PHTTP_REQUEST_TIMING_INFO = *mut HTTP_REQUEST_TIMING_INFO;
+pub type PHTTP_REQUEST_TIMING_TYPE = *mut HTTP_REQUEST_TIMING_TYPE;
 #[cfg(feature = "minwindef")]
-impl PHTTP_REQUEST_CHANNEL_BIND_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PHTTP_REQUEST_CHANNEL_BIND_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_DSCP_INFO(pub *mut HTTP_REQUEST_DSCP_INFO);
-impl PHTTP_REQUEST_DSCP_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_DSCP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_HEADERS(pub *mut HTTP_REQUEST_HEADERS);
-impl PHTTP_REQUEST_HEADERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_REQUEST_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_INFO(pub *mut HTTP_REQUEST_INFO);
-impl PHTTP_REQUEST_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_INFO_PROPERTY_INFO(pub *mut HTTP_REQUEST_INFO_PROPERTY_INFO);
-impl PHTTP_REQUEST_INFO_PROPERTY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_INFO_PROPERTY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_INFO_TYPE(pub *mut HTTP_REQUEST_INFO_TYPE);
-impl PHTTP_REQUEST_INFO_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_INFO_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_INITIAL_PACKET_TTL_INFO(pub *mut HTTP_REQUEST_INITIAL_PACKET_TTL_INFO);
-impl PHTTP_REQUEST_INITIAL_PACKET_TTL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_INITIAL_PACKET_TTL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_PROPERTY(pub *mut HTTP_REQUEST_PROPERTY);
-impl PHTTP_REQUEST_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_PROPERTY_SNI(pub *mut HTTP_REQUEST_PROPERTY_SNI);
-impl PHTTP_REQUEST_PROPERTY_SNI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_PROPERTY_SNI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_PROPERTY_STREAM_ERROR(pub *mut HTTP_REQUEST_PROPERTY_STREAM_ERROR);
-impl PHTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_PROPERTY_STREAM_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_SIZING_INFO(pub *mut HTTP_REQUEST_SIZING_INFO);
-impl PHTTP_REQUEST_SIZING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_SIZING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_SIZING_TYPE(pub *mut HTTP_REQUEST_SIZING_TYPE);
-impl PHTTP_REQUEST_SIZING_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_SIZING_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_TIMING_INFO(pub *mut HTTP_REQUEST_TIMING_INFO);
-impl PHTTP_REQUEST_TIMING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_TIMING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_TIMING_TYPE(pub *mut HTTP_REQUEST_TIMING_TYPE);
-impl PHTTP_REQUEST_TIMING_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_TIMING_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_TOKEN_BINDING_INFO(pub *mut HTTP_REQUEST_TOKEN_BINDING_INFO);
-#[cfg(feature = "minwindef")]
-impl PHTTP_REQUEST_TOKEN_BINDING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PHTTP_REQUEST_TOKEN_BINDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO(pub *mut HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO);
-impl PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_REQUEST_TOKEN_BINDING_INFO = *mut HTTP_REQUEST_TOKEN_BINDING_INFO;
+pub type PHTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO = *mut HTTP_REQUEST_TRANSPORT_IDLE_CONNECTION_TIMEOUT_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_V1(pub *mut HTTP_REQUEST_V1);
+pub type PHTTP_REQUEST_V1 = *mut HTTP_REQUEST_V1;
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl PHTTP_REQUEST_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl Default for PHTTP_REQUEST_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_REQUEST_V2(pub *mut HTTP_REQUEST_V2);
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl PHTTP_REQUEST_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt", feature = "ws2"))]
-impl Default for PHTTP_REQUEST_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_REQUEST_V2 = *mut HTTP_REQUEST_V2;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE(pub *mut HTTP_RESPONSE);
+pub type PHTTP_RESPONSE = *mut HTTP_RESPONSE;
+pub type PHTTP_RESPONSE_HEADERS = *mut HTTP_RESPONSE_HEADERS;
+pub type PHTTP_RESPONSE_INFO = *mut HTTP_RESPONSE_INFO;
+pub type PHTTP_RESPONSE_INFO_TYPE = *mut HTTP_RESPONSE_INFO_TYPE;
 #[cfg(feature = "winnt")]
-impl PHTTP_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_RESPONSE_V1 = *mut HTTP_RESPONSE_V1;
 #[cfg(feature = "winnt")]
-impl Default for PHTTP_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE_HEADERS(pub *mut HTTP_RESPONSE_HEADERS);
-impl PHTTP_RESPONSE_HEADERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_RESPONSE_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE_INFO(pub *mut HTTP_RESPONSE_INFO);
-impl PHTTP_RESPONSE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_RESPONSE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE_INFO_TYPE(pub *mut HTTP_RESPONSE_INFO_TYPE);
-impl PHTTP_RESPONSE_INFO_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_RESPONSE_INFO_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_RESPONSE_V2 = *mut HTTP_RESPONSE_V2;
+pub type PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS;
+pub type PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS = *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS;
+pub type PHTTP_SERVER_AUTHENTICATION_INFO = *mut HTTP_SERVER_AUTHENTICATION_INFO;
+pub type PHTTP_SERVER_PROPERTY = *mut HTTP_SERVER_PROPERTY;
+pub type PHTTP_SERVER_SESSION_ID = *mut HTTP_OPAQUE_ID;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE_V1(pub *mut HTTP_RESPONSE_V1);
+pub type PHTTP_SERVICE_BINDING_A = *mut HTTP_SERVICE_BINDING_A;
+pub type PHTTP_SERVICE_BINDING_BASE = *mut HTTP_SERVICE_BINDING_BASE;
 #[cfg(feature = "winnt")]
-impl PHTTP_RESPONSE_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_RESPONSE_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_RESPONSE_V2(pub *mut HTTP_RESPONSE_V2);
-#[cfg(feature = "winnt")]
-impl PHTTP_RESPONSE_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_RESPONSE_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS(pub *mut HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS);
-impl PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVER_AUTHENTICATION_BASIC_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS(pub *mut HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS);
-impl PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVER_AUTHENTICATION_INFO(pub *mut HTTP_SERVER_AUTHENTICATION_INFO);
-impl PHTTP_SERVER_AUTHENTICATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVER_AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVER_PROPERTY(pub *mut HTTP_SERVER_PROPERTY);
-impl PHTTP_SERVER_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVER_SESSION_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_SERVER_SESSION_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVER_SESSION_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_BINDING_A(pub *mut HTTP_SERVICE_BINDING_A);
-#[cfg(feature = "winnt")]
-impl PHTTP_SERVICE_BINDING_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_SERVICE_BINDING_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_BINDING_BASE(pub *mut HTTP_SERVICE_BINDING_BASE);
-impl PHTTP_SERVICE_BINDING_BASE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_BINDING_BASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_BINDING_W(pub *mut HTTP_SERVICE_BINDING_W);
-#[cfg(feature = "winnt")]
-impl PHTTP_SERVICE_BINDING_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTTP_SERVICE_BINDING_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_CACHE_KEY(pub *mut HTTP_SERVICE_CONFIG_CACHE_KEY);
-impl PHTTP_SERVICE_CONFIG_CACHE_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_CACHE_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_CACHE_PARAM(pub *mut u32);
-impl PHTTP_SERVICE_CONFIG_CACHE_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_CACHE_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_CACHE_SET(pub *mut HTTP_SERVICE_CONFIG_CACHE_SET);
-impl PHTTP_SERVICE_CONFIG_CACHE_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_CACHE_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_ID(pub *mut HTTP_SERVICE_CONFIG_ID);
-impl PHTTP_SERVICE_CONFIG_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_BINDING_W = *mut HTTP_SERVICE_BINDING_W;
+pub type PHTTP_SERVICE_CONFIG_CACHE_KEY = *mut HTTP_SERVICE_CONFIG_CACHE_KEY;
+pub type PHTTP_SERVICE_CONFIG_CACHE_PARAM = *mut u32;
+pub type PHTTP_SERVICE_CONFIG_CACHE_SET = *mut HTTP_SERVICE_CONFIG_CACHE_SET;
+pub type PHTTP_SERVICE_CONFIG_ID = *mut HTTP_SERVICE_CONFIG_ID;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM(pub *mut HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM);
+pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY = *mut HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY;
+pub type PHTTP_SERVICE_CONFIG_QUERY_TYPE = *mut HTTP_SERVICE_CONFIG_QUERY_TYPE;
+pub type PHTTP_SERVICE_CONFIG_SETTING_KEY = *mut HTTP_SERVICE_CONFIG_SETTING_KEY;
+pub type PHTTP_SERVICE_CONFIG_SETTING_PARAM = *mut u32;
+pub type PHTTP_SERVICE_CONFIG_SETTING_SET = *mut HTTP_SERVICE_CONFIG_SETTING_SET;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_CCS_KEY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_KEY;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY(pub *mut HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY);
+pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_QUERY_TYPE(pub *mut HTTP_SERVICE_CONFIG_QUERY_TYPE);
-impl PHTTP_SERVICE_CONFIG_QUERY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_QUERY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SETTING_KEY(pub *mut HTTP_SERVICE_CONFIG_SETTING_KEY);
-impl PHTTP_SERVICE_CONFIG_SETTING_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_SETTING_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SETTING_PARAM(pub *mut u32);
-impl PHTTP_SERVICE_CONFIG_SETTING_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_SETTING_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SETTING_SET(pub *mut HTTP_SERVICE_CONFIG_SETTING_SET);
-impl PHTTP_SERVICE_CONFIG_SETTING_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_SETTING_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_KEY);
+pub type PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_KEY = *mut HTTP_SERVICE_CONFIG_SSL_KEY;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_KEY_EX = *mut HTTP_SERVICE_CONFIG_SSL_KEY_EX;
+pub type PHTTP_SERVICE_CONFIG_SSL_PARAM = *mut HTTP_SERVICE_CONFIG_SSL_PARAM;
+pub type PHTTP_SERVICE_CONFIG_SSL_PARAM_EX = *mut HTTP_SERVICE_CONFIG_SSL_PARAM_EX;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY);
+pub type PHTTP_SERVICE_CONFIG_SSL_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_QUERY;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_QUERY_EX;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_SET = *mut HTTP_SERVICE_CONFIG_SSL_SET;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX);
+pub type PHTTP_SERVICE_CONFIG_SSL_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SET_EX;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_SNI_KEY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_KEY;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET);
+pub type PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX;
 #[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET;
 #[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_KEY);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_KEY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_KEY_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_KEY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_PARAM(pub *mut HTTP_SERVICE_CONFIG_SSL_PARAM);
-impl PHTTP_SERVICE_CONFIG_SSL_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_SSL_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_PARAM_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_PARAM_EX);
-impl PHTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_SSL_PARAM_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_QUERY);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_QUERY_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_QUERY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_SET);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SET_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SET_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SET_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_KEY(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_KEY);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_SET(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX(pub *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX);
-#[cfg(feature = "ws2")]
-impl PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub *mut HTTP_SERVICE_CONFIG_TIMEOUT_KEY);
-impl PHTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_TIMEOUT_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM(pub *mut u16);
-impl PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_TIMEOUT_SET(pub *mut HTTP_SERVICE_CONFIG_TIMEOUT_SET);
-impl PHTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_TIMEOUT_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_URLACL_KEY(pub *mut HTTP_SERVICE_CONFIG_URLACL_KEY);
-impl PHTTP_SERVICE_CONFIG_URLACL_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_URLACL_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_URLACL_PARAM(pub *mut HTTP_SERVICE_CONFIG_URLACL_PARAM);
-impl PHTTP_SERVICE_CONFIG_URLACL_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_URLACL_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_URLACL_QUERY(pub *mut HTTP_SERVICE_CONFIG_URLACL_QUERY);
-impl PHTTP_SERVICE_CONFIG_URLACL_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_URLACL_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SERVICE_CONFIG_URLACL_SET(pub *mut HTTP_SERVICE_CONFIG_URLACL_SET);
-impl PHTTP_SERVICE_CONFIG_URLACL_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SERVICE_CONFIG_URLACL_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SERVICE_CONFIG_SSL_SNI_SET_EX = *mut HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX;
+pub type PHTTP_SERVICE_CONFIG_TIMEOUT_KEY = *mut HTTP_SERVICE_CONFIG_TIMEOUT_KEY;
+pub type PHTTP_SERVICE_CONFIG_TIMEOUT_PARAM = *mut u16;
+pub type PHTTP_SERVICE_CONFIG_TIMEOUT_SET = *mut HTTP_SERVICE_CONFIG_TIMEOUT_SET;
+pub type PHTTP_SERVICE_CONFIG_URLACL_KEY = *mut HTTP_SERVICE_CONFIG_URLACL_KEY;
+pub type PHTTP_SERVICE_CONFIG_URLACL_PARAM = *mut HTTP_SERVICE_CONFIG_URLACL_PARAM;
+pub type PHTTP_SERVICE_CONFIG_URLACL_QUERY = *mut HTTP_SERVICE_CONFIG_URLACL_QUERY;
+pub type PHTTP_SERVICE_CONFIG_URLACL_SET = *mut HTTP_SERVICE_CONFIG_URLACL_SET;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SSL_CLIENT_CERT_INFO(pub *mut HTTP_SSL_CLIENT_CERT_INFO);
+pub type PHTTP_SSL_CLIENT_CERT_INFO = *mut HTTP_SSL_CLIENT_CERT_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PHTTP_SSL_CLIENT_CERT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PHTTP_SSL_CLIENT_CERT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SSL_INFO(pub *mut HTTP_SSL_INFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PHTTP_SSL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PHTTP_SSL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SSL_PROTOCOL_INFO(pub *mut HTTP_SSL_PROTOCOL_INFO);
-impl PHTTP_SSL_PROTOCOL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SSL_PROTOCOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub *mut HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE);
-impl PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_STATE_INFO(pub *mut HTTP_STATE_INFO);
-impl PHTTP_STATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_STATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_TIMEOUT_LIMIT_INFO(pub *mut HTTP_TIMEOUT_LIMIT_INFO);
-impl PHTTP_TIMEOUT_LIMIT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_TIMEOUT_LIMIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_TLS_RESTRICTIONS_PARAM(pub *mut HTTP_TLS_RESTRICTIONS_PARAM);
-impl PHTTP_TLS_RESTRICTIONS_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_TLS_RESTRICTIONS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_TLS_SESSION_TICKET_KEYS_PARAM(pub *mut HTTP_TLS_SESSION_TICKET_KEYS_PARAM);
-impl PHTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_TLS_SESSION_TICKET_KEYS_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_SSL_INFO = *mut HTTP_SSL_INFO;
+pub type PHTTP_SSL_PROTOCOL_INFO = *mut HTTP_SSL_PROTOCOL_INFO;
+pub type PHTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = *mut HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE;
+pub type PHTTP_STATE_INFO = *mut HTTP_STATE_INFO;
+pub type PHTTP_TIMEOUT_LIMIT_INFO = *mut HTTP_TIMEOUT_LIMIT_INFO;
+pub type PHTTP_TLS_RESTRICTIONS_PARAM = *mut HTTP_TLS_RESTRICTIONS_PARAM;
+pub type PHTTP_TLS_SESSION_TICKET_KEYS_PARAM = *mut HTTP_TLS_SESSION_TICKET_KEYS_PARAM;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_TRANSPORT_ADDRESS(pub *mut HTTP_TRANSPORT_ADDRESS);
-#[cfg(feature = "ws2")]
-impl PHTTP_TRANSPORT_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PHTTP_TRANSPORT_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_UNKNOWN_HEADER(pub *mut HTTP_UNKNOWN_HEADER);
-impl PHTTP_UNKNOWN_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_UNKNOWN_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_URI_SCHEME(pub *mut HTTP_SCHEME);
-impl PHTTP_URI_SCHEME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_URI_SCHEME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_URL_GROUP_ID(pub *mut HTTP_OPAQUE_ID);
-impl PHTTP_URL_GROUP_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_URL_GROUP_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_VERB(pub *mut HTTP_VERB);
-impl PHTTP_VERB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_VERB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_VERSION(pub *mut HTTP_VERSION);
-impl PHTTP_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_WINHTTP_FAST_FORWARDING_DATA(pub *mut HTTP_WINHTTP_FAST_FORWARDING_DATA);
-impl PHTTP_WINHTTP_FAST_FORWARDING_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_WINHTTP_FAST_FORWARDING_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_WSK_API_TIMINGS(pub *mut HTTP_WSK_API_TIMINGS);
-impl PHTTP_WSK_API_TIMINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_WSK_API_TIMINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_TRANSPORT_ADDRESS = *mut HTTP_TRANSPORT_ADDRESS;
+pub type PHTTP_UNKNOWN_HEADER = *mut HTTP_UNKNOWN_HEADER;
+pub type PHTTP_URI_SCHEME = *mut HTTP_SCHEME;
+pub type PHTTP_URL_GROUP_ID = *mut HTTP_OPAQUE_ID;
+pub type PHTTP_VERB = *mut HTTP_VERB;
+pub type PHTTP_VERSION = *mut HTTP_VERSION;
+pub type PHTTP_WINHTTP_FAST_FORWARDING_DATA = *mut HTTP_WINHTTP_FAST_FORWARDING_DATA;
+pub type PHTTP_WSK_API_TIMINGS = *mut HTTP_WSK_API_TIMINGS;
 pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = 1;
 pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = 5;
 pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = 6;

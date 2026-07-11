@@ -3563,61 +3563,11 @@ impl Default for MachineGlobalObjectTableRegistrationToken {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPCOLEMESSAGE(pub *mut RPCOLEMESSAGE);
-impl PRPCOLEMESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPCOLEMESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOLE_AUTHENTICATION_INFO(pub *mut SOLE_AUTHENTICATION_INFO);
-impl PSOLE_AUTHENTICATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOLE_AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOLE_AUTHENTICATION_LIST(pub *mut SOLE_AUTHENTICATION_LIST);
-impl PSOLE_AUTHENTICATION_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOLE_AUTHENTICATION_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRPCOLEMESSAGE = *mut RPCOLEMESSAGE;
+pub type PSOLE_AUTHENTICATION_INFO = *mut SOLE_AUTHENTICATION_INFO;
+pub type PSOLE_AUTHENTICATION_LIST = *mut SOLE_AUTHENTICATION_LIST;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOLE_AUTHENTICATION_SERVICE(pub *mut SOLE_AUTHENTICATION_SERVICE);
-#[cfg(feature = "wtypesbase")]
-impl PSOLE_AUTHENTICATION_SERVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for PSOLE_AUTHENTICATION_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RPCOLEDATAREP(pub u32);

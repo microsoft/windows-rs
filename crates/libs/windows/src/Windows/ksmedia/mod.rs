@@ -5948,32 +5948,8 @@ impl Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDPIXELFORMAT(pub *mut DDPIXELFORMAT);
-impl LPDDPIXELFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDPIXELFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDVIDEOPORTCONNECT(pub *mut DDVIDEOPORTCONNECT);
-impl LPDDVIDEOPORTCONNECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDVIDEOPORTCONNECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDDPIXELFORMAT = *mut DDPIXELFORMAT;
+pub type LPDDVIDEOPORTCONNECT = *mut DDVIDEOPORTCONNECT;
 pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11;
 pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256;
 pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32;
@@ -6036,84 +6012,12 @@ pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1;
 pub const NABTS_BYTES_PER_LINE: u32 = 36;
 pub const NABTS_LINES_PER_BUNDLE: u32 = 16;
 pub const NABTS_PAYLOAD_PER_LINE: u32 = 28;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP(pub *mut AUDIORESOURCEMANAGEMENT_RESOURCEGROUP);
-impl PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCAPTURE_MEMORY_ALLOCATION_FLAGS(pub *mut CAPTURE_MEMORY_ALLOCATION_FLAGS);
-impl PCAPTURE_MEMORY_ALLOCATION_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCAPTURE_MEMORY_ALLOCATION_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCC_BYTE_PAIR(pub *mut CC_BYTE_PAIR);
-impl PCC_BYTE_PAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCC_BYTE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCC_HW_FIELD(pub *mut CC_HW_FIELD);
-impl PCC_HW_FIELD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCC_HW_FIELD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVCAPS(pub *mut DEVCAPS);
-impl PDEVCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDS3DVECTOR(pub *mut DS3DVECTOR);
-impl PDS3DVECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDS3DVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUDIORESOURCEMANAGEMENT_RESOURCEGROUP = *mut AUDIORESOURCEMANAGEMENT_RESOURCEGROUP;
+pub type PCAPTURE_MEMORY_ALLOCATION_FLAGS = *mut CAPTURE_MEMORY_ALLOCATION_FLAGS;
+pub type PCC_BYTE_PAIR = *mut CC_BYTE_PAIR;
+pub type PCC_HW_FIELD = *mut CC_HW_FIELD;
+pub type PDEVCAPS = *mut DEVCAPS;
+pub type PDS3DVECTOR = *mut DS3DVECTOR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PINNAME_DISPLAYPORT_OUT(pub u8);
@@ -6171,1500 +6075,144 @@ pub struct PINNAME_VIDEO_VIDEOPORT(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PINNAME_VIDEO_VIDEOPORT_VBI(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_ALTERNATE_AUDIO(pub *mut KSAC3_ALTERNATE_AUDIO);
-impl PKSAC3_ALTERNATE_AUDIO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_ALTERNATE_AUDIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_BIT_STREAM_MODE(pub *mut KSAC3_BIT_STREAM_MODE);
-impl PKSAC3_BIT_STREAM_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_BIT_STREAM_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_DIALOGUE_LEVEL(pub *mut KSAC3_DIALOGUE_LEVEL);
-impl PKSAC3_DIALOGUE_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_DIALOGUE_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_DOWNMIX(pub *mut KSAC3_DOWNMIX);
-impl PKSAC3_DOWNMIX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_DOWNMIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_ERROR_CONCEALMENT(pub *mut KSAC3_ERROR_CONCEALMENT);
-impl PKSAC3_ERROR_CONCEALMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_ERROR_CONCEALMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAC3_ROOM_TYPE(pub *mut KSAC3_ROOM_TYPE);
-impl PKSAC3_ROOM_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAC3_ROOM_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSAC3_ALTERNATE_AUDIO = *mut KSAC3_ALTERNATE_AUDIO;
+pub type PKSAC3_BIT_STREAM_MODE = *mut KSAC3_BIT_STREAM_MODE;
+pub type PKSAC3_DIALOGUE_LEVEL = *mut KSAC3_DIALOGUE_LEVEL;
+pub type PKSAC3_DOWNMIX = *mut KSAC3_DOWNMIX;
+pub type PKSAC3_ERROR_CONCEALMENT = *mut KSAC3_ERROR_CONCEALMENT;
+pub type PKSAC3_ROOM_TYPE = *mut KSAC3_ROOM_TYPE;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT(pub *mut KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT);
+pub type PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT = *mut KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT;
 #[cfg(feature = "ks")]
-impl PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE = *mut KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE;
+pub type PKSAUDIOENGINE_BUFFER_SIZE_RANGE = *mut KSAUDIOENGINE_BUFFER_SIZE_RANGE;
+pub type PKSAUDIOENGINE_DESCRIPTOR = *mut KSAUDIOENGINE_DESCRIPTOR;
+pub type PKSAUDIOENGINE_DEVICECONTROLS = *mut KSAUDIOENGINE_DEVICECONTROLS;
+pub type PKSAUDIOENGINE_VOLUMELEVEL = *mut KSAUDIOENGINE_VOLUMELEVEL;
+pub type PKSAUDIOMODULE_DESCRIPTOR = *mut KSAUDIOMODULE_DESCRIPTOR;
+pub type PKSAUDIOMODULE_NOTIFICATION = *mut KSAUDIOMODULE_NOTIFICATION;
 #[cfg(feature = "ks")]
-impl Default for PKSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE(pub *mut KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE);
-#[cfg(feature = "ks")]
-impl PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOENGINE_BUFFER_SIZE_RANGE(pub *mut KSAUDIOENGINE_BUFFER_SIZE_RANGE);
-impl PKSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOENGINE_BUFFER_SIZE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOENGINE_DESCRIPTOR(pub *mut KSAUDIOENGINE_DESCRIPTOR);
-impl PKSAUDIOENGINE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOENGINE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOENGINE_DEVICECONTROLS(pub *mut KSAUDIOENGINE_DEVICECONTROLS);
-impl PKSAUDIOENGINE_DEVICECONTROLS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOENGINE_DEVICECONTROLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOENGINE_VOLUMELEVEL(pub *mut KSAUDIOENGINE_VOLUMELEVEL);
-impl PKSAUDIOENGINE_VOLUMELEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOENGINE_VOLUMELEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOMODULE_DESCRIPTOR(pub *mut KSAUDIOMODULE_DESCRIPTOR);
-impl PKSAUDIOMODULE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOMODULE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOMODULE_NOTIFICATION(pub *mut KSAUDIOMODULE_NOTIFICATION);
-impl PKSAUDIOMODULE_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIOMODULE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIOMODULE_PROPERTY(pub *mut KSAUDIOMODULE_PROPERTY);
-#[cfg(feature = "ks")]
-impl PKSAUDIOMODULE_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSAUDIOMODULE_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_CHANNEL_CONFIG(pub *mut KSAUDIO_CHANNEL_CONFIG);
-impl PKSAUDIO_CHANNEL_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_CHANNEL_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_COPY_PROTECTION(pub *mut KSAUDIO_COPY_PROTECTION);
-impl PKSAUDIO_COPY_PROTECTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_COPY_PROTECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_DYNAMIC_RANGE(pub *mut KSAUDIO_DYNAMIC_RANGE);
-impl PKSAUDIO_DYNAMIC_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_DYNAMIC_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_MICROPHONE_COORDINATES(pub *mut KSAUDIO_MICROPHONE_COORDINATES);
-impl PKSAUDIO_MICROPHONE_COORDINATES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_MICROPHONE_COORDINATES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_MIC_ARRAY_GEOMETRY(pub *mut KSAUDIO_MIC_ARRAY_GEOMETRY);
-impl PKSAUDIO_MIC_ARRAY_GEOMETRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_MIC_ARRAY_GEOMETRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_MIXCAP_TABLE(pub *mut KSAUDIO_MIXCAP_TABLE);
-impl PKSAUDIO_MIXCAP_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_MIXCAP_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_MIXLEVEL(pub *mut KSAUDIO_MIXLEVEL);
-impl PKSAUDIO_MIXLEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_MIXLEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_MIX_CAPS(pub *mut KSAUDIO_MIX_CAPS);
-impl PKSAUDIO_MIX_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_MIX_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSAUDIOMODULE_PROPERTY = *mut KSAUDIOMODULE_PROPERTY;
+pub type PKSAUDIO_CHANNEL_CONFIG = *mut KSAUDIO_CHANNEL_CONFIG;
+pub type PKSAUDIO_COPY_PROTECTION = *mut KSAUDIO_COPY_PROTECTION;
+pub type PKSAUDIO_DYNAMIC_RANGE = *mut KSAUDIO_DYNAMIC_RANGE;
+pub type PKSAUDIO_MICROPHONE_COORDINATES = *mut KSAUDIO_MICROPHONE_COORDINATES;
+pub type PKSAUDIO_MIC_ARRAY_GEOMETRY = *mut KSAUDIO_MIC_ARRAY_GEOMETRY;
+pub type PKSAUDIO_MIXCAP_TABLE = *mut KSAUDIO_MIXCAP_TABLE;
+pub type PKSAUDIO_MIXLEVEL = *mut KSAUDIO_MIXLEVEL;
+pub type PKSAUDIO_MIX_CAPS = *mut KSAUDIO_MIX_CAPS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_POSITION(pub *mut KSAUDIO_POSITION);
+pub type PKSAUDIO_POSITION = *mut KSAUDIO_POSITION;
 #[cfg(feature = "winnt")]
-impl PKSAUDIO_POSITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSAUDIO_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_POSITIONEX(pub *mut KSAUDIO_POSITIONEX);
-#[cfg(feature = "winnt")]
-impl PKSAUDIO_POSITIONEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSAUDIO_POSITIONEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSAUDIO_PRESENTATION_POSITION(pub *mut KSAUDIO_PRESENTATION_POSITION);
-impl PKSAUDIO_PRESENTATION_POSITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSAUDIO_PRESENTATION_POSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSAUDIO_POSITIONEX = *mut KSAUDIO_POSITIONEX;
+pub type PKSAUDIO_PRESENTATION_POSITION = *mut KSAUDIO_PRESENTATION_POSITION;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS(pub *mut KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS);
+pub type PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS;
+pub type PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET = *mut KSCAMERA_EXTENDEDPROP_CAMERAOFFSET;
+pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS;
+pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER;
+pub type PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING = *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING;
+pub type PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION = *mut KSCAMERA_EXTENDEDPROP_EVCOMPENSATION;
+pub type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW;
+pub type PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS;
+pub type PKSCAMERA_EXTENDEDPROP_HEADER = *mut KSCAMERA_EXTENDEDPROP_HEADER;
+pub type PKSCAMERA_EXTENDEDPROP_METADATAINFO = *mut KSCAMERA_EXTENDEDPROP_METADATAINFO;
+pub type PKSCAMERA_EXTENDEDPROP_PHOTOMODE = *mut KSCAMERA_EXTENDEDPROP_PHOTOMODE;
+pub type PKSCAMERA_EXTENDEDPROP_PROFILE = *mut KSCAMERA_EXTENDEDPROP_PROFILE;
+pub type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS;
+pub type PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER;
 #[cfg(feature = "windef")]
-impl PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE = *mut KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE;
 #[cfg(feature = "windef")]
-impl Default for PKSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET(pub *mut KSCAMERA_EXTENDEDPROP_CAMERAOFFSET);
-impl PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS(pub *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS);
-impl PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER(pub *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER);
-impl PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING(pub *mut KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING);
-impl PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION(pub *mut KSCAMERA_EXTENDEDPROP_EVCOMPENSATION);
-impl PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW(pub *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW);
-impl PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS(pub *mut KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS);
-impl PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_HEADER(pub *mut KSCAMERA_EXTENDEDPROP_HEADER);
-impl PKSCAMERA_EXTENDEDPROP_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_METADATAINFO(pub *mut KSCAMERA_EXTENDEDPROP_METADATAINFO);
-impl PKSCAMERA_EXTENDEDPROP_METADATAINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_METADATAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_PHOTOMODE(pub *mut KSCAMERA_EXTENDEDPROP_PHOTOMODE);
-impl PKSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_PHOTOMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_PROFILE(pub *mut KSCAMERA_EXTENDEDPROP_PROFILE);
-impl PKSCAMERA_EXTENDEDPROP_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS(pub *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS);
-impl PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER(pub *mut KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER);
-impl PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSCAMERA_EXTENDEDPROP_ROI_FOCUS = *mut KSCAMERA_EXTENDEDPROP_ROI_FOCUS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE(pub *mut KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE);
+pub type PKSCAMERA_EXTENDEDPROP_ROI_INFO = *mut KSCAMERA_EXTENDEDPROP_ROI_INFO;
+pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL;
+pub type PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER = *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER;
 #[cfg(feature = "windef")]
-impl PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE = *mut KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE;
+pub type PKSCAMERA_EXTENDEDPROP_VALUE = *mut KSCAMERA_EXTENDEDPROP_VALUE;
+pub type PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING = *mut KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING;
+pub type PKSCAMERA_MAXVIDEOFPS_FORPHOTORES = *mut KSCAMERA_MAXVIDEOFPS_FORPHOTORES;
 #[cfg(feature = "windef")]
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_FOCUS(pub *mut KSCAMERA_EXTENDEDPROP_ROI_FOCUS);
-#[cfg(feature = "windef")]
-impl PKSCAMERA_EXTENDEDPROP_ROI_FOCUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_FOCUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_INFO(pub *mut KSCAMERA_EXTENDEDPROP_ROI_INFO);
-#[cfg(feature = "windef")]
-impl PKSCAMERA_EXTENDEDPROP_ROI_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL(pub *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL);
-impl PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER(pub *mut KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER);
-impl PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE(pub *mut KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE);
-#[cfg(feature = "windef")]
-impl PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_VALUE(pub *mut KSCAMERA_EXTENDEDPROP_VALUE);
-impl PKSCAMERA_EXTENDEDPROP_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING(pub *mut KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING);
-impl PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_MAXVIDEOFPS_FORPHOTORES(pub *mut KSCAMERA_MAXVIDEOFPS_FORPHOTORES);
-impl PKSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_MAXVIDEOFPS_FORPHOTORES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK(pub *mut KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK);
-#[cfg(feature = "windef")]
-impl PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_CAPTURESTATS(pub *mut KSCAMERA_METADATA_CAPTURESTATS);
-impl PKSCAMERA_METADATA_CAPTURESTATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_METADATA_CAPTURESTATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_DIGITALWINDOW(pub *mut KSCAMERA_METADATA_DIGITALWINDOW);
-impl PKSCAMERA_METADATA_DIGITALWINDOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_METADATA_DIGITALWINDOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_FRAMEILLUMINATION(pub *mut KSCAMERA_METADATA_FRAMEILLUMINATION);
-impl PKSCAMERA_METADATA_FRAMEILLUMINATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_METADATA_FRAMEILLUMINATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_ITEMHEADER(pub *mut KSCAMERA_METADATA_ITEMHEADER);
-impl PKSCAMERA_METADATA_ITEMHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_METADATA_ITEMHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_METADATA_PHOTOCONFIRMATION(pub *mut KSCAMERA_METADATA_PHOTOCONFIRMATION);
-impl PKSCAMERA_METADATA_PHOTOCONFIRMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_METADATA_PHOTOCONFIRMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_CAP_HEADER(pub *mut KSCAMERA_PERFRAMESETTING_CAP_HEADER);
-impl PKSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_CAP_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER(pub *mut KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER);
-impl PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM(pub *mut KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM);
-impl PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_FRAME_HEADER(pub *mut KSCAMERA_PERFRAMESETTING_FRAME_HEADER);
-impl PKSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_FRAME_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_HEADER(pub *mut KSCAMERA_PERFRAMESETTING_HEADER);
-impl PKSCAMERA_PERFRAMESETTING_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PERFRAMESETTING_ITEM_HEADER(pub *mut KSCAMERA_PERFRAMESETTING_ITEM_HEADER);
-impl PKSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PERFRAMESETTING_ITEM_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PROFILE_CONCURRENCYINFO(pub *mut KSCAMERA_PROFILE_CONCURRENCYINFO);
-impl PKSCAMERA_PROFILE_CONCURRENCYINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PROFILE_CONCURRENCYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PROFILE_INFO(pub *mut KSCAMERA_PROFILE_INFO);
-impl PKSCAMERA_PROFILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PROFILE_MEDIAINFO(pub *mut KSCAMERA_PROFILE_MEDIAINFO);
-impl PKSCAMERA_PROFILE_MEDIAINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PROFILE_MEDIAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSCAMERA_PROFILE_PININFO(pub *mut KSCAMERA_PROFILE_PININFO);
-impl PKSCAMERA_PROFILE_PININFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSCAMERA_PROFILE_PININFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK = *mut KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK;
+pub type PKSCAMERA_METADATA_CAPTURESTATS = *mut KSCAMERA_METADATA_CAPTURESTATS;
+pub type PKSCAMERA_METADATA_DIGITALWINDOW = *mut KSCAMERA_METADATA_DIGITALWINDOW;
+pub type PKSCAMERA_METADATA_FRAMEILLUMINATION = *mut KSCAMERA_METADATA_FRAMEILLUMINATION;
+pub type PKSCAMERA_METADATA_ITEMHEADER = *mut KSCAMERA_METADATA_ITEMHEADER;
+pub type PKSCAMERA_METADATA_PHOTOCONFIRMATION = *mut KSCAMERA_METADATA_PHOTOCONFIRMATION;
+pub type PKSCAMERA_PERFRAMESETTING_CAP_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_HEADER;
+pub type PKSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER;
+pub type PKSCAMERA_PERFRAMESETTING_CUSTOM_ITEM = *mut KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM;
+pub type PKSCAMERA_PERFRAMESETTING_FRAME_HEADER = *mut KSCAMERA_PERFRAMESETTING_FRAME_HEADER;
+pub type PKSCAMERA_PERFRAMESETTING_HEADER = *mut KSCAMERA_PERFRAMESETTING_HEADER;
+pub type PKSCAMERA_PERFRAMESETTING_ITEM_HEADER = *mut KSCAMERA_PERFRAMESETTING_ITEM_HEADER;
+pub type PKSCAMERA_PROFILE_CONCURRENCYINFO = *mut KSCAMERA_PROFILE_CONCURRENCYINFO;
+pub type PKSCAMERA_PROFILE_INFO = *mut KSCAMERA_PROFILE_INFO;
+pub type PKSCAMERA_PROFILE_MEDIAINFO = *mut KSCAMERA_PROFILE_MEDIAINFO;
+pub type PKSCAMERA_PROFILE_PININFO = *mut KSCAMERA_PROFILE_PININFO;
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDATAFORMAT_DSOUND(pub *mut KSDATAFORMAT_DSOUND);
+pub type PKSDATAFORMAT_DSOUND = *mut KSDATAFORMAT_DSOUND;
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
-impl PKSDATAFORMAT_DSOUND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
-impl Default for PKSDATAFORMAT_DSOUND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDATAFORMAT_WAVEFORMATEX(pub *mut KSDATAFORMAT_WAVEFORMATEX);
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
-impl PKSDATAFORMAT_WAVEFORMATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mmeapi"))]
-impl Default for PKSDATAFORMAT_WAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSDATAFORMAT_WAVEFORMATEX = *mut KSDATAFORMAT_WAVEFORMATEX;
 #[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDATAFORMAT_WAVEFORMATEXTENSIBLE(pub *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE);
-#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
-impl PKSDATAFORMAT_WAVEFORMATEXTENSIBLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mmeapi", feature = "mmreg"))]
-impl Default for PKSDATAFORMAT_WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSDATAFORMAT_WAVEFORMATEXTENSIBLE = *mut KSDATAFORMAT_WAVEFORMATEXTENSIBLE;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDATARANGE_AUDIO(pub *mut KSDATARANGE_AUDIO);
+pub type PKSDATARANGE_AUDIO = *mut KSDATARANGE_AUDIO;
 #[cfg(feature = "ks")]
-impl PKSDATARANGE_AUDIO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSDATARANGE_AUDIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDATARANGE_MUSIC(pub *mut KSDATARANGE_MUSIC);
-#[cfg(feature = "ks")]
-impl PKSDATARANGE_MUSIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSDATARANGE_MUSIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDEVICE_PROFILE_INFO(pub *mut KSDEVICE_PROFILE_INFO);
-impl PKSDEVICE_PROFILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDEVICE_PROFILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDISPLAYCHANGE(pub *mut KSDISPLAYCHANGE);
-impl PKSDISPLAYCHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDISPLAYCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_BUFFER_ALL(pub *mut KSDS3D_BUFFER_ALL);
-impl PKSDS3D_BUFFER_ALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_BUFFER_ALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_BUFFER_CONE_ANGLES(pub *mut KSDS3D_BUFFER_CONE_ANGLES);
-impl PKSDS3D_BUFFER_CONE_ANGLES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_BUFFER_CONE_ANGLES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_HRTF_FILTER_FORMAT_MSG(pub *mut KSDS3D_HRTF_FILTER_FORMAT_MSG);
-impl PKSDS3D_HRTF_FILTER_FORMAT_MSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_HRTF_FILTER_FORMAT_MSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_HRTF_INIT_MSG(pub *mut KSDS3D_HRTF_INIT_MSG);
-impl PKSDS3D_HRTF_INIT_MSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_HRTF_INIT_MSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_HRTF_PARAMS_MSG(pub *mut KSDS3D_HRTF_PARAMS_MSG);
-impl PKSDS3D_HRTF_PARAMS_MSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_HRTF_PARAMS_MSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_ITD_PARAMS(pub *mut KSDS3D_ITD_PARAMS);
-impl PKSDS3D_ITD_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_ITD_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_ITD_PARAMS_MSG(pub *mut KSDS3D_ITD_PARAMS_MSG);
-impl PKSDS3D_ITD_PARAMS_MSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_ITD_PARAMS_MSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_LISTENER_ALL(pub *mut KSDS3D_LISTENER_ALL);
-impl PKSDS3D_LISTENER_ALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_LISTENER_ALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDS3D_LISTENER_ORIENTATION(pub *mut KSDS3D_LISTENER_ORIENTATION);
-impl PKSDS3D_LISTENER_ORIENTATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSDS3D_LISTENER_ORIENTATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSDATARANGE_MUSIC = *mut KSDATARANGE_MUSIC;
+pub type PKSDEVICE_PROFILE_INFO = *mut KSDEVICE_PROFILE_INFO;
+pub type PKSDISPLAYCHANGE = *mut KSDISPLAYCHANGE;
+pub type PKSDS3D_BUFFER_ALL = *mut KSDS3D_BUFFER_ALL;
+pub type PKSDS3D_BUFFER_CONE_ANGLES = *mut KSDS3D_BUFFER_CONE_ANGLES;
+pub type PKSDS3D_HRTF_FILTER_FORMAT_MSG = *mut KSDS3D_HRTF_FILTER_FORMAT_MSG;
+pub type PKSDS3D_HRTF_INIT_MSG = *mut KSDS3D_HRTF_INIT_MSG;
+pub type PKSDS3D_HRTF_PARAMS_MSG = *mut KSDS3D_HRTF_PARAMS_MSG;
+pub type PKSDS3D_ITD_PARAMS = *mut KSDS3D_ITD_PARAMS;
+pub type PKSDS3D_ITD_PARAMS_MSG = *mut KSDS3D_ITD_PARAMS_MSG;
+pub type PKSDS3D_LISTENER_ALL = *mut KSDS3D_LISTENER_ALL;
+pub type PKSDS3D_LISTENER_ORIENTATION = *mut KSDS3D_LISTENER_ORIENTATION;
 #[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSDSOUND_BUFFERDESC(pub *mut KSDSOUND_BUFFERDESC);
-#[cfg(feature = "mmeapi")]
-impl PKSDSOUND_BUFFERDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PKSDSOUND_BUFFERDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSDSOUND_BUFFERDESC = *mut KSDSOUND_BUFFERDESC;
 #[cfg(all(feature = "ks", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSEVENT_TUNER_INITIATE_SCAN_S(pub *mut KSEVENT_TUNER_INITIATE_SCAN_S);
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl PKSEVENT_TUNER_INITIATE_SCAN_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl Default for PKSEVENT_TUNER_INITIATE_SCAN_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSGOP_USERDATA(pub *mut KSGOP_USERDATA);
-impl PKSGOP_USERDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSGOP_USERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSJACK_DESCRIPTION(pub *mut KSJACK_DESCRIPTION);
-impl PKSJACK_DESCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSJACK_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSJACK_DESCRIPTION2(pub *mut KSJACK_DESCRIPTION2);
-impl PKSJACK_DESCRIPTION2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSJACK_DESCRIPTION2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSJACK_DESCRIPTION3(pub *mut KSJACK_DESCRIPTION3);
-impl PKSJACK_DESCRIPTION3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSJACK_DESCRIPTION3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSEVENT_TUNER_INITIATE_SCAN_S = *mut KSEVENT_TUNER_INITIATE_SCAN_S;
+pub type PKSGOP_USERDATA = *mut KSGOP_USERDATA;
+pub type PKSJACK_DESCRIPTION = *mut KSJACK_DESCRIPTION;
+pub type PKSJACK_DESCRIPTION2 = *mut KSJACK_DESCRIPTION2;
+pub type PKSJACK_DESCRIPTION3 = *mut KSJACK_DESCRIPTION3;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSJACK_SINK_INFORMATION(pub *mut KSJACK_SINK_INFORMATION);
+pub type PKSJACK_SINK_INFORMATION = *mut KSJACK_SINK_INFORMATION;
+pub type PKSMIDILOOPED_BUFFER = *mut KSMIDILOOPED_BUFFER;
+#[cfg(feature = "ks")]
+pub type PKSMIDILOOPED_BUFFER_PROPERTY = *mut KSMIDILOOPED_BUFFER_PROPERTY;
 #[cfg(feature = "winnt")]
-impl PKSJACK_SINK_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSMIDILOOPED_EVENT = *mut KSMIDILOOPED_EVENT;
 #[cfg(feature = "winnt")]
-impl Default for PKSJACK_SINK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMIDILOOPED_BUFFER(pub *mut KSMIDILOOPED_BUFFER);
-impl PKSMIDILOOPED_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSMIDILOOPED_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSMIDILOOPED_EVENT2 = *mut KSMIDILOOPED_EVENT2;
+pub type PKSMIDILOOPED_REGISTERS = *mut KSMIDILOOPED_REGISTERS;
+pub type PKSMPEGVID_RECT = *mut KSMPEGVID_RECT;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMIDILOOPED_BUFFER_PROPERTY(pub *mut KSMIDILOOPED_BUFFER_PROPERTY);
+pub type PKSMULTIPLE_DATA_PROP = *mut KSMULTIPLE_DATA_PROP;
+pub type PKSMUSICFORMAT = *mut KSMUSICFORMAT;
 #[cfg(feature = "ks")]
-impl PKSMIDILOOPED_BUFFER_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSNODEPROPERTY = *mut KSNODEPROPERTY;
 #[cfg(feature = "ks")]
-impl Default for PKSMIDILOOPED_BUFFER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMIDILOOPED_EVENT(pub *mut KSMIDILOOPED_EVENT);
-#[cfg(feature = "winnt")]
-impl PKSMIDILOOPED_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSMIDILOOPED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMIDILOOPED_EVENT2(pub *mut KSMIDILOOPED_EVENT2);
-#[cfg(feature = "winnt")]
-impl PKSMIDILOOPED_EVENT2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSMIDILOOPED_EVENT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMIDILOOPED_REGISTERS(pub *mut KSMIDILOOPED_REGISTERS);
-impl PKSMIDILOOPED_REGISTERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSMIDILOOPED_REGISTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMPEGVID_RECT(pub *mut KSMPEGVID_RECT);
-impl PKSMPEGVID_RECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSMPEGVID_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSNODEPROPERTY_AUDIO_3D_LISTENER = *mut KSNODEPROPERTY_AUDIO_3D_LISTENER;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMULTIPLE_DATA_PROP(pub *mut KSMULTIPLE_DATA_PROP);
+pub type PKSNODEPROPERTY_AUDIO_CHANNEL = *mut KSNODEPROPERTY_AUDIO_CHANNEL;
 #[cfg(feature = "ks")]
-impl PKSMULTIPLE_DATA_PROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC = *mut KSNODEPROPERTY_AUDIO_DEV_SPECIFIC;
 #[cfg(feature = "ks")]
-impl Default for PKSMULTIPLE_DATA_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSMUSICFORMAT(pub *mut KSMUSICFORMAT);
-impl PKSMUSICFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSMUSICFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSNODEPROPERTY_AUDIO_PROPERTY = *mut KSNODEPROPERTY_AUDIO_PROPERTY;
+pub type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S;
+pub type PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S;
+pub type PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S = *mut KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S;
+pub type PKSPROPERTY_CAMERACONTROL_FLASH_S = *mut KSPROPERTY_CAMERACONTROL_FLASH_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSNODEPROPERTY(pub *mut KSNODEPROPERTY);
+pub type PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S;
+pub type PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S = *mut KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S;
 #[cfg(feature = "ks")]
-impl PKSNODEPROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSNODEPROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSNODEPROPERTY_AUDIO_3D_LISTENER(pub *mut KSNODEPROPERTY_AUDIO_3D_LISTENER);
-#[cfg(feature = "ks")]
-impl PKSNODEPROPERTY_AUDIO_3D_LISTENER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSNODEPROPERTY_AUDIO_3D_LISTENER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSNODEPROPERTY_AUDIO_CHANNEL(pub *mut KSNODEPROPERTY_AUDIO_CHANNEL);
-#[cfg(feature = "ks")]
-impl PKSNODEPROPERTY_AUDIO_CHANNEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSNODEPROPERTY_AUDIO_CHANNEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC(pub *mut KSNODEPROPERTY_AUDIO_DEV_SPECIFIC);
-#[cfg(feature = "ks")]
-impl PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSNODEPROPERTY_AUDIO_PROPERTY(pub *mut KSNODEPROPERTY_AUDIO_PROPERTY);
-#[cfg(feature = "ks")]
-impl PKSNODEPROPERTY_AUDIO_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSNODEPROPERTY_AUDIO_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S(pub *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S);
-impl PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S(pub *mut KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S);
-impl PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S(pub *mut KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S);
-impl PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_FLASH_S(pub *mut KSPROPERTY_CAMERACONTROL_FLASH_S);
-impl PKSPROPERTY_CAMERACONTROL_FLASH_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_CAMERACONTROL_FLASH_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S(pub *mut KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S(pub *mut KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S);
-impl PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S(pub *mut KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S = *mut KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S;
 #[repr(C)]
 #[cfg(feature = "ks")]
 #[derive(Clone, Copy)]
@@ -7681,2249 +6229,253 @@ impl Default for PKSPROPERTY_CAMERACONTROL_NODE_S {
     }
 }
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_NODE_S2(pub *mut KSPROPERTY_CAMERACONTROL_NODE_S2);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_CAMERACONTROL_NODE_S2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_NODE_S2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_CAMERACONTROL_NODE_S2 = *mut KSPROPERTY_CAMERACONTROL_NODE_S2;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S(pub *mut KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S);
-#[cfg(feature = "windef")]
-impl PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S = *mut KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_S(pub *mut KSPROPERTY_CAMERACONTROL_S);
+pub type PKSPROPERTY_CAMERACONTROL_S = *mut KSPROPERTY_CAMERACONTROL_S;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_CAMERACONTROL_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_S2(pub *mut KSPROPERTY_CAMERACONTROL_S2);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_CAMERACONTROL_S2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CAMERACONTROL_S2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_CAMERACONTROL_S2 = *mut KSPROPERTY_CAMERACONTROL_S2;
 #[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_S_EX(pub *mut KSPROPERTY_CAMERACONTROL_S_EX);
+pub type PKSPROPERTY_CAMERACONTROL_S_EX = *mut KSPROPERTY_CAMERACONTROL_S_EX;
+pub type PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S = *mut KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S;
+pub type PKSPROPERTY_COMPOSIT_ON = *mut windows_core::BOOL;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_CROSSBAR_ACTIVE_S = *mut KSPROPERTY_CROSSBAR_ACTIVE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_CROSSBAR_CAPS_S = *mut KSPROPERTY_CROSSBAR_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_CROSSBAR_PININFO_S = *mut KSPROPERTY_CROSSBAR_PININFO_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_CROSSBAR_ROUTE_S = *mut KSPROPERTY_CROSSBAR_ROUTE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_DROPPEDFRAMES_CURRENT_S = *mut KSPROPERTY_DROPPEDFRAMES_CURRENT_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_EXTDEVICE_S = *mut KSPROPERTY_EXTDEVICE_S;
+pub type PKSPROPERTY_EXTENSION_UNIT = *mut KSPROPERTY_EXTENSION_UNIT;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_EXTXPORT_NODE_S = *mut KSPROPERTY_EXTXPORT_NODE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_EXTXPORT_S = *mut KSPROPERTY_EXTXPORT_S;
+pub type PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO;
+pub type PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO = *mut KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO;
+pub type PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER = *mut KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_SELECTOR_NODE_S = *mut KSPROPERTY_SELECTOR_NODE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_SELECTOR_S = *mut KSPROPERTY_SELECTOR_S;
+pub type PKSPROPERTY_SPHLI = *mut KSPROPERTY_SPHLI;
+pub type PKSPROPERTY_SPPAL = *mut KSPROPERTY_SPPAL;
+#[cfg(all(feature = "ks", feature = "winnt"))]
+pub type PKSPROPERTY_TIMECODE_NODE_S = *mut KSPROPERTY_TIMECODE_NODE_S;
+#[cfg(all(feature = "ks", feature = "winnt"))]
+pub type PKSPROPERTY_TIMECODE_S = *mut KSPROPERTY_TIMECODE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_CAPS_S = *mut KSPROPERTY_TUNER_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_FREQUENCY_S = *mut KSPROPERTY_TUNER_FREQUENCY_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_IF_MEDIUM_S = *mut KSPROPERTY_TUNER_IF_MEDIUM_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_INPUT_S = *mut KSPROPERTY_TUNER_INPUT_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_MODE_CAPS_S = *mut KSPROPERTY_TUNER_MODE_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_MODE_S = *mut KSPROPERTY_TUNER_MODE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_SCAN_CAPS_S = *mut KSPROPERTY_TUNER_SCAN_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_SCAN_STATUS_S = *mut KSPROPERTY_TUNER_SCAN_STATUS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_STANDARD_MODE_S = *mut KSPROPERTY_TUNER_STANDARD_MODE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_STANDARD_S = *mut KSPROPERTY_TUNER_STANDARD_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TUNER_STATUS_S = *mut KSPROPERTY_TUNER_STATUS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TVAUDIO_CAPS_S = *mut KSPROPERTY_TVAUDIO_CAPS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_TVAUDIO_S = *mut KSPROPERTY_TVAUDIO_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S = *mut KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_SCANLINES_S = *mut KSPROPERTY_VBICODECFILTERING_SCANLINES_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S = *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S;
+pub type PKSPROPERTY_VIDCAP_SELECTOR = *mut KSPROPERTY_VIDCAP_SELECTOR;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S = *mut KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VIDEOCOMPRESSION_S = *mut KSPROPERTY_VIDEOCOMPRESSION_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VIDEOCOMPRESSION_S1 = *mut KSPROPERTY_VIDEOCOMPRESSION_S1;
 #[cfg(all(feature = "ks", feature = "windef"))]
-impl PKSPROPERTY_CAMERACONTROL_S_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S = *mut KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S;
+#[cfg(feature = "ks")]
+pub type PKSPROPERTY_VIDEOCONTROL_CAPS_S = *mut KSPROPERTY_VIDEOCONTROL_CAPS_S;
 #[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKSPROPERTY_CAMERACONTROL_S_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S(pub *mut KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S);
-impl PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_COMPOSIT_ON(pub *mut windows_core::BOOL);
-impl PKSPROPERTY_COMPOSIT_ON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_COMPOSIT_ON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S = *mut KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CROSSBAR_ACTIVE_S(pub *mut KSPROPERTY_CROSSBAR_ACTIVE_S);
+pub type PKSPROPERTY_VIDEOCONTROL_MODE_S = *mut KSPROPERTY_VIDEOCONTROL_MODE_S;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_CROSSBAR_ACTIVE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSPROPERTY_VIDEODECODER_CAPS_S = *mut KSPROPERTY_VIDEODECODER_CAPS_S;
 #[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CROSSBAR_ACTIVE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_VIDEODECODER_S = *mut KSPROPERTY_VIDEODECODER_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CROSSBAR_CAPS_S(pub *mut KSPROPERTY_CROSSBAR_CAPS_S);
+pub type PKSPROPERTY_VIDEODECODER_STATUS2_S = *mut KSPROPERTY_VIDEODECODER_STATUS2_S;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_CROSSBAR_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSPROPERTY_VIDEODECODER_STATUS_S = *mut KSPROPERTY_VIDEODECODER_STATUS_S;
 #[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CROSSBAR_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_VIDEOENCODER_S = *mut KSPROPERTY_VIDEOENCODER_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CROSSBAR_PININFO_S(pub *mut KSPROPERTY_CROSSBAR_PININFO_S);
+pub type PKSPROPERTY_VIDEOPROCAMP_NODE_S = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_CROSSBAR_PININFO_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSPROPERTY_VIDEOPROCAMP_NODE_S2 = *mut KSPROPERTY_VIDEOPROCAMP_NODE_S2;
 #[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CROSSBAR_PININFO_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPROPERTY_VIDEOPROCAMP_S = *mut KSPROPERTY_VIDEOPROCAMP_S;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_CROSSBAR_ROUTE_S(pub *mut KSPROPERTY_CROSSBAR_ROUTE_S);
+pub type PKSPROPERTY_VIDEOPROCAMP_S2 = *mut KSPROPERTY_VIDEOPROCAMP_S2;
+pub type PKSRTAUDIO_BUFFER = *mut KSRTAUDIO_BUFFER;
+pub type PKSRTAUDIO_BUFFER32 = *mut KSRTAUDIO_BUFFER32;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_CROSSBAR_ROUTE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSRTAUDIO_BUFFER_PROPERTY = *mut KSRTAUDIO_BUFFER_PROPERTY;
 #[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_CROSSBAR_ROUTE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_BUFFER_PROPERTY32 = *mut KSRTAUDIO_BUFFER_PROPERTY32;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_DROPPEDFRAMES_CURRENT_S(pub *mut KSPROPERTY_DROPPEDFRAMES_CURRENT_S);
+pub type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION;
 #[cfg(feature = "ks")]
-impl PKSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 = *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32;
+pub type PKSRTAUDIO_GETREADPACKET_INFO = *mut KSRTAUDIO_GETREADPACKET_INFO;
+pub type PKSRTAUDIO_HWLATENCY = *mut KSRTAUDIO_HWLATENCY;
+pub type PKSRTAUDIO_HWREGISTER = *mut KSRTAUDIO_HWREGISTER;
+pub type PKSRTAUDIO_HWREGISTER32 = *mut KSRTAUDIO_HWREGISTER32;
 #[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_DROPPEDFRAMES_CURRENT_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_HWREGISTER_PROPERTY = *mut KSRTAUDIO_HWREGISTER_PROPERTY;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_EXTDEVICE_S(pub *mut KSPROPERTY_EXTDEVICE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_EXTDEVICE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_EXTDEVICE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_EXTENSION_UNIT(pub *mut KSPROPERTY_EXTENSION_UNIT);
-impl PKSPROPERTY_EXTENSION_UNIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_EXTENSION_UNIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_EXTXPORT_NODE_S(pub *mut KSPROPERTY_EXTXPORT_NODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_EXTXPORT_NODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_EXTXPORT_NODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_EXTXPORT_S(pub *mut KSPROPERTY_EXTXPORT_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_EXTXPORT_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_EXTXPORT_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO(pub *mut KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO);
-impl PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO(pub *mut KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO);
-impl PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER(pub *mut KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER);
-impl PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_SELECTOR_NODE_S(pub *mut KSPROPERTY_SELECTOR_NODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_SELECTOR_NODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_SELECTOR_NODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_SELECTOR_S(pub *mut KSPROPERTY_SELECTOR_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_SELECTOR_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_SELECTOR_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_SPHLI(pub *mut KSPROPERTY_SPHLI);
-impl PKSPROPERTY_SPHLI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_SPHLI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_SPPAL(pub *mut KSPROPERTY_SPPAL);
-impl PKSPROPERTY_SPPAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_SPPAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_HWREGISTER_PROPERTY32 = *mut KSRTAUDIO_HWREGISTER_PROPERTY32;
 #[cfg(all(feature = "ks", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TIMECODE_NODE_S(pub *mut KSPROPERTY_TIMECODE_NODE_S);
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl PKSPROPERTY_TIMECODE_NODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl Default for PKSPROPERTY_TIMECODE_NODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TIMECODE_S(pub *mut KSPROPERTY_TIMECODE_S);
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl PKSPROPERTY_TIMECODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl Default for PKSPROPERTY_TIMECODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_CAPS_S(pub *mut KSPROPERTY_TUNER_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_FREQUENCY_S(pub *mut KSPROPERTY_TUNER_FREQUENCY_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_FREQUENCY_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_FREQUENCY_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_IF_MEDIUM_S(pub *mut KSPROPERTY_TUNER_IF_MEDIUM_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_IF_MEDIUM_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_IF_MEDIUM_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_INPUT_S(pub *mut KSPROPERTY_TUNER_INPUT_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_INPUT_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_INPUT_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_MODE_CAPS_S(pub *mut KSPROPERTY_TUNER_MODE_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_MODE_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_MODE_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_MODE_S(pub *mut KSPROPERTY_TUNER_MODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_MODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_MODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S(pub *mut KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_SCAN_CAPS_S(pub *mut KSPROPERTY_TUNER_SCAN_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_SCAN_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_SCAN_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_SCAN_STATUS_S(pub *mut KSPROPERTY_TUNER_SCAN_STATUS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_SCAN_STATUS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_SCAN_STATUS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_STANDARD_MODE_S(pub *mut KSPROPERTY_TUNER_STANDARD_MODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_STANDARD_MODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_STANDARD_MODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_STANDARD_S(pub *mut KSPROPERTY_TUNER_STANDARD_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_STANDARD_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_STANDARD_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TUNER_STATUS_S(pub *mut KSPROPERTY_TUNER_STATUS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TUNER_STATUS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TUNER_STATUS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TVAUDIO_CAPS_S(pub *mut KSPROPERTY_TVAUDIO_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TVAUDIO_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TVAUDIO_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_TVAUDIO_S(pub *mut KSPROPERTY_TVAUDIO_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_TVAUDIO_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_TVAUDIO_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S(pub *mut KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S(pub *mut KSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_NABTS_SUBSTREAMS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_SCANLINES_S(pub *mut KSPROPERTY_VBICODECFILTERING_SCANLINES_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_SCANLINES_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_PIN_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_CC_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_PIN_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_COMMON_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_PIN_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S(pub *mut KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDCAP_SELECTOR(pub *mut KSPROPERTY_VIDCAP_SELECTOR);
-impl PKSPROPERTY_VIDCAP_SELECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSPROPERTY_VIDCAP_SELECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S(pub *mut KSPROPERTY_VIDEOCOMPRESSION_GETINFO_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOCOMPRESSION_GETINFO_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCOMPRESSION_S(pub *mut KSPROPERTY_VIDEOCOMPRESSION_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOCOMPRESSION_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOCOMPRESSION_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCOMPRESSION_S1(pub *mut KSPROPERTY_VIDEOCOMPRESSION_S1);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOCOMPRESSION_S1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOCOMPRESSION_S1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S(pub *mut KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S);
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCONTROL_CAPS_S(pub *mut KSPROPERTY_VIDEOCONTROL_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOCONTROL_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOCONTROL_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S(pub *mut KSPROPERTY_VIDEOCONTROL_FRAME_RATES_S);
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKSPROPERTY_VIDEOCONTROL_FRAME_RATES_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOCONTROL_MODE_S(pub *mut KSPROPERTY_VIDEOCONTROL_MODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOCONTROL_MODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOCONTROL_MODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEODECODER_CAPS_S(pub *mut KSPROPERTY_VIDEODECODER_CAPS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEODECODER_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEODECODER_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEODECODER_S(pub *mut KSPROPERTY_VIDEODECODER_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEODECODER_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEODECODER_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEODECODER_STATUS2_S(pub *mut KSPROPERTY_VIDEODECODER_STATUS2_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEODECODER_STATUS2_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEODECODER_STATUS2_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEODECODER_STATUS_S(pub *mut KSPROPERTY_VIDEODECODER_STATUS_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEODECODER_STATUS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEODECODER_STATUS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOENCODER_S(pub *mut KSPROPERTY_VIDEOENCODER_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOENCODER_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOENCODER_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOPROCAMP_NODE_S(pub *mut KSPROPERTY_VIDEOPROCAMP_NODE_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOPROCAMP_NODE_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOPROCAMP_NODE_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOPROCAMP_NODE_S2(pub *mut KSPROPERTY_VIDEOPROCAMP_NODE_S2);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOPROCAMP_NODE_S2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOPROCAMP_S(pub *mut KSPROPERTY_VIDEOPROCAMP_S);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOPROCAMP_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOPROCAMP_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPROPERTY_VIDEOPROCAMP_S2(pub *mut KSPROPERTY_VIDEOPROCAMP_S2);
-#[cfg(feature = "ks")]
-impl PKSPROPERTY_VIDEOPROCAMP_S2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSPROPERTY_VIDEOPROCAMP_S2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER(pub *mut KSRTAUDIO_BUFFER);
-impl PKSRTAUDIO_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER32(pub *mut KSRTAUDIO_BUFFER32);
-impl PKSRTAUDIO_BUFFER32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_BUFFER32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER_PROPERTY(pub *mut KSRTAUDIO_BUFFER_PROPERTY);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_BUFFER_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_BUFFER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER_PROPERTY32(pub *mut KSRTAUDIO_BUFFER_PROPERTY32);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_BUFFER_PROPERTY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_BUFFER_PROPERTY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION(pub *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32(pub *mut KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_GETREADPACKET_INFO(pub *mut KSRTAUDIO_GETREADPACKET_INFO);
-impl PKSRTAUDIO_GETREADPACKET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_GETREADPACKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_HWLATENCY(pub *mut KSRTAUDIO_HWLATENCY);
-impl PKSRTAUDIO_HWLATENCY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_HWLATENCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_HWREGISTER(pub *mut KSRTAUDIO_HWREGISTER);
-impl PKSRTAUDIO_HWREGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_HWREGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_HWREGISTER32(pub *mut KSRTAUDIO_HWREGISTER32);
-impl PKSRTAUDIO_HWREGISTER32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_HWREGISTER32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_HWREGISTER_PROPERTY(pub *mut KSRTAUDIO_HWREGISTER_PROPERTY);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_HWREGISTER_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_HWREGISTER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_HWREGISTER_PROPERTY32(pub *mut KSRTAUDIO_HWREGISTER_PROPERTY32);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_HWREGISTER_PROPERTY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_HWREGISTER_PROPERTY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY(pub *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY);
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl Default for PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32(pub *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32);
-#[cfg(feature = "ks")]
-impl PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 = *mut KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32;
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_PACKETVREGISTER(pub *mut KSRTAUDIO_PACKETVREGISTER);
-#[cfg(feature = "basetsd")]
-impl PKSRTAUDIO_PACKETVREGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PKSRTAUDIO_PACKETVREGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSRTAUDIO_PACKETVREGISTER = *mut KSRTAUDIO_PACKETVREGISTER;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_PACKETVREGISTER_PROPERTY(pub *mut KSRTAUDIO_PACKETVREGISTER_PROPERTY);
+pub type PKSRTAUDIO_PACKETVREGISTER_PROPERTY = *mut KSRTAUDIO_PACKETVREGISTER_PROPERTY;
+pub type PKSRTAUDIO_SETWRITEPACKET_INFO = *mut KSRTAUDIO_SETWRITEPACKET_INFO;
 #[cfg(feature = "ks")]
-impl PKSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKSSOUNDDETECTORPROPERTY = *mut KSSOUNDDETECTORPROPERTY;
+pub type PKSTELEPHONY_CALLCONTROL = *mut KSTELEPHONY_CALLCONTROL;
+pub type PKSTELEPHONY_CALLINFO = *mut KSTELEPHONY_CALLINFO;
+pub type PKSTELEPHONY_PROVIDERCHANGE = *mut KSTELEPHONY_PROVIDERCHANGE;
+pub type PKSTOPOLOGY_ENDPOINTID = *mut KSTOPOLOGY_ENDPOINTID;
+pub type PKSTOPOLOGY_ENDPOINTIDPAIR = *mut KSTOPOLOGY_ENDPOINTIDPAIR;
+pub type PKSVPMAXPIXELRATE = *mut KSVPMAXPIXELRATE;
 #[cfg(feature = "ks")]
-impl Default for PKSRTAUDIO_PACKETVREGISTER_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSRTAUDIO_SETWRITEPACKET_INFO(pub *mut KSRTAUDIO_SETWRITEPACKET_INFO);
-impl PKSRTAUDIO_SETWRITEPACKET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSRTAUDIO_SETWRITEPACKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSVPSIZE_PROP = *mut KSVPSIZE_PROP;
+pub type PKSVPSURFACEPARAMS = *mut KSVPSURFACEPARAMS;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSSOUNDDETECTORPROPERTY(pub *mut KSSOUNDDETECTORPROPERTY);
-#[cfg(feature = "ks")]
-impl PKSSOUNDDETECTORPROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSSOUNDDETECTORPROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTELEPHONY_CALLCONTROL(pub *mut KSTELEPHONY_CALLCONTROL);
-impl PKSTELEPHONY_CALLCONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTELEPHONY_CALLCONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTELEPHONY_CALLINFO(pub *mut KSTELEPHONY_CALLINFO);
-impl PKSTELEPHONY_CALLINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTELEPHONY_CALLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTELEPHONY_PROVIDERCHANGE(pub *mut KSTELEPHONY_PROVIDERCHANGE);
-impl PKSTELEPHONY_PROVIDERCHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTELEPHONY_PROVIDERCHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTOPOLOGY_ENDPOINTID(pub *mut KSTOPOLOGY_ENDPOINTID);
-impl PKSTOPOLOGY_ENDPOINTID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTOPOLOGY_ENDPOINTID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTOPOLOGY_ENDPOINTIDPAIR(pub *mut KSTOPOLOGY_ENDPOINTIDPAIR);
-impl PKSTOPOLOGY_ENDPOINTIDPAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTOPOLOGY_ENDPOINTIDPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSVPMAXPIXELRATE(pub *mut KSVPMAXPIXELRATE);
-impl PKSVPMAXPIXELRATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSVPMAXPIXELRATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSVPSIZE_PROP(pub *mut KSVPSIZE_PROP);
-#[cfg(feature = "ks")]
-impl PKSVPSIZE_PROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSVPSIZE_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSVPSURFACEPARAMS(pub *mut KSVPSURFACEPARAMS);
-impl PKSVPSURFACEPARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSVPSURFACEPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVETABLE_WAVE_DESC(pub *mut KSWAVETABLE_WAVE_DESC);
-#[cfg(feature = "ks")]
-impl PKSWAVETABLE_WAVE_DESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKSWAVETABLE_WAVE_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVE_BUFFER(pub *mut KSWAVE_BUFFER);
-impl PKSWAVE_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSWAVE_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVE_COMPATCAPS(pub *mut KSWAVE_COMPATCAPS);
-impl PKSWAVE_COMPATCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSWAVE_COMPATCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVE_INPUT_CAPABILITIES(pub *mut KSWAVE_INPUT_CAPABILITIES);
-impl PKSWAVE_INPUT_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSWAVE_INPUT_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVE_OUTPUT_CAPABILITIES(pub *mut KSWAVE_OUTPUT_CAPABILITIES);
-impl PKSWAVE_OUTPUT_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSWAVE_OUTPUT_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSWAVE_VOLUME(pub *mut KSWAVE_VOLUME);
-impl PKSWAVE_VOLUME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSWAVE_VOLUME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSWAVETABLE_WAVE_DESC = *mut KSWAVETABLE_WAVE_DESC;
+pub type PKSWAVE_BUFFER = *mut KSWAVE_BUFFER;
+pub type PKSWAVE_COMPATCAPS = *mut KSWAVE_COMPATCAPS;
+pub type PKSWAVE_INPUT_CAPABILITIES = *mut KSWAVE_INPUT_CAPABILITIES;
+pub type PKSWAVE_OUTPUT_CAPABILITIES = *mut KSWAVE_OUTPUT_CAPABILITIES;
+pub type PKSWAVE_VOLUME = *mut KSWAVE_VOLUME;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_AMVPDATAINFO(pub *mut KS_AMVPDATAINFO);
+pub type PKS_AMVPDATAINFO = *mut KS_AMVPDATAINFO;
 #[cfg(feature = "windef")]
-impl PKS_AMVPDATAINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKS_AMVPDATAINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_AMVPDIMINFO(pub *mut KS_AMVPDIMINFO);
-#[cfg(feature = "windef")]
-impl PKS_AMVPDIMINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKS_AMVPDIMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_AMVPSIZE(pub *mut KS_AMVPSIZE);
-impl PKS_AMVPSIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_AMVPSIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_AMVPDIMINFO = *mut KS_AMVPDIMINFO;
+pub type PKS_AMVPSIZE = *mut KS_AMVPSIZE;
 #[cfg(feature = "mediaobj")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_AM_ExactRateChange(pub *mut KS_AM_ExactRateChange);
+pub type PKS_AM_ExactRateChange = *mut KS_AM_ExactRateChange;
 #[cfg(feature = "mediaobj")]
-impl PKS_AM_ExactRateChange {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mediaobj")]
-impl Default for PKS_AM_ExactRateChange {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mediaobj")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_AM_SimpleRateChange(pub *mut KS_AM_SimpleRateChange);
-#[cfg(feature = "mediaobj")]
-impl PKS_AM_SimpleRateChange {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mediaobj")]
-impl Default for PKS_AM_SimpleRateChange {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_AM_SimpleRateChange = *mut KS_AM_SimpleRateChange;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_ANALOGVIDEOINFO(pub *mut KS_ANALOGVIDEOINFO);
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_ANALOGVIDEOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_ANALOGVIDEOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_BITMAPINFOHEADER(pub *mut KS_BITMAPINFOHEADER);
-impl PKS_BITMAPINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_BITMAPINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_COLCON(pub *mut KS_COLCON);
-impl PKS_COLCON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_COLCON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_COPY_MACROVISION(pub *mut KS_COPY_MACROVISION);
-impl PKS_COPY_MACROVISION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_COPY_MACROVISION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_COPY_MACROVISION_LEVEL(pub *mut KS_COPY_MACROVISION_LEVEL);
-impl PKS_COPY_MACROVISION_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_COPY_MACROVISION_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_ANALOGVIDEOINFO = *mut KS_ANALOGVIDEOINFO;
+pub type PKS_BITMAPINFOHEADER = *mut KS_BITMAPINFOHEADER;
+pub type PKS_COLCON = *mut KS_COLCON;
+pub type PKS_COPY_MACROVISION = *mut KS_COPY_MACROVISION;
+pub type PKS_COPY_MACROVISION_LEVEL = *mut KS_COPY_MACROVISION_LEVEL;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_H264VIDEOINFO(pub *mut KS_DATAFORMAT_H264VIDEOINFO);
+pub type PKS_DATAFORMAT_H264VIDEOINFO = *mut KS_DATAFORMAT_H264VIDEOINFO;
 #[cfg(feature = "ks")]
-impl PKS_DATAFORMAT_H264VIDEOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKS_DATAFORMAT_IMAGEINFO = *mut KS_DATAFORMAT_IMAGEINFO;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATAFORMAT_MPEGVIDEOINFO2 = *mut KS_DATAFORMAT_MPEGVIDEOINFO2;
 #[cfg(feature = "ks")]
-impl Default for PKS_DATAFORMAT_H264VIDEOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_IMAGEINFO(pub *mut KS_DATAFORMAT_IMAGEINFO);
-#[cfg(feature = "ks")]
-impl PKS_DATAFORMAT_IMAGEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKS_DATAFORMAT_IMAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_DATAFORMAT_VBIINFOHEADER = *mut KS_DATAFORMAT_VBIINFOHEADER;
 #[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_MPEGVIDEOINFO2(pub *mut KS_DATAFORMAT_MPEGVIDEOINFO2);
+pub type PKS_DATAFORMAT_VIDEOINFOHEADER = *mut KS_DATAFORMAT_VIDEOINFOHEADER;
 #[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATAFORMAT_MPEGVIDEOINFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKS_DATAFORMAT_VIDEOINFOHEADER2 = *mut KS_DATAFORMAT_VIDEOINFOHEADER2;
 #[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATAFORMAT_MPEGVIDEOINFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_VBIINFOHEADER(pub *mut KS_DATAFORMAT_VBIINFOHEADER);
-#[cfg(feature = "ks")]
-impl PKS_DATAFORMAT_VBIINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PKS_DATAFORMAT_VBIINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_DATAFORMAT_VIDEOINFO_PALETTE = *mut KS_DATAFORMAT_VIDEOINFO_PALETTE;
 #[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_VIDEOINFOHEADER(pub *mut KS_DATAFORMAT_VIDEOINFOHEADER);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATAFORMAT_VIDEOINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATAFORMAT_VIDEOINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_VIDEOINFOHEADER2(pub *mut KS_DATAFORMAT_VIDEOINFOHEADER2);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATAFORMAT_VIDEOINFOHEADER2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATAFORMAT_VIDEOINFOHEADER2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATAFORMAT_VIDEOINFO_PALETTE(pub *mut KS_DATAFORMAT_VIDEOINFO_PALETTE);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATAFORMAT_VIDEOINFO_PALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATAFORMAT_VIDEOINFO_PALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_ANALOGVIDEO(pub *mut KS_DATARANGE_ANALOGVIDEO);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_ANALOGVIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_ANALOGVIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_DATARANGE_ANALOGVIDEO = *mut KS_DATARANGE_ANALOGVIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_H264_VIDEO(pub *mut KS_DATARANGE_H264_VIDEO);
+pub type PKS_DATARANGE_H264_VIDEO = *mut KS_DATARANGE_H264_VIDEO;
 #[cfg(all(feature = "ks", feature = "windef"))]
-impl PKS_DATARANGE_H264_VIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKS_DATARANGE_IMAGE = *mut KS_DATARANGE_IMAGE;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATARANGE_MPEG1_VIDEO = *mut KS_DATARANGE_MPEG1_VIDEO;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATARANGE_MPEG2_VIDEO = *mut KS_DATARANGE_MPEG2_VIDEO;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATARANGE_VIDEO = *mut KS_DATARANGE_VIDEO;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATARANGE_VIDEO2 = *mut KS_DATARANGE_VIDEO2;
+#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
+pub type PKS_DATARANGE_VIDEO_PALETTE = *mut KS_DATARANGE_VIDEO_PALETTE;
 #[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKS_DATARANGE_H264_VIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_IMAGE(pub *mut KS_DATARANGE_IMAGE);
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl PKS_DATARANGE_IMAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKS_DATARANGE_IMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_MPEG1_VIDEO(pub *mut KS_DATARANGE_MPEG1_VIDEO);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_MPEG1_VIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_MPEG1_VIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_MPEG2_VIDEO(pub *mut KS_DATARANGE_MPEG2_VIDEO);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_MPEG2_VIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_MPEG2_VIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_VIDEO(pub *mut KS_DATARANGE_VIDEO);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_VIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_VIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_VIDEO2(pub *mut KS_DATARANGE_VIDEO2);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_VIDEO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_VIDEO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_VIDEO_PALETTE(pub *mut KS_DATARANGE_VIDEO_PALETTE);
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl PKS_DATARANGE_VIDEO_PALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_DATARANGE_VIDEO_PALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DATARANGE_VIDEO_VBI(pub *mut KS_DATARANGE_VIDEO_VBI);
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl PKS_DATARANGE_VIDEO_VBI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "windef"))]
-impl Default for PKS_DATARANGE_VIDEO_VBI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_BUSKEY(pub *mut KS_DVDCOPY_BUSKEY);
-impl PKS_DVDCOPY_BUSKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_BUSKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_CHLGKEY(pub *mut KS_DVDCOPY_CHLGKEY);
-impl PKS_DVDCOPY_CHLGKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_CHLGKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_DISCKEY(pub *mut KS_DVDCOPY_DISCKEY);
-impl PKS_DVDCOPY_DISCKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_DISCKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_REGION(pub *mut KS_DVDCOPY_REGION);
-impl PKS_DVDCOPY_REGION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_SET_COPY_STATE(pub *mut KS_DVDCOPY_SET_COPY_STATE);
-impl PKS_DVDCOPY_SET_COPY_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_SET_COPY_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVDCOPY_TITLEKEY(pub *mut KS_DVDCOPY_TITLEKEY);
-impl PKS_DVDCOPY_TITLEKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVDCOPY_TITLEKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVD_YCrCb(pub *mut KS_DVD_YCrCb);
-impl PKS_DVD_YCrCb {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVD_YCrCb {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_DVD_YUV(pub *mut KS_DVD_YUV);
-impl PKS_DVD_YUV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_DVD_YUV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_DATARANGE_VIDEO_VBI = *mut KS_DATARANGE_VIDEO_VBI;
+pub type PKS_DVDCOPY_BUSKEY = *mut KS_DVDCOPY_BUSKEY;
+pub type PKS_DVDCOPY_CHLGKEY = *mut KS_DVDCOPY_CHLGKEY;
+pub type PKS_DVDCOPY_DISCKEY = *mut KS_DVDCOPY_DISCKEY;
+pub type PKS_DVDCOPY_REGION = *mut KS_DVDCOPY_REGION;
+pub type PKS_DVDCOPY_SET_COPY_STATE = *mut KS_DVDCOPY_SET_COPY_STATE;
+pub type PKS_DVDCOPY_TITLEKEY = *mut KS_DVDCOPY_TITLEKEY;
+pub type PKS_DVD_YCrCb = *mut KS_DVD_YCrCb;
+pub type PKS_DVD_YUV = *mut KS_DVD_YUV;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_FRAME_INFO(pub *mut KS_FRAME_INFO);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PKS_FRAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PKS_FRAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_H264VIDEOINFO(pub *mut KS_H264VIDEOINFO);
-impl PKS_H264VIDEOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_H264VIDEOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_FRAME_INFO = *mut KS_FRAME_INFO;
+pub type PKS_H264VIDEOINFO = *mut KS_H264VIDEOINFO;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_MPEG1VIDEOINFO(pub *mut KS_MPEG1VIDEOINFO);
+pub type PKS_MPEG1VIDEOINFO = *mut KS_MPEG1VIDEOINFO;
+pub type PKS_MPEGAUDIOINFO = *mut KS_MPEGAUDIOINFO;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_MPEG1VIDEOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKS_MPEGVIDEOINFO2 = *mut KS_MPEGVIDEOINFO2;
+pub type PKS_RGBQUAD = *mut KS_RGBQUAD;
+pub type PKS_TRUECOLORINFO = *mut KS_TRUECOLORINFO;
+pub type PKS_TVTUNER_CHANGE_INFO = *mut KS_TVTUNER_CHANGE_INFO;
+pub type PKS_VBIINFOHEADER = *mut KS_VBIINFOHEADER;
+pub type PKS_VBI_FRAME_INFO = *mut KS_VBI_FRAME_INFO;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_MPEG1VIDEOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_MPEGAUDIOINFO(pub *mut KS_MPEGAUDIOINFO);
-impl PKS_MPEGAUDIOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_MPEGAUDIOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_VIDEOINFO = *mut KS_VIDEOINFO;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_MPEGVIDEOINFO2(pub *mut KS_MPEGVIDEOINFO2);
+pub type PKS_VIDEOINFOHEADER = *mut KS_VIDEOINFOHEADER;
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_MPEGVIDEOINFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_MPEGVIDEOINFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_RGBQUAD(pub *mut KS_RGBQUAD);
-impl PKS_RGBQUAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_RGBQUAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_TRUECOLORINFO(pub *mut KS_TRUECOLORINFO);
-impl PKS_TRUECOLORINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_TRUECOLORINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_TVTUNER_CHANGE_INFO(pub *mut KS_TVTUNER_CHANGE_INFO);
-impl PKS_TVTUNER_CHANGE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_TVTUNER_CHANGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VBIINFOHEADER(pub *mut KS_VBIINFOHEADER);
-impl PKS_VBIINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_VBIINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VBI_FRAME_INFO(pub *mut KS_VBI_FRAME_INFO);
-impl PKS_VBI_FRAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKS_VBI_FRAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VIDEOINFO(pub *mut KS_VIDEOINFO);
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_VIDEOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_VIDEOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VIDEOINFOHEADER(pub *mut KS_VIDEOINFOHEADER);
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_VIDEOINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_VIDEOINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VIDEOINFOHEADER2(pub *mut KS_VIDEOINFOHEADER2);
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl PKS_VIDEOINFOHEADER2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
-impl Default for PKS_VIDEOINFOHEADER2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_VIDEOINFOHEADER2 = *mut KS_VIDEOINFOHEADER2;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKS_VIDEO_STREAM_CONFIG_CAPS(pub *mut KS_VIDEO_STREAM_CONFIG_CAPS);
-#[cfg(feature = "windef")]
-impl PKS_VIDEO_STREAM_CONFIG_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PKS_VIDEO_STREAM_CONFIG_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKS_VIDEO_STREAM_CONFIG_CAPS = *mut KS_VIDEO_STREAM_CONFIG_CAPS;
 #[cfg(all(feature = "ks", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOOPEDSTREAMING_POSITION_EVENT_DATA(pub *mut LOOPEDSTREAMING_POSITION_EVENT_DATA);
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl PLOOPEDSTREAMING_POSITION_EVENT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ks", feature = "winnt"))]
-impl Default for PLOOPEDSTREAMING_POSITION_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEDIUM_INFO(pub *mut MEDIUM_INFO);
-impl PMEDIUM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMEDIUM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNABTSFEC_BUFFER(pub *mut NABTSFEC_BUFFER);
-impl PNABTSFEC_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNABTSFEC_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNABTS_BUFFER(pub *mut NABTS_BUFFER);
-impl PNABTS_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNABTS_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNABTS_BUFFER_LINE(pub *mut NABTS_BUFFER_LINE);
-impl PNABTS_BUFFER_LINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNABTS_BUFFER_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOOPEDSTREAMING_POSITION_EVENT_DATA = *mut LOOPEDSTREAMING_POSITION_EVENT_DATA;
+pub type PMEDIUM_INFO = *mut MEDIUM_INFO;
+pub type PNABTSFEC_BUFFER = *mut NABTSFEC_BUFFER;
+pub type PNABTS_BUFFER = *mut NABTS_BUFFER;
+pub type PNABTS_BUFFER_LINE = *mut NABTS_BUFFER_LINE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPSETID_ALLOCATOR_CONTROL(pub u8);
@@ -9981,404 +6533,42 @@ pub struct PROPSETID_VIDCAP_VIDEOENCODER(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEOPROCAMP(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURE_BUFFER_INFO(pub *mut SECURE_BUFFER_INFO);
-impl PSECURE_BUFFER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURE_BUFFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECURE_BUFFER_INFO = *mut SECURE_BUFFER_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIMECODE(pub *mut TIMECODE);
+pub type PTIMECODE = *mut TIMECODE;
 #[cfg(feature = "winnt")]
-impl PTIMECODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PTIMECODE_SAMPLE = *mut TIMECODE_SAMPLE;
+pub type PTRANSPORTAUDIOPARMS = *mut TRANSPORTAUDIOPARMS;
 #[cfg(feature = "winnt")]
-impl Default for PTIMECODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIMECODE_SAMPLE(pub *mut TIMECODE_SAMPLE);
-#[cfg(feature = "winnt")]
-impl PTIMECODE_SAMPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTIMECODE_SAMPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORTAUDIOPARMS(pub *mut TRANSPORTAUDIOPARMS);
-impl PTRANSPORTAUDIOPARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORTAUDIOPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORTBASICPARMS(pub *mut TRANSPORTBASICPARMS);
-#[cfg(feature = "winnt")]
-impl PTRANSPORTBASICPARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTRANSPORTBASICPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORTSTATUS(pub *mut TRANSPORTSTATUS);
-impl PTRANSPORTSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORTSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORTVIDEOPARMS(pub *mut TRANSPORTVIDEOPARMS);
-impl PTRANSPORTVIDEOPARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORTVIDEOPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORT_STATE(pub *mut TRANSPORT_STATE);
-impl PTRANSPORT_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTUNER_ANALOG_CAPS_S(pub *mut TUNER_ANALOG_CAPS_S);
-impl PTUNER_ANALOG_CAPS_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTUNER_ANALOG_CAPS_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUMPDATAFORMAT(pub *mut UMPDATAFORMAT);
-impl PUMPDATAFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUMPDATAFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRANSPORTBASICPARMS = *mut TRANSPORTBASICPARMS;
+pub type PTRANSPORTSTATUS = *mut TRANSPORTSTATUS;
+pub type PTRANSPORTVIDEOPARMS = *mut TRANSPORTVIDEOPARMS;
+pub type PTRANSPORT_STATE = *mut TRANSPORT_STATE;
+pub type PTUNER_ANALOG_CAPS_S = *mut TUNER_ANALOG_CAPS_S;
+pub type PUMPDATAFORMAT = *mut UMPDATAFORMAT;
 #[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICAP_PROPERTIES_PROTECTION_S(pub *mut VBICAP_PROPERTIES_PROTECTION_S);
+pub type PVBICAP_PROPERTIES_PROTECTION_S = *mut VBICAP_PROPERTIES_PROTECTION_S;
+pub type PVBICODECFILTERING_CC_SUBSTREAMS = *mut VBICODECFILTERING_CC_SUBSTREAMS;
+pub type PVBICODECFILTERING_NABTS_SUBSTREAMS = *mut VBICODECFILTERING_NABTS_SUBSTREAMS;
+pub type PVBICODECFILTERING_SCANLINES = *mut VBICODECFILTERING_SCANLINES;
+pub type PVBICODECFILTERING_STATISTICS_CC = *mut VBICODECFILTERING_STATISTICS_CC;
+pub type PVBICODECFILTERING_STATISTICS_CC_PIN = *mut VBICODECFILTERING_STATISTICS_CC_PIN;
+pub type PVBICODECFILTERING_STATISTICS_COMMON = *mut VBICODECFILTERING_STATISTICS_COMMON;
+pub type PVBICODECFILTERING_STATISTICS_COMMON_PIN = *mut VBICODECFILTERING_STATISTICS_COMMON_PIN;
+pub type PVBICODECFILTERING_STATISTICS_NABTS = *mut VBICODECFILTERING_STATISTICS_NABTS;
+pub type PVBICODECFILTERING_STATISTICS_NABTS_PIN = *mut VBICODECFILTERING_STATISTICS_NABTS_PIN;
+pub type PVBICODECFILTERING_STATISTICS_TELETEXT = *mut VBICODECFILTERING_STATISTICS_TELETEXT;
+pub type PVBICODECFILTERING_STATISTICS_TELETEXT_PIN = *mut VBICODECFILTERING_STATISTICS_TELETEXT_PIN;
 #[cfg(feature = "ks")]
-impl PVBICAP_PROPERTIES_PROTECTION_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
+pub type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
 #[cfg(feature = "ks")]
-impl Default for PVBICAP_PROPERTIES_PROTECTION_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_CC_SUBSTREAMS(pub *mut VBICODECFILTERING_CC_SUBSTREAMS);
-impl PVBICODECFILTERING_CC_SUBSTREAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_CC_SUBSTREAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_NABTS_SUBSTREAMS(pub *mut VBICODECFILTERING_NABTS_SUBSTREAMS);
-impl PVBICODECFILTERING_NABTS_SUBSTREAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_NABTS_SUBSTREAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_SCANLINES(pub *mut VBICODECFILTERING_SCANLINES);
-impl PVBICODECFILTERING_SCANLINES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_SCANLINES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_CC(pub *mut VBICODECFILTERING_STATISTICS_CC);
-impl PVBICODECFILTERING_STATISTICS_CC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_CC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_CC_PIN(pub *mut VBICODECFILTERING_STATISTICS_CC_PIN);
-impl PVBICODECFILTERING_STATISTICS_CC_PIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_CC_PIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_COMMON(pub *mut VBICODECFILTERING_STATISTICS_COMMON);
-impl PVBICODECFILTERING_STATISTICS_COMMON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_COMMON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_COMMON_PIN(pub *mut VBICODECFILTERING_STATISTICS_COMMON_PIN);
-impl PVBICODECFILTERING_STATISTICS_COMMON_PIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_COMMON_PIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_NABTS(pub *mut VBICODECFILTERING_STATISTICS_NABTS);
-impl PVBICODECFILTERING_STATISTICS_NABTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_NABTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_NABTS_PIN(pub *mut VBICODECFILTERING_STATISTICS_NABTS_PIN);
-impl PVBICODECFILTERING_STATISTICS_NABTS_PIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_NABTS_PIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_TELETEXT(pub *mut VBICODECFILTERING_STATISTICS_TELETEXT);
-impl PVBICODECFILTERING_STATISTICS_TELETEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_TELETEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBICODECFILTERING_STATISTICS_TELETEXT_PIN(pub *mut VBICODECFILTERING_STATISTICS_TELETEXT_PIN);
-impl PVBICODECFILTERING_STATISTICS_TELETEXT_PIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBICODECFILTERING_STATISTICS_TELETEXT_PIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIDEOFORMAT_DX12(pub *mut VIDEOFORMAT_DX12);
-#[cfg(feature = "ks")]
-impl PVIDEOFORMAT_DX12 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PVIDEOFORMAT_DX12 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVRAM_SURFACE_INFO(pub *mut VRAM_SURFACE_INFO);
-impl PVRAM_SURFACE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVRAM_SURFACE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ks")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVRAM_SURFACE_INFO_PROPERTY_S(pub *mut VRAM_SURFACE_INFO_PROPERTY_S);
-#[cfg(feature = "ks")]
-impl PVRAM_SURFACE_INFO_PROPERTY_S {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ks")]
-impl Default for PVRAM_SURFACE_INFO_PROPERTY_S {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
 #[cfg(all(feature = "mmeapi", feature = "mmreg"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMATEXTENSIBLE_IEC61937(pub *mut WAVEFORMATEXTENSIBLE_IEC61937);
-#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
-impl PWAVEFORMATEXTENSIBLE_IEC61937 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mmeapi", feature = "mmreg"))]
-impl Default for PWAVEFORMATEXTENSIBLE_IEC61937 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNF_KSCAMERA_STREAMSTATE_INFO(pub *mut WNF_KSCAMERA_STREAMSTATE_INFO);
-impl PWNF_KSCAMERA_STREAMSTATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWNF_KSCAMERA_STREAMSTATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWST_BUFFER(pub *mut WST_BUFFER);
-impl PWST_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWST_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWST_BUFFER_LINE(pub *mut WST_BUFFER_LINE);
-impl PWST_BUFFER_LINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWST_BUFFER_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
+pub type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
+pub type PWST_BUFFER = *mut WST_BUFFER;
+pub type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURE_BUFFER_INFO {

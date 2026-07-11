@@ -45,32 +45,8 @@ where
     windows_core::link!("netapi32.dll" "system" fn NetMessageNameGetInfo(servername : windows_core::PCWSTR, msgname : windows_core::PCWSTR, level : u32, bufptr : *const super::minwindef::LPBYTE) -> u32);
     unsafe { NetMessageNameGetInfo(servername.param().abi(), msgname.param().abi(), level, bufptr) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMSG_INFO_0(pub *mut MSG_INFO_0);
-impl LPMSG_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMSG_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMSG_INFO_1(pub *mut MSG_INFO_1);
-impl LPMSG_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMSG_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMSG_INFO_0 = *mut MSG_INFO_0;
+pub type LPMSG_INFO_1 = *mut MSG_INFO_1;
 pub const MSGNAME_FORWARDED_FROM: u32 = 16;
 pub const MSGNAME_FORWARDED_TO: u32 = 4;
 pub const MSGNAME_NOT_FORWARDED: u32 = 0;
@@ -86,29 +62,5 @@ pub struct MSG_INFO_1 {
     pub msgi1_forward_flag: u32,
     pub msgi1_forward: windows_core::PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSG_INFO_0(pub *mut MSG_INFO_0);
-impl PMSG_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSG_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSG_INFO_1(pub *mut MSG_INFO_1);
-impl PMSG_INFO_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSG_INFO_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSG_INFO_0 = *mut MSG_INFO_0;
+pub type PMSG_INFO_1 = *mut MSG_INFO_1;

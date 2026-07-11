@@ -781,20 +781,30 @@ hit it. Regression: `crates/tests/libs/bindgen/input/arch_delegate_dependency_sy
 Migrating a `--package` sample (`windows_direct2d`) to header namespaces surfaced a broken
 partial-feature build. Two coupled issues were found; the second is now **fixed**, the first is
 left open as a modelling question:
-1. *(open)* `GLOBALHANDLE`/`LOCALHANDLE` are rightly plain type *aliases* in the RDL, but
-   `--package` (default) mode nests them as newtype structs — and here a handle is nested inside
+1. *(fixed)* `GLOBALHANDLE`/`LOCALHANDLE` are rightly plain type *aliases* in the RDL, but
+   `--package` (default) mode used to nest them as newtype structs — a handle nested inside
    *another* handle (`pub struct GLOBALHANDLE(pub super::winnt::HANDLE)`). Nesting is reasonable
-   when the backing type is a primitive; nesting one named handle within another seems wrong.
-   `--minimal`/`--sys` mode emits these as bare `pub type … = …` aliases instead. The default-mode
-   modelling should probably be reconsidered and made consistent with minimal/sys mode. This is
-   cosmetic/API-shape only — it does **not** block compilation now that (2) is fixed. A second
-   manifestation showed up migrating `windows_task_dialog`: a header that pairs a scalar typedef with
-   a separate constant enum (`typedef int TASKDIALOG_FLAGS;` + `enum _TASKDIALOG_FLAGS { TDF_… }`)
-   yields a newtype `struct TASKDIALOG_FLAGS(pub i32)` for the field type while the `TDF_*` constants
-   are bare `_TASKDIALOG_FLAGS` (`= i32`) integers, so combining flags forces the wrap
-   `TASKDIALOG_FLAGS(TDF_A | TDF_B)`. Making scalar typedefs bare aliases in `--package` mode (to
-   match `--minimal`/`--sys`) would remove the wrap here too; the JET_GRBIT-style constants noted in
-   item 3 are the coupled blocker (their values are constructed as `TYPE(value)` tuple structs).
+   when the backing type is a primitive; nesting one named handle within another was wrong.
+   `write_cpp_handle` now emits a bare `pub type … = …` alias (matching `--minimal`/`--sys`) when a
+   typedef's underlying type is *itself* a named handle (`aliases_handle`: `GLOBALHANDLE = HANDLE`,
+   `HCURSOR = HICON`, `DECOMPRESSOR_HANDLE = COMPRESSOR_HANDLE`). The **same fix** also covers
+   *pointer-to-named* typedefs (`aliases_pointer`: `PCOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE`,
+   `PTRUSTEE_A = *mut TRUSTEE_A`, `PESILO = *mut _EJOB`), which `is_handle` had wrongly treated as
+   handles because a pointer field counts as primitive — they are pointer *aliases*, not handles,
+   and now emit bare too. Genuine base handles (`HANDLE = *mut void`, `HWND = *mut void`) keep their
+   newtype (with `is_invalid`/`Default`), so pointers *to void* are excluded. Constants of a now-bare
+   handle-of-handle type construct through the concrete newtype the alias resolves to
+   (`HCCE_LOCAL_MACHINE: HCERTCHAINENGINE = HANDLE(1 as _)`); constants of a pointer alias cast
+   (`IO_USE_AMBIENT_SILO: PESILO = 1 as _`). `write_newtype_wrap` skips bare-alias layers so
+   multi-level chains wrap once through the base newtype. `windows-sys` is byte-identical (it already
+   bare-aliased everything); `windows --all-features` compiles. `typedef_emits_bare` is the single
+   shared predicate for this decision, used by both `write_cpp_handle` and the constant emitter.
+
+   Primitive-backed scalar typedefs (`JET_GRBIT = u32`, `TASKDIALOG_FLAGS = i32`) still keep their
+   newtype in `--package` (their underlying is not a handle/pointer, and their `TYPE(value)`
+   tuple-constructed constants require it). Harmonizing *those* against the C flags/enum idiom
+   (`typedef int TASKDIALOG_FLAGS;` + `enum _TASKDIALOG_FLAGS { TDF_… }` forcing
+   `TASKDIALOG_FLAGS(TDF_A | TDF_B)`) is the separate scraper-side TODO below.
 
 **TODO (deferred — harmonize the C flags/enum idiom in the canonical RDL).** The cleanest fix for
 the `TASKDIALOG_FLAGS` wart above is at the *scraper*, not per-style in bindgen: recognize the C
@@ -837,10 +847,11 @@ further along; pick up only if it stays low-complexity.
    emits a bare `pub type … = …` alias (matching `--minimal`/`--sys`) when the underlying type
    resolves — directly or through a chain of typedef handles
    (`FONTENUMPROC = FONTENUMPROCA = OLDFONTENUMPROCA = Option<fn…>`) — to a `CppDelegate`
-   (`resolves_to_delegate`). Handle-of-handle typedefs (item 1) deliberately stay newtypes: unlike
-   callbacks, their constants are constructed as tuple structs elsewhere in the generated code, so
-   aliasing them breaks `pub const FOO: JET_GRBIT = JET_GRBIT(…)`. `windows --all-features` is now
-   warning-free.
+   (`resolves_to_delegate`). Handle-of-handle typedefs (item 1) are now aliased too; the constant
+   emitter constructs their values through the concrete newtype the alias resolves to
+   (`HANDLE(…)`), so only *primitive-backed* handles (`JET_GRBIT = u32`) still keep the newtype
+   their tuple-constructed constants (`pub const FOO: JET_GRBIT = JET_GRBIT(…)`) require.
+   `windows --all-features` is warning-free.
 
 **Win32 extensions removed.** The hand-written `crates/libs/windows/src/extensions/` tree
 (`VARIANT_BOOL`, WinSock address helpers, `VARIANT`/`StructuredStorage`, and the WinRT
@@ -1161,10 +1172,16 @@ Test-specific drift beyond the sample patterns:
   interfaces depend only on `HWND`/`HMONITOR`/`REFIID`/`IUnknown` (all from `windows.h`, already in the
   prelude), so the shim declares them without the projection includes.
 
-  **Still absent:** `IWindowNative` — it is **not in the Windows SDK** (it ships in
-  `microsoft.ui.xaml.window.h`, part of the Windows App SDK / WinUI), so it is out of scope for the
-  Windows-SDK header scrape. (Present all along: `IInitializeWithWindow`, `IMemoryBufferByteAccess`,
-  `IBufferByteAccess`, `ICoreWindowInterop`.)
+  **`IWindowNative` (resolved — lives in `tool_reactor`, not the SDK scrape):** it is **not in the
+  Windows SDK** (it ships in `microsoft.ui.xaml.window.h`, part of the Windows App SDK / WinUI), so it
+  is correctly out of scope for the Windows-SDK header scrape. It is instead hand-declared in
+  `tool_reactor`'s `crates/tools/reactor/src/extras.rdl` (alongside the other WinUI-only interop
+  interfaces `ISwapChainPanelNative`, `ISurfaceImageSourceNativeWithD2D` and the Windows App SDK
+  bootstrap functions), generated into `crates/libs/reactor/src/bindings.rs`, and consumed by
+  `windows-reactor`'s `host.rs` (`window.cast::<IWindowNative>()`). WinUI/App-SDK-specific surface
+  belongs to the WinUI backend's own metadata, not the general SDK corpus. (Present in the SDK scrape
+  all along: `IInitializeWithWindow`, `IMemoryBufferByteAccess`, `IBufferByteAccess`,
+  `ICoreWindowInterop`.)
 - **Macro-alias function scraping — done (`test_targets` unblocked).** A general, entirely heuristic
   pass in `windows-clang` recovers functions the SDK declares under a documented name that an
   object-like `#define` textually rewrites to a raw export before clang parses. The prototype is
@@ -1443,28 +1460,33 @@ are intentionally deferred and tracked here for a future cleanup pass (post the 
 above). None blocks CI.
 
 - **Retire `crates/tools/package/reference/*.winmd`.** The published crates and `tool_features` no
-  longer read the frozen editorial winmds, but they are still entangled and cannot be deleted yet:
-  - `crates/tests/libs/metadata/tests/reader.rs` and `assembly_name.rs` are **active** (non-ignored)
-    tests that use them as fixtures.
-  - Six diagnostic probe tests (`parity_probe`, `coverage_probe`, `collision_probe`, `nested_probe`,
-    `delegate_probe`, `arch_probe`) are `#[ignore]`d comparisons of in-house vs reference metadata,
-    run manually with `--ignored` — they are the **parity safety net** while the in-house corpus
-    stabilises.
-  - Some reference-only clang normalisations are gated on the reference winmd (per
-    [Type remapping](#type-remapping--one-canon-surface)).
-  Retiring removes the parity net and is a large, judgment-heavy cleanup; keep the reference winmds
-  until the in-house corpus has soaked, then migrate the active tests to in-house fixtures, drop the
-  probes, and remove the gated normalisations.
+  longer read the frozen editorial winmds, and the two **active** fixture tests
+  (`crates/tests/libs/metadata/tests/reader.rs`, `assembly_name.rs`) have now been **repointed to the
+  in-house winmds** (`crates/libs/bindgen/default/Windows.{Win32,Wdk}.winmd`) — using in-house types
+  (`SID_IDENTIFIER_AUTHORITY` for the fixed-array case, `D3D10_BUFFER_RTV` with the in-house
+  `<Parent>_0`/`_1` anonymous-nested naming) and the flat `Windows.Win32`/`Windows.Wdk` namespaces.
+  The **only** remaining consumers of the frozen winmds are now the six diagnostic probe tests
+  (`parity_probe`, `coverage_probe`, `collision_probe`, `nested_probe`, `delegate_probe`,
+  `arch_probe`), which are `#[ignore]`d in-house-vs-reference comparisons run manually with
+  `--ignored` — the deliberate **parity safety net** while the in-house corpus stabilises. (A small
+  set of reference-only clang normalisations remain conceptually gated on the reference *design*, per
+  [Type remapping](#type-remapping--one-canon-surface), but no scraper code loads these frozen files —
+  `tool_wdk`'s exclusion reference is the in-house `Windows.Win32.winmd`.) Keep the frozen winmds
+  until the corpus has soaked, then drop the probes and delete the files.
 - **C flags/enum idiom harmonization.** ~41 flag/enum pairs still differ in idiom between the
   canonical RDL and the old editorial shape (bitflag-vs-enum, signedness). Harmonise in the canonical
   RDL emitted by `windows-clang` rather than downstream (doc ~line 710).
-- **Handle-in-handle newtype modelling.** `--package` (default) mode nests handle aliases as newtype
-  structs, so a handle nested inside another handle emits `pub struct GLOBALHANDLE(pub
-  super::winnt::HANDLE)` where `--minimal`/`--sys` keep the plain alias. Decide the intended
-  `--package` handle model (see "To investigate: inconsistent handle modelling" above).
-- **Coverage gaps.** Missing interop interface `IWindowNative` ships in the Windows App SDK / WinUI
-  (`microsoft.ui.xaml.window.h`), not the Windows SDK, so it is out of scope for the SDK header scrape
-  and needs a separate source. (`IGraphicsCaptureItemInterop` is now scraped via a shim.)
+- **Handle-in-handle / pointer-alias newtype modelling — DONE.** `--package` (default) mode used to
+  nest handle aliases as newtype structs (`pub struct GLOBALHANDLE(pub super::winnt::HANDLE)`) and
+  wrap pointer-to-named typedefs (`pub struct PCOMPRESSOR_HANDLE(pub *mut COMPRESSOR_HANDLE)`).
+  `write_cpp_handle` now bare-aliases both (`aliases_handle`/`aliases_pointer`) via the shared
+  `typedef_emits_bare` predicate, matching `--minimal`/`--sys`; only genuine `*mut void` base handles
+  and primitive-backed handles (`JET_GRBIT`) keep the newtype. Constant emitter + `write_newtype_wrap`
+  updated to construct through the concrete newtype an alias resolves to. `windows-sys` byte-identical;
+  `windows --all-features` compiles. See "To investigate: inconsistent handle modelling" above.
+- **Coverage gaps.** No missing SDK interop interfaces remain: `IGraphicsCaptureItemInterop` is
+  scraped via a shim, and `IWindowNative` (WinUI/App-SDK-only) is hand-declared in `tool_reactor`'s
+  `extras.rdl` — the correct home for WinUI-specific surface (see the interop-interfaces note above).
 - **Performance.** Opportunities to speed the scrape: emit winmd directly instead of round-tripping
   through RDL text, cache import-library resolution across arches, and use a precompiled header (PCH)
   for the common SDK include set.

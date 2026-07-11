@@ -9115,133 +9115,21 @@ impl ID3D10View_Vtbl {
 }
 impl windows_core::RuntimeName for ID3D10View {}
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_CBUFFER_TYPE(pub *mut D3D10_CBUFFER_TYPE);
+pub type LPD3D10_CBUFFER_TYPE = *mut D3D10_CBUFFER_TYPE;
 #[cfg(feature = "d3dcommon")]
-impl LPD3D10_CBUFFER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPD3D10_SHADER_CBUFFER_FLAGS = *mut D3D10_SHADER_CBUFFER_FLAGS;
 #[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_CBUFFER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPD3D10_SHADER_INPUT_FLAGS = *mut D3D10_SHADER_INPUT_FLAGS;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_CBUFFER_FLAGS(pub *mut D3D10_SHADER_CBUFFER_FLAGS);
+pub type LPD3D10_SHADER_INPUT_TYPE = *mut D3D10_SHADER_INPUT_TYPE;
 #[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_CBUFFER_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPD3D10_SHADER_MACRO = *mut D3D10_SHADER_MACRO;
 #[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_CBUFFER_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPD3D10_SHADER_VARIABLE_CLASS = *mut D3D10_SHADER_VARIABLE_CLASS;
 #[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_INPUT_FLAGS(pub *mut D3D10_SHADER_INPUT_FLAGS);
+pub type LPD3D10_SHADER_VARIABLE_FLAGS = *mut D3D10_SHADER_VARIABLE_FLAGS;
 #[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_INPUT_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_INPUT_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_INPUT_TYPE(pub *mut D3D10_SHADER_INPUT_TYPE);
-#[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_INPUT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_INPUT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_MACRO(pub *mut D3D10_SHADER_MACRO);
-#[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_MACRO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_MACRO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_VARIABLE_CLASS(pub *mut D3D10_SHADER_VARIABLE_CLASS);
-#[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_VARIABLE_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_VARIABLE_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_VARIABLE_FLAGS(pub *mut D3D10_SHADER_VARIABLE_FLAGS);
-#[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_VARIABLE_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_VARIABLE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "d3dcommon")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPD3D10_SHADER_VARIABLE_TYPE(pub *mut D3D10_SHADER_VARIABLE_TYPE);
-#[cfg(feature = "d3dcommon")]
-impl LPD3D10_SHADER_VARIABLE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "d3dcommon")]
-impl Default for LPD3D10_SHADER_VARIABLE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPD3D10_SHADER_VARIABLE_TYPE = *mut D3D10_SHADER_VARIABLE_TYPE;
 #[cfg(all(feature = "dxgi", feature = "minwindef"))]
 pub type PFN_D3D10_CREATE_DEVICE1 = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::dxgi::IDXGIAdapter>, param1: D3D10_DRIVER_TYPE, param2: super::minwindef::HMODULE, param3: u32, param4: D3D10_FEATURE_LEVEL1, param5: u32, param6: windows_core::OutRef<ID3D10Device1>) -> windows_core::HRESULT>;
 #[cfg(all(feature = "dxgi", feature = "minwindef", feature = "windef"))]

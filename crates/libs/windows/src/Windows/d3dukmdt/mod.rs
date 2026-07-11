@@ -1787,9 +1787,7 @@ pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMT_HANDLE(pub u32);
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct D3DKMT_PTR_TYPE(pub super::winnt::HANDLE);
+pub type D3DKMT_PTR_TYPE = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3DKMT_SIZE_T(pub usize);
@@ -2278,58 +2276,8 @@ pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::winnt::LUID,
 }
 pub const IOCTL_GPUP_DRIVER_ESCAPE: u32 = 2253920;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DDDI_3x4_COLORSPACE_TRANSFORM(pub *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM);
-impl PD3DDDI_3x4_COLORSPACE_TRANSFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3DDDI_3x4_COLORSPACE_TRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2(pub *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2);
-impl PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub *mut D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL);
-impl PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PD3DDDI_3x4_COLORSPACE_TRANSFORM = *mut D3DKMDT_3x4_COLORSPACE_TRANSFORM;
+pub type PD3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2 = *mut D3DKMDT_COLORSPACE_TRANSFORM_MATRIX_V2;
+pub type PD3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = *mut D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGPUP_DRIVER_ESCAPE_INPUT(pub *mut GPUP_DRIVER_ESCAPE_INPUT);
-#[cfg(feature = "winnt")]
-impl PGPUP_DRIVER_ESCAPE_INPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PGPUP_DRIVER_ESCAPE_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGPUP_DRIVER_ESCAPE_INPUT = *mut GPUP_DRIVER_ESCAPE_INPUT;

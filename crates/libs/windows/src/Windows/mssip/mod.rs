@@ -77,37 +77,9 @@ pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pin
 #[cfg(feature = "wincrypt")]
 pub type CRYPT_DIGEST_DATA = super::wincrypt::CRYPT_HASH_BLOB;
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSIP_DISPATCH_INFO(pub *mut SIP_DISPATCH_INFO);
+pub type LPSIP_DISPATCH_INFO = *mut SIP_DISPATCH_INFO;
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl LPSIP_DISPATCH_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl Default for LPSIP_DISPATCH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSIP_SUBJECTINFO(pub *mut SIP_SUBJECTINFO);
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl LPSIP_SUBJECTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl Default for LPSIP_SUBJECTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSIP_SUBJECTINFO = *mut SIP_SUBJECTINFO;
 pub const MSSIP_ADDINFO_BLOB: u32 = 3;
 pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2;
 pub const MSSIP_ADDINFO_DETACHEDSIG: u32 = 4;
@@ -173,125 +145,19 @@ impl Default for MS_ADDINFO_FLAT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMS_ADDINFO_BLOB(pub *mut MS_ADDINFO_BLOB);
-impl PMS_ADDINFO_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMS_ADDINFO_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMS_ADDINFO_BLOB = *mut MS_ADDINFO_BLOB;
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMS_ADDINFO_CATALOGMEMBER(pub *mut MS_ADDINFO_CATALOGMEMBER);
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl PMS_ADDINFO_CATALOGMEMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-impl Default for PMS_ADDINFO_CATALOGMEMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMS_ADDINFO_CATALOGMEMBER = *mut MS_ADDINFO_CATALOGMEMBER;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMS_ADDINFO_DETACHEDSIG(pub *mut MS_ADDINFO_DETACHEDSIG);
-#[cfg(feature = "winnt")]
-impl PMS_ADDINFO_DETACHEDSIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMS_ADDINFO_DETACHEDSIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMS_ADDINFO_DETACHEDSIG = *mut MS_ADDINFO_DETACHEDSIG;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMS_ADDINFO_FLAT(pub *mut MS_ADDINFO_FLAT);
+pub type PMS_ADDINFO_FLAT = *mut MS_ADDINFO_FLAT;
+pub type PSIP_ADD_NEWPROVIDER = *mut SIP_ADD_NEWPROVIDER;
+pub type PSIP_CAP_SET = PSIP_CAP_SET_V3;
+pub type PSIP_CAP_SET_V2 = *mut SIP_CAP_SET_V2;
+pub type PSIP_CAP_SET_V3 = *mut SIP_CAP_SET_V3;
 #[cfg(feature = "wincrypt")]
-impl PMS_ADDINFO_FLAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMS_ADDINFO_FLAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSIP_ADD_NEWPROVIDER(pub *mut SIP_ADD_NEWPROVIDER);
-impl PSIP_ADD_NEWPROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSIP_ADD_NEWPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSIP_CAP_SET(pub PSIP_CAP_SET_V3);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSIP_CAP_SET_V2(pub *mut SIP_CAP_SET_V2);
-impl PSIP_CAP_SET_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSIP_CAP_SET_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSIP_CAP_SET_V3(pub *mut SIP_CAP_SET_V3);
-impl PSIP_CAP_SET_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSIP_CAP_SET_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSIP_INDIRECT_DATA(pub *mut SIP_INDIRECT_DATA);
-#[cfg(feature = "wincrypt")]
-impl PSIP_INDIRECT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSIP_INDIRECT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSIP_INDIRECT_DATA = *mut SIP_INDIRECT_DATA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SIP_ADD_NEWPROVIDER {

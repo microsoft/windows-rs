@@ -711,19 +711,7 @@ pub type CWMO_FLAGS = u32;
 pub const CWMO_MAX_HANDLES: u32 = 56;
 pub type LPFNCANUNLOADNOW = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type LPFNGETCLASSOBJECT = Option<unsafe extern "system" fn(param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PServerInformation(pub *mut ServerInformation);
-impl PServerInformation {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PServerInformation {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PServerInformation = *mut ServerInformation;
 pub type REGCLS = u32;
 pub const REGCLS_AGILE: REGCLS = 16;
 pub const REGCLS_MULTIPLEUSE: REGCLS = 1;

@@ -787,19 +787,7 @@ impl windows_core::RuntimeName for IMMNotificationClient {}
 pub const LineLevel: EndpointFormFactor = 2;
 pub const MMDeviceEnumerator: windows_core::GUID = windows_core::GUID::from_u128(0xbcde0395_e52f_467c_8e3d_c4579291692e);
 pub const Microphone: EndpointFormFactor = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIRECTX_AUDIO_ACTIVATION_PARAMS(pub *mut DIRECTX_AUDIO_ACTIVATION_PARAMS);
-impl PDIRECTX_AUDIO_ACTIVATION_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDIRECTX_AUDIO_ACTIVATION_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDIRECTX_AUDIO_ACTIVATION_PARAMS = *mut DIRECTX_AUDIO_ACTIVATION_PARAMS;
 #[cfg(feature = "wtypes")]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::wtypes::PROPERTYKEY = super::wtypes::PROPERTYKEY { fmtid: windows_core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
 #[cfg(feature = "wtypes")]

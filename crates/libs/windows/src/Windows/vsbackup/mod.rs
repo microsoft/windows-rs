@@ -2000,21 +2000,7 @@ impl IVssWriterComponentsExt {
     }
 }
 #[cfg(feature = "vswriter")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSSCOMPONENTINFO(pub *const VSS_COMPONENTINFO);
-#[cfg(feature = "vswriter")]
-impl PVSSCOMPONENTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "vswriter")]
-impl Default for PVSSCOMPONENTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
 #[repr(C)]
 #[cfg(feature = "vswriter")]
 #[derive(Clone, Debug, PartialEq)]

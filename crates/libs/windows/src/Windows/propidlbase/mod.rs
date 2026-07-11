@@ -752,37 +752,9 @@ impl IPropertyStorage_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IPropertyStorage {}
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPVARIANT(pub *mut PROPVARIANT);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl LPPROPVARIANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPPROPVARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPVARIANT = *mut PROPVARIANT;
 #[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVERSIONEDSTREAM(pub *mut VERSIONEDSTREAM);
-#[cfg(feature = "objidlbase")]
-impl LPVERSIONEDSTREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for LPVERSIONEDSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPVERSIONEDSTREAM = *mut VERSIONEDSTREAM;
 pub const PID_BEHAVIOR: u32 = 2147483651;
 pub const PID_CODEPAGE: u32 = 1;
 pub const PID_DICTIONARY: u32 = 0;

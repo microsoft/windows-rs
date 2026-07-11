@@ -66,155 +66,19 @@ impl Default for PMDL {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POS_STRING(pub *mut OS_STRING);
-impl POS_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POS_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POS_STRING = *mut OS_STRING;
 #[cfg(feature = "usbspec")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PURB(pub *mut URB);
+pub type PURB = *mut URB;
 #[cfg(feature = "usbspec")]
-impl PURB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usbspec")]
-impl Default for PURB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usbspec")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_DEVICE_INFORMATION(pub *mut USBD_DEVICE_INFORMATION);
-#[cfg(feature = "usbspec")]
-impl PUSBD_DEVICE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usbspec")]
-impl Default for PUSBD_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_ENDPOINT_OFFLOAD_INFORMATION(pub *mut USBD_ENDPOINT_OFFLOAD_INFORMATION);
-impl PUSBD_ENDPOINT_OFFLOAD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_ENDPOINT_OFFLOAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1(pub *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1);
-impl PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2(pub *mut USBD_ENDPOINT_OFFLOAD_INFORMATION);
-impl PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_INTERFACE_INFORMATION(pub *mut USBD_INTERFACE_INFORMATION);
-impl PUSBD_INTERFACE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_INTERFACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_ISO_PACKET_DESCRIPTOR(pub *mut USBD_ISO_PACKET_DESCRIPTOR);
-impl PUSBD_ISO_PACKET_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_ISO_PACKET_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_PIPE_INFORMATION(pub *mut USBD_PIPE_INFORMATION);
-impl PUSBD_PIPE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_PIPE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_STREAM_INFORMATION(pub *mut USBD_STREAM_INFORMATION);
-impl PUSBD_STREAM_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_STREAM_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSBD_VERSION_INFORMATION(pub *mut USBD_VERSION_INFORMATION);
-impl PUSBD_VERSION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSBD_VERSION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSBD_DEVICE_INFORMATION = *mut USBD_DEVICE_INFORMATION;
+pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V1 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION_V1;
+pub type PUSBD_ENDPOINT_OFFLOAD_INFORMATION_V2 = *mut USBD_ENDPOINT_OFFLOAD_INFORMATION;
+pub type PUSBD_INTERFACE_INFORMATION = *mut USBD_INTERFACE_INFORMATION;
+pub type PUSBD_ISO_PACKET_DESCRIPTOR = *mut USBD_ISO_PACKET_DESCRIPTOR;
+pub type PUSBD_PIPE_INFORMATION = *mut USBD_PIPE_INFORMATION;
+pub type PUSBD_STREAM_INFORMATION = *mut USBD_STREAM_INFORMATION;
+pub type PUSBD_VERSION_INFORMATION = *mut USBD_VERSION_INFORMATION;
 pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200;
 pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205;
 pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203;

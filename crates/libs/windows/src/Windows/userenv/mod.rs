@@ -413,21 +413,7 @@ impl Default for GROUP_POLICY_OBJECTW {
     }
 }
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOLICYSETTINGSTATUSINFO(pub *mut POLICYSETTINGSTATUSINFO);
-#[cfg(feature = "minwinbase")]
-impl LPPOLICYSETTINGSTATUSINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for LPPOLICYSETTINGSTATUSINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPOLICYSETTINGSTATUSINFO = *mut POLICYSETTINGSTATUSINFO;
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
 pub type PFNGENERATEGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut windows_core::BOOL, pwszsite: *const u16, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -435,55 +421,13 @@ pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, 
 #[cfg(all(feature = "minwindef", feature = "wbemcli", feature = "winnt"))]
 pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::winnt::HANDLE, hkeyroot: super::minwindef::HKEY, pdeletedgpolist: PGROUP_POLICY_OBJECT, pchangedgpolist: PGROUP_POLICY_OBJECT, phandle: ASYNCCOMPLETIONHANDLE, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<super::wbemcli::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> u32>;
 pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: windows_core::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGPO_LINK(pub *mut GPO_LINK);
-impl PGPO_LINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGPO_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGPO_LINK = *mut GPO_LINK;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PGROUP_POLICY_OBJECT(pub PGROUP_POLICY_OBJECTA);
+pub type PGROUP_POLICY_OBJECT = PGROUP_POLICY_OBJECTA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_POLICY_OBJECTA(pub *mut GROUP_POLICY_OBJECTA);
+pub type PGROUP_POLICY_OBJECTA = *mut GROUP_POLICY_OBJECTA;
 #[cfg(feature = "minwindef")]
-impl PGROUP_POLICY_OBJECTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PGROUP_POLICY_OBJECTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_POLICY_OBJECTW(pub *mut GROUP_POLICY_OBJECTW);
-#[cfg(feature = "minwindef")]
-impl PGROUP_POLICY_OBJECTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PGROUP_POLICY_OBJECTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGROUP_POLICY_OBJECTW = *mut GROUP_POLICY_OBJECTW;
 pub const PI_APPLYPOLICY: u32 = 2;
 pub const PI_NOUI: u32 = 1;
 #[repr(C)]
@@ -512,38 +456,12 @@ impl Default for PRSOPTOKEN {
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRSOP_TARGET(pub *mut RSOP_TARGET);
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-impl PRSOP_TARGET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-impl Default for PRSOP_TARGET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRSOP_TARGET = *mut RSOP_TARGET;
 pub const PT_MANDATORY: u32 = 4;
 pub const PT_ROAMING: u32 = 2;
 pub const PT_ROAMING_PREEXISTING: u32 = 8;
 pub const PT_TEMPORARY: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFGPEXTENSIONID(pub *mut windows_core::GUID);
-impl REFGPEXTENSIONID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFGPEXTENSIONID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type REFGPEXTENSIONID = *mut windows_core::GUID;
 pub const RP_FORCE: u32 = 1;
 pub const RP_SYNC: u32 = 2;
 pub const RSOPApplied: SETTINGSTATUS = 1;

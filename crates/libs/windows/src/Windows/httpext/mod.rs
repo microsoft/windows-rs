@@ -316,231 +316,27 @@ impl Default for HSE_VERSION_INFO {
 pub const HSE_VERSION_MAJOR: u32 = 8;
 pub const HSE_VERSION_MINOR: u32 = 0;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTENSION_CONTROL_BLOCK(pub *mut EXTENSION_CONTROL_BLOCK);
-#[cfg(feature = "minwindef")]
-impl LPEXTENSION_CONTROL_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPEXTENSION_CONTROL_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_CUSTOM_ERROR_INFO(pub *mut HSE_CUSTOM_ERROR_INFO);
-impl LPHSE_CUSTOM_ERROR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_CUSTOM_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPEXTENSION_CONTROL_BLOCK = *mut EXTENSION_CONTROL_BLOCK;
+pub type LPHSE_CUSTOM_ERROR_INFO = *mut HSE_CUSTOM_ERROR_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_UNICODE_URL_INFO(pub *mut HSE_EXEC_UNICODE_URL_INFO);
+pub type LPHSE_EXEC_UNICODE_URL_INFO = *mut HSE_EXEC_UNICODE_URL_INFO;
 #[cfg(feature = "winnt")]
-impl LPHSE_EXEC_UNICODE_URL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPHSE_EXEC_UNICODE_URL_USER_INFO = *mut HSE_EXEC_UNICODE_URL_USER_INFO;
+pub type LPHSE_EXEC_URL_ENTITY_INFO = *mut HSE_EXEC_URL_ENTITY_INFO;
 #[cfg(feature = "winnt")]
-impl Default for LPHSE_EXEC_UNICODE_URL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHSE_EXEC_URL_INFO = *mut HSE_EXEC_URL_INFO;
+pub type LPHSE_EXEC_URL_STATUS = *mut HSE_EXEC_URL_STATUS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_UNICODE_URL_USER_INFO(pub *mut HSE_EXEC_UNICODE_URL_USER_INFO);
-#[cfg(feature = "winnt")]
-impl LPHSE_EXEC_UNICODE_URL_USER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPHSE_EXEC_UNICODE_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_URL_ENTITY_INFO(pub *mut HSE_EXEC_URL_ENTITY_INFO);
-impl LPHSE_EXEC_URL_ENTITY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_EXEC_URL_ENTITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_URL_INFO(pub *mut HSE_EXEC_URL_INFO);
-#[cfg(feature = "winnt")]
-impl LPHSE_EXEC_URL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPHSE_EXEC_URL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_URL_STATUS(pub *mut HSE_EXEC_URL_STATUS);
-impl LPHSE_EXEC_URL_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_EXEC_URL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_EXEC_URL_USER_INFO(pub *mut HSE_EXEC_URL_USER_INFO);
-#[cfg(feature = "winnt")]
-impl LPHSE_EXEC_URL_USER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPHSE_EXEC_URL_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_RESPONSE_VECTOR(pub *mut HSE_RESPONSE_VECTOR);
-impl LPHSE_RESPONSE_VECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_RESPONSE_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_SEND_HEADER_EX_INFO(pub *mut HSE_SEND_HEADER_EX_INFO);
-impl LPHSE_SEND_HEADER_EX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_SEND_HEADER_EX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHSE_EXEC_URL_USER_INFO = *mut HSE_EXEC_URL_USER_INFO;
+pub type LPHSE_RESPONSE_VECTOR = *mut HSE_RESPONSE_VECTOR;
+pub type LPHSE_SEND_HEADER_EX_INFO = *mut HSE_SEND_HEADER_EX_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_TF_INFO(pub *mut HSE_TF_INFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPHSE_TF_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPHSE_TF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_TRACE_INFO(pub *mut HSE_TRACE_INFO);
-impl LPHSE_TRACE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_TRACE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_UNICODE_URL_MAPEX_INFO(pub *mut HSE_UNICODE_URL_MAPEX_INFO);
-impl LPHSE_UNICODE_URL_MAPEX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_UNICODE_URL_MAPEX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_URL_MAPEX_INFO(pub *mut HSE_URL_MAPEX_INFO);
-impl LPHSE_URL_MAPEX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_URL_MAPEX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_VECTOR_ELEMENT(pub *mut HSE_VECTOR_ELEMENT);
-impl LPHSE_VECTOR_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_VECTOR_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHSE_VERSION_INFO(pub *mut HSE_VERSION_INFO);
-impl LPHSE_VERSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHSE_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHSE_TF_INFO = *mut HSE_TF_INFO;
+pub type LPHSE_TRACE_INFO = *mut HSE_TRACE_INFO;
+pub type LPHSE_UNICODE_URL_MAPEX_INFO = *mut HSE_UNICODE_URL_MAPEX_INFO;
+pub type LPHSE_URL_MAPEX_INFO = *mut HSE_URL_MAPEX_INFO;
+pub type LPHSE_VECTOR_ELEMENT = *mut HSE_VECTOR_ELEMENT;
+pub type LPHSE_VERSION_INFO = *mut HSE_VERSION_INFO;
 pub type PFN_GETEXTENSIONVERSION = Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> windows_core::BOOL>;
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = Option<unsafe extern "system" fn(pszurl: *mut u16) -> windows_core::HRESULT>;
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = Option<unsafe extern "system" fn(pszprotocolmanagerdll: windows_core::PCWSTR, pszprotocolmanagerdllinitfunction: windows_core::PCWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

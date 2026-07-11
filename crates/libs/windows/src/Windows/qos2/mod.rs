@@ -64,149 +64,17 @@ pub unsafe fn QOSStopTrackingClient(qoshandle: super::winnt::HANDLE, destaddr: *
     windows_core::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::winnt::HANDLE, destaddr : *const super::ws2::SOCKADDR, flags : u32) -> windows_core::BOOL);
     unsafe { QOSStopTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_FLOWID(pub *mut u32);
-impl PQOS_FLOWID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_FLOWID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_FLOWRATE_OUTGOING(pub *mut QOS_FLOWRATE_OUTGOING);
-impl PQOS_FLOWRATE_OUTGOING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_FLOWRATE_OUTGOING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_FLOWRATE_REASON(pub *mut QOS_FLOWRATE_REASON);
-impl PQOS_FLOWRATE_REASON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_FLOWRATE_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_FLOW_FUNDAMENTALS(pub *mut QOS_FLOW_FUNDAMENTALS);
-impl PQOS_FLOW_FUNDAMENTALS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_FLOW_FUNDAMENTALS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_NOTIFY_FLOW(pub *mut QOS_NOTIFY_FLOW);
-impl PQOS_NOTIFY_FLOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_NOTIFY_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_PACKET_PRIORITY(pub *mut QOS_PACKET_PRIORITY);
-impl PQOS_PACKET_PRIORITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_PACKET_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_QUERY_FLOW(pub *mut QOS_QUERY_FLOW);
-impl PQOS_QUERY_FLOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_QUERY_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_SET_FLOW(pub *mut QOS_SET_FLOW);
-impl PQOS_SET_FLOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_SET_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_SHAPING(pub *mut QOS_SHAPING);
-impl PQOS_SHAPING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_SHAPING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_TRAFFIC_TYPE(pub *mut QOS_TRAFFIC_TYPE);
-impl PQOS_TRAFFIC_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_TRAFFIC_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQOS_VERSION(pub *mut QOS_VERSION);
-impl PQOS_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PQOS_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PQOS_FLOWID = *mut u32;
+pub type PQOS_FLOWRATE_OUTGOING = *mut QOS_FLOWRATE_OUTGOING;
+pub type PQOS_FLOWRATE_REASON = *mut QOS_FLOWRATE_REASON;
+pub type PQOS_FLOW_FUNDAMENTALS = *mut QOS_FLOW_FUNDAMENTALS;
+pub type PQOS_NOTIFY_FLOW = *mut QOS_NOTIFY_FLOW;
+pub type PQOS_PACKET_PRIORITY = *mut QOS_PACKET_PRIORITY;
+pub type PQOS_QUERY_FLOW = *mut QOS_QUERY_FLOW;
+pub type PQOS_SET_FLOW = *mut QOS_SET_FLOW;
+pub type PQOS_SHAPING = *mut QOS_SHAPING;
+pub type PQOS_TRAFFIC_TYPE = *mut QOS_TRAFFIC_TYPE;
+pub type PQOS_VERSION = *mut QOS_VERSION;
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2;
 pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1;
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3;

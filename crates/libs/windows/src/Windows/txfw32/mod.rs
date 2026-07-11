@@ -56,84 +56,12 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     windows_core::link!("txfw32.dll" "system" fn TxfSetThreadMiniVersionForCreate(miniversion : u16));
     unsafe { TxfSetThreadMiniVersionForCreate(miniversion) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGUID(pub *mut windows_core::GUID);
-impl PGUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTXF_ID(pub *mut TXF_ID);
-impl PTXF_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTXF_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTXF_LOG_RECORD_AFFECTED_FILE(pub *mut TXF_LOG_RECORD_AFFECTED_FILE);
-impl PTXF_LOG_RECORD_AFFECTED_FILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTXF_LOG_RECORD_AFFECTED_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTXF_LOG_RECORD_BASE(pub *mut TXF_LOG_RECORD_BASE);
-impl PTXF_LOG_RECORD_BASE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTXF_LOG_RECORD_BASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTXF_LOG_RECORD_TRUNCATE(pub *mut TXF_LOG_RECORD_TRUNCATE);
-impl PTXF_LOG_RECORD_TRUNCATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTXF_LOG_RECORD_TRUNCATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTXF_LOG_RECORD_WRITE(pub *mut TXF_LOG_RECORD_WRITE);
-impl PTXF_LOG_RECORD_WRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTXF_LOG_RECORD_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGUID = *mut windows_core::GUID;
+pub type PTXF_ID = *mut TXF_ID;
+pub type PTXF_LOG_RECORD_AFFECTED_FILE = *mut TXF_LOG_RECORD_AFFECTED_FILE;
+pub type PTXF_LOG_RECORD_BASE = *mut TXF_LOG_RECORD_BASE;
+pub type PTXF_LOG_RECORD_TRUNCATE = *mut TXF_LOG_RECORD_TRUNCATE;
+pub type PTXF_LOG_RECORD_WRITE = *mut TXF_LOG_RECORD_WRITE;
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: u32 = 0;
 pub const TXFS_MINIVERSION_DEFAULT_VIEW: u32 = 65534;
 pub const TXFS_MINIVERSION_DIRTY_VIEW: u32 = 65535;

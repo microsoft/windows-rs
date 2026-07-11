@@ -4417,132 +4417,18 @@ pub struct LICINFO {
     pub fRuntimeKeyAvail: windows_core::BOOL,
     pub fLicVerified: windows_core::BOOL,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCADWORD(pub *mut CADWORD);
-impl LPCADWORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCADWORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCALPOLESTR(pub *mut CALPOLESTR);
-impl LPCALPOLESTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCALPOLESTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCAUUID(pub *mut CAUUID);
-impl LPCAUUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCAUUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONNECTDATA(pub *mut CONNECTDATA);
-impl LPCONNECTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCONNECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCADWORD = *mut CADWORD;
+pub type LPCALPOLESTR = *mut CALPOLESTR;
+pub type LPCAUUID = *mut CAUUID;
+pub type LPCONNECTDATA = *mut CONNECTDATA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONTROLINFO(pub *mut CONTROLINFO);
+pub type LPCONTROLINFO = *mut CONTROLINFO;
+pub type LPLICINFO = *mut LICINFO;
+pub type LPPOINTF = *mut POINTF;
 #[cfg(feature = "windef")]
-impl LPCONTROLINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCONTROLINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLICINFO(pub *mut LICINFO);
-impl LPLICINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOINTF(pub *mut POINTF);
-impl LPPOINTF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPOINTF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPPAGEINFO(pub *mut PROPPAGEINFO);
-#[cfg(feature = "windef")]
-impl LPPROPPAGEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPPROPPAGEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPPAGEINFO = *mut PROPPAGEINFO;
 #[cfg(feature = "wingdi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTEXTMETRICOLE(pub *mut TEXTMETRICOLE);
-#[cfg(feature = "wingdi")]
-impl LPTEXTMETRICOLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wingdi")]
-impl Default for LPTEXTMETRICOLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTEXTMETRICOLE = *mut TEXTMETRICOLE;
 pub const MULTICLASSINFO_GETIIDPRIMARY: u32 = 4;
 pub const MULTICLASSINFO_GETIIDSOURCE: u32 = 8;
 pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: u32 = 2;
@@ -4569,19 +4455,7 @@ pub struct OLE_YPOS_HIMETRIC(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OLE_YSIZE_HIMETRIC(pub i32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONNECTDATA(pub *mut CONNECTDATA);
-impl PCONNECTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONNECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONNECTDATA = *mut CONNECTDATA;
 pub type PICTUREATTRIBUTES = i32;
 pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = 1;
 pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = 2;

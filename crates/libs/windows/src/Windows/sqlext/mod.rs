@@ -318,21 +318,7 @@ pub const ODBC_VS_FLAG_STOP: u32 = 8;
 pub const ODBC_VS_FLAG_UNICODE_ARG: u32 = 1;
 pub const ODBC_VS_FLAG_UNICODE_COR: u32 = 2;
 #[cfg(feature = "sqltypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PODBC_VS_ARGS(pub *mut ODBC_VS_ARGS);
-#[cfg(feature = "sqltypes")]
-impl PODBC_VS_ARGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "sqltypes")]
-impl Default for PODBC_VS_ARGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PODBC_VS_ARGS = *mut ODBC_VS_ARGS;
 #[cfg(feature = "sqltypes")]
 pub type SQLSTATE = [super::sqltypes::SQLTCHAR; 6];
 pub const SQL_AA_FALSE: u32 = 0;

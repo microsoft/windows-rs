@@ -183,17 +183,11 @@ pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0;
 pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0;
 pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HFILTER(pub super::winnt::HANDLE);
+pub type HFILTER = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HFILTER_INSTANCE(pub super::winnt::HANDLE);
+pub type HFILTER_INSTANCE = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HFILTER_VOLUME(pub super::winnt::HANDLE);
+pub type HFILTER_VOLUME = super::winnt::HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
@@ -280,202 +274,20 @@ pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3;
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0;
 pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2;
 pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_AGGREGATE_BASIC_INFORMATION(pub *mut FILTER_AGGREGATE_BASIC_INFORMATION);
-impl PFILTER_AGGREGATE_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_AGGREGATE_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_AGGREGATE_STANDARD_INFORMATION(pub *mut FILTER_AGGREGATE_STANDARD_INFORMATION);
-impl PFILTER_AGGREGATE_STANDARD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_FULL_INFORMATION(pub *mut FILTER_FULL_INFORMATION);
-impl PFILTER_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_INFORMATION_CLASS(pub *mut FILTER_INFORMATION_CLASS);
-impl PFILTER_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_MESSAGE_HEADER(pub *mut FILTER_MESSAGE_HEADER);
-impl PFILTER_MESSAGE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_MESSAGE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILTER_AGGREGATE_BASIC_INFORMATION = *mut FILTER_AGGREGATE_BASIC_INFORMATION;
+pub type PFILTER_AGGREGATE_STANDARD_INFORMATION = *mut FILTER_AGGREGATE_STANDARD_INFORMATION;
+pub type PFILTER_FULL_INFORMATION = *mut FILTER_FULL_INFORMATION;
+pub type PFILTER_INFORMATION_CLASS = *mut FILTER_INFORMATION_CLASS;
+pub type PFILTER_MESSAGE_HEADER = *mut FILTER_MESSAGE_HEADER;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_REPLY_HEADER(pub *mut FILTER_REPLY_HEADER);
-#[cfg(feature = "bcrypt")]
-impl PFILTER_REPLY_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PFILTER_REPLY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_VOLUME_BASIC_INFORMATION(pub *mut FILTER_VOLUME_BASIC_INFORMATION);
-impl PFILTER_VOLUME_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_VOLUME_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_VOLUME_INFORMATION_CLASS(pub *mut FILTER_VOLUME_INFORMATION_CLASS);
-impl PFILTER_VOLUME_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_VOLUME_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILTER_VOLUME_STANDARD_INFORMATION(pub *mut FILTER_VOLUME_STANDARD_INFORMATION);
-impl PFILTER_VOLUME_STANDARD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILTER_VOLUME_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFLT_FILESYSTEM_TYPE(pub *mut FLT_FILESYSTEM_TYPE);
-impl PFLT_FILESYSTEM_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFLT_FILESYSTEM_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTANCE_AGGREGATE_STANDARD_INFORMATION(pub *mut INSTANCE_AGGREGATE_STANDARD_INFORMATION);
-impl PINSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTANCE_BASIC_INFORMATION(pub *mut INSTANCE_BASIC_INFORMATION);
-impl PINSTANCE_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTANCE_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTANCE_FULL_INFORMATION(pub *mut INSTANCE_FULL_INFORMATION);
-impl PINSTANCE_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTANCE_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTANCE_INFORMATION_CLASS(pub *mut INSTANCE_INFORMATION_CLASS);
-impl PINSTANCE_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTANCE_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTANCE_PARTIAL_INFORMATION(pub *mut INSTANCE_PARTIAL_INFORMATION);
-impl PINSTANCE_PARTIAL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTANCE_PARTIAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILTER_REPLY_HEADER = *mut FILTER_REPLY_HEADER;
+pub type PFILTER_VOLUME_BASIC_INFORMATION = *mut FILTER_VOLUME_BASIC_INFORMATION;
+pub type PFILTER_VOLUME_INFORMATION_CLASS = *mut FILTER_VOLUME_INFORMATION_CLASS;
+pub type PFILTER_VOLUME_STANDARD_INFORMATION = *mut FILTER_VOLUME_STANDARD_INFORMATION;
+pub type PFLT_FILESYSTEM_TYPE = *mut FLT_FILESYSTEM_TYPE;
+pub type PINSTANCE_AGGREGATE_STANDARD_INFORMATION = *mut INSTANCE_AGGREGATE_STANDARD_INFORMATION;
+pub type PINSTANCE_BASIC_INFORMATION = *mut INSTANCE_BASIC_INFORMATION;
+pub type PINSTANCE_FULL_INFORMATION = *mut INSTANCE_FULL_INFORMATION;
+pub type PINSTANCE_INFORMATION_CLASS = *mut INSTANCE_INFORMATION_CLASS;
+pub type PINSTANCE_PARTIAL_INFORMATION = *mut INSTANCE_PARTIAL_INFORMATION;
 pub const VOLUME_NAME_MAX_CHARS: u32 = 1024;

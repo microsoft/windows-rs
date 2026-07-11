@@ -159,254 +159,32 @@ pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: windows_core::BOOL,
 }
 pub const NUMBER_OF_EXPORTED_VARIABLES: u32 = 39;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_BEST_IF(pub *mut MIB_BEST_IF);
-impl PMIB_BEST_IF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_BEST_IF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_BOUNDARYROW(pub *mut MIB_BOUNDARYROW);
-impl PMIB_BOUNDARYROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_BOUNDARYROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFSTATUS(pub *mut MIB_IFSTATUS);
-impl PMIB_IFSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IFSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_BEST_IF = *mut MIB_BEST_IF;
+pub type PMIB_BOUNDARYROW = *mut MIB_BOUNDARYROW;
+pub type PMIB_IFSTATUS = *mut MIB_IFSTATUS;
 #[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPDESTROW(pub *mut MIB_IPDESTROW);
+pub type PMIB_IPDESTROW = *mut MIB_IPDESTROW;
 #[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-impl PMIB_IPDESTROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-impl Default for PMIB_IPDESTROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPDESTTABLE(pub *mut MIB_IPDESTTABLE);
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-impl PMIB_IPDESTTABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipmib", feature = "nldef"))]
-impl Default for PMIB_IPDESTTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPMCAST_BOUNDARY(pub *mut MIB_IPMCAST_BOUNDARY);
-impl PMIB_IPMCAST_BOUNDARY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IPMCAST_BOUNDARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPMCAST_BOUNDARY_TABLE(pub *mut MIB_IPMCAST_BOUNDARY_TABLE);
-impl PMIB_IPMCAST_BOUNDARY_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IPMCAST_BOUNDARY_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPMCAST_SCOPE(pub *mut MIB_IPMCAST_SCOPE);
-impl PMIB_IPMCAST_SCOPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IPMCAST_SCOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_MCAST_LIMIT_ROW(pub *mut MIB_MCAST_LIMIT_ROW);
-impl PMIB_MCAST_LIMIT_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_MCAST_LIMIT_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_OPAQUE_INFO(pub *mut MIB_OPAQUE_INFO);
-impl PMIB_OPAQUE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_OPAQUE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_OPAQUE_QUERY(pub *mut MIB_OPAQUE_QUERY);
-impl PMIB_OPAQUE_QUERY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_OPAQUE_QUERY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_PROXYARP(pub *mut MIB_PROXYARP);
-impl PMIB_PROXYARP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_PROXYARP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_ROUTESTATE(pub *mut MIB_ROUTESTATE);
-impl PMIB_ROUTESTATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_ROUTESTATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IPDESTTABLE = *mut MIB_IPDESTTABLE;
+pub type PMIB_IPMCAST_BOUNDARY = *mut MIB_IPMCAST_BOUNDARY;
+pub type PMIB_IPMCAST_BOUNDARY_TABLE = *mut MIB_IPMCAST_BOUNDARY_TABLE;
+pub type PMIB_IPMCAST_SCOPE = *mut MIB_IPMCAST_SCOPE;
+pub type PMIB_MCAST_LIMIT_ROW = *mut MIB_MCAST_LIMIT_ROW;
+pub type PMIB_OPAQUE_INFO = *mut MIB_OPAQUE_INFO;
+pub type PMIB_OPAQUE_QUERY = *mut MIB_OPAQUE_QUERY;
+pub type PMIB_PROXYARP = *mut MIB_PROXYARP;
+pub type PMIB_ROUTESTATE = *mut MIB_ROUTESTATE;
 pub const PROXY_ARP: u32 = 22;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCPIP_OWNER_MODULE_BASIC_INFO(pub *mut TCPIP_OWNER_MODULE_BASIC_INFO);
-#[cfg(feature = "winnt")]
-impl PTCPIP_OWNER_MODULE_BASIC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTCPIP_OWNER_MODULE_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCPIP_OWNER_MODULE_INFO_CLASS(pub *mut TCPIP_OWNER_MODULE_INFO_CLASS);
-impl PTCPIP_OWNER_MODULE_INFO_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCPIP_OWNER_MODULE_INFO_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_TABLE_CLASS(pub *mut TCP_TABLE_CLASS);
-impl PTCP_TABLE_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_TABLE_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUDP_TABLE_CLASS(pub *mut UDP_TABLE_CLASS);
-impl PUDP_TABLE_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUDP_TABLE_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTCPIP_OWNER_MODULE_BASIC_INFO = *mut TCPIP_OWNER_MODULE_BASIC_INFO;
+pub type PTCPIP_OWNER_MODULE_INFO_CLASS = *mut TCPIP_OWNER_MODULE_INFO_CLASS;
+pub type PTCP_TABLE_CLASS = *mut TCP_TABLE_CLASS;
+pub type PUDP_TABLE_CLASS = *mut UDP_TABLE_CLASS;
 pub const ROUTE_LONGER: u32 = 32;
 pub const ROUTE_MATCHING: u32 = 31;
 pub const ROUTE_SHORTER: u32 = 33;
 pub const ROUTE_STATE: u32 = 34;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SCOPE_NAME(pub *mut SN_CHAR);
-impl SCOPE_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for SCOPE_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type SCOPE_NAME = *mut SN_CHAR;
 pub type SCOPE_NAME_BUFFER = [SN_CHAR; 256];
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

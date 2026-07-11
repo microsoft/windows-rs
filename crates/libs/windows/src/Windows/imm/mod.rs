@@ -706,189 +706,27 @@ pub const ISC_SHOWUICANDIDATEWINDOW: u32 = 1;
 pub const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648;
 pub const ISC_SHOWUIGUIDELINE: u32 = 1073741824;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCANDIDATEFORM(pub *mut CANDIDATEFORM);
+pub type LPCANDIDATEFORM = *mut CANDIDATEFORM;
+pub type LPCANDIDATELIST = *mut CANDIDATELIST;
 #[cfg(feature = "windef")]
-impl LPCANDIDATEFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCANDIDATEFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCANDIDATELIST(pub *mut CANDIDATELIST);
-impl LPCANDIDATELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCANDIDATELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
-#[cfg(feature = "windef")]
-impl LPCOMPOSITIONFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCOMPOSITIONFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHKL(pub *mut super::minwindef::HKL);
-#[cfg(feature = "minwindef")]
-impl LPHKL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPHKL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHKL = *mut super::minwindef::HKL;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMECHARPOSITION(pub *mut IMECHARPOSITION);
+pub type LPIMECHARPOSITION = *mut IMECHARPOSITION;
 #[cfg(feature = "windef")]
-impl LPIMECHARPOSITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPIMEMENUITEMINFO = LPIMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-impl Default for LPIMECHARPOSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPIMEMENUITEMINFO(pub LPIMEMENUITEMINFOA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
-#[cfg(feature = "windef")]
-impl LPIMEMENUITEMINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPIMEMENUITEMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "windef")]
-impl LPIMEMENUITEMINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPIMEMENUITEMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRECONVERTSTRING(pub *mut RECONVERTSTRING);
-impl LPRECONVERTSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPRECONVERTSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPREGISTERWORD(pub LPREGISTERWORDA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREGISTERWORDA(pub *mut REGISTERWORDA);
-impl LPREGISTERWORDA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREGISTERWORDW(pub *mut REGISTERWORDW);
-impl LPREGISTERWORDW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSTYLEBUF(pub LPSTYLEBUFA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTYLEBUFA(pub *mut STYLEBUFA);
-impl LPSTYLEBUFA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTYLEBUFA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTYLEBUFW(pub *mut STYLEBUFW);
-impl LPSTYLEBUFW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTYLEBUFW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+pub type LPRECONVERTSTRING = *mut RECONVERTSTRING;
+pub type LPREGISTERWORD = LPREGISTERWORDA;
+pub type LPREGISTERWORDA = *mut REGISTERWORDA;
+pub type LPREGISTERWORDW = *mut REGISTERWORDW;
+pub type LPSTYLEBUF = LPSTYLEBUFA;
+pub type LPSTYLEBUFA = *mut STYLEBUFA;
+pub type LPSTYLEBUFW = *mut STYLEBUFW;
 pub const MOD_IGNORE_ALL_MODIFIER: u32 = 1024;
 pub const MOD_LEFT: u32 = 32768;
 pub const MOD_ON_KEYUP: u32 = 2048;
@@ -903,341 +741,45 @@ pub const NI_SELECTCANDIDATESTR: u32 = 18;
 pub const NI_SETCANDIDATE_PAGESIZE: u32 = 23;
 pub const NI_SETCANDIDATE_PAGESTART: u32 = 22;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCANDIDATEFORM(pub *mut CANDIDATEFORM);
+pub type NPCANDIDATEFORM = *mut CANDIDATEFORM;
+pub type NPCANDIDATELIST = *mut CANDIDATELIST;
 #[cfg(feature = "windef")]
-impl NPCANDIDATEFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPCOMPOSITIONFORM = *mut COMPOSITIONFORM;
 #[cfg(feature = "windef")]
-impl Default for NPCANDIDATEFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCANDIDATELIST(pub *mut CANDIDATELIST);
-impl NPCANDIDATELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPCANDIDATELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPIMECHARPOSITION = *mut IMECHARPOSITION;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
+pub type NPIMEMENUITEMINFO = NPIMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-impl NPCOMPOSITIONFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-impl Default for NPCOMPOSITIONFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+pub type NPRECONVERTSTRING = *mut RECONVERTSTRING;
+pub type NPREGISTERWORD = NPREGISTERWORDA;
+pub type NPREGISTERWORDA = *mut REGISTERWORDA;
+pub type NPREGISTERWORDW = *mut REGISTERWORDW;
+pub type NPSTYLEBUF = NPSTYLEBUFA;
+pub type NPSTYLEBUFA = *mut STYLEBUFA;
+pub type NPSTYLEBUFW = *mut STYLEBUFW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPIMECHARPOSITION(pub *mut IMECHARPOSITION);
+pub type PCANDIDATEFORM = *mut CANDIDATEFORM;
+pub type PCANDIDATELIST = *mut CANDIDATELIST;
 #[cfg(feature = "windef")]
-impl NPIMECHARPOSITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCOMPOSITIONFORM = *mut COMPOSITIONFORM;
 #[cfg(feature = "windef")]
-impl Default for NPIMECHARPOSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMECHARPOSITION = *mut IMECHARPOSITION;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPIMEMENUITEMINFO(pub NPIMEMENUITEMINFOA);
+pub type PIMEMENUITEMINFO = PIMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
+pub type PIMEMENUITEMINFOA = *mut IMEMENUITEMINFOA;
 #[cfg(feature = "windef")]
-impl NPIMEMENUITEMINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPIMEMENUITEMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "windef")]
-impl NPIMEMENUITEMINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPIMEMENUITEMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPRECONVERTSTRING(pub *mut RECONVERTSTRING);
-impl NPRECONVERTSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPRECONVERTSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPREGISTERWORD(pub NPREGISTERWORDA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPREGISTERWORDA(pub *mut REGISTERWORDA);
-impl NPREGISTERWORDA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPREGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPREGISTERWORDW(pub *mut REGISTERWORDW);
-impl NPREGISTERWORDW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPREGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPSTYLEBUF(pub NPSTYLEBUFA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPSTYLEBUFA(pub *mut STYLEBUFA);
-impl NPSTYLEBUFA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPSTYLEBUFA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPSTYLEBUFW(pub *mut STYLEBUFW);
-impl NPSTYLEBUFW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPSTYLEBUFW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCANDIDATEFORM(pub *mut CANDIDATEFORM);
-#[cfg(feature = "windef")]
-impl PCANDIDATEFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCANDIDATEFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCANDIDATELIST(pub *mut CANDIDATELIST);
-impl PCANDIDATELIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCANDIDATELIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMPOSITIONFORM(pub *mut COMPOSITIONFORM);
-#[cfg(feature = "windef")]
-impl PCOMPOSITIONFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCOMPOSITIONFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMECHARPOSITION(pub *mut IMECHARPOSITION);
-#[cfg(feature = "windef")]
-impl PIMECHARPOSITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PIMECHARPOSITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PIMEMENUITEMINFO(pub PIMEMENUITEMINFOA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMEMENUITEMINFOA(pub *mut IMEMENUITEMINFOA);
-#[cfg(feature = "windef")]
-impl PIMEMENUITEMINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PIMEMENUITEMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMEMENUITEMINFOW(pub *mut IMEMENUITEMINFOW);
-#[cfg(feature = "windef")]
-impl PIMEMENUITEMINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PIMEMENUITEMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRECONVERTSTRING(pub *mut RECONVERTSTRING);
-impl PRECONVERTSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRECONVERTSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PREGISTERWORD(pub PREGISTERWORDA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREGISTERWORDA(pub *mut REGISTERWORDA);
-impl PREGISTERWORDA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREGISTERWORDA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREGISTERWORDW(pub *mut REGISTERWORDW);
-impl PREGISTERWORDW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREGISTERWORDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSTYLEBUF(pub PSTYLEBUFA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTYLEBUFA(pub *mut STYLEBUFA);
-impl PSTYLEBUFA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTYLEBUFA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTYLEBUFW(pub *mut STYLEBUFW);
-impl PSTYLEBUFW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTYLEBUFW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMEMENUITEMINFOW = *mut IMEMENUITEMINFOW;
+pub type PRECONVERTSTRING = *mut RECONVERTSTRING;
+pub type PREGISTERWORD = PREGISTERWORDA;
+pub type PREGISTERWORDA = *mut REGISTERWORDA;
+pub type PREGISTERWORDW = *mut REGISTERWORDW;
+pub type PSTYLEBUF = PSTYLEBUFA;
+pub type PSTYLEBUFA = *mut STYLEBUFA;
+pub type PSTYLEBUFW = *mut STYLEBUFW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RECONVERTSTRING {

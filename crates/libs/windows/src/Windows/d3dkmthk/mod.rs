@@ -7815,97 +7815,17 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32: OUTPUTDUPL_CONTEXT_DEBUG
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 0;
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 2;
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS(pub *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS);
-impl PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS(pub *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS);
-impl PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PD3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS;
+pub type PD3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS = *mut D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS;
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS(pub *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS);
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-impl PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-impl Default for PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PD3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS = *mut D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS;
 pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: bool, privatehandle: *mut core::ffi::c_void)>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDXGK_GRAPHICSPOWER_REGISTER_INPUT(pub *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT);
+pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT;
 #[cfg(feature = "winnt")]
-impl PDXGK_GRAPHICSPOWER_REGISTER_INPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDXGK_GRAPHICSPOWER_REGISTER_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2(pub *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2);
-#[cfg(feature = "winnt")]
-impl PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT(pub *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT;
 #[cfg(feature = "bcrypt")]
 pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: bool, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
@@ -8299,20 +8219,6 @@ pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECT_ATTRIBUTES(pub *mut OBJECT_ATTRIBUTES);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl POBJECT_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for POBJECT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
 pub const SHARED_ALLOCATION_ALL_ACCESS: u32 = 983041;
 pub const SHARED_ALLOCATION_WRITE: u32 = 1;

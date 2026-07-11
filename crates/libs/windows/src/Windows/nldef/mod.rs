@@ -144,136 +144,16 @@ pub const NlsoManual: NL_SUFFIX_ORIGIN = 1;
 pub const NlsoOther: NL_SUFFIX_ORIGIN = 0;
 pub const NlsoRandom: NL_SUFFIX_ORIGIN = 5;
 pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_ADDRESS_TYPE(pub *mut NL_ADDRESS_TYPE);
-impl PNL_ADDRESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_ADDRESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_BANDWIDTH_FLAG(pub *mut NL_BANDWIDTH_FLAG);
-impl PNL_BANDWIDTH_FLAG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_BANDWIDTH_FLAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_BANDWIDTH_INFORMATION(pub *mut NL_BANDWIDTH_INFORMATION);
-impl PNL_BANDWIDTH_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_BANDWIDTH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_INTERFACE_NETWORK_CATEGORY_STATE(pub *mut NL_INTERFACE_NETWORK_CATEGORY_STATE);
-impl PNL_INTERFACE_NETWORK_CATEGORY_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_INTERFACE_NETWORK_CATEGORY_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_INTERFACE_OFFLOAD_ROD(pub *mut NL_INTERFACE_OFFLOAD_ROD);
-impl PNL_INTERFACE_OFFLOAD_ROD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_INTERFACE_OFFLOAD_ROD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_NEIGHBOR_STATE(pub *mut NL_NEIGHBOR_STATE);
-impl PNL_NEIGHBOR_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_NEIGHBOR_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_NETWORK_CATEGORY(pub *mut NL_NETWORK_CATEGORY);
-impl PNL_NETWORK_CATEGORY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_NETWORK_CATEGORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_PATH_BANDWIDTH_ROD(pub *mut NL_PATH_BANDWIDTH_ROD);
-impl PNL_PATH_BANDWIDTH_ROD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_PATH_BANDWIDTH_ROD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_ROUTE_ORIGIN(pub *mut NL_ROUTE_ORIGIN);
-impl PNL_ROUTE_ORIGIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_ROUTE_ORIGIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNL_ROUTE_PROTOCOL(pub *mut NL_ROUTE_PROTOCOL);
-impl PNL_ROUTE_PROTOCOL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNL_ROUTE_PROTOCOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNL_ADDRESS_TYPE = *mut NL_ADDRESS_TYPE;
+pub type PNL_BANDWIDTH_FLAG = *mut NL_BANDWIDTH_FLAG;
+pub type PNL_BANDWIDTH_INFORMATION = *mut NL_BANDWIDTH_INFORMATION;
+pub type PNL_INTERFACE_NETWORK_CATEGORY_STATE = *mut NL_INTERFACE_NETWORK_CATEGORY_STATE;
+pub type PNL_INTERFACE_OFFLOAD_ROD = *mut NL_INTERFACE_OFFLOAD_ROD;
+pub type PNL_NEIGHBOR_STATE = *mut NL_NEIGHBOR_STATE;
+pub type PNL_NETWORK_CATEGORY = *mut NL_NETWORK_CATEGORY;
+pub type PNL_PATH_BANDWIDTH_ROD = *mut NL_PATH_BANDWIDTH_ROD;
+pub type PNL_ROUTE_ORIGIN = *mut NL_ROUTE_ORIGIN;
+pub type PNL_ROUTE_PROTOCOL = *mut NL_ROUTE_PROTOCOL;
 pub const PROTO_IP_BBN: NL_ROUTE_PROTOCOL = 12;
 pub const PROTO_IP_BGP: NL_ROUTE_PROTOCOL = 14;
 pub const PROTO_IP_CISCO: NL_ROUTE_PROTOCOL = 11;

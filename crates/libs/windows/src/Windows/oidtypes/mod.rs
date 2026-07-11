@@ -15,29 +15,5 @@ pub const NdisRequestReset: NDIS_REQUEST_TYPE = 7;
 pub const NdisRequestSend: NDIS_REQUEST_TYPE = 5;
 pub const NdisRequestSetInformation: NDIS_REQUEST_TYPE = 1;
 pub const NdisRequestTransferData: NDIS_REQUEST_TYPE = 6;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDIS_OID(pub *mut u32);
-impl PNDIS_OID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDIS_OID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDIS_REQUEST_TYPE(pub *mut NDIS_REQUEST_TYPE);
-impl PNDIS_REQUEST_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDIS_REQUEST_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNDIS_OID = *mut u32;
+pub type PNDIS_REQUEST_TYPE = *mut NDIS_REQUEST_TYPE;

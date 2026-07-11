@@ -1735,16 +1735,4 @@ pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
 }
 pub type FWPM_VSWITCH_EVENT_TYPE = i32;
 pub const IKEEXT_CERT_HASH_LEN: u32 = 20;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDL_ADDRESS_TYPE(pub *mut DL_ADDRESS_TYPE);
-impl PDL_ADDRESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDL_ADDRESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDL_ADDRESS_TYPE = *mut DL_ADDRESS_TYPE;

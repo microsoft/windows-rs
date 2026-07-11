@@ -180,19 +180,7 @@ impl Default for HYPER_SIZEDARR {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBLOB(pub *mut BLOB);
-impl LPBLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBLOB = *mut BLOB;
 pub type MEMCTX = i32;
 pub const MEMCTX_MACSYSTEM: MEMCTX = 3;
 pub const MEMCTX_SAME: MEMCTX = -2;
@@ -218,94 +206,18 @@ pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OLECHAR(pub u16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCODE(pub *mut SCODE);
-impl PSCODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCODE = *mut SCODE;
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCODE(pub i32);
 #[cfg(feature = "rpc")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct UP_BYTE_BLOB(pub *mut BYTE_BLOB);
+pub type UP_BYTE_BLOB = *mut BYTE_BLOB;
+pub type UP_DWORD_BLOB = *mut DWORD_BLOB;
 #[cfg(feature = "rpc")]
-impl UP_BYTE_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "rpc")]
-impl Default for UP_BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct UP_DWORD_BLOB(pub *mut DWORD_BLOB);
-impl UP_DWORD_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for UP_DWORD_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "rpc")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct UP_FLAGGED_BYTE_BLOB(pub *mut FLAGGED_BYTE_BLOB);
-#[cfg(feature = "rpc")]
-impl UP_FLAGGED_BYTE_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "rpc")]
-impl Default for UP_FLAGGED_BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct UP_FLAGGED_WORD_BLOB(pub *mut FLAGGED_WORD_BLOB);
-impl UP_FLAGGED_WORD_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for UP_FLAGGED_WORD_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct UP_WORD_BLOB(pub *mut WORD_BLOB);
-impl UP_WORD_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for UP_WORD_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
+pub type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
+pub type UP_WORD_BLOB = *mut WORD_BLOB;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WORD_BLOB {

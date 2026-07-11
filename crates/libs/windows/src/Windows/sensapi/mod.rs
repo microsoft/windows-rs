@@ -19,19 +19,7 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> windows_core::BOOL {
     windows_core::link!("sensapi.dll" "system" fn IsNetworkAlive(lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { IsNetworkAlive(lpdwflags as _) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOCINFO(pub *mut QOCINFO);
-impl LPQOCINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQOCINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQOCINFO = *mut QOCINFO;
 pub const NETWORK_ALIVE_AOL: u32 = 4;
 pub const NETWORK_ALIVE_INTERNET: u32 = 8;
 pub const NETWORK_ALIVE_LAN: u32 = 1;

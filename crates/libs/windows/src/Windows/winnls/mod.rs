@@ -1349,132 +1349,18 @@ pub const LOCALE_USE_CP_ACP: u32 = 1073741824;
 pub const LOCALE_WINDOWS: u32 = 1;
 pub const LOW_SURROGATE_END: u32 = 57343;
 pub const LOW_SURROGATE_START: u32 = 56320;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPINFO(pub *mut CPINFO);
-impl LPCPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPINFOEX(pub LPCPINFOEXA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPINFOEXA(pub *mut CPINFOEXA);
-impl LPCPINFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCPINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPINFOEXW(pub *mut CPINFOEXW);
-impl LPCPINFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCPINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCURRENCYFMT(pub LPCURRENCYFMTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCURRENCYFMTA(pub *mut CURRENCYFMTA);
-impl LPCURRENCYFMTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCURRENCYFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCURRENCYFMTW(pub *mut CURRENCYFMTW);
-impl LPCURRENCYFMTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCURRENCYFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNLSVERSIONINFO(pub *mut NLSVERSIONINFO);
-impl LPNLSVERSIONINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNLSVERSIONINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNLSVERSIONINFOEX(pub *mut NLSVERSIONINFOEX);
-impl LPNLSVERSIONINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNLSVERSIONINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPNUMBERFMT(pub LPNUMBERFMTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNUMBERFMTA(pub *mut NUMBERFMTA);
-impl LPNUMBERFMTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNUMBERFMTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNUMBERFMTW(pub *mut NUMBERFMTW);
-impl LPNUMBERFMTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNUMBERFMTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPINFO = *mut CPINFO;
+pub type LPCPINFOEX = LPCPINFOEXA;
+pub type LPCPINFOEXA = *mut CPINFOEXA;
+pub type LPCPINFOEXW = *mut CPINFOEXW;
+pub type LPCURRENCYFMT = LPCURRENCYFMTA;
+pub type LPCURRENCYFMTA = *mut CURRENCYFMTA;
+pub type LPCURRENCYFMTW = *mut CURRENCYFMTW;
+pub type LPNLSVERSIONINFO = *mut NLSVERSIONINFO;
+pub type LPNLSVERSIONINFOEX = *mut NLSVERSIONINFOEX;
+pub type LPNUMBERFMT = LPNUMBERFMTA;
+pub type LPNUMBERFMTA = *mut NUMBERFMTA;
+pub type LPNUMBERFMTW = *mut NUMBERFMTW;
 pub const MAP_COMPOSITE: u32 = 64;
 pub const MAP_EXPAND_LIGATURES: u32 = 8192;
 pub const MAP_FOLDCZONE: u32 = 16;
@@ -1573,19 +1459,7 @@ pub const NormalizationD: NORM_FORM = 2;
 pub const NormalizationKC: NORM_FORM = 5;
 pub const NormalizationKD: NORM_FORM = 6;
 pub const NormalizationOther: NORM_FORM = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILEMUIINFO(pub *mut FILEMUIINFO);
-impl PFILEMUIINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILEMUIINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILEMUIINFO = *mut FILEMUIINFO;
 pub const SORTING_PARADIGM_ICU: u32 = 16777216;
 pub const SORTING_PARADIGM_NLS: u32 = 0;
 pub const SORT_DIGITSASNUMBERS: u32 = 8;

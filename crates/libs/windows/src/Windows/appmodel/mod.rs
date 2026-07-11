@@ -600,19 +600,7 @@ impl Default for PACKAGE_INFO {
 }
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0;
 pub const PACKAGE_INFORMATION_FULL: u32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACKAGE_INFO_REFERENCE(pub *mut _PACKAGE_INFO_REFERENCE);
-impl PACKAGE_INFO_REFERENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACKAGE_INFO_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACKAGE_INFO_REFERENCE = *mut _PACKAGE_INFO_REFERENCE;
 pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4;
 pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536;
 pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576;

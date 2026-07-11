@@ -469,428 +469,52 @@ pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: u32 = 2097152;
 pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: u32 = 1048576;
 pub const CRYPTUI_WIZ_NO_UI: u32 = 1;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_CERT_MGR_STRUCT(pub *const CRYPTUI_CERT_MGR_STRUCT);
+pub type PCCRYPTUI_CERT_MGR_STRUCT = *const CRYPTUI_CERT_MGR_STRUCT;
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
+pub type PCCRYPTUI_VIEWCERTIFICATE_STRUCTA = *const CRYPTUI_VIEWCERTIFICATE_STRUCTA;
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
+pub type PCCRYPTUI_VIEWCERTIFICATE_STRUCTW = *const CRYPTUI_VIEWCERTIFICATE_STRUCTW;
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO;
+#[cfg(feature = "wincrypt")]
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO;
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT = *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT;
+#[cfg(feature = "wincrypt")]
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO;
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO = *const CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO;
+pub type PCCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO = *const CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCCRYPTUI_WIZ_EXPORT_INFO = *const CRYPTUI_WIZ_EXPORT_INFO;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCCRYPTUI_WIZ_IMPORT_SRC_INFO = *const CRYPTUI_WIZ_IMPORT_SRC_INFO;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCERT_SELECTUI_INPUT = *mut CERT_SELECTUI_INPUT;
 #[cfg(feature = "windef")]
-impl PCCRYPTUI_CERT_MGR_STRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCCRYPTUI_CERT_MGR_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTUI_CERT_MGR_STRUCT = *mut CRYPTUI_CERT_MGR_STRUCT;
+#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
+pub type PCRYPTUI_INITDIALOG_STRUCT = *mut CRYPTUI_INITDIALOG_STRUCT;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_VIEWCERTIFICATE_STRUCTA(pub *const CRYPTUI_VIEWCERTIFICATE_STRUCTA);
+pub type PCRYPTUI_VIEWCERTIFICATE_STRUCTA = *mut CRYPTUI_VIEWCERTIFICATE_STRUCTA;
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl PCCRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl Default for PCCRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_VIEWCERTIFICATE_STRUCTW(pub *const CRYPTUI_VIEWCERTIFICATE_STRUCTW);
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl PCCRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl Default for PCCRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO);
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTUI_VIEWCERTIFICATE_STRUCTW = *mut CRYPTUI_VIEWCERTIFICATE_STRUCTW;
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO);
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO;
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT = *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT;
 #[cfg(feature = "wincrypt")]
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT);
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO);
-#[cfg(feature = "wincrypt")]
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO);
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_INFO;
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO = *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO;
+pub type PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO = *mut CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO);
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTUI_WIZ_EXPORT_INFO = *mut CRYPTUI_WIZ_EXPORT_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO(pub *const CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO(pub *const CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO);
-impl PCCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_EXPORT_INFO(pub *const CRYPTUI_WIZ_EXPORT_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCCRYPTUI_WIZ_EXPORT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCCRYPTUI_WIZ_EXPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCRYPTUI_WIZ_IMPORT_SRC_INFO(pub *const CRYPTUI_WIZ_IMPORT_SRC_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCCRYPTUI_WIZ_IMPORT_SRC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCCRYPTUI_WIZ_IMPORT_SRC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCERT_SELECTUI_INPUT(pub *mut CERT_SELECTUI_INPUT);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCERT_SELECTUI_INPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCERT_SELECTUI_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_CERT_MGR_STRUCT(pub *mut CRYPTUI_CERT_MGR_STRUCT);
-#[cfg(feature = "windef")]
-impl PCRYPTUI_CERT_MGR_STRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCRYPTUI_CERT_MGR_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_INITDIALOG_STRUCT(pub *mut CRYPTUI_INITDIALOG_STRUCT);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCRYPTUI_INITDIALOG_STRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCRYPTUI_INITDIALOG_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_VIEWCERTIFICATE_STRUCTA(pub *mut CRYPTUI_VIEWCERTIFICATE_STRUCTA);
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl PCRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl Default for PCRYPTUI_VIEWCERTIFICATE_STRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_VIEWCERTIFICATE_STRUCTW(pub *mut CRYPTUI_VIEWCERTIFICATE_STRUCTW);
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl PCRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "prsht", feature = "wincrypt", feature = "windef", feature = "winnt", feature = "wintrust", feature = "winuser"))]
-impl Default for PCRYPTUI_VIEWCERTIFICATE_STRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO);
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO);
-#[cfg(feature = "wincrypt")]
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT);
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO);
-#[cfg(feature = "wincrypt")]
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO);
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO(pub *mut CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO(pub *mut CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO);
-impl PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_EXPORT_INFO(pub *mut CRYPTUI_WIZ_EXPORT_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCRYPTUI_WIZ_EXPORT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCRYPTUI_WIZ_EXPORT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTUI_WIZ_IMPORT_SRC_INFO(pub *mut CRYPTUI_WIZ_IMPORT_SRC_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PCRYPTUI_WIZ_IMPORT_SRC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PCRYPTUI_WIZ_IMPORT_SRC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTUI_WIZ_IMPORT_SRC_INFO = *mut CRYPTUI_WIZ_IMPORT_SRC_INFO;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PFNCFILTERPROC = Option<unsafe extern "system" fn(pcertcontext: *const super::wincrypt::CERT_CONTEXT, pfinitialselectedcert: *mut windows_core::BOOL, pvcallbackdata: *mut core::ffi::c_void) -> windows_core::BOOL>;

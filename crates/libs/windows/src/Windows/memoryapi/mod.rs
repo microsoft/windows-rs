@@ -475,19 +475,7 @@ pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0 {
 }
 pub type OFFER_PRIORITY = i32;
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIN32_MEMORY_RANGE_ENTRY(pub *mut WIN32_MEMORY_RANGE_ENTRY);
-impl PWIN32_MEMORY_RANGE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIN32_MEMORY_RANGE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWIN32_MEMORY_RANGE_ENTRY = *mut WIN32_MEMORY_RANGE_ENTRY;
 pub const VmOfferPriorityBelowNormal: OFFER_PRIORITY = 3;
 pub const VmOfferPriorityLow: OFFER_PRIORITY = 2;
 pub const VmOfferPriorityNormal: OFFER_PRIORITY = 4;

@@ -47,16 +47,4 @@ pub const NameSurname: EXTENDED_NAME_FORMAT = 14;
 pub const NameUniqueId: EXTENDED_NAME_FORMAT = 6;
 pub const NameUnknown: EXTENDED_NAME_FORMAT = 0;
 pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTENDED_NAME_FORMAT(pub *mut EXTENDED_NAME_FORMAT);
-impl PEXTENDED_NAME_FORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTENDED_NAME_FORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXTENDED_NAME_FORMAT = *mut EXTENDED_NAME_FORMAT;

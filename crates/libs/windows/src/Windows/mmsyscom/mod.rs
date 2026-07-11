@@ -20,32 +20,8 @@ impl Default for HDRVR {
 }
 pub const JOYERR_BASE: u32 = 160;
 pub type LPDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMMTIME(pub *mut MMTIME);
-impl LPMMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUINT(pub *mut u32);
-impl LPUINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMMTIME = *mut MMTIME;
+pub type LPUINT = *mut u32;
 pub const MAXERRORLENGTH: u32 = 256;
 pub const MAXPNAMELEN: u32 = 32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260;
@@ -171,33 +147,9 @@ pub const MM_WIM_OPEN: u32 = 958;
 pub const MM_WOM_CLOSE: u32 = 956;
 pub const MM_WOM_DONE: u32 = 957;
 pub const MM_WOM_OPEN: u32 = 955;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMMTIME(pub *mut MMTIME);
-impl NPMMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPMMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPMMTIME = *mut MMTIME;
 pub type PDRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMMTIME(pub *mut MMTIME);
-impl PMMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMMTIME = *mut MMTIME;
 pub const TIMERR_BASE: u32 = 96;
 pub const TIME_BYTES: u32 = 4;
 pub const TIME_MIDI: u32 = 16;

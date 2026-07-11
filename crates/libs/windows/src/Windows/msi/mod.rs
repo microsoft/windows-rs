@@ -1622,74 +1622,12 @@ pub const MSITRANSACTIONSTATE_ROLLBACK: MSITRANSACTIONSTATE = 0;
 pub const MSITRANSACTION_CHAIN_EMBEDDEDUI: MSITRANSACTION = 1;
 pub const MSITRANSACTION_JOIN_EXISTING_EMBEDDEDUI: MSITRANSACTION = 2;
 pub const MSI_INVALID_HASH_IS_FATAL: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSTALLUI_HANDLER_RECORD(pub *mut INSTALLUI_HANDLER_RECORD);
-impl PINSTALLUI_HANDLER_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSTALLUI_HANDLER_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSIFILEHASHINFO(pub *mut MSIFILEHASHINFO);
-impl PMSIFILEHASHINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSIFILEHASHINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSIPATCHDATATYPE(pub *mut MSIPATCHDATATYPE);
-impl PMSIPATCHDATATYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSIPATCHDATATYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMSIPATCHSEQUENCEINFO(pub PMSIPATCHSEQUENCEINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSIPATCHSEQUENCEINFOA(pub *mut MSIPATCHSEQUENCEINFOA);
-impl PMSIPATCHSEQUENCEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSIPATCHSEQUENCEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSIPATCHSEQUENCEINFOW(pub *mut MSIPATCHSEQUENCEINFOW);
-impl PMSIPATCHSEQUENCEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSIPATCHSEQUENCEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINSTALLUI_HANDLER_RECORD = *mut INSTALLUI_HANDLER_RECORD;
+pub type PMSIFILEHASHINFO = *mut MSIFILEHASHINFO;
+pub type PMSIPATCHDATATYPE = *mut MSIPATCHDATATYPE;
+pub type PMSIPATCHSEQUENCEINFO = PMSIPATCHSEQUENCEINFOA;
+pub type PMSIPATCHSEQUENCEINFOA = *mut MSIPATCHSEQUENCEINFOA;
+pub type PMSIPATCHSEQUENCEINFOW = *mut MSIPATCHSEQUENCEINFOW;
 pub type REINSTALLMODE = i32;
 pub const REINSTALLMODE_FILEEQUALVERSION: REINSTALLMODE = 8;
 pub const REINSTALLMODE_FILEEXACT: REINSTALLMODE = 16;

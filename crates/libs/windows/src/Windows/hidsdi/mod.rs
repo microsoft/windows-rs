@@ -151,29 +151,5 @@ impl Default for HIDD_CONFIGURATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDD_ATTRIBUTES(pub *mut HIDD_ATTRIBUTES);
-impl PHIDD_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDD_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDD_CONFIGURATION(pub *mut HIDD_CONFIGURATION);
-impl PHIDD_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDD_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDD_ATTRIBUTES = *mut HIDD_ATTRIBUTES;
+pub type PHIDD_CONFIGURATION = *mut HIDD_CONFIGURATION;

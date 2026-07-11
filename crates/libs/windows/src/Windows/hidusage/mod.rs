@@ -2831,32 +2831,8 @@ pub const HID_VALUE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT_KOREA_103: USAGE_VALUE = U
 pub const HID_VALUE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT_UNKNOWN: USAGE_VALUE = USAGE_VALUE(0x0_u32 as _);
 pub const HID_VALUE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT_US_101: USAGE_VALUE = USAGE_VALUE(0x1_u32 as _);
 pub const HID_VALUE_CONSUMER_KEYBOARD_PHYSICAL_LAYOUT_VENDOR: USAGE_VALUE = USAGE_VALUE(0x6_u32 as _);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSAGE(pub *mut u16);
-impl PUSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSAGE_VALUE(pub *mut i32);
-impl PUSAGE_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSAGE_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSAGE = *mut u16;
+pub type PUSAGE_VALUE = *mut i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct USAGE(pub u16);

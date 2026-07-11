@@ -1,29 +1,5 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVIDEOPARAMETERS(pub *mut VIDEOPARAMETERS);
-impl LPVIDEOPARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPVIDEOPARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIDEOPARAMETERS(pub *mut VIDEOPARAMETERS);
-impl PVIDEOPARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIDEOPARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
+pub type PVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct VIDEOPARAMETERS {

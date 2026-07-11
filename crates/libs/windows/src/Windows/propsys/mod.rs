@@ -2903,19 +2903,7 @@ impl IPropertySystemChangeNotify_Vtbl {
 impl windows_core::RuntimeName for IPropertySystemChangeNotify {}
 pub const InMemoryPropertyStore: windows_core::GUID = windows_core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
 pub const InMemoryPropertyStoreMarshalByValue: windows_core::GUID = windows_core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCUSERIALIZEDPROPSTORAGE(pub *const SERIALIZEDPROPSTORAGE);
-impl PCUSERIALIZEDPROPSTORAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCUSERIALIZEDPROPSTORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCUSERIALIZEDPROPSTORAGE = *const SERIALIZEDPROPSTORAGE;
 pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = 3;
 pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = 4;
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = 0;
@@ -3053,19 +3041,7 @@ pub const PSC_NORMAL: PSC_STATE = 0;
 pub const PSC_NOTINSOURCE: PSC_STATE = 1;
 pub const PSC_READONLY: PSC_STATE = 3;
 pub type PSC_STATE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSERIALIZEDPROPSTORAGE(pub *mut SERIALIZEDPROPSTORAGE);
-impl PUSERIALIZEDPROPSTORAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSERIALIZEDPROPSTORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSERIALIZEDPROPSTORAGE = *mut SERIALIZEDPROPSTORAGE;
 pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

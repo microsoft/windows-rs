@@ -1260,428 +1260,56 @@ pub type PIPFORWARD_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercon
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
 pub type PIPINTERFACE_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, row: *const MIB_IPINTERFACE_ROW, notificationtype: MIB_NOTIFICATION_TYPE)>;
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADDRESS_PREFIX(pub *mut IP_ADDRESS_PREFIX);
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PIP_ADDRESS_PREFIX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PIP_ADDRESS_PREFIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADDRESS_PREFIX = *mut IP_ADDRESS_PREFIX;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_ANYCASTIPADDRESS_ROW(pub *mut MIB_ANYCASTIPADDRESS_ROW);
+pub type PMIB_ANYCASTIPADDRESS_ROW = *mut MIB_ANYCASTIPADDRESS_ROW;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_ANYCASTIPADDRESS_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_ANYCASTIPADDRESS_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_ANYCASTIPADDRESS_TABLE(pub *mut MIB_ANYCASTIPADDRESS_TABLE);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_ANYCASTIPADDRESS_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_ANYCASTIPADDRESS_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_ANYCASTIPADDRESS_TABLE = *mut MIB_ANYCASTIPADDRESS_TABLE;
 #[cfg(all(feature = "ifdef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_FL_VIRTUAL_INTERFACE_ROW(pub *mut MIB_FL_VIRTUAL_INTERFACE_ROW);
+pub type PMIB_FL_VIRTUAL_INTERFACE_ROW = *mut MIB_FL_VIRTUAL_INTERFACE_ROW;
 #[cfg(all(feature = "ifdef", feature = "ws2"))]
-impl PMIB_FL_VIRTUAL_INTERFACE_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ws2"))]
-impl Default for PMIB_FL_VIRTUAL_INTERFACE_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_FL_VIRTUAL_INTERFACE_TABLE(pub *mut MIB_FL_VIRTUAL_INTERFACE_TABLE);
-#[cfg(all(feature = "ifdef", feature = "ws2"))]
-impl PMIB_FL_VIRTUAL_INTERFACE_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ws2"))]
-impl Default for PMIB_FL_VIRTUAL_INTERFACE_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_FL_VIRTUAL_INTERFACE_TABLE = *mut MIB_FL_VIRTUAL_INTERFACE_TABLE;
 #[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFSTACK_ROW(pub *mut MIB_IFSTACK_ROW);
+pub type PMIB_IFSTACK_ROW = *mut MIB_IFSTACK_ROW;
 #[cfg(feature = "ifdef")]
-impl PMIB_IFSTACK_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ifdef")]
-impl Default for PMIB_IFSTACK_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IFSTACK_TABLE(pub *mut MIB_IFSTACK_TABLE);
-#[cfg(feature = "ifdef")]
-impl PMIB_IFSTACK_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ifdef")]
-impl Default for PMIB_IFSTACK_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IF_ENTRY_LEVEL(pub *mut MIB_IF_ENTRY_LEVEL);
-impl PMIB_IF_ENTRY_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IF_ENTRY_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IFSTACK_TABLE = *mut MIB_IFSTACK_TABLE;
+pub type PMIB_IF_ENTRY_LEVEL = *mut MIB_IF_ENTRY_LEVEL;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IF_ROW2(pub *mut MIB_IF_ROW2);
+pub type PMIB_IF_ROW2 = *mut MIB_IF_ROW2;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-impl PMIB_IF_ROW2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-impl Default for PMIB_IF_ROW2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IF_TABLE2(pub *mut MIB_IF_TABLE2);
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-impl PMIB_IF_TABLE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-impl Default for PMIB_IF_TABLE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IF_TABLE_LEVEL(pub *mut MIB_IF_TABLE_LEVEL);
-impl PMIB_IF_TABLE_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_IF_TABLE_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IF_TABLE2 = *mut MIB_IF_TABLE2;
+pub type PMIB_IF_TABLE_LEVEL = *mut MIB_IF_TABLE_LEVEL;
 #[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_INVERTEDIFSTACK_ROW(pub *mut MIB_INVERTEDIFSTACK_ROW);
+pub type PMIB_INVERTEDIFSTACK_ROW = *mut MIB_INVERTEDIFSTACK_ROW;
 #[cfg(feature = "ifdef")]
-impl PMIB_INVERTEDIFSTACK_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ifdef")]
-impl Default for PMIB_INVERTEDIFSTACK_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ifdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_INVERTEDIFSTACK_TABLE(pub *mut MIB_INVERTEDIFSTACK_TABLE);
-#[cfg(feature = "ifdef")]
-impl PMIB_INVERTEDIFSTACK_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ifdef")]
-impl Default for PMIB_INVERTEDIFSTACK_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_INVERTEDIFSTACK_TABLE = *mut MIB_INVERTEDIFSTACK_TABLE;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPFORWARD_ROW2(pub *mut MIB_IPFORWARD_ROW2);
+pub type PMIB_IPFORWARD_ROW2 = *mut MIB_IPFORWARD_ROW2;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPFORWARD_ROW2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPFORWARD_ROW2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPFORWARD_TABLE2(pub *mut MIB_IPFORWARD_TABLE2);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPFORWARD_TABLE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPFORWARD_TABLE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IPFORWARD_TABLE2 = *mut MIB_IPFORWARD_TABLE2;
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPINTERFACE_ROW(pub *mut MIB_IPINTERFACE_ROW);
+pub type PMIB_IPINTERFACE_ROW = *mut MIB_IPINTERFACE_ROW;
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPINTERFACE_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPINTERFACE_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPINTERFACE_TABLE(pub *mut MIB_IPINTERFACE_TABLE);
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPINTERFACE_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPINTERFACE_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IPINTERFACE_TABLE = *mut MIB_IPINTERFACE_TABLE;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPNET_ROW2(pub *mut MIB_IPNET_ROW2);
+pub type PMIB_IPNET_ROW2 = *mut MIB_IPNET_ROW2;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPNET_ROW2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPNET_ROW2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPNET_TABLE2(pub *mut MIB_IPNET_TABLE2);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_IPNET_TABLE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_IPNET_TABLE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IPNET_TABLE2 = *mut MIB_IPNET_TABLE2;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPPATH_ROW(pub *mut MIB_IPPATH_ROW);
+pub type PMIB_IPPATH_ROW = *mut MIB_IPPATH_ROW;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_IPPATH_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_IPPATH_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IPPATH_TABLE(pub *mut MIB_IPPATH_TABLE);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_IPPATH_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_IPPATH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IPPATH_TABLE = *mut MIB_IPPATH_TABLE;
 #[cfg(feature = "nldef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES(pub *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES);
-#[cfg(feature = "nldef")]
-impl PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "nldef")]
-impl Default for PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES = *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_MULTICASTIPADDRESS_ROW(pub *mut MIB_MULTICASTIPADDRESS_ROW);
+pub type PMIB_MULTICASTIPADDRESS_ROW = *mut MIB_MULTICASTIPADDRESS_ROW;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_MULTICASTIPADDRESS_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_MULTICASTIPADDRESS_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_MULTICASTIPADDRESS_TABLE(pub *mut MIB_MULTICASTIPADDRESS_TABLE);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl PMIB_MULTICASTIPADDRESS_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
-impl Default for PMIB_MULTICASTIPADDRESS_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_NOTIFICATION_TYPE(pub *mut MIB_NOTIFICATION_TYPE);
-impl PMIB_NOTIFICATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIB_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_MULTICASTIPADDRESS_TABLE = *mut MIB_MULTICASTIPADDRESS_TABLE;
+pub type PMIB_NOTIFICATION_TYPE = *mut MIB_NOTIFICATION_TYPE;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_UNICASTIPADDRESS_ROW(pub *mut MIB_UNICASTIPADDRESS_ROW);
+pub type PMIB_UNICASTIPADDRESS_ROW = *mut MIB_UNICASTIPADDRESS_ROW;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_UNICASTIPADDRESS_ROW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_UNICASTIPADDRESS_ROW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIB_UNICASTIPADDRESS_TABLE(pub *mut MIB_UNICASTIPADDRESS_TABLE);
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl PMIB_UNICASTIPADDRESS_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-impl Default for PMIB_UNICASTIPADDRESS_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIB_UNICASTIPADDRESS_TABLE = *mut MIB_UNICASTIPADDRESS_TABLE;
 #[cfg(feature = "nldef")]
 pub type PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void, connectivityhint: super::nldef::NL_NETWORK_CONNECTIVITY_HINT)>;
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]

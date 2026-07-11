@@ -44,84 +44,12 @@ pub const BATTERY_TYPE_DISCONNECTED: u32 = 0;
 pub const BATTERY_TYPE_NIMH: u32 = 3;
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255;
 pub const BATTERY_TYPE_WIRED: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_BATTERY_INFORMATION(pub *mut XINPUT_BATTERY_INFORMATION);
-impl PXINPUT_BATTERY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_BATTERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_CAPABILITIES(pub *mut XINPUT_CAPABILITIES);
-impl PXINPUT_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_GAMEPAD(pub *mut XINPUT_GAMEPAD);
-impl PXINPUT_GAMEPAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_GAMEPAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_KEYSTROKE(pub *mut XINPUT_KEYSTROKE);
-impl PXINPUT_KEYSTROKE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_KEYSTROKE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_STATE(pub *mut XINPUT_STATE);
-impl PXINPUT_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXINPUT_VIBRATION(pub *mut XINPUT_VIBRATION);
-impl PXINPUT_VIBRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXINPUT_VIBRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PXINPUT_BATTERY_INFORMATION = *mut XINPUT_BATTERY_INFORMATION;
+pub type PXINPUT_CAPABILITIES = *mut XINPUT_CAPABILITIES;
+pub type PXINPUT_GAMEPAD = *mut XINPUT_GAMEPAD;
+pub type PXINPUT_KEYSTROKE = *mut XINPUT_KEYSTROKE;
+pub type PXINPUT_STATE = *mut XINPUT_STATE;
+pub type PXINPUT_VIBRATION = *mut XINPUT_VIBRATION;
 pub const VK_PAD_A: u32 = 22528;
 pub const VK_PAD_B: u32 = 22529;
 pub const VK_PAD_BACK: u32 = 22549;

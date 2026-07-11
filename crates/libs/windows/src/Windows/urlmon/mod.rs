@@ -5453,100 +5453,14 @@ impl IZoneIdentifier2_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IZoneIdentifier2 {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCODEBASEHOLD(pub *mut CODEBASEHOLD);
-impl LPCODEBASEHOLD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCODEBASEHOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCODEBASEHOLD = *mut CODEBASEHOLD;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHIT_LOGGING_INFO(pub *mut HIT_LOGGING_INFO);
-#[cfg(feature = "minwinbase")]
-impl LPHIT_LOGGING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for LPHIT_LOGGING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROTOCOL_ARGUMENT(pub *mut PROTOCOL_ARGUMENT);
-impl LPPROTOCOL_ARGUMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROTOCOL_ARGUMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREMFORMATETC(pub *mut RemFORMATETC);
-impl LPREMFORMATETC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREMFORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREMSECURITY_ATTRIBUTES(pub *mut REMSECURITY_ATTRIBUTES);
-impl LPREMSECURITY_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREMSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOFTDISTINFO(pub *mut SOFTDISTINFO);
-impl LPSOFTDISTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOFTDISTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPZONEATTRIBUTES(pub *mut ZONEATTRIBUTES);
-impl LPZONEATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPZONEATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPHIT_LOGGING_INFO = *mut HIT_LOGGING_INFO;
+pub type LPPROTOCOL_ARGUMENT = *mut PROTOCOL_ARGUMENT;
+pub type LPREMFORMATETC = *mut RemFORMATETC;
+pub type LPREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
+pub type LPSOFTDISTINFO = *mut SOFTDISTINFO;
+pub type LPZONEATTRIBUTES = *mut ZONEATTRIBUTES;
 pub const MAX_SIZE_SECURITY_ID: u32 = 512;
 pub const MAX_ZONE_DESCRIPTION: i32 = 200;
 pub const MAX_ZONE_PATH: i32 = 260;
@@ -5607,19 +5521,7 @@ pub const PI_PREFERDEFAULTHANDLER: PI_FLAGS = 131072;
 pub const PI_SYNCHRONOUS: PI_FLAGS = 128;
 pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREMSECURITY_ATTRIBUTES(pub *mut REMSECURITY_ATTRIBUTES);
-impl PREMSECURITY_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREMSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROTOCOLDATA {

@@ -10,71 +10,11 @@ pub struct FLOWSPEC {
     pub MaxSduSize: u32,
     pub MinimumPolicedSize: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFLOWSPEC(pub *mut FLOWSPEC);
-impl LPFLOWSPEC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFLOWSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_OBJECT_HDR(pub *mut QOS_OBJECT_HDR);
-impl LPQOS_OBJECT_HDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQOS_OBJECT_HDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_SD_MODE(pub *mut QOS_SD_MODE);
-impl LPQOS_SD_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQOS_SD_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS_SHAPING_RATE(pub *mut QOS_SHAPING_RATE);
-impl LPQOS_SHAPING_RATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQOS_SHAPING_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFLOWSPEC(pub *mut FLOWSPEC);
-impl PFLOWSPEC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFLOWSPEC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFLOWSPEC = *mut FLOWSPEC;
+pub type LPQOS_OBJECT_HDR = *mut QOS_OBJECT_HDR;
+pub type LPQOS_SD_MODE = *mut QOS_SD_MODE;
+pub type LPQOS_SHAPING_RATE = *mut QOS_SHAPING_RATE;
+pub type PFLOWSPEC = *mut FLOWSPEC;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294;
 pub const QOS_GENERAL_ID_BASE: u32 = 2000;
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295;

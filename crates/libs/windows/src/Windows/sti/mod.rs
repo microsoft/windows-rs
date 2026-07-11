@@ -480,149 +480,21 @@ impl IStillImageW_Vtbl {
 }
 #[cfg(feature = "minwindef")]
 impl windows_core::RuntimeName for IStillImageW {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDIAG(pub LPSTI_DIAG);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTINOTIFY(pub *mut STINOTIFY);
-impl LPSTINOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTINOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIAG = LPSTI_DIAG;
+pub type LPSTINOTIFY = *mut STINOTIFY;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTISUBSCRIBE(pub *mut STISUBSCRIBE);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPSTISUBSCRIBE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPSTISUBSCRIBE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTI_DIAG(pub *mut STI_DIAG);
-impl LPSTI_DIAG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTI_DIAG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTISUBSCRIBE = *mut STISUBSCRIBE;
+pub type LPSTI_DIAG = *mut STI_DIAG;
 pub const MAX_NOTIFICATION_DATA: u32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTIDEVICEW(pub *mut IStiDeviceW);
-impl PSTIDEVICEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTIDEVICEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSTI_DEVICE_INFORMATION(pub PSTI_DEVICE_INFORMATIONW);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_DEVICE_INFORMATIONW(pub *mut STI_DEVICE_INFORMATIONW);
-impl PSTI_DEVICE_INFORMATIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_DEVICE_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_DEVICE_STATUS(pub *mut STI_DEVICE_STATUS);
-impl PSTI_DEVICE_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_DEVICE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_DEV_CAPS(pub *mut STI_DEV_CAPS);
-impl PSTI_DEV_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_DEV_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_ERROR_INFO(pub *mut STI_ERROR_INFO);
-impl PSTI_ERROR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_ERROR_INFOW(pub *mut STI_ERROR_INFOW);
-impl PSTI_ERROR_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_ERROR_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSTI_WIA_DEVICE_INFORMATION(pub PSTI_WIA_DEVICE_INFORMATIONW);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTI_WIA_DEVICE_INFORMATIONW(pub *mut STI_WIA_DEVICE_INFORMATIONW);
-impl PSTI_WIA_DEVICE_INFORMATIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTI_WIA_DEVICE_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSTIDEVICEW = *mut IStiDeviceW;
+pub type PSTI_DEVICE_INFORMATION = PSTI_DEVICE_INFORMATIONW;
+pub type PSTI_DEVICE_INFORMATIONW = *mut STI_DEVICE_INFORMATIONW;
+pub type PSTI_DEVICE_STATUS = *mut STI_DEVICE_STATUS;
+pub type PSTI_DEV_CAPS = *mut STI_DEV_CAPS;
+pub type PSTI_ERROR_INFO = *mut STI_ERROR_INFO;
+pub type PSTI_ERROR_INFOW = *mut STI_ERROR_INFOW;
+pub type PSTI_WIA_DEVICE_INFORMATION = PSTI_WIA_DEVICE_INFORMATIONW;
+pub type PSTI_WIA_DEVICE_INFORMATIONW = *mut STI_WIA_DEVICE_INFORMATIONW;
 pub const STIEDFL_ALLDEVICES: u32 = 0;
 pub const STIEDFL_ATTACHEDONLY: u32 = 1;
 #[repr(C)]

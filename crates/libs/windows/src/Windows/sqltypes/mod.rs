@@ -1,11 +1,7 @@
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BOOKMARK(pub SQLUINTEGER);
+pub type BOOKMARK = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BOOKMARK(pub SQLULEN);
+pub type BOOKMARK = SQLULEN;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DATE_STRUCT {
@@ -103,22 +99,12 @@ impl Default for SQLHANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHDBC(pub SQLHANDLE);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHDESC(pub SQLHANDLE);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHENV(pub SQLHANDLE);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHSTMT(pub SQLHANDLE);
+pub type SQLHDBC = SQLHANDLE;
+pub type SQLHDESC = SQLHANDLE;
+pub type SQLHENV = SQLHANDLE;
+pub type SQLHSTMT = SQLHANDLE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLHWND(pub super::windef::HWND);
+pub type SQLHWND = super::windef::HWND;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLINTEGER(pub i32);
@@ -143,33 +129,19 @@ impl Default for SQLPOINTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLRETURN(pub SQLSMALLINT);
+pub type SQLRETURN = SQLSMALLINT;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWCOUNT(pub SQLUINTEGER);
+pub type SQLROWCOUNT = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWCOUNT(pub SQLULEN);
+pub type SQLROWCOUNT = SQLULEN;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWOFFSET(pub SQLINTEGER);
+pub type SQLROWOFFSET = SQLINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWOFFSET(pub SQLLEN);
+pub type SQLROWOFFSET = SQLLEN;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWSETSIZE(pub SQLUINTEGER);
+pub type SQLROWSETSIZE = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLROWSETSIZE(pub SQLULEN);
+pub type SQLROWSETSIZE = SQLULEN;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLSCHAR(pub i8);
@@ -180,9 +152,7 @@ pub struct SQLSETPOSIROW(pub u64);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLSMALLINT(pub i16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLTCHAR(pub SQLCHAR);
+pub type SQLTCHAR = SQLCHAR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLTIME(pub u8);
@@ -190,13 +160,9 @@ pub struct SQLTIME(pub u8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLTIMESTAMP(pub u8);
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLTRANSID(pub SQLUINTEGER);
+pub type SQLTRANSID = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SQLTRANSID(pub SQLULEN);
+pub type SQLTRANSID = SQLULEN;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SQLUBIGINT(pub u64);

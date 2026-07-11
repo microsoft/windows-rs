@@ -539,19 +539,7 @@ pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = 4;
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = 1;
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = 0;
 pub type RO_INIT_TYPE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RO_REGISTRATION_COOKIE(pub *mut _RO_REGISTRATION_COOKIE);
-impl RO_REGISTRATION_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RO_REGISTRATION_COOKIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type RO_REGISTRATION_COOKIE = *mut _RO_REGISTRATION_COOKIE;
 pub type RoErrorReportingFlags = u32;
 pub const SuppressExceptions: RoErrorReportingFlags = 1;
 pub const SuppressSetErrorInfo: RoErrorReportingFlags = 8;

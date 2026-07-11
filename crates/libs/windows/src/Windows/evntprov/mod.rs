@@ -193,111 +193,15 @@ pub const MAX_EVENT_FILTER_EVENT_NAME_SIZE: u32 = 4096;
 pub const MAX_EVENT_FILTER_PAYLOAD_SIZE: u32 = 4096;
 pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8;
 pub const MaxEventInfo: EVENT_INFO_CLASS = 5;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCEVENT_DESCRIPTOR(pub *const EVENT_DESCRIPTOR);
-impl PCEVENT_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCEVENT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCEVENT_DESCRIPTOR = *const EVENT_DESCRIPTOR;
 pub type PENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_DATA_DESCRIPTOR(pub *mut EVENT_DATA_DESCRIPTOR);
-impl PEVENT_DATA_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_DATA_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_DESCRIPTOR(pub *mut EVENT_DESCRIPTOR);
-impl PEVENT_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_FILTER_EVENT_ID(pub *mut EVENT_FILTER_EVENT_ID);
-impl PEVENT_FILTER_EVENT_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_FILTER_EVENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_FILTER_EVENT_NAME(pub *mut EVENT_FILTER_EVENT_NAME);
-impl PEVENT_FILTER_EVENT_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_FILTER_EVENT_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_FILTER_HEADER(pub *mut EVENT_FILTER_HEADER);
-impl PEVENT_FILTER_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_FILTER_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_FILTER_LEVEL_KW(pub *mut EVENT_FILTER_LEVEL_KW);
-impl PEVENT_FILTER_LEVEL_KW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_FILTER_LEVEL_KW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREGHANDLE(pub *mut u64);
-impl PREGHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREGHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_DATA_DESCRIPTOR = *mut EVENT_DATA_DESCRIPTOR;
+pub type PEVENT_DESCRIPTOR = *mut EVENT_DESCRIPTOR;
+pub type PEVENT_FILTER_EVENT_ID = *mut EVENT_FILTER_EVENT_ID;
+pub type PEVENT_FILTER_EVENT_NAME = *mut EVENT_FILTER_EVENT_NAME;
+pub type PEVENT_FILTER_HEADER = *mut EVENT_FILTER_HEADER;
+pub type PEVENT_FILTER_LEVEL_KW = *mut EVENT_FILTER_LEVEL_KW;
+pub type PREGHANDLE = *mut u64;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct REGHANDLE(pub u64);

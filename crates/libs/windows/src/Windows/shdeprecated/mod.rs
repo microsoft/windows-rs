@@ -2444,101 +2444,17 @@ impl ITravelLog_Vtbl {
 #[cfg(all(feature = "shtypes", feature = "windef"))]
 impl windows_core::RuntimeName for ITravelLog {}
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBASEBROWSERDATA(pub *mut BASEBROWSERDATA);
+pub type LPBASEBROWSERDATA = *mut BASEBROWSERDATA;
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl LPBASEBROWSERDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPBASEBROWSERDATALH = *mut BASEBROWSERDATALH;
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for LPBASEBROWSERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBASEBROWSERDATAXP = *mut BASEBROWSERDATAXP;
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBASEBROWSERDATALH(pub *mut BASEBROWSERDATALH);
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl LPBASEBROWSERDATALH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for LPBASEBROWSERDATALH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBASEBROWSERDATAXP(pub *mut BASEBROWSERDATAXP);
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl LPBASEBROWSERDATAXP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for LPBASEBROWSERDATAXP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCBASEBROWSERDATA(pub *const BASEBROWSERDATA);
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl LPCBASEBROWSERDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for LPCBASEBROWSERDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCBASEBROWSERDATA = *const BASEBROWSERDATA;
 #[cfg(feature = "shobjidl_core")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFOLDERSETDATA(pub *mut FOLDERSETDATA);
-#[cfg(feature = "shobjidl_core")]
-impl LPFOLDERSETDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shobjidl_core")]
-impl Default for LPFOLDERSETDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFOLDERSETDATA = *mut FOLDERSETDATA;
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTOOLBARITEM(pub *mut TOOLBARITEM);
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-impl LPTOOLBARITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-impl Default for LPTOOLBARITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTOOLBARITEM = *mut TOOLBARITEM;
 pub const SBSC_HIDE: SHELLBROWSERSHOWCONTROL = 0;
 pub const SBSC_QUERY: SHELLBROWSERSHOWCONTROL = 3;
 pub const SBSC_SHOW: SHELLBROWSERSHOWCONTROL = 1;

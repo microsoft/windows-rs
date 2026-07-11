@@ -73,45 +73,7 @@ pub const IOCTL_HID_SET_OUTPUT_REPORT: u32 = 721301;
 pub const IOCTL_HID_SET_POLL_FREQUENCY_MSEC: u32 = 721308;
 pub const IOCTL_HID_SET_S0_IDLE_TIMEOUT: u32 = 721328;
 pub const IOCTL_SET_NUM_DEVICE_INPUT_BUFFERS: u32 = 721316;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHID_COLLECTION_INFORMATION(pub *mut HID_COLLECTION_INFORMATION);
-impl PHID_COLLECTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHID_COLLECTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHID_DRIVER_CONFIG(pub *mut HID_DRIVER_CONFIG);
-impl PHID_DRIVER_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHID_DRIVER_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHID_COLLECTION_INFORMATION = *mut HID_COLLECTION_INFORMATION;
+pub type PHID_DRIVER_CONFIG = *mut HID_DRIVER_CONFIG;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHID_XFER_PACKET(pub *mut HID_XFER_PACKET);
-#[cfg(feature = "minwindef")]
-impl PHID_XFER_PACKET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PHID_XFER_PACKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHID_XFER_PACKET = *mut HID_XFER_PACKET;

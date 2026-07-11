@@ -11,7 +11,7 @@ fn file() {
     assert_eq!(reader.assembly_name(), Some("TestName"));
 
     let reader =
-        reader::File::read("../../../tools/package/reference/Windows.Win32.winmd").unwrap();
+        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
     assert_eq!(reader.assembly_name(), Some("Windows.Win32.winmd"));
 }
 
@@ -19,8 +19,8 @@ fn file() {
 fn index() {
     let index = reader::Index::new(vec![
         reader::File::read("../../../libs/bindgen/default/Windows.winmd").unwrap(),
-        reader::File::read("../../../tools/package/reference/Windows.Win32.winmd").unwrap(),
-        reader::File::read("../../../tools/package/reference/Windows.Wdk.winmd").unwrap(),
+        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap(),
+        reader::File::read("../../../libs/bindgen/default/Windows.Wdk.winmd").unwrap(),
     ]);
 
     assert_eq!(
@@ -28,15 +28,12 @@ fn index() {
         Some("Windows")
     );
     assert_eq!(
-        index.assembly_name("Windows.Win32.Foundation.Metadata", "AgileAttribute"),
+        index.assembly_name("Windows.Win32", "SID_IDENTIFIER_AUTHORITY"),
         Some("Windows.Win32.winmd")
     );
     assert_eq!(
-        index.assembly_name("Windows.Wdk.Foundation", "DRIVER_OBJECT"),
+        index.assembly_name("Windows.Win32", "DRIVER_OBJECT"),
         Some("Windows.Wdk.winmd")
     );
-    assert_eq!(
-        index.assembly_name("Windows.Win32.Foundation.Metadata", "NotAttribute"),
-        None
-    );
+    assert_eq!(index.assembly_name("Windows.Win32", "NotAttribute"), None);
 }

@@ -3463,255 +3463,35 @@ pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = 8;
 pub const LIBFLAG_FHIDDEN: LIBFLAGS = 4;
 pub const LIBFLAG_FRESTRICTED: LIBFLAGS = 1;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBINDPTR(pub *mut BINDPTR);
+pub type LPBINDPTR = *mut BINDPTR;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPBINDPTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCUSTDATA = *mut CUSTDATA;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPBINDPTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCUSTDATAITEM = *mut CUSTDATAITEM;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCUSTDATA(pub *mut CUSTDATA);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPCUSTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPCUSTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCUSTDATAITEM(pub *mut CUSTDATAITEM);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPCUSTDATAITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPCUSTDATAITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPELEMDESC(pub *mut ELEMDESC);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPELEMDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPELEMDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPELEMDESC = *mut ELEMDESC;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXCEPINFO(pub *mut EXCEPINFO);
-#[cfg(feature = "wtypesbase")]
-impl LPEXCEPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for LPEXCEPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPEXCEPINFO = *mut EXCEPINFO;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFUNCDESC(pub *mut FUNCDESC);
+pub type LPFUNCDESC = *mut FUNCDESC;
+pub type LPIDLDESC = *mut IDLDESC;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPFUNCDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPARAMDESC = *mut PARAMDESC;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPFUNCDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIDLDESC(pub *mut IDLDESC);
-impl LPIDLDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPIDLDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPARAMDESC(pub *mut PARAMDESC);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPPARAMDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPPARAMDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPARAMDESCEX(pub *mut PARAMDESCEX);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPPARAMDESCEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPPARAMDESCEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSAFEARRAY(pub *mut SAFEARRAY);
-impl LPSAFEARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSAFEARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSAFEARRAYBOUND(pub *mut SAFEARRAYBOUND);
-impl LPSAFEARRAYBOUND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSAFEARRAYBOUND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPARAMDESCEX = *mut PARAMDESCEX;
+pub type LPSAFEARRAY = *mut SAFEARRAY;
+pub type LPSAFEARRAYBOUND = *mut SAFEARRAYBOUND;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTLIBATTR(pub *mut TLIBATTR);
-#[cfg(feature = "winnt")]
-impl LPTLIBATTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPTLIBATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTLIBATTR = *mut TLIBATTR;
 #[cfg(all(feature = "winnt", feature = "wtypes"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTYPEATTR(pub *mut TYPEATTR);
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
-impl LPTYPEATTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "winnt", feature = "wtypes"))]
-impl Default for LPTYPEATTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTYPEATTR = *mut TYPEATTR;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVARDESC(pub *mut VARDESC);
+pub type LPVARDESC = *mut VARDESC;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPVARDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPVARIANT = *mut VARIANT;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPVARDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVARIANT(pub *mut VARIANT);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPVARIANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPVARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVARIANTARG(pub *mut VARIANT);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPVARIANTARG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPVARIANTARG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MEMBERID(pub DISPID);
+pub type LPVARIANTARG = *mut VARIANT;
+pub type MEMBERID = DISPID;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4281,66 +4061,10 @@ impl Default for _wireVARIANT_0 {
     }
 }
 #[cfg(feature = "rpc")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireBRECORD(pub *mut _wireBRECORD);
-#[cfg(feature = "rpc")]
-impl wireBRECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "rpc")]
-impl Default for wireBRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireBRECORD = *mut _wireBRECORD;
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wirePSAFEARRAY(pub *mut wireSAFEARRAY);
+pub type wirePSAFEARRAY = *mut wireSAFEARRAY;
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl wirePSAFEARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type wireSAFEARRAY = *mut _wireSAFEARRAY;
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for wirePSAFEARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireSAFEARRAY(pub *mut _wireSAFEARRAY);
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl wireSAFEARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for wireSAFEARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireVARIANT(pub *mut _wireVARIANT);
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl wireVARIANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for wireVARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireVARIANT = *mut _wireVARIANT;

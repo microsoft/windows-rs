@@ -109,53 +109,11 @@ impl Default for DYNAMIC_TIME_ZONE_INFORMATION {
     }
 }
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTIME_ZONE_INFORMATION(pub *mut TIME_ZONE_INFORMATION);
+pub type LPTIME_ZONE_INFORMATION = *mut TIME_ZONE_INFORMATION;
 #[cfg(feature = "minwinbase")]
-impl LPTIME_ZONE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDYNAMIC_TIME_ZONE_INFORMATION = *mut DYNAMIC_TIME_ZONE_INFORMATION;
 #[cfg(feature = "minwinbase")]
-impl Default for LPTIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDYNAMIC_TIME_ZONE_INFORMATION(pub *mut DYNAMIC_TIME_ZONE_INFORMATION);
-#[cfg(feature = "minwinbase")]
-impl PDYNAMIC_TIME_ZONE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PDYNAMIC_TIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIME_ZONE_INFORMATION(pub *mut TIME_ZONE_INFORMATION);
-#[cfg(feature = "minwinbase")]
-impl PTIME_ZONE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PTIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTIME_ZONE_INFORMATION = *mut TIME_ZONE_INFORMATION;
 pub const TIME_ZONE_ID_INVALID: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]

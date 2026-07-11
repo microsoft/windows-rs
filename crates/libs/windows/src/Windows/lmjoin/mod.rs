@@ -264,96 +264,10 @@ pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0;
 pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2;
 pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSREG_JOIN_INFO(pub *mut DSREG_JOIN_INFO);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PDSREG_JOIN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PDSREG_JOIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSREG_JOIN_TYPE(pub *mut DSREG_JOIN_TYPE);
-impl PDSREG_JOIN_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSREG_JOIN_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSREG_USER_INFO(pub *mut DSREG_USER_INFO);
-impl PDSREG_USER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSREG_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNETSETUP_JOIN_STATUS(pub *mut NETSETUP_JOIN_STATUS);
-impl PNETSETUP_JOIN_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNETSETUP_JOIN_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNETSETUP_NAME_TYPE(pub *mut NETSETUP_NAME_TYPE);
-impl PNETSETUP_NAME_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNETSETUP_NAME_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNETSETUP_PROVISIONING_PARAMS(pub *mut NETSETUP_PROVISIONING_PARAMS);
-impl PNETSETUP_PROVISIONING_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNETSETUP_PROVISIONING_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_COMPUTER_NAME_TYPE(pub *mut NET_COMPUTER_NAME_TYPE);
-impl PNET_COMPUTER_NAME_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_COMPUTER_NAME_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDSREG_JOIN_INFO = *mut DSREG_JOIN_INFO;
+pub type PDSREG_JOIN_TYPE = *mut DSREG_JOIN_TYPE;
+pub type PDSREG_USER_INFO = *mut DSREG_USER_INFO;
+pub type PNETSETUP_JOIN_STATUS = *mut NETSETUP_JOIN_STATUS;
+pub type PNETSETUP_NAME_TYPE = *mut NETSETUP_NAME_TYPE;
+pub type PNETSETUP_PROVISIONING_PARAMS = *mut NETSETUP_PROVISIONING_PARAMS;
+pub type PNET_COMPUTER_NAME_TYPE = *mut NET_COMPUTER_NAME_TYPE;

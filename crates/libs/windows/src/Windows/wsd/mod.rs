@@ -3893,103 +3893,15 @@ pub const OpOneOrMore: i32 = 18;
 pub const OpOptional: i32 = 19;
 pub const OpProcess_: i32 = 43;
 pub const OpQualifiedAttribute_: i32 = 44;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWSDXML_NAMESPACE(pub *const WSDXML_NAMESPACE);
-impl PCWSDXML_NAMESPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCWSDXML_NAMESPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWSDXML_TYPE(pub *const WSDXML_TYPE);
-impl PCWSDXML_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCWSDXML_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSD_CONFIG_ADDRESSES(pub *mut WSD_CONFIG_ADDRESSES);
-impl PWSD_CONFIG_ADDRESSES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSD_CONFIG_ADDRESSES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSD_CONFIG_PARAM(pub *mut WSD_CONFIG_PARAM);
-impl PWSD_CONFIG_PARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSD_CONFIG_PARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCWSDXML_NAMESPACE = *const WSDXML_NAMESPACE;
+pub type PCWSDXML_TYPE = *const WSDXML_TYPE;
+pub type PWSD_CONFIG_ADDRESSES = *mut WSD_CONFIG_ADDRESSES;
+pub type PWSD_CONFIG_PARAM = *mut WSD_CONFIG_PARAM;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSD_SECURITY_CERT_VALIDATION(pub *mut WSD_SECURITY_CERT_VALIDATION);
+pub type PWSD_SECURITY_CERT_VALIDATION = *mut WSD_SECURITY_CERT_VALIDATION;
+pub type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PWSD_SECURITY_CERT_VALIDATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PWSD_SECURITY_CERT_VALIDATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSD_SECURITY_HTTP_AUTH_SCHEMES(pub *mut u32);
-impl PWSD_SECURITY_HTTP_AUTH_SCHEMES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSD_SECURITY_HTTP_AUTH_SCHEMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSD_SECURITY_SIGNATURE_VALIDATION(pub *mut WSD_SECURITY_SIGNATURE_VALIDATION);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PWSD_SECURITY_SIGNATURE_VALIDATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PWSD_SECURITY_SIGNATURE_VALIDATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

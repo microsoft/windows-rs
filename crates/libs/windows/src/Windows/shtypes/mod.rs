@@ -20,100 +20,14 @@ pub type ITEMID_CHILD = ITEMIDLIST;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KF_REDIRECT_FLAGS(pub u32);
 pub type KNOWNFOLDERID = windows_core::GUID;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCITEMIDLIST(pub *const ITEMIDLIST);
-impl LPCITEMIDLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCITEMIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCITEMIDLIST = *const ITEMIDLIST;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSHCOLUMNID(pub *const SHCOLUMNID);
-#[cfg(feature = "wtypes")]
-impl LPCSHCOLUMNID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypes")]
-impl Default for LPCSHCOLUMNID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSHITEMID(pub *const SHITEMID);
-impl LPCSHITEMID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCSHITEMID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPITEMIDLIST(pub *mut ITEMIDLIST);
-impl LPITEMIDLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPITEMIDLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLDETAILS(pub *mut SHELLDETAILS);
-impl LPSHELLDETAILS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHELLDETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHITEMID(pub *mut SHITEMID);
-impl LPSHITEMID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHITEMID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTRRET(pub *mut STRRET);
-impl LPSTRRET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTRRET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCSHCOLUMNID = *const SHCOLUMNID;
+pub type LPCSHITEMID = *const SHITEMID;
+pub type LPITEMIDLIST = *mut ITEMIDLIST;
+pub type LPSHELLDETAILS = *mut SHELLDETAILS;
+pub type LPSHITEMID = *mut SHITEMID;
+pub type LPSTRRET = *mut STRRET;
 pub type PERCEIVED = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -235,18 +149,4 @@ pub type STRRET_TYPE = i32;
 pub const STRRET_WSTR: STRRET_TYPE = 0;
 pub type TASKOWNERID = windows_core::GUID;
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wirePIDL(pub *mut super::wtypesbase::BYTE_BLOB);
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl wirePIDL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for wirePIDL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wirePIDL = *mut super::wtypesbase::BYTE_BLOB;

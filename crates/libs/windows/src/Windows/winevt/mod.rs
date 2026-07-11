@@ -253,15 +253,11 @@ pub type EVT_EVENT_PROPERTY_ID = i32;
 pub type EVT_EXPORTLOG_FLAGS = i32;
 pub type EVT_FORMAT_MESSAGE_FLAGS = i32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EVT_HANDLE(pub super::winnt::HANDLE);
+pub type EVT_HANDLE = super::winnt::HANDLE;
 pub type EVT_LOGIN_CLASS = i32;
 pub type EVT_LOG_PROPERTY_ID = i32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct EVT_OBJECT_ARRAY_PROPERTY_HANDLE(pub super::winnt::HANDLE);
+pub type EVT_OBJECT_ARRAY_PROPERTY_HANDLE = super::winnt::HANDLE;
 pub type EVT_OPEN_LOG_FLAGS = i32;
 pub type EVT_PUBLISHER_METADATA_PROPERTY_ID = i32;
 pub type EVT_QUERY_FLAGS = i32;
@@ -531,34 +527,6 @@ pub const EvtVarTypeUInt16: EVT_VARIANT_TYPE = 6;
 pub const EvtVarTypeUInt32: EVT_VARIANT_TYPE = 8;
 pub const EvtVarTypeUInt64: EVT_VARIANT_TYPE = 10;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVT_HANDLE(pub *mut super::winnt::HANDLE);
-#[cfg(feature = "winnt")]
-impl PEVT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEVT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVT_HANDLE = *mut super::winnt::HANDLE;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVT_VARIANT(pub *mut EVT_VARIANT);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-impl PEVT_VARIANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-impl Default for PEVT_VARIANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVT_VARIANT = *mut EVT_VARIANT;

@@ -383,37 +383,9 @@ impl ITravelLogStg_Vtbl {
 }
 impl windows_core::RuntimeName for ITravelLogStg {}
 #[cfg(feature = "shtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCWINDOWDATA(pub *const WINDOWDATA);
+pub type LPCWINDOWDATA = *const WINDOWDATA;
 #[cfg(feature = "shtypes")]
-impl LPCWINDOWDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shtypes")]
-impl Default for LPCWINDOWDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "shtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWINDOWDATA(pub *mut WINDOWDATA);
-#[cfg(feature = "shtypes")]
-impl LPWINDOWDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shtypes")]
-impl Default for LPWINDOWDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWINDOWDATA = *mut WINDOWDATA;
 pub const TLEF_ABSOLUTE: tagTLENUMF = 49;
 pub const TLEF_EXCLUDE_ABOUT_PAGES: tagTLENUMF = 256;
 pub const TLEF_EXCLUDE_SUBFRAME_ENTRIES: tagTLENUMF = 128;

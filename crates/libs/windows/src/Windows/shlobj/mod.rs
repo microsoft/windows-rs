@@ -1233,158 +1233,20 @@ impl IThumbnailCapture_Vtbl {
 }
 #[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IThumbnailCapture {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAASHELLMENUFILENAME(pub *mut AASHELLMENUFILENAME);
-impl LPAASHELLMENUFILENAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAASHELLMENUFILENAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAASHELLMENUITEM(pub *mut AASHELLMENUITEM);
-impl LPAASHELLMENUITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAASHELLMENUITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSHCOLUMNDATA(pub *const SHCOLUMNDATA);
-impl LPCSHCOLUMNDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCSHCOLUMNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAASHELLMENUFILENAME = *mut AASHELLMENUFILENAME;
+pub type LPAASHELLMENUITEM = *mut AASHELLMENUITEM;
+pub type LPCSHCOLUMNDATA = *const SHCOLUMNDATA;
 #[cfg(all(feature = "shtypes", feature = "wtypes"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSHCOLUMNINFO(pub *const SHCOLUMNINFO);
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
-impl LPCSHCOLUMNINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
-impl Default for LPCSHCOLUMNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSHCOLUMNINIT(pub *const SHCOLUMNINIT);
-impl LPCSHCOLUMNINIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCSHCOLUMNINIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCSHCOLUMNINFO = *const SHCOLUMNINFO;
+pub type LPCSHCOLUMNINIT = *const SHCOLUMNINIT;
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSFV_SETITEMPOS(pub *mut SFV_SETITEMPOS);
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl LPSFV_SETITEMPOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for LPSFV_SETITEMPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHCOLUMNDATA(pub *mut SHCOLUMNDATA);
-impl LPSHCOLUMNDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHCOLUMNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSFV_SETITEMPOS = *mut SFV_SETITEMPOS;
+pub type LPSHCOLUMNDATA = *mut SHCOLUMNDATA;
 #[cfg(all(feature = "shtypes", feature = "wtypes"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHCOLUMNINFO(pub *mut SHCOLUMNINFO);
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
-impl LPSHCOLUMNINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shtypes", feature = "wtypes"))]
-impl Default for LPSHCOLUMNINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHCOLUMNINIT(pub *mut SHCOLUMNINIT);
-impl LPSHCOLUMNINIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHCOLUMNINIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHChangeProductKeyAsIDList(pub *mut SHChangeProductKeyAsIDList);
-impl LPSHChangeProductKeyAsIDList {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHChangeProductKeyAsIDList {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTBINFO(pub *mut TBINFO);
-impl LPTBINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSHCOLUMNINFO = *mut SHCOLUMNINFO;
+pub type LPSHCOLUMNINIT = *mut SHCOLUMNINIT;
+pub type LPSHChangeProductKeyAsIDList = *mut SHChangeProductKeyAsIDList;
+pub type LPTBINFO = *mut TBINFO;
 pub const OPENPROPS_INHIBITPIF: u32 = 32768;
 pub const OPENPROPS_NONE: u32 = 0;
 pub const PANE_NAVIGATION: u32 = 5;
@@ -1396,37 +1258,9 @@ pub const PANE_PROGRESS: u32 = 6;
 pub const PANE_SSL: u32 = 4;
 pub const PANE_ZONE: u32 = 1;
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBANDINFOSFB(pub *mut BANDINFOSFB);
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl PBANDINFOSFB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-impl Default for PBANDINFOSFB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBANDINFOSFB = *mut BANDINFOSFB;
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCSFV_SETITEMPOS(pub *const SFV_SETITEMPOS);
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl PCSFV_SETITEMPOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for PCSFV_SETITEMPOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCSFV_SETITEMPOS = *const SFV_SETITEMPOS;
 pub const SCHEME_CREATE: u32 = 128;
 pub const SCHEME_DISPLAY: u32 = 1;
 pub const SCHEME_DONOTUSE: u32 = 64;

@@ -494,9 +494,7 @@ pub struct ADS_SEARCH_COLUMN {
     pub hReserved: super::winnt::HANDLE,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct ADS_SEARCH_HANDLE(pub super::winnt::HANDLE);
+pub type ADS_SEARCH_HANDLE = super::winnt::HANDLE;
 pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = 1;
 pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = 4;
 pub type ADS_SECURITY_INFO_ENUM = i32;
@@ -13729,571 +13727,63 @@ impl IPrivateUnknown_Vtbl {
 }
 impl windows_core::RuntimeName for IPrivateUnknown {}
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADSVALUE(pub *mut ADSVALUE);
+pub type LPADSVALUE = *mut ADSVALUE;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl LPADSVALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for LPADSVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADS_SEARCHPREF_INFO(pub *mut ADS_SEARCHPREF_INFO);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl LPADS_SEARCHPREF_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for LPADS_SEARCHPREF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNDS_BOOLEAN(pub *mut u32);
-impl LPNDS_BOOLEAN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNDS_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
+pub type LPNDS_BOOLEAN = *mut u32;
 pub const LargeInteger: windows_core::GUID = windows_core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 pub const NameTranslate: windows_core::GUID = windows_core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: windows_core::GUID = windows_core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
 pub const OctetList: windows_core::GUID = windows_core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADSVALUE(pub *mut ADSVALUE);
+pub type PADSVALUE = *mut ADSVALUE;
+pub type PADS_ATTR_DEF = *mut ADS_ATTR_DEF;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl PADSVALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PADS_ATTR_INFO = *mut ADS_ATTR_INFO;
+pub type PADS_BACKLINK = *mut ADS_BACKLINK;
+pub type PADS_CASEIGNORE_LIST = *mut ADS_CASEIGNORE_LIST;
+pub type PADS_CASE_EXACT_STRING = *mut windows_core::PWSTR;
+pub type PADS_CASE_IGNORE_STRING = *mut windows_core::PWSTR;
+pub type PADS_CLASS_DEF = *mut ADS_CLASS_DEF;
+pub type PADS_DN_STRING = *mut windows_core::PWSTR;
+#[cfg(feature = "minwindef")]
+pub type PADS_DN_WITH_BINARY = *mut ADS_DN_WITH_BINARY;
+pub type PADS_DN_WITH_STRING = *mut ADS_DN_WITH_STRING;
+pub type PADS_EMAIL = *mut ADS_EMAIL;
+#[cfg(feature = "minwindef")]
+pub type PADS_FAXNUMBER = *mut ADS_FAXNUMBER;
+pub type PADS_HOLD = *mut ADS_HOLD;
+pub type PADS_INTEGER = *mut u32;
+pub type PADS_LARGE_INTEGER = *mut i64;
+pub type PADS_NETADDRESS = *mut ADS_NETADDRESS;
+#[cfg(feature = "minwindef")]
+pub type PADS_NT_SECURITY_DESCRIPTOR = *mut ADS_NT_SECURITY_DESCRIPTOR;
+pub type PADS_NUMERIC_STRING = *mut windows_core::PWSTR;
+pub type PADS_OBJECT_CLASS = *mut windows_core::PWSTR;
+pub type PADS_OBJECT_INFO = *mut ADS_OBJECT_INFO;
+pub type PADS_OCTET_LIST = *mut ADS_OCTET_LIST;
+#[cfg(feature = "minwindef")]
+pub type PADS_OCTET_STRING = *mut ADS_OCTET_STRING;
+pub type PADS_PATH = *mut ADS_PATH;
+pub type PADS_POSTALADDRESS = *mut ADS_POSTALADDRESS;
+pub type PADS_PRINTABLE_STRING = *mut windows_core::PWSTR;
+#[cfg(feature = "minwindef")]
+pub type PADS_PROV_SPECIFIC = *mut ADS_PROV_SPECIFIC;
+pub type PADS_REPLICAPOINTER = *mut ADS_REPLICAPOINTER;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for PADSVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_ATTR_DEF(pub *mut ADS_ATTR_DEF);
-impl PADS_ATTR_DEF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_ATTR_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_ATTR_INFO(pub *mut ADS_ATTR_INFO);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl PADS_ATTR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for PADS_ATTR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_BACKLINK(pub *mut ADS_BACKLINK);
-impl PADS_BACKLINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_BACKLINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_CASEIGNORE_LIST(pub *mut ADS_CASEIGNORE_LIST);
-impl PADS_CASEIGNORE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_CASEIGNORE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_CASE_EXACT_STRING(pub *mut windows_core::PWSTR);
-impl PADS_CASE_EXACT_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_CASE_EXACT_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_CASE_IGNORE_STRING(pub *mut windows_core::PWSTR);
-impl PADS_CASE_IGNORE_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_CASE_IGNORE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_CLASS_DEF(pub *mut ADS_CLASS_DEF);
-impl PADS_CLASS_DEF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_CLASS_DEF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_DN_STRING(pub *mut windows_core::PWSTR);
-impl PADS_DN_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_DN_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_DN_WITH_BINARY(pub *mut ADS_DN_WITH_BINARY);
-#[cfg(feature = "minwindef")]
-impl PADS_DN_WITH_BINARY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_DN_WITH_BINARY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_DN_WITH_STRING(pub *mut ADS_DN_WITH_STRING);
-impl PADS_DN_WITH_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_DN_WITH_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_EMAIL(pub *mut ADS_EMAIL);
-impl PADS_EMAIL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_EMAIL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_FAXNUMBER(pub *mut ADS_FAXNUMBER);
-#[cfg(feature = "minwindef")]
-impl PADS_FAXNUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_FAXNUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_HOLD(pub *mut ADS_HOLD);
-impl PADS_HOLD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_HOLD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_INTEGER(pub *mut u32);
-impl PADS_INTEGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_INTEGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_LARGE_INTEGER(pub *mut i64);
-impl PADS_LARGE_INTEGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_LARGE_INTEGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_NETADDRESS(pub *mut ADS_NETADDRESS);
-impl PADS_NETADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_NETADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_NT_SECURITY_DESCRIPTOR(pub *mut ADS_NT_SECURITY_DESCRIPTOR);
-#[cfg(feature = "minwindef")]
-impl PADS_NT_SECURITY_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_NT_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_NUMERIC_STRING(pub *mut windows_core::PWSTR);
-impl PADS_NUMERIC_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_NUMERIC_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_OBJECT_CLASS(pub *mut windows_core::PWSTR);
-impl PADS_OBJECT_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_OBJECT_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_OBJECT_INFO(pub *mut ADS_OBJECT_INFO);
-impl PADS_OBJECT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_OCTET_LIST(pub *mut ADS_OCTET_LIST);
-impl PADS_OCTET_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_OCTET_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_OCTET_STRING(pub *mut ADS_OCTET_STRING);
-#[cfg(feature = "minwindef")]
-impl PADS_OCTET_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_OCTET_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_PATH(pub *mut ADS_PATH);
-impl PADS_PATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_PATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_POSTALADDRESS(pub *mut ADS_POSTALADDRESS);
-impl PADS_POSTALADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_POSTALADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_PRINTABLE_STRING(pub *mut windows_core::PWSTR);
-impl PADS_PRINTABLE_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_PRINTABLE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_PROV_SPECIFIC(pub *mut ADS_PROV_SPECIFIC);
-#[cfg(feature = "minwindef")]
-impl PADS_PROV_SPECIFIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_PROV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_REPLICAPOINTER(pub *mut ADS_REPLICAPOINTER);
-impl PADS_REPLICAPOINTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_REPLICAPOINTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_SEARCHPREF_INFO(pub *mut ADS_SEARCHPREF_INFO);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl PADS_SEARCHPREF_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for PADS_SEARCHPREF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADS_SEARCHPREF_INFO = *mut ADS_SEARCHPREF_INFO;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_SEARCH_COLUMN(pub *mut ADS_SEARCH_COLUMN);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-impl PADS_SEARCH_COLUMN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
-impl Default for PADS_SEARCH_COLUMN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADS_SEARCH_COLUMN = *mut ADS_SEARCH_COLUMN;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_SEARCH_HANDLE(pub *mut super::winnt::HANDLE);
-#[cfg(feature = "winnt")]
-impl PADS_SEARCH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PADS_SEARCH_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_SORTKEY(pub *mut ADS_SORTKEY);
-impl PADS_SORTKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_SORTKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_STATUS(pub *mut ADS_STATUSENUM);
-impl PADS_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_TIMESTAMP(pub *mut ADS_TIMESTAMP);
-impl PADS_TIMESTAMP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_TIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_TYPEDNAME(pub *mut ADS_TYPEDNAME);
-impl PADS_TYPEDNAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADS_TYPEDNAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADS_SEARCH_HANDLE = *mut super::winnt::HANDLE;
+pub type PADS_SORTKEY = *mut ADS_SORTKEY;
+pub type PADS_STATUS = *mut ADS_STATUSENUM;
+pub type PADS_TIMESTAMP = *mut ADS_TIMESTAMP;
+pub type PADS_TYPEDNAME = *mut ADS_TYPEDNAME;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_UTC_TIME(pub *mut super::minwinbase::SYSTEMTIME);
-#[cfg(feature = "minwinbase")]
-impl PADS_UTC_TIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PADS_UTC_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADS_UTC_TIME = *mut super::minwinbase::SYSTEMTIME;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADS_VLV(pub *mut ADS_VLV);
-#[cfg(feature = "minwindef")]
-impl PADS_VLV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PADS_VLV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADS_VLV = *mut ADS_VLV;
 pub const Path: windows_core::GUID = windows_core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
 pub const Pathname: windows_core::GUID = windows_core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
 pub const PostalAddress: windows_core::GUID = windows_core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);

@@ -108,17 +108,5 @@ pub const AVRT_PRIORITY_HIGH: AVRT_PRIORITY = 1;
 pub const AVRT_PRIORITY_LOW: AVRT_PRIORITY = -1;
 pub const AVRT_PRIORITY_NORMAL: AVRT_PRIORITY = 0;
 pub const AVRT_PRIORITY_VERYLOW: AVRT_PRIORITY = -2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAVRT_PRIORITY(pub *mut AVRT_PRIORITY);
-impl PAVRT_PRIORITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAVRT_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAVRT_PRIORITY = *mut AVRT_PRIORITY;
 pub const THREAD_ORDER_GROUP_INFINITE_TIMEOUT: i32 = -1;

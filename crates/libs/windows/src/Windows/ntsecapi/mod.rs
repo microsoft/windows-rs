@@ -1531,9 +1531,7 @@ pub const LOGON_SERVER_TRUST_ACCOUNT: u32 = 128;
 pub const LOGON_SUBAUTH_SESSION_KEY: u32 = 64;
 pub const LOGON_USED_LM_PASSWORD: u32 = 8;
 pub const LOGON_WINLOGON: u32 = 32768;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCAUDIT_POLICY_INFORMATION(pub PAUDIT_POLICY_INFORMATION);
+pub type LPCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
 pub const LSAD_AES_BLOCK_SIZE: u32 = 16;
 pub const LSAD_AES_CRYPT_SHA512_HASH_SIZE: u32 = 64;
 pub const LSAD_AES_KEY_SIZE: u32 = 16;
@@ -2152,99 +2150,17 @@ pub const NegTransferCredentials: NEGOTIATE_MESSAGES = 2;
 pub const Network: SECURITY_LOGON_TYPE = 3;
 pub const NetworkCleartext: SECURITY_LOGON_TYPE = 8;
 pub const NewCredentials: SECURITY_LOGON_TYPE = 9;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIT_POLICY_INFORMATION(pub *mut AUDIT_POLICY_INFORMATION);
-impl PAUDIT_POLICY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUDIT_POLICY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCAUDIT_POLICY_INFORMATION(pub PAUDIT_POLICY_INFORMATION);
+pub type PAUDIT_POLICY_INFORMATION = *mut AUDIT_POLICY_INFORMATION;
+pub type PCAUDIT_POLICY_INFORMATION = PAUDIT_POLICY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCENTRAL_ACCESS_POLICY(pub *const CENTRAL_ACCESS_POLICY);
+pub type PCCENTRAL_ACCESS_POLICY = *const CENTRAL_ACCESS_POLICY;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PCCENTRAL_ACCESS_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCCENTRAL_ACCESS_POLICY_ENTRY = *const CENTRAL_ACCESS_POLICY_ENTRY;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PCCENTRAL_ACCESS_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCENTRAL_ACCESS_POLICY = *mut CENTRAL_ACCESS_POLICY;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCENTRAL_ACCESS_POLICY_ENTRY(pub *const CENTRAL_ACCESS_POLICY_ENTRY);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PCCENTRAL_ACCESS_POLICY_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PCCENTRAL_ACCESS_POLICY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCENTRAL_ACCESS_POLICY(pub *mut CENTRAL_ACCESS_POLICY);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PCENTRAL_ACCESS_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PCENTRAL_ACCESS_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCENTRAL_ACCESS_POLICY_ENTRY(pub *mut CENTRAL_ACCESS_POLICY_ENTRY);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PCENTRAL_ACCESS_POLICY_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PCENTRAL_ACCESS_POLICY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_PASSWORD_INFORMATION(pub *mut DOMAIN_PASSWORD_INFORMATION);
-impl PDOMAIN_PASSWORD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOMAIN_PASSWORD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCENTRAL_ACCESS_POLICY_ENTRY = *mut CENTRAL_ACCESS_POLICY_ENTRY;
+pub type PDOMAIN_PASSWORD_INFORMATION = *mut DOMAIN_PASSWORD_INFORMATION;
 pub const PER_USER_AUDIT_FAILURE_EXCLUDE: u32 = 8;
 pub const PER_USER_AUDIT_FAILURE_INCLUDE: u32 = 4;
 pub const PER_USER_AUDIT_NONE: u32 = 16;
@@ -2252,1167 +2168,139 @@ pub const PER_USER_AUDIT_SUCCESS_EXCLUDE: u32 = 2;
 pub const PER_USER_AUDIT_SUCCESS_INCLUDE: u32 = 1;
 pub const PER_USER_POLICY_UNCHANGED: u32 = 0;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDC_PROXY_CACHE_ENTRY_DATA(pub *mut KDC_PROXY_CACHE_ENTRY_DATA);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKDC_PROXY_CACHE_ENTRY_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKDC_PROXY_CACHE_ENTRY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDC_PROXY_CACHE_ENTRY_DATA = *mut KDC_PROXY_CACHE_ENTRY_DATA;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST(pub *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST);
+pub type PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST;
 #[cfg(feature = "lsalookup")]
-impl PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST(pub *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST);
-#[cfg(feature = "lsalookup")]
-impl PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_ADD_BINDING_CACHE_ENTRY_REQUEST = *mut KERB_ADD_BINDING_CACHE_ENTRY_REQUEST;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_ADD_CREDENTIALS_REQUEST(pub *mut KERB_ADD_CREDENTIALS_REQUEST);
+pub type PKERB_ADD_CREDENTIALS_REQUEST = *mut KERB_ADD_CREDENTIALS_REQUEST;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_ADD_CREDENTIALS_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_ADD_CREDENTIALS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_ADD_CREDENTIALS_REQUEST_EX(pub *mut KERB_ADD_CREDENTIALS_REQUEST_EX);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_ADD_CREDENTIALS_REQUEST_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_ADD_CREDENTIALS_REQUEST_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_ADD_CREDENTIALS_REQUEST_EX = *mut KERB_ADD_CREDENTIALS_REQUEST_EX;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_AUTH_DATA(pub *mut KERB_AUTH_DATA);
-#[cfg(feature = "minwindef")]
-impl PKERB_AUTH_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PKERB_AUTH_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_AUTH_DATA = *mut KERB_AUTH_DATA;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_BINDING_CACHE_ENTRY_DATA(pub *mut KERB_BINDING_CACHE_ENTRY_DATA);
-#[cfg(feature = "lsalookup")]
-impl PKERB_BINDING_CACHE_ENTRY_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_BINDING_CACHE_ENTRY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_HASHINFO(pub *mut KERB_CERTIFICATE_HASHINFO);
-impl PKERB_CERTIFICATE_HASHINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CERTIFICATE_HASHINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_INFO(pub *mut KERB_CERTIFICATE_INFO);
-impl PKERB_CERTIFICATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_INFO_TYPE(pub *mut KERB_CERTIFICATE_INFO_TYPE);
-impl PKERB_CERTIFICATE_INFO_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CERTIFICATE_INFO_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_BINDING_CACHE_ENTRY_DATA = *mut KERB_BINDING_CACHE_ENTRY_DATA;
+pub type PKERB_CERTIFICATE_HASHINFO = *mut KERB_CERTIFICATE_HASHINFO;
+pub type PKERB_CERTIFICATE_INFO = *mut KERB_CERTIFICATE_INFO;
+pub type PKERB_CERTIFICATE_INFO_TYPE = *mut KERB_CERTIFICATE_INFO_TYPE;
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_LOGON(pub *mut KERB_CERTIFICATE_LOGON);
+pub type PKERB_CERTIFICATE_LOGON = *mut KERB_CERTIFICATE_LOGON;
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_CERTIFICATE_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_CERTIFICATE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_S4U_LOGON(pub *mut KERB_CERTIFICATE_S4U_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_CERTIFICATE_S4U_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_CERTIFICATE_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_CERTIFICATE_S4U_LOGON = *mut KERB_CERTIFICATE_S4U_LOGON;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CERTIFICATE_UNLOCK_LOGON(pub *mut KERB_CERTIFICATE_UNLOCK_LOGON);
+pub type PKERB_CERTIFICATE_UNLOCK_LOGON = *mut KERB_CERTIFICATE_UNLOCK_LOGON;
+pub type PKERB_CHANGEMACHINEPASSWORD_REQUEST = *mut KERB_CHANGEMACHINEPASSWORD_REQUEST;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_CHANGEPASSWORD_REQUEST = *mut KERB_CHANGEPASSWORD_REQUEST;
+#[cfg(feature = "winnt")]
+pub type PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST = *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST;
+pub type PKERB_CLOUD_KERBEROS_DEBUG_DATA = *mut KERB_CLOUD_KERBEROS_DEBUG_DATA;
+pub type PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0 = *mut KERB_CLOUD_KERBEROS_DEBUG_DATA_V0;
+#[cfg(feature = "winnt")]
+pub type PKERB_CLOUD_KERBEROS_DEBUG_REQUEST = *mut KERB_CLOUD_KERBEROS_DEBUG_REQUEST;
+pub type PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE = *mut KERB_CLOUD_KERBEROS_DEBUG_RESPONSE;
+#[cfg(feature = "minwindef")]
+pub type PKERB_CRYPTO_KEY = *mut KERB_CRYPTO_KEY;
+pub type PKERB_CRYPTO_KEY32 = *mut KERB_CRYPTO_KEY32;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PKERB_DECRYPT_REQUEST = *mut KERB_DECRYPT_REQUEST;
+pub type PKERB_DECRYPT_RESPONSE = *mut KERB_DECRYPT_RESPONSE;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_EXTERNAL_NAME = *mut KERB_EXTERNAL_NAME;
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+pub type PKERB_EXTERNAL_TICKET = *mut KERB_EXTERNAL_TICKET;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_INTERACTIVE_LOGON = *mut KERB_INTERACTIVE_LOGON;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_INTERACTIVE_PROFILE = *mut KERB_INTERACTIVE_PROFILE;
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PKERB_INTERACTIVE_UNLOCK_LOGON = *mut KERB_INTERACTIVE_UNLOCK_LOGON;
+pub type PKERB_LOGON_SUBMIT_TYPE = *mut KERB_LOGON_SUBMIT_TYPE;
+#[cfg(feature = "winnt")]
+pub type PKERB_NET_ADDRESS = *mut KERB_NET_ADDRESS;
+#[cfg(feature = "winnt")]
+pub type PKERB_NET_ADDRESSES = *mut KERB_NET_ADDRESSES;
+pub type PKERB_PROFILE_BUFFER_TYPE = *mut KERB_PROFILE_BUFFER_TYPE;
+pub type PKERB_PROTOCOL_MESSAGE_TYPE = *mut KERB_PROTOCOL_MESSAGE_TYPE;
+pub type PKERB_PURGE_BINDING_CACHE_REQUEST = *mut KERB_PURGE_BINDING_CACHE_REQUEST;
+#[cfg(feature = "winnt")]
+pub type PKERB_PURGE_KDC_PROXY_CACHE_REQUEST = *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST;
+pub type PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE = *mut KERB_PURGE_KDC_PROXY_CACHE_RESPONSE;
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PKERB_PURGE_TKT_CACHE_EX_REQUEST = *mut KERB_PURGE_TKT_CACHE_EX_REQUEST;
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PKERB_PURGE_TKT_CACHE_REQUEST = *mut KERB_PURGE_TKT_CACHE_REQUEST;
+pub type PKERB_QUERY_BINDING_CACHE_REQUEST = *mut KERB_QUERY_BINDING_CACHE_REQUEST;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_BINDING_CACHE_RESPONSE = *mut KERB_QUERY_BINDING_CACHE_RESPONSE;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST;
+pub type PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE = *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE;
+#[cfg(feature = "winnt")]
+pub type PKERB_QUERY_KDC_PROXY_CACHE_REQUEST = *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST;
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE = *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE;
+#[cfg(feature = "winnt")]
+pub type PKERB_QUERY_S4U2PROXY_CACHE_REQUEST = *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+pub type PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE = *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_TKT_CACHE_EX2_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_TKT_CACHE_EX3_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_TKT_CACHE_EX_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE;
+#[cfg(feature = "winnt")]
+pub type PKERB_QUERY_TKT_CACHE_REQUEST = *mut KERB_QUERY_TKT_CACHE_REQUEST;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_QUERY_TKT_CACHE_RESPONSE = *mut KERB_QUERY_TKT_CACHE_RESPONSE;
+pub type PKERB_REFRESH_POLICY_REQUEST = *mut KERB_REFRESH_POLICY_REQUEST;
+pub type PKERB_REFRESH_POLICY_RESPONSE = *mut KERB_REFRESH_POLICY_RESPONSE;
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+pub type PKERB_REFRESH_SCCRED_REQUEST = *mut KERB_REFRESH_SCCRED_REQUEST;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_RETRIEVE_KEY_TAB_REQUEST = *mut KERB_RETRIEVE_KEY_TAB_REQUEST;
+#[cfg(feature = "minwindef")]
+pub type PKERB_RETRIEVE_KEY_TAB_RESPONSE = *mut KERB_RETRIEVE_KEY_TAB_RESPONSE;
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+pub type PKERB_RETRIEVE_TKT_REQUEST = *mut KERB_RETRIEVE_TKT_REQUEST;
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+pub type PKERB_RETRIEVE_TKT_RESPONSE = *mut KERB_RETRIEVE_TKT_RESPONSE;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+pub type PKERB_S4U2PROXY_CACHE_ENTRY_INFO = *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO;
+#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+pub type PKERB_S4U2PROXY_CRED = *mut KERB_S4U2PROXY_CRED;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_S4U_LOGON = *mut KERB_S4U_LOGON;
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+pub type PKERB_SETPASSWORD_EX_REQUEST = *mut KERB_SETPASSWORD_EX_REQUEST;
+#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
+pub type PKERB_SETPASSWORD_REQUEST = *mut KERB_SETPASSWORD_REQUEST;
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+pub type PKERB_SMART_CARD_LOGON = *mut KERB_SMART_CARD_LOGON;
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+pub type PKERB_SMART_CARD_PROFILE = *mut KERB_SMART_CARD_PROFILE;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PKERB_CERTIFICATE_UNLOCK_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PKERB_CERTIFICATE_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CHANGEMACHINEPASSWORD_REQUEST(pub *mut KERB_CHANGEMACHINEPASSWORD_REQUEST);
-impl PKERB_CHANGEMACHINEPASSWORD_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CHANGEMACHINEPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_SMART_CARD_UNLOCK_LOGON = *mut KERB_SMART_CARD_UNLOCK_LOGON;
+#[cfg(feature = "winnt")]
+pub type PKERB_SUBMIT_TKT_REQUEST = *mut KERB_SUBMIT_TKT_REQUEST;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CHANGEPASSWORD_REQUEST(pub *mut KERB_CHANGEPASSWORD_REQUEST);
+pub type PKERB_TICKET_CACHE_INFO = *mut KERB_TICKET_CACHE_INFO;
 #[cfg(feature = "lsalookup")]
-impl PKERB_CHANGEPASSWORD_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKERB_TICKET_CACHE_INFO_EX = *mut KERB_TICKET_CACHE_INFO_EX;
 #[cfg(feature = "lsalookup")]
-impl Default for PKERB_CHANGEPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST(pub *mut KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CLOUD_KERBEROS_DEBUG_DATA(pub *mut KERB_CLOUD_KERBEROS_DEBUG_DATA);
-impl PKERB_CLOUD_KERBEROS_DEBUG_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CLOUD_KERBEROS_DEBUG_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0(pub *mut KERB_CLOUD_KERBEROS_DEBUG_DATA_V0);
-impl PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CLOUD_KERBEROS_DEBUG_REQUEST(pub *mut KERB_CLOUD_KERBEROS_DEBUG_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_CLOUD_KERBEROS_DEBUG_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE(pub *mut KERB_CLOUD_KERBEROS_DEBUG_RESPONSE);
-impl PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_TICKET_CACHE_INFO_EX2 = *mut KERB_TICKET_CACHE_INFO_EX2;
+#[cfg(feature = "lsalookup")]
+pub type PKERB_TICKET_CACHE_INFO_EX3 = *mut KERB_TICKET_CACHE_INFO_EX3;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CRYPTO_KEY(pub *mut KERB_CRYPTO_KEY);
-#[cfg(feature = "minwindef")]
-impl PKERB_CRYPTO_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PKERB_CRYPTO_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_CRYPTO_KEY32(pub *mut KERB_CRYPTO_KEY32);
-impl PKERB_CRYPTO_KEY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_CRYPTO_KEY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_TICKET_LOGON = *mut KERB_TICKET_LOGON;
+#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
+pub type PKERB_TICKET_PROFILE = *mut KERB_TICKET_PROFILE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_DECRYPT_REQUEST(pub *mut KERB_DECRYPT_REQUEST);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKERB_DECRYPT_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKERB_DECRYPT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_DECRYPT_RESPONSE(pub *mut KERB_DECRYPT_RESPONSE);
-impl PKERB_DECRYPT_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_DECRYPT_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_EXTERNAL_NAME(pub *mut KERB_EXTERNAL_NAME);
-#[cfg(feature = "lsalookup")]
-impl PKERB_EXTERNAL_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_EXTERNAL_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_EXTERNAL_TICKET(pub *mut KERB_EXTERNAL_TICKET);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_EXTERNAL_TICKET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_EXTERNAL_TICKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_INTERACTIVE_LOGON(pub *mut KERB_INTERACTIVE_LOGON);
-#[cfg(feature = "lsalookup")]
-impl PKERB_INTERACTIVE_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_INTERACTIVE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_INTERACTIVE_PROFILE(pub *mut KERB_INTERACTIVE_PROFILE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_INTERACTIVE_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_INTERACTIVE_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_INTERACTIVE_UNLOCK_LOGON(pub *mut KERB_INTERACTIVE_UNLOCK_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_INTERACTIVE_UNLOCK_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_INTERACTIVE_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_LOGON_SUBMIT_TYPE(pub *mut KERB_LOGON_SUBMIT_TYPE);
-impl PKERB_LOGON_SUBMIT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_LOGON_SUBMIT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_TICKET_UNLOCK_LOGON = *mut KERB_TICKET_UNLOCK_LOGON;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_NET_ADDRESS(pub *mut KERB_NET_ADDRESS);
-#[cfg(feature = "winnt")]
-impl PKERB_NET_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_NET_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_NET_ADDRESSES(pub *mut KERB_NET_ADDRESSES);
-#[cfg(feature = "winnt")]
-impl PKERB_NET_ADDRESSES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_NET_ADDRESSES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PROFILE_BUFFER_TYPE(pub *mut KERB_PROFILE_BUFFER_TYPE);
-impl PKERB_PROFILE_BUFFER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_PROFILE_BUFFER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PROTOCOL_MESSAGE_TYPE(pub *mut KERB_PROTOCOL_MESSAGE_TYPE);
-impl PKERB_PROTOCOL_MESSAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_PROTOCOL_MESSAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PURGE_BINDING_CACHE_REQUEST(pub *mut KERB_PURGE_BINDING_CACHE_REQUEST);
-impl PKERB_PURGE_BINDING_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_PURGE_BINDING_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PURGE_KDC_PROXY_CACHE_REQUEST(pub *mut KERB_PURGE_KDC_PROXY_CACHE_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_PURGE_KDC_PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE(pub *mut KERB_PURGE_KDC_PROXY_CACHE_RESPONSE);
-impl PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PURGE_TKT_CACHE_EX_REQUEST(pub *mut KERB_PURGE_TKT_CACHE_EX_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_PURGE_TKT_CACHE_EX_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_PURGE_TKT_CACHE_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_PURGE_TKT_CACHE_REQUEST(pub *mut KERB_PURGE_TKT_CACHE_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_PURGE_TKT_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_PURGE_TKT_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_BINDING_CACHE_REQUEST(pub *mut KERB_QUERY_BINDING_CACHE_REQUEST);
-impl PKERB_QUERY_BINDING_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_QUERY_BINDING_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_BINDING_CACHE_RESPONSE(pub *mut KERB_QUERY_BINDING_CACHE_RESPONSE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_BINDING_CACHE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_BINDING_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST(pub *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE(pub *mut KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE);
-impl PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_KDC_PROXY_CACHE_REQUEST(pub *mut KERB_QUERY_KDC_PROXY_CACHE_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_QUERY_KDC_PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE(pub *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_S4U2PROXY_CACHE_REQUEST(pub *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_QUERY_S4U2PROXY_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE(pub *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl Default for PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_TKT_CACHE_EX2_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_TKT_CACHE_EX2_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_TKT_CACHE_EX2_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_TKT_CACHE_EX3_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX3_RESPONSE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_TKT_CACHE_EX3_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_TKT_CACHE_EX3_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_TKT_CACHE_EX_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_EX_RESPONSE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_TKT_CACHE_EX_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_TKT_CACHE_EX_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_TKT_CACHE_REQUEST(pub *mut KERB_QUERY_TKT_CACHE_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_QUERY_TKT_CACHE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_QUERY_TKT_CACHE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_QUERY_TKT_CACHE_RESPONSE(pub *mut KERB_QUERY_TKT_CACHE_RESPONSE);
-#[cfg(feature = "lsalookup")]
-impl PKERB_QUERY_TKT_CACHE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_QUERY_TKT_CACHE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_REFRESH_POLICY_REQUEST(pub *mut KERB_REFRESH_POLICY_REQUEST);
-impl PKERB_REFRESH_POLICY_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_REFRESH_POLICY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_REFRESH_POLICY_RESPONSE(pub *mut KERB_REFRESH_POLICY_RESPONSE);
-impl PKERB_REFRESH_POLICY_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERB_REFRESH_POLICY_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_REFRESH_SCCRED_REQUEST(pub *mut KERB_REFRESH_SCCRED_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PKERB_REFRESH_SCCRED_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PKERB_REFRESH_SCCRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_RETRIEVE_KEY_TAB_REQUEST(pub *mut KERB_RETRIEVE_KEY_TAB_REQUEST);
-#[cfg(feature = "lsalookup")]
-impl PKERB_RETRIEVE_KEY_TAB_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_RETRIEVE_KEY_TAB_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_RETRIEVE_KEY_TAB_RESPONSE(pub *mut KERB_RETRIEVE_KEY_TAB_RESPONSE);
-#[cfg(feature = "minwindef")]
-impl PKERB_RETRIEVE_KEY_TAB_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PKERB_RETRIEVE_KEY_TAB_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_RETRIEVE_TKT_REQUEST(pub *mut KERB_RETRIEVE_TKT_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl PKERB_RETRIEVE_TKT_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl Default for PKERB_RETRIEVE_TKT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_RETRIEVE_TKT_RESPONSE(pub *mut KERB_RETRIEVE_TKT_RESPONSE);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_RETRIEVE_TKT_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_RETRIEVE_TKT_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_S4U2PROXY_CACHE_ENTRY_INFO(pub *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl PKERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl Default for PKERB_S4U2PROXY_CACHE_ENTRY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_S4U2PROXY_CRED(pub *mut KERB_S4U2PROXY_CRED);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl PKERB_S4U2PROXY_CRED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-impl Default for PKERB_S4U2PROXY_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_S4U_LOGON(pub *mut KERB_S4U_LOGON);
-#[cfg(feature = "lsalookup")]
-impl PKERB_S4U_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SETPASSWORD_EX_REQUEST(pub *mut KERB_SETPASSWORD_EX_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl PKERB_SETPASSWORD_EX_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl Default for PKERB_SETPASSWORD_EX_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SETPASSWORD_REQUEST(pub *mut KERB_SETPASSWORD_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl PKERB_SETPASSWORD_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-impl Default for PKERB_SETPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SMART_CARD_LOGON(pub *mut KERB_SMART_CARD_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_SMART_CARD_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_SMART_CARD_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SMART_CARD_PROFILE(pub *mut KERB_SMART_CARD_PROFILE);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_SMART_CARD_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_SMART_CARD_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SMART_CARD_UNLOCK_LOGON(pub *mut KERB_SMART_CARD_UNLOCK_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PKERB_SMART_CARD_UNLOCK_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PKERB_SMART_CARD_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_SUBMIT_TKT_REQUEST(pub *mut KERB_SUBMIT_TKT_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_SUBMIT_TKT_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_SUBMIT_TKT_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_CACHE_INFO(pub *mut KERB_TICKET_CACHE_INFO);
-#[cfg(feature = "lsalookup")]
-impl PKERB_TICKET_CACHE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_TICKET_CACHE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_CACHE_INFO_EX(pub *mut KERB_TICKET_CACHE_INFO_EX);
-#[cfg(feature = "lsalookup")]
-impl PKERB_TICKET_CACHE_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_TICKET_CACHE_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_CACHE_INFO_EX2(pub *mut KERB_TICKET_CACHE_INFO_EX2);
-#[cfg(feature = "lsalookup")]
-impl PKERB_TICKET_CACHE_INFO_EX2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_TICKET_CACHE_INFO_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_CACHE_INFO_EX3(pub *mut KERB_TICKET_CACHE_INFO_EX3);
-#[cfg(feature = "lsalookup")]
-impl PKERB_TICKET_CACHE_INFO_EX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PKERB_TICKET_CACHE_INFO_EX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_LOGON(pub *mut KERB_TICKET_LOGON);
-#[cfg(feature = "minwindef")]
-impl PKERB_TICKET_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PKERB_TICKET_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_PROFILE(pub *mut KERB_TICKET_PROFILE);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PKERB_TICKET_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PKERB_TICKET_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TICKET_UNLOCK_LOGON(pub *mut KERB_TICKET_UNLOCK_LOGON);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKERB_TICKET_UNLOCK_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKERB_TICKET_UNLOCK_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERB_TRANSFER_CRED_REQUEST(pub *mut KERB_TRANSFER_CRED_REQUEST);
-#[cfg(feature = "winnt")]
-impl PKERB_TRANSFER_CRED_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKERB_TRANSFER_CRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -3444,194 +2332,28 @@ pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
 pub const PKU2U_PACKAGE_NAME: windows_core::PCWSTR = windows_core::w!("pku2u");
 pub const PKU2U_PACKAGE_NAME_A: windows_core::PCSTR = windows_core::s!("pku2u");
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_AUTH_INFORMATION(pub *mut LSA_AUTH_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PLSA_AUTH_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PLSA_AUTH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_ENUMERATION_HANDLE(pub *mut u32);
-impl PLSA_ENUMERATION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLSA_ENUMERATION_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_AUTH_INFORMATION = *mut LSA_AUTH_INFORMATION;
+pub type PLSA_ENUMERATION_HANDLE = *mut u32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_ENUMERATION_INFORMATION(pub *mut LSA_ENUMERATION_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PLSA_ENUMERATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLSA_ENUMERATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_ENUMERATION_INFORMATION = *mut LSA_ENUMERATION_INFORMATION;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_BINARY_DATA(pub *mut LSA_FOREST_TRUST_BINARY_DATA);
-#[cfg(feature = "minwindef")]
-impl PLSA_FOREST_TRUST_BINARY_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PLSA_FOREST_TRUST_BINARY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_FOREST_TRUST_BINARY_DATA = *mut LSA_FOREST_TRUST_BINARY_DATA;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_COLLISION_INFORMATION(pub *mut LSA_FOREST_TRUST_COLLISION_INFORMATION);
+pub type PLSA_FOREST_TRUST_COLLISION_INFORMATION = *mut LSA_FOREST_TRUST_COLLISION_INFORMATION;
 #[cfg(feature = "lsalookup")]
-impl PLSA_FOREST_TRUST_COLLISION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PLSA_FOREST_TRUST_COLLISION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_COLLISION_RECORD(pub *mut LSA_FOREST_TRUST_COLLISION_RECORD);
-#[cfg(feature = "lsalookup")]
-impl PLSA_FOREST_TRUST_COLLISION_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PLSA_FOREST_TRUST_COLLISION_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_FOREST_TRUST_COLLISION_RECORD = *mut LSA_FOREST_TRUST_COLLISION_RECORD;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_DOMAIN_INFO(pub *mut LSA_FOREST_TRUST_DOMAIN_INFO);
+pub type PLSA_FOREST_TRUST_DOMAIN_INFO = *mut LSA_FOREST_TRUST_DOMAIN_INFO;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_FOREST_TRUST_INFORMATION = *mut LSA_FOREST_TRUST_INFORMATION;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_FOREST_TRUST_INFORMATION2 = *mut LSA_FOREST_TRUST_INFORMATION2;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_FOREST_TRUST_RECORD = *mut LSA_FOREST_TRUST_RECORD;
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+pub type PLSA_FOREST_TRUST_RECORD2 = *mut LSA_FOREST_TRUST_RECORD2;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_DOMAIN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_INFORMATION(pub *mut LSA_FOREST_TRUST_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_INFORMATION2(pub *mut LSA_FOREST_TRUST_INFORMATION2);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_INFORMATION2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_INFORMATION2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_RECORD(pub *mut LSA_FOREST_TRUST_RECORD);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_RECORD2(pub *mut LSA_FOREST_TRUST_RECORD2);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_RECORD2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_RECORD2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_FOREST_TRUST_SCANNER_INFO(pub *mut LSA_FOREST_TRUST_SCANNER_INFO);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PLSA_FOREST_TRUST_SCANNER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PLSA_FOREST_TRUST_SCANNER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_FOREST_TRUST_SCANNER_INFO = *mut LSA_FOREST_TRUST_SCANNER_INFO;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_HANDLE(pub *mut *mut core::ffi::c_void);
@@ -3645,435 +2367,49 @@ impl Default for PLSA_HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_LAST_INTER_LOGON_INFO(pub *mut LSA_LAST_INTER_LOGON_INFO);
-impl PLSA_LAST_INTER_LOGON_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLSA_LAST_INTER_LOGON_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_OPERATIONAL_MODE(pub *mut u32);
-impl PLSA_OPERATIONAL_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLSA_OPERATIONAL_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_LAST_INTER_LOGON_INFO = *mut LSA_LAST_INTER_LOGON_INFO;
+pub type PLSA_OPERATIONAL_MODE = *mut u32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TRANSLATED_SID(pub *mut LSA_TRANSLATED_SID);
-#[cfg(feature = "winnt")]
-impl PLSA_TRANSLATED_SID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLSA_TRANSLATED_SID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_AV_PAIR(pub *mut MSV1_0_AV_PAIR);
-impl PMSV1_0_AV_PAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_AV_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_TRANSLATED_SID = *mut LSA_TRANSLATED_SID;
+pub type PMSV1_0_AV_PAIR = *mut MSV1_0_AV_PAIR;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_CHANGEPASSWORD_REQUEST(pub *mut MSV1_0_CHANGEPASSWORD_REQUEST);
+pub type PMSV1_0_CHANGEPASSWORD_REQUEST = *mut MSV1_0_CHANGEPASSWORD_REQUEST;
+pub type PMSV1_0_CHANGEPASSWORD_RESPONSE = *mut MSV1_0_CHANGEPASSWORD_RESPONSE;
+pub type PMSV1_0_CREDENTIAL_KEY = *mut MSV1_0_CREDENTIAL_KEY;
 #[cfg(feature = "lsalookup")]
-impl PMSV1_0_CHANGEPASSWORD_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMSV1_0_INTERACTIVE_LOGON = *mut MSV1_0_INTERACTIVE_LOGON;
 #[cfg(feature = "lsalookup")]
-impl Default for PMSV1_0_CHANGEPASSWORD_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_CHANGEPASSWORD_RESPONSE(pub *mut MSV1_0_CHANGEPASSWORD_RESPONSE);
-impl PMSV1_0_CHANGEPASSWORD_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_CHANGEPASSWORD_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_CREDENTIAL_KEY(pub *mut MSV1_0_CREDENTIAL_KEY);
-impl PMSV1_0_CREDENTIAL_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_CREDENTIAL_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_INTERACTIVE_LOGON(pub *mut MSV1_0_INTERACTIVE_LOGON);
-#[cfg(feature = "lsalookup")]
-impl PMSV1_0_INTERACTIVE_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PMSV1_0_INTERACTIVE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_INTERACTIVE_PROFILE(pub *mut MSV1_0_INTERACTIVE_PROFILE);
-#[cfg(feature = "lsalookup")]
-impl PMSV1_0_INTERACTIVE_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PMSV1_0_INTERACTIVE_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL(pub *mut MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL);
-impl PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_INTERACTIVE_PROFILE = *mut MSV1_0_INTERACTIVE_PROFILE;
+pub type PMSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_LM20_LOGON(pub *mut MSV1_0_LM20_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PMSV1_0_LM20_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PMSV1_0_LM20_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_LM20_LOGON = *mut MSV1_0_LM20_LOGON;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_LM20_LOGON_PROFILE(pub *mut MSV1_0_LM20_LOGON_PROFILE);
-#[cfg(feature = "lsalookup")]
-impl PMSV1_0_LM20_LOGON_PROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PMSV1_0_LM20_LOGON_PROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_LOGON_SUBMIT_TYPE(pub *mut MSV1_0_LOGON_SUBMIT_TYPE);
-impl PMSV1_0_LOGON_SUBMIT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_LOGON_SUBMIT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_NTLM3_RESPONSE(pub *mut MSV1_0_NTLM3_RESPONSE);
-impl PMSV1_0_NTLM3_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_NTLM3_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_LM20_LOGON_PROFILE = *mut MSV1_0_LM20_LOGON_PROFILE;
+pub type PMSV1_0_LOGON_SUBMIT_TYPE = *mut MSV1_0_LOGON_SUBMIT_TYPE;
+pub type PMSV1_0_NTLM3_RESPONSE = *mut MSV1_0_NTLM3_RESPONSE;
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_PASSTHROUGH_REQUEST(pub *mut MSV1_0_PASSTHROUGH_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PMSV1_0_PASSTHROUGH_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PMSV1_0_PASSTHROUGH_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_PASSTHROUGH_REQUEST = *mut MSV1_0_PASSTHROUGH_REQUEST;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_PASSTHROUGH_RESPONSE(pub *mut MSV1_0_PASSTHROUGH_RESPONSE);
-#[cfg(feature = "minwindef")]
-impl PMSV1_0_PASSTHROUGH_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMSV1_0_PASSTHROUGH_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_PROFILE_BUFFER_TYPE(pub *mut MSV1_0_PROFILE_BUFFER_TYPE);
-impl PMSV1_0_PROFILE_BUFFER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_PROFILE_BUFFER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_PROTOCOL_MESSAGE_TYPE(pub *mut MSV1_0_PROTOCOL_MESSAGE_TYPE);
-impl PMSV1_0_PROTOCOL_MESSAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_PROTOCOL_MESSAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL(pub *mut MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL);
-impl PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_PASSTHROUGH_RESPONSE = *mut MSV1_0_PASSTHROUGH_RESPONSE;
+pub type PMSV1_0_PROFILE_BUFFER_TYPE = *mut MSV1_0_PROFILE_BUFFER_TYPE;
+pub type PMSV1_0_PROTOCOL_MESSAGE_TYPE = *mut MSV1_0_PROTOCOL_MESSAGE_TYPE;
+pub type PMSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_S4U_LOGON(pub *mut MSV1_0_S4U_LOGON);
-#[cfg(feature = "lsalookup")]
-impl PMSV1_0_S4U_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PMSV1_0_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_S4U_LOGON = *mut MSV1_0_S4U_LOGON;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUBAUTH_LOGON(pub *mut MSV1_0_SUBAUTH_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PMSV1_0_SUBAUTH_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PMSV1_0_SUBAUTH_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_SUBAUTH_LOGON = *mut MSV1_0_SUBAUTH_LOGON;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUBAUTH_REQUEST(pub *mut MSV1_0_SUBAUTH_REQUEST);
+pub type PMSV1_0_SUBAUTH_REQUEST = *mut MSV1_0_SUBAUTH_REQUEST;
 #[cfg(feature = "minwindef")]
-impl PMSV1_0_SUBAUTH_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMSV1_0_SUBAUTH_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUBAUTH_RESPONSE(pub *mut MSV1_0_SUBAUTH_RESPONSE);
-#[cfg(feature = "minwindef")]
-impl PMSV1_0_SUBAUTH_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMSV1_0_SUBAUTH_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUPPLEMENTAL_CREDENTIAL(pub *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL);
-impl PMSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_SUPPLEMENTAL_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V2(pub *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2);
-impl PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3(pub *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3);
-impl PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMSV1_0_SUBAUTH_RESPONSE = *mut MSV1_0_SUBAUTH_RESPONSE;
+pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL;
+pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2;
+pub type PMSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 = *mut MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEGOTIATE_CALLER_NAME_REQUEST(pub *mut NEGOTIATE_CALLER_NAME_REQUEST);
-#[cfg(feature = "winnt")]
-impl PNEGOTIATE_CALLER_NAME_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PNEGOTIATE_CALLER_NAME_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEGOTIATE_CALLER_NAME_RESPONSE(pub *mut NEGOTIATE_CALLER_NAME_RESPONSE);
-impl PNEGOTIATE_CALLER_NAME_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNEGOTIATE_CALLER_NAME_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEGOTIATE_PACKAGE_PREFIX(pub *mut NEGOTIATE_PACKAGE_PREFIX);
-impl PNEGOTIATE_PACKAGE_PREFIX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNEGOTIATE_PACKAGE_PREFIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEGOTIATE_PACKAGE_PREFIXES(pub *mut NEGOTIATE_PACKAGE_PREFIXES);
-impl PNEGOTIATE_PACKAGE_PREFIXES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNEGOTIATE_PACKAGE_PREFIXES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNEGOTIATE_CALLER_NAME_REQUEST = *mut NEGOTIATE_CALLER_NAME_REQUEST;
+pub type PNEGOTIATE_CALLER_NAME_RESPONSE = *mut NEGOTIATE_CALLER_NAME_RESPONSE;
+pub type PNEGOTIATE_PACKAGE_PREFIX = *mut NEGOTIATE_PACKAGE_PREFIX;
+pub type PNEGOTIATE_PACKAGE_PREFIXES = *mut NEGOTIATE_PACKAGE_PREFIXES;
 pub const POLICY_ALL_ACCESS: u32 = 987135;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -4228,720 +2564,84 @@ pub const POLICY_VIEW_AUDIT_INFORMATION: u32 = 2;
 pub const POLICY_VIEW_LOCAL_INFORMATION: u32 = 1;
 pub const POLICY_WRITE: u32 = 133112;
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPKU2U_CERTIFICATE_S4U_LOGON(pub *mut PKU2U_CERTIFICATE_S4U_LOGON);
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl PPKU2U_CERTIFICATE_S4U_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-impl Default for PPKU2U_CERTIFICATE_S4U_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPKU2U_CERT_BLOB(pub *mut PKU2U_CERT_BLOB);
-impl PPKU2U_CERT_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPKU2U_CERT_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPKU2U_CREDUI_CONTEXT(pub *mut PKU2U_CREDUI_CONTEXT);
-impl PPKU2U_CREDUI_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPKU2U_CREDUI_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPKU2U_LOGON_SUBMIT_TYPE(pub *mut PKU2U_LOGON_SUBMIT_TYPE);
-impl PPKU2U_LOGON_SUBMIT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPKU2U_LOGON_SUBMIT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_CATEGORIES_INFO(pub *mut POLICY_AUDIT_CATEGORIES_INFO);
-impl PPOLICY_AUDIT_CATEGORIES_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_CATEGORIES_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_EVENTS_INFO(pub *mut POLICY_AUDIT_EVENTS_INFO);
-impl PPOLICY_AUDIT_EVENTS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_EVENTS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_EVENT_OPTIONS(pub *mut u32);
-impl PPOLICY_AUDIT_EVENT_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_EVENT_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_EVENT_TYPE(pub *mut POLICY_AUDIT_EVENT_TYPE);
-impl PPOLICY_AUDIT_EVENT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_EVENT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_FULL_QUERY_INFO(pub *mut POLICY_AUDIT_FULL_QUERY_INFO);
-impl PPOLICY_AUDIT_FULL_QUERY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_FULL_QUERY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_FULL_SET_INFO(pub *mut POLICY_AUDIT_FULL_SET_INFO);
-impl PPOLICY_AUDIT_FULL_SET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_FULL_SET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_LOG_INFO(pub *mut POLICY_AUDIT_LOG_INFO);
-impl PPOLICY_AUDIT_LOG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_LOG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPKU2U_CERTIFICATE_S4U_LOGON = *mut PKU2U_CERTIFICATE_S4U_LOGON;
+pub type PPKU2U_CERT_BLOB = *mut PKU2U_CERT_BLOB;
+pub type PPKU2U_CREDUI_CONTEXT = *mut PKU2U_CREDUI_CONTEXT;
+pub type PPKU2U_LOGON_SUBMIT_TYPE = *mut PKU2U_LOGON_SUBMIT_TYPE;
+pub type PPOLICY_AUDIT_CATEGORIES_INFO = *mut POLICY_AUDIT_CATEGORIES_INFO;
+pub type PPOLICY_AUDIT_EVENTS_INFO = *mut POLICY_AUDIT_EVENTS_INFO;
+pub type PPOLICY_AUDIT_EVENT_OPTIONS = *mut u32;
+pub type PPOLICY_AUDIT_EVENT_TYPE = *mut POLICY_AUDIT_EVENT_TYPE;
+pub type PPOLICY_AUDIT_FULL_QUERY_INFO = *mut POLICY_AUDIT_FULL_QUERY_INFO;
+pub type PPOLICY_AUDIT_FULL_SET_INFO = *mut POLICY_AUDIT_FULL_SET_INFO;
+pub type PPOLICY_AUDIT_LOG_INFO = *mut POLICY_AUDIT_LOG_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_SID_ARRAY(pub *mut POLICY_AUDIT_SID_ARRAY);
+pub type PPOLICY_AUDIT_SID_ARRAY = *mut POLICY_AUDIT_SID_ARRAY;
+pub type PPOLICY_AUDIT_SUBCATEGORIES_INFO = *mut POLICY_AUDIT_SUBCATEGORIES_INFO;
 #[cfg(feature = "winnt")]
-impl PPOLICY_AUDIT_SID_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOLICY_AUDIT_SID_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_AUDIT_SUBCATEGORIES_INFO(pub *mut POLICY_AUDIT_SUBCATEGORIES_INFO);
-impl PPOLICY_AUDIT_SUBCATEGORIES_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_AUDIT_SUBCATEGORIES_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_DEFAULT_QUOTA_INFO(pub *mut POLICY_DEFAULT_QUOTA_INFO);
-#[cfg(feature = "winnt")]
-impl PPOLICY_DEFAULT_QUOTA_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOLICY_DEFAULT_QUOTA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_DEFAULT_QUOTA_INFO = *mut POLICY_DEFAULT_QUOTA_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_DOMAIN_EFS_INFO(pub *mut POLICY_DOMAIN_EFS_INFO);
-#[cfg(feature = "minwindef")]
-impl PPOLICY_DOMAIN_EFS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPOLICY_DOMAIN_EFS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_DOMAIN_INFORMATION_CLASS(pub *mut POLICY_DOMAIN_INFORMATION_CLASS);
-impl PPOLICY_DOMAIN_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_DOMAIN_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_DOMAIN_KERBEROS_TICKET_INFO(pub *mut POLICY_DOMAIN_KERBEROS_TICKET_INFO);
-impl PPOLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_DOMAIN_KERBEROS_TICKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_INFORMATION_CLASS(pub *mut POLICY_INFORMATION_CLASS);
-impl PPOLICY_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_LSA_SERVER_ROLE(pub *mut POLICY_LSA_SERVER_ROLE);
-impl PPOLICY_LSA_SERVER_ROLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_LSA_SERVER_ROLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_LSA_SERVER_ROLE_INFO(pub *mut POLICY_LSA_SERVER_ROLE_INFO);
-impl PPOLICY_LSA_SERVER_ROLE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_LSA_SERVER_ROLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_DOMAIN_EFS_INFO = *mut POLICY_DOMAIN_EFS_INFO;
+pub type PPOLICY_DOMAIN_INFORMATION_CLASS = *mut POLICY_DOMAIN_INFORMATION_CLASS;
+pub type PPOLICY_DOMAIN_KERBEROS_TICKET_INFO = *mut POLICY_DOMAIN_KERBEROS_TICKET_INFO;
+pub type PPOLICY_INFORMATION_CLASS = *mut POLICY_INFORMATION_CLASS;
+pub type PPOLICY_LSA_SERVER_ROLE = *mut POLICY_LSA_SERVER_ROLE;
+pub type PPOLICY_LSA_SERVER_ROLE_INFO = *mut POLICY_LSA_SERVER_ROLE_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_MACHINE_ACCT_INFO(pub *mut POLICY_MACHINE_ACCT_INFO);
+pub type PPOLICY_MACHINE_ACCT_INFO = *mut POLICY_MACHINE_ACCT_INFO;
 #[cfg(feature = "winnt")]
-impl PPOLICY_MACHINE_ACCT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOLICY_MACHINE_ACCT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_MACHINE_ACCT_INFO2(pub *mut POLICY_MACHINE_ACCT_INFO2);
-#[cfg(feature = "winnt")]
-impl PPOLICY_MACHINE_ACCT_INFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOLICY_MACHINE_ACCT_INFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_MODIFICATION_INFO(pub *mut POLICY_MODIFICATION_INFO);
-impl PPOLICY_MODIFICATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_MODIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_NOTIFICATION_INFORMATION_CLASS(pub *mut POLICY_NOTIFICATION_INFORMATION_CLASS);
-impl PPOLICY_NOTIFICATION_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOLICY_NOTIFICATION_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_MACHINE_ACCT_INFO2 = *mut POLICY_MACHINE_ACCT_INFO2;
+pub type PPOLICY_MODIFICATION_INFO = *mut POLICY_MODIFICATION_INFO;
+pub type PPOLICY_NOTIFICATION_INFORMATION_CLASS = *mut POLICY_NOTIFICATION_INFORMATION_CLASS;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_PD_ACCOUNT_INFO(pub *mut POLICY_PD_ACCOUNT_INFO);
-#[cfg(feature = "lsalookup")]
-impl PPOLICY_PD_ACCOUNT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PPOLICY_PD_ACCOUNT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_PD_ACCOUNT_INFO = *mut POLICY_PD_ACCOUNT_INFO;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_PRIMARY_DOMAIN_INFO(pub *mut POLICY_PRIMARY_DOMAIN_INFO);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PPOLICY_PRIMARY_DOMAIN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PPOLICY_PRIMARY_DOMAIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_PRIMARY_DOMAIN_INFO = *mut POLICY_PRIMARY_DOMAIN_INFO;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLICY_REPLICA_SOURCE_INFO(pub *mut POLICY_REPLICA_SOURCE_INFO);
-#[cfg(feature = "lsalookup")]
-impl PPOLICY_REPLICA_SOURCE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PPOLICY_REPLICA_SOURCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLICY_REPLICA_SOURCE_INFO = *mut POLICY_REPLICA_SOURCE_INFO;
 pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn() -> bool>;
 #[cfg(feature = "lsalookup")]
 pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "system" fn(accountname: *const super::lsalookup::LSA_UNICODE_STRING, fullname: *const super::lsalookup::LSA_UNICODE_STRING, password: *const super::lsalookup::LSA_UNICODE_STRING, setoperation: bool) -> bool>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(username: *mut super::lsalookup::LSA_UNICODE_STRING, relativeid: u32, newpassword: *mut super::lsalookup::LSA_UNICODE_STRING) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_LOGON_SESSION_DATA(pub *mut SECURITY_LOGON_SESSION_DATA);
+pub type PSECURITY_LOGON_SESSION_DATA = *mut SECURITY_LOGON_SESSION_DATA;
+pub type PSECURITY_LOGON_TYPE = *mut SECURITY_LOGON_TYPE;
+#[cfg(feature = "winnt")]
+pub type PSE_ADT_ACCESS_REASON = *mut SE_ADT_ACCESS_REASON;
+#[cfg(feature = "winnt")]
+pub type PSE_ADT_CLAIMS = *mut SE_ADT_CLAIMS;
+#[cfg(feature = "winnt")]
+pub type PSE_ADT_OBJECT_TYPE = *mut SE_ADT_OBJECT_TYPE;
+pub type PSE_ADT_PARAMETER_ARRAY = *mut SE_ADT_PARAMETER_ARRAY;
+pub type PSE_ADT_PARAMETER_ARRAY_ENTRY = *mut SE_ADT_PARAMETER_ARRAY_ENTRY;
+pub type PSE_ADT_PARAMETER_ARRAY_EX = *mut SE_ADT_PARAMETER_ARRAY_EX;
+pub type PSE_ADT_PARAMETER_TYPE = *mut SE_ADT_PARAMETER_TYPE;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PSECURITY_LOGON_SESSION_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PSECURITY_LOGON_SESSION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_LOGON_TYPE(pub *mut SECURITY_LOGON_TYPE);
-impl PSECURITY_LOGON_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURITY_LOGON_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_ACCESS_REASON(pub *mut SE_ADT_ACCESS_REASON);
-#[cfg(feature = "winnt")]
-impl PSE_ADT_ACCESS_REASON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSE_ADT_ACCESS_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_CLAIMS(pub *mut SE_ADT_CLAIMS);
-#[cfg(feature = "winnt")]
-impl PSE_ADT_CLAIMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSE_ADT_CLAIMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_OBJECT_TYPE(pub *mut SE_ADT_OBJECT_TYPE);
-#[cfg(feature = "winnt")]
-impl PSE_ADT_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSE_ADT_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_PARAMETER_ARRAY(pub *mut SE_ADT_PARAMETER_ARRAY);
-impl PSE_ADT_PARAMETER_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_ADT_PARAMETER_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_PARAMETER_ARRAY_ENTRY(pub *mut SE_ADT_PARAMETER_ARRAY_ENTRY);
-impl PSE_ADT_PARAMETER_ARRAY_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_ADT_PARAMETER_ARRAY_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_PARAMETER_ARRAY_EX(pub *mut SE_ADT_PARAMETER_ARRAY_EX);
-impl PSE_ADT_PARAMETER_ARRAY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_ADT_PARAMETER_ARRAY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_ADT_PARAMETER_TYPE(pub *mut SE_ADT_PARAMETER_TYPE);
-impl PSE_ADT_PARAMETER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_ADT_PARAMETER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTRING(pub *mut super::lsalookup::LSA_STRING);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PSTRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PSTRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSTRING = *mut super::lsalookup::LSA_STRING;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_CONTROLLERS_INFO(pub *mut TRUSTED_CONTROLLERS_INFO);
-#[cfg(feature = "lsalookup")]
-impl PTRUSTED_CONTROLLERS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PTRUSTED_CONTROLLERS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTED_CONTROLLERS_INFO = *mut TRUSTED_CONTROLLERS_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_AUTH_INFORMATION(pub *mut TRUSTED_DOMAIN_AUTH_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PTRUSTED_DOMAIN_AUTH_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PTRUSTED_DOMAIN_AUTH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTED_DOMAIN_AUTH_INFORMATION = *mut TRUSTED_DOMAIN_AUTH_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_FULL_INFORMATION(pub *mut TRUSTED_DOMAIN_FULL_INFORMATION);
+pub type PTRUSTED_DOMAIN_FULL_INFORMATION = *mut TRUSTED_DOMAIN_FULL_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PTRUSTED_DOMAIN_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PTRUSTED_DOMAIN_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_FULL_INFORMATION2(pub *mut TRUSTED_DOMAIN_FULL_INFORMATION2);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PTRUSTED_DOMAIN_FULL_INFORMATION2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PTRUSTED_DOMAIN_FULL_INFORMATION2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTED_DOMAIN_FULL_INFORMATION2 = *mut TRUSTED_DOMAIN_FULL_INFORMATION2;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTRUSTED_DOMAIN_INFORMATION_BASIC(pub super::lsalookup::PLSA_TRUST_INFORMATION);
+pub type PTRUSTED_DOMAIN_INFORMATION_BASIC = super::lsalookup::PLSA_TRUST_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_INFORMATION_EX(pub *mut TRUSTED_DOMAIN_INFORMATION_EX);
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl PTRUSTED_DOMAIN_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "winnt"))]
-impl Default for PTRUSTED_DOMAIN_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTED_DOMAIN_INFORMATION_EX = *mut TRUSTED_DOMAIN_INFORMATION_EX;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_INFORMATION_EX2(pub *mut TRUSTED_DOMAIN_INFORMATION_EX2);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl PTRUSTED_DOMAIN_INFORMATION_EX2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-impl Default for PTRUSTED_DOMAIN_INFORMATION_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRUSTED_DOMAIN_INFORMATION_EX2 = *mut TRUSTED_DOMAIN_INFORMATION_EX2;
 #[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_NAME_INFO(pub *mut TRUSTED_DOMAIN_NAME_INFO);
+pub type PTRUSTED_DOMAIN_NAME_INFO = *mut TRUSTED_DOMAIN_NAME_INFO;
+pub type PTRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES = *mut TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES;
+pub type PTRUSTED_INFORMATION_CLASS = *mut TRUSTED_INFORMATION_CLASS;
 #[cfg(feature = "lsalookup")]
-impl PTRUSTED_DOMAIN_NAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PTRUSTED_PASSWORD_INFO = *mut TRUSTED_PASSWORD_INFO;
+pub type PTRUSTED_POSIX_OFFSET_INFO = *mut TRUSTED_POSIX_OFFSET_INFO;
 #[cfg(feature = "lsalookup")]
-impl Default for PTRUSTED_DOMAIN_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES(pub *mut TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES);
-impl PTRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_INFORMATION_CLASS(pub *mut TRUSTED_INFORMATION_CLASS);
-impl PTRUSTED_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRUSTED_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_PASSWORD_INFO(pub *mut TRUSTED_PASSWORD_INFO);
-#[cfg(feature = "lsalookup")]
-impl PTRUSTED_PASSWORD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PTRUSTED_PASSWORD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUSTED_POSIX_OFFSET_INFO(pub *mut TRUSTED_POSIX_OFFSET_INFO);
-impl PTRUSTED_POSIX_OFFSET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRUSTED_POSIX_OFFSET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "lsalookup")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUNICODE_STRING(pub *mut super::lsalookup::LSA_UNICODE_STRING);
-#[cfg(feature = "lsalookup")]
-impl PUNICODE_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "lsalookup")]
-impl Default for PUNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUNICODE_STRING = *mut super::lsalookup::LSA_UNICODE_STRING;
 pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14;
 pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5;
 pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2;

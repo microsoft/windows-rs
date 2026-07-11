@@ -5931,201 +5931,21 @@ pub const MsftStreamPrng001: windows_core::GUID = windows_core::GUID::from_u128(
 pub const MsftStreamZero: windows_core::GUID = windows_core::GUID::from_u128(0x27354127_7f64_5b0f_8f00_5d77afbe261e);
 pub const MsftWriteEngine2: windows_core::GUID = windows_core::GUID::from_u128(0x2735412c_7f64_5b0f_8f00_5d77afbe261e);
 pub const MsftWriteSpeedDescriptor: windows_core::GUID = windows_core::GUID::from_u128(0x27354123_7f64_5b0f_8f00_5d77afbe261e);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_BURN_VERIFICATION_LEVEL(pub *mut IMAPI_BURN_VERIFICATION_LEVEL);
-impl PIMAPI_BURN_VERIFICATION_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_BURN_VERIFICATION_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_CD_SECTOR_TYPE(pub *mut IMAPI_CD_SECTOR_TYPE);
-impl PIMAPI_CD_SECTOR_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_CD_SECTOR_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING(pub *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING);
-impl PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FEATURE_PAGE_TYPE(pub *mut IMAPI_FEATURE_PAGE_TYPE);
-impl PIMAPI_FEATURE_PAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FEATURE_PAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FORMAT2_DATA_MEDIA_STATE(pub *mut IMAPI_FORMAT2_DATA_MEDIA_STATE);
-impl PIMAPI_FORMAT2_DATA_MEDIA_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FORMAT2_DATA_MEDIA_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FORMAT2_DATA_WRITE_ACTION(pub *mut IMAPI_FORMAT2_DATA_WRITE_ACTION);
-impl PIMAPI_FORMAT2_DATA_WRITE_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FORMAT2_DATA_WRITE_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE(pub *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE);
-impl PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION(pub *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION);
-impl PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_FORMAT2_TAO_WRITE_ACTION(pub *mut IMAPI_FORMAT2_TAO_WRITE_ACTION);
-impl PIMAPI_FORMAT2_TAO_WRITE_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_FORMAT2_TAO_WRITE_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_MEDIA_PHYSICAL_TYPE(pub *mut IMAPI_MEDIA_PHYSICAL_TYPE);
-impl PIMAPI_MEDIA_PHYSICAL_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_MEDIA_PHYSICAL_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_MEDIA_WRITE_PROTECT_STATE(pub *mut IMAPI_MEDIA_WRITE_PROTECT_STATE);
-impl PIMAPI_MEDIA_WRITE_PROTECT_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_MEDIA_WRITE_PROTECT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_MODE_PAGE_REQUEST_TYPE(pub *mut IMAPI_MODE_PAGE_REQUEST_TYPE);
-impl PIMAPI_MODE_PAGE_REQUEST_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_MODE_PAGE_REQUEST_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_MODE_PAGE_TYPE(pub *mut IMAPI_MODE_PAGE_TYPE);
-impl PIMAPI_MODE_PAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_MODE_PAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_PROFILE_TYPE(pub *mut IMAPI_PROFILE_TYPE);
-impl PIMAPI_PROFILE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_PROFILE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAPI_READ_TRACK_ADDRESS_TYPE(pub *mut IMAPI_READ_TRACK_ADDRESS_TYPE);
-impl PIMAPI_READ_TRACK_ADDRESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAPI_READ_TRACK_ADDRESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMAPI_BURN_VERIFICATION_LEVEL = *mut IMAPI_BURN_VERIFICATION_LEVEL;
+pub type PIMAPI_CD_SECTOR_TYPE = *mut IMAPI_CD_SECTOR_TYPE;
+pub type PIMAPI_CD_TRACK_DIGITAL_COPY_SETTING = *mut IMAPI_CD_TRACK_DIGITAL_COPY_SETTING;
+pub type PIMAPI_FEATURE_PAGE_TYPE = *mut IMAPI_FEATURE_PAGE_TYPE;
+pub type PIMAPI_FORMAT2_DATA_MEDIA_STATE = *mut IMAPI_FORMAT2_DATA_MEDIA_STATE;
+pub type PIMAPI_FORMAT2_DATA_WRITE_ACTION = *mut IMAPI_FORMAT2_DATA_WRITE_ACTION;
+pub type PIMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE = *mut IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE;
+pub type PIMAPI_FORMAT2_RAW_CD_WRITE_ACTION = *mut IMAPI_FORMAT2_RAW_CD_WRITE_ACTION;
+pub type PIMAPI_FORMAT2_TAO_WRITE_ACTION = *mut IMAPI_FORMAT2_TAO_WRITE_ACTION;
+pub type PIMAPI_MEDIA_PHYSICAL_TYPE = *mut IMAPI_MEDIA_PHYSICAL_TYPE;
+pub type PIMAPI_MEDIA_WRITE_PROTECT_STATE = *mut IMAPI_MEDIA_WRITE_PROTECT_STATE;
+pub type PIMAPI_MODE_PAGE_REQUEST_TYPE = *mut IMAPI_MODE_PAGE_REQUEST_TYPE;
+pub type PIMAPI_MODE_PAGE_TYPE = *mut IMAPI_MODE_PAGE_TYPE;
+pub type PIMAPI_PROFILE_TYPE = *mut IMAPI_PROFILE_TYPE;
+pub type PIMAPI_READ_TRACK_ADDRESS_TYPE = *mut IMAPI_READ_TRACK_ADDRESS_TYPE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ULONG_IMAPI2_ADAPTER_DESCRIPTOR(pub u32);

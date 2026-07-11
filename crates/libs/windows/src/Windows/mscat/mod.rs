@@ -357,9 +357,7 @@ pub const CRYPTCAT_OPEN_VERIFYSIGHASH: u32 = 268435456;
 pub const CRYPTCAT_VERSION_1: u32 = 256;
 pub const CRYPTCAT_VERSION_2: u32 = 512;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCATINFO(pub super::winnt::HANDLE);
+pub type HCATINFO = super::winnt::HANDLE;
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: *mut u16)>;
 pub const szOID_CATALOG_LIST: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.1");
 pub const szOID_CATALOG_LIST_MEMBER: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.12.1.2");

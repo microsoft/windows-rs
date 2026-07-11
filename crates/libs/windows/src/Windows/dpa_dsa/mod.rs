@@ -206,32 +206,8 @@ pub const DPA_APPEND: u32 = 2147483647;
 pub const DPA_ERR: i32 = -1;
 pub const DSA_APPEND: u32 = 2147483647;
 pub const DSA_ERR: i32 = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDPA(pub *mut _DPA);
-impl HDPA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDPA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HDSA(pub *mut _DSA);
-impl HDSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HDSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type HDPA = *mut _DPA;
+pub type HDSA = *mut _DSA;
 #[cfg(feature = "minwindef")]
 pub type PFNDACOMPARE = Option<unsafe extern "system" fn(p1: *const core::ffi::c_void, p2: *const core::ffi::c_void, lparam: super::minwindef::LPARAM) -> i32>;
 #[cfg(feature = "minwindef")]

@@ -70,23 +70,9 @@ pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub SystemKeyID: u32,
     pub CurrentSystemKeyID: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENCLAVE_VBS_BASIC_KEY_REQUEST(pub *mut ENCLAVE_VBS_BASIC_KEY_REQUEST);
-impl PENCLAVE_VBS_BASIC_KEY_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENCLAVE_VBS_BASIC_KEY_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENCLAVE_VBS_BASIC_KEY_REQUEST = *mut ENCLAVE_VBS_BASIC_KEY_REQUEST;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PVBS_BASIC_ENCLAVE_EXCEPTION(pub PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64);
+pub type PVBS_BASIC_ENCLAVE_EXCEPTION = PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -103,66 +89,14 @@ impl Default for PVBS_BASIC_ENCLAVE_EXCEPTION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64(pub *mut VBS_BASIC_ENCLAVE_EXCEPTION_AMD64);
-impl PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBS_BASIC_ENCLAVE_SYSCALL_PAGE(pub *mut VBS_BASIC_ENCLAVE_SYSCALL_PAGE);
-impl PVBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBS_BASIC_ENCLAVE_SYSCALL_PAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64 = *mut VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
+pub type PVBS_BASIC_ENCLAVE_SYSCALL_PAGE = *mut VBS_BASIC_ENCLAVE_SYSCALL_PAGE;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR(pub PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32);
+pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR(pub PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32(pub *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32);
-impl PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64(pub *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64);
-impl PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
+pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
+pub type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize, sourceaddress: *const core::ffi::c_void, pageprotection: u32) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Option<unsafe extern "system" fn(threaddescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32>;
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = Option<unsafe extern "system" fn(enclaveaddress: *const core::ffi::c_void, numberofbytes: usize) -> i32>;

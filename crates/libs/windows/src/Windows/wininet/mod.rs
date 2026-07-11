@@ -2622,623 +2622,81 @@ pub struct InternetCookieHistory {
 }
 pub type InternetCookieState = i32;
 pub const LOCAL_INTERNET_ACCESS: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUTO_PROXY_SCRIPT_BUFFER(pub *mut AUTO_PROXY_SCRIPT_BUFFER);
-impl LPAUTO_PROXY_SCRIPT_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAUTO_PROXY_SCRIPT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAUTO_PROXY_SCRIPT_BUFFER = *mut AUTO_PROXY_SCRIPT_BUFFER;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE(pub *mut GOPHER_ABSTRACT_ATTRIBUTE_TYPE);
+pub type LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE = *mut GOPHER_ABSTRACT_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
-impl LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPGOPHER_ADMIN_ATTRIBUTE_TYPE = *mut GOPHER_ADMIN_ATTRIBUTE_TYPE;
 #[cfg(feature = "winnt")]
-impl Default for LPGOPHER_ABSTRACT_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_ADMIN_ATTRIBUTE_TYPE(pub *mut GOPHER_ADMIN_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_ADMIN_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_ADMIN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_ASK_ATTRIBUTE_TYPE(pub *mut GOPHER_ASK_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_ASK_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_ASK_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPGOPHER_ASK_ATTRIBUTE_TYPE = *mut GOPHER_ASK_ATTRIBUTE_TYPE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_ATTRIBUTE_TYPE(pub *mut GOPHER_ATTRIBUTE_TYPE);
+pub type LPGOPHER_ATTRIBUTE_TYPE = *mut GOPHER_ATTRIBUTE_TYPE;
+#[cfg(feature = "minwindef")]
+pub type LPGOPHER_FIND_DATA = LPGOPHER_FIND_DATAA;
+#[cfg(feature = "minwindef")]
+pub type LPGOPHER_FIND_DATAA = *mut GOPHER_FIND_DATAA;
+#[cfg(feature = "minwindef")]
+pub type LPGOPHER_FIND_DATAW = *mut GOPHER_FIND_DATAW;
+pub type LPGOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE = *mut GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_LOCATION_ATTRIBUTE_TYPE = *mut GOPHER_LOCATION_ATTRIBUTE_TYPE;
+#[cfg(feature = "minwindef")]
+pub type LPGOPHER_MOD_DATE_ATTRIBUTE_TYPE = *mut GOPHER_MOD_DATE_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_ORGANIZATION_ATTRIBUTE_TYPE = *mut GOPHER_ORGANIZATION_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_PROVIDER_ATTRIBUTE_TYPE = *mut GOPHER_PROVIDER_ATTRIBUTE_TYPE;
+pub type LPGOPHER_SCORE_ATTRIBUTE_TYPE = *mut GOPHER_SCORE_ATTRIBUTE_TYPE;
+pub type LPGOPHER_SCORE_RANGE_ATTRIBUTE_TYPE = *mut GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_SITE_ATTRIBUTE_TYPE = *mut GOPHER_SITE_ATTRIBUTE_TYPE;
+pub type LPGOPHER_TIMEZONE_ATTRIBUTE_TYPE = *mut GOPHER_TIMEZONE_ATTRIBUTE_TYPE;
+pub type LPGOPHER_TTL_ATTRIBUTE_TYPE = *mut GOPHER_TTL_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_UNKNOWN_ATTRIBUTE_TYPE = *mut GOPHER_UNKNOWN_ATTRIBUTE_TYPE;
+pub type LPGOPHER_VERONICA_ATTRIBUTE_TYPE = *mut GOPHER_VERONICA_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_VERSION_ATTRIBUTE_TYPE = *mut GOPHER_VERSION_ATTRIBUTE_TYPE;
+#[cfg(feature = "winnt")]
+pub type LPGOPHER_VIEW_ATTRIBUTE_TYPE = *mut GOPHER_VIEW_ATTRIBUTE_TYPE;
+pub type LPINTERNET_ASYNC_RESULT = *mut INTERNET_ASYNC_RESULT;
+pub type LPINTERNET_BUFFERS = LPINTERNET_BUFFERSA;
+pub type LPINTERNET_BUFFERSA = *mut INTERNET_BUFFERSA;
+pub type LPINTERNET_BUFFERSW = *mut INTERNET_BUFFERSW;
+#[cfg(feature = "minwindef")]
+pub type LPINTERNET_CACHE_ENTRY_INFO = LPINTERNET_CACHE_ENTRY_INFOA;
+#[cfg(feature = "minwindef")]
+pub type LPINTERNET_CACHE_ENTRY_INFOA = *mut INTERNET_CACHE_ENTRY_INFOA;
+#[cfg(feature = "minwindef")]
+pub type LPINTERNET_CACHE_ENTRY_INFOW = *mut INTERNET_CACHE_ENTRY_INFOW;
+pub type LPINTERNET_CACHE_GROUP_INFO = LPINTERNET_CACHE_GROUP_INFOA;
+pub type LPINTERNET_CACHE_GROUP_INFOA = *mut INTERNET_CACHE_GROUP_INFOA;
+pub type LPINTERNET_CACHE_GROUP_INFOW = *mut INTERNET_CACHE_GROUP_INFOW;
+#[cfg(feature = "minwindef")]
+pub type LPINTERNET_CACHE_TIMESTAMPS = *mut INTERNET_CACHE_TIMESTAMPS;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPGOPHER_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPGOPHER_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPINTERNET_CERTIFICATE_INFO = *mut INTERNET_CERTIFICATE_INFO;
+pub type LPINTERNET_CONNECTED_INFO = *mut INTERNET_CONNECTED_INFO;
+pub type LPINTERNET_DIAGNOSTIC_SOCKET_INFO = *mut INTERNET_DIAGNOSTIC_SOCKET_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPGOPHER_FIND_DATA(pub LPGOPHER_FIND_DATAA);
+pub type LPINTERNET_PER_CONN_OPTION = LPINTERNET_PER_CONN_OPTIONA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_FIND_DATAA(pub *mut GOPHER_FIND_DATAA);
+pub type LPINTERNET_PER_CONN_OPTIONA = *mut INTERNET_PER_CONN_OPTIONA;
 #[cfg(feature = "minwindef")]
-impl LPGOPHER_FIND_DATAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPINTERNET_PER_CONN_OPTIONW = *mut INTERNET_PER_CONN_OPTIONW;
 #[cfg(feature = "minwindef")]
-impl Default for LPGOPHER_FIND_DATAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPINTERNET_PER_CONN_OPTION_LIST = LPINTERNET_PER_CONN_OPTION_LISTA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_FIND_DATAW(pub *mut GOPHER_FIND_DATAW);
+pub type LPINTERNET_PER_CONN_OPTION_LISTA = *mut INTERNET_PER_CONN_OPTION_LISTA;
 #[cfg(feature = "minwindef")]
-impl LPGOPHER_FIND_DATAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPGOPHER_FIND_DATAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE(pub *mut GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE);
-impl LPGOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPINTERNET_PER_CONN_OPTION_LISTW = *mut INTERNET_PER_CONN_OPTION_LISTW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_LOCATION_ATTRIBUTE_TYPE(pub *mut GOPHER_LOCATION_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_LOCATION_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_LOCATION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_MOD_DATE_ATTRIBUTE_TYPE(pub *mut GOPHER_MOD_DATE_ATTRIBUTE_TYPE);
-#[cfg(feature = "minwindef")]
-impl LPGOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPGOPHER_MOD_DATE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_ORGANIZATION_ATTRIBUTE_TYPE(pub *mut GOPHER_ORGANIZATION_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_PROVIDER_ATTRIBUTE_TYPE(pub *mut GOPHER_PROVIDER_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_PROVIDER_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_SCORE_ATTRIBUTE_TYPE(pub *mut GOPHER_SCORE_ATTRIBUTE_TYPE);
-impl LPGOPHER_SCORE_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_SCORE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_SCORE_RANGE_ATTRIBUTE_TYPE(pub *mut GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE);
-impl LPGOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_SITE_ATTRIBUTE_TYPE(pub *mut GOPHER_SITE_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_SITE_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_SITE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_TIMEZONE_ATTRIBUTE_TYPE(pub *mut GOPHER_TIMEZONE_ATTRIBUTE_TYPE);
-impl LPGOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_TIMEZONE_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_TTL_ATTRIBUTE_TYPE(pub *mut GOPHER_TTL_ATTRIBUTE_TYPE);
-impl LPGOPHER_TTL_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_TTL_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_UNKNOWN_ATTRIBUTE_TYPE(pub *mut GOPHER_UNKNOWN_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_UNKNOWN_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_VERONICA_ATTRIBUTE_TYPE(pub *mut GOPHER_VERONICA_ATTRIBUTE_TYPE);
-impl LPGOPHER_VERONICA_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGOPHER_VERONICA_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_VERSION_ATTRIBUTE_TYPE(pub *mut GOPHER_VERSION_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_VERSION_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_VERSION_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGOPHER_VIEW_ATTRIBUTE_TYPE(pub *mut GOPHER_VIEW_ATTRIBUTE_TYPE);
-#[cfg(feature = "winnt")]
-impl LPGOPHER_VIEW_ATTRIBUTE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPGOPHER_VIEW_ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_ASYNC_RESULT(pub *mut INTERNET_ASYNC_RESULT);
-impl LPINTERNET_ASYNC_RESULT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_ASYNC_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINTERNET_BUFFERS(pub LPINTERNET_BUFFERSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_BUFFERSA(pub *mut INTERNET_BUFFERSA);
-impl LPINTERNET_BUFFERSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_BUFFERSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_BUFFERSW(pub *mut INTERNET_BUFFERSW);
-impl LPINTERNET_BUFFERSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_BUFFERSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINTERNET_CACHE_ENTRY_INFO(pub LPINTERNET_CACHE_ENTRY_INFOA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CACHE_ENTRY_INFOA(pub *mut INTERNET_CACHE_ENTRY_INFOA);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_CACHE_ENTRY_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_CACHE_ENTRY_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CACHE_ENTRY_INFOW(pub *mut INTERNET_CACHE_ENTRY_INFOW);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_CACHE_ENTRY_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_CACHE_ENTRY_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINTERNET_CACHE_GROUP_INFO(pub LPINTERNET_CACHE_GROUP_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CACHE_GROUP_INFOA(pub *mut INTERNET_CACHE_GROUP_INFOA);
-impl LPINTERNET_CACHE_GROUP_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_CACHE_GROUP_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CACHE_GROUP_INFOW(pub *mut INTERNET_CACHE_GROUP_INFOW);
-impl LPINTERNET_CACHE_GROUP_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_CACHE_GROUP_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CACHE_TIMESTAMPS(pub *mut INTERNET_CACHE_TIMESTAMPS);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_CACHE_TIMESTAMPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_CACHE_TIMESTAMPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CERTIFICATE_INFO(pub *mut INTERNET_CERTIFICATE_INFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPINTERNET_CERTIFICATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPINTERNET_CERTIFICATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_CONNECTED_INFO(pub *mut INTERNET_CONNECTED_INFO);
-impl LPINTERNET_CONNECTED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_CONNECTED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_DIAGNOSTIC_SOCKET_INFO(pub *mut INTERNET_DIAGNOSTIC_SOCKET_INFO);
-impl LPINTERNET_DIAGNOSTIC_SOCKET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_DIAGNOSTIC_SOCKET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINTERNET_PER_CONN_OPTION(pub LPINTERNET_PER_CONN_OPTIONA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_PER_CONN_OPTIONA(pub *mut INTERNET_PER_CONN_OPTIONA);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_PER_CONN_OPTIONA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_PER_CONN_OPTIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_PER_CONN_OPTIONW(pub *mut INTERNET_PER_CONN_OPTIONW);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_PER_CONN_OPTIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_PER_CONN_OPTIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINTERNET_PER_CONN_OPTION_LIST(pub LPINTERNET_PER_CONN_OPTION_LISTA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_PER_CONN_OPTION_LISTA(pub *mut INTERNET_PER_CONN_OPTION_LISTA);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_PER_CONN_OPTION_LISTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_PER_CONN_OPTION_LISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_PER_CONN_OPTION_LISTW(pub *mut INTERNET_PER_CONN_OPTION_LISTW);
-#[cfg(feature = "minwindef")]
-impl LPINTERNET_PER_CONN_OPTION_LISTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPINTERNET_PER_CONN_OPTION_LISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_PROXY_INFO(pub *mut INTERNET_PROXY_INFO);
-#[cfg(feature = "winnt")]
-impl LPINTERNET_PROXY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPINTERNET_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPINTERNET_PROXY_INFO = *mut INTERNET_PROXY_INFO;
 #[cfg(feature = "winhttp")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_STATUS_CALLBACK(pub *mut INTERNET_STATUS_CALLBACK);
+pub type LPINTERNET_STATUS_CALLBACK = *mut INTERNET_STATUS_CALLBACK;
+pub type LPINTERNET_VERSION_INFO = *mut INTERNET_VERSION_INFO;
 #[cfg(feature = "winhttp")]
-impl LPINTERNET_STATUS_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winhttp")]
-impl Default for LPINTERNET_STATUS_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERNET_VERSION_INFO(pub *mut INTERNET_VERSION_INFO);
-impl LPINTERNET_VERSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERNET_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winhttp")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPURL_COMPONENTSA(pub *mut URL_COMPONENTSA);
-#[cfg(feature = "winhttp")]
-impl LPURL_COMPONENTSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winhttp")]
-impl Default for LPURL_COMPONENTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPURL_COMPONENTSA = *mut URL_COMPONENTSA;
 pub const MAX_GOPHER_ATTRIBUTE_NAME: u32 = 128;
 pub const MAX_GOPHER_CATEGORY_NAME: u32 = 128;
 pub const MAX_GOPHER_DISPLAY_TEXT: u32 = 128;

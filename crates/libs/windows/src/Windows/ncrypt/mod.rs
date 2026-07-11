@@ -775,248 +775,26 @@ pub struct NCryptProviderName {
 pub type PFN_NCRYPT_ALLOC = Option<unsafe extern "system" fn(cbsize: usize) -> *mut core::ffi::c_void>;
 pub type PFN_NCRYPT_FREE = Option<unsafe extern "system" fn(pv: *const core::ffi::c_void)>;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_CIPHER_PADDING_INFO(pub *mut NCRYPT_CIPHER_PADDING_INFO);
-#[cfg(feature = "minwindef")]
-impl PNCRYPT_CIPHER_PADDING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PNCRYPT_CIPHER_PADDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE(pub *mut NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE);
-impl PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER(pub *mut NCRYPT_EXPORTED_ISOLATED_KEY_HEADER);
-impl PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES(pub *mut NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES);
-impl PNCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_KEY_BLOB_HEADER(pub *mut NCRYPT_KEY_BLOB_HEADER);
-impl PNCRYPT_KEY_BLOB_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_KEY_BLOB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT(pub *mut NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT);
-impl PNCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_PQ_BLOB(pub *mut NCRYPT_PQ_BLOB);
-impl PNCRYPT_PQ_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_PQ_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER(pub *mut NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER);
-impl PNCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER(pub *mut NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER);
-impl PNCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT(pub *mut NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT);
-impl PNCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_IDENTITY_ATTESTATION_HEADER(pub *mut NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER);
-impl PNCRYPT_VBS_IDENTITY_ATTESTATION_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_IDENTITY_ATTESTATION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_IDENTITY_ATTESTATION_PADDING(pub *mut NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING);
-impl PNCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS(pub *mut NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS);
-impl PNCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_KEY_ATTESTATION_STATEMENT(pub *mut NCRYPT_VBS_KEY_ATTESTATION_STATEMENT);
-impl PNCRYPT_VBS_KEY_ATTESTATION_STATEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_KEY_ATTESTATION_STATEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_ROOT_ATTESTATION_HEADER(pub *mut NCRYPT_VBS_ROOT_ATTESTATION_HEADER);
-impl PNCRYPT_VBS_ROOT_ATTESTATION_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_ROOT_ATTESTATION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS(pub *mut NCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS);
-impl PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNCRYPT_CIPHER_PADDING_INFO = *mut NCRYPT_CIPHER_PADDING_INFO;
+pub type PNCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE = *mut NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE;
+pub type PNCRYPT_EXPORTED_ISOLATED_KEY_HEADER = *mut NCRYPT_EXPORTED_ISOLATED_KEY_HEADER;
+pub type PNCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES = *mut NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES;
+pub type PNCRYPT_KEY_BLOB_HEADER = *mut NCRYPT_KEY_BLOB_HEADER;
+pub type PNCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT = *mut NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT;
+pub type PNCRYPT_PQ_BLOB = *mut NCRYPT_PQ_BLOB;
+pub type PNCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER = *mut NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER;
+pub type PNCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER = *mut NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER;
+pub type PNCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT = *mut NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT;
+pub type PNCRYPT_VBS_IDENTITY_ATTESTATION_HEADER = *mut NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER;
+pub type PNCRYPT_VBS_IDENTITY_ATTESTATION_PADDING = *mut NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING;
+pub type PNCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS = *mut NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS;
+pub type PNCRYPT_VBS_KEY_ATTESTATION_STATEMENT = *mut NCRYPT_VBS_KEY_ATTESTATION_STATEMENT;
+pub type PNCRYPT_VBS_ROOT_ATTESTATION_HEADER = *mut NCRYPT_VBS_ROOT_ATTESTATION_HEADER;
+pub type PNCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS = *mut NCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCryptBuffer(pub *mut super::bcrypt::BCryptBuffer);
+pub type PNCryptBuffer = *mut super::bcrypt::BCryptBuffer;
 #[cfg(feature = "bcrypt")]
-impl PNCryptBuffer {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PNCryptBuffer {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCryptBufferDesc(pub *mut super::bcrypt::BCryptBufferDesc);
-#[cfg(feature = "bcrypt")]
-impl PNCryptBufferDesc {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PNCryptBufferDesc {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNCryptBufferDesc = *mut super::bcrypt::BCryptBufferDesc;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SECURITY_STATUS(pub i32);

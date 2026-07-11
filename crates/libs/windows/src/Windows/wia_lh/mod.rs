@@ -2709,113 +2709,15 @@ impl IWiaTransferCallback_Vtbl {
 }
 #[cfg(feature = "objidlbase")]
 impl windows_core::RuntimeName for IWiaTransferCallback {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_DATA_CALLBACK_HEADER(pub *mut WIA_DATA_CALLBACK_HEADER);
-impl PWIA_DATA_CALLBACK_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_DATA_CALLBACK_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_DATA_TRANSFER_INFO(pub *mut WIA_DATA_TRANSFER_INFO);
-impl PWIA_DATA_TRANSFER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_DATA_TRANSFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_DEV_CAP(pub *mut WIA_DEV_CAP);
-impl PWIA_DEV_CAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_DEV_CAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_DITHER_PATTERN_DATA(pub *mut WIA_DITHER_PATTERN_DATA);
-impl PWIA_DITHER_PATTERN_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_DITHER_PATTERN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_EVENT_HANDLER(pub *mut WIA_DEV_CAP);
-impl PWIA_EVENT_HANDLER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_EVENT_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_EXTENDED_TRANSFER_INFO(pub *mut WIA_EXTENDED_TRANSFER_INFO);
-impl PWIA_EXTENDED_TRANSFER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_EXTENDED_TRANSFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_FORMAT_INFO(pub *mut WIA_FORMAT_INFO);
-impl PWIA_FORMAT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_FORMAT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWIA_DATA_CALLBACK_HEADER = *mut WIA_DATA_CALLBACK_HEADER;
+pub type PWIA_DATA_TRANSFER_INFO = *mut WIA_DATA_TRANSFER_INFO;
+pub type PWIA_DEV_CAP = *mut WIA_DEV_CAP;
+pub type PWIA_DITHER_PATTERN_DATA = *mut WIA_DITHER_PATTERN_DATA;
+pub type PWIA_EVENT_HANDLER = *mut WIA_DEV_CAP;
+pub type PWIA_EXTENDED_TRANSFER_INFO = *mut WIA_EXTENDED_TRANSFER_INFO;
+pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_PROPID_TO_NAME(pub *mut WIA_PROPID_TO_NAME);
-#[cfg(feature = "wtypes")]
-impl PWIA_PROPID_TO_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypes")]
-impl Default for PWIA_PROPID_TO_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct WIA_DATA_CALLBACK_HEADER {

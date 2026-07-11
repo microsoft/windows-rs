@@ -170,16 +170,4 @@ impl Default for ORHKEY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PORHKEY(pub *mut ORHKEY);
-impl PORHKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PORHKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PORHKEY = *mut ORHKEY;

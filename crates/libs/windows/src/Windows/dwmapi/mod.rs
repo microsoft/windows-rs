@@ -375,9 +375,7 @@ pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = 10;
 pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = 7;
 pub const GT_TOUCH_TAP: GESTURE_TYPE = 5;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTHUMBNAIL(pub super::winnt::HANDLE);
+pub type HTHUMBNAIL = super::winnt::HANDLE;
 pub type MIL_MATRIX3X2D = MilMatrix3x2D;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
@@ -390,53 +388,11 @@ pub struct MilMatrix3x2D {
     pub DY: f64,
 }
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDWM_BLURBEHIND(pub *mut DWM_BLURBEHIND);
-#[cfg(feature = "minwindef")]
-impl PDWM_BLURBEHIND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PDWM_BLURBEHIND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDWM_BLURBEHIND = *mut DWM_BLURBEHIND;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDWM_THUMBNAIL_PROPERTIES(pub *mut DWM_THUMBNAIL_PROPERTIES);
-#[cfg(feature = "windef")]
-impl PDWM_THUMBNAIL_PROPERTIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PDWM_THUMBNAIL_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDWM_THUMBNAIL_PROPERTIES = *mut DWM_THUMBNAIL_PROPERTIES;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTHUMBNAIL(pub *mut HTHUMBNAIL);
-#[cfg(feature = "winnt")]
-impl PHTHUMBNAIL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHTHUMBNAIL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTHUMBNAIL = *mut HTHUMBNAIL;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct QPC_TIME(pub u64);

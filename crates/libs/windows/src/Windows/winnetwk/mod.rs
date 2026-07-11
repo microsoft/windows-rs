@@ -384,190 +384,28 @@ pub struct DISCDLGSTRUCTW {
 pub const DISC_NO_FORCE: u32 = 64;
 pub const DISC_UPDATE_PROFILE: u32 = 1;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCONNECTDLGSTRUCT(pub LPCONNECTDLGSTRUCTA);
+pub type LPCONNECTDLGSTRUCT = LPCONNECTDLGSTRUCTA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONNECTDLGSTRUCTA(pub *mut CONNECTDLGSTRUCTA);
+pub type LPCONNECTDLGSTRUCTA = *mut CONNECTDLGSTRUCTA;
 #[cfg(feature = "windef")]
-impl LPCONNECTDLGSTRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCONNECTDLGSTRUCTW = *mut CONNECTDLGSTRUCTW;
 #[cfg(feature = "windef")]
-impl Default for LPCONNECTDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDISCDLGSTRUCT = LPDISCDLGSTRUCTA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONNECTDLGSTRUCTW(pub *mut CONNECTDLGSTRUCTW);
+pub type LPDISCDLGSTRUCTA = *mut DISCDLGSTRUCTA;
 #[cfg(feature = "windef")]
-impl LPCONNECTDLGSTRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCONNECTDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDISCDLGSTRUCT(pub LPDISCDLGSTRUCTA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDISCDLGSTRUCTA(pub *mut DISCDLGSTRUCTA);
-#[cfg(feature = "windef")]
-impl LPDISCDLGSTRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDISCDLGSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDISCDLGSTRUCTW(pub *mut DISCDLGSTRUCTW);
-#[cfg(feature = "windef")]
-impl LPDISCDLGSTRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDISCDLGSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNETCONNECTINFOSTRUCT(pub *mut NETCONNECTINFOSTRUCT);
-impl LPNETCONNECTINFOSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNETCONNECTINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNETINFOSTRUCT(pub *mut NETINFOSTRUCT);
-impl LPNETINFOSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNETINFOSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPNETRESOURCE(pub LPNETRESOURCEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNETRESOURCEA(pub *mut NETRESOURCEA);
-impl LPNETRESOURCEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNETRESOURCEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNETRESOURCEW(pub *mut NETRESOURCEW);
-impl LPNETRESOURCEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNETRESOURCEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPREMOTE_NAME_INFO(pub LPREMOTE_NAME_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREMOTE_NAME_INFOA(pub *mut REMOTE_NAME_INFOA);
-impl LPREMOTE_NAME_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREMOTE_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPREMOTE_NAME_INFOW(pub *mut REMOTE_NAME_INFOW);
-impl LPREMOTE_NAME_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPREMOTE_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPUNIVERSAL_NAME_INFO(pub LPUNIVERSAL_NAME_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUNIVERSAL_NAME_INFOA(pub *mut UNIVERSAL_NAME_INFOA);
-impl LPUNIVERSAL_NAME_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUNIVERSAL_NAME_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUNIVERSAL_NAME_INFOW(pub *mut UNIVERSAL_NAME_INFOW);
-impl LPUNIVERSAL_NAME_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUNIVERSAL_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDISCDLGSTRUCTW = *mut DISCDLGSTRUCTW;
+pub type LPNETCONNECTINFOSTRUCT = *mut NETCONNECTINFOSTRUCT;
+pub type LPNETINFOSTRUCT = *mut NETINFOSTRUCT;
+pub type LPNETRESOURCE = LPNETRESOURCEA;
+pub type LPNETRESOURCEA = *mut NETRESOURCEA;
+pub type LPNETRESOURCEW = *mut NETRESOURCEW;
+pub type LPREMOTE_NAME_INFO = LPREMOTE_NAME_INFOA;
+pub type LPREMOTE_NAME_INFOA = *mut REMOTE_NAME_INFOA;
+pub type LPREMOTE_NAME_INFOW = *mut REMOTE_NAME_INFOW;
+pub type LPUNIVERSAL_NAME_INFO = LPUNIVERSAL_NAME_INFOA;
+pub type LPUNIVERSAL_NAME_INFOA = *mut UNIVERSAL_NAME_INFOA;
+pub type LPUNIVERSAL_NAME_INFOW = *mut UNIVERSAL_NAME_INFOW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {

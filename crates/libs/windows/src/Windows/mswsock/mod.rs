@@ -67,80 +67,14 @@ pub type LPFN_WSAPOLL = Option<unsafe extern "system" fn(fdarray: *mut super::wi
 pub type LPFN_WSARECVMSG = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, lpmsg: *mut super::ws2::WSAMSG, lpdwnumberofbytesrecvd: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, lpcompletionroutine: super::winsock2::LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
 #[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2", feature = "ws2"))]
 pub type LPFN_WSASENDMSG = Option<unsafe extern "system" fn(s: super::winsock2::SOCKET, lpmsg: *const super::ws2::WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, lpcompletionroutine: super::winsock2::LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNLA_BLOB(pub *mut NLA_BLOB);
-impl LPNLA_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNLA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTRANSMIT_FILE_BUFFERS(pub *mut TRANSMIT_FILE_BUFFERS);
-impl LPTRANSMIT_FILE_BUFFERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTRANSMIT_FILE_BUFFERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPNLA_BLOB = *mut NLA_BLOB;
+pub type LPTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTRANSMIT_PACKETS_ELEMENT(pub *mut TRANSMIT_PACKETS_ELEMENT);
-#[cfg(feature = "winnt")]
-impl LPTRANSMIT_PACKETS_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPTRANSMIT_PACKETS_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
 #[cfg(feature = "winsock2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAPOLLDATA(pub *mut WSAPOLLDATA);
-#[cfg(feature = "winsock2")]
-impl LPWSAPOLLDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winsock2")]
-impl Default for LPWSAPOLLDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSAPOLLDATA = *mut WSAPOLLDATA;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSASENDMSG(pub *mut WSASENDMSG);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-impl LPWSASENDMSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt", feature = "winsock2", feature = "ws2"))]
-impl Default for LPWSASENDMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSASENDMSG = *mut WSASENDMSG;
 pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = 2;
 pub const NLA_ALLUSERS_NETWORK: u32 = 1;
 #[repr(C)]
@@ -237,132 +171,18 @@ pub const NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = 1;
 pub const NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = 3;
 pub const NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = 2;
 pub const NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNLA_BLOB(pub *mut NLA_BLOB);
-impl PNLA_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNLA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNLA_BLOB_DATA_TYPE(pub *mut NLA_BLOB_DATA_TYPE);
-impl PNLA_BLOB_DATA_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNLA_BLOB_DATA_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNLA_CONNECTIVITY_TYPE(pub *mut NLA_CONNECTIVITY_TYPE);
-impl PNLA_CONNECTIVITY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNLA_CONNECTIVITY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNLA_INTERNET(pub *mut NLA_INTERNET);
-impl PNLA_INTERNET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNLA_INTERNET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNLA_BLOB = *mut NLA_BLOB;
+pub type PNLA_BLOB_DATA_TYPE = *mut NLA_BLOB_DATA_TYPE;
+pub type PNLA_CONNECTIVITY_TYPE = *mut NLA_CONNECTIVITY_TYPE;
+pub type PNLA_INTERNET = *mut NLA_INTERNET;
 #[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRIO_EXTENSION_FUNCTION_TABLE(pub *mut RIO_EXTENSION_FUNCTION_TABLE);
-#[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
-impl PRIO_EXTENSION_FUNCTION_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]
-impl Default for PRIO_EXTENSION_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRIO_EXTENSION_FUNCTION_TABLE = *mut RIO_EXTENSION_FUNCTION_TABLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRIO_NOTIFICATION_COMPLETION(pub *mut RIO_NOTIFICATION_COMPLETION);
+pub type PRIO_NOTIFICATION_COMPLETION = *mut RIO_NOTIFICATION_COMPLETION;
+pub type PRIO_NOTIFICATION_COMPLETION_TYPE = *mut RIO_NOTIFICATION_COMPLETION_TYPE;
+pub type PTRANSMIT_FILE_BUFFERS = *mut TRANSMIT_FILE_BUFFERS;
 #[cfg(feature = "winnt")]
-impl PRIO_NOTIFICATION_COMPLETION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRIO_NOTIFICATION_COMPLETION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRIO_NOTIFICATION_COMPLETION_TYPE(pub *mut RIO_NOTIFICATION_COMPLETION_TYPE);
-impl PRIO_NOTIFICATION_COMPLETION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRIO_NOTIFICATION_COMPLETION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSMIT_FILE_BUFFERS(pub *mut TRANSMIT_FILE_BUFFERS);
-impl PTRANSMIT_FILE_BUFFERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSMIT_FILE_BUFFERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSMIT_PACKETS_ELEMENT(pub *mut TRANSMIT_PACKETS_ELEMENT);
-#[cfg(feature = "winnt")]
-impl PTRANSMIT_PACKETS_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTRANSMIT_PACKETS_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRANSMIT_PACKETS_ELEMENT = *mut TRANSMIT_PACKETS_ELEMENT;
 pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "mswsockdef", feature = "winnt", feature = "winsock2"))]

@@ -462,180 +462,28 @@ pub struct MONMSGSTRUCT {
 }
 pub const MSGF_DDEMGR: u32 = 32769;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONVCONTEXT(pub *mut CONVCONTEXT);
-#[cfg(feature = "winnt")]
-impl PCONVCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCONVCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONVCONTEXT = *mut CONVCONTEXT;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONVINFO(pub *mut CONVINFO);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PCONVINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PCONVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDDEML_MSG_HOOK_DATA(pub *mut DDEML_MSG_HOOK_DATA);
-impl PDDEML_MSG_HOOK_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDDEML_MSG_HOOK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONVINFO = *mut CONVINFO;
+pub type PDDEML_MSG_HOOK_DATA = *mut DDEML_MSG_HOOK_DATA;
 pub type PFNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHSZPAIR(pub *mut HSZPAIR);
-impl PHSZPAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHSZPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHSZPAIR = *mut HSZPAIR;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONCBSTRUCT(pub *mut MONCBSTRUCT);
+pub type PMONCBSTRUCT = *mut MONCBSTRUCT;
 #[cfg(feature = "winnt")]
-impl PMONCBSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMONCONVSTRUCT = *mut MONCONVSTRUCT;
 #[cfg(feature = "winnt")]
-impl Default for PMONCBSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMONERRSTRUCT = *mut MONERRSTRUCT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONCONVSTRUCT(pub *mut MONCONVSTRUCT);
+pub type PMONHSZSTRUCT = PMONHSZSTRUCTA;
 #[cfg(feature = "winnt")]
-impl PMONCONVSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMONHSZSTRUCTA = *mut MONHSZSTRUCTA;
 #[cfg(feature = "winnt")]
-impl Default for PMONCONVSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMONHSZSTRUCTW = *mut MONHSZSTRUCTW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONERRSTRUCT(pub *mut MONERRSTRUCT);
-#[cfg(feature = "winnt")]
-impl PMONERRSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMONERRSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMONHSZSTRUCT(pub PMONHSZSTRUCTA);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONHSZSTRUCTA(pub *mut MONHSZSTRUCTA);
-#[cfg(feature = "winnt")]
-impl PMONHSZSTRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMONHSZSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONHSZSTRUCTW(pub *mut MONHSZSTRUCTW);
-#[cfg(feature = "winnt")]
-impl PMONHSZSTRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMONHSZSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONLINKSTRUCT(pub *mut MONLINKSTRUCT);
-#[cfg(feature = "winnt")]
-impl PMONLINKSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMONLINKSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMONLINKSTRUCT = *mut MONLINKSTRUCT;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMONMSGSTRUCT(pub *mut MONMSGSTRUCT);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl PMONMSGSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PMONMSGSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMONMSGSTRUCT = *mut MONMSGSTRUCT;
 pub const QID_SYNC: u32 = 4294967295;
 pub const ST_ADVISE: u32 = 2;
 pub const ST_BLOCKED: u32 = 8;

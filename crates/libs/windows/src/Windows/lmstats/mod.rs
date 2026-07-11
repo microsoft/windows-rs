@@ -4,58 +4,10 @@ pub unsafe fn NetStatisticsGet(servername: super::winnt::LPTSTR, service: super:
     windows_core::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::winnt::LPTSTR, service : super::winnt::LPTSTR, level : u32, options : u32, buffer : *mut super::minwindef::LPBYTE) -> u32);
     unsafe { NetStatisticsGet(core::mem::transmute(servername), core::mem::transmute(service), level, options, buffer as _) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTAT_SERVER_0(pub *mut STAT_SERVER_0);
-impl LPSTAT_SERVER_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTAT_SERVER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTAT_WORKSTATION_0(pub *mut STAT_WORKSTATION_0);
-impl LPSTAT_WORKSTATION_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTAT_WORKSTATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTAT_SERVER_0(pub *mut STAT_SERVER_0);
-impl PSTAT_SERVER_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTAT_SERVER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTAT_WORKSTATION_0(pub *mut STAT_WORKSTATION_0);
-impl PSTAT_WORKSTATION_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTAT_WORKSTATION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
+pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
+pub type PSTAT_SERVER_0 = *mut STAT_SERVER_0;
+pub type PSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
 pub const STATSOPT_CLR: u32 = 1;
 pub const STATS_NO_VALUE: i32 = -1;
 pub const STATS_OVERFLOW: i32 = -2;

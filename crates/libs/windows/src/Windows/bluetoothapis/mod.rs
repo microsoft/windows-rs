@@ -450,166 +450,28 @@ pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0;
 pub const BLUETOOTH_SERVICE_ENABLE: u32 = 1;
 pub const BLUETOOTH_SERVICE_MASK: u32 = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HBLUETOOTH_AUTHENTICATION_REGISTRATION(pub super::winnt::HANDLE);
+pub type HBLUETOOTH_AUTHENTICATION_REGISTRATION = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HBLUETOOTH_CONTAINER_ELEMENT(pub super::winnt::HANDLE);
+pub type HBLUETOOTH_CONTAINER_ELEMENT = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HBLUETOOTH_DEVICE_FIND(pub super::winnt::HANDLE);
+pub type HBLUETOOTH_DEVICE_FIND = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HBLUETOOTH_RADIO_FIND(pub super::winnt::HANDLE);
+pub type HBLUETOOTH_RADIO_FIND = super::winnt::HANDLE;
 #[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_AUTHENTICATE_RESPONSE(pub *mut BLUETOOTH_AUTHENTICATE_RESPONSE);
-#[cfg(feature = "bthdef")]
-impl PBLUETOOTH_AUTHENTICATE_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PBLUETOOTH_AUTHENTICATE_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBLUETOOTH_AUTHENTICATE_RESPONSE = *mut BLUETOOTH_AUTHENTICATE_RESPONSE;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS(pub *mut BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS);
+pub type PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS = *mut BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS;
+pub type PBLUETOOTH_AUTHENTICATION_METHOD = *mut BLUETOOTH_AUTHENTICATION_METHOD;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-impl PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-impl Default for PBLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_AUTHENTICATION_METHOD(pub *mut BLUETOOTH_AUTHENTICATION_METHOD);
-impl PBLUETOOTH_AUTHENTICATION_METHOD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_AUTHENTICATION_METHOD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_DEVICE_INFO(pub *mut BLUETOOTH_DEVICE_INFO_STRUCT);
-#[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-impl PBLUETOOTH_DEVICE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bthdef", feature = "minwinbase"))]
-impl Default for PBLUETOOTH_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBLUETOOTH_DEVICE_INFO = *mut BLUETOOTH_DEVICE_INFO_STRUCT;
 #[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_LOCAL_SERVICE_INFO(pub *mut BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT);
+pub type PBLUETOOTH_LOCAL_SERVICE_INFO = *mut BLUETOOTH_LOCAL_SERVICE_INFO_STRUCT;
+pub type PBLUETOOTH_NUMERIC_COMPARISON_INFO = *mut BLUETOOTH_NUMERIC_COMPARISON_INFO;
+pub type PBLUETOOTH_OOB_DATA_INFO = *mut BLUETOOTH_OOB_DATA_INFO;
+pub type PBLUETOOTH_PASSKEY_INFO = *mut BLUETOOTH_PASSKEY_INFO;
+pub type PBLUETOOTH_PIN_INFO = *mut BLUETOOTH_PIN_INFO;
 #[cfg(feature = "bthdef")]
-impl PBLUETOOTH_LOCAL_SERVICE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PBLUETOOTH_LOCAL_SERVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_NUMERIC_COMPARISON_INFO(pub *mut BLUETOOTH_NUMERIC_COMPARISON_INFO);
-impl PBLUETOOTH_NUMERIC_COMPARISON_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_NUMERIC_COMPARISON_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_OOB_DATA_INFO(pub *mut BLUETOOTH_OOB_DATA_INFO);
-impl PBLUETOOTH_OOB_DATA_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_OOB_DATA_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_PASSKEY_INFO(pub *mut BLUETOOTH_PASSKEY_INFO);
-impl PBLUETOOTH_PASSKEY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_PASSKEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_PIN_INFO(pub *mut BLUETOOTH_PIN_INFO);
-impl PBLUETOOTH_PIN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_PIN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_RADIO_INFO(pub *mut BLUETOOTH_RADIO_INFO);
-#[cfg(feature = "bthdef")]
-impl PBLUETOOTH_RADIO_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PBLUETOOTH_RADIO_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBLUETOOTH_RADIO_INFO = *mut BLUETOOTH_RADIO_INFO;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
 pub type PFN_AUTHENTICATION_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *mut BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL>;
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
@@ -618,34 +480,8 @@ pub type PFN_BLUETOOTH_ENUM_ATTRIBUTES_CALLBACK = Option<unsafe extern "system" 
 #[cfg(all(feature = "bthdef", feature = "minwinbase"))]
 pub type PFN_DEVICE_CALLBACK = Option<unsafe extern "system" fn(pvparam: *mut core::ffi::c_void, pdevice: *const BLUETOOTH_DEVICE_INFO_STRUCT) -> windows_core::BOOL>;
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDP_ELEMENT_DATA(pub *mut SDP_ELEMENT_DATA);
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl PSDP_ELEMENT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-impl Default for PSDP_ELEMENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDP_STRING_TYPE_DATA(pub *mut SDP_STRING_TYPE_DATA);
-impl PSDP_STRING_TYPE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSDP_STRING_TYPE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSDP_ELEMENT_DATA = *mut SDP_ELEMENT_DATA;
+pub type PSDP_STRING_TYPE_DATA = *mut SDP_STRING_TYPE_DATA;
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
 #[derive(Clone, Copy)]

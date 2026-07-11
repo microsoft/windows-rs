@@ -27,45 +27,9 @@ pub unsafe fn timeGetTime() -> u32 {
     windows_core::link!("winmm.dll" "system" fn timeGetTime() -> u32);
     unsafe { timeGetTime() }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTIMECAPS(pub *mut TIMECAPS);
-impl LPTIMECAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTIMECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPTIMECAPS(pub *mut TIMECAPS);
-impl NPTIMECAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPTIMECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIMECAPS(pub *mut TIMECAPS);
-impl PTIMECAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTIMECAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTIMECAPS = *mut TIMECAPS;
+pub type NPTIMECAPS = *mut TIMECAPS;
+pub type PTIMECAPS = *mut TIMECAPS;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct TIMECAPS {

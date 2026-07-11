@@ -35,29 +35,5 @@ pub struct CONFIG_INFO_0 {
     pub cfgi0_key: windows_core::PWSTR,
     pub cfgi0_data: windows_core::PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONFIG_INFO_0(pub *mut CONFIG_INFO_0);
-impl LPCONFIG_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCONFIG_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONFIG_INFO_0(pub *mut CONFIG_INFO_0);
-impl PCONFIG_INFO_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONFIG_INFO_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCONFIG_INFO_0 = *mut CONFIG_INFO_0;
+pub type PCONFIG_INFO_0 = *mut CONFIG_INFO_0;

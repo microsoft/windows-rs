@@ -227,126 +227,16 @@ pub const NRC_SCLOSED: u32 = 10;
 pub const NRC_SNUMOUT: u32 = 8;
 pub const NRC_SYSTEM: u32 = 64;
 pub const NRC_TOOMANY: u32 = 34;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTION_HEADER(pub *mut ACTION_HEADER);
-impl PACTION_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADAPTER_STATUS(pub *mut ADAPTER_STATUS);
-impl PADAPTER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADAPTER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFIND_NAME_BUFFER(pub *mut FIND_NAME_BUFFER);
-impl PFIND_NAME_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFIND_NAME_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFIND_NAME_HEADER(pub *mut FIND_NAME_HEADER);
-impl PFIND_NAME_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFIND_NAME_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLANA_ENUM(pub *mut LANA_ENUM);
-impl PLANA_ENUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLANA_ENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNAME_BUFFER(pub *mut NAME_BUFFER);
-impl PNAME_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNAME_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTION_HEADER = *mut ACTION_HEADER;
+pub type PADAPTER_STATUS = *mut ADAPTER_STATUS;
+pub type PFIND_NAME_BUFFER = *mut FIND_NAME_BUFFER;
+pub type PFIND_NAME_HEADER = *mut FIND_NAME_HEADER;
+pub type PLANA_ENUM = *mut LANA_ENUM;
+pub type PNAME_BUFFER = *mut NAME_BUFFER;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNCB(pub *mut NCB);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PNCB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PNCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSESSION_BUFFER(pub *mut SESSION_BUFFER);
-impl PSESSION_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSESSION_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSESSION_HEADER(pub *mut SESSION_HEADER);
-impl PSESSION_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSESSION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNCB = *mut NCB;
+pub type PSESSION_BUFFER = *mut SESSION_BUFFER;
+pub type PSESSION_HEADER = *mut SESSION_HEADER;
 pub const REGISTERED: u32 = 4;
 pub const REGISTERING: u32 = 0;
 pub const SESSION_ABORTED: u32 = 6;

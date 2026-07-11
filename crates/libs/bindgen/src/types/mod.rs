@@ -1212,14 +1212,19 @@ pub fn write_arch_bits(value: i32) -> TokenStream {
 /// these typedefs collapse to bare aliases, so no wrapping is applied and output is
 /// unchanged (which is also why the published bindings are byte-identical).
 pub(crate) fn write_newtype_wrap(ty: &Type, value: &TokenStream, config: &Config) -> TokenStream {
-    if !config.bindgen.style.emit_bare_typedef() {
-        if let Type::CppStruct(s) = ty {
-            if s.is_handle(config.reader) {
-                let name = ty.write_name(config);
-                let inner = ty.underlying_type(config.reader);
-                let arg = write_newtype_wrap(&inner, value, config);
-                return quote! { #name(#arg) };
+    if let Type::CppStruct(s) = ty {
+        if s.is_handle(config.reader) {
+            let inner = ty.underlying_type(config.reader);
+            let arg = write_newtype_wrap(&inner, value, config);
+            // A handle typedef emitted as a transparent alias (`HCERTCHAINENGINE = HANDLE`, or any
+            // handle in --sys/--minimal) is not a tuple-struct constructor, so wrap through the
+            // underlying representation without adding this layer. Only a typedef emitted as a real
+            // newtype contributes a `Name(..)` constructor.
+            if config.typedef_emits_bare(s.def) {
+                return arg;
             }
+            let name = ty.write_name(config);
+            return quote! { #name(#arg) };
         }
     }
     value.clone()

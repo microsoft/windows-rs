@@ -1,7 +1,5 @@
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct BLUETOOTH_GATT_EVENT_HANDLE(pub super::winnt::HANDLE);
+pub type BLUETOOTH_GATT_EVENT_HANDLE = super::winnt::HANDLE;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2;
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_ENCRYPTED: u32 = 1;
 pub const BLUETOOTH_GATT_FLAG_FORCE_READ_FROM_CACHE: u32 = 8;
@@ -330,135 +328,15 @@ pub const ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 2;
 pub const CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = 6;
 pub const GUID_BLUETOOTHLE_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x781aee18_7733_4ce4_add0_91f41c67b592);
 pub const GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: windows_core::GUID = windows_core::GUID::from_u128(0x6e3bb679_4372_40c8_9eaa_4509df260cd8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_GATT_VALUE_CHANGED_EVENT(pub *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT);
-impl PBLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_GATT_VALUE_CHANGED_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION(pub *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION);
-impl PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_CHARACTERISTIC(pub *mut BTH_LE_GATT_CHARACTERISTIC);
-impl PBTH_LE_GATT_CHARACTERISTIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_CHARACTERISTIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_CHARACTERISTIC_VALUE(pub *mut BTH_LE_GATT_CHARACTERISTIC_VALUE);
-impl PBTH_LE_GATT_CHARACTERISTIC_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_CHARACTERISTIC_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_DESCRIPTOR(pub *mut BTH_LE_GATT_DESCRIPTOR);
-impl PBTH_LE_GATT_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_DESCRIPTOR_TYPE(pub *mut BTH_LE_GATT_DESCRIPTOR_TYPE);
-impl PBTH_LE_GATT_DESCRIPTOR_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_DESCRIPTOR_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_DESCRIPTOR_VALUE(pub *mut BTH_LE_GATT_DESCRIPTOR_VALUE);
-impl PBTH_LE_GATT_DESCRIPTOR_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_DESCRIPTOR_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT(pub *mut u64);
-impl PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_GATT_SERVICE(pub *mut BTH_LE_GATT_SERVICE);
-impl PBTH_LE_GATT_SERVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_GATT_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LE_UUID(pub *mut BTH_LE_UUID);
-impl PBTH_LE_UUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LE_UUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBLUETOOTH_GATT_VALUE_CHANGED_EVENT = *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT;
+pub type PBLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION = *mut BLUETOOTH_GATT_VALUE_CHANGED_EVENT_REGISTRATION;
+pub type PBTH_LE_GATT_CHARACTERISTIC = *mut BTH_LE_GATT_CHARACTERISTIC;
+pub type PBTH_LE_GATT_CHARACTERISTIC_VALUE = *mut BTH_LE_GATT_CHARACTERISTIC_VALUE;
+pub type PBTH_LE_GATT_DESCRIPTOR = *mut BTH_LE_GATT_DESCRIPTOR;
+pub type PBTH_LE_GATT_DESCRIPTOR_TYPE = *mut BTH_LE_GATT_DESCRIPTOR_TYPE;
+pub type PBTH_LE_GATT_DESCRIPTOR_VALUE = *mut BTH_LE_GATT_DESCRIPTOR_VALUE;
+pub type PBTH_LE_GATT_RELIABLE_WRITE_CONTEXT = *mut u64;
+pub type PBTH_LE_GATT_SERVICE = *mut BTH_LE_GATT_SERVICE;
+pub type PBTH_LE_UUID = *mut BTH_LE_UUID;
 pub type PFNBLUETOOTH_GATT_EVENT_CALLBACK = Option<unsafe extern "system" fn(eventtype: BTH_LE_GATT_EVENT_TYPE, eventoutparameter: *const core::ffi::c_void, context: *const core::ffi::c_void)>;
 pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 3;

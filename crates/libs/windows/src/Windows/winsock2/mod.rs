@@ -692,500 +692,66 @@ pub const JL_SENDER_ONLY: u32 = 1;
 pub const LAYERED_PROTOCOL: u32 = 0;
 pub type LINGER = linger;
 pub const LITTLEENDIAN: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAFPROTOCOLS(pub *mut AFPROTOCOLS);
-impl LPAFPROTOCOLS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAFPROTOCOLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAFPROTOCOLS = *mut AFPROTOCOLS;
 #[cfg(all(feature = "qos", feature = "ws2"))]
 pub type LPCONDITIONPROC = Option<unsafe extern "system" fn(lpcallerid: *mut super::ws2::WSABUF, lpcallerdata: *mut super::ws2::WSABUF, lpsqos: *mut QOS, lpgqos: *mut QOS, lpcalleeid: *mut super::ws2::WSABUF, lpcalleedata: *mut super::ws2::WSABUF, g: *mut GROUP, dwcallbackdata: usize) -> i32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFD_SET(pub *mut fd_set);
-impl LPFD_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFD_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHOSTENT(pub *mut hostent);
-impl LPHOSTENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHOSTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLINGER(pub *mut linger);
-impl LPLINGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLINGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROTOENT(pub *mut protoent);
-impl LPPROTOENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROTOENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFD_SET = *mut fd_set;
+pub type LPHOSTENT = *mut hostent;
+pub type LPLINGER = *mut linger;
+pub type LPPROTOENT = *mut protoent;
 #[cfg(all(feature = "qos", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQOS(pub *mut QOS);
-#[cfg(all(feature = "qos", feature = "ws2"))]
-impl LPQOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "qos", feature = "ws2"))]
-impl Default for LPQOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSERVENT(pub *mut servent);
-impl LPSERVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSERVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPQOS = *mut QOS;
+pub type LPSERVENT = *mut servent;
 #[cfg(all(feature = "inaddr", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_IN(pub *mut super::ws2::SOCKADDR_IN);
-#[cfg(all(feature = "inaddr", feature = "ws2"))]
-impl LPSOCKADDR_IN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "inaddr", feature = "ws2"))]
-impl Default for LPSOCKADDR_IN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTIMEVAL(pub *mut timeval);
-impl LPTIMEVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTIMEVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSOCKADDR_IN = *mut super::ws2::SOCKADDR_IN;
+pub type LPTIMEVAL = *mut timeval;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSACOMPLETION(pub *mut WSACOMPLETION);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPWSACOMPLETION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPWSACOMPLETION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSACOMPLETIONTYPE(pub *mut WSACOMPLETIONTYPE);
-impl LPWSACOMPLETIONTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSACOMPLETIONTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSADATA(pub *mut WSADATA);
-impl LPWSADATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAECOMPARATOR(pub *mut WSAECOMPARATOR);
-impl LPWSAECOMPARATOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAECOMPARATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAESETSERVICEOP(pub *mut WSAESETSERVICEOP);
-impl LPWSAESETSERVICEOP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAESETSERVICEOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSANAMESPACE_INFO(pub LPWSANAMESPACE_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANAMESPACE_INFOA(pub *mut WSANAMESPACE_INFOA);
-impl LPWSANAMESPACE_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSANAMESPACE_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSACOMPLETION = *mut WSACOMPLETION;
+pub type LPWSACOMPLETIONTYPE = *mut WSACOMPLETIONTYPE;
+pub type LPWSADATA = *mut WSADATA;
+pub type LPWSAECOMPARATOR = *mut WSAECOMPARATOR;
+pub type LPWSAESETSERVICEOP = *mut WSAESETSERVICEOP;
+pub type LPWSANAMESPACE_INFO = LPWSANAMESPACE_INFOA;
+pub type LPWSANAMESPACE_INFOA = *mut WSANAMESPACE_INFOA;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSANAMESPACE_INFOEX(pub LPWSANAMESPACE_INFOEXA);
+pub type LPWSANAMESPACE_INFOEX = LPWSANAMESPACE_INFOEXA;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANAMESPACE_INFOEXA(pub *mut WSANAMESPACE_INFOEXA);
+pub type LPWSANAMESPACE_INFOEXA = *mut WSANAMESPACE_INFOEXA;
 #[cfg(feature = "wtypesbase")]
-impl LPWSANAMESPACE_INFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for LPWSANAMESPACE_INFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANAMESPACE_INFOEXW(pub *mut WSANAMESPACE_INFOEXW);
-#[cfg(feature = "wtypesbase")]
-impl LPWSANAMESPACE_INFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for LPWSANAMESPACE_INFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANAMESPACE_INFOW(pub *mut WSANAMESPACE_INFOW);
-impl LPWSANAMESPACE_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSANAMESPACE_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANETWORKEVENTS(pub *mut WSANETWORKEVENTS);
-impl LPWSANETWORKEVENTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSANETWORKEVENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSANSCLASSINFO(pub LPWSANSCLASSINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANSCLASSINFOA(pub *mut WSANSCLASSINFOA);
-impl LPWSANSCLASSINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSANSCLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSANSCLASSINFOW(pub *mut WSANSCLASSINFOW);
-impl LPWSANSCLASSINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSANSCLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSANAMESPACE_INFOEXW = *mut WSANAMESPACE_INFOEXW;
+pub type LPWSANAMESPACE_INFOW = *mut WSANAMESPACE_INFOW;
+pub type LPWSANETWORKEVENTS = *mut WSANETWORKEVENTS;
+pub type LPWSANSCLASSINFO = LPWSANSCLASSINFOA;
+pub type LPWSANSCLASSINFOA = *mut WSANSCLASSINFOA;
+pub type LPWSANSCLASSINFOW = *mut WSANSCLASSINFOW;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAOVERLAPPED(pub *mut super::minwinbase::OVERLAPPED);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl LPWSAOVERLAPPED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl Default for LPWSAOVERLAPPED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSAOVERLAPPED = *mut super::minwinbase::OVERLAPPED;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type LPWSAOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, cbtransferred: u32, lpoverlapped: *mut super::minwinbase::OVERLAPPED, dwflags: u32)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAPOLLFD(pub *mut WSAPOLLFD);
-impl LPWSAPOLLFD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAPOLLFD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAPROTOCOLCHAIN(pub *mut WSAPROTOCOLCHAIN);
-impl LPWSAPROTOCOLCHAIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAPROTOCOLCHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSAPROTOCOL_INFO(pub LPWSAPROTOCOL_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAPROTOCOL_INFOA(pub *mut WSAPROTOCOL_INFOA);
-impl LPWSAPROTOCOL_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAPROTOCOL_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAPROTOCOL_INFOW(pub *mut WSAPROTOCOL_INFOW);
-impl LPWSAPROTOCOL_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAPROTOCOL_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSAPOLLFD = *mut WSAPOLLFD;
+pub type LPWSAPROTOCOLCHAIN = *mut WSAPROTOCOLCHAIN;
+pub type LPWSAPROTOCOL_INFO = LPWSAPROTOCOL_INFOA;
+pub type LPWSAPROTOCOL_INFOA = *mut WSAPROTOCOL_INFOA;
+pub type LPWSAPROTOCOL_INFOW = *mut WSAPROTOCOL_INFOW;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSAQUERYSET(pub LPWSAQUERYSETA);
+pub type LPWSAQUERYSET = LPWSAQUERYSETA;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSAQUERYSET2(pub LPWSAQUERYSET2A);
+pub type LPWSAQUERYSET2 = LPWSAQUERYSET2A;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAQUERYSET2A(pub *mut WSAQUERYSET2A);
+pub type LPWSAQUERYSET2A = *mut WSAQUERYSET2A;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl LPWSAQUERYSET2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPWSAQUERYSET2W = *mut WSAQUERYSET2W;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for LPWSAQUERYSET2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSAQUERYSETA = *mut WSAQUERYSETA;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAQUERYSET2W(pub *mut WSAQUERYSET2W);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl LPWSAQUERYSET2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for LPWSAQUERYSET2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAQUERYSETA(pub *mut WSAQUERYSETA);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl LPWSAQUERYSETA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for LPWSAQUERYSETA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAQUERYSETW(pub *mut WSAQUERYSETW);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl LPWSAQUERYSETW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for LPWSAQUERYSETW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSAQUERYSETW = *mut WSAQUERYSETW;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWSASERVICECLASSINFO(pub LPWSASERVICECLASSINFOA);
+pub type LPWSASERVICECLASSINFO = LPWSASERVICECLASSINFOA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSASERVICECLASSINFOA(pub *mut WSASERVICECLASSINFOA);
+pub type LPWSASERVICECLASSINFOA = *mut WSASERVICECLASSINFOA;
 #[cfg(feature = "guiddef")]
-impl LPWSASERVICECLASSINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPWSASERVICECLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSASERVICECLASSINFOW(pub *mut WSASERVICECLASSINFOW);
-#[cfg(feature = "guiddef")]
-impl LPWSASERVICECLASSINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPWSASERVICECLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAVERSION(pub *mut WSAVERSION);
-impl LPWSAVERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAVERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWSASERVICECLASSINFOW = *mut WSASERVICECLASSINFOW;
+pub type LPWSAVERSION = *mut WSAVERSION;
 pub const LUP_ADDRCONFIG: u32 = 1048576;
 pub const LUP_API_ANSI: u32 = 16777216;
 pub const LUP_CONTAINERS: u32 = 2;
@@ -1239,32 +805,8 @@ pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = 1;
 pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0;
 pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3;
 pub const NS_LOCALNAME: u32 = 19;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAFPROTOCOLS(pub *mut AFPROTOCOLS);
-impl PAFPROTOCOLS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAFPROTOCOLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFD_SET(pub *mut fd_set);
-impl PFD_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFD_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAFPROTOCOLS = *mut AFPROTOCOLS;
+pub type PFD_SET = *mut fd_set;
 pub const PFL_HIDDEN: u32 = 4;
 pub const PFL_MATCHES_PROTOCOL_ZERO: u32 = 8;
 pub const PFL_MULTIPLE_PROTO_ENTRIES: u32 = 1;
@@ -1297,32 +839,8 @@ pub const PF_UNIX: u32 = 1;
 pub const PF_UNKNOWN1: u32 = 20;
 pub const PF_UNSPEC: u32 = 0;
 pub const PF_VOICEVIEW: u32 = 18;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHOSTENT(pub *mut hostent);
-impl PHOSTENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHOSTENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLINGER(pub *mut linger);
-impl PLINGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLINGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHOSTENT = *mut hostent;
+pub type PLINGER = *mut linger;
 pub const POLLERR: u32 = 1;
 pub const POLLHUP: u32 = 2;
 pub const POLLIN: u32 = 768;
@@ -1333,330 +851,48 @@ pub const POLLRDBAND: u32 = 512;
 pub const POLLRDNORM: u32 = 256;
 pub const POLLWRBAND: u32 = 32;
 pub const POLLWRNORM: u32 = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROTOENT(pub *mut protoent);
-impl PPROTOENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROTOENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROTOENT = *mut protoent;
 pub type PROTOENT = protoent;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERVENT(pub *mut servent);
-impl PSERVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIMEVAL(pub *mut timeval);
-impl PTIMEVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTIMEVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSERVENT = *mut servent;
+pub type PTIMEVAL = *mut timeval;
 pub const PVD_CONFIG: u32 = 12289;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSACOMPLETION(pub *mut WSACOMPLETION);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl PWSACOMPLETION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PWSACOMPLETION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSACOMPLETIONTYPE(pub *mut WSACOMPLETIONTYPE);
-impl PWSACOMPLETIONTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSACOMPLETIONTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAECOMPARATOR(pub *mut WSAECOMPARATOR);
-impl PWSAECOMPARATOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSAECOMPARATOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAESETSERVICEOP(pub *mut WSAESETSERVICEOP);
-impl PWSAESETSERVICEOP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSAESETSERVICEOP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSANAMESPACE_INFO(pub PWSANAMESPACE_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANAMESPACE_INFOA(pub *mut WSANAMESPACE_INFOA);
-impl PWSANAMESPACE_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSANAMESPACE_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSACOMPLETION = *mut WSACOMPLETION;
+pub type PWSACOMPLETIONTYPE = *mut WSACOMPLETIONTYPE;
+pub type PWSAECOMPARATOR = *mut WSAECOMPARATOR;
+pub type PWSAESETSERVICEOP = *mut WSAESETSERVICEOP;
+pub type PWSANAMESPACE_INFO = PWSANAMESPACE_INFOA;
+pub type PWSANAMESPACE_INFOA = *mut WSANAMESPACE_INFOA;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSANAMESPACE_INFOEX(pub PWSANAMESPACE_INFOEXA);
+pub type PWSANAMESPACE_INFOEX = PWSANAMESPACE_INFOEXA;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANAMESPACE_INFOEXA(pub *mut WSANAMESPACE_INFOEXA);
+pub type PWSANAMESPACE_INFOEXA = *mut WSANAMESPACE_INFOEXA;
 #[cfg(feature = "wtypesbase")]
-impl PWSANAMESPACE_INFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for PWSANAMESPACE_INFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANAMESPACE_INFOEXW(pub *mut WSANAMESPACE_INFOEXW);
-#[cfg(feature = "wtypesbase")]
-impl PWSANAMESPACE_INFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for PWSANAMESPACE_INFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANAMESPACE_INFOW(pub *mut WSANAMESPACE_INFOW);
-impl PWSANAMESPACE_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSANAMESPACE_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSANSCLASSINFO(pub PWSANSCLASSINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANSCLASSINFOA(pub *mut WSANSCLASSINFOA);
-impl PWSANSCLASSINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSANSCLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSANSCLASSINFOW(pub *mut WSANSCLASSINFOW);
-impl PWSANSCLASSINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSANSCLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAPOLLFD(pub *mut WSAPOLLFD);
-impl PWSAPOLLFD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSAPOLLFD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSANAMESPACE_INFOEXW = *mut WSANAMESPACE_INFOEXW;
+pub type PWSANAMESPACE_INFOW = *mut WSANAMESPACE_INFOW;
+pub type PWSANSCLASSINFO = PWSANSCLASSINFOA;
+pub type PWSANSCLASSINFOA = *mut WSANSCLASSINFOA;
+pub type PWSANSCLASSINFOW = *mut WSANSCLASSINFOW;
+pub type PWSAPOLLFD = *mut WSAPOLLFD;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSAQUERYSET(pub PWSAQUERYSETA);
+pub type PWSAQUERYSET = PWSAQUERYSETA;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSAQUERYSET2(pub PWSAQUERYSET2A);
+pub type PWSAQUERYSET2 = PWSAQUERYSET2A;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAQUERYSET2A(pub *mut WSAQUERYSET2A);
+pub type PWSAQUERYSET2A = *mut WSAQUERYSET2A;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl PWSAQUERYSET2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWSAQUERYSET2W = *mut WSAQUERYSET2W;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for PWSAQUERYSET2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSAQUERYSETA = *mut WSAQUERYSETA;
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAQUERYSET2W(pub *mut WSAQUERYSET2W);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl PWSAQUERYSET2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for PWSAQUERYSET2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAQUERYSETA(pub *mut WSAQUERYSETA);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl PWSAQUERYSETA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for PWSAQUERYSETA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAQUERYSETW(pub *mut WSAQUERYSETW);
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl PWSAQUERYSETW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-impl Default for PWSAQUERYSETW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSAQUERYSETW = *mut WSAQUERYSETW;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWSASERVICECLASSINFO(pub PWSASERVICECLASSINFOA);
+pub type PWSASERVICECLASSINFO = PWSASERVICECLASSINFOA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSASERVICECLASSINFOA(pub *mut WSASERVICECLASSINFOA);
+pub type PWSASERVICECLASSINFOA = *mut WSASERVICECLASSINFOA;
 #[cfg(feature = "guiddef")]
-impl PWSASERVICECLASSINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PWSASERVICECLASSINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSASERVICECLASSINFOW(pub *mut WSASERVICECLASSINFOW);
-#[cfg(feature = "guiddef")]
-impl PWSASERVICECLASSINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PWSASERVICECLASSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAVERSION(pub *mut WSAVERSION);
-impl PWSAVERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSAVERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWSASERVICECLASSINFOW = *mut WSASERVICECLASSINFOW;
+pub type PWSAVERSION = *mut WSAVERSION;
 #[repr(C)]
 #[cfg(all(feature = "qos", feature = "ws2"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

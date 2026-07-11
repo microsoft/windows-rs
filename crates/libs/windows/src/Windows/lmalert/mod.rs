@@ -33,110 +33,14 @@ pub struct ERRLOG_OTHER_INFO {
     pub alrter_errcode: u32,
     pub alrter_offset: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADMIN_OTHER_INFO(pub *mut ADMIN_OTHER_INFO);
-impl LPADMIN_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADMIN_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPERRLOG_OTHER_INFO(pub *mut ERRLOG_OTHER_INFO);
-impl LPERRLOG_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPERRLOG_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINT_OTHER_INFO(pub *mut PRINT_OTHER_INFO);
-impl LPPRINT_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINT_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTD_ALERT(pub *mut STD_ALERT);
-impl LPSTD_ALERT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTD_ALERT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUSER_OTHER_INFO(pub *mut USER_OTHER_INFO);
-impl LPUSER_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUSER_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADMIN_OTHER_INFO(pub *mut ADMIN_OTHER_INFO);
-impl PADMIN_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADMIN_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PERRLOG_OTHER_INFO(pub *mut ERRLOG_OTHER_INFO);
-impl PERRLOG_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PERRLOG_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRINT_OTHER_INFO(pub *mut PRINT_OTHER_INFO);
-impl PPRINT_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRINT_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
+pub type LPERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
+pub type LPPRINT_OTHER_INFO = *mut PRINT_OTHER_INFO;
+pub type LPSTD_ALERT = *mut STD_ALERT;
+pub type LPUSER_OTHER_INFO = *mut USER_OTHER_INFO;
+pub type PADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
+pub type PERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
+pub type PPRINT_OTHER_INFO = *mut PRINT_OTHER_INFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PRINT_OTHER_INFO {
@@ -159,32 +63,8 @@ pub const PRJOB_QS_PAUSED: u32 = 1;
 pub const PRJOB_QS_PRINTING: u32 = 3;
 pub const PRJOB_QS_QUEUED: u32 = 0;
 pub const PRJOB_QS_SPOOLING: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTD_ALERT(pub *mut STD_ALERT);
-impl PSTD_ALERT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTD_ALERT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSER_OTHER_INFO(pub *mut USER_OTHER_INFO);
-impl PUSER_OTHER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSER_OTHER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSTD_ALERT = *mut STD_ALERT;
+pub type PUSER_OTHER_INFO = *mut USER_OTHER_INFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct STD_ALERT {

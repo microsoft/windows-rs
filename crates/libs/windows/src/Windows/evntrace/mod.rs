@@ -1164,303 +1164,45 @@ pub struct MOF_FIELD {
     pub DataType: u32,
 }
 pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 29;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLASSIC_EVENT_ID(pub *mut CLASSIC_EVENT_ID);
-impl PCLASSIC_EVENT_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCLASSIC_EVENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCLASSIC_EVENT_ID = *mut CLASSIC_EVENT_ID;
 #[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENABLE_TRACE_PARAMETERS(pub *mut ENABLE_TRACE_PARAMETERS);
+pub type PENABLE_TRACE_PARAMETERS = *mut ENABLE_TRACE_PARAMETERS;
 #[cfg(feature = "evntprov")]
-impl PENABLE_TRACE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PENABLE_TRACE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENABLE_TRACE_PARAMETERS_V1(pub *mut ENABLE_TRACE_PARAMETERS_V1);
-#[cfg(feature = "evntprov")]
-impl PENABLE_TRACE_PARAMETERS_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PENABLE_TRACE_PARAMETERS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENABLE_TRACE_PARAMETERS_V1 = *mut ENABLE_TRACE_PARAMETERS_V1;
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
 pub type PETW_BUFFER_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, buffersize: u32, consumerinfo: *const ETW_BUFFER_CALLBACK_INFORMATION, callbackcontext: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type PETW_BUFFER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(buffer: *const ETW_BUFFER_HEADER, callbackcontext: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_BUFFER_CONTEXT(pub *mut ETW_BUFFER_CONTEXT);
-impl PETW_BUFFER_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_BUFFER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_PMC_COUNTER_OWNER(pub *mut ETW_PMC_COUNTER_OWNER);
-impl PETW_PMC_COUNTER_OWNER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_PMC_COUNTER_OWNER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_PMC_COUNTER_OWNERSHIP_STATUS(pub *mut ETW_PMC_COUNTER_OWNERSHIP_STATUS);
-impl PETW_PMC_COUNTER_OWNERSHIP_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_PMC_COUNTER_OWNERSHIP_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_TRACE_PARTITION_INFORMATION(pub *mut ETW_TRACE_PARTITION_INFORMATION);
-impl PETW_TRACE_PARTITION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_TRACE_PARTITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_TRACE_PARTITION_INFORMATION_V2(pub *mut ETW_TRACE_PARTITION_INFORMATION_V2);
-impl PETW_TRACE_PARTITION_INFORMATION_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_TRACE_PARTITION_INFORMATION_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PETW_BUFFER_CONTEXT = *mut ETW_BUFFER_CONTEXT;
+pub type PETW_PMC_COUNTER_OWNER = *mut ETW_PMC_COUNTER_OWNER;
+pub type PETW_PMC_COUNTER_OWNERSHIP_STATUS = *mut ETW_PMC_COUNTER_OWNERSHIP_STATUS;
+pub type PETW_TRACE_PARTITION_INFORMATION = *mut ETW_TRACE_PARTITION_INFORMATION;
+pub type PETW_TRACE_PARTITION_INFORMATION_V2 = *mut ETW_TRACE_PARTITION_INFORMATION_V2;
 pub type PEVENT_CALLBACK = Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
 #[cfg(feature = "evntprov")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_FILTER_DESCRIPTOR(pub *mut super::evntprov::EVENT_FILTER_DESCRIPTOR);
-#[cfg(feature = "evntprov")]
-impl PEVENT_FILTER_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "evntprov")]
-impl Default for PEVENT_FILTER_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_INSTANCE_HEADER(pub *mut EVENT_INSTANCE_HEADER);
-impl PEVENT_INSTANCE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_INSTANCE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_FILTER_DESCRIPTOR = *mut super::evntprov::EVENT_FILTER_DESCRIPTOR;
+pub type PEVENT_INSTANCE_HEADER = *mut EVENT_INSTANCE_HEADER;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_INSTANCE_INFO(pub *mut EVENT_INSTANCE_INFO);
-#[cfg(feature = "winnt")]
-impl PEVENT_INSTANCE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEVENT_INSTANCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_INSTANCE_INFO = *mut EVENT_INSTANCE_INFO;
 #[cfg(all(feature = "evntcons", feature = "evntprov"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_RECORD(pub *mut super::evntcons::EVENT_RECORD);
-#[cfg(all(feature = "evntcons", feature = "evntprov"))]
-impl PEVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov"))]
-impl Default for PEVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_RECORD = *mut super::evntcons::EVENT_RECORD;
 #[cfg(all(feature = "evntcons", feature = "evntprov"))]
 pub type PEVENT_RECORD_CALLBACK = Option<unsafe extern "system" fn(eventrecord: *mut super::evntcons::EVENT_RECORD)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE(pub *mut EVENT_TRACE);
-impl PEVENT_TRACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_TRACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_TRACE = *mut EVENT_TRACE;
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE_HEADER(pub *mut EVENT_TRACE_HEADER);
-impl PEVENT_TRACE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVENT_TRACE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_TRACE_HEADER = *mut EVENT_TRACE_HEADER;
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE_LOGFILEA(pub *mut EVENT_TRACE_LOGFILEA);
+pub type PEVENT_TRACE_LOGFILEA = *mut EVENT_TRACE_LOGFILEA;
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-impl PEVENT_TRACE_LOGFILEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for PEVENT_TRACE_LOGFILEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE_LOGFILEW(pub *mut EVENT_TRACE_LOGFILEW);
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-impl PEVENT_TRACE_LOGFILEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for PEVENT_TRACE_LOGFILEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_TRACE_LOGFILEW = *mut EVENT_TRACE_LOGFILEW;
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE_PROPERTIES(pub *mut EVENT_TRACE_PROPERTIES);
-#[cfg(all(feature = "winnt", feature = "wmistr"))]
-impl PEVENT_TRACE_PROPERTIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "winnt", feature = "wmistr"))]
-impl Default for PEVENT_TRACE_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_TRACE_PROPERTIES = *mut EVENT_TRACE_PROPERTIES;
 #[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVENT_TRACE_PROPERTIES_V2(pub *mut EVENT_TRACE_PROPERTIES_V2);
-#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
-impl PEVENT_TRACE_PROPERTIES_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
-impl Default for PEVENT_TRACE_PROPERTIES_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMOF_FIELD(pub *mut MOF_FIELD);
-impl PMOF_FIELD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMOF_FIELD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROFILE_SOURCE_INFO(pub *mut PROFILE_SOURCE_INFO);
-impl PPROFILE_SOURCE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROFILE_SOURCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVENT_TRACE_PROPERTIES_V2 = *mut EVENT_TRACE_PROPERTIES_V2;
+pub type PMOF_FIELD = *mut MOF_FIELD;
+pub type PPROFILE_SOURCE_INFO = *mut PROFILE_SOURCE_INFO;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PROCESSTRACE_HANDLE(pub u64);
@@ -1479,187 +1221,23 @@ impl Default for PROFILE_SOURCE_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACEHANDLE(pub *mut u64);
-impl PTRACEHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACEHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_ENABLE_INFO(pub *mut TRACE_ENABLE_INFO);
-impl PTRACE_ENABLE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_ENABLE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_GUID_INFO(pub *mut TRACE_GUID_INFO);
-impl PTRACE_GUID_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_GUID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_GUID_PROPERTIES(pub *mut TRACE_GUID_PROPERTIES);
-impl PTRACE_GUID_PROPERTIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_GUID_PROPERTIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRACEHANDLE = *mut u64;
+pub type PTRACE_ENABLE_INFO = *mut TRACE_ENABLE_INFO;
+pub type PTRACE_GUID_INFO = *mut TRACE_GUID_INFO;
+pub type PTRACE_GUID_PROPERTIES = *mut TRACE_GUID_PROPERTIES;
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_GUID_REGISTRATION(pub *mut TRACE_GUID_REGISTRATION);
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
-impl PTRACE_GUID_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "winnt"))]
-impl Default for PTRACE_GUID_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRACE_GUID_REGISTRATION = *mut TRACE_GUID_REGISTRATION;
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_LOGFILE_HEADER(pub *mut TRACE_LOGFILE_HEADER);
+pub type PTRACE_LOGFILE_HEADER = *mut TRACE_LOGFILE_HEADER;
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl PTRACE_LOGFILE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PTRACE_LOGFILE_HEADER32 = *mut TRACE_LOGFILE_HEADER32;
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for PTRACE_LOGFILE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_LOGFILE_HEADER32(pub *mut TRACE_LOGFILE_HEADER32);
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl PTRACE_LOGFILE_HEADER32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for PTRACE_LOGFILE_HEADER32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_LOGFILE_HEADER64(pub *mut TRACE_LOGFILE_HEADER64);
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl PTRACE_LOGFILE_HEADER64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-impl Default for PTRACE_LOGFILE_HEADER64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_PERIODIC_CAPTURE_STATE_INFO(pub *mut TRACE_PERIODIC_CAPTURE_STATE_INFO);
-impl PTRACE_PERIODIC_CAPTURE_STATE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_PERIODIC_CAPTURE_STATE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_PROFILE_INTERVAL(pub *mut TRACE_PROFILE_INTERVAL);
-impl PTRACE_PROFILE_INTERVAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_PROFILE_INTERVAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_PROVIDER_INSTANCE_INFO(pub *mut TRACE_PROVIDER_INSTANCE_INFO);
-impl PTRACE_PROVIDER_INSTANCE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_PROVIDER_INSTANCE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_STACK_CACHING_INFO(pub *mut TRACE_STACK_CACHING_INFO);
-impl PTRACE_STACK_CACHING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_STACK_CACHING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRACE_VERSION_INFO(pub *mut TRACE_VERSION_INFO);
-impl PTRACE_VERSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRACE_VERSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRACE_LOGFILE_HEADER64 = *mut TRACE_LOGFILE_HEADER64;
+pub type PTRACE_PERIODIC_CAPTURE_STATE_INFO = *mut TRACE_PERIODIC_CAPTURE_STATE_INFO;
+pub type PTRACE_PROFILE_INTERVAL = *mut TRACE_PROFILE_INTERVAL;
+pub type PTRACE_PROVIDER_INSTANCE_INFO = *mut TRACE_PROVIDER_INSTANCE_INFO;
+pub type PTRACE_STACK_CACHING_INFO = *mut TRACE_STACK_CACHING_INFO;
+pub type PTRACE_VERSION_INFO = *mut TRACE_VERSION_INFO;
 pub const PrivateLoggerNotificationGuid: windows_core::GUID = windows_core::GUID::from_u128(0x3595ab5c_042a_4c8e_b942_2d059bfeb1b1);
 pub const SYSTEM_ALPC_KW_GENERAL: u32 = 1;
 pub const SYSTEM_CONFIG_KW_GRAPHICS: u32 = 2;

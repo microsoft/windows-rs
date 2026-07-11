@@ -275,9 +275,7 @@ pub const E_STORE_MACHINE_QUEUE: REPORT_STORE_TYPES = 3;
 pub const E_STORE_USER_ARCHIVE: REPORT_STORE_TYPES = 0;
 pub const E_STORE_USER_QUEUE: REPORT_STORE_TYPES = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HREPORT(pub super::winnt::HANDLE);
+pub type HREPORT = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORTSTORE(pub *mut core::ffi::c_void);
@@ -293,53 +291,11 @@ impl Default for HREPORTSTORE {
 }
 pub const PACKAGED_APPCRASH_EVENT: windows_core::PCWSTR = windows_core::w!("MoAppCrash");
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWER_DUMP_CUSTOM_OPTIONS_V3(pub *const WER_DUMP_CUSTOM_OPTIONS_V3);
-#[cfg(feature = "winnt")]
-impl PCWER_DUMP_CUSTOM_OPTIONS_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCWER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCWER_DUMP_CUSTOM_OPTIONS_V3 = *const WER_DUMP_CUSTOM_OPTIONS_V3;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWER_REPORT_INFORMATION_V4(pub *const WER_REPORT_INFORMATION_V4);
+pub type PCWER_REPORT_INFORMATION_V4 = *const WER_REPORT_INFORMATION_V4;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl PCWER_REPORT_INFORMATION_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PCWER_REPORT_INFORMATION_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCWER_REPORT_INFORMATION_V5(pub *const WER_REPORT_INFORMATION_V5);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PCWER_REPORT_INFORMATION_V5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PCWER_REPORT_INFORMATION_V5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCWER_REPORT_INFORMATION_V5 = *const WER_REPORT_INFORMATION_V5;
 #[cfg(feature = "winnt")]
 pub type PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = Option<unsafe extern "system" fn(pcontext: *const core::ffi::c_void, pexceptioninformation: *const WER_RUNTIME_EXCEPTION_INFORMATION, pbiscustomdebugger: *mut windows_core::BOOL, pwszdebuggerlaunch: windows_core::PWSTR, pchdebuggerlaunch: *mut u32, pbisdebuggerautolaunch: *mut windows_core::BOOL) -> windows_core::HRESULT>;
 #[cfg(feature = "winnt")]
@@ -359,219 +315,31 @@ impl Default for PHREPORTSTORE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_DUMP_CUSTOM_OPTIONS(pub *mut WER_DUMP_CUSTOM_OPTIONS);
-impl PWER_DUMP_CUSTOM_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWER_DUMP_CUSTOM_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_DUMP_CUSTOM_OPTIONS_V2(pub *mut WER_DUMP_CUSTOM_OPTIONS_V2);
-impl PWER_DUMP_CUSTOM_OPTIONS_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWER_DUMP_CUSTOM_OPTIONS_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_DUMP_CUSTOM_OPTIONS = *mut WER_DUMP_CUSTOM_OPTIONS;
+pub type PWER_DUMP_CUSTOM_OPTIONS_V2 = *mut WER_DUMP_CUSTOM_OPTIONS_V2;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_DUMP_CUSTOM_OPTIONS_V3(pub *mut WER_DUMP_CUSTOM_OPTIONS_V3);
+pub type PWER_DUMP_CUSTOM_OPTIONS_V3 = *mut WER_DUMP_CUSTOM_OPTIONS_V3;
 #[cfg(feature = "winnt")]
-impl PWER_DUMP_CUSTOM_OPTIONS_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWER_DUMP_CUSTOM_OPTIONS_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_EXCEPTION_INFORMATION(pub *mut WER_EXCEPTION_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PWER_EXCEPTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWER_EXCEPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_EXCEPTION_INFORMATION = *mut WER_EXCEPTION_INFORMATION;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_INFORMATION(pub *mut WER_REPORT_INFORMATION);
+pub type PWER_REPORT_INFORMATION = *mut WER_REPORT_INFORMATION;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl PWER_REPORT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWER_REPORT_INFORMATION_V3 = *mut WER_REPORT_INFORMATION_V3;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PWER_REPORT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_REPORT_INFORMATION_V4 = *mut WER_REPORT_INFORMATION_V4;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_INFORMATION_V3(pub *mut WER_REPORT_INFORMATION_V3);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PWER_REPORT_INFORMATION_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PWER_REPORT_INFORMATION_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_INFORMATION_V4(pub *mut WER_REPORT_INFORMATION_V4);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PWER_REPORT_INFORMATION_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PWER_REPORT_INFORMATION_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_INFORMATION_V5(pub *mut WER_REPORT_INFORMATION_V5);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PWER_REPORT_INFORMATION_V5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PWER_REPORT_INFORMATION_V5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_REPORT_INFORMATION_V5 = *mut WER_REPORT_INFORMATION_V5;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_METADATA_V1(pub *mut WER_REPORT_METADATA_V1);
+pub type PWER_REPORT_METADATA_V1 = *mut WER_REPORT_METADATA_V1;
 #[cfg(feature = "minwindef")]
-impl PWER_REPORT_METADATA_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWER_REPORT_METADATA_V2 = *mut WER_REPORT_METADATA_V2;
 #[cfg(feature = "minwindef")]
-impl Default for PWER_REPORT_METADATA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_METADATA_V2(pub *mut WER_REPORT_METADATA_V2);
-#[cfg(feature = "minwindef")]
-impl PWER_REPORT_METADATA_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWER_REPORT_METADATA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_METADATA_V3(pub *mut WER_REPORT_METADATA_V3);
-#[cfg(feature = "minwindef")]
-impl PWER_REPORT_METADATA_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWER_REPORT_METADATA_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_REPORT_METADATA_V3 = *mut WER_REPORT_METADATA_V3;
 pub type PWER_REPORT_PARAMETER = WER_REPORT_PARAMETER;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_REPORT_SIGNATURE(pub *mut WER_REPORT_SIGNATURE);
-impl PWER_REPORT_SIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWER_REPORT_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_REPORT_SIGNATURE = *mut WER_REPORT_SIGNATURE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_RUNTIME_EXCEPTION_INFORMATION(pub *mut WER_RUNTIME_EXCEPTION_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PWER_RUNTIME_EXCEPTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWER_RUNTIME_EXCEPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWER_SUBMIT_RESULT(pub *mut WER_SUBMIT_RESULT);
-impl PWER_SUBMIT_RESULT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWER_SUBMIT_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWER_RUNTIME_EXCEPTION_INFORMATION = *mut WER_RUNTIME_EXCEPTION_INFORMATION;
+pub type PWER_SUBMIT_RESULT = *mut WER_SUBMIT_RESULT;
 pub type REPORT_STORE_TYPES = i32;
 pub type WER_CONSENT = i32;
 pub const WER_DUMP_AUXILIARY: u32 = 2;

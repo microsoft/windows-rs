@@ -8491,16 +8491,4 @@ pub const U_WB_WSEGSPACE: UWordBreakValues = 22;
 pub const U_WB_ZWJ: UWordBreakValues = 21;
 pub const U_WHITE_SPACE_NEUTRAL: UCharDirection = 9;
 pub const U_ZERO_ERROR: UErrorCode = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct u_nl_catd(pub *mut UResourceBundle);
-impl u_nl_catd {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for u_nl_catd {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type u_nl_catd = *mut UResourceBundle;

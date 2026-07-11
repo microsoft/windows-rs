@@ -1,83 +1,13 @@
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWHV_HYPERCALL_CONTEXT(pub *mut WHV_HYPERCALL_CONTEXT);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PWHV_HYPERCALL_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PWHV_HYPERCALL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWHV_HYPERCALL_CONTEXT = *mut WHV_HYPERCALL_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWHV_PROCESSOR_PERFMON_FEATURES(pub *mut WHV_PROCESSOR_PERFMON_FEATURES);
+pub type PWHV_PROCESSOR_PERFMON_FEATURES = *mut WHV_PROCESSOR_PERFMON_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PWHV_PROCESSOR_PERFMON_FEATURES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWHV_PROCESSOR_XSAVE_FEATURES = *mut WHV_PROCESSOR_XSAVE_FEATURES;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PWHV_PROCESSOR_PERFMON_FEATURES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT = *mut WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWHV_PROCESSOR_XSAVE_FEATURES(pub *mut WHV_PROCESSOR_XSAVE_FEATURES);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PWHV_PROCESSOR_XSAVE_FEATURES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PWHV_PROCESSOR_XSAVE_FEATURES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT(pub *mut WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PWHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWHV_X64_PENDING_INTERRUPTION_TYPE(pub *mut WHV_X64_PENDING_INTERRUPTION_TYPE);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PWHV_X64_PENDING_INTERRUPTION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PWHV_X64_PENDING_INTERRUPTION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWHV_X64_PENDING_INTERRUPTION_TYPE = *mut WHV_X64_PENDING_INTERRUPTION_TYPE;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]

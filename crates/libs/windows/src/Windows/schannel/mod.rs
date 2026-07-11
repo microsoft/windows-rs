@@ -64,571 +64,67 @@ pub const LCRED_STATUS_UNKNOWN_ISSUER: u32 = 2;
 pub const PCT1SP_NAME_A: windows_core::PCSTR = windows_core::s!("Microsoft PCT 1.0");
 pub const PCT1SP_NAME_W: windows_core::PCWSTR = windows_core::w!("Microsoft PCT 1.0");
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHANNEL_CERT_HASH(pub *mut SCHANNEL_CERT_HASH);
+pub type PSCHANNEL_CERT_HASH = *mut SCHANNEL_CERT_HASH;
 #[cfg(feature = "wincrypt")]
-impl PSCHANNEL_CERT_HASH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSCHANNEL_CERT_HASH_STORE = *mut SCHANNEL_CERT_HASH_STORE;
 #[cfg(feature = "wincrypt")]
-impl Default for PSCHANNEL_CERT_HASH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHANNEL_CERT_HASH_STORE(pub *mut SCHANNEL_CERT_HASH_STORE);
-#[cfg(feature = "wincrypt")]
-impl PSCHANNEL_CERT_HASH_STORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSCHANNEL_CERT_HASH_STORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHANNEL_CLIENT_SIGNATURE(pub *mut SCHANNEL_CLIENT_SIGNATURE);
-#[cfg(feature = "wincrypt")]
-impl PSCHANNEL_CLIENT_SIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSCHANNEL_CLIENT_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCHANNEL_CLIENT_SIGNATURE = *mut SCHANNEL_CLIENT_SIGNATURE;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCHANNEL_CRED(pub *mut SCHANNEL_CRED);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PSCHANNEL_CRED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PSCHANNEL_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCH_CRED(pub *mut SCH_CRED);
-impl PSCH_CRED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCH_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCHANNEL_CRED = *mut SCHANNEL_CRED;
+pub type PSCH_CRED = *mut SCH_CRED;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCH_CRED_PUBLIC_CERTCHAIN(pub *mut SCH_CRED_PUBLIC_CERTCHAIN);
-#[cfg(feature = "minwindef")]
-impl PSCH_CRED_PUBLIC_CERTCHAIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSCH_CRED_PUBLIC_CERTCHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCH_CRED_PUBLIC_CERTCHAIN = *mut SCH_CRED_PUBLIC_CERTCHAIN;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCH_CRED_SECRET_CAPI(pub *mut SCH_CRED_SECRET_CAPI);
+pub type PSCH_CRED_SECRET_CAPI = *mut SCH_CRED_SECRET_CAPI;
+#[cfg(feature = "minwindef")]
+pub type PSCH_CRED_SECRET_PRIVKEY = *mut SCH_CRED_SECRET_PRIVKEY;
+pub type PSEND_GENERIC_TLS_EXTENSION = *mut SEND_GENERIC_TLS_EXTENSION;
+#[cfg(feature = "minwindef")]
+pub type PSSL_CREDENTIAL_CERTIFICATE = *mut SSL_CREDENTIAL_CERTIFICATE;
+pub type PSUBSCRIBE_GENERIC_TLS_EXTENSION = *mut SUBSCRIBE_GENERIC_TLS_EXTENSION;
+pub type PSecPkgContext_CertInfo = *mut SecPkgContext_CertInfo;
+pub type PSecPkgContext_CertificateValidationResult = *mut SecPkgContext_CertificateValidationResult;
+#[cfg(feature = "minwindef")]
+pub type PSecPkgContext_Certificates = *mut SecPkgContext_Certificates;
+pub type PSecPkgContext_CipherInfo = *mut SecPkgContext_CipherInfo;
+pub type PSecPkgContext_ClientCertPolicyResult = *mut SecPkgContext_ClientCertPolicyResult;
 #[cfg(feature = "wincrypt")]
-impl PSCH_CRED_SECRET_CAPI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSecPkgContext_ConnectionInfo = *mut SecPkgContext_ConnectionInfo;
+pub type PSecPkgContext_ConnectionInfoEx = *mut SecPkgContext_ConnectionInfoEx;
+pub type PSecPkgContext_EapKeyBlock = *mut SecPkgContext_EapKeyBlock;
+#[cfg(feature = "minwindef")]
+pub type PSecPkgContext_EapPrfInfo = *mut SecPkgContext_EapPrfInfo;
+pub type PSecPkgContext_EarlyStart = *mut SecPkgContext_EarlyStart;
 #[cfg(feature = "wincrypt")]
-impl Default for PSCH_CRED_SECRET_CAPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_IssuerListInfoEx = *mut SecPkgContext_IssuerListInfoEx;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCH_CRED_SECRET_PRIVKEY(pub *mut SCH_CRED_SECRET_PRIVKEY);
+pub type PSecPkgContext_KeyingMaterial = *mut SecPkgContext_KeyingMaterial;
 #[cfg(feature = "minwindef")]
-impl PSCH_CRED_SECRET_PRIVKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSecPkgContext_KeyingMaterialInfo = *mut SecPkgContext_KeyingMaterialInfo;
 #[cfg(feature = "minwindef")]
-impl Default for PSCH_CRED_SECRET_PRIVKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEND_GENERIC_TLS_EXTENSION(pub *mut SEND_GENERIC_TLS_EXTENSION);
-impl PSEND_GENERIC_TLS_EXTENSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEND_GENERIC_TLS_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_KeyingMaterial_Inproc = *mut SecPkgContext_KeyingMaterial_Inproc;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSSL_CREDENTIAL_CERTIFICATE(pub *mut SSL_CREDENTIAL_CERTIFICATE);
+pub type PSecPkgContext_LocalCredenitalInfo = *mut SecPkgContext_LocalCredentialInfo;
 #[cfg(feature = "minwindef")]
-impl PSSL_CREDENTIAL_CERTIFICATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSecPkgContext_LocalCredentialInfo = *mut SecPkgContext_LocalCredentialInfo;
+pub type PSecPkgContext_MappedCredAttr = *mut SecPkgContext_MappedCredAttr;
 #[cfg(feature = "minwindef")]
-impl Default for PSSL_CREDENTIAL_CERTIFICATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSUBSCRIBE_GENERIC_TLS_EXTENSION(pub *mut SUBSCRIBE_GENERIC_TLS_EXTENSION);
-impl PSUBSCRIBE_GENERIC_TLS_EXTENSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSUBSCRIBE_GENERIC_TLS_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_CertInfo(pub *mut SecPkgContext_CertInfo);
-impl PSecPkgContext_CertInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_CertInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_CertificateValidationResult(pub *mut SecPkgContext_CertificateValidationResult);
-impl PSecPkgContext_CertificateValidationResult {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_CertificateValidationResult {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_RemoteCredenitalInfo = *mut SecPkgContext_RemoteCredentialInfo;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_Certificates(pub *mut SecPkgContext_Certificates);
+pub type PSecPkgContext_RemoteCredentialInfo = *mut SecPkgContext_RemoteCredentialInfo;
 #[cfg(feature = "minwindef")]
-impl PSecPkgContext_Certificates {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSecPkgContext_SessionAppData = *mut SecPkgContext_SessionAppData;
+pub type PSecPkgContext_SessionInfo = *mut SecPkgContext_SessionInfo;
 #[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_Certificates {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_CipherInfo(pub *mut SecPkgContext_CipherInfo);
-impl PSecPkgContext_CipherInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_CipherInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_ClientCertPolicyResult(pub *mut SecPkgContext_ClientCertPolicyResult);
-impl PSecPkgContext_ClientCertPolicyResult {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_ClientCertPolicyResult {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_ConnectionInfo(pub *mut SecPkgContext_ConnectionInfo);
-#[cfg(feature = "wincrypt")]
-impl PSecPkgContext_ConnectionInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSecPkgContext_ConnectionInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_ConnectionInfoEx(pub *mut SecPkgContext_ConnectionInfoEx);
-impl PSecPkgContext_ConnectionInfoEx {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_ConnectionInfoEx {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_EapKeyBlock(pub *mut SecPkgContext_EapKeyBlock);
-impl PSecPkgContext_EapKeyBlock {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_EapKeyBlock {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_SrtpParameters = *mut SecPkgContext_SrtpParameters;
+pub type PSecPkgContext_SupportedSignatures = *mut SecPkgContext_SupportedSignatures;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_EapPrfInfo(pub *mut SecPkgContext_EapPrfInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_EapPrfInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_EapPrfInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_EarlyStart(pub *mut SecPkgContext_EarlyStart);
-impl PSecPkgContext_EarlyStart {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_EarlyStart {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_IssuerListInfoEx(pub *mut SecPkgContext_IssuerListInfoEx);
-#[cfg(feature = "wincrypt")]
-impl PSecPkgContext_IssuerListInfoEx {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSecPkgContext_IssuerListInfoEx {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_KeyingMaterial(pub *mut SecPkgContext_KeyingMaterial);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_KeyingMaterial {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_KeyingMaterial {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_KeyingMaterialInfo(pub *mut SecPkgContext_KeyingMaterialInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_KeyingMaterialInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_KeyingMaterialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_KeyingMaterial_Inproc(pub *mut SecPkgContext_KeyingMaterial_Inproc);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_KeyingMaterial_Inproc {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_KeyingMaterial_Inproc {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_LocalCredenitalInfo(pub *mut SecPkgContext_LocalCredentialInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_LocalCredenitalInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_LocalCredenitalInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_LocalCredentialInfo(pub *mut SecPkgContext_LocalCredentialInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_LocalCredentialInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_LocalCredentialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_MappedCredAttr(pub *mut SecPkgContext_MappedCredAttr);
-impl PSecPkgContext_MappedCredAttr {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_MappedCredAttr {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_RemoteCredenitalInfo(pub *mut SecPkgContext_RemoteCredentialInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_RemoteCredenitalInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_RemoteCredenitalInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_RemoteCredentialInfo(pub *mut SecPkgContext_RemoteCredentialInfo);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_RemoteCredentialInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_RemoteCredentialInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_SessionAppData(pub *mut SecPkgContext_SessionAppData);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_SessionAppData {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_SessionAppData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_SessionInfo(pub *mut SecPkgContext_SessionInfo);
-impl PSecPkgContext_SessionInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_SessionInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_SrtpParameters(pub *mut SecPkgContext_SrtpParameters);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_SrtpParameters {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_SrtpParameters {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_SupportedSignatures(pub *mut SecPkgContext_SupportedSignatures);
-impl PSecPkgContext_SupportedSignatures {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_SupportedSignatures {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_TokenBinding(pub *mut SecPkgContext_TokenBinding);
-#[cfg(feature = "minwindef")]
-impl PSecPkgContext_TokenBinding {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSecPkgContext_TokenBinding {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_TokenBinding = *mut SecPkgContext_TokenBinding;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_UiInfo(pub *mut SecPkgContext_UiInfo);
-#[cfg(feature = "windef")]
-impl PSecPkgContext_UiInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PSecPkgContext_UiInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTLS_EXTENSION_SUBSCRIPTION(pub *mut TLS_EXTENSION_SUBSCRIPTION);
-impl PTLS_EXTENSION_SUBSCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTLS_EXTENSION_SUBSCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgContext_UiInfo = *mut SecPkgContext_UiInfo;
+pub type PTLS_EXTENSION_SUBSCRIPTION = *mut TLS_EXTENSION_SUBSCRIPTION;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PX509Certificate(pub *mut X509Certificate);
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl PX509Certificate {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-impl Default for PX509Certificate {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PX509Certificate = *mut X509Certificate;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PctPublicKey {

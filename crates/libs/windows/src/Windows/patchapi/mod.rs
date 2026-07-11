@@ -368,115 +368,15 @@ pub const PATCH_SYMBOL_UNDECORATED_TOO: u32 = 4;
 pub type PATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub const PATCH_TRANSFORM_PE_IRELOC_2: u32 = 512;
 pub const PATCH_TRANSFORM_PE_RESOURCE_2: u32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_IGNORE_RANGE(pub *mut PATCH_IGNORE_RANGE);
-impl PPATCH_IGNORE_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_IGNORE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_INTERLEAVE_MAP(pub *mut PATCH_INTERLEAVE_MAP);
-impl PPATCH_INTERLEAVE_MAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_INTERLEAVE_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPATCH_IGNORE_RANGE = *mut PATCH_IGNORE_RANGE;
+pub type PPATCH_INTERLEAVE_MAP = *mut PATCH_INTERLEAVE_MAP;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_OLD_FILE_INFO(pub *mut PATCH_OLD_FILE_INFO);
+pub type PPATCH_OLD_FILE_INFO = *mut PATCH_OLD_FILE_INFO;
+pub type PPATCH_OLD_FILE_INFO_A = *mut PATCH_OLD_FILE_INFO_A;
 #[cfg(feature = "winnt")]
-impl PPATCH_OLD_FILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPATCH_OLD_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_OLD_FILE_INFO_A(pub *mut PATCH_OLD_FILE_INFO_A);
-impl PPATCH_OLD_FILE_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_OLD_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_OLD_FILE_INFO_H(pub *mut PATCH_OLD_FILE_INFO_H);
-#[cfg(feature = "winnt")]
-impl PPATCH_OLD_FILE_INFO_H {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPATCH_OLD_FILE_INFO_H {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_OLD_FILE_INFO_W(pub *mut PATCH_OLD_FILE_INFO_W);
-impl PPATCH_OLD_FILE_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_OLD_FILE_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_OPTION_DATA(pub *mut PATCH_OPTION_DATA);
-impl PPATCH_OPTION_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_OPTION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPATCH_OLD_FILE_INFO_H = *mut PATCH_OLD_FILE_INFO_H;
+pub type PPATCH_OLD_FILE_INFO_W = *mut PATCH_OLD_FILE_INFO_W;
+pub type PPATCH_OPTION_DATA = *mut PATCH_OPTION_DATA;
 pub type PPATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATCH_RETAIN_RANGE(pub *mut PATCH_RETAIN_RANGE);
-impl PPATCH_RETAIN_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPATCH_RETAIN_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPATCH_RETAIN_RANGE = *mut PATCH_RETAIN_RANGE;
 pub type PPATCH_SYMLOAD_CALLBACK = Option<unsafe extern "system" fn(whichfile: u32, symbolfilename: windows_core::PCSTR, symtype: u32, symbolfilechecksum: u32, symbolfiletimedate: u32, imagefilechecksum: u32, imagefiletimedate: u32, callbackcontext: *mut core::ffi::c_void) -> windows_core::BOOL>;

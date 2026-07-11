@@ -3154,53 +3154,11 @@ pub const LOAD_TLB_AS_32BIT: u32 = 32;
 pub const LOAD_TLB_AS_64BIT: u32 = 64;
 pub const LOCALE_USE_NLS: u32 = 268435456;
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERFACEDATA(pub *mut INTERFACEDATA);
+pub type LPINTERFACEDATA = *mut INTERFACEDATA;
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl LPINTERFACEDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPINTERFACEDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMETHODDATA(pub *mut METHODDATA);
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl LPMETHODDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPMETHODDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMETHODDATA = *mut METHODDATA;
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPARAMDATA(pub *mut PARAMDATA);
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl LPPARAMDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-impl Default for LPPARAMDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPARAMDATA = *mut PARAMDATA;
 pub const MASK_TO_RESET_TLB_BITS: i32 = -97;
 pub const MEMBERID_NIL: i32 = -1;
 #[repr(C)]

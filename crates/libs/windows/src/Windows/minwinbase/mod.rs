@@ -197,277 +197,45 @@ impl Default for LOAD_DLL_DEBUG_INFO {
 pub const LOCKFILE_EXCLUSIVE_LOCK: u32 = 2;
 pub const LOCKFILE_FAIL_IMMEDIATELY: u32 = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCONTEXT(pub super::winnt::PCONTEXT);
+pub type LPCONTEXT = super::winnt::PCONTEXT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATE_PROCESS_DEBUG_INFO(pub *mut CREATE_PROCESS_DEBUG_INFO);
+pub type LPCREATE_PROCESS_DEBUG_INFO = *mut CREATE_PROCESS_DEBUG_INFO;
 #[cfg(feature = "winnt")]
-impl LPCREATE_PROCESS_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCREATE_THREAD_DEBUG_INFO = *mut CREATE_THREAD_DEBUG_INFO;
 #[cfg(feature = "winnt")]
-impl Default for LPCREATE_PROCESS_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCRITICAL_SECTION = super::winnt::PRTL_CRITICAL_SECTION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATE_THREAD_DEBUG_INFO(pub *mut CREATE_THREAD_DEBUG_INFO);
+pub type LPCRITICAL_SECTION_DEBUG = super::winnt::PRTL_CRITICAL_SECTION_DEBUG;
 #[cfg(feature = "winnt")]
-impl LPCREATE_THREAD_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPCREATE_THREAD_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCRITICAL_SECTION(pub super::winnt::PRTL_CRITICAL_SECTION);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCRITICAL_SECTION_DEBUG(pub super::winnt::PRTL_CRITICAL_SECTION_DEBUG);
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDEBUG_EVENT(pub *mut DEBUG_EVENT);
-#[cfg(feature = "winnt")]
-impl LPDEBUG_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPDEBUG_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDEBUG_EVENT = *mut DEBUG_EVENT;
 pub type LPENCLAVE_ROUTINE = PENCLAVE_ROUTINE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXCEPTION_DEBUG_INFO(pub *mut EXCEPTION_DEBUG_INFO);
+pub type LPEXCEPTION_DEBUG_INFO = *mut EXCEPTION_DEBUG_INFO;
+pub type LPEXIT_PROCESS_DEBUG_INFO = *mut EXIT_PROCESS_DEBUG_INFO;
+pub type LPEXIT_THREAD_DEBUG_INFO = *mut EXIT_THREAD_DEBUG_INFO;
 #[cfg(feature = "winnt")]
-impl LPEXCEPTION_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPLOAD_DLL_DEBUG_INFO = *mut LOAD_DLL_DEBUG_INFO;
+pub type LPOUTPUT_DEBUG_STRING_INFO = *mut OUTPUT_DEBUG_STRING_INFO;
 #[cfg(feature = "winnt")]
-impl Default for LPEXCEPTION_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXIT_PROCESS_DEBUG_INFO(pub *mut EXIT_PROCESS_DEBUG_INFO);
-impl LPEXIT_PROCESS_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXIT_PROCESS_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXIT_THREAD_DEBUG_INFO(pub *mut EXIT_THREAD_DEBUG_INFO);
-impl LPEXIT_THREAD_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXIT_THREAD_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOAD_DLL_DEBUG_INFO(pub *mut LOAD_DLL_DEBUG_INFO);
-#[cfg(feature = "winnt")]
-impl LPLOAD_DLL_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPLOAD_DLL_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOUTPUT_DEBUG_STRING_INFO(pub *mut OUTPUT_DEBUG_STRING_INFO);
-impl LPOUTPUT_DEBUG_STRING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOUTPUT_DEBUG_STRING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOVERLAPPED(pub *mut OVERLAPPED);
-#[cfg(feature = "winnt")]
-impl LPOVERLAPPED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPOVERLAPPED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOVERLAPPED = *mut OVERLAPPED;
 #[cfg(feature = "winnt")]
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED)>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOVERLAPPED_ENTRY(pub *mut OVERLAPPED_ENTRY);
+pub type LPOVERLAPPED_ENTRY = *mut OVERLAPPED_ENTRY;
 #[cfg(feature = "winnt")]
-impl LPOVERLAPPED_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPOVERLAPPED_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROCESS_HEAP_ENTRY(pub *mut PROCESS_HEAP_ENTRY);
-#[cfg(feature = "winnt")]
-impl LPPROCESS_HEAP_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPPROCESS_HEAP_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRIP_INFO(pub *mut RIP_INFO);
-impl LPRIP_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPRIP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSECURITY_ATTRIBUTES(pub *mut SECURITY_ATTRIBUTES);
-impl LPSECURITY_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSYSTEMTIME(pub *mut SYSTEMTIME);
-impl LPSYSTEMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
+pub type LPRIP_INFO = *mut RIP_INFO;
+pub type LPSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
+pub type LPSYSTEMTIME = *mut SYSTEMTIME;
 pub type LPTHREAD_START_ROUTINE = PTHREAD_START_ROUTINE;
 pub const LPTR: u32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPUNLOAD_DLL_DEBUG_INFO(pub *mut UNLOAD_DLL_DEBUG_INFO);
-impl LPUNLOAD_DLL_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPUNLOAD_DLL_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPUNLOAD_DLL_DEBUG_INFO = *mut UNLOAD_DLL_DEBUG_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWIN32_FIND_DATA(pub LPWIN32_FIND_DATAA);
+pub type LPWIN32_FIND_DATA = LPWIN32_FIND_DATAA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWIN32_FIND_DATAA(pub *mut WIN32_FIND_DATAA);
+pub type LPWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
 #[cfg(feature = "minwindef")]
-impl LPWIN32_FIND_DATAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPWIN32_FIND_DATAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWIN32_FIND_DATAW(pub *mut WIN32_FIND_DATAW);
-#[cfg(feature = "minwindef")]
-impl LPWIN32_FIND_DATAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPWIN32_FIND_DATAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25;
 pub const MaximumFileInfoByNameClass: FILE_INFO_BY_NAME_CLASS = 4;
 pub const NONZEROLHND: u32 = 2;
@@ -526,85 +294,17 @@ pub struct OVERLAPPED_ENTRY {
     pub dwNumberOfBytesTransferred: u32,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCRITICAL_SECTION(pub super::winnt::PRTL_CRITICAL_SECTION);
+pub type PCRITICAL_SECTION = super::winnt::PRTL_CRITICAL_SECTION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCRITICAL_SECTION_DEBUG(pub super::winnt::PRTL_CRITICAL_SECTION_DEBUG);
+pub type PCRITICAL_SECTION_DEBUG = super::winnt::PRTL_CRITICAL_SECTION_DEBUG;
 pub type PENCLAVE_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_INFO_BY_HANDLE_CLASS(pub *mut FILE_INFO_BY_HANDLE_CLASS);
-impl PFILE_INFO_BY_HANDLE_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_INFO_BY_HANDLE_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_INFO_BY_NAME_CLASS(pub *mut FILE_INFO_BY_NAME_CLASS);
-impl PFILE_INFO_BY_NAME_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_INFO_BY_NAME_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_INFO_BY_HANDLE_CLASS = *mut FILE_INFO_BY_HANDLE_CLASS;
+pub type PFILE_INFO_BY_NAME_CLASS = *mut FILE_INFO_BY_NAME_CLASS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_HEAP_ENTRY(pub *mut PROCESS_HEAP_ENTRY);
-#[cfg(feature = "winnt")]
-impl PPROCESS_HEAP_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPROCESS_HEAP_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub *mut READ_DIRECTORY_NOTIFY_INFORMATION_CLASS);
-impl PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROCESS_HEAP_ENTRY = *mut PROCESS_HEAP_ENTRY;
+pub type PREAD_DIRECTORY_NOTIFY_INFORMATION_CLASS = *mut READ_DIRECTORY_NOTIFY_INFORMATION_CLASS;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREASON_CONTEXT(pub *mut REASON_CONTEXT);
-#[cfg(feature = "minwindef")]
-impl PREASON_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PREASON_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREASON_CONTEXT = *mut REASON_CONTEXT;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -669,69 +369,15 @@ pub const PROCESS_HEAP_ENTRY_MOVEABLE: u32 = 16;
 pub const PROCESS_HEAP_REGION: u32 = 1;
 pub const PROCESS_HEAP_SEG_ALLOC: u32 = 8;
 pub const PROCESS_HEAP_UNCOMMITTED_RANGE: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_ATTRIBUTES(pub *mut SECURITY_ATTRIBUTES);
-impl PSECURITY_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURITY_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEMTIME(pub *mut SYSTEMTIME);
-impl PSYSTEMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECURITY_ATTRIBUTES = *mut SECURITY_ATTRIBUTES;
+pub type PSYSTEMTIME = *mut SYSTEMTIME;
 pub type PTHREAD_START_ROUTINE = Option<unsafe extern "system" fn(lpthreadparameter: *mut core::ffi::c_void) -> u32>;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWIN32_FIND_DATA(pub PWIN32_FIND_DATAA);
+pub type PWIN32_FIND_DATA = PWIN32_FIND_DATAA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIN32_FIND_DATAA(pub *mut WIN32_FIND_DATAA);
+pub type PWIN32_FIND_DATAA = *mut WIN32_FIND_DATAA;
 #[cfg(feature = "minwindef")]
-impl PWIN32_FIND_DATAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWIN32_FIND_DATAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIN32_FIND_DATAW(pub *mut WIN32_FIND_DATAW);
-#[cfg(feature = "minwindef")]
-impl PWIN32_FIND_DATAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PWIN32_FIND_DATAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWIN32_FIND_DATAW = *mut WIN32_FIND_DATAW;
 pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]

@@ -49,190 +49,22 @@ pub const IOCTL_SERIAL_XOFF_COUNTER: u32 = 1769584;
 pub const MARK_PARITY: u32 = 3;
 pub const NO_PARITY: u32 = 0;
 pub const ODD_PARITY: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERENUM_PORT_DESC(pub *mut SERENUM_PORT_DESC);
-impl PSERENUM_PORT_DESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERENUM_PORT_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERENUM_PORT_PARAMETERS(pub *mut SERENUM_PORT_PARAMETERS);
-impl PSERENUM_PORT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERENUM_PORT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSERENUM_PORT_DESC = *mut SERENUM_PORT_DESC;
+pub type PSERENUM_PORT_PARAMETERS = *mut SERENUM_PORT_PARAMETERS;
 pub type PSERENUM_READPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void) -> u8>;
 pub type PSERENUM_WRITEPORT = Option<unsafe extern "system" fn(serportaddress: *const core::ffi::c_void, value: u8)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIALCONFIG(pub *mut SERIALCONFIG);
-impl PSERIALCONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIALCONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIALPERF_STATS(pub *mut SERIALPERF_STATS);
-impl PSERIALPERF_STATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIALPERF_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_BASIC_SETTINGS(pub *mut SERIAL_BASIC_SETTINGS);
-impl PSERIAL_BASIC_SETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_BASIC_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_BAUD_RATE(pub *mut SERIAL_BAUD_RATE);
-impl PSERIAL_BAUD_RATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_BAUD_RATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_CHARS(pub *mut SERIAL_CHARS);
-impl PSERIAL_CHARS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_CHARS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_COMMPROP(pub *mut SERIAL_COMMPROP);
-impl PSERIAL_COMMPROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_COMMPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_HANDFLOW(pub *mut SERIAL_HANDFLOW);
-impl PSERIAL_HANDFLOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_HANDFLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_LINE_CONTROL(pub *mut SERIAL_LINE_CONTROL);
-impl PSERIAL_LINE_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_LINE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_QUEUE_SIZE(pub *mut SERIAL_QUEUE_SIZE);
-impl PSERIAL_QUEUE_SIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_QUEUE_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_STATUS(pub *mut SERIAL_STATUS);
-impl PSERIAL_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_TIMEOUTS(pub *mut SERIAL_TIMEOUTS);
-impl PSERIAL_TIMEOUTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_TIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSERIAL_XOFF_COUNTER(pub *mut SERIAL_XOFF_COUNTER);
-impl PSERIAL_XOFF_COUNTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSERIAL_XOFF_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSERIALCONFIG = *mut SERIALCONFIG;
+pub type PSERIALPERF_STATS = *mut SERIALPERF_STATS;
+pub type PSERIAL_BASIC_SETTINGS = *mut SERIAL_BASIC_SETTINGS;
+pub type PSERIAL_BAUD_RATE = *mut SERIAL_BAUD_RATE;
+pub type PSERIAL_CHARS = *mut SERIAL_CHARS;
+pub type PSERIAL_COMMPROP = *mut SERIAL_COMMPROP;
+pub type PSERIAL_HANDFLOW = *mut SERIAL_HANDFLOW;
+pub type PSERIAL_LINE_CONTROL = *mut SERIAL_LINE_CONTROL;
+pub type PSERIAL_QUEUE_SIZE = *mut SERIAL_QUEUE_SIZE;
+pub type PSERIAL_STATUS = *mut SERIAL_STATUS;
+pub type PSERIAL_TIMEOUTS = *mut SERIAL_TIMEOUTS;
+pub type PSERIAL_XOFF_COUNTER = *mut SERIAL_XOFF_COUNTER;
 pub type SERENUM_PORTION = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]

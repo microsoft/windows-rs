@@ -45,16 +45,4 @@ pub const L2_REASON_CODE_RESERVED_BASE: u32 = 720896;
 pub const L2_REASON_CODE_SUCCESS: u32 = 0;
 pub const L2_REASON_CODE_UNKNOWN: u32 = 65537;
 pub const L2_REASON_CODE_WIMAX_BASE: u32 = 655360;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PL2_NOTIFICATION_DATA(pub *mut L2_NOTIFICATION_DATA);
-impl PL2_NOTIFICATION_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PL2_NOTIFICATION_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PL2_NOTIFICATION_DATA = *mut L2_NOTIFICATION_DATA;

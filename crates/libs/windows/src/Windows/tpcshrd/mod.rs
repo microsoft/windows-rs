@@ -26,58 +26,10 @@ pub struct PACKET_PROPERTY {
     pub guid: windows_core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPACKET_DESCRIPTION(pub *mut PACKET_DESCRIPTION);
-impl PPACKET_DESCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPACKET_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPACKET_PROPERTY(pub *mut PACKET_PROPERTY);
-impl PPACKET_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPACKET_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPERTY_METRICS(pub *mut PROPERTY_METRICS);
-impl PPROPERTY_METRICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROPERTY_METRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPERTY_UNITS(pub *mut PROPERTY_UNITS);
-impl PPROPERTY_UNITS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROPERTY_UNITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPACKET_DESCRIPTION = *mut PACKET_DESCRIPTION;
+pub type PPACKET_PROPERTY = *mut PACKET_PROPERTY;
+pub type PPROPERTY_METRICS = *mut PROPERTY_METRICS;
+pub type PPROPERTY_UNITS = *mut PROPERTY_UNITS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTY_METRICS {

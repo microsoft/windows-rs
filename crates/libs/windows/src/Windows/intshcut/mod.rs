@@ -188,69 +188,13 @@ impl windows_core::RuntimeName for IUniformResourceLocatorW {}
 pub const MIMEASSOCDLG_FL_REGISTER_ASSOC: MIMEASSOCIATIONDIALOG_IN_FLAGS = 1;
 pub type MIMEASSOCIATIONDIALOG_IN_FLAGS = i32;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCURLINVOKECOMMANDINFOA(pub *const URLINVOKECOMMANDINFOA);
+pub type PCURLINVOKECOMMANDINFOA = *const URLINVOKECOMMANDINFOA;
 #[cfg(feature = "windef")]
-impl PCURLINVOKECOMMANDINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCURLINVOKECOMMANDINFOW = *const URLINVOKECOMMANDINFOW;
 #[cfg(feature = "windef")]
-impl Default for PCURLINVOKECOMMANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PURLINVOKECOMMANDINFOA = *mut URLINVOKECOMMANDINFOA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCURLINVOKECOMMANDINFOW(pub *const URLINVOKECOMMANDINFOW);
-#[cfg(feature = "windef")]
-impl PCURLINVOKECOMMANDINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCURLINVOKECOMMANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PURLINVOKECOMMANDINFOA(pub *mut URLINVOKECOMMANDINFOA);
-#[cfg(feature = "windef")]
-impl PURLINVOKECOMMANDINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PURLINVOKECOMMANDINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PURLINVOKECOMMANDINFOW(pub *mut URLINVOKECOMMANDINFOW);
-#[cfg(feature = "windef")]
-impl PURLINVOKECOMMANDINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PURLINVOKECOMMANDINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PURLINVOKECOMMANDINFOW = *mut URLINVOKECOMMANDINFOW;
 pub const TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = 1;
 pub const TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = 2;
 pub type TRANSLATEURL_IN_FLAGS = i32;

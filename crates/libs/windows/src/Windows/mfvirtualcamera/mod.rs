@@ -302,42 +302,6 @@ pub const MFVirtualCameraLifetime_Session: MFVirtualCameraLifetime = 0;
 pub const MFVirtualCameraLifetime_System: MFVirtualCameraLifetime = 1;
 pub type MFVirtualCameraType = i32;
 pub const MFVirtualCameraType_SoftwareCameraSource: MFVirtualCameraType = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFVirtualCameraAccess(pub *mut MFVirtualCameraAccess);
-impl PMFVirtualCameraAccess {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFVirtualCameraAccess {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFVirtualCameraLifetime(pub *mut MFVirtualCameraLifetime);
-impl PMFVirtualCameraLifetime {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFVirtualCameraLifetime {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFVirtualCameraType(pub *mut MFVirtualCameraType);
-impl PMFVirtualCameraType {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFVirtualCameraType {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMFVirtualCameraAccess = *mut MFVirtualCameraAccess;
+pub type PMFVirtualCameraLifetime = *mut MFVirtualCameraLifetime;
+pub type PMFVirtualCameraType = *mut MFVirtualCameraType;

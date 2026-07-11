@@ -95,47 +95,9 @@ pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1;
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0;
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = 2;
 pub const COMPRESS_RAW: u32 = 536870912;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DECOMPRESSOR_HANDLE(pub COMPRESSOR_HANDLE);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMPRESSOR_HANDLE(pub *mut COMPRESSOR_HANDLE);
-impl PCOMPRESSOR_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOMPRESSOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMPRESS_ALLOCATION_ROUTINES(pub *mut COMPRESS_ALLOCATION_ROUTINES);
-impl PCOMPRESS_ALLOCATION_ROUTINES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOMPRESS_ALLOCATION_ROUTINES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDECOMPRESSOR_HANDLE(pub *mut COMPRESSOR_HANDLE);
-impl PDECOMPRESSOR_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDECOMPRESSOR_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type DECOMPRESSOR_HANDLE = COMPRESSOR_HANDLE;
+pub type PCOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
+pub type PCOMPRESS_ALLOCATION_ROUTINES = *mut COMPRESS_ALLOCATION_ROUTINES;
+pub type PDECOMPRESSOR_HANDLE = *mut COMPRESSOR_HANDLE;
 pub type PFN_COMPRESS_ALLOCATE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, size: usize) -> *mut core::ffi::c_void>;
 pub type PFN_COMPRESS_FREE = Option<unsafe extern "C" fn(usercontext: *const core::ffi::c_void, memory: *const core::ffi::c_void)>;

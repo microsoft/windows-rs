@@ -157,16 +157,4 @@ pub const PNP_VetoPendingClose: PNP_VETO_TYPE = 2;
 pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = 0;
 pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = 3;
 pub const PNP_VetoWindowsService: PNP_VETO_TYPE = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_VETO_TYPE(pub *mut PNP_VETO_TYPE);
-impl PPNP_VETO_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPNP_VETO_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPNP_VETO_TYPE = *mut PNP_VETO_TYPE;

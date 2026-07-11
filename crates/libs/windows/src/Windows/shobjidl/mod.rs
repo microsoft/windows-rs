@@ -3782,19 +3782,7 @@ impl windows_core::RuntimeName for IWizardSite {}
 pub const ImageProperties: windows_core::GUID = windows_core::GUID::from_u128(0x7ab770c7_0e23_4d7a_8aa2_19bfad479829);
 pub const ImageRecompress: windows_core::GUID = windows_core::GUID::from_u128(0x6e33091c_d2f8_4740_b55e_2e11d1477a2c);
 pub const InternetPrintOrdering: windows_core::GUID = windows_core::GUID::from_u128(0xadd36aa8_751a_4579_a266_d66f5202ccbb);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVIEWSETTINGS(pub *mut i8);
-impl LPVIEWSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPVIEWSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]

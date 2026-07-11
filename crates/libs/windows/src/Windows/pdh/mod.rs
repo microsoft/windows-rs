@@ -749,17 +749,11 @@ pub const DATA_SOURCE_LOGFILE: u32 = 2;
 pub const DATA_SOURCE_REGISTRY: u32 = 1;
 pub const DATA_SOURCE_WBEM: u32 = 4;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HCOUNTER(pub PDH_HCOUNTER);
+pub type HCOUNTER = PDH_HCOUNTER;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HLOG(pub PDH_HLOG);
+pub type HLOG = PDH_HLOG;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HQUERY(pub PDH_HQUERY);
+pub type HQUERY = PDH_HQUERY;
 pub const H_REALTIME_DATASOURCE: u32 = 0;
 pub const MAX_COUNTER_PATH: u32 = 256;
 pub const MAX_TIME_VALUE: i64 = 9223372036854775807;
@@ -1008,17 +1002,11 @@ pub const PDH_FMT_NOSCALE: u32 = 4096;
 pub const PDH_FMT_RAW: u32 = 16;
 pub const PDH_FMT_UNICODE: u32 = 64;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDH_HCOUNTER(pub super::winnt::HANDLE);
+pub type PDH_HCOUNTER = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDH_HLOG(pub super::winnt::HANDLE);
+pub type PDH_HLOG = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDH_HQUERY(pub super::winnt::HANDLE);
+pub type PDH_HQUERY = super::winnt::HANDLE;
 pub const PDH_LOG_ACCESS_MASK: u32 = 983040;
 pub const PDH_LOG_CREATE_ALWAYS: u32 = 2;
 pub const PDH_LOG_CREATE_MASK: u32 = 15;
@@ -1241,302 +1229,32 @@ pub const PDH_VERSION: u32 = 1283;
 pub const PERF_DETAIL_COSTLY: u32 = 65536;
 pub const PERF_DETAIL_STANDARD: u32 = 65535;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_BROWSE_DLG_CONFIG_A(pub *mut PDH_BROWSE_DLG_CONFIG_A);
+pub type PPDH_BROWSE_DLG_CONFIG_A = *mut PDH_BROWSE_DLG_CONFIG_A;
+#[cfg(all(feature = "windef", feature = "winnt"))]
+pub type PPDH_BROWSE_DLG_CONFIG_HA = *mut PDH_BROWSE_DLG_CONFIG_HA;
+#[cfg(all(feature = "windef", feature = "winnt"))]
+pub type PPDH_BROWSE_DLG_CONFIG_HW = *mut PDH_BROWSE_DLG_CONFIG_HW;
 #[cfg(feature = "windef")]
-impl PPDH_BROWSE_DLG_CONFIG_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPDH_BROWSE_DLG_CONFIG_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_BROWSE_DLG_CONFIG_HA(pub *mut PDH_BROWSE_DLG_CONFIG_HA);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PPDH_BROWSE_DLG_CONFIG_HA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PPDH_BROWSE_DLG_CONFIG_HA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_BROWSE_DLG_CONFIG_HW(pub *mut PDH_BROWSE_DLG_CONFIG_HW);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PPDH_BROWSE_DLG_CONFIG_HW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PPDH_BROWSE_DLG_CONFIG_HW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_BROWSE_DLG_CONFIG_W(pub *mut PDH_BROWSE_DLG_CONFIG_W);
-#[cfg(feature = "windef")]
-impl PPDH_BROWSE_DLG_CONFIG_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPDH_BROWSE_DLG_CONFIG_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_COUNTER_INFO_A(pub *mut PDH_COUNTER_INFO_A);
-impl PPDH_COUNTER_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_COUNTER_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_COUNTER_INFO_W(pub *mut PDH_COUNTER_INFO_W);
-impl PPDH_COUNTER_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_COUNTER_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_COUNTER_PATH_ELEMENTS_A(pub *mut PDH_COUNTER_PATH_ELEMENTS_A);
-impl PPDH_COUNTER_PATH_ELEMENTS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_COUNTER_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_COUNTER_PATH_ELEMENTS_W(pub *mut PDH_COUNTER_PATH_ELEMENTS_W);
-impl PPDH_COUNTER_PATH_ELEMENTS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_COUNTER_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_DATA_ITEM_PATH_ELEMENTS_A(pub *mut PDH_DATA_ITEM_PATH_ELEMENTS_A);
-impl PPDH_DATA_ITEM_PATH_ELEMENTS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_DATA_ITEM_PATH_ELEMENTS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_DATA_ITEM_PATH_ELEMENTS_W(pub *mut PDH_DATA_ITEM_PATH_ELEMENTS_W);
-impl PPDH_DATA_ITEM_PATH_ELEMENTS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_DATA_ITEM_PATH_ELEMENTS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_FMT_COUNTERVALUE(pub *mut PDH_FMT_COUNTERVALUE);
-impl PPDH_FMT_COUNTERVALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_FMT_COUNTERVALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_FMT_COUNTERVALUE_ITEM_A(pub *mut PDH_FMT_COUNTERVALUE_ITEM_A);
-impl PPDH_FMT_COUNTERVALUE_ITEM_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_FMT_COUNTERVALUE_ITEM_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_FMT_COUNTERVALUE_ITEM_W(pub *mut PDH_FMT_COUNTERVALUE_ITEM_W);
-impl PPDH_FMT_COUNTERVALUE_ITEM_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_FMT_COUNTERVALUE_ITEM_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPDH_BROWSE_DLG_CONFIG_W = *mut PDH_BROWSE_DLG_CONFIG_W;
+pub type PPDH_COUNTER_INFO_A = *mut PDH_COUNTER_INFO_A;
+pub type PPDH_COUNTER_INFO_W = *mut PDH_COUNTER_INFO_W;
+pub type PPDH_COUNTER_PATH_ELEMENTS_A = *mut PDH_COUNTER_PATH_ELEMENTS_A;
+pub type PPDH_COUNTER_PATH_ELEMENTS_W = *mut PDH_COUNTER_PATH_ELEMENTS_W;
+pub type PPDH_DATA_ITEM_PATH_ELEMENTS_A = *mut PDH_DATA_ITEM_PATH_ELEMENTS_A;
+pub type PPDH_DATA_ITEM_PATH_ELEMENTS_W = *mut PDH_DATA_ITEM_PATH_ELEMENTS_W;
+pub type PPDH_FMT_COUNTERVALUE = *mut PDH_FMT_COUNTERVALUE;
+pub type PPDH_FMT_COUNTERVALUE_ITEM_A = *mut PDH_FMT_COUNTERVALUE_ITEM_A;
+pub type PPDH_FMT_COUNTERVALUE_ITEM_W = *mut PDH_FMT_COUNTERVALUE_ITEM_W;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_LOG_SERVICE_QUERY_INFO_A(pub *mut PDH_LOG_SERVICE_QUERY_INFO_A);
+pub type PPDH_LOG_SERVICE_QUERY_INFO_A = *mut PDH_LOG_SERVICE_QUERY_INFO_A;
 #[cfg(feature = "minwindef")]
-impl PPDH_LOG_SERVICE_QUERY_INFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPDH_LOG_SERVICE_QUERY_INFO_W = *mut PDH_LOG_SERVICE_QUERY_INFO_W;
 #[cfg(feature = "minwindef")]
-impl Default for PPDH_LOG_SERVICE_QUERY_INFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPDH_RAW_COUNTER = *mut PDH_RAW_COUNTER;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_LOG_SERVICE_QUERY_INFO_W(pub *mut PDH_LOG_SERVICE_QUERY_INFO_W);
+pub type PPDH_RAW_COUNTER_ITEM_A = *mut PDH_RAW_COUNTER_ITEM_A;
 #[cfg(feature = "minwindef")]
-impl PPDH_LOG_SERVICE_QUERY_INFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPDH_LOG_SERVICE_QUERY_INFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_RAW_COUNTER(pub *mut PDH_RAW_COUNTER);
-#[cfg(feature = "minwindef")]
-impl PPDH_RAW_COUNTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPDH_RAW_COUNTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_RAW_COUNTER_ITEM_A(pub *mut PDH_RAW_COUNTER_ITEM_A);
-#[cfg(feature = "minwindef")]
-impl PPDH_RAW_COUNTER_ITEM_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPDH_RAW_COUNTER_ITEM_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_RAW_COUNTER_ITEM_W(pub *mut PDH_RAW_COUNTER_ITEM_W);
-#[cfg(feature = "minwindef")]
-impl PPDH_RAW_COUNTER_ITEM_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPDH_RAW_COUNTER_ITEM_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_RAW_LOG_RECORD(pub *mut PDH_RAW_LOG_RECORD);
-impl PPDH_RAW_LOG_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_RAW_LOG_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_STATISTICS(pub *mut PDH_STATISTICS);
-impl PPDH_STATISTICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_STATISTICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPDH_TIME_INFO(pub *mut PDH_TIME_INFO);
-impl PPDH_TIME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPDH_TIME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPDH_RAW_COUNTER_ITEM_W = *mut PDH_RAW_COUNTER_ITEM_W;
+pub type PPDH_RAW_LOG_RECORD = *mut PDH_RAW_LOG_RECORD;
+pub type PPDH_STATISTICS = *mut PDH_STATISTICS;
+pub type PPDH_TIME_INFO = *mut PDH_TIME_INFO;

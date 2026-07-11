@@ -519,268 +519,30 @@ pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = 6;
 pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = 8;
 pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 13;
 pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE);
-impl PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUTHZ_ACCESS_CHECK_RESULTS_HANDLE = *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_ACCESS_REPLY(pub *mut AUTHZ_ACCESS_REPLY);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PAUTHZ_ACCESS_REPLY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PAUTHZ_ACCESS_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUTHZ_ACCESS_REPLY = *mut AUTHZ_ACCESS_REPLY;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_ACCESS_REQUEST(pub *mut AUTHZ_ACCESS_REQUEST);
+pub type PAUTHZ_ACCESS_REQUEST = *mut AUTHZ_ACCESS_REQUEST;
+pub type PAUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE;
+pub type PAUTHZ_AUDIT_EVENT_TYPE_HANDLE = *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE;
+pub type PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE;
+pub type PAUTHZ_CLIENT_CONTEXT_HANDLE = *mut AUTHZ_CLIENT_CONTEXT_HANDLE;
 #[cfg(feature = "winnt")]
-impl PAUTHZ_ACCESS_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUTHZ_ACCESS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_AUDIT_EVENT_HANDLE(pub *mut AUTHZ_AUDIT_EVENT_HANDLE);
-impl PAUTHZ_AUDIT_EVENT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_AUDIT_EVENT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub *mut AUTHZ_AUDIT_EVENT_TYPE_HANDLE);
-impl PAUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE(pub *mut AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE);
-impl PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_CLIENT_CONTEXT_HANDLE(pub *mut AUTHZ_CLIENT_CONTEXT_HANDLE);
-impl PAUTHZ_CLIENT_CONTEXT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_INIT_INFO(pub *mut AUTHZ_INIT_INFO);
-#[cfg(feature = "winnt")]
-impl PAUTHZ_INIT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAUTHZ_INIT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET(pub *mut AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET);
-impl PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_RESOURCE_MANAGER_HANDLE(pub *mut AUTHZ_RESOURCE_MANAGER_HANDLE);
-impl PAUTHZ_RESOURCE_MANAGER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_RPC_INIT_INFO_CLIENT(pub *mut AUTHZ_RPC_INIT_INFO_CLIENT);
-impl PAUTHZ_RPC_INIT_INFO_CLIENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_RPC_INIT_INFO_CLIENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUTHZ_INIT_INFO = *mut AUTHZ_INIT_INFO;
+pub type PAUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET = *mut AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET;
+pub type PAUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE;
+pub type PAUTHZ_RPC_INIT_INFO_CLIENT = *mut AUTHZ_RPC_INIT_INFO_CLIENT;
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION(pub *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION);
+pub type PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION = *mut AUTHZ_SECURITY_ATTRIBUTES_INFORMATION;
+pub type PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE;
+pub type PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE = *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE;
+pub type PAUTHZ_SECURITY_ATTRIBUTE_OPERATION = *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION;
 #[cfg(feature = "basetsd")]
-impl PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PAUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE(pub *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE);
-impl PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE(pub *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE);
-impl PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub *mut AUTHZ_SECURITY_ATTRIBUTE_OPERATION);
-impl PAUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_ATTRIBUTE_V1(pub *mut AUTHZ_SECURITY_ATTRIBUTE_V1);
-#[cfg(feature = "basetsd")]
-impl PAUTHZ_SECURITY_ATTRIBUTE_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PAUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE);
-impl PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SID_OPERATION(pub *mut AUTHZ_SID_OPERATION);
-impl PAUTHZ_SID_OPERATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SID_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUTHZ_SOURCE_SCHEMA_REGISTRATION(pub *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION);
-impl PAUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUTHZ_SECURITY_ATTRIBUTE_V1 = *mut AUTHZ_SECURITY_ATTRIBUTE_V1;
+pub type PAUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE;
+pub type PAUTHZ_SID_OPERATION = *mut AUTHZ_SID_OPERATION;
+pub type PAUTHZ_SOURCE_SCHEMA_REGISTRATION = *mut AUTHZ_SOURCE_SCHEMA_REGISTRATION;
 #[cfg(feature = "winnt")]
 pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const core::ffi::c_void, psidattrarray: *mut super::winnt::PSID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut super::winnt::PSID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]

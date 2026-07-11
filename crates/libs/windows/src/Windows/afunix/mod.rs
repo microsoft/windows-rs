@@ -1,19 +1,5 @@
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_UN(pub *mut SOCKADDR_UN);
-#[cfg(feature = "ws2")]
-impl PSOCKADDR_UN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PSOCKADDR_UN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_UN = *mut SOCKADDR_UN;
 pub const SIO_AF_UNIX_GETPEERPID: u32 = 1476395264;
 pub const SIO_AF_UNIX_SETBINDPARENTPATH: i32 = -1744830207;
 pub const SIO_AF_UNIX_SETCONNPARENTPATH: i32 = -1744830206;

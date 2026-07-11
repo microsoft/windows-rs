@@ -4,179 +4,27 @@ pub struct OFFSETINSTANCEDATAANDLENGTH {
     pub OffsetInstanceData: u32,
     pub LengthInstanceData: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POFFSETINSTANCEDATAANDLENGTH(pub *mut OFFSETINSTANCEDATAANDLENGTH);
-impl POFFSETINSTANCEDATAANDLENGTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POFFSETINSTANCEDATAANDLENGTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWMIREGGUID(pub PWMIREGGUIDW);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWMIREGGUIDW(pub *mut WMIREGGUIDW);
-impl PWMIREGGUIDW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWMIREGGUIDW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWMIREGINFO(pub PWMIREGINFOW);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWMIREGINFOW(pub *mut WMIREGINFOW);
-impl PWMIREGINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWMIREGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POFFSETINSTANCEDATAANDLENGTH = *mut OFFSETINSTANCEDATAANDLENGTH;
+pub type PWMIREGGUID = PWMIREGGUIDW;
+pub type PWMIREGGUIDW = *mut WMIREGGUIDW;
+pub type PWMIREGINFO = PWMIREGINFOW;
+pub type PWMIREGINFOW = *mut WMIREGINFOW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_ALL_DATA(pub *mut WNODE_ALL_DATA);
+pub type PWNODE_ALL_DATA = *mut WNODE_ALL_DATA;
 #[cfg(feature = "winnt")]
-impl PWNODE_ALL_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWNODE_EVENT_ITEM = *mut WNODE_EVENT_ITEM;
 #[cfg(feature = "winnt")]
-impl Default for PWNODE_ALL_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWNODE_EVENT_REFERENCE = *mut WNODE_EVENT_REFERENCE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_EVENT_ITEM(pub *mut WNODE_EVENT_ITEM);
+pub type PWNODE_HEADER = *mut WNODE_HEADER;
 #[cfg(feature = "winnt")]
-impl PWNODE_EVENT_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWNODE_METHOD_ITEM = *mut WNODE_METHOD_ITEM;
 #[cfg(feature = "winnt")]
-impl Default for PWNODE_EVENT_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWNODE_SINGLE_INSTANCE = *mut WNODE_SINGLE_INSTANCE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_EVENT_REFERENCE(pub *mut WNODE_EVENT_REFERENCE);
+pub type PWNODE_SINGLE_ITEM = *mut WNODE_SINGLE_ITEM;
 #[cfg(feature = "winnt")]
-impl PWNODE_EVENT_REFERENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_EVENT_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_HEADER(pub *mut WNODE_HEADER);
-#[cfg(feature = "winnt")]
-impl PWNODE_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_METHOD_ITEM(pub *mut WNODE_METHOD_ITEM);
-#[cfg(feature = "winnt")]
-impl PWNODE_METHOD_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_METHOD_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_SINGLE_INSTANCE(pub *mut WNODE_SINGLE_INSTANCE);
-#[cfg(feature = "winnt")]
-impl PWNODE_SINGLE_INSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_SINGLE_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_SINGLE_ITEM(pub *mut WNODE_SINGLE_ITEM);
-#[cfg(feature = "winnt")]
-impl PWNODE_SINGLE_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_SINGLE_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWNODE_TOO_SMALL(pub *mut WNODE_TOO_SMALL);
-#[cfg(feature = "winnt")]
-impl PWNODE_TOO_SMALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWNODE_TOO_SMALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWNODE_TOO_SMALL = *mut WNODE_TOO_SMALL;
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256;
 pub const TRACELOG_ACCESS_REALTIME: u32 = 1024;
 pub const TRACELOG_CREATE_INPROC: u32 = 512;

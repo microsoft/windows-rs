@@ -16070,45 +16070,9 @@ impl IVideoFrameStep_Vtbl {
 }
 impl windows_core::RuntimeName for IVideoFrameStep {}
 pub type InterleavingMode = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMCOPPCommand(pub *mut AMCOPPCommand);
-impl LPAMCOPPCommand {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMCOPPCommand {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMCOPPStatusInput(pub *mut AMCOPPStatusInput);
-impl LPAMCOPPStatusInput {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMCOPPStatusInput {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAMCOPPStatusOutput(pub *mut AMCOPPStatusOutput);
-impl LPAMCOPPStatusOutput {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAMCOPPStatusOutput {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAMCOPPCommand = *mut AMCOPPCommand;
+pub type LPAMCOPPStatusInput = *mut AMCOPPStatusInput;
+pub type LPAMCOPPStatusOutput = *mut AMCOPPStatusOutput;
 pub const MAX_FILTER_NAME: u32 = 128;
 pub const MAX_NUMBER_OF_STREAMS: i32 = 16;
 pub const MAX_PIN_NAME: u32 = 128;
@@ -16151,19 +16115,7 @@ pub struct NORMALIZEDRECT {
     pub right: f32,
     pub bottom: f32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDVINFO(pub *mut DVINFO);
-impl PDVINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDVINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDVINFO = *mut DVINFO;
 pub const PINDIR_INPUT: PIN_DIRECTION = 0;
 pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
@@ -16181,35 +16133,9 @@ impl Default for PIN_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNORMALIZEDRECT(pub *mut NORMALIZEDRECT);
-impl PNORMALIZEDRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNORMALIZEDRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNORMALIZEDRECT = *mut NORMALIZEDRECT;
 #[cfg(all(feature = "ddraw", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVMRALPHABITMAP(pub *mut VMRALPHABITMAP);
-#[cfg(all(feature = "ddraw", feature = "windef"))]
-impl PVMRALPHABITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ddraw", feature = "windef"))]
-impl Default for PVMRALPHABITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVMRALPHABITMAP = *mut VMRALPHABITMAP;
 pub const PhysConn_Audio_1394: PhysicalConnectorType = 4103;
 pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = 4099;
 pub const PhysConn_Audio_AUX: PhysicalConnectorType = 4102;

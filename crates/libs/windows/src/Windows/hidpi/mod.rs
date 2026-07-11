@@ -490,169 +490,25 @@ pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1;
 pub const HidP_Output: HIDP_REPORT_TYPE = 1;
 #[cfg(feature = "bcrypt")]
 pub type PFN_HidP_GetVersionInternal = Option<unsafe extern "system" fn(version: *mut u32) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_BUTTON_ARRAY_DATA(pub *mut HIDP_BUTTON_ARRAY_DATA);
-impl PHIDP_BUTTON_ARRAY_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_BUTTON_ARRAY_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDP_BUTTON_ARRAY_DATA = *mut HIDP_BUTTON_ARRAY_DATA;
 #[cfg(feature = "hidusage")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_BUTTON_CAPS(pub *mut HIDP_BUTTON_CAPS);
+pub type PHIDP_BUTTON_CAPS = *mut HIDP_BUTTON_CAPS;
 #[cfg(feature = "hidusage")]
-impl PHIDP_BUTTON_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "hidusage")]
-impl Default for PHIDP_BUTTON_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "hidusage")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_CAPS(pub *mut HIDP_CAPS);
-#[cfg(feature = "hidusage")]
-impl PHIDP_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "hidusage")]
-impl Default for PHIDP_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_DATA(pub *mut HIDP_DATA);
-impl PHIDP_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_EXTENDED_ATTRIBUTES(pub *mut HIDP_EXTENDED_ATTRIBUTES);
-impl PHIDP_EXTENDED_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_EXTENDED_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDP_CAPS = *mut HIDP_CAPS;
+pub type PHIDP_DATA = *mut HIDP_DATA;
+pub type PHIDP_EXTENDED_ATTRIBUTES = *mut HIDP_EXTENDED_ATTRIBUTES;
 pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, newscancodes: *const i8, length: u32) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_KEYBOARD_MODIFIER_STATE(pub *mut HIDP_KEYBOARD_MODIFIER_STATE);
-impl PHIDP_KEYBOARD_MODIFIER_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_KEYBOARD_MODIFIER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDP_KEYBOARD_MODIFIER_STATE = *mut HIDP_KEYBOARD_MODIFIER_STATE;
 #[cfg(feature = "hidusage")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_LINK_COLLECTION_NODE(pub *mut HIDP_LINK_COLLECTION_NODE);
-#[cfg(feature = "hidusage")]
-impl PHIDP_LINK_COLLECTION_NODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "hidusage")]
-impl Default for PHIDP_LINK_COLLECTION_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_PREPARSED_DATA(pub *mut _HIDP_PREPARSED_DATA);
-impl PHIDP_PREPARSED_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_PREPARSED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDP_LINK_COLLECTION_NODE = *mut HIDP_LINK_COLLECTION_NODE;
+pub type PHIDP_PREPARSED_DATA = *mut _HIDP_PREPARSED_DATA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PHIDP_REPORT_DESCRIPTOR(pub super::minwindef::PUCHAR);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_UNKNOWN_TOKEN(pub *mut HIDP_UNKNOWN_TOKEN);
-impl PHIDP_UNKNOWN_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHIDP_UNKNOWN_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHIDP_REPORT_DESCRIPTOR = super::minwindef::PUCHAR;
+pub type PHIDP_UNKNOWN_TOKEN = *mut HIDP_UNKNOWN_TOKEN;
 #[cfg(feature = "hidusage")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHIDP_VALUE_CAPS(pub *mut HIDP_VALUE_CAPS);
+pub type PHIDP_VALUE_CAPS = *mut HIDP_VALUE_CAPS;
 #[cfg(feature = "hidusage")]
-impl PHIDP_VALUE_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "hidusage")]
-impl Default for PHIDP_VALUE_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "hidusage")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSAGE_AND_PAGE(pub *mut USAGE_AND_PAGE);
-#[cfg(feature = "hidusage")]
-impl PUSAGE_AND_PAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "hidusage")]
-impl Default for PUSAGE_AND_PAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSAGE_AND_PAGE = *mut USAGE_AND_PAGE;
 #[repr(C)]
 #[cfg(feature = "hidusage")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

@@ -402,40 +402,14 @@ pub const NOTIFY_CLASS_PACKAGE_CHANGE: u32 = 1;
 pub const NOTIFY_CLASS_REGISTRY_CHANGE: u32 = 4;
 pub const NOTIFY_CLASS_ROLE_CHANGE: u32 = 2;
 pub const NO_LONG_NAMES: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRED_FETCH(pub *mut CRED_FETCH);
-impl PCRED_FETCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRED_FETCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRED_FETCH = *mut CRED_FETCH;
 pub type PKSEC_CREATE_CONTEXT_LIST = Option<unsafe extern "system" fn(r#type: KSEC_CONTEXT_TYPE) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
 pub type PKSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, delete: *mut bool)>;
 #[cfg(feature = "winnt")]
 pub type PKSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSEC_LIST_ENTRY(pub *mut KSEC_LIST_ENTRY);
-#[cfg(feature = "winnt")]
-impl PKSEC_LIST_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSEC_LIST_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSEC_LIST_ENTRY = *mut KSEC_LIST_ENTRY;
 pub type PKSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type PKSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: bool) -> super::bcrypt::NTSTATUS>;
@@ -465,69 +439,13 @@ pub type PLSA_AP_LOGON_USER = Option<unsafe extern "system" fn(clientrequest: *c
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PLSA_AP_LOGON_USER_EX = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: super::ntsecapi::SECURITY_LOGON_TYPE, authenticationinformation: *const core::ffi::c_void, clientauthenticationbase: *const core::ffi::c_void, authenticationinformationlength: u32, profilebuffer: *mut *mut core::ffi::c_void, profilebufferlength: *mut u32, logonid: *mut super::winnt::LUID, substatus: *mut i32, tokeninformationtype: *mut LSA_TOKEN_INFORMATION_TYPE, tokeninformation: *mut *mut core::ffi::c_void, accountname: *mut super::ntsecapi::PUNICODE_STRING, authenticatingauthority: *mut super::ntsecapi::PUNICODE_STRING, machinename: *mut super::ntsecapi::PUNICODE_STRING) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_AP_LOGON_USER_EX2(pub *mut LSA_AP_LOGON_USER_EX2);
+pub type PLSA_AP_LOGON_USER_EX2 = *mut LSA_AP_LOGON_USER_EX2;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PLSA_AP_LOGON_USER_EX2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLSA_AP_LOGON_USER_EX3 = *mut LSA_AP_LOGON_USER_EX3;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PLSA_AP_LOGON_USER_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_AP_LOGON_USER_EX3(pub *mut LSA_AP_LOGON_USER_EX3);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PLSA_AP_LOGON_USER_EX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PLSA_AP_LOGON_USER_EX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_AP_POST_LOGON_USER_SURROGATE(pub *mut LSA_AP_POST_LOGON_USER_SURROGATE);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PLSA_AP_POST_LOGON_USER_SURROGATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PLSA_AP_POST_LOGON_USER_SURROGATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_AP_POST_LOGON_USER_SURROGATE = *mut LSA_AP_POST_LOGON_USER_SURROGATE;
 #[cfg(all(feature = "bcrypt", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_AP_PRE_LOGON_USER_SURROGATE(pub *mut LSA_AP_PRE_LOGON_USER_SURROGATE);
-#[cfg(all(feature = "bcrypt", feature = "ntsecapi", feature = "winnt"))]
-impl PLSA_AP_PRE_LOGON_USER_SURROGATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PLSA_AP_PRE_LOGON_USER_SURROGATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = *mut LSA_AP_PRE_LOGON_USER_SURROGATE;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: bool, source: *const super::lsalookup::LSA_UNICODE_STRING, clientname: *const super::lsalookup::LSA_UNICODE_STRING, mappedname: *const super::lsalookup::LSA_UNICODE_STRING, status: super::bcrypt::NTSTATUS) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
@@ -586,21 +504,7 @@ pub type PLSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *con
 pub type PLSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *const super::winnt::LUID) -> super::bcrypt::NTSTATUS>;
 pub type PLSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> bool>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_DISPATCH_TABLE(pub *mut LSA_DISPATCH_TABLE);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-impl PLSA_DISPATCH_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-impl Default for PLSA_DISPATCH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_DISPATCH_TABLE = *mut LSA_DISPATCH_TABLE;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type PLSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::winnt::HANDLE, destionationhandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "minwindef"))]
@@ -666,115 +570,21 @@ pub type PLSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunc
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::winnt::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_SECPKG_FUNCTION_TABLE(pub *mut LSA_SECPKG_FUNCTION_TABLE);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-impl PLSA_SECPKG_FUNCTION_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-impl Default for PLSA_SECPKG_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_SEC_HANDLE(pub *mut LSA_SEC_HANDLE);
-impl PLSA_SEC_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLSA_SEC_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_SECPKG_FUNCTION_TABLE = *mut LSA_SECPKG_FUNCTION_TABLE;
+pub type PLSA_SEC_HANDLE = *mut LSA_SEC_HANDLE;
 #[cfg(all(feature = "bcrypt", feature = "sspi"))]
 pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const super::sspi::SecBuffer, returntolsa: bool) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
 pub type PLSA_SET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(reason: SECPKG_FAILURE_REASON) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TOKEN_INFORMATION_NULL(pub *mut LSA_TOKEN_INFORMATION_NULL);
+pub type PLSA_TOKEN_INFORMATION_NULL = *mut LSA_TOKEN_INFORMATION_NULL;
+pub type PLSA_TOKEN_INFORMATION_TYPE = *mut LSA_TOKEN_INFORMATION_TYPE;
 #[cfg(feature = "winnt")]
-impl PLSA_TOKEN_INFORMATION_NULL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLSA_TOKEN_INFORMATION_V1 = *mut LSA_TOKEN_INFORMATION_V1;
 #[cfg(feature = "winnt")]
-impl Default for PLSA_TOKEN_INFORMATION_NULL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TOKEN_INFORMATION_TYPE(pub *mut LSA_TOKEN_INFORMATION_TYPE);
-impl PLSA_TOKEN_INFORMATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLSA_TOKEN_INFORMATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_TOKEN_INFORMATION_V2 = *mut LSA_TOKEN_INFORMATION_V1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TOKEN_INFORMATION_V1(pub *mut LSA_TOKEN_INFORMATION_V1);
-#[cfg(feature = "winnt")]
-impl PLSA_TOKEN_INFORMATION_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLSA_TOKEN_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TOKEN_INFORMATION_V2(pub *mut LSA_TOKEN_INFORMATION_V1);
-#[cfg(feature = "winnt")]
-impl PLSA_TOKEN_INFORMATION_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLSA_TOKEN_INFORMATION_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLSA_TOKEN_INFORMATION_V3(pub *mut LSA_TOKEN_INFORMATION_V3);
-#[cfg(feature = "winnt")]
-impl PLSA_TOKEN_INFORMATION_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLSA_TOKEN_INFORMATION_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLSA_TOKEN_INFORMATION_V3 = *mut LSA_TOKEN_INFORMATION_V3;
 #[cfg(feature = "bcrypt")]
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
@@ -813,724 +623,82 @@ pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = Option<unsafe extern "system" f
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "lsalookup")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = Option<unsafe extern "system" fn(credentialname: *mut super::lsalookup::LSA_UNICODE_STRING) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSAM_REGISTER_MAPPING_ELEMENT(pub *mut SAM_REGISTER_MAPPING_ELEMENT);
-impl PSAM_REGISTER_MAPPING_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSAM_REGISTER_MAPPING_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSAM_REGISTER_MAPPING_LIST(pub *mut SAM_REGISTER_MAPPING_LIST);
-impl PSAM_REGISTER_MAPPING_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSAM_REGISTER_MAPPING_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSAM_REGISTER_MAPPING_TABLE(pub *mut SAM_REGISTER_MAPPING_TABLE);
-impl PSAM_REGISTER_MAPPING_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSAM_REGISTER_MAPPING_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_BYTE_VECTOR(pub *mut SECPKG_BYTE_VECTOR);
-impl PSECPKG_BYTE_VECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_BYTE_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CALL_INFO(pub *mut SECPKG_CALL_INFO);
-impl PSECPKG_CALL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_CALL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub *mut SECPKG_CALL_PACKAGE_MESSAGE_TYPE);
-impl PSECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_CALL_PACKAGE_MESSAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSAM_REGISTER_MAPPING_ELEMENT = *mut SAM_REGISTER_MAPPING_ELEMENT;
+pub type PSAM_REGISTER_MAPPING_LIST = *mut SAM_REGISTER_MAPPING_LIST;
+pub type PSAM_REGISTER_MAPPING_TABLE = *mut SAM_REGISTER_MAPPING_TABLE;
+pub type PSECPKG_BYTE_VECTOR = *mut SECPKG_BYTE_VECTOR;
+pub type PSECPKG_CALL_INFO = *mut SECPKG_CALL_INFO;
+pub type PSECPKG_CALL_PACKAGE_MESSAGE_TYPE = *mut SECPKG_CALL_PACKAGE_MESSAGE_TYPE;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST(pub *mut SECPKG_CALL_PACKAGE_PIN_DC_REQUEST);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_CALL_PACKAGE_PIN_DC_REQUEST = *mut SECPKG_CALL_PACKAGE_PIN_DC_REQUEST;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST(pub *mut SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST);
+pub type PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST = *mut SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST;
+pub type PSECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST = *mut SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST;
 #[cfg(feature = "winnt")]
-impl PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSECPKG_CLIENT_INFO = *mut SECPKG_CLIENT_INFO;
 #[cfg(feature = "winnt")]
-impl Default for PSECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST(pub *mut SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST);
-impl PSECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_CLIENT_INFO_EX = *mut SECPKG_CLIENT_INFO_EX;
+pub type PSECPKG_CONTEXT_THUNKS = *mut SECPKG_CONTEXT_THUNKS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CLIENT_INFO(pub *mut SECPKG_CLIENT_INFO);
-#[cfg(feature = "winnt")]
-impl PSECPKG_CLIENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_CLIENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CLIENT_INFO_EX(pub *mut SECPKG_CLIENT_INFO_EX);
-#[cfg(feature = "winnt")]
-impl PSECPKG_CLIENT_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_CLIENT_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CONTEXT_THUNKS(pub *mut SECPKG_CONTEXT_THUNKS);
-impl PSECPKG_CONTEXT_THUNKS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_CONTEXT_THUNKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_CREDENTIAL(pub *mut SECPKG_CREDENTIAL);
-#[cfg(feature = "winnt")]
-impl PSECPKG_CREDENTIAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_CREDENTIAL = *mut SECPKG_CREDENTIAL;
 #[cfg(all(feature = "bcrypt", feature = "sspi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_DLL_FUNCTIONS(pub *mut SECPKG_DLL_FUNCTIONS);
-#[cfg(all(feature = "bcrypt", feature = "sspi"))]
-impl PSECPKG_DLL_FUNCTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "sspi"))]
-impl Default for PSECPKG_DLL_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_DLL_FUNCTIONS = *mut SECPKG_DLL_FUNCTIONS;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EVENT_DOMAIN_CHANGE(pub *mut SECPKG_PARAMETERS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSECPKG_EVENT_DOMAIN_CHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSECPKG_EVENT_DOMAIN_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EVENT_NOTIFY(pub *mut SECPKG_EVENT_NOTIFY);
-impl PSECPKG_EVENT_NOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_EVENT_NOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_EVENT_DOMAIN_CHANGE = *mut SECPKG_PARAMETERS;
+pub type PSECPKG_EVENT_NOTIFY = *mut SECPKG_EVENT_NOTIFY;
 #[cfg(feature = "sspi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EVENT_PACKAGE_CHANGE(pub *mut SECPKG_EVENT_PACKAGE_CHANGE);
+pub type PSECPKG_EVENT_PACKAGE_CHANGE = *mut SECPKG_EVENT_PACKAGE_CHANGE;
+pub type PSECPKG_EVENT_ROLE_CHANGE = *mut SECPKG_EVENT_ROLE_CHANGE;
 #[cfg(feature = "sspi")]
-impl PSECPKG_EVENT_PACKAGE_CHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "sspi")]
-impl Default for PSECPKG_EVENT_PACKAGE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EVENT_ROLE_CHANGE(pub *mut SECPKG_EVENT_ROLE_CHANGE);
-impl PSECPKG_EVENT_ROLE_CHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_EVENT_ROLE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "sspi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EXTENDED_INFORMATION(pub *mut SECPKG_EXTENDED_INFORMATION);
-#[cfg(feature = "sspi")]
-impl PSECPKG_EXTENDED_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "sspi")]
-impl Default for PSECPKG_EXTENDED_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_EXTRA_OIDS(pub *mut SECPKG_EXTRA_OIDS);
-impl PSECPKG_EXTRA_OIDS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_EXTRA_OIDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_EXTENDED_INFORMATION = *mut SECPKG_EXTENDED_INFORMATION;
+pub type PSECPKG_EXTRA_OIDS = *mut SECPKG_EXTRA_OIDS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_FAILURE_REASON(pub *mut SECPKG_FAILURE_REASON);
-#[cfg(feature = "bcrypt")]
-impl PSECPKG_FAILURE_REASON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PSECPKG_FAILURE_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_FAILURE_SPECIAL_REASON(pub *mut SECPKG_FAILURE_SPECIAL_REASON);
-impl PSECPKG_FAILURE_SPECIAL_REASON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_FAILURE_SPECIAL_REASON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_FAILURE_REASON = *mut SECPKG_FAILURE_REASON;
+pub type PSECPKG_FAILURE_SPECIAL_REASON = *mut SECPKG_FAILURE_SPECIAL_REASON;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_FUNCTION_TABLE(pub *mut SECPKG_FUNCTION_TABLE);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-impl PSECPKG_FUNCTION_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwinbase", feature = "minwindef", feature = "ntsecapi", feature = "sspi", feature = "winnt"))]
-impl Default for PSECPKG_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_GSS_INFO(pub *mut SECPKG_GSS_INFO);
-impl PSECPKG_GSS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_GSS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_FUNCTION_TABLE = *mut SECPKG_FUNCTION_TABLE;
+pub type PSECPKG_GSS_INFO = *mut SECPKG_GSS_INFO;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_KERNEL_FUNCTIONS(pub *mut SECPKG_KERNEL_FUNCTIONS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PSECPKG_KERNEL_FUNCTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PSECPKG_KERNEL_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_KERNEL_FUNCTIONS = *mut SECPKG_KERNEL_FUNCTIONS;
 #[cfg(all(feature = "bcrypt", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_KERNEL_FUNCTION_TABLE(pub *mut SECPKG_KERNEL_FUNCTION_TABLE);
-#[cfg(all(feature = "bcrypt", feature = "sspi", feature = "winnt"))]
-impl PSECPKG_KERNEL_FUNCTION_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "sspi", feature = "winnt"))]
-impl Default for PSECPKG_KERNEL_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_MUTUAL_AUTH_LEVEL(pub *mut SECPKG_MUTUAL_AUTH_LEVEL);
-impl PSECPKG_MUTUAL_AUTH_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_MUTUAL_AUTH_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_NEGO2_INFO(pub *mut SECPKG_NEGO2_INFO);
-impl PSECPKG_NEGO2_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_NEGO2_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_KERNEL_FUNCTION_TABLE = *mut SECPKG_KERNEL_FUNCTION_TABLE;
+pub type PSECPKG_MUTUAL_AUTH_LEVEL = *mut SECPKG_MUTUAL_AUTH_LEVEL;
+pub type PSECPKG_NEGO2_INFO = *mut SECPKG_NEGO2_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_NTLM_TARGETINFO(pub *mut SECPKG_NTLM_TARGETINFO);
-#[cfg(feature = "minwindef")]
-impl PSECPKG_NTLM_TARGETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PSECPKG_NTLM_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_NTLM_TARGETINFO = *mut SECPKG_NTLM_TARGETINFO;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_PARAMETERS(pub *mut SECPKG_PARAMETERS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSECPKG_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSECPKG_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_PARAMETERS = *mut SECPKG_PARAMETERS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_POST_LOGON_USER_INFO(pub *mut SECPKG_POST_LOGON_USER_INFO);
-#[cfg(feature = "winnt")]
-impl PSECPKG_POST_LOGON_USER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_POST_LOGON_USER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_POST_LOGON_USER_INFO = *mut SECPKG_POST_LOGON_USER_INFO;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_PRIMARY_CRED(pub *mut SECPKG_PRIMARY_CRED);
+pub type PSECPKG_PRIMARY_CRED = *mut SECPKG_PRIMARY_CRED;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSECPKG_PRIMARY_CRED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSECPKG_PRIMARY_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_PRIMARY_CRED_EX(pub *mut SECPKG_PRIMARY_CRED_EX);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSECPKG_PRIMARY_CRED_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSECPKG_PRIMARY_CRED_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_PRIMARY_CRED_EX = *mut SECPKG_PRIMARY_CRED_EX;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_REDIRECTED_LOGON_BUFFER(pub *mut SECPKG_REDIRECTED_LOGON_BUFFER);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PSECPKG_REDIRECTED_LOGON_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSECPKG_REDIRECTED_LOGON_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SERIALIZED_OID(pub *mut SECPKG_SERIALIZED_OID);
-impl PSECPKG_SERIALIZED_OID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_SERIALIZED_OID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SHORT_VECTOR(pub *mut SECPKG_SHORT_VECTOR);
-impl PSECPKG_SHORT_VECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_SHORT_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_REDIRECTED_LOGON_BUFFER = *mut SECPKG_REDIRECTED_LOGON_BUFFER;
+pub type PSECPKG_SERIALIZED_OID = *mut SECPKG_SERIALIZED_OID;
+pub type PSECPKG_SHORT_VECTOR = *mut SECPKG_SHORT_VECTOR;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SUPPLEMENTAL_CRED(pub *mut SECPKG_SUPPLEMENTAL_CRED);
+pub type PSECPKG_SUPPLEMENTAL_CRED = *mut SECPKG_SUPPLEMENTAL_CRED;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl PSECPKG_SUPPLEMENTAL_CRED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl Default for PSECPKG_SUPPLEMENTAL_CRED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SUPPLEMENTAL_CRED_ARRAY(pub *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl PSECPKG_SUPPLEMENTAL_CRED_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl Default for PSECPKG_SUPPLEMENTAL_CRED_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SUPPLIED_CREDENTIAL(pub *mut SECPKG_SUPPLIED_CREDENTIAL);
-impl PSECPKG_SUPPLIED_CREDENTIAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_SUPPLIED_CREDENTIAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_SUPPLEMENTAL_CRED_ARRAY = *mut SECPKG_SUPPLEMENTAL_CRED_ARRAY;
+pub type PSECPKG_SUPPLIED_CREDENTIAL = *mut SECPKG_SUPPLIED_CREDENTIAL;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SURROGATE_LOGON(pub *mut SECPKG_SURROGATE_LOGON);
+pub type PSECPKG_SURROGATE_LOGON = *mut SECPKG_SURROGATE_LOGON;
+pub type PSECPKG_SURROGATE_LOGON_ENTRY = *mut SECPKG_SURROGATE_LOGON_ENTRY;
 #[cfg(feature = "winnt")]
-impl PSECPKG_SURROGATE_LOGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_SURROGATE_LOGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_SURROGATE_LOGON_ENTRY(pub *mut SECPKG_SURROGATE_LOGON_ENTRY);
-impl PSECPKG_SURROGATE_LOGON_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECPKG_SURROGATE_LOGON_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_TARGETINFO(pub *mut SECPKG_TARGETINFO);
-#[cfg(feature = "winnt")]
-impl PSECPKG_TARGETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECPKG_TARGETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_TARGETINFO = *mut SECPKG_TARGETINFO;
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_USER_FUNCTION_TABLE(pub *mut SECPKG_USER_FUNCTION_TABLE);
-#[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "sspi", feature = "winnt"))]
-impl PSECPKG_USER_FUNCTION_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "sspi", feature = "winnt"))]
-impl Default for PSECPKG_USER_FUNCTION_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_USER_FUNCTION_TABLE = *mut SECPKG_USER_FUNCTION_TABLE;
 #[cfg(feature = "sspi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECPKG_WOW_CLIENT_DLL(pub *mut SECPKG_WOW_CLIENT_DLL);
-#[cfg(feature = "sspi")]
-impl PSECPKG_WOW_CLIENT_DLL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "sspi")]
-impl Default for PSECPKG_WOW_CLIENT_DLL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECPKG_WOW_CLIENT_DLL = *mut SECPKG_WOW_CLIENT_DLL;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_USER_DATA(pub *mut SECURITY_USER_DATA);
+pub type PSECURITY_USER_DATA = *mut SECURITY_USER_DATA;
+pub type PSEC_WINNT_AUTH_IDENTITY32 = *mut SEC_WINNT_AUTH_IDENTITY32;
+pub type PSEC_WINNT_AUTH_IDENTITY_EX32 = *mut SEC_WINNT_AUTH_IDENTITY_EX32;
+pub type PSecPkgContext_SaslContext = *mut SecPkgContext_SaslContext;
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-impl PSECURITY_USER_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "sspi", feature = "winnt"))]
-impl Default for PSECURITY_USER_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEC_WINNT_AUTH_IDENTITY32(pub *mut SEC_WINNT_AUTH_IDENTITY32);
-impl PSEC_WINNT_AUTH_IDENTITY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEC_WINNT_AUTH_IDENTITY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEC_WINNT_AUTH_IDENTITY_EX32(pub *mut SEC_WINNT_AUTH_IDENTITY_EX32);
-impl PSEC_WINNT_AUTH_IDENTITY_EX32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEC_WINNT_AUTH_IDENTITY_EX32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgContext_SaslContext(pub *mut SecPkgContext_SaslContext);
-impl PSecPkgContext_SaslContext {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgContext_SaslContext {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "sspi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecurityUserData(pub *mut SECURITY_USER_DATA);
-#[cfg(all(feature = "sspi", feature = "winnt"))]
-impl PSecurityUserData {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "sspi", feature = "winnt"))]
-impl Default for PSecurityUserData {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecurityUserData = *mut SECURITY_USER_DATA;
 pub const SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: windows_core::PCSTR = windows_core::s!("CredentialUpdateFree");
 pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_core::s!("CredentialUpdateNotify");
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: windows_core::PCSTR = windows_core::s!("RegisterMappedEntrypoints");
@@ -2126,9 +1294,7 @@ pub struct SECURITY_USER_DATA {
     pub pSid: super::winnt::PSID,
 }
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SEC_ATTRS(pub super::minwinbase::LPSECURITY_ATTRIBUTES);
+pub type SEC_ATTRS = super::minwinbase::LPSECURITY_ATTRIBUTES;
 #[cfg(feature = "minwinbase")]
 pub type SEC_THREAD_START = super::minwinbase::LPTHREAD_START_ROUTINE;
 #[repr(C)]

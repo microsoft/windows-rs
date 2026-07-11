@@ -661,80 +661,14 @@ pub type PFNRASRETRIEVEBUFFER = Option<unsafe extern "system" fn(hport: super::w
 pub type PFNRASSENDBUFFER = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, pbuffer: *mut u8, dwsize: u32) -> u32>;
 #[cfg(feature = "winnt")]
 pub type PFNRASSETCOMMSETTINGS = Option<unsafe extern "system" fn(hport: super::winnt::HANDLE, prascommsettings: *mut tagRASCOMMSETTINGS, pvreserved: *mut core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRASDEVSPECIFICINFO(pub *mut RASDEVSPECIFICINFO);
-impl PRASDEVSPECIFICINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRASDEVSPECIFICINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRASDEVSPECIFICINFO = *mut RASDEVSPECIFICINFO;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRASIKEV2_PROJECTION_INFO(pub *mut RASIKEV2_PROJECTION_INFO);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PRASIKEV2_PROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PRASIKEV2_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRASIKEV2_PROJECTION_INFO = *mut RASIKEV2_PROJECTION_INFO;
 #[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRASPPP_PROJECTION_INFO(pub *mut RASPPP_PROJECTION_INFO);
-#[cfg(feature = "inaddr")]
-impl PRASPPP_PROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PRASPPP_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRASPPP_PROJECTION_INFO = *mut RASPPP_PROJECTION_INFO;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_PROJECTION_INFO(pub *mut RAS_PROJECTION_INFO);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PRAS_PROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PRAS_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_STATS(pub *mut RAS_STATS);
-impl PRAS_STATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRAS_STATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRAS_PROJECTION_INFO = *mut RAS_PROJECTION_INFO;
+pub type PRAS_STATS = *mut RAS_STATS;
 pub const PROJECTION_INFO_TYPE_IKEv2: RASPROJECTION_INFO_TYPE = 2;
 pub const PROJECTION_INFO_TYPE_PPP: RASPROJECTION_INFO_TYPE = 1;
 pub const RASADFLG_PositionDlg: u32 = 1;

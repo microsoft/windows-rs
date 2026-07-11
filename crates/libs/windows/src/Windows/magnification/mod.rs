@@ -143,47 +143,9 @@ pub const MW_FILTERMODE_EXCLUDE: u32 = 0;
 pub const MW_FILTERMODE_INCLUDE: u32 = 1;
 #[cfg(all(feature = "minwindef", feature = "wincodec", feature = "windef"))]
 pub type MagImageScalingCallback = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, srcdata: *mut core::ffi::c_void, srcheader: MAGIMAGEHEADER, destdata: *mut core::ffi::c_void, destheader: MAGIMAGEHEADER, unclipped: super::windef::RECT, clipped: super::windef::RECT, dirty: super::minwindef::HRGN) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMAGCOLOREFFECT(pub *mut MAGCOLOREFFECT);
-impl PMAGCOLOREFFECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMAGCOLOREFFECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMAGCOLOREFFECT = *mut MAGCOLOREFFECT;
 #[cfg(feature = "wincodec")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMAGIMAGEHEADER(pub *mut MAGIMAGEHEADER);
-#[cfg(feature = "wincodec")]
-impl PMAGIMAGEHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincodec")]
-impl Default for PMAGIMAGEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMAGTRANSFORM(pub *mut MAGTRANSFORM);
-impl PMAGTRANSFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMAGTRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMAGIMAGEHEADER = *mut MAGIMAGEHEADER;
+pub type PMAGTRANSFORM = *mut MAGTRANSFORM;
 pub const WC_MAGNIFIERA: windows_core::PCSTR = windows_core::s!("Magnifier");
 pub const WC_MAGNIFIERW: windows_core::PCWSTR = windows_core::w!("Magnifier");

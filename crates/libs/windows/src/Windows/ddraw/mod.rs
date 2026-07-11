@@ -6618,178 +6618,20 @@ impl IDirectDrawSurface7_Vtbl {
 impl windows_core::RuntimeName for IDirectDrawSurface7 {}
 #[cfg(feature = "windef")]
 pub type LPCLIPPERCALLBACK = Option<unsafe extern "system" fn(lpddclipper: windows_core::Ref<IDirectDrawClipper>, hwnd: super::windef::HWND, code: u32, lpcontext: *mut core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDARGB(pub *mut DDARGB);
-impl LPDDARGB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDARGB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDDARGB = *mut DDARGB;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDBLTBATCH(pub *mut DDBLTBATCH);
-#[cfg(feature = "windef")]
-impl LPDDBLTBATCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDDBLTBATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDBLTFX(pub *mut DDBLTFX);
-impl LPDDBLTFX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDBLTFX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS(pub *mut DDCAPS);
-impl LPDDCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS_DX1(pub *mut DDCAPS_DX1);
-impl LPDDCAPS_DX1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS_DX1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS_DX3(pub *mut DDCAPS_DX3);
-impl LPDDCAPS_DX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS_DX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS_DX5(pub *mut DDCAPS_DX5);
-impl LPDDCAPS_DX5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS_DX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS_DX6(pub *mut DDCAPS_DX6);
-impl LPDDCAPS_DX6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS_DX6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCAPS_DX7(pub *mut DDCAPS_DX7);
-impl LPDDCAPS_DX7 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCAPS_DX7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCOLORCONTROL(pub *mut DDCOLORCONTROL);
-impl LPDDCOLORCONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCOLORCONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDCOLORKEY(pub *mut DDCOLORKEY);
-impl LPDDCOLORKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDCOLORKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDDEVICEIDENTIFIER(pub *mut DDDEVICEIDENTIFIER);
-impl LPDDDEVICEIDENTIFIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDDEVICEIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDDEVICEIDENTIFIER2(pub *mut DDDEVICEIDENTIFIER2);
-impl LPDDDEVICEIDENTIFIER2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDDEVICEIDENTIFIER2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDDBLTBATCH = *mut DDBLTBATCH;
+pub type LPDDBLTFX = *mut DDBLTFX;
+pub type LPDDCAPS = *mut DDCAPS;
+pub type LPDDCAPS_DX1 = *mut DDCAPS_DX1;
+pub type LPDDCAPS_DX3 = *mut DDCAPS_DX3;
+pub type LPDDCAPS_DX5 = *mut DDCAPS_DX5;
+pub type LPDDCAPS_DX6 = *mut DDCAPS_DX6;
+pub type LPDDCAPS_DX7 = *mut DDCAPS_DX7;
+pub type LPDDCOLORCONTROL = *mut DDCOLORCONTROL;
+pub type LPDDCOLORKEY = *mut DDCOLORKEY;
+pub type LPDDDEVICEIDENTIFIER = *mut DDDEVICEIDENTIFIER;
+pub type LPDDDEVICEIDENTIFIER2 = *mut DDDEVICEIDENTIFIER2;
 pub type LPDDENUMCALLBACK = LPDDENUMCALLBACKA;
 pub type LPDDENUMCALLBACKA = Option<unsafe extern "system" fn(param0: *mut windows_core::GUID, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "windef")]
@@ -6809,142 +6651,18 @@ pub type LPDDENUMSURFACESCALLBACK = Option<unsafe extern "system" fn(param0: win
 pub type LPDDENUMSURFACESCALLBACK2 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 #[cfg(feature = "ksmedia")]
 pub type LPDDENUMSURFACESCALLBACK7 = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDFXROP(pub *mut _DDFXROP);
-impl LPDDFXROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDFXROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDGAMMARAMP(pub *mut DDGAMMARAMP);
-impl LPDDGAMMARAMP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDGAMMARAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDOSCAPS(pub *mut DDOSCAPS);
-impl LPDDOSCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDOSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDOVERLAYFX(pub *mut DDOVERLAYFX);
-impl LPDDOVERLAYFX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDOVERLAYFX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDRGBA(pub *mut DDRGBA);
-impl LPDDRGBA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDRGBA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDSCAPS(pub *mut DDSCAPS);
-impl LPDDSCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDSCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDSCAPS2(pub *mut DDSCAPS2);
-impl LPDDSCAPS2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDSCAPS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDSCAPSEX(pub *mut DDSCAPSEX);
-impl LPDDSCAPSEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDDSCAPSEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDDFXROP = *mut _DDFXROP;
+pub type LPDDGAMMARAMP = *mut DDGAMMARAMP;
+pub type LPDDOSCAPS = *mut DDOSCAPS;
+pub type LPDDOVERLAYFX = *mut DDOVERLAYFX;
+pub type LPDDRGBA = *mut DDRGBA;
+pub type LPDDSCAPS = *mut DDSCAPS;
+pub type LPDDSCAPS2 = *mut DDSCAPS2;
+pub type LPDDSCAPSEX = *mut DDSCAPSEX;
 #[cfg(feature = "ksmedia")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDSURFACEDESC(pub *mut DDSURFACEDESC);
+pub type LPDDSURFACEDESC = *mut DDSURFACEDESC;
 #[cfg(feature = "ksmedia")]
-impl LPDDSURFACEDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ksmedia")]
-impl Default for LPDDSURFACEDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ksmedia")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDDSURFACEDESC2(pub *mut DDSURFACEDESC2);
-#[cfg(feature = "ksmedia")]
-impl LPDDSURFACEDESC2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ksmedia")]
-impl Default for LPDDSURFACEDESC2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDDSURFACEDESC2 = *mut DDSURFACEDESC2;
 #[cfg(feature = "windef")]
 pub type LPDIRECTDRAWENUMERATEEX = LPDIRECTDRAWENUMERATEEXA;
 #[cfg(feature = "windef")]

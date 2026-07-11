@@ -3,63 +3,11 @@ pub type EVT_VHF_ASYNC_OPERATION = Option<unsafe extern "system" fn(vhfclientcon
 pub type EVT_VHF_CLEANUP = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
 pub type EVT_VHF_READY_FOR_NEXT_READ_REPORT = Option<unsafe extern "system" fn(vhfclientcontext: *const core::ffi::c_void)>;
 #[cfg(all(feature = "hidclass", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVT_VHF_ASYNC_OPERATION(pub *mut EVT_VHF_ASYNC_OPERATION);
-#[cfg(all(feature = "hidclass", feature = "minwindef"))]
-impl PEVT_VHF_ASYNC_OPERATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "hidclass", feature = "minwindef"))]
-impl Default for PEVT_VHF_ASYNC_OPERATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVT_VHF_CLEANUP(pub *mut EVT_VHF_CLEANUP);
-impl PEVT_VHF_CLEANUP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVT_VHF_CLEANUP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEVT_VHF_READY_FOR_NEXT_READ_REPORT(pub *mut EVT_VHF_READY_FOR_NEXT_READ_REPORT);
-impl PEVT_VHF_READY_FOR_NEXT_READ_REPORT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEVT_VHF_READY_FOR_NEXT_READ_REPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEVT_VHF_ASYNC_OPERATION = *mut EVT_VHF_ASYNC_OPERATION;
+pub type PEVT_VHF_CLEANUP = *mut EVT_VHF_CLEANUP;
+pub type PEVT_VHF_READY_FOR_NEXT_READ_REPORT = *mut EVT_VHF_READY_FOR_NEXT_READ_REPORT;
 #[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVHF_CONFIG(pub *mut VHF_CONFIG);
-#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-impl PVHF_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-impl Default for PVHF_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVHF_CONFIG = *mut VHF_CONFIG;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct VHFHANDLE(pub *mut core::ffi::c_void);

@@ -3015,9 +3015,7 @@ pub const GLOBALCOUNTER_SYNC_ENGINE_INFORMATION_CACHE_MACHINEWIDE: SHGLOBALCOUNT
 pub const GLOBALCOUNTER_SYSTEMPIDLCHANGE: SHGLOBALCOUNTER = 7;
 pub const GLOBALCOUNTER_USERINFOCHANGED: SHGLOBALCOUNTER = 56;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HUSKEY(pub super::winnt::HANDLE);
+pub type HUSKEY = super::winnt::HANDLE;
 pub const ILMM_IE4: u32 = 0;
 windows_core::imp::define_interface!(IQueryAssociations, IQueryAssociations_Vtbl, 0xc46ca590_3c3f_11d2_bee6_0000f805ca57);
 windows_core::imp::interface_hierarchy!(IQueryAssociations, windows_core::IUnknown);
@@ -3136,32 +3134,8 @@ impl IQueryAssociations_Vtbl {
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 impl windows_core::RuntimeName for IQueryAssociations {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCQITAB(pub *const QITAB);
-impl LPCQITAB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCQITAB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPQITAB(pub *mut QITAB);
-impl LPQITAB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPQITAB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCQITAB = *const QITAB;
+pub type LPQITAB = *mut QITAB;
 pub const OS_ADVSERVER: u32 = 22;
 pub const OS_ANYSERVER: u32 = 29;
 pub const OS_APPLIANCE: u32 = 36;
@@ -3220,21 +3194,7 @@ pub struct PARSEDURLW {
     pub nScheme: u32,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHUSKEY(pub *mut HUSKEY);
-#[cfg(feature = "winnt")]
-impl PHUSKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHUSKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHUSKEY = *mut HUSKEY;
 pub const PLATFORM_BROWSERONLY: u32 = 1;
 pub const PLATFORM_IE3: u32 = 1;
 pub const PLATFORM_INTEGRATED: u32 = 2;
@@ -3242,35 +3202,9 @@ pub const PLATFORM_UNKNOWN: u32 = 0;
 pub const PMSF_DONT_STRIP_SPACES: u32 = 65536;
 pub const PMSF_MULTIPLE: u32 = 1;
 pub const PMSF_NORMAL: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPARSEDURL(pub PPARSEDURLA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPARSEDURLA(pub *mut PARSEDURLA);
-impl PPARSEDURLA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPARSEDURLA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPARSEDURLW(pub *mut PARSEDURLW);
-impl PPARSEDURLW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPARSEDURLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPARSEDURL = PPARSEDURLA;
+pub type PPARSEDURLA = *mut PARSEDURLA;
+pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct QITAB {

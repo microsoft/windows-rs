@@ -630,13 +630,9 @@ pub const GBF_COPY: u32 = 2;
 pub const GBF_DIRECT: u32 = 1;
 pub const GBF_VALIDBITS: u32 = 3;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HANIMATIONBUFFER(pub super::winnt::HANDLE);
+pub type HANIMATIONBUFFER = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HPAINTBUFFER(pub super::winnt::HANDLE);
+pub type HPAINTBUFFER = super::winnt::HANDLE;
 pub const HTTB_BACKGROUNDSEG: u32 = 0;
 pub const HTTB_CAPTION: u32 = 4;
 pub const HTTB_FIXEDBORDER: u32 = 2;
@@ -672,190 +668,28 @@ pub const MAX_THEMESIZE: u32 = 64;
 pub const OTD_FORCE_RECT_SIZING: u32 = 1;
 pub const OTD_NONCLIENT: u32 = 2;
 pub const OTD_VALIDBITS: u32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBP_ANIMATIONPARAMS(pub *mut BP_ANIMATIONPARAMS);
-impl PBP_ANIMATIONPARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBP_ANIMATIONPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBP_ANIMATIONPARAMS = *mut BP_ANIMATIONPARAMS;
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBP_PAINTPARAMS(pub *mut BP_PAINTPARAMS);
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl PBP_PAINTPARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "wingdi"))]
-impl Default for PBP_PAINTPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBP_PAINTPARAMS = *mut BP_PAINTPARAMS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDTBGOPTS(pub *mut DTBGOPTS);
-#[cfg(feature = "windef")]
-impl PDTBGOPTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PDTBGOPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDTBGOPTS = *mut DTBGOPTS;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDTTOPTS(pub *mut DTTOPTS);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl PDTTOPTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PDTTOPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTLIST(pub *mut INTLIST);
-impl PINTLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTLIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMARGINS(pub *mut MARGINS);
-impl PMARGINS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMARGINS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDTTOPTS = *mut DTTOPTS;
+pub type PINTLIST = *mut INTLIST;
+pub type PMARGINS = *mut MARGINS;
 pub const PO_CLASS: PROPERTYORIGIN = 2;
 pub const PO_GLOBAL: PROPERTYORIGIN = 3;
 pub const PO_NOTFOUND: PROPERTYORIGIN = 4;
 pub const PO_PART: PROPERTYORIGIN = 1;
 pub const PO_STATE: PROPERTYORIGIN = 0;
 pub type PROPERTYORIGIN = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_CUBIC_BEZIER(pub *mut TA_CUBIC_BEZIER);
-impl PTA_CUBIC_BEZIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_CUBIC_BEZIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_TIMINGFUNCTION(pub *mut TA_TIMINGFUNCTION);
-impl PTA_TIMINGFUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_TIMINGFUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_TRANSFORM(pub *mut TA_TRANSFORM);
-impl PTA_TRANSFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_TRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_TRANSFORM_2D(pub *mut TA_TRANSFORM_2D);
-impl PTA_TRANSFORM_2D {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_TRANSFORM_2D {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_TRANSFORM_CLIP(pub *mut TA_TRANSFORM_CLIP);
-impl PTA_TRANSFORM_CLIP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_TRANSFORM_CLIP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTA_TRANSFORM_OPACITY(pub *mut TA_TRANSFORM_OPACITY);
-impl PTA_TRANSFORM_OPACITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTA_TRANSFORM_OPACITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWTA_OPTIONS(pub *mut WTA_OPTIONS);
-impl PWTA_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWTA_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTA_CUBIC_BEZIER = *mut TA_CUBIC_BEZIER;
+pub type PTA_TIMINGFUNCTION = *mut TA_TIMINGFUNCTION;
+pub type PTA_TRANSFORM = *mut TA_TRANSFORM;
+pub type PTA_TRANSFORM_2D = *mut TA_TRANSFORM_2D;
+pub type PTA_TRANSFORM_CLIP = *mut TA_TRANSFORM_CLIP;
+pub type PTA_TRANSFORM_OPACITY = *mut TA_TRANSFORM_OPACITY;
+pub type PWTA_OPTIONS = *mut WTA_OPTIONS;
 pub const STAP_ALLOW_CONTROLS: u32 = 2;
 pub const STAP_ALLOW_NONCLIENT: u32 = 1;
 pub const STAP_ALLOW_WEBCONTENT: u32 = 4;

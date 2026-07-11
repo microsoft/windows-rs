@@ -1797,9 +1797,7 @@ pub const CM_SET_DEVNODE_PROBLEM_OVERRIDE: u32 = 1;
 pub const CM_SET_HW_PROF_FLAGS_BITS: u32 = 1;
 pub const CM_SET_HW_PROF_FLAGS_UI_NOT_OK: u32 = 1;
 pub const CONFIGMG_VERSION: u32 = 1024;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct CONFIGRET(pub RETURN_TYPE);
+pub type CONFIGRET = RETURN_TYPE;
 pub type CONFLICT_DETAILS = CONFLICT_DETAILS_A;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1937,67 +1935,15 @@ pub struct CS_RESOURCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DEVINST(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVINSTID(pub DEVINSTID_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DEVINSTID_A(pub *mut i8);
-impl DEVINSTID_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for DEVINSTID_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DEVINSTID_W(pub *mut u16);
-impl DEVINSTID_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for DEVINSTID_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type DEVINSTID = DEVINSTID_A;
+pub type DEVINSTID_A = *mut i8;
+pub type DEVINSTID_W = *mut u16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DEVNODE(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DEVNODEID(pub DEVNODEID_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DEVNODEID_A(pub *mut i8);
-impl DEVNODEID_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for DEVNODEID_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct DEVNODEID_W(pub *mut u16);
-impl DEVNODEID_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for DEVNODEID_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type DEVNODEID = DEVNODEID_A;
+pub type DEVNODEID_A = *mut i8;
+pub type DEVNODEID_W = *mut u16;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DEVPRIVATE_DES {
@@ -2068,9 +2014,7 @@ impl Default for HCMNOTIFICATION {
     }
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HMACHINE(pub super::winnt::HANDLE);
+pub type HMACHINE = super::winnt::HANDLE;
 pub type HWPROFILEINFO = HWPROFILEINFO_A;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -2298,45 +2242,9 @@ pub struct MFCARD_RESOURCE {
 pub const NUM_CR_RESULTS: u32 = 60;
 pub const NUM_LOG_CONF: u32 = 6;
 pub const OVERRIDE_LOG_CONF: u32 = 5;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUSNUMBER_DES(pub *mut BUSNUMBER_DES);
-impl PBUSNUMBER_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUSNUMBER_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUSNUMBER_RANGE(pub *mut BUSNUMBER_RANGE);
-impl PBUSNUMBER_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUSNUMBER_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUSNUMBER_RESOURCE(pub *mut BUSNUMBER_RESOURCE);
-impl PBUSNUMBER_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUSNUMBER_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBUSNUMBER_DES = *mut BUSNUMBER_DES;
+pub type PBUSNUMBER_RANGE = *mut BUSNUMBER_RANGE;
+pub type PBUSNUMBER_RESOURCE = *mut BUSNUMBER_RESOURCE;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct PCCARD_DES {
@@ -2363,673 +2271,75 @@ pub struct PCCARD_RESOURCE {
 }
 pub const PCD_MAX_IO: u32 = 2;
 pub const PCD_MAX_MEMORY: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_NOTIFY_ACTION(pub *mut CM_NOTIFY_ACTION);
-impl PCM_NOTIFY_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_NOTIFY_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCM_NOTIFY_ACTION = *mut CM_NOTIFY_ACTION;
 pub type PCM_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_NOTIFY_EVENT_DATA(pub *mut CM_NOTIFY_EVENT_DATA);
-impl PCM_NOTIFY_EVENT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_NOTIFY_EVENT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCM_NOTIFY_EVENT_DATA = *mut CM_NOTIFY_EVENT_DATA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_NOTIFY_FILTER(pub *mut CM_NOTIFY_FILTER);
+pub type PCM_NOTIFY_FILTER = *mut CM_NOTIFY_FILTER;
+pub type PCM_NOTIFY_FILTER_TYPE = *mut CM_NOTIFY_FILTER_TYPE;
+pub type PCONFLICT_DETAILS = PCONFLICT_DETAILS_A;
+pub type PCONFLICT_DETAILS_A = *mut CONFLICT_DETAILS_A;
+pub type PCONFLICT_DETAILS_W = *mut CONFLICT_DETAILS_W;
+pub type PCONFLICT_LIST = *mut CONFLICT_LIST;
+pub type PCONNECTION_DES = *mut CONNECTION_DES;
+pub type PCONNECTION_RESOURCE = *mut CONNECTION_RESOURCE;
+pub type PCS_DES = *mut CS_DES;
+pub type PCS_RESOURCE = *mut CS_RESOURCE;
+pub type PDEVINST = *mut DEVNODE;
+pub type PDEVNODE = *mut DEVNODE;
+pub type PDEVPRIVATE_DES = *mut DEVPRIVATE_DES;
+pub type PDEVPRIVATE_RANGE = *mut DEVPRIVATE_RANGE;
+pub type PDEVPRIVATE_RESOURCE = *mut DEVPRIVATE_RESOURCE;
+pub type PDMA_DES = *mut DMA_DES;
+pub type PDMA_RANGE = *mut DMA_RANGE;
+pub type PDMA_RESOURCE = *mut DMA_RESOURCE;
+pub type PHCMNOTIFICATION = *mut HCMNOTIFICATION;
 #[cfg(feature = "winnt")]
-impl PCM_NOTIFY_FILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PHMACHINE = *mut HMACHINE;
+pub type PHWPROFILEINFO = PHWPROFILEINFO_A;
+pub type PHWPROFILEINFO_A = *mut HWPROFILEINFO_A;
+pub type PHWPROFILEINFO_W = *mut HWPROFILEINFO_W;
 #[cfg(feature = "winnt")]
-impl Default for PCM_NOTIFY_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_NOTIFY_FILTER_TYPE(pub *mut CM_NOTIFY_FILTER_TYPE);
-impl PCM_NOTIFY_FILTER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_NOTIFY_FILTER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCONFLICT_DETAILS(pub PCONFLICT_DETAILS_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONFLICT_DETAILS_A(pub *mut CONFLICT_DETAILS_A);
-impl PCONFLICT_DETAILS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONFLICT_DETAILS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONFLICT_DETAILS_W(pub *mut CONFLICT_DETAILS_W);
-impl PCONFLICT_DETAILS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONFLICT_DETAILS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONFLICT_LIST(pub *mut CONFLICT_LIST);
-impl PCONFLICT_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONFLICT_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONNECTION_DES(pub *mut CONNECTION_DES);
-impl PCONNECTION_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONNECTION_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONNECTION_RESOURCE(pub *mut CONNECTION_RESOURCE);
-impl PCONNECTION_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONNECTION_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCS_DES(pub *mut CS_DES);
-impl PCS_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCS_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCS_RESOURCE(pub *mut CS_RESOURCE);
-impl PCS_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCS_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVINST(pub *mut DEVNODE);
-impl PDEVINST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVINST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVNODE(pub *mut DEVNODE);
-impl PDEVNODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVNODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPRIVATE_DES(pub *mut DEVPRIVATE_DES);
-impl PDEVPRIVATE_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPRIVATE_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPRIVATE_RANGE(pub *mut DEVPRIVATE_RANGE);
-impl PDEVPRIVATE_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPRIVATE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPRIVATE_RESOURCE(pub *mut DEVPRIVATE_RESOURCE);
-impl PDEVPRIVATE_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPRIVATE_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_DES(pub *mut DMA_DES);
-impl PDMA_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_RANGE(pub *mut DMA_RANGE);
-impl PDMA_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_RESOURCE(pub *mut DMA_RESOURCE);
-impl PDMA_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHCMNOTIFICATION(pub *mut HCMNOTIFICATION);
-impl PHCMNOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHCMNOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_DES = *mut IO_DES;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHMACHINE(pub *mut HMACHINE);
+pub type PIO_RANGE = *mut IO_RANGE;
 #[cfg(feature = "winnt")]
-impl PHMACHINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PHMACHINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PHWPROFILEINFO(pub PHWPROFILEINFO_A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHWPROFILEINFO_A(pub *mut HWPROFILEINFO_A);
-impl PHWPROFILEINFO_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHWPROFILEINFO_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHWPROFILEINFO_W(pub *mut HWPROFILEINFO_W);
-impl PHWPROFILEINFO_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHWPROFILEINFO_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_DES(pub *mut IO_DES);
-#[cfg(feature = "winnt")]
-impl PIO_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIO_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_RANGE(pub *mut IO_RANGE);
-#[cfg(feature = "winnt")]
-impl PIO_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIO_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_RESOURCE(pub *mut IO_RESOURCE);
-#[cfg(feature = "winnt")]
-impl PIO_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIO_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_RESOURCE = *mut IO_RESOURCE;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PIRQ_DES(pub PIRQ_DES_32);
+pub type PIRQ_DES = PIRQ_DES_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PIRQ_DES(pub PIRQ_DES_64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_DES_32(pub *mut IRQ_DES_32);
-impl PIRQ_DES_32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_DES_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_DES_64(pub *mut IRQ_DES_64);
-impl PIRQ_DES_64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_DES_64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_RANGE(pub *mut IRQ_RANGE);
-impl PIRQ_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIRQ_DES = PIRQ_DES_64;
+pub type PIRQ_DES_32 = *mut IRQ_DES_32;
+pub type PIRQ_DES_64 = *mut IRQ_DES_64;
+pub type PIRQ_RANGE = *mut IRQ_RANGE;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PIRQ_RESOURCE(pub PIRQ_RESOURCE_32);
+pub type PIRQ_RESOURCE = PIRQ_RESOURCE_32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PIRQ_RESOURCE(pub PIRQ_RESOURCE_64);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_RESOURCE_32(pub *mut IRQ_RESOURCE_32);
-impl PIRQ_RESOURCE_32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_RESOURCE_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_RESOURCE_64(pub *mut IRQ_RESOURCE_64);
-impl PIRQ_RESOURCE_64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_RESOURCE_64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOG_CONF(pub *mut LOG_CONF);
-impl PLOG_CONF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOG_CONF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIRQ_RESOURCE = PIRQ_RESOURCE_64;
+pub type PIRQ_RESOURCE_32 = *mut IRQ_RESOURCE_32;
+pub type PIRQ_RESOURCE_64 = *mut IRQ_RESOURCE_64;
+pub type PLOG_CONF = *mut LOG_CONF;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_DES(pub *mut MEM_DES);
+pub type PMEM_DES = *mut MEM_DES;
 #[cfg(feature = "winnt")]
-impl PMEM_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMEM_LARGE_DES = *mut MEM_LARGE_DES;
 #[cfg(feature = "winnt")]
-impl Default for PMEM_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMEM_LARGE_RANGE = *mut MEM_LARGE_RANGE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_LARGE_DES(pub *mut MEM_LARGE_DES);
+pub type PMEM_LARGE_RESOURCE = *mut MEM_LARGE_RESOURCE;
 #[cfg(feature = "winnt")]
-impl PMEM_LARGE_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMEM_RANGE = *mut MEM_RANGE;
 #[cfg(feature = "winnt")]
-impl Default for PMEM_LARGE_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_LARGE_RANGE(pub *mut MEM_LARGE_RANGE);
-#[cfg(feature = "winnt")]
-impl PMEM_LARGE_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMEM_LARGE_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_LARGE_RESOURCE(pub *mut MEM_LARGE_RESOURCE);
-#[cfg(feature = "winnt")]
-impl PMEM_LARGE_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMEM_LARGE_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_RANGE(pub *mut MEM_RANGE);
-#[cfg(feature = "winnt")]
-impl PMEM_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMEM_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEM_RESOURCE(pub *mut MEM_RESOURCE);
-#[cfg(feature = "winnt")]
-impl PMEM_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMEM_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFCARD_DES(pub *mut MFCARD_DES);
-impl PMFCARD_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFCARD_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFCARD_RESOURCE(pub *mut MFCARD_RESOURCE);
-impl PMFCARD_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCCARD_DES(pub *mut PCCARD_DES);
-impl PPCCARD_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCCARD_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCCARD_RESOURCE(pub *mut PCCARD_RESOURCE);
-impl PPCCARD_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCCARD_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRIORITY(pub *mut PRIORITY);
-impl PPRIORITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRANGE_ELEMENT(pub *mut RANGE_ELEMENT);
-impl PRANGE_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRANGE_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRANGE_LIST(pub *mut RANGE_LIST);
-impl PRANGE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRANGE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRESOURCEID(pub *mut RESOURCEID);
-impl PRESOURCEID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRESOURCEID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRES_DES(pub *mut RES_DES);
-impl PRES_DES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRES_DES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMEM_RESOURCE = *mut MEM_RESOURCE;
+pub type PMFCARD_DES = *mut MFCARD_DES;
+pub type PMFCARD_RESOURCE = *mut MFCARD_RESOURCE;
+pub type PPCCARD_DES = *mut PCCARD_DES;
+pub type PPCCARD_RESOURCE = *mut PCCARD_RESOURCE;
+pub type PPRIORITY = *mut PRIORITY;
+pub type PRANGE_ELEMENT = *mut RANGE_ELEMENT;
+pub type PRANGE_LIST = *mut RANGE_LIST;
+pub type PRESOURCEID = *mut RESOURCEID;
+pub type PRES_DES = *mut RES_DES;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PRIORITY(pub u32);

@@ -926,9 +926,7 @@ pub type HOMEGROUPSHARINGCHOICES = u32;
 pub const HOMEGROUP_SECURITY_GROUP: windows_core::PCWSTR = windows_core::w!("HomeUsers");
 pub const HOMEGROUP_SECURITY_GROUP_MULTI: windows_core::PCWSTR = windows_core::w!("HUG");
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HTHEME(pub super::winnt::HANDLE);
+pub type HTHEME = super::winnt::HANDLE;
 pub const HomeGroup: windows_core::GUID = windows_core::GUID::from_u128(0xde77ba04_3c92_4d11_a1a5_42352a53e0e3);
 windows_core::imp::define_interface!(IActionProgress, IActionProgress_Vtbl, 0x49ff1173_eadc_446d_9285_156453a6431c);
 windows_core::imp::interface_hierarchy!(IActionProgress, windows_core::IUnknown);
@@ -20115,160 +20113,26 @@ pub const LMD_DEFAULT: LIBRARYMANAGEDIALOGOPTIONS = 0;
 pub const LOF_DEFAULT: LIBRARYOPTIONFLAGS = 0;
 pub const LOF_MASK_ALL: LIBRARYOPTIONFLAGS = 1;
 pub const LOF_PINNEDTONAVPANE: LIBRARYOPTIONFLAGS = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCFOLDERSETTINGS(pub *const FOLDERSETTINGS);
-impl LPCFOLDERSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCFOLDERSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCFOLDERSETTINGS = *const FOLDERSETTINGS;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCMINVOKECOMMANDINFO(pub *mut CMINVOKECOMMANDINFO);
+pub type LPCMINVOKECOMMANDINFO = *mut CMINVOKECOMMANDINFO;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPCMINVOKECOMMANDINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPCMINVOKECOMMANDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCMINVOKECOMMANDINFOEX(pub *mut CMINVOKECOMMANDINFOEX);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPCMINVOKECOMMANDINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPCMINVOKECOMMANDINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTRASEARCH(pub *mut EXTRASEARCH);
-impl LPEXTRASEARCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXTRASEARCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCMINVOKECOMMANDINFOEX = *mut CMINVOKECOMMANDINFOEX;
+pub type LPEXTRASEARCH = *mut EXTRASEARCH;
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 pub type LPFNSVADDPROPSHEETPAGE = super::prsht::LPFNADDPROPSHEETPAGE;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFOLDERSETTINGS(pub *mut FOLDERSETTINGS);
-impl LPFOLDERSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFOLDERSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFOLDERSETTINGS = *mut FOLDERSETTINGS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHDRAGIMAGE(pub *mut SHDRAGIMAGE);
-#[cfg(feature = "windef")]
-impl LPSHDRAGIMAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPSHDRAGIMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSHDRAGIMAGE = *mut SHDRAGIMAGE;
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSMDATA(pub *mut SMDATA);
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl LPSMDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "shtypes", feature = "windef"))]
-impl Default for LPSMDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTGTRANSCONFIRMATION(pub *mut windows_core::GUID);
-impl LPSTGTRANSCONFIRMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTGTRANSCONFIRMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSMDATA = *mut SMDATA;
+pub type LPSTGTRANSCONFIRMATION = *mut windows_core::GUID;
 #[cfg(all(feature = "oleidl", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSV2CVW2_PARAMS(pub *mut SV2CVW2_PARAMS);
-#[cfg(all(feature = "oleidl", feature = "windef"))]
-impl LPSV2CVW2_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oleidl", feature = "windef"))]
-impl Default for LPSV2CVW2_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSV2CVW2_PARAMS = *mut SV2CVW2_PARAMS;
 #[cfg(feature = "commctrl")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPTBBUTTONSB(pub super::commctrl::LPTBBUTTON);
+pub type LPTBBUTTONSB = super::commctrl::LPTBBUTTON;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTHUMBBUTTON(pub *mut THUMBBUTTON);
-#[cfg(feature = "windef")]
-impl LPTHUMBBUTTON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPTHUMBBUTTON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPTHUMBBUTTON = *mut THUMBBUTTON;
 pub const LSF_FAILIFTHERE: LIBRARYSAVEFLAGS = 0;
 pub const LSF_MAKEUNIQUENAME: LIBRARYSAVEFLAGS = 2;
 pub const LSF_OVERRIDEEXISTING: LIBRARYSAVEFLAGS = 1;
@@ -20432,63 +20296,11 @@ pub const OPPROGDLG_NOMULTIDAYESTIMATES: _OPPROGDLGF = 2048;
 pub const OpenControlPanel: windows_core::GUID = windows_core::GUID::from_u128(0x06622d85_6856_4460_8de1_a81921b41c4b);
 pub type PACKAGE_EXECUTION_STATE = i32;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCMINVOKECOMMANDINFO(pub *const CMINVOKECOMMANDINFO);
+pub type PCCMINVOKECOMMANDINFO = *const CMINVOKECOMMANDINFO;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl PCCMINVOKECOMMANDINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PCCMINVOKECOMMANDINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCMINVOKECOMMANDINFOEX(pub *const CMINVOKECOMMANDINFOEX);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl PCCMINVOKECOMMANDINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for PCCMINVOKECOMMANDINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCDELEGATEITEMID(pub *const DELEGATEITEMID);
-impl PCDELEGATEITEMID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCDELEGATEITEMID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDELEGATEITEMID(pub *mut DELEGATEITEMID);
-impl PDELEGATEITEMID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDELEGATEITEMID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCCMINVOKECOMMANDINFOEX = *const CMINVOKECOMMANDINFOEX;
+pub type PCDELEGATEITEMID = *const DELEGATEITEMID;
+pub type PDELEGATEITEMID = *mut DELEGATEITEMID;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDMODE(pub u32);
@@ -20525,19 +20337,7 @@ pub const PES_SUSPENDED: PACKAGE_EXECUTION_STATE = 3;
 pub const PES_SUSPENDING: PACKAGE_EXECUTION_STATE = 2;
 pub const PES_TERMINATED: PACKAGE_EXECUTION_STATE = 4;
 pub const PES_UNKNOWN: PACKAGE_EXECUTION_STATE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFOLDERSETTINGS(pub *mut FOLDERSETTINGS);
-impl PFOLDERSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFOLDERSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = u32;
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -20557,34 +20357,8 @@ pub struct PROPERTYUI_FORMAT_FLAGS(pub u32);
 pub struct PROPERTYUI_NAME_FLAGS(pub u32);
 pub const PROP_CONTRACT_DELEGATE: windows_core::PCWSTR = windows_core::w!("ContractDelegate");
 #[cfg(feature = "shtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMCSHCHANGENOTIFYSTRUCT(pub *mut SMCSHCHANGENOTIFYSTRUCT);
-#[cfg(feature = "shtypes")]
-impl PSMCSHCHANGENOTIFYSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "shtypes")]
-impl Default for PSMCSHCHANGENOTIFYSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMINFO(pub *mut SMINFO);
-impl PSMINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSMINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSMCSHCHANGENOTIFYSTRUCT = *mut SMCSHCHANGENOTIFYSTRUCT;
+pub type PSMINFO = *mut SMINFO;
 pub const PS_ALL: PLACEHOLDER_STATES = 15;
 pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = 8;
 pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = 4;

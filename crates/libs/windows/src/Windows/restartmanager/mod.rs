@@ -69,53 +69,11 @@ pub const CCH_RM_MAX_APP_NAME: u32 = 255;
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63;
 pub const CCH_RM_SESSION_KEY: u32 = 32;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRM_FILTER_INFO(pub *mut RM_FILTER_INFO);
+pub type PRM_FILTER_INFO = *mut RM_FILTER_INFO;
 #[cfg(feature = "minwindef")]
-impl PRM_FILTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PRM_PROCESS_INFO = *mut RM_PROCESS_INFO;
 #[cfg(feature = "minwindef")]
-impl Default for PRM_FILTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRM_PROCESS_INFO(pub *mut RM_PROCESS_INFO);
-#[cfg(feature = "minwindef")]
-impl PRM_PROCESS_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PRM_PROCESS_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRM_UNIQUE_PROCESS(pub *mut RM_UNIQUE_PROCESS);
-#[cfg(feature = "minwindef")]
-impl PRM_UNIQUE_PROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PRM_UNIQUE_PROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRM_UNIQUE_PROCESS = *mut RM_UNIQUE_PROCESS;
 pub type RM_APP_STATUS = i32;
 pub type RM_APP_TYPE = i32;
 pub type RM_FILTER_ACTION = i32;

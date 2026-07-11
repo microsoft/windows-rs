@@ -301,255 +301,27 @@ pub const JOY_RETURNX: u32 = 1;
 pub const JOY_RETURNY: u32 = 2;
 pub const JOY_RETURNZ: u32 = 4;
 pub const JOY_USEDEADZONE: u32 = 2048;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPJOYCAPS(pub LPJOYCAPSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPJOYCAPS2(pub LPJOYCAPS2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYCAPS2A(pub *mut JOYCAPS2A);
-impl LPJOYCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYCAPS2W(pub *mut JOYCAPS2W);
-impl LPJOYCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYCAPSA(pub *mut JOYCAPSA);
-impl LPJOYCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYCAPSW(pub *mut JOYCAPSW);
-impl LPJOYCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYINFO(pub *mut JOYINFO);
-impl LPJOYINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJOYINFOEX(pub *mut JOYINFOEX);
-impl LPJOYINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJOYINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPJOYCAPS(pub NPJOYCAPSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPJOYCAPS2(pub NPJOYCAPS2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYCAPS2A(pub *mut JOYCAPS2A);
-impl NPJOYCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYCAPS2W(pub *mut JOYCAPS2W);
-impl NPJOYCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYCAPSA(pub *mut JOYCAPSA);
-impl NPJOYCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYCAPSW(pub *mut JOYCAPSW);
-impl NPJOYCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYINFO(pub *mut JOYINFO);
-impl NPJOYINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPJOYINFOEX(pub *mut JOYINFOEX);
-impl NPJOYINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPJOYINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PJOYCAPS(pub PJOYCAPSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PJOYCAPS2(pub PJOYCAPS2A);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYCAPS2A(pub *mut JOYCAPS2A);
-impl PJOYCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYCAPS2W(pub *mut JOYCAPS2W);
-impl PJOYCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYCAPSA(pub *mut JOYCAPSA);
-impl PJOYCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYCAPSW(pub *mut JOYCAPSW);
-impl PJOYCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYINFO(pub *mut JOYINFO);
-impl PJOYINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PJOYINFOEX(pub *mut JOYINFOEX);
-impl PJOYINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PJOYINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPJOYCAPS = LPJOYCAPSA;
+pub type LPJOYCAPS2 = LPJOYCAPS2A;
+pub type LPJOYCAPS2A = *mut JOYCAPS2A;
+pub type LPJOYCAPS2W = *mut JOYCAPS2W;
+pub type LPJOYCAPSA = *mut JOYCAPSA;
+pub type LPJOYCAPSW = *mut JOYCAPSW;
+pub type LPJOYINFO = *mut JOYINFO;
+pub type LPJOYINFOEX = *mut JOYINFOEX;
+pub type NPJOYCAPS = NPJOYCAPSA;
+pub type NPJOYCAPS2 = NPJOYCAPS2A;
+pub type NPJOYCAPS2A = *mut JOYCAPS2A;
+pub type NPJOYCAPS2W = *mut JOYCAPS2W;
+pub type NPJOYCAPSA = *mut JOYCAPSA;
+pub type NPJOYCAPSW = *mut JOYCAPSW;
+pub type NPJOYINFO = *mut JOYINFO;
+pub type NPJOYINFOEX = *mut JOYINFOEX;
+pub type PJOYCAPS = PJOYCAPSA;
+pub type PJOYCAPS2 = PJOYCAPS2A;
+pub type PJOYCAPS2A = *mut JOYCAPS2A;
+pub type PJOYCAPS2W = *mut JOYCAPS2W;
+pub type PJOYCAPSA = *mut JOYCAPSA;
+pub type PJOYCAPSW = *mut JOYCAPSW;
+pub type PJOYINFO = *mut JOYINFO;
+pub type PJOYINFOEX = *mut JOYINFOEX;

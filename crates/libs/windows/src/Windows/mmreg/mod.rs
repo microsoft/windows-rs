@@ -323,762 +323,98 @@ pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADPCMCOEFSET(pub *mut ADPCMCOEFSET);
-impl LPADPCMCOEFSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADPCMCOEFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADPCMEWAVEFORMAT(pub *mut ADPCMEWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPADPCMEWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPADPCMEWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADPCMWAVEFORMAT(pub *mut ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAPTXWAVEFORMAT(pub *mut APTXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPAPTXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPAPTXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUDIOFILE_AF10WAVEFORMAT(pub *mut AUDIOFILE_AF10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPAUDIOFILE_AF10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPAUDIOFILE_AF10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUDIOFILE_AF36WAVEFORMAT(pub *mut AUDIOFILE_AF36WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPAUDIOFILE_AF36WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPAUDIOFILE_AF36WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONTRESCR10WAVEFORMAT(pub *mut CONTRESCR10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCONTRESCR10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCONTRESCR10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCONTRESVQLPCWAVEFORMAT(pub *mut CONTRESVQLPCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCONTRESVQLPCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCONTRESVQLPCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATIVEADPCMWAVEFORMAT(pub *mut CREATIVEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCREATIVEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCREATIVEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATIVEFASTSPEECH10WAVEFORMAT(pub *mut CREATIVEFASTSPEECH10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCREATIVEFASTSPEECH10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCREATIVEFASTSPEECH10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATIVEFASTSPEECH8WAVEFORMAT(pub *mut CREATIVEFASTSPEECH8WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCREATIVEFASTSPEECH8WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCREATIVEFASTSPEECH8WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSIMAADPCMWAVEFORMAT(pub *mut CSIMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPCSIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPCSIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIALOGICOKIADPCMWAVEFORMAT(pub *mut DIALOGICOKIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDIALOGICOKIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDIALOGICOKIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIGIADPCMWAVEFORMAT(pub *mut DIGIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDIGIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDIGIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIGIFIXWAVEFORMAT(pub *mut DIGIFIXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDIGIFIXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDIGIFIXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIGIREALWAVEFORMAT(pub *mut DIGIREALWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDIGIREALWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDIGIREALWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIGISTDWAVEFORMAT(pub *mut DIGISTDWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDIGISTDWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDIGISTDWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRMWAVEFORMAT(pub *mut DRMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDRMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDRMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDVIADPCMWAVEFORMAT(pub *mut DVIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPDVIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPDVIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPECHOSC1WAVEFORMAT(pub *mut ECHOSC1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPECHOSC1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPECHOSC1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPECHOWAVEFILTER(pub *mut ECHOWAVEFILTER);
-impl LPECHOWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPECHOWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFMTOWNS_SND_WAVEFORMAT(pub *mut FMTOWNS_SND_WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPFMTOWNS_SND_WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPFMTOWNS_SND_WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPG721_ADPCMWAVEFORMAT(pub *mut G721_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPG721_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPG721_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPG723_ADPCMWAVEFORMAT(pub *mut G723_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPG723_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPG723_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGSM610WAVEFORMAT(pub *mut GSM610WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPGSM610WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPGSM610WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHEAACWAVEFORMAT(pub *mut HEAACWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPHEAACWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPHEAACWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHEAACWAVEINFO(pub *mut HEAACWAVEINFO);
-#[cfg(feature = "mmeapi")]
-impl LPHEAACWAVEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPHEAACWAVEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIMAADPCMWAVEFORMAT(pub *mut IMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMEDIASPACEADPCMWAVEFORMAT(pub *mut MEDIASPACEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPMEDIASPACEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPMEDIASPACEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMPEG1WAVEFORMAT(pub *mut MPEG1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPMPEG1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPMPEG1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMPEGLAYER3WAVEFORMAT(pub *mut MPEGLAYER3WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPMPEGLAYER3WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPMPEGLAYER3WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMSAUDIO1WAVEFORMAT(pub *mut MSAUDIO1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPMSAUDIO1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPMSAUDIO1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNMS_VBXADPCMWAVEFORMAT(pub *mut NMS_VBXADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPNMS_VBXADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPNMS_VBXADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLIADPCMWAVEFORMAT(pub *mut OLIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPOLIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPOLIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLICELPWAVEFORMAT(pub *mut OLICELPWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPOLICELPWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPOLICELPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLIGSMWAVEFORMAT(pub *mut OLIGSMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPOLIGSMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPOLIGSMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLIOPRWAVEFORMAT(pub *mut OLIOPRWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPOLIOPRWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPOLIOPRWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLISBCWAVEFORMAT(pub *mut OLISBCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPOLISBCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPOLISBCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSIERRAADPCMWAVEFORMAT(pub *mut SIERRAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPSIERRAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPSIERRAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSONARCWAVEFORMAT(pub *mut SONARCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPSONARCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPSONARCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTRUESPEECHWAVEFORMAT(pub *mut TRUESPEECHWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPTRUESPEECHWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPTRUESPEECHWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVOLUMEWAVEFILTER(pub *mut VOLUMEWAVEFILTER);
-impl LPVOLUMEWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPVOLUMEWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEFILTER(pub *mut WAVEFILTER);
-impl LPWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEFORMATIEEEFLOATEX(pub *mut WAVEFORMATIEEEFLOATEX);
-#[cfg(feature = "mmeapi")]
-impl LPWAVEFORMATIEEEFLOATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPWAVEFORMATIEEEFLOATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEFORMATPCMEX(pub *mut WAVEFORMATPCMEX);
-#[cfg(feature = "mmeapi")]
-impl LPWAVEFORMATPCMEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPWAVEFORMATPCMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWMAUDIO2WAVEFORMAT(pub *mut WMAUDIO2WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPWMAUDIO2WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPWMAUDIO2WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWMAUDIO3WAVEFORMAT(pub *mut WMAUDIO3WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPWMAUDIO3WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPWMAUDIO3WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPYAMAHA_ADPCMWAVEFORMAT(pub *mut YAMAHA_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl LPYAMAHA_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPYAMAHA_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
+#[cfg(feature = "mmeapi")]
+pub type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+pub type LPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type LPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPHEAACWAVEINFO = *mut HEAACWAVEINFO;
+#[cfg(feature = "mmeapi")]
+pub type LPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPMSAUDIO1WAVEFORMAT = *mut MSAUDIO1WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+pub type LPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+pub type LPWAVEFILTER = *mut WAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
+#[cfg(feature = "mmeapi")]
+pub type LPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+#[cfg(feature = "mmeapi")]
+pub type LPWMAUDIO2WAVEFORMAT = *mut WMAUDIO2WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPWMAUDIO3WAVEFORMAT = *mut WMAUDIO3WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type LPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C, packed(1))]
 #[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
@@ -2660,714 +1996,92 @@ pub struct NMS_VBXADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wSamplesPerBlock: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPADPCMCOEFSET(pub *mut ADPCMCOEFSET);
-impl NPADPCMCOEFSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPADPCMCOEFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPADPCMEWAVEFORMAT(pub *mut ADPCMEWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPADPCMEWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPADPCMEWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPADPCMWAVEFORMAT(pub *mut ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAPTXWAVEFORMAT(pub *mut APTXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPAPTXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPAPTXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUDIOFILE_AF10WAVEFORMAT(pub *mut AUDIOFILE_AF10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPAUDIOFILE_AF10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPAUDIOFILE_AF10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUDIOFILE_AF36WAVEFORMAT(pub *mut AUDIOFILE_AF36WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPAUDIOFILE_AF36WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPAUDIOFILE_AF36WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCONTRESCR10WAVEFORMAT(pub *mut CONTRESCR10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCONTRESCR10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCONTRESCR10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCONTRESVQLPCWAVEFORMAT(pub *mut CONTRESVQLPCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCONTRESVQLPCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCONTRESVQLPCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCREATIVEADPCMWAVEFORMAT(pub *mut CREATIVEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCREATIVEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCREATIVEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCREATIVEFASTSPEECH10WAVEFORMAT(pub *mut CREATIVEFASTSPEECH10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCREATIVEFASTSPEECH10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCREATIVEFASTSPEECH10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCREATIVEFASTSPEECH8WAVEFORMAT(pub *mut CREATIVEFASTSPEECH8WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCREATIVEFASTSPEECH8WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCREATIVEFASTSPEECH8WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCSIMAADPCMWAVEFORMAT(pub *mut CSIMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPCSIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPCSIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDIALOGICOKIADPCMWAVEFORMAT(pub *mut DIALOGICOKIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDIALOGICOKIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDIALOGICOKIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDIGIADPCMWAVEFORMAT(pub *mut DIGIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDIGIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDIGIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDIGIFIXWAVEFORMAT(pub *mut DIGIFIXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDIGIFIXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDIGIFIXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDIGIREALWAVEFORMAT(pub *mut DIGIREALWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDIGIREALWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDIGIREALWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDIGISTDWAVEFORMAT(pub *mut DIGISTDWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDIGISTDWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDIGISTDWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDRMWAVEFORMAT(pub *mut DRMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDRMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDRMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDVIADPCMWAVEFORMAT(pub *mut DVIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPDVIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPDVIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPECHOSC1WAVEFORMAT(pub *mut ECHOSC1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPECHOSC1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPECHOSC1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPECHOWAVEFILTER(pub *mut ECHOWAVEFILTER);
-impl NPECHOWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPECHOWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPFMTOWNS_SND_WAVEFORMAT(pub *mut FMTOWNS_SND_WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPFMTOWNS_SND_WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPFMTOWNS_SND_WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPG721_ADPCMWAVEFORMAT(pub *mut G721_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPG721_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPG721_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPG723_ADPCMWAVEFORMAT(pub *mut G723_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPG723_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPG723_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPGSM610WAVEFORMAT(pub *mut GSM610WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPGSM610WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPGSM610WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPHEAACWAVEFORMAT(pub *mut HEAACWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPHEAACWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPHEAACWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPHEAACWAVEINFO(pub *mut HEAACWAVEINFO);
-#[cfg(feature = "mmeapi")]
-impl NPHEAACWAVEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPHEAACWAVEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPIMAADPCMWAVEFORMAT(pub *mut IMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMEDIASPACEADPCMWAVEFORMAT(pub *mut MEDIASPACEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPMEDIASPACEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPMEDIASPACEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMPEG1WAVEFORMAT(pub *mut MPEG1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPMPEG1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPMPEG1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMPEGLAYER3WAVEFORMAT(pub *mut MPEGLAYER3WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPMPEGLAYER3WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPMPEGLAYER3WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPNMS_VBXADPCMWAVEFORMAT(pub *mut NMS_VBXADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPNMS_VBXADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPNMS_VBXADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOLIADPCMWAVEFORMAT(pub *mut OLIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPOLIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPOLIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOLICELPWAVEFORMAT(pub *mut OLICELPWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPOLICELPWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPOLICELPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOLIGSMWAVEFORMAT(pub *mut OLIGSMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPOLIGSMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPOLIGSMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOLIOPRWAVEFORMAT(pub *mut OLIOPRWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPOLIOPRWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPOLIOPRWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOLISBCWAVEFORMAT(pub *mut OLISBCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPOLISBCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPOLISBCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPSIERRAADPCMWAVEFORMAT(pub *mut SIERRAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPSIERRAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPSIERRAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPSONARCWAVEFORMAT(pub *mut SONARCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPSONARCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPSONARCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPTRUESPEECHWAVEFORMAT(pub *mut TRUESPEECHWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPTRUESPEECHWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPTRUESPEECHWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPVOLUMEWAVEFILTER(pub *mut VOLUMEWAVEFILTER);
-impl NPVOLUMEWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPVOLUMEWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEFILTER(pub *mut WAVEFILTER);
-impl NPWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEFORMATIEEEFLOATEX(pub *mut WAVEFORMATIEEEFLOATEX);
-#[cfg(feature = "mmeapi")]
-impl NPWAVEFORMATIEEEFLOATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPWAVEFORMATIEEEFLOATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEFORMATPCMEX(pub *mut WAVEFORMATPCMEX);
-#[cfg(feature = "mmeapi")]
-impl NPWAVEFORMATPCMEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPWAVEFORMATPCMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPYAMAHA_ADPCMWAVEFORMAT(pub *mut YAMAHA_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl NPYAMAHA_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for NPYAMAHA_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPADPCMCOEFSET = *mut ADPCMCOEFSET;
+#[cfg(feature = "mmeapi")]
+pub type NPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+pub type NPECHOWAVEFILTER = *mut ECHOWAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type NPFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPHEAACWAVEINFO = *mut HEAACWAVEINFO;
+#[cfg(feature = "mmeapi")]
+pub type NPIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPOLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPOLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPOLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPOLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPOLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type NPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+pub type NPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+pub type NPWAVEFILTER = *mut WAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
+#[cfg(feature = "mmeapi")]
+pub type NPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+#[cfg(feature = "mmeapi")]
+pub type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy, Default)]
@@ -3398,730 +2112,94 @@ pub struct OLIOPRWAVEFORMAT {
 pub struct OLISBCWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADPCMCOEFSET(pub *mut ADPCMCOEFSET);
-impl PADPCMCOEFSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADPCMCOEFSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADPCMEWAVEFORMAT(pub *mut ADPCMEWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PADPCMEWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PADPCMEWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADPCMWAVEFORMAT(pub *mut ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAPTXWAVEFORMAT(pub *mut APTXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PAPTXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PAPTXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIOFILE_AF10WAVEFORMAT(pub *mut AUDIOFILE_AF10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PAUDIOFILE_AF10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PAUDIOFILE_AF10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUDIOFILE_AF36WAVEFORMAT(pub *mut AUDIOFILE_AF36WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PAUDIOFILE_AF36WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PAUDIOFILE_AF36WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONTRESCR10WAVEFORMAT(pub *mut CONTRESCR10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCONTRESCR10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCONTRESCR10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONTRESVQLPCWAVEFORMAT(pub *mut CONTRESVQLPCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCONTRESVQLPCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCONTRESVQLPCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREATIVEADPCMWAVEFORMAT(pub *mut CREATIVEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCREATIVEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCREATIVEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREATIVEFASTSPEECH10WAVEFORMAT(pub *mut CREATIVEFASTSPEECH10WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCREATIVEFASTSPEECH10WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCREATIVEFASTSPEECH10WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREATIVEFASTSPEECH8WAVEFORMAT(pub *mut CREATIVEFASTSPEECH8WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCREATIVEFASTSPEECH8WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCREATIVEFASTSPEECH8WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCSIMAADPCMWAVEFORMAT(pub *mut CSIMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PCSIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PCSIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIALOGICOKIADPCMWAVEFORMAT(pub *mut DIALOGICOKIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDIALOGICOKIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDIALOGICOKIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIGIADPCMWAVEFORMAT(pub *mut DIGIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDIGIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDIGIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIGIFIXWAVEFORMAT(pub *mut DIGIFIXWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDIGIFIXWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDIGIFIXWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIGIREALWAVEFORMAT(pub *mut DIGIREALWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDIGIREALWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDIGIREALWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIGISTDWAVEFORMAT(pub *mut DIGISTDWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDIGISTDWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDIGISTDWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRMWAVEFORMAT(pub *mut DRMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDRMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDRMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDVIADPCMWAVEFORMAT(pub *mut DVIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PDVIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PDVIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PECHOSC1WAVEFORMAT(pub *mut ECHOSC1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PECHOSC1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PECHOSC1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PECHOWAVEFILTER(pub *mut ECHOWAVEFILTER);
-impl PECHOWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PECHOWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFMTOWNS_SND_WAVEFORMAT(pub *mut FMTOWNS_SND_WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PFMTOWNS_SND_WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PFMTOWNS_SND_WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PG721_ADPCMWAVEFORMAT(pub *mut G721_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PG721_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PG721_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PG723_ADPCMWAVEFORMAT(pub *mut G723_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PG723_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PG723_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGSM610WAVEFORMAT(pub *mut GSM610WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PGSM610WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PGSM610WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHEAACWAVEFORMAT(pub *mut HEAACWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PHEAACWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PHEAACWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHEAACWAVEINFO(pub *mut HEAACWAVEINFO);
-#[cfg(feature = "mmeapi")]
-impl PHEAACWAVEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PHEAACWAVEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAADPCMWAVEFORMAT(pub *mut IMAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PIMAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PIMAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEDIASPACEADPCMWAVEFORMAT(pub *mut MEDIASPACEADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PMEDIASPACEADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PMEDIASPACEADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPEG1WAVEFORMAT(pub *mut MPEG1WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PMPEG1WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PMPEG1WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPEGLAYER3WAVEFORMAT(pub *mut MPEGLAYER3WAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PMPEGLAYER3WAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PMPEGLAYER3WAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMS_VBXADPCMWAVEFORMAT(pub *mut NMS_VBXADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PNMS_VBXADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PNMS_VBXADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLIADPCMWAVEFORMAT(pub *mut OLIADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl POLIADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for POLIADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLICELPWAVEFORMAT(pub *mut OLICELPWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl POLICELPWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for POLICELPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLIGSMWAVEFORMAT(pub *mut OLIGSMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl POLIGSMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for POLIGSMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLIOPRWAVEFORMAT(pub *mut OLIOPRWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl POLIOPRWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for POLIOPRWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLISBCWAVEFORMAT(pub *mut OLISBCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl POLISBCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for POLISBCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSIERRAADPCMWAVEFORMAT(pub *mut SIERRAADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PSIERRAADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PSIERRAADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSONARCWAVEFORMAT(pub *mut SONARCWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PSONARCWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PSONARCWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRUESPEECHWAVEFORMAT(pub *mut TRUESPEECHWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PTRUESPEECHWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PTRUESPEECHWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVOLUMEWAVEFILTER(pub *mut VOLUMEWAVEFILTER);
-impl PVOLUMEWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVOLUMEWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFILTER(pub *mut WAVEFILTER);
-impl PWAVEFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWAVEFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMATEXTENSIBLE(pub *mut WAVEFORMATEXTENSIBLE);
-#[cfg(feature = "mmeapi")]
-impl PWAVEFORMATEXTENSIBLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PWAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMATIEEEFLOATEX(pub *mut WAVEFORMATIEEEFLOATEX);
-#[cfg(feature = "mmeapi")]
-impl PWAVEFORMATIEEEFLOATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PWAVEFORMATIEEEFLOATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMATPCMEX(pub *mut WAVEFORMATPCMEX);
-#[cfg(feature = "mmeapi")]
-impl PWAVEFORMATPCMEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PWAVEFORMATPCMEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PYAMAHA_ADPCMWAVEFORMAT(pub *mut YAMAHA_ADPCMWAVEFORMAT);
-#[cfg(feature = "mmeapi")]
-impl PYAMAHA_ADPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PYAMAHA_ADPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADPCMCOEFSET = *mut ADPCMCOEFSET;
+#[cfg(feature = "mmeapi")]
+pub type PADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PADPCMWAVEFORMAT = *mut ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PAPTXWAVEFORMAT = *mut APTXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PAUDIOFILE_AF10WAVEFORMAT = *mut AUDIOFILE_AF10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PAUDIOFILE_AF36WAVEFORMAT = *mut AUDIOFILE_AF36WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCONTRESCR10WAVEFORMAT = *mut CONTRESCR10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCONTRESVQLPCWAVEFORMAT = *mut CONTRESVQLPCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCREATIVEADPCMWAVEFORMAT = *mut CREATIVEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCREATIVEFASTSPEECH10WAVEFORMAT = *mut CREATIVEFASTSPEECH10WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCREATIVEFASTSPEECH8WAVEFORMAT = *mut CREATIVEFASTSPEECH8WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PCSIMAADPCMWAVEFORMAT = *mut CSIMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDIALOGICOKIADPCMWAVEFORMAT = *mut DIALOGICOKIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDIGIADPCMWAVEFORMAT = *mut DIGIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDIGIFIXWAVEFORMAT = *mut DIGIFIXWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDIGIREALWAVEFORMAT = *mut DIGIREALWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDIGISTDWAVEFORMAT = *mut DIGISTDWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDRMWAVEFORMAT = *mut DRMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PDVIADPCMWAVEFORMAT = *mut DVIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PECHOSC1WAVEFORMAT = *mut ECHOSC1WAVEFORMAT;
+pub type PECHOWAVEFILTER = *mut ECHOWAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type PFMTOWNS_SND_WAVEFORMAT = *mut FMTOWNS_SND_WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PG721_ADPCMWAVEFORMAT = *mut G721_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PG723_ADPCMWAVEFORMAT = *mut G723_ADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PGSM610WAVEFORMAT = *mut GSM610WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PHEAACWAVEFORMAT = *mut HEAACWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PHEAACWAVEINFO = *mut HEAACWAVEINFO;
+#[cfg(feature = "mmeapi")]
+pub type PIMAADPCMWAVEFORMAT = *mut IMAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PMEDIASPACEADPCMWAVEFORMAT = *mut MEDIASPACEADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PMPEG1WAVEFORMAT = *mut MPEG1WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PMPEGLAYER3WAVEFORMAT = *mut MPEGLAYER3WAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PNMS_VBXADPCMWAVEFORMAT = *mut NMS_VBXADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type POLIADPCMWAVEFORMAT = *mut OLIADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type POLICELPWAVEFORMAT = *mut OLICELPWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type POLIGSMWAVEFORMAT = *mut OLIGSMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type POLIOPRWAVEFORMAT = *mut OLIOPRWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type POLISBCWAVEFORMAT = *mut OLISBCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PSIERRAADPCMWAVEFORMAT = *mut SIERRAADPCMWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
+#[cfg(feature = "mmeapi")]
+pub type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
+pub type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
+pub type PWAVEFILTER = *mut WAVEFILTER;
+#[cfg(feature = "mmeapi")]
+pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
+#[cfg(feature = "mmeapi")]
+pub type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
+#[cfg(feature = "mmeapi")]
+pub type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
+#[cfg(feature = "mmeapi")]
+pub type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
 pub const RIFFCPPO: u32 = 1330663491;
 pub const RIFFCPPO_byte: u32 = 1702132066;
 pub const RIFFCPPO_char: u32 = 1918986339;

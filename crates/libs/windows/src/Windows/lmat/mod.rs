@@ -58,55 +58,7 @@ pub const JOB_NONINTERACTIVE: u32 = 16;
 pub const JOB_OUTPUT_FLAGS: u32 = 23;
 pub const JOB_RUNS_TODAY: u32 = 4;
 pub const JOB_RUN_PERIODICALLY: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAT_ENUM(pub *mut AT_ENUM);
-impl LPAT_ENUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAT_ENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAT_INFO(pub *mut AT_INFO);
-impl LPAT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAT_ENUM(pub *mut AT_ENUM);
-impl PAT_ENUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAT_ENUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAT_INFO(pub *mut AT_INFO);
-impl PAT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAT_ENUM = *mut AT_ENUM;
+pub type LPAT_INFO = *mut AT_INFO;
+pub type PAT_ENUM = *mut AT_ENUM;
+pub type PAT_INFO = *mut AT_INFO;

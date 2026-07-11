@@ -529,110 +529,14 @@ pub const OBJECT_PUSH_FORMAT_VCARD_3_0: u32 = 2;
 pub const OBJECT_PUSH_FORMAT_VMESSAGE: u32 = 6;
 pub const OBJECT_PUSH_FORMAT_VNOTE: u32 = 5;
 pub const PANUServiceClassID_UUID16: u32 = 4373;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTHSTATUS(pub *mut u8);
-impl PBTHSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTHSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_ADDR(pub *mut u64);
-impl PBTH_ADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_ADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_COD(pub *mut u32);
-impl PBTH_COD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_COD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_DEVICE_INFO(pub *mut BTH_DEVICE_INFO);
-impl PBTH_DEVICE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_DEVICE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_HCI_EVENT_INFO(pub *mut BTH_HCI_EVENT_INFO);
-impl PBTH_HCI_EVENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_HCI_EVENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_L2CAP_EVENT_INFO(pub *mut BTH_L2CAP_EVENT_INFO);
-impl PBTH_L2CAP_EVENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_L2CAP_EVENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_LAP(pub *mut u32);
-impl PBTH_LAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_LAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_RADIO_IN_RANGE(pub *mut BTH_RADIO_IN_RANGE);
-impl PBTH_RADIO_IN_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_RADIO_IN_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBTHSTATUS = *mut u8;
+pub type PBTH_ADDR = *mut u64;
+pub type PBTH_COD = *mut u32;
+pub type PBTH_DEVICE_INFO = *mut BTH_DEVICE_INFO;
+pub type PBTH_HCI_EVENT_INFO = *mut BTH_HCI_EVENT_INFO;
+pub type PBTH_L2CAP_EVENT_INFO = *mut BTH_L2CAP_EVENT_INFO;
+pub type PBTH_LAP = *mut u32;
+pub type PBTH_RADIO_IN_RANGE = *mut BTH_RADIO_IN_RANGE;
 pub const PSM_3DSP: u32 = 33;
 pub const PSM_ATT: u32 = 31;
 pub const PSM_AVCTP: u32 = 23;

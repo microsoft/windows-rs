@@ -193,74 +193,12 @@ pub const PERF_TYPE_ZERO: u32 = 3072;
 pub type PM_CLOSE_PROC = Option<unsafe extern "system" fn() -> u32>;
 pub type PM_COLLECT_PROC = Option<unsafe extern "system" fn(pvaluename: windows_core::PCWSTR, ppdata: *mut *mut core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
 pub type PM_OPEN_PROC = Option<unsafe extern "system" fn(pcontext: windows_core::PCWSTR) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERF_COUNTER_BLOCK(pub *mut PERF_COUNTER_BLOCK);
-impl PPERF_COUNTER_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERF_COUNTER_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERF_COUNTER_DEFINITION(pub *mut PERF_COUNTER_DEFINITION);
-impl PPERF_COUNTER_DEFINITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERF_COUNTER_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPERF_COUNTER_BLOCK = *mut PERF_COUNTER_BLOCK;
+pub type PPERF_COUNTER_DEFINITION = *mut PERF_COUNTER_DEFINITION;
 #[cfg(feature = "minwinbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERF_DATA_BLOCK(pub *mut PERF_DATA_BLOCK);
-#[cfg(feature = "minwinbase")]
-impl PPERF_DATA_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwinbase")]
-impl Default for PPERF_DATA_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERF_INSTANCE_DEFINITION(pub *mut PERF_INSTANCE_DEFINITION);
-impl PPERF_INSTANCE_DEFINITION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERF_INSTANCE_DEFINITION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERF_OBJECT_TYPE(pub *mut PERF_OBJECT_TYPE);
-impl PPERF_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERF_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPERF_DATA_BLOCK = *mut PERF_DATA_BLOCK;
+pub type PPERF_INSTANCE_DEFINITION = *mut PERF_INSTANCE_DEFINITION;
+pub type PPERF_OBJECT_TYPE = *mut PERF_OBJECT_TYPE;
 pub const WINPERF_LOG_DEBUG: u32 = 2;
 pub const WINPERF_LOG_NONE: u32 = 0;
 pub const WINPERF_LOG_USER: u32 = 1;

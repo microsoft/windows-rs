@@ -341,19 +341,7 @@ impl Default for HSLP {
     }
 }
 pub const ID_CAP_SLAPI: windows_core::PCWSTR = windows_core::w!("slapiQueryLicenseValue");
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSL_SYSTEM_POLICY_INFORMATION(pub *mut SL_SYSTEM_POLICY_INFORMATION);
-impl PSL_SYSTEM_POLICY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSL_SYSTEM_POLICY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSL_SYSTEM_POLICY_INFORMATION = *mut SL_SYSTEM_POLICY_INFORMATION;
 pub type SLDATATYPE = i32;
 pub type SLID = windows_core::GUID;
 pub type SLIDTYPE = i32;

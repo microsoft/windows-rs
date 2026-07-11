@@ -921,9 +921,7 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
 pub const MAXIPADRESSLEN: u32 = 64;
 pub const MAX_SSTP_HASH_SIZE: u32 = 32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MIB_SERVER_HANDLE(pub super::winnt::HANDLE);
+pub type MIB_SERVER_HANDLE = super::winnt::HANDLE;
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -1356,9 +1354,7 @@ pub struct MPR_SERVER_EX1 {
     pub ConfigParams: MPRAPI_TUNNEL_CONFIG_PARAMS1,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MPR_SERVER_HANDLE(pub super::winnt::HANDLE);
+pub type MPR_SERVER_HANDLE = super::winnt::HANDLE;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1426,166 +1422,26 @@ pub const MPR_VS_L2tpFirst: u32 = 4;
 pub const MPR_VS_L2tpOnly: u32 = 3;
 pub const MPR_VS_PptpFirst: u32 = 2;
 pub const MPR_VS_PptpOnly: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGRE_CONFIG_PARAMS0(pub *mut GRE_CONFIG_PARAMS0);
-impl PGRE_CONFIG_PARAMS0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGRE_CONFIG_PARAMS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGRE_CONFIG_PARAMS0 = *mut GRE_CONFIG_PARAMS0;
 pub const PID_ATALK: u32 = 41;
 pub const PID_IP: u32 = 33;
 pub const PID_IPV6: u32 = 87;
 pub const PID_IPX: u32 = 43;
 pub const PID_NBF: u32 = 63;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_CONFIG_PARAMS(pub *mut IKEV2_CONFIG_PARAMS);
+pub type PIKEV2_CONFIG_PARAMS = *mut IKEV2_CONFIG_PARAMS;
+pub type PIKEV2_PROJECTION_INFO = *mut IKEV2_PROJECTION_INFO;
+pub type PIKEV2_PROJECTION_INFO2 = *mut IKEV2_PROJECTION_INFO2;
 #[cfg(feature = "wincrypt")]
-impl PIKEV2_CONFIG_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIKEV2_TUNNEL_CONFIG_PARAMS2 = *mut IKEV2_TUNNEL_CONFIG_PARAMS2;
 #[cfg(feature = "wincrypt")]
-impl Default for PIKEV2_CONFIG_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_PROJECTION_INFO(pub *mut IKEV2_PROJECTION_INFO);
-impl PIKEV2_PROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIKEV2_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_PROJECTION_INFO2(pub *mut IKEV2_PROJECTION_INFO2);
-impl PIKEV2_PROJECTION_INFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIKEV2_PROJECTION_INFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIKEV2_TUNNEL_CONFIG_PARAMS3 = *mut IKEV2_TUNNEL_CONFIG_PARAMS3;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_TUNNEL_CONFIG_PARAMS2(pub *mut IKEV2_TUNNEL_CONFIG_PARAMS2);
-#[cfg(feature = "wincrypt")]
-impl PIKEV2_TUNNEL_CONFIG_PARAMS2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PIKEV2_TUNNEL_CONFIG_PARAMS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_TUNNEL_CONFIG_PARAMS3(pub *mut IKEV2_TUNNEL_CONFIG_PARAMS3);
-#[cfg(feature = "wincrypt")]
-impl PIKEV2_TUNNEL_CONFIG_PARAMS3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PIKEV2_TUNNEL_CONFIG_PARAMS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIKEV2_TUNNEL_CONFIG_PARAMS4(pub *mut IKEV2_TUNNEL_CONFIG_PARAMS4);
-#[cfg(feature = "wincrypt")]
-impl PIKEV2_TUNNEL_CONFIG_PARAMS4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PIKEV2_TUNNEL_CONFIG_PARAMS4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PL2TP_CONFIG_PARAMS0(pub *mut L2TP_CONFIG_PARAMS0);
-impl PL2TP_CONFIG_PARAMS0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PL2TP_CONFIG_PARAMS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PL2TP_CONFIG_PARAMS1(pub *mut L2TP_CONFIG_PARAMS1);
-impl PL2TP_CONFIG_PARAMS1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PL2TP_CONFIG_PARAMS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PL2TP_TUNNEL_CONFIG_PARAMS1(pub *mut L2TP_TUNNEL_CONFIG_PARAMS1);
-impl PL2TP_TUNNEL_CONFIG_PARAMS1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PL2TP_TUNNEL_CONFIG_PARAMS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PL2TP_TUNNEL_CONFIG_PARAMS2(pub *mut L2TP_TUNNEL_CONFIG_PARAMS2);
-impl PL2TP_TUNNEL_CONFIG_PARAMS2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PL2TP_TUNNEL_CONFIG_PARAMS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIKEV2_TUNNEL_CONFIG_PARAMS4 = *mut IKEV2_TUNNEL_CONFIG_PARAMS4;
+pub type PL2TP_CONFIG_PARAMS0 = *mut L2TP_CONFIG_PARAMS0;
+pub type PL2TP_CONFIG_PARAMS1 = *mut L2TP_CONFIG_PARAMS1;
+pub type PL2TP_TUNNEL_CONFIG_PARAMS1 = *mut L2TP_TUNNEL_CONFIG_PARAMS1;
+pub type PL2TP_TUNNEL_CONFIG_PARAMS2 = *mut L2TP_TUNNEL_CONFIG_PARAMS2;
 #[cfg(feature = "winnt")]
 pub type PMPRADMINACCEPTNEWCONNECTION = Option<unsafe extern "system" fn(param0: *mut RAS_CONNECTION_0, param1: *mut RAS_CONNECTION_1) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
@@ -1622,497 +1478,59 @@ pub type PMPRADMINRELEASEIPADRESS = Option<unsafe extern "system" fn(param0: *mu
 pub type PMPRADMINRELEASEIPV6ADDRESSFORUSER = Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut super::in6addr::IN6_ADDR)>;
 pub type PMPRADMINTERMINATEDLL = Option<unsafe extern "system" fn() -> u32>;
 #[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPRAPI_ADMIN_DLL_CALLBACKS(pub *mut MPRAPI_ADMIN_DLL_CALLBACKS);
-#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-impl PMPRAPI_ADMIN_DLL_CALLBACKS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-impl Default for PMPRAPI_ADMIN_DLL_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPRAPI_OBJECT_HEADER(pub *mut MPRAPI_OBJECT_HEADER);
-impl PMPRAPI_OBJECT_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPRAPI_OBJECT_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPRAPI_OBJECT_TYPE(pub *mut MPRAPI_OBJECT_TYPE);
-impl PMPRAPI_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPRAPI_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPRAPI_ADMIN_DLL_CALLBACKS = *mut MPRAPI_ADMIN_DLL_CALLBACKS;
+pub type PMPRAPI_OBJECT_HEADER = *mut MPRAPI_OBJECT_HEADER;
+pub type PMPRAPI_OBJECT_TYPE = *mut MPRAPI_OBJECT_TYPE;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPRAPI_TUNNEL_CONFIG_PARAMS0(pub *mut MPRAPI_TUNNEL_CONFIG_PARAMS0);
+pub type PMPRAPI_TUNNEL_CONFIG_PARAMS0 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS0;
 #[cfg(feature = "wincrypt")]
-impl PMPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPRAPI_TUNNEL_CONFIG_PARAMS0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPRAPI_TUNNEL_CONFIG_PARAMS1(pub *mut MPRAPI_TUNNEL_CONFIG_PARAMS1);
-#[cfg(feature = "wincrypt")]
-impl PMPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPRAPI_TUNNEL_CONFIG_PARAMS1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_CERT_EKU(pub *mut MPR_CERT_EKU);
-impl PMPR_CERT_EKU {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_CERT_EKU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPRAPI_TUNNEL_CONFIG_PARAMS1 = *mut MPRAPI_TUNNEL_CONFIG_PARAMS1;
+pub type PMPR_CERT_EKU = *mut MPR_CERT_EKU;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_CREDENTIALSEX_0(pub *mut MPR_CREDENTIALSEX_0);
+pub type PMPR_CREDENTIALSEX_0 = *mut MPR_CREDENTIALSEX_0;
 #[cfg(feature = "minwindef")]
-impl PMPR_CREDENTIALSEX_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMPR_CREDENTIALSEX_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_CREDENTIALSEX_1(pub *mut MPR_CREDENTIALSEX_1);
-#[cfg(feature = "minwindef")]
-impl PMPR_CREDENTIALSEX_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMPR_CREDENTIALSEX_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_DEVICE_0(pub *mut MPR_DEVICE_0);
-impl PMPR_DEVICE_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_DEVICE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_CREDENTIALSEX_1 = *mut MPR_CREDENTIALSEX_1;
+pub type PMPR_DEVICE_0 = *mut MPR_DEVICE_0;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_DEVICE_1(pub *mut MPR_DEVICE_1);
+pub type PMPR_DEVICE_1 = *mut MPR_DEVICE_1;
+pub type PMPR_FILTER_0 = *mut MPR_FILTER_0;
 #[cfg(feature = "winnt")]
-impl PMPR_DEVICE_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMPR_DEVICE_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_FILTER_0(pub *mut MPR_FILTER_0);
-impl PMPR_FILTER_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_FILTER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_IFTRANSPORT_0(pub *mut MPR_IFTRANSPORT_0);
-#[cfg(feature = "winnt")]
-impl PMPR_IFTRANSPORT_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMPR_IFTRANSPORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_IFTRANSPORT_0 = *mut MPR_IFTRANSPORT_0;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_IF_CUSTOMINFOEX0(pub *mut MPR_IF_CUSTOMINFOEX0);
+pub type PMPR_IF_CUSTOMINFOEX0 = *mut MPR_IF_CUSTOMINFOEX0;
 #[cfg(feature = "wincrypt")]
-impl PMPR_IF_CUSTOMINFOEX0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPR_IF_CUSTOMINFOEX0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_IF_CUSTOMINFOEX1(pub *mut MPR_IF_CUSTOMINFOEX1);
-#[cfg(feature = "wincrypt")]
-impl PMPR_IF_CUSTOMINFOEX1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPR_IF_CUSTOMINFOEX1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_IF_CUSTOMINFOEX1 = *mut MPR_IF_CUSTOMINFOEX1;
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_IF_CUSTOMINFOEX2(pub *mut MPR_IF_CUSTOMINFOEX2);
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-impl PMPR_IF_CUSTOMINFOEX2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-impl Default for PMPR_IF_CUSTOMINFOEX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_IF_CUSTOMINFOEX2 = *mut MPR_IF_CUSTOMINFOEX2;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_INTERFACE_0(pub *mut MPR_INTERFACE_0);
+pub type PMPR_INTERFACE_0 = *mut MPR_INTERFACE_0;
 #[cfg(feature = "winnt")]
-impl PMPR_INTERFACE_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMPR_INTERFACE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_INTERFACE_1(pub *mut MPR_INTERFACE_1);
-#[cfg(feature = "winnt")]
-impl PMPR_INTERFACE_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMPR_INTERFACE_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_INTERFACE_1 = *mut MPR_INTERFACE_1;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_INTERFACE_2(pub *mut MPR_INTERFACE_2);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PMPR_INTERFACE_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PMPR_INTERFACE_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_INTERFACE_2 = *mut MPR_INTERFACE_2;
 #[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_INTERFACE_3(pub *mut MPR_INTERFACE_3);
-#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-impl PMPR_INTERFACE_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "minwindef", feature = "winnt"))]
-impl Default for PMPR_INTERFACE_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_IPINIP_INTERFACE_0(pub *mut MPR_IPINIP_INTERFACE_0);
-impl PMPR_IPINIP_INTERFACE_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_IPINIP_INTERFACE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_0(pub *mut MPR_SERVER_0);
-impl PMPR_SERVER_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_SERVER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_1(pub *mut MPR_SERVER_1);
-impl PMPR_SERVER_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_SERVER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_2(pub *mut MPR_SERVER_2);
-impl PMPR_SERVER_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMPR_SERVER_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_INTERFACE_3 = *mut MPR_INTERFACE_3;
+pub type PMPR_IPINIP_INTERFACE_0 = *mut MPR_IPINIP_INTERFACE_0;
+pub type PMPR_SERVER_0 = *mut MPR_SERVER_0;
+pub type PMPR_SERVER_1 = *mut MPR_SERVER_1;
+pub type PMPR_SERVER_2 = *mut MPR_SERVER_2;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_EX0(pub *mut MPR_SERVER_EX0);
+pub type PMPR_SERVER_EX0 = *mut MPR_SERVER_EX0;
 #[cfg(feature = "wincrypt")]
-impl PMPR_SERVER_EX0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMPR_SERVER_EX1 = *mut MPR_SERVER_EX1;
 #[cfg(feature = "wincrypt")]
-impl Default for PMPR_SERVER_EX0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_SERVER_SET_CONFIG_EX0 = *mut MPR_SERVER_SET_CONFIG_EX0;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_EX1(pub *mut MPR_SERVER_EX1);
-#[cfg(feature = "wincrypt")]
-impl PMPR_SERVER_EX1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPR_SERVER_EX1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_SET_CONFIG_EX0(pub *mut MPR_SERVER_SET_CONFIG_EX0);
-#[cfg(feature = "wincrypt")]
-impl PMPR_SERVER_SET_CONFIG_EX0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPR_SERVER_SET_CONFIG_EX0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_SERVER_SET_CONFIG_EX1(pub *mut MPR_SERVER_SET_CONFIG_EX1);
-#[cfg(feature = "wincrypt")]
-impl PMPR_SERVER_SET_CONFIG_EX1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PMPR_SERVER_SET_CONFIG_EX1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_SERVER_SET_CONFIG_EX1 = *mut MPR_SERVER_SET_CONFIG_EX1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_TRANSPORT_0(pub *mut MPR_TRANSPORT_0);
-#[cfg(feature = "winnt")]
-impl PMPR_TRANSPORT_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMPR_TRANSPORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_TRANSPORT_0 = *mut MPR_TRANSPORT_0;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_VPN_TRAFFIC_SELECTOR(pub *mut MPR_VPN_TRAFFIC_SELECTOR);
+pub type PMPR_VPN_TRAFFIC_SELECTOR = *mut MPR_VPN_TRAFFIC_SELECTOR;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PMPR_VPN_TRAFFIC_SELECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PMPR_VPN_TRAFFIC_SELECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMPR_VPN_TRAFFIC_SELECTORS(pub *mut MPR_VPN_TRAFFIC_SELECTORS);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PMPR_VPN_TRAFFIC_SELECTORS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PMPR_VPN_TRAFFIC_SELECTORS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPPP_PROJECTION_INFO(pub *mut PPP_PROJECTION_INFO);
-impl PPPP_PROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPPP_PROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPPP_PROJECTION_INFO2(pub *mut PPP_PROJECTION_INFO2);
-impl PPPP_PROJECTION_INFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPPP_PROJECTION_INFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPPTP_CONFIG_PARAMS(pub *mut PPTP_CONFIG_PARAMS);
-impl PPPTP_CONFIG_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPPTP_CONFIG_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMPR_VPN_TRAFFIC_SELECTORS = *mut MPR_VPN_TRAFFIC_SELECTORS;
+pub type PPPP_PROJECTION_INFO = *mut PPP_PROJECTION_INFO;
+pub type PPPP_PROJECTION_INFO2 = *mut PPP_PROJECTION_INFO2;
+pub type PPPTP_CONFIG_PARAMS = *mut PPTP_CONFIG_PARAMS;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PPP_ATCP_INFO {
@@ -2342,32 +1760,8 @@ impl Default for PPP_PROJECTION_INFO2 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROJECTION_INFO(pub *mut PROJECTION_INFO);
-impl PPROJECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROJECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROJECTION_INFO2(pub *mut PROJECTION_INFO2);
-impl PPROJECTION_INFO2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROJECTION_INFO2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROJECTION_INFO = *mut PROJECTION_INFO;
+pub type PPROJECTION_INFO2 = *mut PROJECTION_INFO2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PPTP_CONFIG_PARAMS {
@@ -2375,188 +1769,26 @@ pub struct PPTP_CONFIG_PARAMS {
     pub dwPortFlags: u32,
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_0(pub *mut RAS_CONNECTION_0);
+pub type PRAS_CONNECTION_0 = *mut RAS_CONNECTION_0;
 #[cfg(feature = "winnt")]
-impl PRAS_CONNECTION_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PRAS_CONNECTION_1 = *mut RAS_CONNECTION_1;
 #[cfg(feature = "winnt")]
-impl Default for PRAS_CONNECTION_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_1(pub *mut RAS_CONNECTION_1);
-#[cfg(feature = "winnt")]
-impl PRAS_CONNECTION_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRAS_CONNECTION_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_2(pub *mut RAS_CONNECTION_2);
-#[cfg(feature = "winnt")]
-impl PRAS_CONNECTION_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRAS_CONNECTION_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRAS_CONNECTION_2 = *mut RAS_CONNECTION_2;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_3(pub *mut RAS_CONNECTION_3);
+pub type PRAS_CONNECTION_3 = *mut RAS_CONNECTION_3;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PRAS_CONNECTION_3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PRAS_CONNECTION_4 = *mut RAS_CONNECTION_4;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PRAS_CONNECTION_3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_4(pub *mut RAS_CONNECTION_4);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PRAS_CONNECTION_4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PRAS_CONNECTION_4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_CONNECTION_EX(pub *mut RAS_CONNECTION_EX);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PRAS_CONNECTION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PRAS_CONNECTION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRAS_CONNECTION_EX = *mut RAS_CONNECTION_EX;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_PORT_0(pub *mut RAS_PORT_0);
+pub type PRAS_PORT_0 = *mut RAS_PORT_0;
 #[cfg(feature = "winnt")]
-impl PRAS_PORT_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PRAS_PORT_1 = *mut RAS_PORT_1;
 #[cfg(feature = "winnt")]
-impl Default for PRAS_PORT_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_PORT_1(pub *mut RAS_PORT_1);
-#[cfg(feature = "winnt")]
-impl PRAS_PORT_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRAS_PORT_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_PORT_2(pub *mut RAS_PORT_2);
-#[cfg(feature = "winnt")]
-impl PRAS_PORT_2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRAS_PORT_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_UPDATE_CONNECTION(pub *mut RAS_UPDATE_CONNECTION);
-impl PRAS_UPDATE_CONNECTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRAS_UPDATE_CONNECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_USER_0(pub *mut RAS_USER_0);
-impl PRAS_USER_0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRAS_USER_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRAS_USER_1(pub *mut RAS_USER_1);
-impl PRAS_USER_1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRAS_USER_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRAS_PORT_2 = *mut RAS_PORT_2;
+pub type PRAS_UPDATE_CONNECTION = *mut RAS_UPDATE_CONNECTION;
+pub type PRAS_USER_0 = *mut RAS_USER_0;
+pub type PRAS_USER_1 = *mut RAS_USER_1;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROJECTION_INFO {
@@ -2601,128 +1833,20 @@ impl Default for PROJECTION_INFO2_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROUTER_CUSTOM_IKEv2_POLICY0(pub *mut ROUTER_CUSTOM_IKEv2_POLICY0);
-impl PROUTER_CUSTOM_IKEv2_POLICY0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PROUTER_CUSTOM_IKEv2_POLICY0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROUTER_CUSTOM_L2TP_POLICY0(pub *mut ROUTER_CUSTOM_IKEv2_POLICY0);
-impl PROUTER_CUSTOM_L2TP_POLICY0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PROUTER_CUSTOM_L2TP_POLICY0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PROUTER_CUSTOM_IKEv2_POLICY0 = *mut ROUTER_CUSTOM_IKEv2_POLICY0;
+pub type PROUTER_CUSTOM_L2TP_POLICY0 = *mut ROUTER_CUSTOM_IKEv2_POLICY0;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROUTER_IKEv2_IF_CUSTOM_CONFIG0(pub *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG0);
+pub type PROUTER_IKEv2_IF_CUSTOM_CONFIG0 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG0;
 #[cfg(feature = "wincrypt")]
-impl PROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROUTER_IKEv2_IF_CUSTOM_CONFIG1(pub *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG1);
-#[cfg(feature = "wincrypt")]
-impl PROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PROUTER_IKEv2_IF_CUSTOM_CONFIG1 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG1;
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROUTER_IKEv2_IF_CUSTOM_CONFIG2(pub *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG2);
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-impl PROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-impl Default for PROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PROUTER_IKEv2_IF_CUSTOM_CONFIG2 = *mut ROUTER_IKEv2_IF_CUSTOM_CONFIG2;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSSTP_CERT_INFO(pub *mut SSTP_CERT_INFO);
+pub type PSSTP_CERT_INFO = *mut SSTP_CERT_INFO;
 #[cfg(feature = "wincrypt")]
-impl PSSTP_CERT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSSTP_CERT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSSTP_CONFIG_PARAMS(pub *mut SSTP_CONFIG_PARAMS);
-#[cfg(feature = "wincrypt")]
-impl PSSTP_CONFIG_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSSTP_CONFIG_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSSTP_CONFIG_PARAMS = *mut SSTP_CONFIG_PARAMS;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVPN_TS_IP_ADDRESS(pub *mut VPN_TS_IP_ADDRESS);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PVPN_TS_IP_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PVPN_TS_IP_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVPN_TS_IP_ADDRESS = *mut VPN_TS_IP_ADDRESS;
 pub const RASPRIV2_DialinPolicy: u32 = 1;
 pub const RASPRIV_AdminSetCallback: u32 = 2;
 pub const RASPRIV_CallbackType: u32 = 7;
@@ -2986,9 +2110,7 @@ pub const RAS_QUAR_STATE_NOT_CAPABLE: RAS_QUARANTINE_STATE = 3;
 pub const RAS_QUAR_STATE_PROBATION: RAS_QUARANTINE_STATE = 2;
 pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RAS_SERVER_HANDLE(pub super::winnt::HANDLE);
+pub type RAS_SERVER_HANDLE = super::winnt::HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RAS_UPDATE_CONNECTION {

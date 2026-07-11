@@ -60,21 +60,7 @@ pub const CRYPTPROTECT_PROMPT_STRONG: u32 = 8;
 pub const CRYPTPROTECT_UI_FORBIDDEN: u32 = 1;
 pub const CRYPTPROTECT_VERIFY_PROTECTION: u32 = 64;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPTPROTECT_PROMPTSTRUCT(pub *mut CRYPTPROTECT_PROMPTSTRUCT);
-#[cfg(feature = "windef")]
-impl PCRYPTPROTECT_PROMPTSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCRYPTPROTECT_PROMPTSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPTPROTECT_PROMPTSTRUCT = *mut CRYPTPROTECT_PROMPTSTRUCT;
 pub const dwFORCE_KEY_PROTECTION_DISABLED: u32 = 0;
 pub const dwFORCE_KEY_PROTECTION_HIGH: u32 = 2;
 pub const dwFORCE_KEY_PROTECTION_USER_SELECT: u32 = 1;

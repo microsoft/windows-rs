@@ -585,32 +585,8 @@ pub const EMBDHLP_DELAYCREATE: u32 = 65536;
 pub const EMBDHLP_INPROC_HANDLER: u32 = 0;
 pub const EMBDHLP_INPROC_SERVER: u32 = 1;
 pub const E_DRAW: i32 = -2147221184;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLESTREAM(pub *mut OLESTREAM);
-impl LPOLESTREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLESTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLESTREAMVTBL(pub *mut OLESTREAMVTBL);
-impl LPOLESTREAMVTBL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLESTREAMVTBL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOLESTREAM = *mut OLESTREAM;
+pub type LPOLESTREAMVTBL = *mut OLESTREAMVTBL;
 pub const OLECREATE_LEAVERUNNING: u32 = 1;
 pub const OLEIVERB_DISCARDUNDOSTATE: i32 = -6;
 pub const OLEIVERB_HIDE: i32 = -3;

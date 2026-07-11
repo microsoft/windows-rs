@@ -154,58 +154,10 @@ impl Default for HMETAFILEPICT {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBSTR(pub *mut windows_core::BSTR);
-impl LPBSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBSTRBLOB(pub *mut BSTRBLOB);
-impl LPBSTRBLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBSTRBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCY(pub *mut CY);
-impl LPCY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDECIMAL(pub *mut DECIMAL);
-impl LPDECIMAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDECIMAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBSTR = *mut windows_core::BSTR;
+pub type LPBSTRBLOB = *mut BSTRBLOB;
+pub type LPCY = *mut CY;
+pub type LPDECIMAL = *mut DECIMAL;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROPERTYKEY {
@@ -676,244 +628,26 @@ impl Default for userHPALETTE_0 {
     }
 }
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireBSTR(pub *mut super::wtypesbase::FLAGGED_WORD_BLOB);
-#[cfg(feature = "wtypesbase")]
-impl wireBSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for wireBSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireCLIPFORMAT(pub *mut userCLIPFORMAT);
-impl wireCLIPFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireCLIPFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHACCEL(pub *mut RemotableHandle);
-impl wireHACCEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHACCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireBSTR = *mut super::wtypesbase::FLAGGED_WORD_BLOB;
+pub type wireCLIPFORMAT = *mut userCLIPFORMAT;
+pub type wireHACCEL = *mut RemotableHandle;
 #[cfg(feature = "rpc")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHBITMAP(pub *mut userHBITMAP);
-#[cfg(feature = "rpc")]
-impl wireHBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "rpc")]
-impl Default for wireHBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHBRUSH(pub *mut RemotableHandle);
-impl wireHBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHDC(pub *mut RemotableHandle);
-impl wireHDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHDC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireHBITMAP = *mut userHBITMAP;
+pub type wireHBRUSH = *mut RemotableHandle;
+pub type wireHDC = *mut RemotableHandle;
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHENHMETAFILE(pub *mut userHENHMETAFILE);
+pub type wireHENHMETAFILE = *mut userHENHMETAFILE;
+pub type wireHFONT = *mut RemotableHandle;
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl wireHENHMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type wireHGLOBAL = *mut userHGLOBAL;
+pub type wireHICON = *mut RemotableHandle;
+pub type wireHMENU = *mut RemotableHandle;
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for wireHENHMETAFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHFONT(pub *mut RemotableHandle);
-impl wireHFONT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHFONT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireHMETAFILE = *mut userHMETAFILE;
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHGLOBAL(pub *mut userHGLOBAL);
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl wireHGLOBAL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for wireHGLOBAL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHICON(pub *mut RemotableHandle);
-impl wireHICON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHICON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHMENU(pub *mut RemotableHandle);
-impl wireHMENU {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHMENU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHMETAFILE(pub *mut userHMETAFILE);
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl wireHMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for wireHMETAFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHMETAFILEPICT(pub *mut userHMETAFILEPICT);
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl wireHMETAFILEPICT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-impl Default for wireHMETAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHMONITOR(pub *mut RemotableHandle);
-impl wireHMONITOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHMONITOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireHMETAFILEPICT = *mut userHMETAFILEPICT;
+pub type wireHMONITOR = *mut RemotableHandle;
 #[cfg(feature = "wingdi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHPALETTE(pub *mut userHPALETTE);
-#[cfg(feature = "wingdi")]
-impl wireHPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wingdi")]
-impl Default for wireHPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHRGN(pub *mut RemotableHandle);
-impl wireHRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireHWND(pub *mut RemotableHandle);
-impl wireHWND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireHWND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireHPALETTE = *mut userHPALETTE;
+pub type wireHRGN = *mut RemotableHandle;
+pub type wireHWND = *mut RemotableHandle;

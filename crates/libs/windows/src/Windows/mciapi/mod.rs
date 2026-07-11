@@ -120,670 +120,84 @@ pub unsafe fn mciSetYieldProc(mciid: MCIDEVICEID, fpyieldproc: YIELDPROC, dwyiel
     unsafe { mciSetYieldProc(mciid, fpyieldproc, dwyielddata) }
 }
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_ANIM_OPEN_PARMS(pub LPMCI_ANIM_OPEN_PARMSA);
+pub type LPMCI_ANIM_OPEN_PARMS = LPMCI_ANIM_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_OPEN_PARMSA(pub *mut MCI_ANIM_OPEN_PARMSA);
+pub type LPMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+pub type LPMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+pub type LPMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_OPEN_PARMSW(pub *mut MCI_ANIM_OPEN_PARMSW);
+pub type LPMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_ANIM_WINDOW_PARMS = LPMCI_ANIM_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_PLAY_PARMS(pub *mut MCI_ANIM_PLAY_PARMS);
-impl LPMCI_ANIM_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_ANIM_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_RECT_PARMS(pub *mut MCI_ANIM_RECT_PARMS);
+pub type LPMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_RECT_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+pub type LPMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+pub type LPMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
+pub type LPMCI_INFO_PARMS = LPMCI_INFO_PARMSA;
+pub type LPMCI_INFO_PARMSA = *mut MCI_INFO_PARMSA;
+pub type LPMCI_INFO_PARMSW = *mut MCI_INFO_PARMSW;
+pub type LPMCI_LOAD_PARMS = LPMCI_LOAD_PARMSA;
+pub type LPMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+pub type LPMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
+pub type LPMCI_OPEN_PARMS = LPMCI_OPEN_PARMSA;
+pub type LPMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+pub type LPMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_STEP_PARMS(pub *mut MCI_ANIM_STEP_PARMS);
-impl LPMCI_ANIM_STEP_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_ANIM_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_OVLY_LOAD_PARMS = LPMCI_OVLY_LOAD_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_UPDATE_PARMS(pub *mut MCI_ANIM_UPDATE_PARMS);
+pub type LPMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_UPDATE_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_UPDATE_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_OVLY_OPEN_PARMS = LPMCI_OVLY_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_ANIM_WINDOW_PARMS(pub LPMCI_ANIM_WINDOW_PARMSA);
+pub type LPMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_WINDOW_PARMSA(pub *mut MCI_ANIM_WINDOW_PARMSA);
+pub type LPMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_WINDOW_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_OVLY_SAVE_PARMS = LPMCI_OVLY_SAVE_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_ANIM_WINDOW_PARMSW(pub *mut MCI_ANIM_WINDOW_PARMSW);
+pub type LPMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
 #[cfg(feature = "windef")]
-impl LPMCI_ANIM_WINDOW_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for LPMCI_ANIM_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_OVLY_WINDOW_PARMS = LPMCI_OVLY_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_BREAK_PARMS(pub *mut MCI_BREAK_PARMS);
+pub type LPMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-impl LPMCI_BREAK_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_BREAK_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_GENERIC_PARMS(pub *mut MCI_GENERIC_PARMS);
-impl LPMCI_GENERIC_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_GENERIC_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_GETDEVCAPS_PARMS(pub *mut MCI_GETDEVCAPS_PARMS);
-impl LPMCI_GETDEVCAPS_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_GETDEVCAPS_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_INFO_PARMS(pub LPMCI_INFO_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_INFO_PARMSA(pub *mut MCI_INFO_PARMSA);
-impl LPMCI_INFO_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_INFO_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_INFO_PARMSW(pub *mut MCI_INFO_PARMSW);
-impl LPMCI_INFO_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_INFO_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_LOAD_PARMS(pub LPMCI_LOAD_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_LOAD_PARMSA(pub *mut MCI_LOAD_PARMSA);
-impl LPMCI_LOAD_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_LOAD_PARMSW(pub *mut MCI_LOAD_PARMSW);
-impl LPMCI_LOAD_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_OPEN_PARMS(pub LPMCI_OPEN_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OPEN_PARMSA(pub *mut MCI_OPEN_PARMSA);
-impl LPMCI_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OPEN_PARMSW(pub *mut MCI_OPEN_PARMSW);
-impl LPMCI_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_OVLY_LOAD_PARMS(pub LPMCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_LOAD_PARMSA(pub *mut MCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_LOAD_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_LOAD_PARMSW(pub *mut MCI_OVLY_LOAD_PARMSW);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_LOAD_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_OVLY_OPEN_PARMS(pub LPMCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_OPEN_PARMSA(pub *mut MCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_OPEN_PARMSW(pub *mut MCI_OVLY_OPEN_PARMSW);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_RECT_PARMS(pub *mut MCI_OVLY_RECT_PARMS);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_RECT_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_OVLY_SAVE_PARMS(pub LPMCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_SAVE_PARMSA(pub *mut MCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_SAVE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_SAVE_PARMSW(pub *mut MCI_OVLY_SAVE_PARMSW);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_SAVE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_OVLY_WINDOW_PARMS(pub LPMCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_WINDOW_PARMSA(pub *mut MCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_WINDOW_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_OVLY_WINDOW_PARMSW(pub *mut MCI_OVLY_WINDOW_PARMSW);
-#[cfg(feature = "windef")]
-impl LPMCI_OVLY_WINDOW_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMCI_OVLY_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_PLAY_PARMS(pub *mut MCI_PLAY_PARMS);
-impl LPMCI_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_RECORD_PARMS(pub *mut MCI_RECORD_PARMS);
-impl LPMCI_RECORD_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_RECORD_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_SAVE_PARMS(pub LPMCI_SAVE_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SAVE_PARMSA(pub *mut MCI_SAVE_PARMSA);
-impl LPMCI_SAVE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SAVE_PARMSW(pub *mut MCI_SAVE_PARMSW);
-impl LPMCI_SAVE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SEEK_PARMS(pub *mut MCI_SEEK_PARMS);
-impl LPMCI_SEEK_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SEEK_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SEQ_SET_PARMS(pub *mut MCI_SEQ_SET_PARMS);
-impl LPMCI_SEQ_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SEQ_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SET_PARMS(pub *mut MCI_SET_PARMS);
-impl LPMCI_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_STATUS_PARMS(pub *mut MCI_STATUS_PARMS);
-impl LPMCI_STATUS_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_STATUS_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_SYSINFO_PARMS(pub LPMCI_SYSINFO_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SYSINFO_PARMSA(pub *mut MCI_SYSINFO_PARMSA);
-impl LPMCI_SYSINFO_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SYSINFO_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_SYSINFO_PARMSW(pub *mut MCI_SYSINFO_PARMSW);
-impl LPMCI_SYSINFO_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_SYSINFO_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_VD_ESCAPE_PARMS(pub LPMCI_VD_ESCAPE_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_VD_ESCAPE_PARMSA(pub *mut MCI_VD_ESCAPE_PARMSA);
-impl LPMCI_VD_ESCAPE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_VD_ESCAPE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_VD_ESCAPE_PARMSW(pub *mut MCI_VD_ESCAPE_PARMSW);
-impl LPMCI_VD_ESCAPE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_VD_ESCAPE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_VD_PLAY_PARMS(pub *mut MCI_VD_PLAY_PARMS);
-impl LPMCI_VD_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_VD_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_VD_STEP_PARMS(pub *mut MCI_VD_STEP_PARMS);
-impl LPMCI_VD_STEP_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_VD_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_WAVE_DELETE_PARMS(pub *mut MCI_WAVE_DELETE_PARMS);
-impl LPMCI_WAVE_DELETE_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_WAVE_DELETE_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMCI_WAVE_OPEN_PARMS(pub LPMCI_WAVE_OPEN_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_WAVE_OPEN_PARMSA(pub *mut MCI_WAVE_OPEN_PARMSA);
-impl LPMCI_WAVE_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_WAVE_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_WAVE_OPEN_PARMSW(pub *mut MCI_WAVE_OPEN_PARMSW);
-impl LPMCI_WAVE_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_WAVE_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMCI_WAVE_SET_PARMS(pub *mut MCI_WAVE_SET_PARMS);
-impl LPMCI_WAVE_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMCI_WAVE_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+pub type LPMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
+pub type LPMCI_RECORD_PARMS = *mut MCI_RECORD_PARMS;
+pub type LPMCI_SAVE_PARMS = LPMCI_SAVE_PARMSA;
+pub type LPMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+pub type LPMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+pub type LPMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+pub type LPMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+pub type LPMCI_SET_PARMS = *mut MCI_SET_PARMS;
+pub type LPMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
+pub type LPMCI_SYSINFO_PARMS = LPMCI_SYSINFO_PARMSA;
+pub type LPMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+pub type LPMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
+pub type LPMCI_VD_ESCAPE_PARMS = LPMCI_VD_ESCAPE_PARMSA;
+pub type LPMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+pub type LPMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+pub type LPMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+pub type LPMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+pub type LPMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
+pub type LPMCI_WAVE_OPEN_PARMS = LPMCI_WAVE_OPEN_PARMSA;
+pub type LPMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+pub type LPMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+pub type LPMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct MCIDEVICEID(pub u32);
@@ -1517,626 +931,78 @@ pub const MCI_WAVE_STATUS_SAMPLESPERSEC: u32 = 16387;
 pub const MCI_WHERE: u32 = 2115;
 pub const MCI_WINDOW: u32 = 2113;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_ANIM_OPEN_PARMS(pub PMCI_ANIM_OPEN_PARMSA);
+pub type PMCI_ANIM_OPEN_PARMS = PMCI_ANIM_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_OPEN_PARMSA(pub *mut MCI_ANIM_OPEN_PARMSA);
+pub type PMCI_ANIM_OPEN_PARMSA = *mut MCI_ANIM_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_ANIM_OPEN_PARMSW = *mut MCI_ANIM_OPEN_PARMSW;
+pub type PMCI_ANIM_PLAY_PARMS = *mut MCI_ANIM_PLAY_PARMS;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_ANIM_RECT_PARMS = *mut MCI_ANIM_RECT_PARMS;
+pub type PMCI_ANIM_STEP_PARMS = *mut MCI_ANIM_STEP_PARMS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_OPEN_PARMSW(pub *mut MCI_ANIM_OPEN_PARMSW);
+pub type PMCI_ANIM_UPDATE_PARMS = *mut MCI_ANIM_UPDATE_PARMS;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_ANIM_WINDOW_PARMS = PMCI_ANIM_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_PLAY_PARMS(pub *mut MCI_ANIM_PLAY_PARMS);
-impl PMCI_ANIM_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_ANIM_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_ANIM_WINDOW_PARMSA = *mut MCI_ANIM_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_RECT_PARMS(pub *mut MCI_ANIM_RECT_PARMS);
+pub type PMCI_ANIM_WINDOW_PARMSW = *mut MCI_ANIM_WINDOW_PARMSW;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_RECT_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_BREAK_PARMS = *mut MCI_BREAK_PARMS;
+pub type PMCI_GENERIC_PARMS = *mut MCI_GENERIC_PARMS;
+pub type PMCI_GETDEVCAPS_PARMS = *mut MCI_GETDEVCAPS_PARMS;
+pub type PMCI_LOAD_PARMS = PMCI_LOAD_PARMSA;
+pub type PMCI_LOAD_PARMSA = *mut MCI_LOAD_PARMSA;
+pub type PMCI_LOAD_PARMSW = *mut MCI_LOAD_PARMSW;
+pub type PMCI_OPEN_PARMS = PMCI_OPEN_PARMSA;
+pub type PMCI_OPEN_PARMSA = *mut MCI_OPEN_PARMSA;
+pub type PMCI_OPEN_PARMSW = *mut MCI_OPEN_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_STEP_PARMS(pub *mut MCI_ANIM_STEP_PARMS);
-impl PMCI_ANIM_STEP_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_ANIM_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_OVLY_LOAD_PARMS = PMCI_OVLY_LOAD_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_UPDATE_PARMS(pub *mut MCI_ANIM_UPDATE_PARMS);
+pub type PMCI_OVLY_LOAD_PARMSA = *mut MCI_OVLY_LOAD_PARMSA;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_UPDATE_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_OVLY_LOAD_PARMSW = *mut MCI_OVLY_LOAD_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_UPDATE_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_OVLY_OPEN_PARMS = PMCI_OVLY_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_ANIM_WINDOW_PARMS(pub PMCI_ANIM_WINDOW_PARMSA);
+pub type PMCI_OVLY_OPEN_PARMSA = *mut MCI_OVLY_OPEN_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_WINDOW_PARMSA(pub *mut MCI_ANIM_WINDOW_PARMSA);
+pub type PMCI_OVLY_OPEN_PARMSW = *mut MCI_OVLY_OPEN_PARMSW;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_WINDOW_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_OVLY_RECT_PARMS = *mut MCI_OVLY_RECT_PARMS;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_OVLY_SAVE_PARMS = PMCI_OVLY_SAVE_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_ANIM_WINDOW_PARMSW(pub *mut MCI_ANIM_WINDOW_PARMSW);
+pub type PMCI_OVLY_SAVE_PARMSA = *mut MCI_OVLY_SAVE_PARMSA;
 #[cfg(feature = "windef")]
-impl PMCI_ANIM_WINDOW_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMCI_OVLY_SAVE_PARMSW = *mut MCI_OVLY_SAVE_PARMSW;
 #[cfg(feature = "windef")]
-impl Default for PMCI_ANIM_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_OVLY_WINDOW_PARMS = PMCI_OVLY_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_BREAK_PARMS(pub *mut MCI_BREAK_PARMS);
+pub type PMCI_OVLY_WINDOW_PARMSA = *mut MCI_OVLY_WINDOW_PARMSA;
 #[cfg(feature = "windef")]
-impl PMCI_BREAK_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_BREAK_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_GENERIC_PARMS(pub *mut MCI_GENERIC_PARMS);
-impl PMCI_GENERIC_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_GENERIC_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_GETDEVCAPS_PARMS(pub *mut MCI_GETDEVCAPS_PARMS);
-impl PMCI_GETDEVCAPS_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_GETDEVCAPS_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_LOAD_PARMS(pub PMCI_LOAD_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_LOAD_PARMSA(pub *mut MCI_LOAD_PARMSA);
-impl PMCI_LOAD_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_LOAD_PARMSW(pub *mut MCI_LOAD_PARMSW);
-impl PMCI_LOAD_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_OPEN_PARMS(pub PMCI_OPEN_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OPEN_PARMSA(pub *mut MCI_OPEN_PARMSA);
-impl PMCI_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OPEN_PARMSW(pub *mut MCI_OPEN_PARMSW);
-impl PMCI_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_OVLY_LOAD_PARMS(pub PMCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_LOAD_PARMSA(pub *mut MCI_OVLY_LOAD_PARMSA);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_LOAD_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_LOAD_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_LOAD_PARMSW(pub *mut MCI_OVLY_LOAD_PARMSW);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_LOAD_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_LOAD_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_OVLY_OPEN_PARMS(pub PMCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_OPEN_PARMSA(pub *mut MCI_OVLY_OPEN_PARMSA);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_OPEN_PARMSW(pub *mut MCI_OVLY_OPEN_PARMSW);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_RECT_PARMS(pub *mut MCI_OVLY_RECT_PARMS);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_RECT_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_RECT_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_OVLY_SAVE_PARMS(pub PMCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_SAVE_PARMSA(pub *mut MCI_OVLY_SAVE_PARMSA);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_SAVE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_SAVE_PARMSW(pub *mut MCI_OVLY_SAVE_PARMSW);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_SAVE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_OVLY_WINDOW_PARMS(pub PMCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_WINDOW_PARMSA(pub *mut MCI_OVLY_WINDOW_PARMSA);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_WINDOW_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_WINDOW_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_OVLY_WINDOW_PARMSW(pub *mut MCI_OVLY_WINDOW_PARMSW);
-#[cfg(feature = "windef")]
-impl PMCI_OVLY_WINDOW_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMCI_OVLY_WINDOW_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_PLAY_PARMS(pub *mut MCI_PLAY_PARMS);
-impl PMCI_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_SAVE_PARMS(pub PMCI_SAVE_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SAVE_PARMSA(pub *mut MCI_SAVE_PARMSA);
-impl PMCI_SAVE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SAVE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SAVE_PARMSW(pub *mut MCI_SAVE_PARMSW);
-impl PMCI_SAVE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SAVE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SEEK_PARMS(pub *mut MCI_SEEK_PARMS);
-impl PMCI_SEEK_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SEEK_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SEQ_SET_PARMS(pub *mut MCI_SEQ_SET_PARMS);
-impl PMCI_SEQ_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SEQ_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SET_PARMS(pub *mut MCI_SET_PARMS);
-impl PMCI_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_STATUS_PARMS(pub *mut MCI_STATUS_PARMS);
-impl PMCI_STATUS_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_STATUS_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_SYSINFO_PARMS(pub PMCI_SYSINFO_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SYSINFO_PARMSA(pub *mut MCI_SYSINFO_PARMSA);
-impl PMCI_SYSINFO_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SYSINFO_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_SYSINFO_PARMSW(pub *mut MCI_SYSINFO_PARMSW);
-impl PMCI_SYSINFO_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_SYSINFO_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_VD_ESCAPE_PARMS(pub PMCI_VD_ESCAPE_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_VD_ESCAPE_PARMSA(pub *mut MCI_VD_ESCAPE_PARMSA);
-impl PMCI_VD_ESCAPE_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_VD_ESCAPE_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_VD_ESCAPE_PARMSW(pub *mut MCI_VD_ESCAPE_PARMSW);
-impl PMCI_VD_ESCAPE_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_VD_ESCAPE_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_VD_PLAY_PARMS(pub *mut MCI_VD_PLAY_PARMS);
-impl PMCI_VD_PLAY_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_VD_PLAY_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_VD_STEP_PARMS(pub *mut MCI_VD_STEP_PARMS);
-impl PMCI_VD_STEP_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_VD_STEP_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_WAVE_DELETE_PARMS(pub *mut MCI_WAVE_DELETE_PARMS);
-impl PMCI_WAVE_DELETE_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_WAVE_DELETE_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMCI_WAVE_OPEN_PARMS(pub PMCI_WAVE_OPEN_PARMSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_WAVE_OPEN_PARMSA(pub *mut MCI_WAVE_OPEN_PARMSA);
-impl PMCI_WAVE_OPEN_PARMSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_WAVE_OPEN_PARMSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_WAVE_OPEN_PARMSW(pub *mut MCI_WAVE_OPEN_PARMSW);
-impl PMCI_WAVE_OPEN_PARMSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_WAVE_OPEN_PARMSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMCI_WAVE_SET_PARMS(pub *mut MCI_WAVE_SET_PARMS);
-impl PMCI_WAVE_SET_PARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMCI_WAVE_SET_PARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMCI_OVLY_WINDOW_PARMSW = *mut MCI_OVLY_WINDOW_PARMSW;
+pub type PMCI_PLAY_PARMS = *mut MCI_PLAY_PARMS;
+pub type PMCI_SAVE_PARMS = PMCI_SAVE_PARMSA;
+pub type PMCI_SAVE_PARMSA = *mut MCI_SAVE_PARMSA;
+pub type PMCI_SAVE_PARMSW = *mut MCI_SAVE_PARMSW;
+pub type PMCI_SEEK_PARMS = *mut MCI_SEEK_PARMS;
+pub type PMCI_SEQ_SET_PARMS = *mut MCI_SEQ_SET_PARMS;
+pub type PMCI_SET_PARMS = *mut MCI_SET_PARMS;
+pub type PMCI_STATUS_PARMS = *mut MCI_STATUS_PARMS;
+pub type PMCI_SYSINFO_PARMS = PMCI_SYSINFO_PARMSA;
+pub type PMCI_SYSINFO_PARMSA = *mut MCI_SYSINFO_PARMSA;
+pub type PMCI_SYSINFO_PARMSW = *mut MCI_SYSINFO_PARMSW;
+pub type PMCI_VD_ESCAPE_PARMS = PMCI_VD_ESCAPE_PARMSA;
+pub type PMCI_VD_ESCAPE_PARMSA = *mut MCI_VD_ESCAPE_PARMSA;
+pub type PMCI_VD_ESCAPE_PARMSW = *mut MCI_VD_ESCAPE_PARMSW;
+pub type PMCI_VD_PLAY_PARMS = *mut MCI_VD_PLAY_PARMS;
+pub type PMCI_VD_STEP_PARMS = *mut MCI_VD_STEP_PARMS;
+pub type PMCI_WAVE_DELETE_PARMS = *mut MCI_WAVE_DELETE_PARMS;
+pub type PMCI_WAVE_OPEN_PARMS = PMCI_WAVE_OPEN_PARMSA;
+pub type PMCI_WAVE_OPEN_PARMSA = *mut MCI_WAVE_OPEN_PARMSA;
+pub type PMCI_WAVE_OPEN_PARMSW = *mut MCI_WAVE_OPEN_PARMSW;
+pub type PMCI_WAVE_SET_PARMS = *mut MCI_WAVE_SET_PARMS;
 pub type YIELDPROC = Option<unsafe extern "system" fn(mciid: MCIDEVICEID, dwyielddata: u32) -> u32>;

@@ -299,53 +299,11 @@ pub const GUID_YSIZE: windows_core::GUID = windows_core::GUID::from_u128(0x66504
 pub const GUID_YSIZEPIXEL: windows_core::GUID = windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
 pub const IID_IPropertyFrame: windows_core::GUID = windows_core::GUID::from_u128(0xb196b28a_bab4_101a_b69c_00aa00341d07);
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFONTDESC(pub *mut FONTDESC);
-#[cfg(feature = "wtypes")]
-impl LPFONTDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypes")]
-impl Default for LPFONTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFONTDESC = *mut FONTDESC;
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOCPFIPARAMS(pub *mut OCPFIPARAMS);
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-impl LPOCPFIPARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-impl Default for LPOCPFIPARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOCPFIPARAMS = *mut OCPFIPARAMS;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPICTDESC(pub *mut PICTDESC);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPPICTDESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPPICTDESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPICTDESC = *mut PICTDESC;
 pub const LP_COLOR: u32 = 4;
 pub const LP_DEFAULT: u32 = 0;
 pub const LP_MONOCHROME: u32 = 1;
@@ -402,17 +360,11 @@ pub const OLEMISC_NOUIACTIVATE: u32 = 16384;
 pub const OLEMISC_SETCLIENTSITEFIRST: u32 = 131072;
 pub const OLEMISC_SIMPLEFRAME: u32 = 65536;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_CANCELBOOL(pub super::wtypes::VARIANT_BOOL);
+pub type OLE_CANCELBOOL = super::wtypes::VARIANT_BOOL;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_ENABLEDEFAULTBOOL(pub super::wtypes::VARIANT_BOOL);
+pub type OLE_ENABLEDEFAULTBOOL = super::wtypes::VARIANT_BOOL;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct OLE_OPTEXCLUSIVE(pub super::wtypes::VARIANT_BOOL);
+pub type OLE_OPTEXCLUSIVE = super::wtypes::VARIANT_BOOL;
 pub type OLE_TRISTATE = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

@@ -525,199 +525,35 @@ where
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
     unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCBYTE(pub *const u8);
-impl LPCBYTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCBYTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCBYTE = *const u8;
 pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPOCNCONNPROCA = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: *const core::ffi::c_void) -> SCARDHANDLE>;
 pub type LPOCNCONNPROCW = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: *const core::ffi::c_void) -> SCARDHANDLE>;
 pub type LPOCNDSCPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const core::ffi::c_void)>;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOPENCARDNAME(pub LPOPENCARDNAMEA);
+pub type LPOPENCARDNAME = LPOPENCARDNAMEA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARDNAMEA(pub *mut OPENCARDNAMEA);
+pub type LPOPENCARDNAMEA = *mut OPENCARDNAMEA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl LPOPENCARDNAMEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPOPENCARDNAMEW = *mut OPENCARDNAMEW;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for LPOPENCARDNAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOPENCARDNAME_EX = LPOPENCARDNAME_EXA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARDNAMEW(pub *mut OPENCARDNAMEW);
+pub type LPOPENCARDNAME_EXA = *mut OPENCARDNAME_EXA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl LPOPENCARDNAMEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for LPOPENCARDNAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOPENCARDNAME_EX(pub LPOPENCARDNAME_EXA);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARDNAME_EXA(pub *mut OPENCARDNAME_EXA);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl LPOPENCARDNAME_EXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for LPOPENCARDNAME_EXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARDNAME_EXW(pub *mut OPENCARDNAME_EXW);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl LPOPENCARDNAME_EXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for LPOPENCARDNAME_EXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOPENCARDNAME_EXW = *mut OPENCARDNAME_EXW;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOPENCARD_SEARCH_CRITERIA(pub LPOPENCARD_SEARCH_CRITERIAA);
+pub type LPOPENCARD_SEARCH_CRITERIA = LPOPENCARD_SEARCH_CRITERIAA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARD_SEARCH_CRITERIAA(pub *mut OPENCARD_SEARCH_CRITERIAA);
+pub type LPOPENCARD_SEARCH_CRITERIAA = *mut OPENCARD_SEARCH_CRITERIAA;
 #[cfg(feature = "guiddef")]
-impl LPOPENCARD_SEARCH_CRITERIAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPOPENCARD_SEARCH_CRITERIAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENCARD_SEARCH_CRITERIAW(pub *mut OPENCARD_SEARCH_CRITERIAW);
-#[cfg(feature = "guiddef")]
-impl LPOPENCARD_SEARCH_CRITERIAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPOPENCARD_SEARCH_CRITERIAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARDCONTEXT(pub *mut SCARDCONTEXT);
-impl LPSCARDCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARDCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARDHANDLE(pub *mut SCARDHANDLE);
-impl LPSCARDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARDHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_ATRMASK(pub *mut SCARD_ATRMASK);
-impl LPSCARD_ATRMASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_ATRMASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSCARD_READERSTATE(pub LPSCARD_READERSTATEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_READERSTATEA(pub *mut SCARD_READERSTATEA);
-impl LPSCARD_READERSTATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_READERSTATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_READERSTATEW(pub *mut SCARD_READERSTATEW);
-impl LPSCARD_READERSTATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_READERSTATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOPENCARD_SEARCH_CRITERIAW = *mut OPENCARD_SEARCH_CRITERIAW;
+pub type LPSCARDCONTEXT = *mut SCARDCONTEXT;
+pub type LPSCARDHANDLE = *mut SCARDHANDLE;
+pub type LPSCARD_ATRMASK = *mut SCARD_ATRMASK;
+pub type LPSCARD_READERSTATE = LPSCARD_READERSTATEA;
+pub type LPSCARD_READERSTATEA = *mut SCARD_READERSTATEA;
+pub type LPSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 pub type OPENCARDNAME = OPENCARDNAMEA;
 #[repr(C)]
@@ -899,207 +735,31 @@ impl Default for OPENCARD_SEARCH_CRITERIAW {
     }
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POPENCARDNAME(pub POPENCARDNAMEA);
+pub type POPENCARDNAME = POPENCARDNAMEA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARDNAMEA(pub *mut OPENCARDNAMEA);
+pub type POPENCARDNAMEA = *mut OPENCARDNAMEA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl POPENCARDNAMEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type POPENCARDNAMEW = *mut OPENCARDNAMEW;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for POPENCARDNAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPENCARDNAME_EX = POPENCARDNAME_EXA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARDNAMEW(pub *mut OPENCARDNAMEW);
+pub type POPENCARDNAME_EXA = *mut OPENCARDNAME_EXA;
 #[cfg(all(feature = "guiddef", feature = "windef"))]
-impl POPENCARDNAMEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for POPENCARDNAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POPENCARDNAME_EX(pub POPENCARDNAME_EXA);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARDNAME_EXA(pub *mut OPENCARDNAME_EXA);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl POPENCARDNAME_EXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for POPENCARDNAME_EXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARDNAME_EXW(pub *mut OPENCARDNAME_EXW);
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl POPENCARDNAME_EXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "guiddef", feature = "windef"))]
-impl Default for POPENCARDNAME_EXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPENCARDNAME_EXW = *mut OPENCARDNAME_EXW;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POPENCARD_SEARCH_CRITERIA(pub POPENCARD_SEARCH_CRITERIAA);
+pub type POPENCARD_SEARCH_CRITERIA = POPENCARD_SEARCH_CRITERIAA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARD_SEARCH_CRITERIAA(pub *mut OPENCARD_SEARCH_CRITERIAA);
+pub type POPENCARD_SEARCH_CRITERIAA = *mut OPENCARD_SEARCH_CRITERIAA;
 #[cfg(feature = "guiddef")]
-impl POPENCARD_SEARCH_CRITERIAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for POPENCARD_SEARCH_CRITERIAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPENCARD_SEARCH_CRITERIAW(pub *mut OPENCARD_SEARCH_CRITERIAW);
-#[cfg(feature = "guiddef")]
-impl POPENCARD_SEARCH_CRITERIAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for POPENCARD_SEARCH_CRITERIAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREADER_SEL_REQUEST(pub *mut READER_SEL_REQUEST);
-impl PREADER_SEL_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREADER_SEL_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREADER_SEL_RESPONSE(pub *mut READER_SEL_RESPONSE);
-impl PREADER_SEL_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREADER_SEL_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARDCONTEXT(pub *mut SCARDCONTEXT);
-impl PSCARDCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARDCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARDHANDLE(pub *mut SCARDHANDLE);
-impl PSCARDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARDHANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_ATRMASK(pub *mut SCARD_ATRMASK);
-impl PSCARD_ATRMASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_ATRMASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSCARD_READERSTATE(pub PSCARD_READERSTATEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_READERSTATEA(pub *mut SCARD_READERSTATEA);
-impl PSCARD_READERSTATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_READERSTATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_READERSTATEW(pub *mut SCARD_READERSTATEW);
-impl PSCARD_READERSTATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_READERSTATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPENCARD_SEARCH_CRITERIAW = *mut OPENCARD_SEARCH_CRITERIAW;
+pub type PREADER_SEL_REQUEST = *mut READER_SEL_REQUEST;
+pub type PREADER_SEL_RESPONSE = *mut READER_SEL_RESPONSE;
+pub type PSCARDCONTEXT = *mut SCARDCONTEXT;
+pub type PSCARDHANDLE = *mut SCARDHANDLE;
+pub type PSCARD_ATRMASK = *mut SCARD_ATRMASK;
+pub type PSCARD_READERSTATE = PSCARD_READERSTATEA;
+pub type PSCARD_READERSTATEA = *mut SCARD_READERSTATEA;
+pub type PSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct READER_SEL_REQUEST {

@@ -621,217 +621,35 @@ pub const CredUserProtection: CRED_PROTECTION_TYPE = 1;
 pub const NERR_BASE: u32 = 2100;
 pub const NERR_PasswordExpired: u32 = 2242;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBINARY_BLOB_CREDENTIAL_INFO(pub *mut BINARY_BLOB_CREDENTIAL_INFO);
+pub type PBINARY_BLOB_CREDENTIAL_INFO = *mut BINARY_BLOB_CREDENTIAL_INFO;
+pub type PCERT_CREDENTIAL_INFO = *mut CERT_CREDENTIAL_INFO;
 #[cfg(feature = "minwindef")]
-impl PBINARY_BLOB_CREDENTIAL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCREDENTIAL = PCREDENTIALA;
 #[cfg(feature = "minwindef")]
-impl Default for PBINARY_BLOB_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCERT_CREDENTIAL_INFO(pub *mut CERT_CREDENTIAL_INFO);
-impl PCERT_CREDENTIAL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCERT_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREDENTIALA = *mut CREDENTIALA;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCREDENTIAL(pub PCREDENTIALA);
+pub type PCREDENTIALW = *mut CREDENTIALW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIALA(pub *mut CREDENTIALA);
+pub type PCREDENTIAL_ATTRIBUTE = PCREDENTIAL_ATTRIBUTEA;
 #[cfg(feature = "minwindef")]
-impl PCREDENTIALA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCREDENTIAL_ATTRIBUTEA = *mut CREDENTIAL_ATTRIBUTEA;
 #[cfg(feature = "minwindef")]
-impl Default for PCREDENTIALA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREDENTIAL_ATTRIBUTEW = *mut CREDENTIAL_ATTRIBUTEW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIALW(pub *mut CREDENTIALW);
+pub type PCREDENTIAL_TARGET_INFORMATION = PCREDENTIAL_TARGET_INFORMATIONA;
 #[cfg(feature = "minwindef")]
-impl PCREDENTIALW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCREDENTIAL_TARGET_INFORMATIONA = *mut CREDENTIAL_TARGET_INFORMATIONA;
 #[cfg(feature = "minwindef")]
-impl Default for PCREDENTIALW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCREDENTIAL_ATTRIBUTE(pub PCREDENTIAL_ATTRIBUTEA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIAL_ATTRIBUTEA(pub *mut CREDENTIAL_ATTRIBUTEA);
-#[cfg(feature = "minwindef")]
-impl PCREDENTIAL_ATTRIBUTEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCREDENTIAL_ATTRIBUTEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIAL_ATTRIBUTEW(pub *mut CREDENTIAL_ATTRIBUTEW);
-#[cfg(feature = "minwindef")]
-impl PCREDENTIAL_ATTRIBUTEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCREDENTIAL_ATTRIBUTEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCREDENTIAL_TARGET_INFORMATION(pub PCREDENTIAL_TARGET_INFORMATIONA);
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIAL_TARGET_INFORMATIONA(pub *mut CREDENTIAL_TARGET_INFORMATIONA);
-#[cfg(feature = "minwindef")]
-impl PCREDENTIAL_TARGET_INFORMATIONA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCREDENTIAL_TARGET_INFORMATIONA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDENTIAL_TARGET_INFORMATIONW(pub *mut CREDENTIAL_TARGET_INFORMATIONW);
-#[cfg(feature = "minwindef")]
-impl PCREDENTIAL_TARGET_INFORMATIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCREDENTIAL_TARGET_INFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREDENTIAL_TARGET_INFORMATIONW = *mut CREDENTIAL_TARGET_INFORMATIONW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCREDUI_INFO(pub PCREDUI_INFOA);
+pub type PCREDUI_INFO = PCREDUI_INFOA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDUI_INFOA(pub *mut CREDUI_INFOA);
+pub type PCREDUI_INFOA = *mut CREDUI_INFOA;
 #[cfg(feature = "windef")]
-impl PCREDUI_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCREDUI_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREDUI_INFOW(pub *mut CREDUI_INFOW);
-#[cfg(feature = "windef")]
-impl PCREDUI_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCREDUI_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRED_MARSHAL_TYPE(pub *mut CRED_MARSHAL_TYPE);
-impl PCRED_MARSHAL_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRED_MARSHAL_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRED_PROTECTION_TYPE(pub *mut CRED_PROTECTION_TYPE);
-impl PCRED_PROTECTION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRED_PROTECTION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSERNAME_TARGET_CREDENTIAL_INFO(pub *mut USERNAME_TARGET_CREDENTIAL_INFO);
-impl PUSERNAME_TARGET_CREDENTIAL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUSERNAME_TARGET_CREDENTIAL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREDUI_INFOW = *mut CREDUI_INFOW;
+pub type PCRED_MARSHAL_TYPE = *mut CRED_MARSHAL_TYPE;
+pub type PCRED_PROTECTION_TYPE = *mut CRED_PROTECTION_TYPE;
+pub type PUSERNAME_TARGET_CREDENTIAL_INFO = *mut USERNAME_TARGET_CREDENTIAL_INFO;
 #[cfg(feature = "bcrypt")]
 pub const STATUS_ACCESS_DENIED: super::bcrypt::NTSTATUS = super::bcrypt::NTSTATUS(0xC0000022_u32 as _);
 #[cfg(feature = "bcrypt")]

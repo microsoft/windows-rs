@@ -155,13 +155,13 @@ pub const CPSUIF_UPDATE_PERMISSION: u32 = 1;
 pub const CPSUI_CANCEL: u32 = 0;
 pub const CPSUI_OK: u32 = 1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub const CPSUI_PDLGPAGE_ADVDOCPROP: PDLGPAGE = PDLGPAGE(2 as _);
+pub const CPSUI_PDLGPAGE_ADVDOCPROP: PDLGPAGE = 2 as _;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = PDLGPAGE(1 as _);
+pub const CPSUI_PDLGPAGE_DOCPROP: PDLGPAGE = 1 as _;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = PDLGPAGE(3 as _);
+pub const CPSUI_PDLGPAGE_PRINTERPROP: PDLGPAGE = 3 as _;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-pub const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = PDLGPAGE(4 as _);
+pub const CPSUI_PDLGPAGE_TREEVIEWONLY: PDLGPAGE = 4 as _;
 pub const CPSUI_REBOOTSYSTEM: u32 = 3;
 pub const CPSUI_RESTARTWINDOWS: u32 = 2;
 #[repr(C)]
@@ -850,262 +850,40 @@ pub const OTS_PUSH_ENABLE_ALWAYS: u32 = 128;
 pub const OTS_PUSH_INCL_SETUP_TITLE: u32 = 32;
 pub const OTS_PUSH_NO_DOT_DOT_DOT: u32 = 64;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMPROPSHEETUI(pub *mut COMPROPSHEETUI);
+pub type PCOMPROPSHEETUI = *mut COMPROPSHEETUI;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl PCOMPROPSHEETUI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for PCOMPROPSHEETUI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPSUICBPARAM(pub *mut CPSUICBPARAM);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl PCPSUICBPARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for PCPSUICBPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCPSUICBPARAM = *mut CPSUICBPARAM;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPSUIDATABLOCK(pub *mut CPSUIDATABLOCK);
-#[cfg(feature = "minwindef")]
-impl PCPSUIDATABLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PCPSUIDATABLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCPSUIDATABLOCK = *mut CPSUIDATABLOCK;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDLGPAGE(pub *mut DLGPAGE);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl PDLGPAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for PDLGPAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDLGPAGE = *mut DLGPAGE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTCHKBOX(pub *mut EXTCHKBOX);
-#[cfg(feature = "winnt")]
-impl PEXTCHKBOX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PEXTCHKBOX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXTCHKBOX = *mut EXTCHKBOX;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTPUSH(pub *mut EXTPUSH);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl PEXTPUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for PEXTPUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXTPUSH = *mut EXTPUSH;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PFNCOMPROPSHEET = Option<unsafe extern "system" fn(hcompropsheet: super::winnt::HANDLE, function: u32, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> isize>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PFNPROPSHEETUI = Option<unsafe extern "system" fn(ppsuiinfo: *mut PROPSHEETUI_INFO, lparam: super::minwindef::LPARAM) -> i32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINSERTPSUIPAGE_INFO(pub *mut INSERTPSUIPAGE_INFO);
-impl PINSERTPSUIPAGE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINSERTPSUIPAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINSERTPSUIPAGE_INFO = *mut INSERTPSUIPAGE_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POIEXT(pub *mut OIEXT);
+pub type POIEXT = *mut OIEXT;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl POIEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for POIEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPTCOMBO(pub *mut OPTCOMBO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl POPTCOMBO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for POPTCOMBO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPTCOMBO = *mut OPTCOMBO;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPTITEM(pub *mut OPTITEM);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl POPTITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for POPTITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPTITEM = *mut OPTITEM;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPTPARAM(pub *mut OPTPARAM);
+pub type POPTPARAM = *mut OPTPARAM;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl POPTPARAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for POPTPARAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPTTYPE(pub *mut OPTTYPE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl POPTTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for POPTTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POPTTYPE = *mut OPTTYPE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPSHEETUI_GETICON_INFO(pub *mut PROPSHEETUI_GETICON_INFO);
-#[cfg(feature = "windef")]
-impl PPROPSHEETUI_GETICON_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPROPSHEETUI_GETICON_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROPSHEETUI_GETICON_INFO = *mut PROPSHEETUI_GETICON_INFO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPSHEETUI_INFO(pub *mut PROPSHEETUI_INFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PPROPSHEETUI_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PPROPSHEETUI_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROPSHEETUI_INFO = *mut PROPSHEETUI_INFO;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROPSHEETUI_INFO_HEADER(pub *mut PROPSHEETUI_INFO_HEADER);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl PPROPSHEETUI_INFO_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for PPROPSHEETUI_INFO_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSPINFO(pub *mut PSPINFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PPSPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PPSPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPSPINFO = *mut PSPINFO;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1168,21 +946,7 @@ pub const PROPSHEETUI_REASON_GET_INFO_HEADER: u32 = 1;
 pub const PROPSHEETUI_REASON_INIT: u32 = 0;
 pub const PROPSHEETUI_REASON_SET_RESULT: u32 = 3;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSETRESULT_INFO(pub *mut SETRESULT_INFO);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PSETRESULT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PSETRESULT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSETRESULT_INFO = *mut SETRESULT_INFO;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]

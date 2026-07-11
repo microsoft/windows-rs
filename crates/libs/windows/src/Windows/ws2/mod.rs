@@ -1021,340 +1021,42 @@ pub const IP_UNSPECIFIED_TYPE_OF_SERVICE: i32 = -1;
 pub const IP_USER_MTU: u32 = 76;
 pub const IP_WFP_REDIRECT_CONTEXT: u32 = 70;
 pub const IP_WFP_REDIRECT_RECORDS: u32 = 60;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFO(pub *mut ADDRINFOA);
-impl LPADDRINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADDRINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDRINFO = *mut ADDRINFOA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEX2A(pub *mut ADDRINFOEX2A);
+pub type LPADDRINFOEX2A = *mut ADDRINFOEX2A;
 #[cfg(feature = "guiddef")]
-impl LPADDRINFOEX2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPADDRINFOEX2W = *mut ADDRINFOEX2W;
 #[cfg(feature = "guiddef")]
-impl Default for LPADDRINFOEX2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEX2W(pub *mut ADDRINFOEX2W);
-#[cfg(feature = "guiddef")]
-impl LPADDRINFOEX2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPADDRINFOEX2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEX3(pub *mut ADDRINFOEX3);
-#[cfg(feature = "guiddef")]
-impl LPADDRINFOEX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPADDRINFOEX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDRINFOEX3 = *mut ADDRINFOEX3;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEX4(pub *mut ADDRINFOEX4);
+pub type LPADDRINFOEX4 = *mut ADDRINFOEX4;
 #[cfg(feature = "winnt")]
-impl LPADDRINFOEX4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPADDRINFOEX4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEX5(pub *mut ADDRINFOEX5);
-#[cfg(feature = "winnt")]
-impl LPADDRINFOEX5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPADDRINFOEX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDRINFOEX5 = *mut ADDRINFOEX5;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEXA(pub *mut ADDRINFOEXA);
+pub type LPADDRINFOEXA = *mut ADDRINFOEXA;
 #[cfg(feature = "guiddef")]
-impl LPADDRINFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPADDRINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRINFOEXW(pub *mut ADDRINFOEXW);
-#[cfg(feature = "guiddef")]
-impl LPADDRINFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for LPADDRINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSADDR_INFO(pub *mut CSADDR_INFO);
-impl LPCSADDR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCSADDR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDRINFOEXW = *mut ADDRINFOEXW;
+pub type LPCSADDR_INFO = *mut CSADDR_INFO;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERFACE_INFO(pub *mut INTERFACE_INFO);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl LPINTERFACE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for LPINTERFACE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERFACE_INFO_EX(pub *mut INTERFACE_INFO_EX);
-impl LPINTERFACE_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERFACE_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPINTERFACE_INFO = *mut INTERFACE_INFO;
+pub type LPINTERFACE_INFO_EX = *mut INTERFACE_INFO_EX;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 pub type LPLOOKUPSERVICE_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dwerror: u32, dwbytes: u32, lpoverlapped: *const super::minwinbase::OVERLAPPED)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR(pub *mut SOCKADDR);
-impl LPSOCKADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSOCKADDR = *mut SOCKADDR;
 #[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_IN6(pub *mut SOCKADDR_IN6_LH);
+pub type LPSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
 #[cfg(feature = "in6addr")]
-impl LPSOCKADDR_IN6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
 #[cfg(feature = "in6addr")]
-impl Default for LPSOCKADDR_IN6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_IN6_LH(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "in6addr")]
-impl LPSOCKADDR_IN6_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for LPSOCKADDR_IN6_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_IN6_W2KSP1(pub *mut SOCKADDR_IN6_W2KSP1);
-#[cfg(feature = "in6addr")]
-impl LPSOCKADDR_IN6_W2KSP1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for LPSOCKADDR_IN6_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_STORAGE(pub *mut SOCKADDR_STORAGE);
-impl LPSOCKADDR_STORAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKADDR_STORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_STORAGE_LH(pub *mut SOCKADDR_STORAGE_LH);
-impl LPSOCKADDR_STORAGE_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKADDR_STORAGE_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKADDR_STORAGE_XP(pub *mut SOCKADDR_STORAGE_XP);
-impl LPSOCKADDR_STORAGE_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKADDR_STORAGE_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKET_ADDRESS(pub *mut SOCKET_ADDRESS);
-impl LPSOCKET_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKET_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSOCKET_ADDRESS_LIST(pub *mut SOCKET_ADDRESS_LIST);
-impl LPSOCKET_ADDRESS_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSOCKET_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSABUF(pub *mut WSABUF);
-impl LPWSABUF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSABUF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSACMSGHDR(pub *mut WSACMSGHDR);
-impl LPWSACMSGHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSACMSGHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWSAMSG(pub *mut WSAMSG);
-impl LPWSAMSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWSAMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
+pub type LPSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+pub type LPSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
+pub type LPSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
+pub type LPSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
+pub type LPSOCKET_ADDRESS_LIST = *mut SOCKET_ADDRESS_LIST;
+pub type LPWSABUF = *mut WSABUF;
+pub type LPWSACMSGHDR = *mut WSACMSGHDR;
+pub type LPWSAMSG = *mut WSAMSG;
 pub const MCAST_BLOCK_SOURCE: u32 = 43;
 pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = 1;
 pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = 0;
@@ -1408,916 +1110,106 @@ pub const NS_TCPIP_LOCAL: u32 = 10;
 pub const NS_WINS: u32 = 14;
 pub const NS_WRQ: u32 = 50;
 pub const NS_X500: u32 = 40;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOA(pub *mut ADDRINFOA);
-impl PADDRINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADDRINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOA = *mut ADDRINFOA;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX(pub *mut ADDRINFOEXA);
+pub type PADDRINFOEX = *mut ADDRINFOEXA;
 #[cfg(feature = "guiddef")]
-impl PADDRINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PADDRINFOEX2A = *mut ADDRINFOEX2A;
 #[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOEX2W = *mut ADDRINFOEX2W;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX2A(pub *mut ADDRINFOEX2A);
-#[cfg(feature = "guiddef")]
-impl PADDRINFOEX2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEX2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX2W(pub *mut ADDRINFOEX2W);
-#[cfg(feature = "guiddef")]
-impl PADDRINFOEX2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEX2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX3(pub *mut ADDRINFOEX3);
-#[cfg(feature = "guiddef")]
-impl PADDRINFOEX3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEX3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOEX3 = *mut ADDRINFOEX3;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX4(pub *mut ADDRINFOEX4);
+pub type PADDRINFOEX4 = *mut ADDRINFOEX4;
 #[cfg(feature = "winnt")]
-impl PADDRINFOEX4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PADDRINFOEX5 = *mut ADDRINFOEX5;
 #[cfg(feature = "winnt")]
-impl Default for PADDRINFOEX4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOEX6 = *mut ADDRINFOEX6;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX5(pub *mut ADDRINFOEX5);
-#[cfg(feature = "winnt")]
-impl PADDRINFOEX5 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PADDRINFOEX5 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX6(pub *mut ADDRINFOEX6);
-#[cfg(feature = "winnt")]
-impl PADDRINFOEX6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PADDRINFOEX6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEX7(pub *mut ADDRINFOEX7);
-#[cfg(feature = "winnt")]
-impl PADDRINFOEX7 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PADDRINFOEX7 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOEX7 = *mut ADDRINFOEX7;
 #[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEXA(pub *mut ADDRINFOEXA);
+pub type PADDRINFOEXA = *mut ADDRINFOEXA;
 #[cfg(feature = "guiddef")]
-impl PADDRINFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "guiddef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOEXW(pub *mut ADDRINFOEXW);
-#[cfg(feature = "guiddef")]
-impl PADDRINFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "guiddef")]
-impl Default for PADDRINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOT(pub *mut ADDRINFOA);
-impl PADDRINFOT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADDRINFOT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRINFOW(pub *mut ADDRINFOW);
-impl PADDRINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PADDRINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTHNS_INQUIRYBLOB(pub *mut BTH_QUERY_DEVICE);
-impl PBTHNS_INQUIRYBLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTHNS_INQUIRYBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRINFOEXW = *mut ADDRINFOEXW;
+pub type PADDRINFOT = *mut ADDRINFOA;
+pub type PADDRINFOW = *mut ADDRINFOW;
+pub type PBTHNS_INQUIRYBLOB = *mut BTH_QUERY_DEVICE;
 #[cfg(feature = "bthsdpdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTHNS_RESTRICTIONBLOB(pub *mut BTH_QUERY_SERVICE);
+pub type PBTHNS_RESTRICTIONBLOB = *mut BTH_QUERY_SERVICE;
+#[cfg(all(feature = "minwindef", feature = "winnt"))]
+pub type PBTHNS_SETBLOB = *mut BTH_SET_SERVICE;
+#[cfg(feature = "bthdef")]
+pub type PBTH_INFO_REQ = *mut BTH_INFO_REQ;
+pub type PBTH_INFO_RSP = *mut BTH_INFO_RSP;
+#[cfg(feature = "bthdef")]
+pub type PBTH_PING_REQ = *mut BTH_PING_REQ;
+pub type PBTH_PING_RSP = *mut BTH_PING_RSP;
+pub type PBTH_QUERY_DEVICE = *mut BTH_QUERY_DEVICE;
 #[cfg(feature = "bthsdpdef")]
-impl PBTHNS_RESTRICTIONBLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthsdpdef")]
-impl Default for PBTHNS_RESTRICTIONBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBTH_QUERY_SERVICE = *mut BTH_QUERY_SERVICE;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTHNS_SETBLOB(pub *mut BTH_SET_SERVICE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PBTHNS_SETBLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PBTHNS_SETBLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_INFO_REQ(pub *mut BTH_INFO_REQ);
-#[cfg(feature = "bthdef")]
-impl PBTH_INFO_REQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PBTH_INFO_REQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_INFO_RSP(pub *mut BTH_INFO_RSP);
-impl PBTH_INFO_RSP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_INFO_RSP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_PING_REQ(pub *mut BTH_PING_REQ);
-#[cfg(feature = "bthdef")]
-impl PBTH_PING_REQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PBTH_PING_REQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_PING_RSP(pub *mut BTH_PING_RSP);
-impl PBTH_PING_RSP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_PING_RSP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_QUERY_DEVICE(pub *mut BTH_QUERY_DEVICE);
-impl PBTH_QUERY_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBTH_QUERY_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bthsdpdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_QUERY_SERVICE(pub *mut BTH_QUERY_SERVICE);
-#[cfg(feature = "bthsdpdef")]
-impl PBTH_QUERY_SERVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthsdpdef")]
-impl Default for PBTH_QUERY_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBTH_SET_SERVICE(pub *mut BTH_SET_SERVICE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PBTH_SET_SERVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PBTH_SET_SERVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCMSGHDR(pub *mut WSACMSGHDR);
-impl PCMSGHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCMSGHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCSADDR_INFO(pub *mut CSADDR_INFO);
-impl PCSADDR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCSADDR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_FILTER(pub *mut GROUP_FILTER);
-impl PGROUP_FILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGROUP_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_REQ(pub *mut GROUP_REQ);
-impl PGROUP_REQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGROUP_REQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_SOURCE_REQ(pub *mut GROUP_SOURCE_REQ);
-impl PGROUP_SOURCE_REQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGROUP_SOURCE_REQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBTH_SET_SERVICE = *mut BTH_SET_SERVICE;
+pub type PCMSGHDR = *mut WSACMSGHDR;
+pub type PCSADDR_INFO = *mut CSADDR_INFO;
+pub type PGROUP_FILTER = *mut GROUP_FILTER;
+pub type PGROUP_REQ = *mut GROUP_REQ;
+pub type PGROUP_SOURCE_REQ = *mut GROUP_SOURCE_REQ;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PICMP_ERROR_INFO(pub *mut ICMP_ERROR_INFO);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PICMP_ERROR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PICMP_ERROR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PICMP_ERROR_INFO = *mut ICMP_ERROR_INFO;
 #[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN6_PKTINFO(pub *mut IN6_PKTINFO);
+pub type PIN6_PKTINFO = *mut IN6_PKTINFO;
 #[cfg(feature = "in6addr")]
-impl PIN6_PKTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIN6_PKTINFO_EX = *mut IN6_PKTINFO_EX;
+#[cfg(feature = "inaddr")]
+pub type PIN_PKTINFO = *mut IN_PKTINFO;
+#[cfg(feature = "inaddr")]
+pub type PIN_PKTINFO_EX = *mut IN_PKTINFO_EX;
+pub type PIN_RECVERR = *mut IN_RECVERR;
+pub type PIPROTO = *mut IPPROTO;
 #[cfg(feature = "in6addr")]
-impl Default for PIN6_PKTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN6_PKTINFO_EX(pub *mut IN6_PKTINFO_EX);
-#[cfg(feature = "in6addr")]
-impl PIN6_PKTINFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for PIN6_PKTINFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIPV6_MREQ = *mut IPV6_MREQ;
 #[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN_PKTINFO(pub *mut IN_PKTINFO);
+pub type PIP_MREQ = *mut IP_MREQ;
 #[cfg(feature = "inaddr")]
-impl PIN_PKTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIP_MREQ_SOURCE = *mut IP_MREQ_SOURCE;
 #[cfg(feature = "inaddr")]
-impl Default for PIN_PKTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN_PKTINFO_EX(pub *mut IN_PKTINFO_EX);
-#[cfg(feature = "inaddr")]
-impl PIN_PKTINFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PIN_PKTINFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN_RECVERR(pub *mut IN_RECVERR);
-impl PIN_RECVERR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIN_RECVERR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIPROTO(pub *mut IPPROTO);
-impl PIPROTO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIPROTO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIPV6_MREQ(pub *mut IPV6_MREQ);
-#[cfg(feature = "in6addr")]
-impl PIPV6_MREQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for PIPV6_MREQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_MREQ(pub *mut IP_MREQ);
-#[cfg(feature = "inaddr")]
-impl PIP_MREQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PIP_MREQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_MREQ_SOURCE(pub *mut IP_MREQ_SOURCE);
-#[cfg(feature = "inaddr")]
-impl PIP_MREQ_SOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PIP_MREQ_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_MSFILTER(pub *mut IP_MSFILTER);
-#[cfg(feature = "inaddr")]
-impl PIP_MSFILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PIP_MSFILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_MSFILTER = *mut IP_MSFILTER;
 pub type PMTUD_STATE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPMTUD_STATE(pub *mut PMTUD_STATE);
-impl PPMTUD_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPMTUD_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRFCOMM_COMMAND(pub *mut RFCOMM_COMMAND);
-impl PRFCOMM_COMMAND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRFCOMM_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRFCOMM_MSC_DATA(pub *mut RFCOMM_MSC_DATA);
-impl PRFCOMM_MSC_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRFCOMM_MSC_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRFCOMM_RLS_DATA(pub *mut RFCOMM_RLS_DATA);
-impl PRFCOMM_RLS_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRFCOMM_RLS_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRFCOMM_RPN_DATA(pub *mut RFCOMM_RPN_DATA);
-impl PRFCOMM_RPN_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRFCOMM_RPN_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPMTUD_STATE = *mut PMTUD_STATE;
+pub type PRFCOMM_COMMAND = *mut RFCOMM_COMMAND;
+pub type PRFCOMM_MSC_DATA = *mut RFCOMM_MSC_DATA;
+pub type PRFCOMM_RLS_DATA = *mut RFCOMM_RLS_DATA;
+pub type PRFCOMM_RPN_DATA = *mut RFCOMM_RPN_DATA;
 pub const PROTECTION_LEVEL_DEFAULT: u32 = 4294967295;
 pub const PROTECTION_LEVEL_EDGERESTRICTED: u32 = 20;
 pub const PROTECTION_LEVEL_RESTRICTED: u32 = 30;
 pub const PROTECTION_LEVEL_UNRESTRICTED: u32 = 10;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCOPE_ID(pub *mut SCOPE_ID);
-impl PSCOPE_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCOPE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR(pub *mut SOCKADDR);
-impl PSOCKADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCOPE_ID = *mut SCOPE_ID;
+pub type PSOCKADDR = *mut SOCKADDR;
 #[cfg(feature = "bthdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_BTH(pub *mut SOCKADDR_BTH);
-#[cfg(feature = "bthdef")]
-impl PSOCKADDR_BTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bthdef")]
-impl Default for PSOCKADDR_BTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_DL(pub *mut SOCKADDR_DL);
-impl PSOCKADDR_DL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKADDR_DL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_BTH = *mut SOCKADDR_BTH;
+pub type PSOCKADDR_DL = *mut SOCKADDR_DL;
 #[cfg(feature = "inaddr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_IN(pub *mut SOCKADDR_IN);
-#[cfg(feature = "inaddr")]
-impl PSOCKADDR_IN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "inaddr")]
-impl Default for PSOCKADDR_IN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_IN = *mut SOCKADDR_IN;
 #[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_IN6(pub *mut SOCKADDR_IN6_LH);
+pub type PSOCKADDR_IN6 = *mut SOCKADDR_IN6_LH;
 #[cfg(feature = "in6addr")]
-impl PSOCKADDR_IN6 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PSOCKADDR_IN6_LH = *mut SOCKADDR_IN6_LH;
 #[cfg(feature = "in6addr")]
-impl Default for PSOCKADDR_IN6 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_IN6_PAIR = *mut SOCKADDR_IN6_PAIR;
 #[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_IN6_LH(pub *mut SOCKADDR_IN6_LH);
-#[cfg(feature = "in6addr")]
-impl PSOCKADDR_IN6_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for PSOCKADDR_IN6_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_IN6_PAIR(pub *mut SOCKADDR_IN6_PAIR);
-#[cfg(feature = "in6addr")]
-impl PSOCKADDR_IN6_PAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for PSOCKADDR_IN6_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "in6addr")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_IN6_W2KSP1(pub *mut SOCKADDR_IN6_W2KSP1);
-#[cfg(feature = "in6addr")]
-impl PSOCKADDR_IN6_W2KSP1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "in6addr")]
-impl Default for PSOCKADDR_IN6_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_IN6_W2KSP1 = *mut SOCKADDR_IN6_W2KSP1;
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_INET(pub *mut SOCKADDR_INET);
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl PSOCKADDR_INET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "in6addr", feature = "inaddr"))]
-impl Default for PSOCKADDR_INET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_STORAGE(pub *mut SOCKADDR_STORAGE);
-impl PSOCKADDR_STORAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKADDR_STORAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_STORAGE_LH(pub *mut SOCKADDR_STORAGE_LH);
-impl PSOCKADDR_STORAGE_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKADDR_STORAGE_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKADDR_STORAGE_XP(pub *mut SOCKADDR_STORAGE_XP);
-impl PSOCKADDR_STORAGE_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKADDR_STORAGE_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKET_ADDRESS(pub *mut SOCKET_ADDRESS);
-impl PSOCKET_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKET_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKET_ADDRESS_LIST(pub *mut SOCKET_ADDRESS_LIST);
-impl PSOCKET_ADDRESS_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKET_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKADDR_INET = *mut SOCKADDR_INET;
+pub type PSOCKADDR_STORAGE = *mut SOCKADDR_STORAGE;
+pub type PSOCKADDR_STORAGE_LH = *mut SOCKADDR_STORAGE_LH;
+pub type PSOCKADDR_STORAGE_XP = *mut SOCKADDR_STORAGE_XP;
+pub type PSOCKET_ADDRESS = *mut SOCKET_ADDRESS;
+pub type PSOCKET_ADDRESS_LIST = *mut SOCKET_ADDRESS_LIST;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKET_PROCESSOR_AFFINITY(pub *mut SOCKET_PROCESSOR_AFFINITY);
-#[cfg(feature = "winnt")]
-impl PSOCKET_PROCESSOR_AFFINITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSOCKET_PROCESSOR_AFFINITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSACMSGHDR(pub *mut WSACMSGHDR);
-impl PWSACMSGHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSACMSGHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWSAMSG(pub *mut WSAMSG);
-impl PWSAMSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWSAMSG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOCKET_PROCESSOR_AFFINITY = *mut SOCKET_PROCESSOR_AFFINITY;
+pub type PWSACMSGHDR = *mut WSACMSGHDR;
+pub type PWSAMSG = *mut WSAMSG;
 pub const RFCOMM_CMD_MSC: u32 = 1;
 pub const RFCOMM_CMD_NONE: u32 = 0;
 pub const RFCOMM_CMD_RLS: u32 = 2;

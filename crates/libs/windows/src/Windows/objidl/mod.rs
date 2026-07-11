@@ -3884,128 +3884,20 @@ impl IUrlMon_Vtbl {
 }
 impl windows_core::RuntimeName for IUrlMon {}
 pub const IdleShutdown: ShutdownType = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIND_OPTS(pub *mut BIND_OPTS);
-impl LPBIND_OPTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBIND_OPTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBIND_OPTS = *mut BIND_OPTS;
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIND_OPTS2(pub *mut BIND_OPTS2);
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-impl LPBIND_OPTS2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-impl Default for LPBIND_OPTS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBIND_OPTS2 = *mut BIND_OPTS2;
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBIND_OPTS3(pub *mut BIND_OPTS3);
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-impl LPBIND_OPTS3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-impl Default for LPBIND_OPTS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPBIND_OPTS3 = *mut BIND_OPTS3;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCLIPFORMAT(pub *mut super::wtypes::CLIPFORMAT);
+pub type LPCLIPFORMAT = *mut super::wtypes::CLIPFORMAT;
 #[cfg(feature = "wtypes")]
-impl LPCLIPFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPFORMATETC = *mut FORMATETC;
+pub type LPINTERFACEINFO = *mut INTERFACEINFO;
 #[cfg(feature = "wtypes")]
-impl Default for LPCLIPFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFORMATETC(pub *mut FORMATETC);
-#[cfg(feature = "wtypes")]
-impl LPFORMATETC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypes")]
-impl Default for LPFORMATETC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPINTERFACEINFO(pub *mut INTERFACEINFO);
-impl LPINTERFACEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPINTERFACEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTATDATA(pub *mut STATDATA);
-#[cfg(feature = "wtypes")]
-impl LPSTATDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypes")]
-impl Default for LPSTATDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTATDATA = *mut STATDATA;
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTGMEDIUM(pub *mut STGMEDIUM);
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
-impl LPSTGMEDIUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
-impl Default for LPSTGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTGMEDIUM = *mut STGMEDIUM;
 pub const LibraryApplication: ApplicationType = 1;
 pub type MKRREDUCE = i32;
 pub const MKRREDUCE_ALL: MKRREDUCE = 0;
@@ -4065,19 +3957,7 @@ pub type SERVERCALL = i32;
 pub const SERVERCALL_ISHANDLED: SERVERCALL = 0;
 pub const SERVERCALL_REJECTED: SERVERCALL = 1;
 pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct SNB(pub *mut windows_core::PWSTR);
-impl SNB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for SNB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type SNB = *mut windows_core::PWSTR;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -4200,58 +4080,8 @@ impl Default for userSTGMEDIUM_0_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireASYNC_STGMEDIUM(pub *mut userSTGMEDIUM);
-impl wireASYNC_STGMEDIUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireASYNC_STGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireFLAG_STGMEDIUM(pub *mut userFLAG_STGMEDIUM);
-impl wireFLAG_STGMEDIUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireFLAG_STGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireASYNC_STGMEDIUM = *mut userSTGMEDIUM;
+pub type wireFLAG_STGMEDIUM = *mut userFLAG_STGMEDIUM;
 #[cfg(feature = "wtypesbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireSNB(pub *mut RemSNB);
-#[cfg(feature = "wtypesbase")]
-impl wireSNB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wtypesbase")]
-impl Default for wireSNB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct wireSTGMEDIUM(pub *mut userSTGMEDIUM);
-impl wireSTGMEDIUM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for wireSTGMEDIUM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type wireSNB = *mut RemSNB;
+pub type wireSTGMEDIUM = *mut userSTGMEDIUM;

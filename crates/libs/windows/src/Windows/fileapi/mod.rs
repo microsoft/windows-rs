@@ -842,132 +842,22 @@ pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295;
 pub const INVALID_FILE_SIZE: u32 = 4294967295;
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBY_HANDLE_FILE_INFORMATION(pub *mut BY_HANDLE_FILE_INFORMATION);
+pub type LPBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+pub type LPCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS;
+#[cfg(all(feature = "minwinbase", feature = "winnt"))]
+pub type LPCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
 #[cfg(feature = "minwindef")]
-impl LPBY_HANDLE_FILE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPBY_HANDLE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATEFILE2_EXTENDED_PARAMETERS(pub *mut CREATEFILE2_EXTENDED_PARAMETERS);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl LPCREATEFILE2_EXTENDED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl Default for LPCREATEFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCREATEFILE3_EXTENDED_PARAMETERS(pub *mut CREATEFILE3_EXTENDED_PARAMETERS);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl LPCREATEFILE3_EXTENDED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl Default for LPCREATEFILE3_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWIN32_FILE_ATTRIBUTE_DATA(pub *mut WIN32_FILE_ATTRIBUTE_DATA);
-#[cfg(feature = "minwindef")]
-impl LPWIN32_FILE_ATTRIBUTE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPWIN32_FILE_ATTRIBUTE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWIN32_FILE_ATTRIBUTE_DATA = *mut WIN32_FILE_ATTRIBUTE_DATA;
 pub const OPEN_ALWAYS: u32 = 4;
 pub const OPEN_EXISTING: u32 = 3;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBY_HANDLE_FILE_INFORMATION(pub *mut BY_HANDLE_FILE_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PBY_HANDLE_FILE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PBY_HANDLE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBY_HANDLE_FILE_INFORMATION = *mut BY_HANDLE_FILE_INFORMATION;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREATEFILE2_EXTENDED_PARAMETERS(pub *mut CREATEFILE2_EXTENDED_PARAMETERS);
+pub type PCREATEFILE2_EXTENDED_PARAMETERS = *mut CREATEFILE2_EXTENDED_PARAMETERS;
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl PCREATEFILE2_EXTENDED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl Default for PCREATEFILE2_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCREATEFILE3_EXTENDED_PARAMETERS(pub *mut CREATEFILE3_EXTENDED_PARAMETERS);
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl PCREATEFILE3_EXTENDED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "winnt"))]
-impl Default for PCREATEFILE3_EXTENDED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIN32_FIND_STREAM_DATA(pub *mut WIN32_FIND_STREAM_DATA);
-impl PWIN32_FIND_STREAM_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIN32_FIND_STREAM_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCREATEFILE3_EXTENDED_PARAMETERS = *mut CREATEFILE3_EXTENDED_PARAMETERS;
+pub type PWIN32_FIND_STREAM_DATA = *mut WIN32_FIND_STREAM_DATA;
 pub type STREAM_INFO_LEVELS = i32;
 pub const TRUNCATE_EXISTING: u32 = 5;
 #[repr(C)]

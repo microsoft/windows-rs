@@ -2168,74 +2168,12 @@ pub const MLDETECTF_VALID_NLS: MLCP = 8;
 pub type MLSTR_FLAGS = i32;
 pub const MLSTR_READ: MLSTR_FLAGS = 1;
 pub const MLSTR_WRITE: MLSTR_FLAGS = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIMECPINFO(pub *mut MIMECPINFO);
-impl PMIMECPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIMECPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIMECSETINFO(pub *mut MIMECSETINFO);
-impl PMIMECSETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIMECSETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIMECPINFO = *mut MIMECPINFO;
+pub type PMIMECSETINFO = *mut MIMECSETINFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRFC1766INFO(pub *mut RFC1766INFO);
-#[cfg(feature = "winnt")]
-impl PRFC1766INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRFC1766INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCRIPTFONTINFO(pub *mut SCRIPTFONTINFO);
-impl PSCRIPTFONTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCRIPTFONTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCRIPTINFO(pub *mut SCRIPTINFO);
-impl PSCRIPTINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCRIPTINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRFC1766INFO = *mut RFC1766INFO;
+pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
+pub type PSCRIPTINFO = *mut SCRIPTINFO;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -2294,19 +2232,7 @@ pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct pDetectEncodingInfo(pub *mut DetectEncodingInfo);
-impl pDetectEncodingInfo {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for pDetectEncodingInfo {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type pDetectEncodingInfo = *mut DetectEncodingInfo;
 pub const sidArabic: SCRIPTCONTF = 9;
 pub const sidArmenian: SCRIPTCONTF = 7;
 pub const sidAsciiLatin: SCRIPTCONTF = 3;

@@ -20,9 +20,7 @@ pub const DROPEFFECT_NEWTARGET: u32 = 1073741824;
 pub const DROPEFFECT_NONE: u32 = 0;
 pub const DROPEFFECT_SCROLL: u32 = 2147483648;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HOLEMENU(pub super::minwindef::HGLOBAL);
+pub type HOLEMENU = super::minwindef::HGLOBAL;
 windows_core::imp::define_interface!(IContinue, IContinue_Vtbl, 0x0000012a_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IContinue, windows_core::IUnknown);
 impl IContinue {
@@ -2538,113 +2536,19 @@ impl windows_core::RuntimeName for IViewObject2 {}
 #[cfg(feature = "windef")]
 pub type LINKSRCDESCRIPTOR = OBJECTDESCRIPTOR;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPBORDERWIDTHS(pub super::windef::LPRECT);
+pub type LPBORDERWIDTHS = super::windef::LPRECT;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCBORDERWIDTHS(pub super::windef::LPCRECT);
+pub type LPCBORDERWIDTHS = super::windef::LPCRECT;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLINKSRCDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
+pub type LPLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
 #[cfg(feature = "windef")]
-impl LPLINKSRCDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPOBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
 #[cfg(feature = "windef")]
-impl Default for LPLINKSRCDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOBJECTDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "windef")]
-impl LPOBJECTDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPOBJECTDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLEINPLACEFRAMEINFO(pub *mut OLEINPLACEFRAMEINFO);
-#[cfg(feature = "windef")]
-impl LPOLEINPLACEFRAMEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPOLEINPLACEFRAMEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLEMENUGROUPWIDTHS(pub *mut OLEMENUGROUPWIDTHS);
-impl LPOLEMENUGROUPWIDTHS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLEMENUGROUPWIDTHS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLERENDER(pub *mut OLERENDER);
-impl LPOLERENDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLERENDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLEUPDATE(pub *mut OLEUPDATE);
-impl LPOLEUPDATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLEUPDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOLEVERB(pub *mut OLEVERB);
-impl LPOLEVERB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOLEVERB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOLEINPLACEFRAMEINFO = *mut OLEINPLACEFRAMEINFO;
+pub type LPOLEMENUGROUPWIDTHS = *mut OLEMENUGROUPWIDTHS;
+pub type LPOLERENDER = *mut OLERENDER;
+pub type LPOLEUPDATE = *mut OLEUPDATE;
+pub type LPOLEVERB = *mut OLEVERB;
 pub const MK_ALT: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -2743,50 +2647,10 @@ pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = 1;
 pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = 3;
 pub const OLEWHICHMK_OBJREL: OLEWHICHMK = 2;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLINKSRCDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
+pub type PLINKSRCDESCRIPTOR = *mut OBJECTDESCRIPTOR;
 #[cfg(feature = "windef")]
-impl PLINKSRCDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLINKSRCDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECTDESCRIPTOR(pub *mut OBJECTDESCRIPTOR);
-#[cfg(feature = "windef")]
-impl POBJECTDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for POBJECTDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POLEUPDATE(pub *mut OLEUPDATE);
-impl POLEUPDATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POLEUPDATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POBJECTDESCRIPTOR = *mut OBJECTDESCRIPTOR;
+pub type POLEUPDATE = *mut OLEUPDATE;
 pub const UPDFCACHE_ALL: u32 = 2147483647;
 pub const UPDFCACHE_ALLBUTNODATACACHE: u32 = 2147483646;
 pub const UPDFCACHE_IFBLANK: u32 = 16;

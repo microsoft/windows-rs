@@ -259,103 +259,15 @@ impl Default for HMMIO {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPSTR(pub *mut i8);
-impl HPSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HPSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCMMCKINFO(pub *const MMCKINFO);
-impl LPCMMCKINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCMMCKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type HPSTR = *mut i8;
+pub type LPCMMCKINFO = *const MMCKINFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCMMIOINFO(pub *const MMIOINFO);
+pub type LPCMMIOINFO = *const MMIOINFO;
+pub type LPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+pub type LPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+pub type LPMMCKINFO = *mut MMCKINFO;
 #[cfg(feature = "minwindef")]
-impl LPCMMIOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPCMMIOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRVCONFIGINFO(pub *mut DRVCONFIGINFO);
-impl LPDRVCONFIGINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRVCONFIGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRVCONFIGINFOEX(pub *mut DRVCONFIGINFOEX);
-impl LPDRVCONFIGINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRVCONFIGINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMMCKINFO(pub *mut MMCKINFO);
-impl LPMMCKINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMMCKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMMIOINFO(pub *mut MMIOINFO);
-#[cfg(feature = "minwindef")]
-impl LPMMIOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPMMIOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMMIOINFO = *mut MMIOINFO;
 #[cfg(feature = "minwindef")]
 pub type LPMMIOPROC = Option<unsafe extern "system" fn(lpmmioinfo: windows_core::PCSTR, umsg: u32, lparam1: super::minwindef::LPARAM, lparam2: super::minwindef::LPARAM) -> super::minwindef::LRESULT>;
 #[repr(C, packed(1))]
@@ -452,116 +364,16 @@ pub const MMIO_SHAREMODE: u32 = 112;
 pub const MMIO_TOUPPER: u32 = 16;
 pub const MMIO_UNICODEPROC: u32 = 16777216;
 pub const MMIO_WRITE: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDRVCONFIGINFO(pub *mut DRVCONFIGINFO);
-impl NPDRVCONFIGINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPDRVCONFIGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDRVCONFIGINFOEX(pub *mut DRVCONFIGINFOEX);
-impl NPDRVCONFIGINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPDRVCONFIGINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMMCKINFO(pub *mut MMCKINFO);
-impl NPMMCKINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPMMCKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPDRVCONFIGINFO = *mut DRVCONFIGINFO;
+pub type NPDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+pub type NPMMCKINFO = *mut MMCKINFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMMIOINFO(pub *mut MMIOINFO);
+pub type NPMMIOINFO = *mut MMIOINFO;
+pub type PDRVCONFIGINFO = *mut DRVCONFIGINFO;
+pub type PDRVCONFIGINFOEX = *mut DRVCONFIGINFOEX;
+pub type PMMCKINFO = *mut MMCKINFO;
 #[cfg(feature = "minwindef")]
-impl NPMMIOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for NPMMIOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRVCONFIGINFO(pub *mut DRVCONFIGINFO);
-impl PDRVCONFIGINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRVCONFIGINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRVCONFIGINFOEX(pub *mut DRVCONFIGINFOEX);
-impl PDRVCONFIGINFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRVCONFIGINFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMMCKINFO(pub *mut MMCKINFO);
-impl PMMCKINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMMCKINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMMIOINFO(pub *mut MMIOINFO);
-#[cfg(feature = "minwindef")]
-impl PMMIOINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PMMIOINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMMIOINFO = *mut MMIOINFO;
 pub const SEEK_CUR: u32 = 1;
 pub const SEEK_END: u32 = 2;
 pub const SEEK_SET: u32 = 0;

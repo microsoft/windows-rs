@@ -9,29 +9,5 @@ pub const NdisPortTypeBridge: NDIS_PORT_TYPE = 1;
 pub const NdisPortTypeMax: NDIS_PORT_TYPE = 4;
 pub const NdisPortTypeRasConnection: NDIS_PORT_TYPE = 2;
 pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDIS_PORT_NUMBER(pub *mut u32);
-impl PNDIS_PORT_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDIS_PORT_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDIS_PORT_TYPE(pub *mut NDIS_PORT_TYPE);
-impl PNDIS_PORT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDIS_PORT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNDIS_PORT_NUMBER = *mut u32;
+pub type PNDIS_PORT_TYPE = *mut NDIS_PORT_TYPE;

@@ -317,61 +317,9 @@ pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576;
 pub const DS_WRITABLE_FLAG: u32 = 256;
 pub const DS_WRITABLE_REQUIRED: u32 = 4096;
 pub const DS_WS_FLAG: u32 = 8192;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONTROLLER_INFOA(pub *mut DOMAIN_CONTROLLER_INFOA);
-impl PDOMAIN_CONTROLLER_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOMAIN_CONTROLLER_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONTROLLER_INFOW(pub *mut DOMAIN_CONTROLLER_INFOW);
-impl PDOMAIN_CONTROLLER_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOMAIN_CONTROLLER_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDOMAIN_CONTROLLER_INFOA = *mut DOMAIN_CONTROLLER_INFOA;
+pub type PDOMAIN_CONTROLLER_INFOW = *mut DOMAIN_CONTROLLER_INFOW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDS_DOMAIN_TRUSTSA(pub *mut DS_DOMAIN_TRUSTSA);
+pub type PDS_DOMAIN_TRUSTSA = *mut DS_DOMAIN_TRUSTSA;
 #[cfg(feature = "winnt")]
-impl PDS_DOMAIN_TRUSTSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDS_DOMAIN_TRUSTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDS_DOMAIN_TRUSTSW(pub *mut DS_DOMAIN_TRUSTSW);
-#[cfg(feature = "winnt")]
-impl PDS_DOMAIN_TRUSTSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDS_DOMAIN_TRUSTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDS_DOMAIN_TRUSTSW = *mut DS_DOMAIN_TRUSTSW;

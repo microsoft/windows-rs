@@ -374,58 +374,14 @@ pub type OEM_STRING = super::ntsecapi::STRING;
 pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = 0;
 pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = 2;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PANSI_STRING(pub super::ntsecapi::PSTRING);
+pub type PANSI_STRING = super::ntsecapi::PSTRING;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCANSI_STRING(pub super::ntsecapi::PSTRING);
+pub type PCANSI_STRING = super::ntsecapi::PSTRING;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOEM_STRING(pub *const super::ntsecapi::STRING);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PCOEM_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PCOEM_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCSZ(pub *const i8);
-impl PCSZ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCSZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOEM_STRING = *const super::ntsecapi::STRING;
+pub type PCSZ = *const i8;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCUNICODE_STRING(pub *const super::ntsecapi::UNICODE_STRING);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PCUNICODE_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PCUNICODE_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCUNICODE_STRING = *const super::ntsecapi::UNICODE_STRING;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[derive(Clone, Copy, Debug)]
@@ -473,138 +429,24 @@ impl Default for PEB_LDR_DATA {
 #[cfg(feature = "bcrypt")]
 pub type PIO_APC_ROUTINE = Option<unsafe extern "system" fn(apccontext: *mut core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_STATUS_BLOCK(pub *mut IO_STATUS_BLOCK);
-#[cfg(feature = "bcrypt")]
-impl PIO_STATUS_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIO_STATUS_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_STATUS_BLOCK = *mut IO_STATUS_BLOCK;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_ENTRY(pub *mut KEY_VALUE_ENTRY);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PKEY_VALUE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PKEY_VALUE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKEY_VALUE_ENTRY = *mut KEY_VALUE_ENTRY;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLDR_DATA_TABLE_ENTRY(pub *mut LDR_DATA_TABLE_ENTRY);
+pub type PLDR_DATA_TABLE_ENTRY = *mut LDR_DATA_TABLE_ENTRY;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PLDR_DATA_TABLE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type POEM_STRING = super::ntsecapi::PSTRING;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PLDR_DATA_TABLE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POEM_STRING(pub super::ntsecapi::PSTRING);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPEB(pub *mut PEB);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PPEB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PPEB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPEB = *mut PEB;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPEB_LDR_DATA(pub *mut PEB_LDR_DATA);
-#[cfg(feature = "winnt")]
-impl PPEB_LDR_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPEB_LDR_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPEB_LDR_DATA = *mut PEB_LDR_DATA;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_BASIC_INFORMATION(pub *mut PROCESS_BASIC_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PPROCESS_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PPROCESS_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROCESS_BASIC_INFORMATION = *mut PROCESS_BASIC_INFORMATION;
 pub type PPS_POST_PROCESS_INIT_ROUTINE = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPUBLIC_OBJECT_BASIC_INFORMATION(pub *mut PUBLIC_OBJECT_BASIC_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PPUBLIC_OBJECT_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPUBLIC_OBJECT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPUBLIC_OBJECT_BASIC_INFORMATION = *mut PUBLIC_OBJECT_BASIC_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPUBLIC_OBJECT_TYPE_INFORMATION(pub *mut PUBLIC_OBJECT_TYPE_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PPUBLIC_OBJECT_TYPE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PPUBLIC_OBJECT_TYPE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPUBLIC_OBJECT_TYPE_INFORMATION = *mut PUBLIC_OBJECT_TYPE_INFORMATION;
 pub type PROCESSINFOCLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
@@ -623,247 +465,29 @@ impl Default for PROCESS_BASIC_INFORMATION {
     }
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRTL_USER_PROCESS_PARAMETERS(pub *mut RTL_USER_PROCESS_PARAMETERS);
+pub type PRTL_USER_PROCESS_PARAMETERS = *mut RTL_USER_PROCESS_PARAMETERS;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PSYSTEM_BASICPROCESS_INFORMATION = *mut SYSTEM_BASICPROCESS_INFORMATION;
+#[cfg(feature = "winnt")]
+pub type PSYSTEM_BASIC_INFORMATION = *mut SYSTEM_BASIC_INFORMATION;
+pub type PSYSTEM_CODEINTEGRITY_INFORMATION = *mut SYSTEM_CODEINTEGRITY_INFORMATION;
+pub type PSYSTEM_EXCEPTION_INFORMATION = *mut SYSTEM_EXCEPTION_INFORMATION;
+pub type PSYSTEM_HANDLECOUNT_INFORMATION = *mut SYSTEM_HANDLECOUNT_INFORMATION;
+pub type PSYSTEM_INTERRUPT_INFORMATION = *mut SYSTEM_INTERRUPT_INFORMATION;
+pub type PSYSTEM_LOOKASIDE_INFORMATION = *mut SYSTEM_LOOKASIDE_INFORMATION;
+pub type PSYSTEM_PERFORMANCE_INFORMATION = *mut SYSTEM_PERFORMANCE_INFORMATION;
+pub type PSYSTEM_POLICY_INFORMATION = *mut SYSTEM_POLICY_INFORMATION;
+pub type PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION = *mut SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PSYSTEM_PROCESS_INFORMATION = *mut SYSTEM_PROCESS_INFORMATION;
+pub type PSYSTEM_REGISTRY_QUOTA_INFORMATION = *mut SYSTEM_REGISTRY_QUOTA_INFORMATION;
+#[cfg(feature = "winnt")]
+pub type PSYSTEM_THREAD_INFORMATION = *mut SYSTEM_THREAD_INFORMATION;
+pub type PSYSTEM_TIMEOFDAY_INFORMATION = *mut SYSTEM_TIMEOFDAY_INFORMATION;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PTEB = *mut TEB;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PRTL_USER_PROCESS_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PRTL_USER_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_BASICPROCESS_INFORMATION(pub *mut SYSTEM_BASICPROCESS_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSYSTEM_BASICPROCESS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSYSTEM_BASICPROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_BASIC_INFORMATION(pub *mut SYSTEM_BASIC_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PSYSTEM_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSYSTEM_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_CODEINTEGRITY_INFORMATION(pub *mut SYSTEM_CODEINTEGRITY_INFORMATION);
-impl PSYSTEM_CODEINTEGRITY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_CODEINTEGRITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_EXCEPTION_INFORMATION(pub *mut SYSTEM_EXCEPTION_INFORMATION);
-impl PSYSTEM_EXCEPTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_EXCEPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_HANDLECOUNT_INFORMATION(pub *mut SYSTEM_HANDLECOUNT_INFORMATION);
-impl PSYSTEM_HANDLECOUNT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_HANDLECOUNT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_INTERRUPT_INFORMATION(pub *mut SYSTEM_INTERRUPT_INFORMATION);
-impl PSYSTEM_INTERRUPT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_INTERRUPT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_LOOKASIDE_INFORMATION(pub *mut SYSTEM_LOOKASIDE_INFORMATION);
-impl PSYSTEM_LOOKASIDE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_LOOKASIDE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_PERFORMANCE_INFORMATION(pub *mut SYSTEM_PERFORMANCE_INFORMATION);
-impl PSYSTEM_PERFORMANCE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_PERFORMANCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_POLICY_INFORMATION(pub *mut SYSTEM_POLICY_INFORMATION);
-impl PSYSTEM_POLICY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_POLICY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION(pub *mut SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION);
-impl PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_PROCESS_INFORMATION(pub *mut SYSTEM_PROCESS_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PSYSTEM_PROCESS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PSYSTEM_PROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_REGISTRY_QUOTA_INFORMATION(pub *mut SYSTEM_REGISTRY_QUOTA_INFORMATION);
-impl PSYSTEM_REGISTRY_QUOTA_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_REGISTRY_QUOTA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_THREAD_INFORMATION(pub *mut SYSTEM_THREAD_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PSYSTEM_THREAD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSYSTEM_THREAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_TIMEOFDAY_INFORMATION(pub *mut SYSTEM_TIMEOFDAY_INFORMATION);
-impl PSYSTEM_TIMEOFDAY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_TIMEOFDAY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTEB(pub *mut TEB);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PTEB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PTEB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHREAD_NAME_INFORMATION(pub *mut THREAD_NAME_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PTHREAD_NAME_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PTHREAD_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTHREAD_NAME_INFORMATION = *mut THREAD_NAME_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -893,19 +517,7 @@ impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINSTATIONINFORMATIONW(pub *mut WINSTATIONINFORMATIONW);
-impl PWINSTATIONINFORMATIONW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINSTATIONINFORMATIONW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINSTATIONINFORMATIONW = *mut WINSTATIONINFORMATIONW;
 #[cfg(feature = "winnt")]
 pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::winnt::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> bool>;
 pub const ProcessBasicInformation: PROCESSINFOCLASS = 0;

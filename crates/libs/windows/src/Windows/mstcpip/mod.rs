@@ -194,337 +194,37 @@ pub struct INET_PORT_RESERVATION_TOKEN {
     pub Token: u64,
 }
 pub const INVALID_PORT_RESERVATION_TOKEN: u64 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PASSOCIATE_NAMERES_CONTEXT_INPUT(pub *mut ASSOCIATE_NAMERES_CONTEXT_INPUT);
-impl PASSOCIATE_NAMERES_CONTEXT_INPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PASSOCIATE_NAMERES_CONTEXT_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONTROL_CHANNEL_TRIGGER_STATUS(pub *mut CONTROL_CHANNEL_TRIGGER_STATUS);
-impl PCONTROL_CHANNEL_TRIGGER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONTROL_CHANNEL_TRIGGER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDL_EUI48(pub *mut DL_EUI48);
-impl PDL_EUI48 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDL_EUI48 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINET_PORT_RANGE(pub *mut INET_PORT_RANGE);
-impl PINET_PORT_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINET_PORT_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINET_PORT_RESERVATION(pub *mut INET_PORT_RANGE);
-impl PINET_PORT_RESERVATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINET_PORT_RESERVATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINET_PORT_RESERVATION_INFORMATION(pub *mut INET_PORT_RESERVATION_INFORMATION);
-impl PINET_PORT_RESERVATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINET_PORT_RESERVATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINET_PORT_RESERVATION_INSTANCE(pub *mut INET_PORT_RESERVATION_INSTANCE);
-impl PINET_PORT_RESERVATION_INSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINET_PORT_RESERVATION_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINET_PORT_RESERVATION_TOKEN(pub *mut INET_PORT_RESERVATION_TOKEN);
-impl PINET_PORT_RESERVATION_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINET_PORT_RESERVATION_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPRIORITY_STATUS(pub *mut PRIORITY_STATUS);
-impl PPRIORITY_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPRIORITY_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRCVALL_IF(pub *mut RCVALL_IF);
-impl PRCVALL_IF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRCVALL_IF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRCVALL_VALUE(pub *mut RCVALL_VALUE);
-impl PRCVALL_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRCVALL_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREAL_TIME_NOTIFICATION_SETTING_INPUT(pub *mut REAL_TIME_NOTIFICATION_SETTING_INPUT);
-impl PREAL_TIME_NOTIFICATION_SETTING_INPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREAL_TIME_NOTIFICATION_SETTING_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX(pub *mut REAL_TIME_NOTIFICATION_SETTING_INPUT_EX);
-impl PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREAL_TIME_NOTIFICATION_SETTING_OUTPUT(pub *mut REAL_TIME_NOTIFICATION_SETTING_OUTPUT);
-impl PREAL_TIME_NOTIFICATION_SETTING_OUTPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREAL_TIME_NOTIFICATION_SETTING_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PASSOCIATE_NAMERES_CONTEXT_INPUT = *mut ASSOCIATE_NAMERES_CONTEXT_INPUT;
+pub type PCONTROL_CHANNEL_TRIGGER_STATUS = *mut CONTROL_CHANNEL_TRIGGER_STATUS;
+pub type PDL_EUI48 = *mut DL_EUI48;
+pub type PINET_PORT_RANGE = *mut INET_PORT_RANGE;
+pub type PINET_PORT_RESERVATION = *mut INET_PORT_RANGE;
+pub type PINET_PORT_RESERVATION_INFORMATION = *mut INET_PORT_RESERVATION_INFORMATION;
+pub type PINET_PORT_RESERVATION_INSTANCE = *mut INET_PORT_RESERVATION_INSTANCE;
+pub type PINET_PORT_RESERVATION_TOKEN = *mut INET_PORT_RESERVATION_TOKEN;
+pub type PPRIORITY_STATUS = *mut PRIORITY_STATUS;
+pub type PRCVALL_IF = *mut RCVALL_IF;
+pub type PRCVALL_VALUE = *mut RCVALL_VALUE;
+pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT;
+pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT_EX;
+pub type PREAL_TIME_NOTIFICATION_SETTING_OUTPUT = *mut REAL_TIME_NOTIFICATION_SETTING_OUTPUT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PRIORITY_STATUS {
     pub Sender: SOCKET_PRIORITY_HINT,
     pub Receiver: SOCKET_PRIORITY_HINT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRSS_SCALABILITY_INFO(pub *mut RSS_SCALABILITY_INFO);
-impl PRSS_SCALABILITY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRSS_SCALABILITY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOCKET_PRIORITY_HINT(pub *mut SOCKET_PRIORITY_HINT);
-impl PSOCKET_PRIORITY_HINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOCKET_PRIORITY_HINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_ACK_FREQUENCY_PARAMETERS(pub *mut TCP_ACK_FREQUENCY_PARAMETERS);
-impl PTCP_ACK_FREQUENCY_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_ACK_FREQUENCY_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_ICW_LEVEL(pub *mut TCP_ICW_LEVEL);
-impl PTCP_ICW_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_ICW_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_ICW_PARAMETERS(pub *mut TCP_ICW_PARAMETERS);
-impl PTCP_ICW_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_ICW_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_INFO_v0(pub *mut TCP_INFO_v0);
-impl PTCP_INFO_v0 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_INFO_v0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_INFO_v1(pub *mut TCP_INFO_v1);
-impl PTCP_INFO_v1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_INFO_v1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_INFO_v2(pub *mut TCP_INFO_v2);
-impl PTCP_INFO_v2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_INFO_v2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_INITIAL_RTO_PARAMETERS(pub *mut TCP_INITIAL_RTO_PARAMETERS);
-impl PTCP_INITIAL_RTO_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_INITIAL_RTO_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIMESTAMPING_CONFIG(pub *mut TIMESTAMPING_CONFIG);
-impl PTIMESTAMPING_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTIMESTAMPING_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSPORT_SETTING_ID(pub *mut TRANSPORT_SETTING_ID);
-impl PTRANSPORT_SETTING_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRANSPORT_SETTING_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRSS_SCALABILITY_INFO = *mut RSS_SCALABILITY_INFO;
+pub type PSOCKET_PRIORITY_HINT = *mut SOCKET_PRIORITY_HINT;
+pub type PTCP_ACK_FREQUENCY_PARAMETERS = *mut TCP_ACK_FREQUENCY_PARAMETERS;
+pub type PTCP_ICW_LEVEL = *mut TCP_ICW_LEVEL;
+pub type PTCP_ICW_PARAMETERS = *mut TCP_ICW_PARAMETERS;
+pub type PTCP_INFO_v0 = *mut TCP_INFO_v0;
+pub type PTCP_INFO_v1 = *mut TCP_INFO_v1;
+pub type PTCP_INFO_v2 = *mut TCP_INFO_v2;
+pub type PTCP_INITIAL_RTO_PARAMETERS = *mut TCP_INITIAL_RTO_PARAMETERS;
+pub type PTIMESTAMPING_CONFIG = *mut TIMESTAMPING_CONFIG;
+pub type PTRANSPORT_SETTING_ID = *mut TRANSPORT_SETTING_ID;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RCVALL_IF {

@@ -44304,85 +44304,13 @@ pub struct INLINE_FRAME_CONTEXT_0 {
 pub const MODULE_ORDERS_LOADTIME: u32 = 268435456;
 pub const MODULE_ORDERS_MASK: u32 = 4026531840;
 pub const MODULE_ORDERS_MODULENAME: u32 = 536870912;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_BREAKPOINT_PARAMETERS(pub *mut DEBUG_BREAKPOINT_PARAMETERS);
-impl PDEBUG_BREAKPOINT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_BREAKPOINT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_CACHED_SYMBOL_INFO(pub *mut DEBUG_CACHED_SYMBOL_INFO);
-impl PDEBUG_CACHED_SYMBOL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_CACHED_SYMBOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_CLIENT_CONTEXT(pub *mut DEBUG_CLIENT_CONTEXT);
-impl PDEBUG_CLIENT_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_CLIENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_CREATE_PROCESS_OPTIONS(pub *mut DEBUG_CREATE_PROCESS_OPTIONS);
-impl PDEBUG_CREATE_PROCESS_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_CREATE_PROCESS_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEBUG_BREAKPOINT_PARAMETERS = *mut DEBUG_BREAKPOINT_PARAMETERS;
+pub type PDEBUG_CACHED_SYMBOL_INFO = *mut DEBUG_CACHED_SYMBOL_INFO;
+pub type PDEBUG_CLIENT_CONTEXT = *mut DEBUG_CLIENT_CONTEXT;
+pub type PDEBUG_CREATE_PROCESS_OPTIONS = *mut DEBUG_CREATE_PROCESS_OPTIONS;
 pub type PDEBUG_ENTENSION_KNOWNSTRUCT = PDEBUG_EXTENSION_KNOWN_STRUCT;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_EVENT_CONTEXT(pub *mut DEBUG_EVENT_CONTEXT);
-impl PDEBUG_EVENT_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_EVENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_EXCEPTION_FILTER_PARAMETERS(pub *mut DEBUG_EXCEPTION_FILTER_PARAMETERS);
-impl PDEBUG_EXCEPTION_FILTER_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_EXCEPTION_FILTER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEBUG_EVENT_CONTEXT = *mut DEBUG_EVENT_CONTEXT;
+pub type PDEBUG_EXCEPTION_FILTER_PARAMETERS = *mut DEBUG_EXCEPTION_FILTER_PARAMETERS;
 pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCSTR) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_core::HRESULT>;
@@ -44394,429 +44322,43 @@ pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(clien
 pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_GET_TEXT_COMPLETIONS_IN(pub *mut DEBUG_GET_TEXT_COMPLETIONS_IN);
-impl PDEBUG_GET_TEXT_COMPLETIONS_IN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_GET_TEXT_COMPLETIONS_IN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_GET_TEXT_COMPLETIONS_OUT(pub *mut DEBUG_GET_TEXT_COMPLETIONS_OUT);
-impl PDEBUG_GET_TEXT_COMPLETIONS_OUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_GET_TEXT_COMPLETIONS_OUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_HANDLE_DATA_BASIC(pub *mut DEBUG_HANDLE_DATA_BASIC);
-impl PDEBUG_HANDLE_DATA_BASIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_HANDLE_DATA_BASIC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_BREAKPOINT(pub *mut DEBUG_LAST_EVENT_INFO_BREAKPOINT);
-impl PDEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_BREAKPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEBUG_GET_TEXT_COMPLETIONS_IN = *mut DEBUG_GET_TEXT_COMPLETIONS_IN;
+pub type PDEBUG_GET_TEXT_COMPLETIONS_OUT = *mut DEBUG_GET_TEXT_COMPLETIONS_OUT;
+pub type PDEBUG_HANDLE_DATA_BASIC = *mut DEBUG_HANDLE_DATA_BASIC;
+pub type PDEBUG_LAST_EVENT_INFO_BREAKPOINT = *mut DEBUG_LAST_EVENT_INFO_BREAKPOINT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_EXCEPTION(pub *mut DEBUG_LAST_EVENT_INFO_EXCEPTION);
-#[cfg(feature = "winnt")]
-impl PDEBUG_LAST_EVENT_INFO_EXCEPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDEBUG_LAST_EVENT_INFO_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS(pub *mut DEBUG_LAST_EVENT_INFO_EXIT_PROCESS);
-impl PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_EXIT_THREAD(pub *mut DEBUG_LAST_EVENT_INFO_EXIT_THREAD);
-impl PDEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_EXIT_THREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_LOAD_MODULE(pub *mut DEBUG_LAST_EVENT_INFO_LOAD_MODULE);
-impl PDEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_LOAD_MODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION(pub *mut DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION);
-impl PDEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_SYSTEM_ERROR(pub *mut DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR);
-impl PDEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_LAST_EVENT_INFO_UNLOAD_MODULE(pub *mut DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE);
-impl PDEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_MODULE_AND_ID(pub *mut DEBUG_MODULE_AND_ID);
-impl PDEBUG_MODULE_AND_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_MODULE_AND_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_MODULE_PARAMETERS(pub *mut DEBUG_MODULE_PARAMETERS);
-impl PDEBUG_MODULE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_MODULE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_OFFSET_REGION(pub *mut DEBUG_OFFSET_REGION);
-impl PDEBUG_OFFSET_REGION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_OFFSET_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_ALL(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_ALL);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_ALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_ALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_ALPHA(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_ALPHA);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_AMD64(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_AMD64);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_ARM(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_ARM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_ARM64(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM64);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_IA64(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_IA64);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_IA64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_PROCESSOR_IDENTIFICATION_X86(pub *mut DEBUG_PROCESSOR_IDENTIFICATION_X86);
-impl PDEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_PROCESSOR_IDENTIFICATION_X86 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_READ_USER_MINIDUMP_STREAM(pub *mut DEBUG_READ_USER_MINIDUMP_STREAM);
-impl PDEBUG_READ_USER_MINIDUMP_STREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_READ_USER_MINIDUMP_STREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_REGISTER_DESCRIPTION(pub *mut DEBUG_REGISTER_DESCRIPTION);
-impl PDEBUG_REGISTER_DESCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_REGISTER_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_SPECIFIC_FILTER_PARAMETERS(pub *mut DEBUG_SPECIFIC_FILTER_PARAMETERS);
-impl PDEBUG_SPECIFIC_FILTER_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_SPECIFIC_FILTER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_STACK_FRAME(pub *mut DEBUG_STACK_FRAME);
-impl PDEBUG_STACK_FRAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_STACK_FRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_STACK_FRAME_EX(pub *mut DEBUG_STACK_FRAME_EX);
-impl PDEBUG_STACK_FRAME_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_STACK_FRAME_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEBUG_LAST_EVENT_INFO_EXCEPTION = *mut DEBUG_LAST_EVENT_INFO_EXCEPTION;
+pub type PDEBUG_LAST_EVENT_INFO_EXIT_PROCESS = *mut DEBUG_LAST_EVENT_INFO_EXIT_PROCESS;
+pub type PDEBUG_LAST_EVENT_INFO_EXIT_THREAD = *mut DEBUG_LAST_EVENT_INFO_EXIT_THREAD;
+pub type PDEBUG_LAST_EVENT_INFO_LOAD_MODULE = *mut DEBUG_LAST_EVENT_INFO_LOAD_MODULE;
+pub type PDEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION = *mut DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION;
+pub type PDEBUG_LAST_EVENT_INFO_SYSTEM_ERROR = *mut DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR;
+pub type PDEBUG_LAST_EVENT_INFO_UNLOAD_MODULE = *mut DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE;
+pub type PDEBUG_MODULE_AND_ID = *mut DEBUG_MODULE_AND_ID;
+pub type PDEBUG_MODULE_PARAMETERS = *mut DEBUG_MODULE_PARAMETERS;
+pub type PDEBUG_OFFSET_REGION = *mut DEBUG_OFFSET_REGION;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_ALL = *mut DEBUG_PROCESSOR_IDENTIFICATION_ALL;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_ALPHA = *mut DEBUG_PROCESSOR_IDENTIFICATION_ALPHA;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_AMD64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_AMD64;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_ARM = *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_ARM64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_ARM64;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_IA64 = *mut DEBUG_PROCESSOR_IDENTIFICATION_IA64;
+pub type PDEBUG_PROCESSOR_IDENTIFICATION_X86 = *mut DEBUG_PROCESSOR_IDENTIFICATION_X86;
+pub type PDEBUG_READ_USER_MINIDUMP_STREAM = *mut DEBUG_READ_USER_MINIDUMP_STREAM;
+pub type PDEBUG_REGISTER_DESCRIPTION = *mut DEBUG_REGISTER_DESCRIPTION;
+pub type PDEBUG_SPECIFIC_FILTER_PARAMETERS = *mut DEBUG_SPECIFIC_FILTER_PARAMETERS;
+pub type PDEBUG_STACK_FRAME = *mut DEBUG_STACK_FRAME;
+pub type PDEBUG_STACK_FRAME_EX = *mut DEBUG_STACK_FRAME_EX;
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut PSTACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_SYMBOL_ENTRY(pub *mut DEBUG_SYMBOL_ENTRY);
-impl PDEBUG_SYMBOL_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_SYMBOL_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_SYMBOL_PARAMETERS(pub *mut DEBUG_SYMBOL_PARAMETERS);
-impl PDEBUG_SYMBOL_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_SYMBOL_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_SYMBOL_SOURCE_ENTRY(pub *mut DEBUG_SYMBOL_SOURCE_ENTRY);
-impl PDEBUG_SYMBOL_SOURCE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_SYMBOL_SOURCE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_THREAD_BASIC_INFORMATION(pub *mut DEBUG_THREAD_BASIC_INFORMATION);
-impl PDEBUG_THREAD_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_THREAD_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEBUG_VALUE(pub *mut DEBUG_VALUE);
-impl PDEBUG_VALUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEBUG_VALUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_NAME_ENTRY(pub *mut PROCESS_NAME_ENTRY);
-impl PPROCESS_NAME_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_NAME_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEBUG_SYMBOL_ENTRY = *mut DEBUG_SYMBOL_ENTRY;
+pub type PDEBUG_SYMBOL_PARAMETERS = *mut DEBUG_SYMBOL_PARAMETERS;
+pub type PDEBUG_SYMBOL_SOURCE_ENTRY = *mut DEBUG_SYMBOL_SOURCE_ENTRY;
+pub type PDEBUG_THREAD_BASIC_INFORMATION = *mut DEBUG_THREAD_BASIC_INFORMATION;
+pub type PDEBUG_VALUE = *mut DEBUG_VALUE;
+pub type PPROCESS_NAME_ENTRY = *mut PROCESS_NAME_ENTRY;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_NAME_ENTRY {
@@ -44825,77 +44367,13 @@ pub struct PROCESS_NAME_ENTRY {
     pub NameSize: u32,
     pub NextEntry: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTACK_SRC_INFO(pub *mut STACK_SRC_INFO);
-impl PSTACK_SRC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTACK_SRC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSTACK_SYM_FRAME_INFO(pub *mut STACK_SYM_FRAME_INFO);
-impl PSTACK_SYM_FRAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSTACK_SYM_FRAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMBOL_INFO_EX(pub *mut SYMBOL_INFO_EX);
-impl PSYMBOL_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMBOL_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSTACK_SRC_INFO = *mut STACK_SRC_INFO;
+pub type PSTACK_SYM_FRAME_INFO = *mut STACK_SYM_FRAME_INFO;
+pub type PSYMBOL_INFO_EX = *mut SYMBOL_INFO_EX;
 #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_EXTENSION_APIS32(pub *mut super::wdbgexts::WINDBG_EXTENSION_APIS32);
+pub type PWINDBG_EXTENSION_APIS32 = *mut super::wdbgexts::WINDBG_EXTENSION_APIS32;
 #[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-impl PWINDBG_EXTENSION_APIS32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-impl Default for PWINDBG_EXTENSION_APIS32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDBG_EXTENSION_APIS64(pub *mut super::wdbgexts::WINDBG_EXTENSION_APIS64);
-#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-impl PWINDBG_EXTENSION_APIS64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "wdbgexts", feature = "winnt"))]
-impl Default for PWINDBG_EXTENSION_APIS64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINDBG_EXTENSION_APIS64 = *mut super::wdbgexts::WINDBG_EXTENSION_APIS64;
 pub const STACK_FRAME_TYPE_IGNORE: u32 = 255;
 pub const STACK_FRAME_TYPE_INIT: u32 = 0;
 pub const STACK_FRAME_TYPE_INLINE: u32 = 2;

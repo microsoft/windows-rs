@@ -223,50 +223,10 @@ impl Default for PWINUSB_ISOCH_BUFFER_HANDLE {
     }
 }
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINUSB_PIPE_INFORMATION(pub *mut WINUSB_PIPE_INFORMATION);
+pub type PWINUSB_PIPE_INFORMATION = *mut WINUSB_PIPE_INFORMATION;
 #[cfg(feature = "usb")]
-impl PWINUSB_PIPE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PWINUSB_PIPE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINUSB_PIPE_INFORMATION_EX(pub *mut WINUSB_PIPE_INFORMATION_EX);
-#[cfg(feature = "usb")]
-impl PWINUSB_PIPE_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PWINUSB_PIPE_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINUSB_SETUP_PACKET(pub *mut WINUSB_SETUP_PACKET);
-impl PWINUSB_SETUP_PACKET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINUSB_SETUP_PACKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWINUSB_PIPE_INFORMATION_EX = *mut WINUSB_PIPE_INFORMATION_EX;
+pub type PWINUSB_SETUP_PACKET = *mut WINUSB_SETUP_PACKET;
 pub const RAW_IO: u32 = 7;
 pub const RESET_PIPE_ON_RESUME: u32 = 9;
 pub const SHORT_PACKET_TERMINATE: u32 = 1;

@@ -809,851 +809,117 @@ impl Default for HWAVEOUT {
 }
 pub type KEYARRAY = [u16; 128];
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPAUXCAPS(pub LPAUXCAPSA);
+pub type LPAUXCAPS = LPAUXCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPAUXCAPS2(pub LPAUXCAPS2A);
+pub type LPAUXCAPS2 = LPAUXCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUXCAPS2A(pub *mut AUXCAPS2A);
+pub type LPAUXCAPS2A = *mut AUXCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl LPAUXCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPAUXCAPS2W = *mut AUXCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPAUXCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAUXCAPSA = *mut AUXCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl LPAUXCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPAUXCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl LPAUXCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPAUXCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl LPAUXCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPAUXCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCWAVEFORMATEX(pub *const WAVEFORMATEX);
-impl LPCWAVEFORMATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCWAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIDI(pub *mut HMIDI);
-impl LPHMIDI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIDI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIDIIN(pub *mut HMIDIIN);
-impl LPHMIDIIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIDIIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIDIOUT(pub *mut HMIDIOUT);
-impl LPHMIDIOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIDIOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIDISTRM(pub *mut HMIDISTRM);
-impl LPHMIDISTRM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIDISTRM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIXER(pub *mut HMIXER);
-impl LPHMIXER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIXER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHMIXEROBJ(pub *mut HMIXEROBJ);
-impl LPHMIXEROBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHMIXEROBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHWAVEIN(pub *mut HWAVEIN);
-impl LPHWAVEIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHWAVEIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHWAVEOUT(pub *mut HWAVEOUT);
-impl LPHWAVEOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHWAVEOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPKEYARRAY(pub *mut u16);
-impl LPKEYARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPKEYARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAUXCAPSW = *mut AUXCAPSW;
+pub type LPCWAVEFORMATEX = *const WAVEFORMATEX;
+pub type LPHMIDI = *mut HMIDI;
+pub type LPHMIDIIN = *mut HMIDIIN;
+pub type LPHMIDIOUT = *mut HMIDIOUT;
+pub type LPHMIDISTRM = *mut HMIDISTRM;
+pub type LPHMIXER = *mut HMIXER;
+pub type LPHMIXEROBJ = *mut HMIXEROBJ;
+pub type LPHWAVEIN = *mut HWAVEIN;
+pub type LPHWAVEOUT = *mut HWAVEOUT;
+pub type LPKEYARRAY = *mut u16;
 pub type LPMIDICALLBACK = Option<unsafe extern "system" fn()>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIHDR(pub *mut MIDIHDR);
-impl LPMIDIHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIDIHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIDIHDR = *mut MIDIHDR;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIDIINCAPS(pub LPMIDIINCAPSA);
+pub type LPMIDIINCAPS = LPMIDIINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIDIINCAPS2(pub LPMIDIINCAPS2A);
+pub type LPMIDIINCAPS2 = LPMIDIINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
+pub type LPMIDIINCAPS2A = *mut MIDIINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl LPMIDIINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMIDIINCAPS2W = *mut MIDIINCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIDIINCAPSA = *mut MIDIINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
+pub type LPMIDIINCAPSW = *mut MIDIINCAPSW;
 #[cfg(feature = "mmsyscom")]
-impl LPMIDIINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMIDIOUTCAPS = LPMIDIOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIDIOUTCAPS2 = LPMIDIOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIINCAPSA(pub *mut MIDIINCAPSA);
+pub type LPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl LPMIDIINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIINCAPSW(pub *mut MIDIINCAPSW);
+pub type LPMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
+pub type LPMIDIPROPTEMPO = *mut MIDIPROPTEMPO;
+pub type LPMIDIPROPTIMEDIV = *mut MIDIPROPTIMEDIV;
 #[cfg(feature = "mmsyscom")]
-impl LPMIDIINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPMIXERCAPS = LPMIXERCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIXERCAPS2 = LPMIXERCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIDIOUTCAPS(pub LPMIDIOUTCAPSA);
+pub type LPMIXERCAPS2A = *mut MIXERCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIDIOUTCAPS2(pub LPMIDIOUTCAPS2A);
+pub type LPMIXERCAPS2W = *mut MIXERCAPS2W;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
+pub type LPMIXERCAPSA = *mut MIXERCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl LPMIDIOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl LPMIDIOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl LPMIDIOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl LPMIDIOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIDIOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIPROPTEMPO(pub *mut MIDIPROPTEMPO);
-impl LPMIDIPROPTEMPO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIDIPROPTEMPO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIDIPROPTIMEDIV(pub *mut MIDIPROPTIMEDIV);
-impl LPMIDIPROPTIMEDIV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIDIPROPTIMEDIV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERCAPS(pub LPMIXERCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERCAPS2(pub LPMIXERCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCAPS2A(pub *mut MIXERCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl LPMIXERCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCAPS2W(pub *mut MIXERCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl LPMIXERCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCAPSA(pub *mut MIXERCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl LPMIXERCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCAPSW(pub *mut MIXERCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl LPMIXERCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERCONTROL(pub LPMIXERCONTROLA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLA(pub *mut MIXERCONTROLA);
-impl LPMIXERCONTROLA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIXERCAPSW = *mut MIXERCAPSW;
+pub type LPMIXERCONTROL = LPMIXERCONTROLA;
+pub type LPMIXERCONTROLA = *mut MIXERCONTROLA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS(pub *mut MIXERCONTROLDETAILS);
-#[cfg(feature = "windef")]
-impl LPMIXERCONTROLDETAILS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPMIXERCONTROLDETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS_BOOLEAN(pub *mut MIXERCONTROLDETAILS_BOOLEAN);
-impl LPMIXERCONTROLDETAILS_BOOLEAN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLDETAILS_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERCONTROLDETAILS_LISTTEXT(pub LPMIXERCONTROLDETAILS_LISTTEXTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS_LISTTEXTA(pub *mut MIXERCONTROLDETAILS_LISTTEXTA);
-impl LPMIXERCONTROLDETAILS_LISTTEXTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLDETAILS_LISTTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS_LISTTEXTW(pub *mut MIXERCONTROLDETAILS_LISTTEXTW);
-impl LPMIXERCONTROLDETAILS_LISTTEXTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLDETAILS_LISTTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS_SIGNED(pub *mut MIXERCONTROLDETAILS_SIGNED);
-impl LPMIXERCONTROLDETAILS_SIGNED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLDETAILS_SIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLDETAILS_UNSIGNED(pub *mut MIXERCONTROLDETAILS_UNSIGNED);
-impl LPMIXERCONTROLDETAILS_UNSIGNED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLDETAILS_UNSIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERCONTROLW(pub *mut MIXERCONTROLW);
-impl LPMIXERCONTROLW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERCONTROLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
+pub type LPMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
+pub type LPMIXERCONTROLDETAILS_LISTTEXT = LPMIXERCONTROLDETAILS_LISTTEXTA;
+pub type LPMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+pub type LPMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
+pub type LPMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
+pub type LPMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
+pub type LPMIXERCONTROLW = *mut MIXERCONTROLW;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERLINE(pub LPMIXERLINEA);
+pub type LPMIXERLINE = LPMIXERLINEA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERLINEA(pub *mut MIXERLINEA);
+pub type LPMIXERLINEA = *mut MIXERLINEA;
+pub type LPMIXERLINECONTROLS = LPMIXERLINECONTROLSA;
+pub type LPMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
+pub type LPMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
 #[cfg(feature = "mmsyscom")]
-impl LPMIXERLINEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERLINEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPMIXERLINECONTROLS(pub LPMIXERLINECONTROLSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERLINECONTROLSA(pub *mut MIXERLINECONTROLSA);
-impl LPMIXERLINECONTROLSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERLINECONTROLSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERLINECONTROLSW(pub *mut MIXERLINECONTROLSW);
-impl LPMIXERLINECONTROLSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMIXERLINECONTROLSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMIXERLINEW(pub *mut MIXERLINEW);
-#[cfg(feature = "mmsyscom")]
-impl LPMIXERLINEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPMIXERLINEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPATCHARRAY(pub *mut u16);
-impl LPPATCHARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPATCHARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPCMWAVEFORMAT(pub *mut PCMWAVEFORMAT);
-impl LPPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMIXERLINEW = *mut MIXERLINEW;
+pub type LPPATCHARRAY = *mut u16;
+pub type LPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
 pub type LPWAVECALLBACK = Option<unsafe extern "system" fn()>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEFORMAT(pub *mut WAVEFORMAT);
-impl LPWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEFORMATEX(pub *mut WAVEFORMATEX);
-impl LPWAVEFORMATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEHDR(pub *mut WAVEHDR);
-impl LPWAVEHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWAVEHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWAVEFORMAT = *mut WAVEFORMAT;
+pub type LPWAVEFORMATEX = *mut WAVEFORMATEX;
+pub type LPWAVEHDR = *mut WAVEHDR;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWAVEINCAPS(pub LPWAVEINCAPSA);
+pub type LPWAVEINCAPS = LPWAVEINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWAVEINCAPS2(pub LPWAVEINCAPS2A);
+pub type LPWAVEINCAPS2 = LPWAVEINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
+pub type LPWAVEINCAPS2A = *mut WAVEINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl LPWAVEINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPWAVEINCAPS2W = *mut WAVEINCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWAVEINCAPSA = *mut WAVEINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
+pub type LPWAVEINCAPSW = *mut WAVEINCAPSW;
 #[cfg(feature = "mmsyscom")]
-impl LPWAVEINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPWAVEOUTCAPS = LPWAVEOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWAVEOUTCAPS2 = LPWAVEOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEINCAPSA(pub *mut WAVEINCAPSA);
+pub type LPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl LPWAVEINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl LPWAVEINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWAVEOUTCAPS(pub LPWAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPWAVEOUTCAPS2(pub LPWAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl LPWAVEOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl LPWAVEOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl LPWAVEOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl LPWAVEOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for LPWAVEOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
 pub const MEVT_COMMENT: u8 = 130;
 pub const MEVT_F_CALLBACK: u32 = 1073741824;
 pub const MEVT_F_LONG: u32 = 2147483648;
@@ -2447,1112 +1713,174 @@ pub const MOM_DONE: u32 = 969;
 pub const MOM_OPEN: u32 = 967;
 pub const MOM_POSITIONCB: u32 = 970;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPAUXCAPS(pub NPAUXCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPAUXCAPS2(pub NPAUXCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUXCAPS2A(pub *mut AUXCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl NPAUXCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPAUXCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl NPAUXCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPAUXCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl NPAUXCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPAUXCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl NPAUXCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPAUXCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIHDR(pub *mut MIDIHDR);
-impl NPMIDIHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPMIDIHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPMIDIINCAPS(pub NPMIDIINCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPMIDIINCAPS2(pub NPMIDIINCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIINCAPSA(pub *mut MIDIINCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIINCAPSW(pub *mut MIDIINCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPMIDIOUTCAPS(pub NPMIDIOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPMIDIOUTCAPS2(pub NPMIDIOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl NPMIDIOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPMIDIOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPPCMWAVEFORMAT(pub *mut PCMWAVEFORMAT);
-impl NPPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEFORMAT(pub *mut WAVEFORMAT);
-impl NPWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEFORMATEX(pub *mut WAVEFORMATEX);
-impl NPWAVEFORMATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPWAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEHDR(pub *mut WAVEHDR);
-impl NPWAVEHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPWAVEHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPWAVEINCAPS(pub NPWAVEINCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPWAVEINCAPS2(pub NPWAVEINCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEINCAPSA(pub *mut WAVEINCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPWAVEOUTCAPS(pub NPWAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPWAVEOUTCAPS2(pub NPWAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl NPWAVEOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for NPWAVEOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPAUXCAPS = NPAUXCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPAUXCAPS2 = NPAUXCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPAUXCAPS2A = *mut AUXCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPAUXCAPS2W = *mut AUXCAPS2W;
+#[cfg(feature = "mmsyscom")]
+pub type NPAUXCAPSA = *mut AUXCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPAUXCAPSW = *mut AUXCAPSW;
+pub type NPMIDIHDR = *mut MIDIHDR;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPS = NPMIDIINCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPS2 = NPMIDIINCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPS2A = *mut MIDIINCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPS2W = *mut MIDIINCAPS2W;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPSA = *mut MIDIINCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIINCAPSW = *mut MIDIINCAPSW;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPS = NPMIDIOUTCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPS2 = NPMIDIOUTCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
+pub type NPPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
+pub type NPWAVEFORMAT = *mut WAVEFORMAT;
+pub type NPWAVEFORMATEX = *mut WAVEFORMATEX;
+pub type NPWAVEHDR = *mut WAVEHDR;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPS = NPWAVEINCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPS2 = NPWAVEINCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPS2A = *mut WAVEINCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPS2W = *mut WAVEINCAPS2W;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPSA = *mut WAVEINCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEINCAPSW = *mut WAVEINCAPSW;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPS = NPWAVEOUTCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPS2 = NPWAVEOUTCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
+#[cfg(feature = "mmsyscom")]
+pub type NPWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
 pub type PATCHARRAY = [u16; 128];
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PAUXCAPS(pub PAUXCAPSA);
+pub type PAUXCAPS = PAUXCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PAUXCAPS2(pub PAUXCAPS2A);
+pub type PAUXCAPS2 = PAUXCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUXCAPS2A(pub *mut AUXCAPS2A);
+pub type PAUXCAPS2A = *mut AUXCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl PAUXCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PAUXCAPS2W = *mut AUXCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for PAUXCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUXCAPSA = *mut AUXCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUXCAPS2W(pub *mut AUXCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl PAUXCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PAUXCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUXCAPSA(pub *mut AUXCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl PAUXCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PAUXCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAUXCAPSW(pub *mut AUXCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl PAUXCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PAUXCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAUXCAPSW = *mut AUXCAPSW;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct PCMWAVEFORMAT {
     pub wf: WAVEFORMAT,
     pub wBitsPerSample: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIHDR(pub *mut MIDIHDR);
-impl PMIDIHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIDIHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDIHDR = *mut MIDIHDR;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIDIINCAPS(pub PMIDIINCAPSA);
+pub type PMIDIINCAPS = PMIDIINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIDIINCAPS2(pub PMIDIINCAPS2A);
+pub type PMIDIINCAPS2 = PMIDIINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIINCAPS2A(pub *mut MIDIINCAPS2A);
+pub type PMIDIINCAPS2A = *mut MIDIINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl PMIDIINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIDIINCAPS2W = *mut MIDIINCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIDIINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDIINCAPSA = *mut MIDIINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIINCAPS2W(pub *mut MIDIINCAPS2W);
+pub type PMIDIINCAPSW = *mut MIDIINCAPSW;
 #[cfg(feature = "mmsyscom")]
-impl PMIDIINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIDIOUTCAPS = PMIDIOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIDIINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDIOUTCAPS2 = PMIDIOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIINCAPSA(pub *mut MIDIINCAPSA);
+pub type PMIDIOUTCAPS2A = *mut MIDIOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl PMIDIINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIDIOUTCAPS2W = *mut MIDIOUTCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIDIINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDIOUTCAPSA = *mut MIDIOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIINCAPSW(pub *mut MIDIINCAPSW);
+pub type PMIDIOUTCAPSW = *mut MIDIOUTCAPSW;
 #[cfg(feature = "mmsyscom")]
-impl PMIDIINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIXERCAPS = PMIXERCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIDIINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIXERCAPS2 = PMIXERCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIDIOUTCAPS(pub PMIDIOUTCAPSA);
+pub type PMIXERCAPS2A = *mut MIXERCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIDIOUTCAPS2(pub PMIDIOUTCAPS2A);
+pub type PMIXERCAPS2W = *mut MIXERCAPS2W;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIOUTCAPS2A(pub *mut MIDIOUTCAPS2A);
+pub type PMIXERCAPSA = *mut MIXERCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl PMIDIOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIDIOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIOUTCAPS2W(pub *mut MIDIOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl PMIDIOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIDIOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIOUTCAPSA(pub *mut MIDIOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl PMIDIOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIDIOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDIOUTCAPSW(pub *mut MIDIOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl PMIDIOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIDIOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERCAPS(pub PMIXERCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERCAPS2(pub PMIXERCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCAPS2A(pub *mut MIXERCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl PMIXERCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIXERCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCAPS2W(pub *mut MIXERCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl PMIXERCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIXERCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCAPSA(pub *mut MIXERCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl PMIXERCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIXERCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCAPSW(pub *mut MIXERCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl PMIXERCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PMIXERCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERCONTROL(pub PMIXERCONTROLA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLA(pub *mut MIXERCONTROLA);
-impl PMIXERCONTROLA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIXERCAPSW = *mut MIXERCAPSW;
+pub type PMIXERCONTROL = PMIXERCONTROLA;
+pub type PMIXERCONTROLA = *mut MIXERCONTROLA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS(pub *mut MIXERCONTROLDETAILS);
-#[cfg(feature = "windef")]
-impl PMIXERCONTROLDETAILS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PMIXERCONTROLDETAILS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS_BOOLEAN(pub *mut MIXERCONTROLDETAILS_BOOLEAN);
-impl PMIXERCONTROLDETAILS_BOOLEAN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLDETAILS_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERCONTROLDETAILS_LISTTEXT(pub PMIXERCONTROLDETAILS_LISTTEXTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS_LISTTEXTA(pub *mut MIXERCONTROLDETAILS_LISTTEXTA);
-impl PMIXERCONTROLDETAILS_LISTTEXTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLDETAILS_LISTTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS_LISTTEXTW(pub *mut MIXERCONTROLDETAILS_LISTTEXTW);
-impl PMIXERCONTROLDETAILS_LISTTEXTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLDETAILS_LISTTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS_SIGNED(pub *mut MIXERCONTROLDETAILS_SIGNED);
-impl PMIXERCONTROLDETAILS_SIGNED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLDETAILS_SIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLDETAILS_UNSIGNED(pub *mut MIXERCONTROLDETAILS_UNSIGNED);
-impl PMIXERCONTROLDETAILS_UNSIGNED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLDETAILS_UNSIGNED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERCONTROLW(pub *mut MIXERCONTROLW);
-impl PMIXERCONTROLW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERCONTROLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIXERCONTROLDETAILS = *mut MIXERCONTROLDETAILS;
+pub type PMIXERCONTROLDETAILS_BOOLEAN = *mut MIXERCONTROLDETAILS_BOOLEAN;
+pub type PMIXERCONTROLDETAILS_LISTTEXT = PMIXERCONTROLDETAILS_LISTTEXTA;
+pub type PMIXERCONTROLDETAILS_LISTTEXTA = *mut MIXERCONTROLDETAILS_LISTTEXTA;
+pub type PMIXERCONTROLDETAILS_LISTTEXTW = *mut MIXERCONTROLDETAILS_LISTTEXTW;
+pub type PMIXERCONTROLDETAILS_SIGNED = *mut MIXERCONTROLDETAILS_SIGNED;
+pub type PMIXERCONTROLDETAILS_UNSIGNED = *mut MIXERCONTROLDETAILS_UNSIGNED;
+pub type PMIXERCONTROLW = *mut MIXERCONTROLW;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERLINE(pub PMIXERLINEA);
+pub type PMIXERLINE = PMIXERLINEA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERLINEA(pub *mut MIXERLINEA);
+pub type PMIXERLINEA = *mut MIXERLINEA;
+pub type PMIXERLINECONTROLS = PMIXERLINECONTROLSA;
+pub type PMIXERLINECONTROLSA = *mut MIXERLINECONTROLSA;
+pub type PMIXERLINECONTROLSW = *mut MIXERLINECONTROLSW;
 #[cfg(feature = "mmsyscom")]
-impl PMIXERLINEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIXERLINEW = *mut MIXERLINEW;
+pub type PPCMWAVEFORMAT = *mut PCMWAVEFORMAT;
+pub type PWAVEFORMAT = *mut WAVEFORMAT;
+pub type PWAVEFORMATEX = *mut WAVEFORMATEX;
+pub type PWAVEHDR = *mut WAVEHDR;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIXERLINEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PMIXERLINECONTROLS(pub PMIXERLINECONTROLSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERLINECONTROLSA(pub *mut MIXERLINECONTROLSA);
-impl PMIXERLINECONTROLSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERLINECONTROLSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERLINECONTROLSW(pub *mut MIXERLINECONTROLSW);
-impl PMIXERLINECONTROLSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIXERLINECONTROLSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAVEINCAPS = PWAVEINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIXERLINEW(pub *mut MIXERLINEW);
+pub type PWAVEINCAPS2 = PWAVEINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl PMIXERLINEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWAVEINCAPS2A = *mut WAVEINCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl Default for PMIXERLINEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCMWAVEFORMAT(pub *mut PCMWAVEFORMAT);
-impl PPCMWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCMWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMAT(pub *mut WAVEFORMAT);
-impl PWAVEFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWAVEFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEFORMATEX(pub *mut WAVEFORMATEX);
-impl PWAVEFORMATEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWAVEFORMATEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEHDR(pub *mut WAVEHDR);
-impl PWAVEHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWAVEHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAVEINCAPS2W = *mut WAVEINCAPS2W;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWAVEINCAPS(pub PWAVEINCAPSA);
+pub type PWAVEINCAPSA = *mut WAVEINCAPSA;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWAVEINCAPS2(pub PWAVEINCAPS2A);
+pub type PWAVEINCAPSW = *mut WAVEINCAPSW;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEINCAPS2A(pub *mut WAVEINCAPS2A);
+pub type PWAVEOUTCAPS = PWAVEOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl PWAVEINCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWAVEOUTCAPS2 = PWAVEOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-impl Default for PWAVEINCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAVEOUTCAPS2A = *mut WAVEOUTCAPS2A;
 #[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEINCAPS2W(pub *mut WAVEINCAPS2W);
+pub type PWAVEOUTCAPS2W = *mut WAVEOUTCAPS2W;
 #[cfg(feature = "mmsyscom")]
-impl PWAVEINCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PWAVEOUTCAPSA = *mut WAVEOUTCAPSA;
 #[cfg(feature = "mmsyscom")]
-impl Default for PWAVEINCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEINCAPSA(pub *mut WAVEINCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEINCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEINCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEINCAPSW(pub *mut WAVEINCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEINCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEINCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWAVEOUTCAPS(pub PWAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PWAVEOUTCAPS2(pub PWAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEOUTCAPS2A(pub *mut WAVEOUTCAPS2A);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEOUTCAPS2A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEOUTCAPS2A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEOUTCAPS2W(pub *mut WAVEOUTCAPS2W);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEOUTCAPS2W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEOUTCAPS2W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEOUTCAPSA(pub *mut WAVEOUTCAPSA);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEOUTCAPSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEOUTCAPSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmsyscom")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAVEOUTCAPSW(pub *mut WAVEOUTCAPSW);
-#[cfg(feature = "mmsyscom")]
-impl PWAVEOUTCAPSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmsyscom")]
-impl Default for PWAVEOUTCAPSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAVEOUTCAPSW = *mut WAVEOUTCAPSW;
 #[cfg(feature = "mmsyscom")]
 pub type WAVECALLBACK = Option<unsafe extern "system" fn(hdrvr: super::mmsyscom::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const WAVECAPS_LRVOLUME: u32 = 8;

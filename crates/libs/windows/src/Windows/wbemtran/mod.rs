@@ -456,19 +456,7 @@ impl IWbemTransport_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IWbemTransport {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WBEM_128BITS(pub *mut u8);
-impl WBEM_128BITS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for WBEM_128BITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type WBEM_128BITS = *mut u8;
 pub const WBEM_AUTHENTICATION_METHOD_MASK: WBEM_LOGIN_TYPE = 15;
 pub const WBEM_FLAG_INPROC_LOGIN: WBEM_LOGIN_TYPE = 0;
 pub const WBEM_FLAG_LOCAL_LOGIN: WBEM_LOGIN_TYPE = 1;

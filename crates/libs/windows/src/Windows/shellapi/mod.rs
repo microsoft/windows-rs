@@ -668,155 +668,27 @@ impl Default for HDROP {
     }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDRAGINFO(pub LPDRAGINFOA);
+pub type LPDRAGINFO = LPDRAGINFOA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRAGINFOA(pub *mut DRAGINFOA);
+pub type LPDRAGINFOA = *mut DRAGINFOA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPDRAGINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPDRAGINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRAGINFOW(pub *mut DRAGINFOW);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPDRAGINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPDRAGINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDRAGINFOW = *mut DRAGINFOW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSHELLEXECUTEINFO(pub LPSHELLEXECUTEINFOA);
+pub type LPSHELLEXECUTEINFO = LPSHELLEXECUTEINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLEXECUTEINFOA(pub *mut SHELLEXECUTEINFOA);
+pub type LPSHELLEXECUTEINFOA = *mut SHELLEXECUTEINFOA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPSHELLEXECUTEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPSHELLEXECUTEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHELLEXECUTEINFOW(pub *mut SHELLEXECUTEINFOW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPSHELLEXECUTEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPSHELLEXECUTEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSHELLEXECUTEINFOW = *mut SHELLEXECUTEINFOW;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSHFILEOPSTRUCT(pub LPSHFILEOPSTRUCTA);
+pub type LPSHFILEOPSTRUCT = LPSHFILEOPSTRUCTA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHFILEOPSTRUCTA(pub *mut SHFILEOPSTRUCTA);
+pub type LPSHFILEOPSTRUCTA = *mut SHFILEOPSTRUCTA;
 #[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPSHFILEOPSTRUCTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPSHFILEOPSTRUCTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHFILEOPSTRUCTW(pub *mut SHFILEOPSTRUCTW);
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl LPSHFILEOPSTRUCTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "windef", feature = "winnt"))]
-impl Default for LPSHFILEOPSTRUCTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSHNAMEMAPPING(pub LPSHNAMEMAPPINGA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHNAMEMAPPINGA(pub *mut SHNAMEMAPPINGA);
-impl LPSHNAMEMAPPINGA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHNAMEMAPPINGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHNAMEMAPPINGW(pub *mut SHNAMEMAPPINGW);
-impl LPSHNAMEMAPPINGW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHNAMEMAPPINGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSHQUERYRBINFO(pub *mut SHQUERYRBINFO);
-impl LPSHQUERYRBINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSHQUERYRBINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSHFILEOPSTRUCTW = *mut SHFILEOPSTRUCTW;
+pub type LPSHNAMEMAPPING = LPSHNAMEMAPPINGA;
+pub type LPSHNAMEMAPPINGA = *mut SHNAMEMAPPINGA;
+pub type LPSHNAMEMAPPINGW = *mut SHNAMEMAPPINGW;
+pub type LPSHQUERYRBINFO = *mut SHQUERYRBINFO;
 pub const NCM_DISPLAYERRORTIP: u32 = 1028;
 pub const NCM_GETADDRESS: u32 = 1025;
 pub const NCM_GETALLOWTYPE: u32 = 1027;
@@ -1146,118 +1018,22 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
     pub bModal: windows_core::BOOL,
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAPPBARDATA(pub *mut APPBARDATA);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl PAPPBARDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for PAPPBARDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAPPBARDATA = *mut APPBARDATA;
 pub type PFNCANSHAREFOLDERW = Option<unsafe extern "system" fn(pszpath: windows_core::PCWSTR) -> windows_core::HRESULT>;
 #[cfg(feature = "windef")]
 pub type PFNSHOWSHAREFOLDERUIW = Option<unsafe extern "system" fn(hwndparent: super::windef::HWND, pszpath: windows_core::PCWSTR) -> windows_core::HRESULT>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNC_ADDRESS(pub *mut NC_ADDRESS);
-impl PNC_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNC_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNC_ADDRESS = *mut NC_ADDRESS;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PNOTIFYICONDATA(pub PNOTIFYICONDATAA);
+pub type PNOTIFYICONDATA = PNOTIFYICONDATAA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNOTIFYICONDATAA(pub *mut NOTIFYICONDATAA);
+pub type PNOTIFYICONDATAA = *mut NOTIFYICONDATAA;
 #[cfg(feature = "windef")]
-impl PNOTIFYICONDATAA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PNOTIFYICONDATAW = *mut NOTIFYICONDATAW;
 #[cfg(feature = "windef")]
-impl Default for PNOTIFYICONDATAA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNOTIFYICONDATAW(pub *mut NOTIFYICONDATAW);
-#[cfg(feature = "windef")]
-impl PNOTIFYICONDATAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PNOTIFYICONDATAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNOTIFYICONIDENTIFIER(pub *mut NOTIFYICONIDENTIFIER);
-#[cfg(feature = "windef")]
-impl PNOTIFYICONIDENTIFIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PNOTIFYICONIDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POPEN_PRINTER_PROPS_INFO(pub POPEN_PRINTER_PROPS_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPEN_PRINTER_PROPS_INFOA(pub *mut OPEN_PRINTER_PROPS_INFOA);
-impl POPEN_PRINTER_PROPS_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POPEN_PRINTER_PROPS_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPEN_PRINTER_PROPS_INFOW(pub *mut OPEN_PRINTER_PROPS_INFOW);
-impl POPEN_PRINTER_PROPS_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POPEN_PRINTER_PROPS_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNOTIFYICONIDENTIFIER = *mut NOTIFYICONIDENTIFIER;
+pub type POPEN_PRINTER_PROPS_INFO = POPEN_PRINTER_PROPS_INFOA;
+pub type POPEN_PRINTER_PROPS_INFOA = *mut OPEN_PRINTER_PROPS_INFOA;
+pub type POPEN_PRINTER_PROPS_INFOW = *mut OPEN_PRINTER_PROPS_INFOW;
 pub const PO_DELETE: u32 = 19;
 pub const PO_PORTCHANGE: u32 = 32;
 pub const PO_RENAME: u32 = 20;
@@ -1275,21 +1051,7 @@ pub const PRINTACTION_TESTPAGE: u32 = 4;
 pub struct PRINTEROP_FLAGS(pub u16);
 pub const PRINT_PROP_FORCE_NAME: u32 = 1;
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSHCREATEPROCESSINFOW(pub *mut SHCREATEPROCESSINFOW);
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-impl PSHCREATEPROCESSINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-impl Default for PSHCREATEPROCESSINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSHCREATEPROCESSINFOW = *mut SHCREATEPROCESSINFOW;
 pub type QUERY_USER_NOTIFICATION_STATE = i32;
 pub const QUNS_ACCEPTS_NOTIFICATIONS: QUERY_USER_NOTIFICATION_STATE = 5;
 pub const QUNS_APP: QUERY_USER_NOTIFICATION_STATE = 7;

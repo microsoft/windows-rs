@@ -74,107 +74,11 @@ pub const DEVPROP_TYPE_UINT32: u32 = 7;
 pub const DEVPROP_TYPE_UINT64: u32 = 9;
 pub const MAX_DEVPROP_TYPE: u32 = 25;
 pub const MAX_DEVPROP_TYPEMOD: u32 = 8192;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPCOMPKEY(pub *mut DEVPROPCOMPKEY);
-impl PDEVPROPCOMPKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPCOMPKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPERTY(pub *mut DEVPROPERTY);
-impl PDEVPROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPGUID(pub *mut windows_core::GUID);
-impl PDEVPROPGUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPGUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPID(pub *mut u32);
-impl PDEVPROPID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPKEY(pub *mut DEVPROPKEY);
-impl PDEVPROPKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPKEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPSTORE(pub *mut DEVPROPSTORE);
-impl PDEVPROPSTORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPSTORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROPTYPE(pub *mut u32);
-impl PDEVPROPTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROPTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVPROP_BOOLEAN(pub *mut i8);
-impl PDEVPROP_BOOLEAN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVPROP_BOOLEAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVPROPCOMPKEY = *mut DEVPROPCOMPKEY;
+pub type PDEVPROPERTY = *mut DEVPROPERTY;
+pub type PDEVPROPGUID = *mut windows_core::GUID;
+pub type PDEVPROPID = *mut u32;
+pub type PDEVPROPKEY = *mut DEVPROPKEY;
+pub type PDEVPROPSTORE = *mut DEVPROPSTORE;
+pub type PDEVPROPTYPE = *mut u32;
+pub type PDEVPROP_BOOLEAN = *mut i8;

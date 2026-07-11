@@ -215,208 +215,26 @@ pub const MAX_ADAPTER_NAME: u32 = 128;
 pub const MAX_IP_STATUS: u32 = 11050;
 pub const MAX_OPT_SIZE: u32 = 40;
 #[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PARP_SEND_REPLY(pub *mut ARP_SEND_REPLY);
-#[cfg(feature = "ntddndis")]
-impl PARP_SEND_REPLY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntddndis")]
-impl Default for PARP_SEND_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PICMPV6_ECHO_REPLY(pub *mut ICMPV6_ECHO_REPLY_LH);
-impl PICMPV6_ECHO_REPLY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PICMPV6_ECHO_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PICMPV6_ECHO_REPLY_LH(pub *mut ICMPV6_ECHO_REPLY_LH);
-impl PICMPV6_ECHO_REPLY_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PICMPV6_ECHO_REPLY_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PARP_SEND_REPLY = *mut ARP_SEND_REPLY;
+pub type PICMPV6_ECHO_REPLY = *mut ICMPV6_ECHO_REPLY_LH;
+pub type PICMPV6_ECHO_REPLY_LH = *mut ICMPV6_ECHO_REPLY_LH;
 #[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PICMP_ECHO_REPLY(pub *mut ICMP_ECHO_REPLY);
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-impl PICMP_ECHO_REPLY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-impl Default for PICMP_ECHO_REPLY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PICMP_ECHO_REPLY = *mut ICMP_ECHO_REPLY;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PICMP_ECHO_REPLY32(pub *mut ICMP_ECHO_REPLY32);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-impl PICMP_ECHO_REPLY32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "ntddndis")]
-impl Default for PICMP_ECHO_REPLY32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIPV6_ADDRESS_EX(pub *mut IPV6_ADDRESS_EX);
-impl PIPV6_ADDRESS_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIPV6_ADDRESS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_INDEX_MAP(pub *mut IP_ADAPTER_INDEX_MAP);
-impl PIP_ADAPTER_INDEX_MAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_ADAPTER_INDEX_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ORDER_MAP(pub *mut IP_ADAPTER_ORDER_MAP);
-impl PIP_ADAPTER_ORDER_MAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_ADAPTER_ORDER_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_INTERFACE_INFO(pub *mut IP_INTERFACE_INFO);
-impl PIP_INTERFACE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_INTERFACE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_MCAST_COUNTER_INFO(pub *mut IP_MCAST_COUNTER_INFO);
-impl PIP_MCAST_COUNTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_MCAST_COUNTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PICMP_ECHO_REPLY32 = *mut ICMP_ECHO_REPLY32;
+pub type PIPV6_ADDRESS_EX = *mut IPV6_ADDRESS_EX;
+pub type PIP_ADAPTER_INDEX_MAP = *mut IP_ADAPTER_INDEX_MAP;
+pub type PIP_ADAPTER_ORDER_MAP = *mut IP_ADAPTER_ORDER_MAP;
+pub type PIP_INTERFACE_INFO = *mut IP_INTERFACE_INFO;
+pub type PIP_MCAST_COUNTER_INFO = *mut IP_MCAST_COUNTER_INFO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_OPTION_INFORMATION(pub *mut IP_OPTION_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PIP_OPTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PIP_OPTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_OPTION_INFORMATION = *mut IP_OPTION_INFORMATION;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_OPTION_INFORMATION32(pub *mut IP_OPTION_INFORMATION32);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PIP_OPTION_INFORMATION32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PIP_OPTION_INFORMATION32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_OPTION_INFORMATION32 = *mut IP_OPTION_INFORMATION32;
 #[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS(pub *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS);
-#[cfg(feature = "ntddndis")]
-impl PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntddndis")]
-impl Default for PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCP_RESERVE_PORT_RANGE(pub *mut TCP_RESERVE_PORT_RANGE);
-impl PTCP_RESERVE_PORT_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTCP_RESERVE_PORT_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS = *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS;
+pub type PTCP_RESERVE_PORT_RANGE = *mut TCP_RESERVE_PORT_RANGE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct TCP_RESERVE_PORT_RANGE {

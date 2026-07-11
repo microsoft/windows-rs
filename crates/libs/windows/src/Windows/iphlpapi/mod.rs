@@ -620,56 +620,8 @@ pub const NET_STRING_IP_SERVICE: u32 = 34;
 pub const NET_STRING_IP_SERVICE_NO_SCOPE: u32 = 66;
 pub const NET_STRING_NAMED_ADDRESS: u32 = 256;
 pub const NET_STRING_NAMED_SERVICE: u32 = 512;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE_HARDWARE_CROSSTIMESTAMP(pub *mut INTERFACE_HARDWARE_CROSSTIMESTAMP);
-impl PINTERFACE_HARDWARE_CROSSTIMESTAMP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE_HARDWARE_CROSSTIMESTAMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES(pub *mut INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES);
-impl PINTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES(pub *mut INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES);
-impl PINTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE_TIMESTAMP_CAPABILITIES(pub *mut INTERFACE_TIMESTAMP_CAPABILITIES);
-impl PINTERFACE_TIMESTAMP_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE_TIMESTAMP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINTERFACE_HARDWARE_CROSSTIMESTAMP = *mut INTERFACE_HARDWARE_CROSSTIMESTAMP;
+pub type PINTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES;
+pub type PINTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES;
+pub type PINTERFACE_TIMESTAMP_CAPABILITIES = *mut INTERFACE_TIMESTAMP_CAPABILITIES;
 pub type PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK = Option<unsafe extern "system" fn(callercontext: *const core::ffi::c_void)>;

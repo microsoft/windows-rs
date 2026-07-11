@@ -2901,7 +2901,7 @@ pub type DEVICE_TEXT_TYPE = i32;
 pub type DEVICE_USAGE_NOTIFICATION_TYPE = i32;
 pub type DEVICE_WAKE_DEPTH = i32;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-pub const DEVICE_WITH_IRP_EXTENSION: PDEVICE_OBJECT = PDEVICE_OBJECT(-1 as _);
+pub const DEVICE_WITH_IRP_EXTENSION: PDEVICE_OBJECT = -1 as _;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -8878,9 +8878,7 @@ pub struct KMUTANT_0_0 {
 #[cfg(feature = "winnt")]
 pub type KMUTEX = KMUTANT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct KPROCESSOR_MODE(pub super::winnt::CCHAR);
+pub type KPROCESSOR_MODE = super::winnt::CCHAR;
 pub type KPROFILE_SOURCE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -9200,75 +9198,75 @@ pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 3;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueAfdWorkQueueLock: u32 = 13;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = 13 as _;
+pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueBcbLock: u32 = 14;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = 14 as _;
+pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCancelLock: u32 = 7;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = 7 as _;
+pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCompletionLock: u32 = 11;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = 11 as _;
+pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoDatabaseLock: u32 = 10;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = 10 as _;
+pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoVpbLock: u32 = 9;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = 9 as _;
+pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMasterLock: u32 = 5;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = 5 as _;
+pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMaximumLock: u32 = 17;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = 17 as _;
+pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNonPagedPoolLock: u32 = 6;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = 6 as _;
+pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNtfsStructLock: u32 = 12;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = 12 as _;
+pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare0: u32 = 0;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = 0 as _;
+pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare1: u32 = 1;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = 1 as _;
+pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare15: u32 = 15;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = 15 as _;
+pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare16: u32 = 16;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = 16 as _;
+pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare2: u32 = 2;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = 2 as _;
+pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare3: u32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = 3 as _;
+pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare8: u32 = 8;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = 8 as _;
+pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8 as _);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueVacbLock: u32 = 4;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = 4 as _;
+pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4 as _);
 pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = 10;
 pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = 8;
 pub const LowImportance: KDPC_IMPORTANCE = 0;
@@ -9758,104 +9756,18 @@ pub struct OWNER_ENTRY_COUNTS_0 {
 }
 pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACCESS_STATE(pub *mut ACCESS_STATE);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PACCESS_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PACCESS_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACCESS_STATE = *mut ACCESS_STATE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACPI_INTERFACE_STANDARD(pub *mut ACPI_INTERFACE_STANDARD);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PACPI_INTERFACE_STANDARD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PACPI_INTERFACE_STANDARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACPI_INTERFACE_STANDARD = *mut ACPI_INTERFACE_STANDARD;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACPI_INTERFACE_STANDARD2(pub *mut ACPI_INTERFACE_STANDARD2);
-#[cfg(feature = "bcrypt")]
-impl PACPI_INTERFACE_STANDARD2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PACPI_INTERFACE_STANDARD2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACPI_INTERFACE_STANDARD2 = *mut ACPI_INTERFACE_STANDARD2;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "ntddscsi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADAPTER_OBJECT(pub *mut super::ntddscsi::_ADAPTER_OBJECT);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "ntddscsi")]
-impl PADAPTER_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "ntddscsi")]
-impl Default for PADAPTER_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADAPTER_OBJECT = *mut super::ntddscsi::_ADAPTER_OBJECT;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADAPTER_OBJECT(pub *mut DMA_ADAPTER);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PADAPTER_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PADAPTER_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAFFINITY_TOKEN(pub *mut _AFFINITY_TOKEN);
-impl PAFFINITY_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAFFINITY_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADAPTER_OBJECT = *mut DMA_ADAPTER;
+pub type PAFFINITY_TOKEN = *mut _AFFINITY_TOKEN;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -9902,187 +9814,27 @@ pub type PALLOCATE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaad
 pub type PALLOCATE_COMMON_BUFFER_WITH_BOUNDS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, minimumaddress: *const i64, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: *mut i64) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PALLOCATE_DOMAIN_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::winnt::HANDLE, maximumaddress: *const i64, length: u32, flags: u32, cachetype: *const MEMORY_CACHING_TYPE, preferrednode: NODE_REQUIREMENT, logicaladdress: *mut i64, virtualaddress: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PALLOCATE_FUNCTION(pub *mut ALLOCATE_FUNCTION);
-impl PALLOCATE_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PALLOCATE_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PALLOCATE_FUNCTION = *mut ALLOCATE_FUNCTION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PALLOCATE_FUNCTION_EX(pub *mut ALLOCATE_FUNCTION_EX);
-#[cfg(feature = "winnt")]
-impl PALLOCATE_FUNCTION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PALLOCATE_FUNCTION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PALLOCATE_FUNCTION_EX = *mut ALLOCATE_FUNCTION_EX;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAMD_L1_CACHE_INFO(pub *mut AMD_L1_CACHE_INFO);
+pub type PAMD_L1_CACHE_INFO = *mut AMD_L1_CACHE_INFO;
 #[cfg(target_arch = "x86")]
-impl PAMD_L1_CACHE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PAMD_L2_CACHE_INFO = *mut AMD_L2_CACHE_INFO;
 #[cfg(target_arch = "x86")]
-impl Default for PAMD_L1_CACHE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAMD_L2_CACHE_INFO(pub *mut AMD_L2_CACHE_INFO);
-#[cfg(target_arch = "x86")]
-impl PAMD_L2_CACHE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PAMD_L2_CACHE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAMD_L3_CACHE_INFO(pub *mut AMD_L3_CACHE_INFO);
-#[cfg(target_arch = "x86")]
-impl PAMD_L3_CACHE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PAMD_L3_CACHE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAMD_L3_CACHE_INFO = *mut AMD_L3_CACHE_INFO;
 #[cfg(target_arch = "aarch64")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PARM64_IDCODE(pub *mut ARM64_IDCODE);
-#[cfg(target_arch = "aarch64")]
-impl PARM64_IDCODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "aarch64")]
-impl Default for PARM64_IDCODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PARM64_IDCODE = *mut ARM64_IDCODE;
 pub type PARTITION_INFORMATION_CLASS = i32;
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBDCB_IMAGE_INFORMATION(pub *mut super::ntddk::BDCB_IMAGE_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-impl PBDCB_IMAGE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-impl Default for PBDCB_IMAGE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBOOTDISK_INFORMATION(pub *mut BOOTDISK_INFORMATION);
-impl PBOOTDISK_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBOOTDISK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBOOTDISK_INFORMATION_EX(pub *mut BOOTDISK_INFORMATION_EX);
-impl PBOOTDISK_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBOOTDISK_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBOOTDISK_INFORMATION_LITE(pub *mut BOOTDISK_INFORMATION_LITE);
-impl PBOOTDISK_INFORMATION_LITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBOOTDISK_INFORMATION_LITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBDCB_IMAGE_INFORMATION = *mut super::ntddk::BDCB_IMAGE_INFORMATION;
+pub type PBOOTDISK_INFORMATION = *mut BOOTDISK_INFORMATION;
+pub type PBOOTDISK_INFORMATION_EX = *mut BOOTDISK_INFORMATION_EX;
+pub type PBOOTDISK_INFORMATION_LITE = *mut BOOTDISK_INFORMATION_LITE;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBOUND_CALLBACK(pub *mut BOUND_CALLBACK);
+pub type PBOUND_CALLBACK = *mut BOUND_CALLBACK;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl PBOUND_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl Default for PBOUND_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBOUND_CALLBACK_STATUS(pub *mut BOUND_CALLBACK_STATUS);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl PBOUND_CALLBACK_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-impl Default for PBOUND_CALLBACK_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBOUND_CALLBACK_STATUS = *mut BOUND_CALLBACK_STATUS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PBUILD_MDL_FROM_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, originalmdl: *const MDL, targetmdl: *mut super::usb::PMDL) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -10090,108 +9842,20 @@ pub type PBUILD_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapte
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PBUILD_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const MDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool, scattergatherbuffer: *const core::ffi::c_void, scattergatherlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUS_INTERFACE_STANDARD(pub *mut BUS_INTERFACE_STANDARD);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PBUS_INTERFACE_STANDARD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PBUS_INTERFACE_STANDARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUS_QUERY_ID_TYPE(pub *mut BUS_QUERY_ID_TYPE);
-impl PBUS_QUERY_ID_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUS_QUERY_ID_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBUS_INTERFACE_STANDARD = *mut BUS_INTERFACE_STANDARD;
+pub type PBUS_QUERY_ID_TYPE = *mut BUS_QUERY_ID_TYPE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUS_RESOURCE_UPDATE_INTERFACE(pub *mut BUS_RESOURCE_UPDATE_INTERFACE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl PBUS_RESOURCE_UPDATE_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl Default for PBUS_RESOURCE_UPDATE_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBUS_SPECIFIC_RESET_FLAGS(pub *mut BUS_SPECIFIC_RESET_FLAGS);
-impl PBUS_SPECIFIC_RESET_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBUS_SPECIFIC_RESET_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PBUS_RESOURCE_UPDATE_INTERFACE = *mut BUS_RESOURCE_UPDATE_INTERFACE;
+pub type PBUS_SPECIFIC_RESET_FLAGS = *mut BUS_SPECIFIC_RESET_FLAGS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCALCULATE_SCATTER_GATHER_LIST_SIZE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, currentva: *const core::ffi::c_void, length: u32, scattergatherlistsize: *mut u32, pnumberofmapregisters: *mut u32) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCALLBACK_FUNCTION(pub *mut CALLBACK_FUNCTION);
-impl PCALLBACK_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCALLBACK_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCALLBACK_OBJECT(pub *mut _CALLBACK_OBJECT);
-impl PCALLBACK_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCALLBACK_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCALLBACK_FUNCTION = *mut CALLBACK_FUNCTION;
+pub type PCALLBACK_OBJECT = *mut _CALLBACK_OBJECT;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCANCEL_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void) -> bool>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCANCEL_MAPPED_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCDRIVER_RUNTIME_INIT_FLAGS(pub *const DRIVER_RUNTIME_INIT_FLAGS);
-impl PCDRIVER_RUNTIME_INIT_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCDRIVER_RUNTIME_INIT_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCDRIVER_RUNTIME_INIT_FLAGS = *const DRIVER_RUNTIME_INIT_FLAGS;
 pub const PCIBus: INTERFACE_TYPE = 5;
 pub const PCI_ACS_ALLOWED: u32 = 0;
 pub type PCI_ACS_BIT = i32;
@@ -11648,452 +11312,54 @@ impl Default for PCLFS_MGMT_CLIENT {
     }
 }
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLFS_MGMT_CLIENT_REGISTRATION(pub *mut CLFS_MGMT_CLIENT_REGISTRATION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PCLFS_MGMT_CLIENT_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PCLFS_MGMT_CLIENT_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCLFS_MGMT_CLIENT_REGISTRATION = *mut CLFS_MGMT_CLIENT_REGISTRATION;
 #[cfg(feature = "clfs")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLFS_MGMT_NOTIFICATION(pub *mut CLFS_MGMT_NOTIFICATION);
-#[cfg(feature = "clfs")]
-impl PCLFS_MGMT_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "clfs")]
-impl Default for PCLFS_MGMT_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLFS_MGMT_NOTIFICATION_TYPE(pub *mut CLFS_MGMT_NOTIFICATION_TYPE);
-impl PCLFS_MGMT_NOTIFICATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCLFS_MGMT_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLFS_MGMT_POLICY(pub *mut CLFS_MGMT_POLICY);
-impl PCLFS_MGMT_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCLFS_MGMT_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLFS_MGMT_POLICY_TYPE(pub *mut CLFS_MGMT_POLICY_TYPE);
-impl PCLFS_MGMT_POLICY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCLFS_MGMT_POLICY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCLFS_MGMT_NOTIFICATION = *mut CLFS_MGMT_NOTIFICATION;
+pub type PCLFS_MGMT_NOTIFICATION_TYPE = *mut CLFS_MGMT_NOTIFICATION_TYPE;
+pub type PCLFS_MGMT_POLICY = *mut CLFS_MGMT_POLICY;
+pub type PCLFS_MGMT_POLICY_TYPE = *mut CLFS_MGMT_POLICY_TYPE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCLFS_SET_LOG_SIZE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, operationstatus: super::bcrypt::NTSTATUS, clientdata: *const core::ffi::c_void)>;
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCLIENT_ID(pub *mut super::winternl::CLIENT_ID);
-#[cfg(all(feature = "winnt", feature = "winternl"))]
-impl PCLIENT_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "winnt", feature = "winternl"))]
-impl Default for PCLIENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCLIENT_ID = *mut super::winternl::CLIENT_ID;
 pub const PCMCIABus: INTERFACE_TYPE = 8;
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_COMPONENT_INFORMATION(pub *mut CM_COMPONENT_INFORMATION);
-#[cfg(feature = "basetsd")]
-impl PCM_COMPONENT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PCM_COMPONENT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_DISK_GEOMETRY_DEVICE_DATA(pub *mut CM_DISK_GEOMETRY_DEVICE_DATA);
-impl PCM_DISK_GEOMETRY_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_DISK_GEOMETRY_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_EISA_FUNCTION_INFORMATION(pub *mut CM_EISA_FUNCTION_INFORMATION);
-impl PCM_EISA_FUNCTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_EISA_FUNCTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_EISA_SLOT_INFORMATION(pub *mut CM_EISA_SLOT_INFORMATION);
-impl PCM_EISA_SLOT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_EISA_SLOT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_FLOPPY_DEVICE_DATA(pub *mut CM_FLOPPY_DEVICE_DATA);
-impl PCM_FLOPPY_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_FLOPPY_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCM_COMPONENT_INFORMATION = *mut CM_COMPONENT_INFORMATION;
+pub type PCM_DISK_GEOMETRY_DEVICE_DATA = *mut CM_DISK_GEOMETRY_DEVICE_DATA;
+pub type PCM_EISA_FUNCTION_INFORMATION = *mut CM_EISA_FUNCTION_INFORMATION;
+pub type PCM_EISA_SLOT_INFORMATION = *mut CM_EISA_SLOT_INFORMATION;
+pub type PCM_FLOPPY_DEVICE_DATA = *mut CM_FLOPPY_DEVICE_DATA;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_FULL_RESOURCE_DESCRIPTOR(pub *mut CM_FULL_RESOURCE_DESCRIPTOR);
+pub type PCM_FULL_RESOURCE_DESCRIPTOR = *mut CM_FULL_RESOURCE_DESCRIPTOR;
+pub type PCM_INT13_DRIVE_PARAMETER = *mut CM_INT13_DRIVE_PARAMETER;
+pub type PCM_KEYBOARD_DEVICE_DATA = *mut CM_KEYBOARD_DEVICE_DATA;
+pub type PCM_MCA_POS_DATA = *mut CM_MCA_POS_DATA;
+pub type PCM_MONITOR_DEVICE_DATA = *mut CM_MONITOR_DEVICE_DATA;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PCM_FULL_RESOURCE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCM_PARTIAL_RESOURCE_DESCRIPTOR = *mut CM_PARTIAL_RESOURCE_DESCRIPTOR;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PCM_FULL_RESOURCE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_INT13_DRIVE_PARAMETER(pub *mut CM_INT13_DRIVE_PARAMETER);
-impl PCM_INT13_DRIVE_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_INT13_DRIVE_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_KEYBOARD_DEVICE_DATA(pub *mut CM_KEYBOARD_DEVICE_DATA);
-impl PCM_KEYBOARD_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_KEYBOARD_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_MCA_POS_DATA(pub *mut CM_MCA_POS_DATA);
-impl PCM_MCA_POS_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_MCA_POS_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_MONITOR_DEVICE_DATA(pub *mut CM_MONITOR_DEVICE_DATA);
-impl PCM_MONITOR_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_MONITOR_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCM_PARTIAL_RESOURCE_LIST = *mut CM_PARTIAL_RESOURCE_LIST;
+pub type PCM_PNP_BIOS_DEVICE_NODE = *mut CM_PNP_BIOS_DEVICE_NODE;
+pub type PCM_PNP_BIOS_INSTALLATION_CHECK = *mut CM_PNP_BIOS_INSTALLATION_CHECK;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_PARTIAL_RESOURCE_DESCRIPTOR(pub *mut CM_PARTIAL_RESOURCE_DESCRIPTOR);
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PCM_PARTIAL_RESOURCE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PCM_PARTIAL_RESOURCE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_PARTIAL_RESOURCE_LIST(pub *mut CM_PARTIAL_RESOURCE_LIST);
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PCM_PARTIAL_RESOURCE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PCM_PARTIAL_RESOURCE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_PNP_BIOS_DEVICE_NODE(pub *mut CM_PNP_BIOS_DEVICE_NODE);
-impl PCM_PNP_BIOS_DEVICE_NODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_PNP_BIOS_DEVICE_NODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_PNP_BIOS_INSTALLATION_CHECK(pub *mut CM_PNP_BIOS_INSTALLATION_CHECK);
-impl PCM_PNP_BIOS_INSTALLATION_CHECK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_PNP_BIOS_INSTALLATION_CHECK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_RESOURCE_LIST(pub *mut CM_RESOURCE_LIST);
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PCM_RESOURCE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PCM_RESOURCE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_ROM_BLOCK(pub *mut CM_ROM_BLOCK);
-impl PCM_ROM_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_ROM_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_SCSI_DEVICE_DATA(pub *mut CM_SCSI_DEVICE_DATA);
-impl PCM_SCSI_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_SCSI_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_SERIAL_DEVICE_DATA(pub *mut CM_SERIAL_DEVICE_DATA);
-impl PCM_SERIAL_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_SERIAL_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_SONIC_DEVICE_DATA(pub *mut CM_SONIC_DEVICE_DATA);
-impl PCM_SONIC_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_SONIC_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCM_VIDEO_DEVICE_DATA(pub *mut CM_VIDEO_DEVICE_DATA);
-impl PCM_VIDEO_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCM_VIDEO_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCM_RESOURCE_LIST = *mut CM_RESOURCE_LIST;
+pub type PCM_ROM_BLOCK = *mut CM_ROM_BLOCK;
+pub type PCM_SCSI_DEVICE_DATA = *mut CM_SCSI_DEVICE_DATA;
+pub type PCM_SERIAL_DEVICE_DATA = *mut CM_SERIAL_DEVICE_DATA;
+pub type PCM_SONIC_DEVICE_DATA = *mut CM_SONIC_DEVICE_DATA;
+pub type PCM_VIDEO_DEVICE_DATA = *mut CM_VIDEO_DEVICE_DATA;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCONFIGURE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, functionnumber: u32, context: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOUNTED_REASON_CONTEXT(pub *mut COUNTED_REASON_CONTEXT);
+pub type PCOUNTED_REASON_CONTEXT = *mut COUNTED_REASON_CONTEXT;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PCOUNTED_REASON_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCPOOL_CREATE_EXTENDED_PARAMETER = *const POOL_CREATE_EXTENDED_PARAMETER;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PCOUNTED_REASON_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPOOL_CREATE_EXTENDED_PARAMETER(pub *const POOL_CREATE_EXTENDED_PARAMETER);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PCPOOL_CREATE_EXTENDED_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PCPOOL_CREATE_EXTENDED_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPOOL_CREATE_EXTENDED_PARAMS(pub *const POOL_CREATE_EXTENDED_PARAMS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PCPOOL_CREATE_EXTENDED_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PCPOOL_CREATE_EXTENDED_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCPOOL_CREATE_EXTENDED_PARAMS = *const POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPOOL_EXTENDED_PARAMETER(pub *const POOL_EXTENDED_PARAMETER);
-#[cfg(feature = "winnt")]
-impl PCPOOL_EXTENDED_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCPOOL_EXTENDED_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCPOOL_EXTENDED_PARAMETER = *const POOL_EXTENDED_PARAMETER;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRASHDUMP_FUNCTIONS_INTERFACE(pub *mut CRASHDUMP_FUNCTIONS_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PCRASHDUMP_FUNCTIONS_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PCRASHDUMP_FUNCTIONS_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRASHDUMP_FUNCTIONS_INTERFACE = *mut CRASHDUMP_FUNCTIONS_INTERFACE;
 #[cfg(feature = "bcrypt")]
 pub type PCRASHDUMP_POWER_ON = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -12176,1510 +11442,164 @@ impl Default for PCW_REGISTRATION_INFORMATION {
 pub const PCW_VERSION_1: u32 = 256;
 pub const PCW_VERSION_2: u32 = 512;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_AUX_POWER_AND_TIMING_INTERFACE(pub *mut D3COLD_AUX_POWER_AND_TIMING_INTERFACE);
+pub type PD3COLD_AUX_POWER_AND_TIMING_INTERFACE = *mut D3COLD_AUX_POWER_AND_TIMING_INTERFACE;
+pub type PD3COLD_LAST_TRANSITION_STATUS = *mut D3COLD_LAST_TRANSITION_STATUS;
 #[cfg(feature = "bcrypt")]
-impl PD3COLD_AUX_POWER_AND_TIMING_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PD3COLD_REQUEST_AUX_POWER = *mut D3COLD_REQUEST_AUX_POWER;
+pub type PD3COLD_REQUEST_CORE_POWER_RAIL = *mut D3COLD_REQUEST_CORE_POWER_RAIL;
 #[cfg(feature = "bcrypt")]
-impl Default for PD3COLD_AUX_POWER_AND_TIMING_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_LAST_TRANSITION_STATUS(pub *mut D3COLD_LAST_TRANSITION_STATUS);
-impl PD3COLD_LAST_TRANSITION_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3COLD_LAST_TRANSITION_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_REQUEST_AUX_POWER(pub *mut D3COLD_REQUEST_AUX_POWER);
-#[cfg(feature = "bcrypt")]
-impl PD3COLD_REQUEST_AUX_POWER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PD3COLD_REQUEST_AUX_POWER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_REQUEST_CORE_POWER_RAIL(pub *mut D3COLD_REQUEST_CORE_POWER_RAIL);
-impl PD3COLD_REQUEST_CORE_POWER_RAIL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PD3COLD_REQUEST_CORE_POWER_RAIL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_REQUEST_PERST_DELAY(pub *mut D3COLD_REQUEST_PERST_DELAY);
-#[cfg(feature = "bcrypt")]
-impl PD3COLD_REQUEST_PERST_DELAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PD3COLD_REQUEST_PERST_DELAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PD3COLD_REQUEST_PERST_DELAY = *mut D3COLD_REQUEST_PERST_DELAY;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PD3COLD_SUPPORT_INTERFACE(pub *mut D3COLD_SUPPORT_INTERFACE);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PD3COLD_SUPPORT_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PD3COLD_SUPPORT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PD3COLD_SUPPORT_INTERFACE = *mut D3COLD_SUPPORT_INTERFACE;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type PDEBUG_PRINT_CALLBACK = Option<unsafe extern "system" fn(output: *const super::ntsecapi::STRING, componentid: u32, level: u32)>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_BUS_SPECIFIC_RESET_HANDLER(pub *mut DEVICE_BUS_SPECIFIC_RESET_HANDLER);
-#[cfg(feature = "bcrypt")]
-impl PDEVICE_BUS_SPECIFIC_RESET_HANDLER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDEVICE_BUS_SPECIFIC_RESET_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_BUS_SPECIFIC_RESET_INFO(pub *mut DEVICE_BUS_SPECIFIC_RESET_INFO);
-impl PDEVICE_BUS_SPECIFIC_RESET_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_BUS_SPECIFIC_RESET_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_BUS_SPECIFIC_RESET_TYPE(pub *mut DEVICE_BUS_SPECIFIC_RESET_TYPE);
-impl PDEVICE_BUS_SPECIFIC_RESET_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_BUS_SPECIFIC_RESET_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_BUS_SPECIFIC_RESET_HANDLER = *mut DEVICE_BUS_SPECIFIC_RESET_HANDLER;
+pub type PDEVICE_BUS_SPECIFIC_RESET_INFO = *mut DEVICE_BUS_SPECIFIC_RESET_INFO;
+pub type PDEVICE_BUS_SPECIFIC_RESET_TYPE = *mut DEVICE_BUS_SPECIFIC_RESET_TYPE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_CAPABILITIES(pub *mut DEVICE_CAPABILITIES);
-#[cfg(feature = "winnt")]
-impl PDEVICE_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDEVICE_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_CHANGE_COMPLETE_CALLBACK(pub *mut DEVICE_CHANGE_COMPLETE_CALLBACK);
-impl PDEVICE_CHANGE_COMPLETE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_CHANGE_COMPLETE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_CAPABILITIES = *mut DEVICE_CAPABILITIES;
+pub type PDEVICE_CHANGE_COMPLETE_CALLBACK = *mut DEVICE_CHANGE_COMPLETE_CALLBACK;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_DESCRIPTION(pub *mut DEVICE_DESCRIPTION);
-#[cfg(feature = "usb")]
-impl PDEVICE_DESCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PDEVICE_DESCRIPTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_DIRECTORY_TYPE(pub *mut DEVICE_DIRECTORY_TYPE);
-impl PDEVICE_DIRECTORY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_DIRECTORY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_DESCRIPTION = *mut DEVICE_DESCRIPTION;
+pub type PDEVICE_DIRECTORY_TYPE = *mut DEVICE_DIRECTORY_TYPE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_FAULT_CONFIGURATION(pub *mut DEVICE_FAULT_CONFIGURATION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDEVICE_FAULT_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDEVICE_FAULT_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_FLAGS(pub *mut DEVICE_FLAGS);
-impl PDEVICE_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_INSTALL_STATE(pub *mut DEVICE_INSTALL_STATE);
-impl PDEVICE_INSTALL_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_INSTALL_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_FAULT_CONFIGURATION = *mut DEVICE_FAULT_CONFIGURATION;
+pub type PDEVICE_FLAGS = *mut DEVICE_FLAGS;
+pub type PDEVICE_INSTALL_STATE = *mut DEVICE_INSTALL_STATE;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_INTERFACE_CHANGE_NOTIFICATION(pub *mut DEVICE_INTERFACE_CHANGE_NOTIFICATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PDEVICE_INTERFACE_CHANGE_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PDEVICE_INTERFACE_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_INTERFACE_CHANGE_NOTIFICATION = *mut DEVICE_INTERFACE_CHANGE_NOTIFICATION;
 pub type PDEVICE_NOTIFY_CALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u32)>;
 pub type PDEVICE_NOTIFY_CALLBACK2 = Option<unsafe extern "system" fn(notificationcontext: *mut core::ffi::c_void, notifycode: u32)>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_OBJECT(pub *mut DEVICE_OBJECT);
+pub type PDEVICE_OBJECT = *mut DEVICE_OBJECT;
+#[cfg(feature = "bcrypt")]
+pub type PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = *mut DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDEVICE_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDEVICE_RELATIONS = *mut DEVICE_RELATIONS;
+pub type PDEVICE_RELATION_TYPE = *mut DEVICE_RELATION_TYPE;
+pub type PDEVICE_REMOVAL_POLICY = *mut DEVICE_REMOVAL_POLICY;
+#[cfg(feature = "bcrypt")]
+pub type PDEVICE_RESET_COMPLETION = *mut DEVICE_RESET_COMPLETION;
+#[cfg(feature = "bcrypt")]
+pub type PDEVICE_RESET_HANDLER = *mut DEVICE_RESET_HANDLER;
+#[cfg(feature = "bcrypt")]
+pub type PDEVICE_RESET_INTERFACE_STANDARD = *mut DEVICE_RESET_INTERFACE_STANDARD;
+pub type PDEVICE_RESET_STATUS_FLAGS = *mut DEVICE_RESET_STATUS_FLAGS;
+pub type PDEVICE_TEXT_TYPE = *mut DEVICE_TEXT_TYPE;
+pub type PDEVICE_WAKE_DEPTH = *mut DEVICE_WAKE_DEPTH;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDEVICE_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER(pub *mut DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER);
-#[cfg(feature = "bcrypt")]
-impl PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RELATIONS(pub *mut DEVICE_RELATIONS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDEVICE_RELATIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDEVICE_RELATIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RELATION_TYPE(pub *mut DEVICE_RELATION_TYPE);
-impl PDEVICE_RELATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_RELATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_REMOVAL_POLICY(pub *mut DEVICE_REMOVAL_POLICY);
-impl PDEVICE_REMOVAL_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_REMOVAL_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RESET_COMPLETION(pub *mut DEVICE_RESET_COMPLETION);
-#[cfg(feature = "bcrypt")]
-impl PDEVICE_RESET_COMPLETION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDEVICE_RESET_COMPLETION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RESET_HANDLER(pub *mut DEVICE_RESET_HANDLER);
-#[cfg(feature = "bcrypt")]
-impl PDEVICE_RESET_HANDLER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDEVICE_RESET_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RESET_INTERFACE_STANDARD(pub *mut DEVICE_RESET_INTERFACE_STANDARD);
-#[cfg(feature = "bcrypt")]
-impl PDEVICE_RESET_INTERFACE_STANDARD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDEVICE_RESET_INTERFACE_STANDARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_RESET_STATUS_FLAGS(pub *mut DEVICE_RESET_STATUS_FLAGS);
-impl PDEVICE_RESET_STATUS_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_RESET_STATUS_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_TEXT_TYPE(pub *mut DEVICE_TEXT_TYPE);
-impl PDEVICE_TEXT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_TEXT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_WAKE_DEPTH(pub *mut DEVICE_WAKE_DEPTH);
-impl PDEVICE_WAKE_DEPTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_WAKE_DEPTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVOBJ_EXTENSION(pub *mut DEVOBJ_EXTENSION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDEVOBJ_EXTENSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDEVOBJ_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIRECTORY_NOTIFY_INFORMATION_CLASS(pub *mut DIRECTORY_NOTIFY_INFORMATION_CLASS);
-impl PDIRECTORY_NOTIFY_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDIRECTORY_NOTIFY_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVOBJ_EXTENSION = *mut DEVOBJ_EXTENSION;
+pub type PDIRECTORY_NOTIFY_INFORMATION_CLASS = *mut DIRECTORY_NOTIFY_INFORMATION_CLASS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDISPATCHER_HEADER(pub *mut DISPATCHER_HEADER);
-#[cfg(feature = "winnt")]
-impl PDISPATCHER_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDISPATCHER_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDISPATCHER_HEADER = *mut DISPATCHER_HEADER;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_ADAPTER(pub *mut DMA_ADAPTER);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_ADAPTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_ADAPTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDMA_ADAPTER = *mut DMA_ADAPTER;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_ADAPTER_INFO(pub *mut DMA_ADAPTER_INFO);
+pub type PDMA_ADAPTER_INFO = *mut DMA_ADAPTER_INFO;
 #[cfg(feature = "usb")]
-impl PDMA_ADAPTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDMA_ADAPTER_INFO_CRASHDUMP = *mut DMA_ADAPTER_INFO_CRASHDUMP;
+pub type PDMA_ADAPTER_INFO_V1 = *mut DMA_ADAPTER_INFO_V1;
 #[cfg(feature = "usb")]
-impl Default for PDMA_ADAPTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION;
+pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE;
+pub type PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE;
+pub type PDMA_COMMON_BUFFER_VECTOR = *mut DMA_COMMON_BUFFER_VECTOR;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_COMPLETION_ROUTINE = *mut DMA_COMPLETION_ROUTINE;
+pub type PDMA_FEATURE_QUERY_STATUS = *mut DMA_FEATURE_QUERY_STATUS;
+pub type PDMA_FEATURE_TYPE = *mut DMA_FEATURE_TYPE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_IOMMU_INTERFACE = *mut DMA_IOMMU_INTERFACE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_IOMMU_INTERFACE_EX = *mut DMA_IOMMU_INTERFACE_EX;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_IOMMU_INTERFACE_V1 = *mut DMA_IOMMU_INTERFACE_V1;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_IOMMU_INTERFACE_V2 = *mut DMA_IOMMU_INTERFACE_V2;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_IOMMU_INTERFACE_V3 = *mut DMA_IOMMU_INTERFACE_V3;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDMA_OPERATIONS = *mut DMA_OPERATIONS;
+pub type PDMA_SPEED = *mut DMA_SPEED;
+pub type PDMA_TRANSFER_INFO = *mut DMA_TRANSFER_INFO;
+pub type PDMA_TRANSFER_INFO_V1 = *mut DMA_TRANSFER_INFO_V1;
+pub type PDMA_TRANSFER_INFO_V2 = *mut DMA_TRANSFER_INFO_V2;
+pub type PDMA_WIDTH = *mut DMA_WIDTH;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_ADAPTER_INFO_CRASHDUMP(pub *mut DMA_ADAPTER_INFO_CRASHDUMP);
+pub type PDOMAIN_CONFIGURATION = *mut DOMAIN_CONFIGURATION;
+pub type PDOMAIN_CONFIGURATION_ARCH = *mut DOMAIN_CONFIGURATION_ARCH;
 #[cfg(feature = "usb")]
-impl PDMA_ADAPTER_INFO_CRASHDUMP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDOMAIN_CONFIGURATION_ARM64 = *mut DOMAIN_CONFIGURATION_ARM64;
 #[cfg(feature = "usb")]
-impl Default for PDMA_ADAPTER_INFO_CRASHDUMP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_ADAPTER_INFO_V1(pub *mut DMA_ADAPTER_INFO_V1);
-impl PDMA_ADAPTER_INFO_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_ADAPTER_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION(pub *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION);
-#[cfg(feature = "usb")]
-impl PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(pub *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE);
-impl PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(pub *mut DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE);
-impl PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_COMMON_BUFFER_VECTOR(pub *mut DMA_COMMON_BUFFER_VECTOR);
-impl PDMA_COMMON_BUFFER_VECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_COMMON_BUFFER_VECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDOMAIN_CONFIGURATION_X64 = *mut DOMAIN_CONFIGURATION_X64;
+pub type PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK = *mut DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_COMPLETION_ROUTINE(pub *mut DMA_COMPLETION_ROUTINE);
+pub type PDRIVER_ADD_DEVICE = *mut DRIVER_ADD_DEVICE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_COMPLETION_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDRIVER_CANCEL = *mut DRIVER_CANCEL;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_COMPLETION_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_FEATURE_QUERY_STATUS(pub *mut DMA_FEATURE_QUERY_STATUS);
-impl PDMA_FEATURE_QUERY_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_FEATURE_QUERY_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_FEATURE_TYPE(pub *mut DMA_FEATURE_TYPE);
-impl PDMA_FEATURE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_FEATURE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_CONTROL = *mut DRIVER_CONTROL;
+pub type PDRIVER_DIRECTORY_TYPE = *mut DRIVER_DIRECTORY_TYPE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_IOMMU_INTERFACE(pub *mut DMA_IOMMU_INTERFACE);
+pub type PDRIVER_DISPATCH = *mut DRIVER_DISPATCH;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_IOMMU_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PDRIVER_DISPATCH_PAGED = *mut DRIVER_DISPATCH_PAGED;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_IOMMU_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_EXTENSION = *mut DRIVER_EXTENSION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_IOMMU_INTERFACE_EX(pub *mut DMA_IOMMU_INTERFACE_EX);
+pub type PDRIVER_INITIALIZE = *mut DRIVER_INITIALIZE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_IOMMU_INTERFACE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_IOMMU_INTERFACE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_IOMMU_INTERFACE_V1(pub *mut DMA_IOMMU_INTERFACE_V1);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_IOMMU_INTERFACE_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_IOMMU_INTERFACE_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_IOMMU_INTERFACE_V2(pub *mut DMA_IOMMU_INTERFACE_V2);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_IOMMU_INTERFACE_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_IOMMU_INTERFACE_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_IOMMU_INTERFACE_V3(pub *mut DMA_IOMMU_INTERFACE_V3);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_IOMMU_INTERFACE_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_IOMMU_INTERFACE_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_OPERATIONS(pub *mut DMA_OPERATIONS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDMA_OPERATIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDMA_OPERATIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_SPEED(pub *mut DMA_SPEED);
-impl PDMA_SPEED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_SPEED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_TRANSFER_INFO(pub *mut DMA_TRANSFER_INFO);
-impl PDMA_TRANSFER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_TRANSFER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_TRANSFER_INFO_V1(pub *mut DMA_TRANSFER_INFO_V1);
-impl PDMA_TRANSFER_INFO_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_TRANSFER_INFO_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_TRANSFER_INFO_V2(pub *mut DMA_TRANSFER_INFO_V2);
-impl PDMA_TRANSFER_INFO_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_TRANSFER_INFO_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMA_WIDTH(pub *mut DMA_WIDTH);
-impl PDMA_WIDTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMA_WIDTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONFIGURATION(pub *mut DOMAIN_CONFIGURATION);
-#[cfg(feature = "usb")]
-impl PDOMAIN_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PDOMAIN_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONFIGURATION_ARCH(pub *mut DOMAIN_CONFIGURATION_ARCH);
-impl PDOMAIN_CONFIGURATION_ARCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDOMAIN_CONFIGURATION_ARCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONFIGURATION_ARM64(pub *mut DOMAIN_CONFIGURATION_ARM64);
-#[cfg(feature = "usb")]
-impl PDOMAIN_CONFIGURATION_ARM64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PDOMAIN_CONFIGURATION_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDOMAIN_CONFIGURATION_X64(pub *mut DOMAIN_CONFIGURATION_X64);
-#[cfg(feature = "usb")]
-impl PDOMAIN_CONFIGURATION_X64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PDOMAIN_CONFIGURATION_X64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK(pub *mut DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK);
-impl PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_ADD_DEVICE(pub *mut DRIVER_ADD_DEVICE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_ADD_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_ADD_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_CANCEL(pub *mut DRIVER_CANCEL);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_CANCEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_CANCEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_CONTROL(pub *mut DRIVER_CONTROL);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_DIRECTORY_TYPE(pub *mut DRIVER_DIRECTORY_TYPE);
-impl PDRIVER_DIRECTORY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_DIRECTORY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_DISPATCH(pub *mut DRIVER_DISPATCH);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_DISPATCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_DISPATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_DISPATCH_PAGED(pub *mut DRIVER_DISPATCH_PAGED);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_DISPATCH_PAGED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_DISPATCH_PAGED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_EXTENSION(pub *mut DRIVER_EXTENSION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_EXTENSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_INITIALIZE(pub *mut DRIVER_INITIALIZE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_INITIALIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_INITIALIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_LIST_CONTROL(pub *mut DRIVER_LIST_CONTROL);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_LIST_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_LIST_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_LIST_CONTROL = *mut DRIVER_LIST_CONTROL;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_NOTIFICATION_CALLBACK_ROUTINE(pub *mut DRIVER_NOTIFICATION_CALLBACK_ROUTINE);
-#[cfg(feature = "bcrypt")]
-impl PDRIVER_NOTIFICATION_CALLBACK_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDRIVER_NOTIFICATION_CALLBACK_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_NOTIFICATION_CALLBACK_ROUTINE = *mut DRIVER_NOTIFICATION_CALLBACK_ROUTINE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_OBJECT(pub *mut DRIVER_OBJECT);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_ENDPOINT_FUNCTION(pub *mut DRIVER_PROXY_ENDPOINT_FUNCTION);
-impl PDRIVER_PROXY_ENDPOINT_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_ENDPOINT_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_ENDPOINT_FUNCTION_ID(pub *mut u32);
-impl PDRIVER_PROXY_ENDPOINT_FUNCTION_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_ENDPOINT_FUNCTION_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_ENDPOINT_INFORMATION(pub *mut DRIVER_PROXY_ENDPOINT_INFORMATION);
-impl PDRIVER_PROXY_ENDPOINT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_ENDPOINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_EXTENSION(pub *mut _DRIVER_PROXY_EXTENSION);
-impl PDRIVER_PROXY_EXTENSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_EXTENSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_EXTENSION_CREATION_FLAGS(pub *mut DRIVER_PROXY_EXTENSION_CREATION_FLAGS);
-impl PDRIVER_PROXY_EXTENSION_CREATION_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_EXTENSION_CREATION_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_FEATURE_FLAGS(pub *mut DRIVER_PROXY_FEATURE_FLAGS);
-impl PDRIVER_PROXY_FEATURE_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_FEATURE_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_OBJECT = *mut DRIVER_OBJECT;
+pub type PDRIVER_PROXY_ENDPOINT_FUNCTION = *mut DRIVER_PROXY_ENDPOINT_FUNCTION;
+pub type PDRIVER_PROXY_ENDPOINT_FUNCTION_ID = *mut u32;
+pub type PDRIVER_PROXY_ENDPOINT_INFORMATION = *mut DRIVER_PROXY_ENDPOINT_INFORMATION;
+pub type PDRIVER_PROXY_EXTENSION = *mut _DRIVER_PROXY_EXTENSION;
+pub type PDRIVER_PROXY_EXTENSION_CREATION_FLAGS = *mut DRIVER_PROXY_EXTENSION_CREATION_FLAGS;
+pub type PDRIVER_PROXY_FEATURE_FLAGS = *mut DRIVER_PROXY_FEATURE_FLAGS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_HOTSWAP_CALLBACK(pub *mut DRIVER_PROXY_HOTSWAP_CALLBACK);
+pub type PDRIVER_PROXY_HOTSWAP_CALLBACK = *mut DRIVER_PROXY_HOTSWAP_CALLBACK;
+pub type PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
 #[cfg(feature = "bcrypt")]
-impl PDRIVER_PROXY_HOTSWAP_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDRIVER_PROXY_HOTSWAP_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE(pub *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE);
-impl PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_HOTSWAP_CALLBACK_PHASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE(pub *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE);
-#[cfg(feature = "bcrypt")]
-impl PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE;
 #[cfg(all(feature = "bcrypt", feature = "ntdef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT(pub *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT);
-#[cfg(all(feature = "bcrypt", feature = "ntdef", feature = "winnt"))]
-impl PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntdef", feature = "winnt"))]
-impl Default for PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT = *mut DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_REGISTER_CALLBACK(pub *mut DRIVER_PROXY_HOTSWAP_CALLBACK);
+pub type PDRIVER_PROXY_REGISTER_CALLBACK = *mut DRIVER_PROXY_HOTSWAP_CALLBACK;
+pub type PDRIVER_PROXY_REGISTER_CALLBACK_PHASE = *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE;
+pub type PDRIVER_PROXY_VERSION = *mut DRIVER_PROXY_VERSION;
+pub type PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION = *mut DRIVER_PROXY_ENDPOINT_FUNCTION;
+pub type PDRIVER_REGKEY_TYPE = *mut DRIVER_REGKEY_TYPE;
+pub type PDRIVER_RUNTIME_INIT_FLAGS = *mut DRIVER_RUNTIME_INIT_FLAGS;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDRIVER_STARTIO = *mut DRIVER_STARTIO;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PDRIVER_UNLOAD = *mut DRIVER_UNLOAD;
+pub type PEISA_DMA_CONFIGURATION = *mut EISA_DMA_CONFIGURATION;
+pub type PEISA_IRQ_CONFIGURATION = *mut EISA_IRQ_CONFIGURATION;
+pub type PEISA_IRQ_DESCRIPTOR = *mut EISA_IRQ_DESCRIPTOR;
+pub type PEISA_MEMORY_CONFIGURATION = *mut EISA_MEMORY_CONFIGURATION;
+pub type PEISA_MEMORY_TYPE = *mut EISA_MEMORY_TYPE;
+pub type PEISA_PORT_CONFIGURATION = *mut EISA_PORT_CONFIGURATION;
+pub type PEISA_PORT_DESCRIPTOR = *mut EISA_PORT_DESCRIPTOR;
 #[cfg(feature = "bcrypt")]
-impl PDRIVER_PROXY_REGISTER_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PDRIVER_PROXY_REGISTER_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_REGISTER_CALLBACK_PHASE(pub *mut DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE);
-impl PDRIVER_PROXY_REGISTER_CALLBACK_PHASE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_REGISTER_CALLBACK_PHASE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_VERSION(pub *mut DRIVER_PROXY_VERSION);
-impl PDRIVER_PROXY_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION(pub *mut DRIVER_PROXY_ENDPOINT_FUNCTION);
-impl PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_PROXY_WRAPPED_ENDPOINT_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_REGKEY_TYPE(pub *mut DRIVER_REGKEY_TYPE);
-impl PDRIVER_REGKEY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_REGKEY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_RUNTIME_INIT_FLAGS(pub *mut DRIVER_RUNTIME_INIT_FLAGS);
-impl PDRIVER_RUNTIME_INIT_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDRIVER_RUNTIME_INIT_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_STARTIO(pub *mut DRIVER_STARTIO);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_STARTIO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_STARTIO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRIVER_UNLOAD(pub *mut DRIVER_UNLOAD);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PDRIVER_UNLOAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PDRIVER_UNLOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_DMA_CONFIGURATION(pub *mut EISA_DMA_CONFIGURATION);
-impl PEISA_DMA_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_DMA_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_IRQ_CONFIGURATION(pub *mut EISA_IRQ_CONFIGURATION);
-impl PEISA_IRQ_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_IRQ_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_IRQ_DESCRIPTOR(pub *mut EISA_IRQ_DESCRIPTOR);
-impl PEISA_IRQ_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_IRQ_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_MEMORY_CONFIGURATION(pub *mut EISA_MEMORY_CONFIGURATION);
-impl PEISA_MEMORY_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_MEMORY_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_MEMORY_TYPE(pub *mut EISA_MEMORY_TYPE);
-impl PEISA_MEMORY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_MEMORY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_PORT_CONFIGURATION(pub *mut EISA_PORT_CONFIGURATION);
-impl PEISA_PORT_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_PORT_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEISA_PORT_DESCRIPTOR(pub *mut EISA_PORT_DESCRIPTOR);
-impl PEISA_PORT_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEISA_PORT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENABLE_VIRTUALIZATION(pub *mut ENABLE_VIRTUALIZATION);
-#[cfg(feature = "bcrypt")]
-impl PENABLE_VIRTUALIZATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PENABLE_VIRTUALIZATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEPROCESS(pub *mut _KPROCESS);
-impl PEPROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEPROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENABLE_VIRTUALIZATION = *mut ENABLE_VIRTUALIZATION;
+pub type PEPROCESS = *mut _KPROCESS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PERESOURCE(pub *mut ERESOURCE);
-#[cfg(feature = "winnt")]
-impl PERESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PERESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PERESOURCE_THREAD(pub *mut ERESOURCE_THREAD);
-impl PERESOURCE_THREAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PERESOURCE_THREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETHREAD(pub *mut _KTHREAD);
-impl PETHREAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETHREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PERESOURCE = *mut ERESOURCE;
+pub type PERESOURCE_THREAD = *mut ERESOURCE_THREAD;
+pub type PETHREAD = *mut _KTHREAD;
 #[cfg(feature = "evntprov")]
 pub type PETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::evntprov::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PETW_TRACE_SESSION_SETTINGS(pub *mut ETW_TRACE_SESSION_SETTINGS);
-impl PETW_TRACE_SESSION_SETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PETW_TRACE_SESSION_SETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTENDED_CREATE_DUAL_OPLOCK_KEYS(pub *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS);
-impl PEXTENDED_CREATE_DUAL_OPLOCK_KEYS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTENDED_CREATE_DUAL_OPLOCK_KEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTENDED_CREATE_INFORMATION(pub *mut EXTENDED_CREATE_INFORMATION);
-impl PEXTENDED_CREATE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTENDED_CREATE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTENDED_CREATE_INFORMATION_32(pub *mut EXTENDED_CREATE_INFORMATION_32);
-impl PEXTENDED_CREATE_INFORMATION_32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTENDED_CREATE_INFORMATION_32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_CALLBACK(pub *mut EXT_CALLBACK);
-impl PEXT_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PETW_TRACE_SESSION_SETTINGS = *mut ETW_TRACE_SESSION_SETTINGS;
+pub type PEXTENDED_CREATE_DUAL_OPLOCK_KEYS = *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS;
+pub type PEXTENDED_CREATE_INFORMATION = *mut EXTENDED_CREATE_INFORMATION;
+pub type PEXTENDED_CREATE_INFORMATION_32 = *mut EXTENDED_CREATE_INFORMATION_32;
+pub type PEXT_CALLBACK = *mut EXT_CALLBACK;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXT_CANCEL_PARAMETERS(pub *mut core::ffi::c_void);
@@ -13693,989 +11613,111 @@ impl Default for PEXT_CANCEL_PARAMETERS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_DELETE_CALLBACK(pub *mut EXT_DELETE_CALLBACK);
-impl PEXT_DELETE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_DELETE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_DELETE_PARAMETERS(pub *mut EXT_DELETE_PARAMETERS);
-impl PEXT_DELETE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_DELETE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXT_SET_PARAMETERS(pub *mut EXT_SET_PARAMETERS);
-impl PEXT_SET_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXT_SET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEXT_DELETE_CALLBACK = *mut EXT_DELETE_CALLBACK;
+pub type PEXT_DELETE_PARAMETERS = *mut EXT_DELETE_PARAMETERS;
+pub type PEXT_SET_PARAMETERS = *mut EXT_SET_PARAMETERS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_CALLBACK_FUNCTION(pub *mut EX_CALLBACK_FUNCTION);
-#[cfg(feature = "bcrypt")]
-impl PEX_CALLBACK_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PEX_CALLBACK_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_RCU_FREE_POOL_CONTEXT(pub *mut EX_RCU_FREE_POOL_CONTEXT);
-impl PEX_RCU_FREE_POOL_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEX_RCU_FREE_POOL_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_RUNDOWN_REF(pub *mut EX_RUNDOWN_REF);
-impl PEX_RUNDOWN_REF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEX_RUNDOWN_REF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_RUNDOWN_REF_CACHE_AWARE(pub *mut _EX_RUNDOWN_REF_CACHE_AWARE);
-impl PEX_RUNDOWN_REF_CACHE_AWARE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEX_RUNDOWN_REF_CACHE_AWARE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_SPIN_LOCK(pub *mut i32);
-impl PEX_SPIN_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEX_SPIN_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEX_TIMER(pub *mut _EX_TIMER);
-impl PEX_TIMER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEX_TIMER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEX_CALLBACK_FUNCTION = *mut EX_CALLBACK_FUNCTION;
+pub type PEX_RCU_FREE_POOL_CONTEXT = *mut EX_RCU_FREE_POOL_CONTEXT;
+pub type PEX_RUNDOWN_REF = *mut EX_RUNDOWN_REF;
+pub type PEX_RUNDOWN_REF_CACHE_AWARE = *mut _EX_RUNDOWN_REF_CACHE_AWARE;
+pub type PEX_SPIN_LOCK = *mut i32;
+pub type PEX_TIMER = *mut _EX_TIMER;
 pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 6;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_ACQUIRE_FILE(pub *mut FAST_IO_ACQUIRE_FILE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_ACQUIRE_FILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_ACQUIRE_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_ACQUIRE_FOR_CCFLUSH(pub *mut FAST_IO_ACQUIRE_FOR_CCFLUSH);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_ACQUIRE_FOR_CCFLUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_ACQUIRE_FOR_CCFLUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_ACQUIRE_FOR_MOD_WRITE(pub *mut FAST_IO_ACQUIRE_FOR_MOD_WRITE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_ACQUIRE_FOR_MOD_WRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_ACQUIRE_FOR_MOD_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_CHECK_IF_POSSIBLE(pub *mut FAST_IO_CHECK_IF_POSSIBLE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_CHECK_IF_POSSIBLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_CHECK_IF_POSSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_DETACH_DEVICE(pub *mut FAST_IO_DETACH_DEVICE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_DETACH_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_DETACH_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_DEVICE_CONTROL(pub *mut FAST_IO_DEVICE_CONTROL);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_DEVICE_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_DEVICE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_DISPATCH(pub *mut FAST_IO_DISPATCH);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_DISPATCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_DISPATCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_LOCK(pub *mut FAST_IO_LOCK);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_MDL_READ(pub *mut FAST_IO_MDL_READ);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_MDL_READ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_MDL_READ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_MDL_READ_COMPLETE(pub *mut FAST_IO_MDL_READ_COMPLETE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_MDL_READ_COMPLETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_MDL_READ_COMPLETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_MDL_READ_COMPLETE_COMPRESSED(pub *mut FAST_IO_MDL_READ_COMPLETE_COMPRESSED);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_MDL_READ_COMPLETE_COMPRESSED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_MDL_READ_COMPLETE_COMPRESSED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_MDL_WRITE_COMPLETE(pub *mut FAST_IO_MDL_WRITE_COMPLETE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_MDL_WRITE_COMPLETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_MDL_WRITE_COMPLETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED(pub *mut FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_PREPARE_MDL_WRITE(pub *mut FAST_IO_PREPARE_MDL_WRITE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_PREPARE_MDL_WRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_PREPARE_MDL_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_QUERY_BASIC_INFO(pub *mut FAST_IO_QUERY_BASIC_INFO);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_QUERY_BASIC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_QUERY_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_QUERY_NETWORK_OPEN_INFO(pub *mut FAST_IO_QUERY_NETWORK_OPEN_INFO);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_QUERY_NETWORK_OPEN_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_QUERY_NETWORK_OPEN_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_QUERY_OPEN(pub *mut FAST_IO_QUERY_OPEN);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_QUERY_OPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_QUERY_OPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_QUERY_STANDARD_INFO(pub *mut FAST_IO_QUERY_STANDARD_INFO);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_QUERY_STANDARD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_QUERY_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_READ(pub *mut FAST_IO_READ);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_READ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_READ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_READ_COMPRESSED(pub *mut FAST_IO_READ_COMPRESSED);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_READ_COMPRESSED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_READ_COMPRESSED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_RELEASE_FILE(pub *mut FAST_IO_RELEASE_FILE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_RELEASE_FILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_RELEASE_FILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_RELEASE_FOR_CCFLUSH(pub *mut FAST_IO_RELEASE_FOR_CCFLUSH);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_RELEASE_FOR_CCFLUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_RELEASE_FOR_CCFLUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_RELEASE_FOR_MOD_WRITE(pub *mut FAST_IO_RELEASE_FOR_MOD_WRITE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_RELEASE_FOR_MOD_WRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_RELEASE_FOR_MOD_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_UNLOCK_ALL(pub *mut FAST_IO_UNLOCK_ALL);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_UNLOCK_ALL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_UNLOCK_ALL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_UNLOCK_ALL_BY_KEY(pub *mut FAST_IO_UNLOCK_ALL_BY_KEY);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_UNLOCK_ALL_BY_KEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_UNLOCK_ALL_BY_KEY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_UNLOCK_SINGLE(pub *mut FAST_IO_UNLOCK_SINGLE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_UNLOCK_SINGLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_UNLOCK_SINGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_WRITE(pub *mut FAST_IO_WRITE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_WRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_WRITE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_IO_WRITE_COMPRESSED(pub *mut FAST_IO_WRITE_COMPRESSED);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAST_IO_WRITE_COMPRESSED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAST_IO_WRITE_COMPRESSED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFAST_IO_ACQUIRE_FILE = *mut FAST_IO_ACQUIRE_FILE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_ACQUIRE_FOR_CCFLUSH = *mut FAST_IO_ACQUIRE_FOR_CCFLUSH;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_ACQUIRE_FOR_MOD_WRITE = *mut FAST_IO_ACQUIRE_FOR_MOD_WRITE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_CHECK_IF_POSSIBLE = *mut FAST_IO_CHECK_IF_POSSIBLE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_DETACH_DEVICE = *mut FAST_IO_DETACH_DEVICE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_DEVICE_CONTROL = *mut FAST_IO_DEVICE_CONTROL;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_DISPATCH = *mut FAST_IO_DISPATCH;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_LOCK = *mut FAST_IO_LOCK;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_MDL_READ = *mut FAST_IO_MDL_READ;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_MDL_READ_COMPLETE = *mut FAST_IO_MDL_READ_COMPLETE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_MDL_READ_COMPLETE_COMPRESSED = *mut FAST_IO_MDL_READ_COMPLETE_COMPRESSED;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_MDL_WRITE_COMPLETE = *mut FAST_IO_MDL_WRITE_COMPLETE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_MDL_WRITE_COMPLETE_COMPRESSED = *mut FAST_IO_MDL_WRITE_COMPLETE_COMPRESSED;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_PREPARE_MDL_WRITE = *mut FAST_IO_PREPARE_MDL_WRITE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_QUERY_BASIC_INFO = *mut FAST_IO_QUERY_BASIC_INFO;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_QUERY_NETWORK_OPEN_INFO = *mut FAST_IO_QUERY_NETWORK_OPEN_INFO;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_QUERY_OPEN = *mut FAST_IO_QUERY_OPEN;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_QUERY_STANDARD_INFO = *mut FAST_IO_QUERY_STANDARD_INFO;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_READ = *mut FAST_IO_READ;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_READ_COMPRESSED = *mut FAST_IO_READ_COMPRESSED;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_RELEASE_FILE = *mut FAST_IO_RELEASE_FILE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_RELEASE_FOR_CCFLUSH = *mut FAST_IO_RELEASE_FOR_CCFLUSH;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_RELEASE_FOR_MOD_WRITE = *mut FAST_IO_RELEASE_FOR_MOD_WRITE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_UNLOCK_ALL = *mut FAST_IO_UNLOCK_ALL;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_UNLOCK_ALL_BY_KEY = *mut FAST_IO_UNLOCK_ALL_BY_KEY;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_UNLOCK_SINGLE = *mut FAST_IO_UNLOCK_SINGLE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_WRITE = *mut FAST_IO_WRITE;
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+pub type PFAST_IO_WRITE_COMPRESSED = *mut FAST_IO_WRITE_COMPRESSED;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAST_MUTEX(pub *mut FAST_MUTEX);
-#[cfg(feature = "winnt")]
-impl PFAST_MUTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PFAST_MUTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFAST_MUTEX = *mut FAST_MUTEX;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION(pub *mut FAULT_INFORMATION);
+pub type PFAULT_INFORMATION = *mut FAULT_INFORMATION;
+pub type PFAULT_INFORMATION_ARCH = *mut FAULT_INFORMATION_ARCH;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAULT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAULT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_ARCH(pub *mut FAULT_INFORMATION_ARCH);
-impl PFAULT_INFORMATION_ARCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_ARCH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_ARM64(pub *mut FAULT_INFORMATION_ARM64);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFAULT_INFORMATION_ARM64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFAULT_INFORMATION_ARM64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_ARM64_FLAGS(pub *mut FAULT_INFORMATION_ARM64_FLAGS);
-impl PFAULT_INFORMATION_ARM64_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_ARM64_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_ARM64_TYPE(pub *mut FAULT_INFORMATION_ARM64_TYPE);
-impl PFAULT_INFORMATION_ARM64_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_ARM64_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_X64(pub *mut FAULT_INFORMATION_X64);
-impl PFAULT_INFORMATION_X64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_X64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_X64_FLAGS(pub *mut FAULT_INFORMATION_X64_FLAGS);
-impl PFAULT_INFORMATION_X64_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_X64_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFAULT_INFORMATION_X64_TYPE(pub *mut FAULT_INFORMATION_ARM64_TYPE);
-impl PFAULT_INFORMATION_X64_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFAULT_INFORMATION_X64_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_BASIC_INFORMATION(pub *mut FILE_BASIC_INFORMATION);
-impl PFILE_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_FS_DEVICE_INFORMATION(pub *mut FILE_FS_DEVICE_INFORMATION);
-impl PFILE_FS_DEVICE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_FS_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_FULL_EA_INFORMATION(pub *mut FILE_FULL_EA_INFORMATION);
-impl PFILE_FULL_EA_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_FULL_EA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFAULT_INFORMATION_ARM64 = *mut FAULT_INFORMATION_ARM64;
+pub type PFAULT_INFORMATION_ARM64_FLAGS = *mut FAULT_INFORMATION_ARM64_FLAGS;
+pub type PFAULT_INFORMATION_ARM64_TYPE = *mut FAULT_INFORMATION_ARM64_TYPE;
+pub type PFAULT_INFORMATION_X64 = *mut FAULT_INFORMATION_X64;
+pub type PFAULT_INFORMATION_X64_FLAGS = *mut FAULT_INFORMATION_X64_FLAGS;
+pub type PFAULT_INFORMATION_X64_TYPE = *mut FAULT_INFORMATION_ARM64_TYPE;
+pub type PFILE_BASIC_INFORMATION = *mut FILE_BASIC_INFORMATION;
+pub type PFILE_FS_DEVICE_INFORMATION = *mut FILE_FS_DEVICE_INFORMATION;
+pub type PFILE_FULL_EA_INFORMATION = *mut FILE_FULL_EA_INFORMATION;
 #[cfg(all(feature = "ntifs", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_GET_QUOTA_INFORMATION(pub *mut super::ntifs::FILE_GET_QUOTA_INFORMATION);
-#[cfg(all(feature = "ntifs", feature = "winnt"))]
-impl PFILE_GET_QUOTA_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ntifs", feature = "winnt"))]
-impl Default for PFILE_GET_QUOTA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_GET_QUOTA_INFORMATION = *mut super::ntifs::FILE_GET_QUOTA_INFORMATION;
 #[cfg(feature = "winternl")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_INFORMATION_CLASS(pub *mut super::winternl::FILE_INFORMATION_CLASS);
-#[cfg(feature = "winternl")]
-impl PFILE_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winternl")]
-impl Default for PFILE_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_INFORMATION_CLASS = *mut super::winternl::FILE_INFORMATION_CLASS;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IOSTATUSBLOCK_RANGE_INFORMATION(pub *mut FILE_IOSTATUSBLOCK_RANGE_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PFILE_IOSTATUSBLOCK_RANGE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PFILE_IOSTATUSBLOCK_RANGE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_IOSTATUSBLOCK_RANGE_INFORMATION = *mut FILE_IOSTATUSBLOCK_RANGE_INFORMATION;
 #[cfg(all(feature = "bcrypt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IO_COMPLETION_INFORMATION(pub *mut FILE_IO_COMPLETION_INFORMATION);
-#[cfg(all(feature = "bcrypt", feature = "winternl"))]
-impl PFILE_IO_COMPLETION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winternl"))]
-impl Default for PFILE_IO_COMPLETION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IO_COMPLETION_NOTIFICATION_INFORMATION(pub *mut FILE_IO_COMPLETION_NOTIFICATION_INFORMATION);
-impl PFILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IO_PRIORITY_HINT_INFORMATION(pub *mut FILE_IO_PRIORITY_HINT_INFORMATION);
-impl PFILE_IO_PRIORITY_HINT_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IO_PRIORITY_HINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IO_PRIORITY_HINT_INFORMATION_EX(pub *mut FILE_IO_PRIORITY_HINT_INFORMATION_EX);
-impl PFILE_IO_PRIORITY_HINT_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IO_PRIORITY_HINT_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IS_REMOTE_DEVICE_INFORMATION(pub *mut FILE_IS_REMOTE_DEVICE_INFORMATION);
-impl PFILE_IS_REMOTE_DEVICE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IS_REMOTE_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_MEMORY_PARTITION_INFORMATION(pub *mut FILE_MEMORY_PARTITION_INFORMATION);
-impl PFILE_MEMORY_PARTITION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_MEMORY_PARTITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_NETWORK_OPEN_INFORMATION(pub *mut FILE_NETWORK_OPEN_INFORMATION);
-impl PFILE_NETWORK_OPEN_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_NETWORK_OPEN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_NUMA_NODE_INFORMATION(pub *mut FILE_NUMA_NODE_INFORMATION);
-impl PFILE_NUMA_NODE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_NUMA_NODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_IO_COMPLETION_INFORMATION = *mut FILE_IO_COMPLETION_INFORMATION;
+pub type PFILE_IO_COMPLETION_NOTIFICATION_INFORMATION = *mut FILE_IO_COMPLETION_NOTIFICATION_INFORMATION;
+pub type PFILE_IO_PRIORITY_HINT_INFORMATION = *mut FILE_IO_PRIORITY_HINT_INFORMATION;
+pub type PFILE_IO_PRIORITY_HINT_INFORMATION_EX = *mut FILE_IO_PRIORITY_HINT_INFORMATION_EX;
+pub type PFILE_IS_REMOTE_DEVICE_INFORMATION = *mut FILE_IS_REMOTE_DEVICE_INFORMATION;
+pub type PFILE_MEMORY_PARTITION_INFORMATION = *mut FILE_MEMORY_PARTITION_INFORMATION;
+pub type PFILE_NETWORK_OPEN_INFORMATION = *mut FILE_NETWORK_OPEN_INFORMATION;
+pub type PFILE_NUMA_NODE_INFORMATION = *mut FILE_NUMA_NODE_INFORMATION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_OBJECT(pub *mut FILE_OBJECT);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PFILE_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PFILE_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_POSITION_INFORMATION(pub *mut FILE_POSITION_INFORMATION);
-impl PFILE_POSITION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_POSITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_PROCESS_IDS_USING_FILE_INFORMATION(pub *mut FILE_PROCESS_IDS_USING_FILE_INFORMATION);
-impl PFILE_PROCESS_IDS_USING_FILE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_PROCESS_IDS_USING_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_SFIO_RESERVE_INFORMATION(pub *mut FILE_SFIO_RESERVE_INFORMATION);
-impl PFILE_SFIO_RESERVE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_SFIO_RESERVE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_SFIO_VOLUME_INFORMATION(pub *mut FILE_SFIO_VOLUME_INFORMATION);
-impl PFILE_SFIO_VOLUME_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_SFIO_VOLUME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_STANDARD_INFORMATION(pub *mut FILE_STANDARD_INFORMATION);
-impl PFILE_STANDARD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_STANDARD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_STANDARD_INFORMATION_EX(pub *mut FILE_STANDARD_INFORMATION_EX);
-impl PFILE_STANDARD_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_STANDARD_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_OBJECT = *mut FILE_OBJECT;
+pub type PFILE_POSITION_INFORMATION = *mut FILE_POSITION_INFORMATION;
+pub type PFILE_PROCESS_IDS_USING_FILE_INFORMATION = *mut FILE_PROCESS_IDS_USING_FILE_INFORMATION;
+pub type PFILE_SFIO_RESERVE_INFORMATION = *mut FILE_SFIO_RESERVE_INFORMATION;
+pub type PFILE_SFIO_VOLUME_INFORMATION = *mut FILE_SFIO_VOLUME_INFORMATION;
+pub type PFILE_STANDARD_INFORMATION = *mut FILE_STANDARD_INFORMATION;
+pub type PFILE_STANDARD_INFORMATION_EX = *mut FILE_STANDARD_INFORMATION_EX;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFLUSH_ADAPTER_BUFFERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: u32, writetodevice: bool) -> bool>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -14707,83 +11749,15 @@ pub struct PFN_NUMBER(pub u32);
 pub struct PFN_NUMBER(pub u64);
 pub type PFN_RTL_IS_NTDDI_VERSION_AVAILABLE = Option<unsafe extern "system" fn(version: u32) -> bool>;
 pub type PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED = Option<unsafe extern "system" fn(version: u32) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFPGA_BUS_SCAN(pub *mut FPGA_BUS_SCAN);
-impl PFPGA_BUS_SCAN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFPGA_BUS_SCAN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFPGA_BUS_SCAN = *mut FPGA_BUS_SCAN;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFPGA_CONTROL_CONFIG_SPACE(pub *mut FPGA_CONTROL_CONFIG_SPACE);
+pub type PFPGA_CONTROL_CONFIG_SPACE = *mut FPGA_CONTROL_CONFIG_SPACE;
 #[cfg(feature = "bcrypt")]
-impl PFPGA_CONTROL_CONFIG_SPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PFPGA_CONTROL_ERROR_REPORTING = *mut FPGA_CONTROL_ERROR_REPORTING;
 #[cfg(feature = "bcrypt")]
-impl Default for PFPGA_CONTROL_CONFIG_SPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFPGA_CONTROL_INTERFACE = *mut FPGA_CONTROL_INTERFACE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFPGA_CONTROL_ERROR_REPORTING(pub *mut FPGA_CONTROL_ERROR_REPORTING);
-#[cfg(feature = "bcrypt")]
-impl PFPGA_CONTROL_ERROR_REPORTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PFPGA_CONTROL_ERROR_REPORTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFPGA_CONTROL_INTERFACE(pub *mut FPGA_CONTROL_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PFPGA_CONTROL_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PFPGA_CONTROL_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFPGA_CONTROL_LINK(pub *mut FPGA_CONTROL_LINK);
-#[cfg(feature = "bcrypt")]
-impl PFPGA_CONTROL_LINK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PFPGA_CONTROL_LINK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFPGA_CONTROL_LINK = *mut FPGA_CONTROL_LINK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFREE_ADAPTER_CHANNEL = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER)>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -14794,161 +11768,27 @@ pub type PFREE_COMMON_BUFFER = Option<unsafe extern "system" fn(dmaadapter: *con
 pub type PFREE_COMMON_BUFFER_FROM_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR, index: u32)>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFREE_COMMON_BUFFER_VECTOR = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFREE_FUNCTION(pub *mut FREE_FUNCTION);
-impl PFREE_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFREE_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFREE_FUNCTION = *mut FREE_FUNCTION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFREE_FUNCTION_EX(pub *mut FREE_FUNCTION_EX);
-#[cfg(feature = "winnt")]
-impl PFREE_FUNCTION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PFREE_FUNCTION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFREE_FUNCTION_EX = *mut FREE_FUNCTION_EX;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PFREE_MAP_REGISTERS = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mapregisterbase: *mut core::ffi::c_void, numberofmapregisters: u32)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFS_INFORMATION_CLASS(pub *mut FS_INFORMATION_CLASS);
-impl PFS_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFS_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFS_INFORMATION_CLASS = *mut FS_INFORMATION_CLASS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS(pub *mut FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS);
-#[cfg(feature = "bcrypt")]
-impl PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFUNCTION_LEVEL_DEVICE_RESET_PARAMETERS = *mut FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGENERAL_LOOKASIDE(pub *mut GENERAL_LOOKASIDE);
+pub type PGENERAL_LOOKASIDE = *mut GENERAL_LOOKASIDE;
 #[cfg(feature = "winnt")]
-impl PGENERAL_LOOKASIDE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PGENERAL_LOOKASIDE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGENERAL_LOOKASIDE_POOL(pub *mut GENERAL_LOOKASIDE_POOL);
-#[cfg(feature = "winnt")]
-impl PGENERAL_LOOKASIDE_POOL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PGENERAL_LOOKASIDE_POOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGENERAL_LOOKASIDE_POOL = *mut GENERAL_LOOKASIDE_POOL;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGET_COMMON_BUFFER_FROM_VECTOR_BY_INDEX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, vector: *const DMA_COMMON_BUFFER_VECTOR, index: u32, virtualaddressout: *mut *mut core::ffi::c_void, logicaladdressout: *mut i64)>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_D3COLD_CAPABILITY(pub *mut GET_D3COLD_CAPABILITY);
+pub type PGET_D3COLD_CAPABILITY = *mut GET_D3COLD_CAPABILITY;
+pub type PGET_D3COLD_LAST_TRANSITION_STATUS = *mut GET_D3COLD_LAST_TRANSITION_STATUS;
 #[cfg(feature = "bcrypt")]
-impl PGET_D3COLD_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PGET_D3COLD_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_D3COLD_LAST_TRANSITION_STATUS(pub *mut GET_D3COLD_LAST_TRANSITION_STATUS);
-impl PGET_D3COLD_LAST_TRANSITION_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_D3COLD_LAST_TRANSITION_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_DEVICE_RESET_STATUS(pub *mut GET_DEVICE_RESET_STATUS);
-#[cfg(feature = "bcrypt")]
-impl PGET_DEVICE_RESET_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PGET_DEVICE_RESET_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_DEVICE_RESET_STATUS = *mut GET_DEVICE_RESET_STATUS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_DMA_ADAPTER(pub *mut GET_DMA_ADAPTER);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PGET_DMA_ADAPTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PGET_DMA_ADAPTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_DMA_ADAPTER = *mut GET_DMA_ADAPTER;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGET_DMA_ADAPTER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, adapterinfo: *mut DMA_ADAPTER_INFO) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -14958,141 +11798,23 @@ pub type PGET_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const D
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGET_DMA_TRANSFER_INFO = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, offset: u64, length: u32, writeonly: bool, transferinfo: *mut DMA_TRANSFER_INFO) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_DOE_PREVIOUS_RESPONSE(pub *mut GET_DOE_PREVIOUS_RESPONSE);
-#[cfg(feature = "bcrypt")]
-impl PGET_DOE_PREVIOUS_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PGET_DOE_PREVIOUS_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_DOE_PREVIOUS_RESPONSE = *mut GET_DOE_PREVIOUS_RESPONSE;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_IDLE_WAKE_INFO(pub *mut GET_IDLE_WAKE_INFO);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PGET_IDLE_WAKE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PGET_IDLE_WAKE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_IDLE_WAKE_INFO = *mut GET_IDLE_WAKE_INFO;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGET_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, mdl: *const MDL, currentva: *const core::ffi::c_void, length: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGET_SCATTER_GATHER_LIST_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, dmatransfercontext: *const core::ffi::c_void, mdl: *const MDL, offset: u64, length: u32, flags: u32, executionroutine: PDRIVER_LIST_CONTROL, context: *const core::ffi::c_void, writetodevice: bool, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void, scattergatherlist: *mut PSCATTER_GATHER_LIST) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_SDEV_IDENTIFIER(pub *mut GET_SDEV_IDENTIFIER);
-impl PGET_SDEV_IDENTIFIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_SDEV_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_SET_DEVICE_DATA(pub *mut GET_SET_DEVICE_DATA);
-impl PGET_SET_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_SET_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_SDEV_IDENTIFIER = *mut GET_SDEV_IDENTIFIER;
+pub type PGET_SET_DEVICE_DATA = *mut GET_SET_DEVICE_DATA;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_UPDATED_BUS_RESOURCE(pub *mut GET_UPDATED_BUS_RESOURCE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl PGET_UPDATED_BUS_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl Default for PGET_UPDATED_BUS_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_VIRTUAL_DEVICE_DATA(pub *mut GET_VIRTUAL_DEVICE_DATA);
-impl PGET_VIRTUAL_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_VIRTUAL_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_UPDATED_BUS_RESOURCE = *mut GET_UPDATED_BUS_RESOURCE;
+pub type PGET_VIRTUAL_DEVICE_DATA = *mut GET_VIRTUAL_DEVICE_DATA;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_VIRTUAL_DEVICE_LOCATION(pub *mut GET_VIRTUAL_DEVICE_LOCATION);
+pub type PGET_VIRTUAL_DEVICE_LOCATION = *mut GET_VIRTUAL_DEVICE_LOCATION;
+pub type PGET_VIRTUAL_DEVICE_RESOURCES = *mut GET_VIRTUAL_DEVICE_RESOURCES;
 #[cfg(feature = "bcrypt")]
-impl PGET_VIRTUAL_DEVICE_LOCATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PGET_VIRTUAL_DEVICE_LOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_VIRTUAL_DEVICE_RESOURCES(pub *mut GET_VIRTUAL_DEVICE_RESOURCES);
-impl PGET_VIRTUAL_DEVICE_RESOURCES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGET_VIRTUAL_DEVICE_RESOURCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGET_VIRTUAL_FUNCTION_PROBED_BARS(pub *mut GET_VIRTUAL_FUNCTION_PROBED_BARS);
-#[cfg(feature = "bcrypt")]
-impl PGET_VIRTUAL_FUNCTION_PROBED_BARS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PGET_VIRTUAL_FUNCTION_PROBED_BARS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGET_VIRTUAL_FUNCTION_PROBED_BARS = *mut GET_VIRTUAL_FUNCTION_PROBED_BARS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PGPE_CLEAR_STATUS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
@@ -15115,2724 +11837,300 @@ pub type PGPE_ENABLE_EVENT = Option<unsafe extern "system" fn(param0: *mut DEVIC
 pub type PGPE_ENABLE_EVENT2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, objectcontext: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 pub type PGPE_SERVICE_ROUTINE = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void) -> bool>;
 pub type PGPE_SERVICE_ROUTINE2 = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, servicecontext: *mut core::ffi::c_void) -> bool>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHWPROFILE_CHANGE_NOTIFICATION(pub *mut HWPROFILE_CHANGE_NOTIFICATION);
-impl PHWPROFILE_CHANGE_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHWPROFILE_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHWPROFILE_CHANGE_NOTIFICATION = *mut HWPROFILE_CHANGE_NOTIFICATION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PINITIALIZE_DMA_TRANSFER_CONTEXT = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, dmatransfercontext: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINITIAL_PRIVILEGE_SET(pub *mut INITIAL_PRIVILEGE_SET);
-#[cfg(feature = "winnt")]
-impl PINITIAL_PRIVILEGE_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PINITIAL_PRIVILEGE_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINPUT_MAPPING_ELEMENT(pub *mut INPUT_MAPPING_ELEMENT);
-impl PINPUT_MAPPING_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINPUT_MAPPING_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINITIAL_PRIVILEGE_SET = *mut INITIAL_PRIVILEGE_SET;
+pub type PINPUT_MAPPING_ELEMENT = *mut INPUT_MAPPING_ELEMENT;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTEL_CACHE_INFO_EAX(pub *mut INTEL_CACHE_INFO_EAX);
+pub type PINTEL_CACHE_INFO_EAX = *mut INTEL_CACHE_INFO_EAX;
 #[cfg(target_arch = "x86")]
-impl PINTEL_CACHE_INFO_EAX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PINTEL_CACHE_INFO_EAX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTEL_CACHE_INFO_EBX(pub *mut INTEL_CACHE_INFO_EBX);
-#[cfg(target_arch = "x86")]
-impl PINTEL_CACHE_INFO_EBX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PINTEL_CACHE_INFO_EBX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE(pub *mut INTERFACE);
-impl PINTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINTEL_CACHE_INFO_EBX = *mut INTEL_CACHE_INFO_EBX;
+pub type PINTERFACE = *mut INTERFACE;
 pub type PINTERFACE_DEREFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type PINTERFACE_REFERENCE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINTERFACE_TYPE(pub *mut INTERFACE_TYPE);
-impl PINTERFACE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINTERFACE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PINTERFACE_TYPE = *mut INTERFACE_TYPE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_CREATE(pub *mut IOMMU_DEVICE_CREATE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_DEVICE_CREATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_DEVICE_CREATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DEVICE_CREATE = *mut IOMMU_DEVICE_CREATE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_CREATION_CONFIGURATION(pub *mut IOMMU_DEVICE_CREATION_CONFIGURATION);
-#[cfg(feature = "winnt")]
-impl PIOMMU_DEVICE_CREATION_CONFIGURATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIOMMU_DEVICE_CREATION_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI(pub *mut IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI);
-impl PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID(pub *mut IOMMU_DEVICE_CREATION_CONFIGURATION_PASID);
-impl PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(pub *mut IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE);
-impl PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DEVICE_CREATION_CONFIGURATION = *mut IOMMU_DEVICE_CREATION_CONFIGURATION;
+pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_ACPI = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI;
+pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_PASID = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_PASID;
+pub type PIOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = *mut IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_DELETE(pub *mut IOMMU_DEVICE_DELETE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_DEVICE_DELETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DEVICE_DELETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DEVICE_DELETE = *mut IOMMU_DEVICE_DELETE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_FAULT_HANDLER(pub *mut IOMMU_DEVICE_FAULT_HANDLER);
+pub type PIOMMU_DEVICE_FAULT_HANDLER = *mut IOMMU_DEVICE_FAULT_HANDLER;
+pub type PIOMMU_DEVICE_QUERY_DOMAIN_TYPES = *mut IOMMU_DEVICE_QUERY_DOMAIN_TYPES;
+#[cfg(feature = "bcrypt")]
+pub type PIOMMU_DEVICE_QUERY_INFORMATION = *mut IOMMU_DEVICE_QUERY_INFORMATION;
+pub type PIOMMU_DMA_DEVICE = *mut IOMMU_DMA_DEVICE;
+pub type PIOMMU_DMA_DEVICE_INFORMATION = *mut IOMMU_DMA_DEVICE_INFORMATION;
+pub type PIOMMU_DMA_DOMAIN = *mut IOMMU_DMA_DOMAIN;
+pub type PIOMMU_DMA_DOMAIN_CREATION_FLAGS = *mut IOMMU_DMA_DOMAIN_CREATION_FLAGS;
+pub type PIOMMU_DMA_DOMAIN_TYPE = *mut IOMMU_DMA_DOMAIN_TYPE;
+pub type PIOMMU_DMA_LOGICAL_ADDRESS = *mut u64;
+pub type PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN = *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN;
+pub type PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT = *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT;
+pub type PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG = *mut IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG;
+pub type PIOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = *mut IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE;
+pub type PIOMMU_DMA_PASID_DEVICE = *mut IOMMU_DMA_PASID_DEVICE;
+pub type PIOMMU_DMA_RESERVED_REGION = *mut IOMMU_DMA_RESERVED_REGION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_DEVICE_FAULT_HANDLER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_DEVICE_FAULT_HANDLER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_QUERY_DOMAIN_TYPES(pub *mut IOMMU_DEVICE_QUERY_DOMAIN_TYPES);
-impl PIOMMU_DEVICE_QUERY_DOMAIN_TYPES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DEVICE_QUERY_DOMAIN_TYPES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE = *mut IOMMU_DOMAIN_ATTACH_DEVICE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DEVICE_QUERY_INFORMATION(pub *mut IOMMU_DEVICE_QUERY_INFORMATION);
+pub type PIOMMU_DOMAIN_ATTACH_DEVICE_EX = *mut IOMMU_DOMAIN_ATTACH_DEVICE_EX;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_DEVICE_QUERY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DEVICE_QUERY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_DEVICE(pub *mut IOMMU_DMA_DEVICE);
-impl PIOMMU_DMA_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_DEVICE_INFORMATION(pub *mut IOMMU_DMA_DEVICE_INFORMATION);
-impl PIOMMU_DMA_DEVICE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_DEVICE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_DOMAIN(pub *mut IOMMU_DMA_DOMAIN);
-impl PIOMMU_DMA_DOMAIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_DOMAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_DOMAIN_CREATION_FLAGS(pub *mut IOMMU_DMA_DOMAIN_CREATION_FLAGS);
-impl PIOMMU_DMA_DOMAIN_CREATION_FLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_DOMAIN_CREATION_FLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_DOMAIN_TYPE(pub *mut IOMMU_DMA_DOMAIN_TYPE);
-impl PIOMMU_DMA_DOMAIN_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_DOMAIN_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_LOGICAL_ADDRESS(pub *mut u64);
-impl PIOMMU_DMA_LOGICAL_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_LOGICAL_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN(pub *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN);
-impl PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT(pub *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT);
-impl PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG(pub *mut IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG);
-impl PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(pub *mut IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE);
-impl PIOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_PASID_DEVICE(pub *mut IOMMU_DMA_PASID_DEVICE);
-impl PIOMMU_DMA_PASID_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_PASID_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DMA_RESERVED_REGION(pub *mut IOMMU_DMA_RESERVED_REGION);
-impl PIOMMU_DMA_RESERVED_REGION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_DMA_RESERVED_REGION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_ATTACH_DEVICE(pub *mut IOMMU_DOMAIN_ATTACH_DEVICE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_DOMAIN_ATTACH_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_DOMAIN_ATTACH_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_ATTACH_DEVICE_EX(pub *mut IOMMU_DOMAIN_ATTACH_DEVICE_EX);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_ATTACH_DEVICE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_ATTACH_DEVICE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_ATTACH_PASID_DEVICE(pub *mut IOMMU_DOMAIN_ATTACH_PASID_DEVICE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_ATTACH_PASID_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_ATTACH_PASID_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DOMAIN_ATTACH_PASID_DEVICE = *mut IOMMU_DOMAIN_ATTACH_PASID_DEVICE;
 #[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_CONFIGURE(pub *mut IOMMU_DOMAIN_CONFIGURE);
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl PIOMMU_DOMAIN_CONFIGURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl Default for PIOMMU_DOMAIN_CONFIGURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DOMAIN_CONFIGURE = *mut IOMMU_DOMAIN_CONFIGURE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_CREATE(pub *mut IOMMU_DOMAIN_CREATE);
+pub type PIOMMU_DOMAIN_CREATE = *mut IOMMU_DOMAIN_CREATE;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_CREATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIOMMU_DOMAIN_CREATE_EX = *mut IOMMU_DOMAIN_CREATE_EX;
 #[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_CREATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_CREATE_EX(pub *mut IOMMU_DOMAIN_CREATE_EX);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_CREATE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_CREATE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_DELETE(pub *mut IOMMU_DOMAIN_DELETE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_DELETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_DELETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DOMAIN_DELETE = *mut IOMMU_DOMAIN_DELETE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_DETACH_DEVICE(pub *mut IOMMU_DOMAIN_DETACH_DEVICE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_DOMAIN_DETACH_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_DOMAIN_DETACH_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_DOMAIN_DETACH_DEVICE = *mut IOMMU_DOMAIN_DETACH_DEVICE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_DETACH_DEVICE_EX(pub *mut IOMMU_DOMAIN_DETACH_DEVICE_EX);
+pub type PIOMMU_DOMAIN_DETACH_DEVICE_EX = *mut IOMMU_DOMAIN_DETACH_DEVICE_EX;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_DETACH_DEVICE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIOMMU_DOMAIN_DETACH_PASID_DEVICE = *mut IOMMU_DOMAIN_DETACH_PASID_DEVICE;
 #[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_DETACH_DEVICE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_FLUSH_DOMAIN = *mut IOMMU_FLUSH_DOMAIN;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_DOMAIN_DETACH_PASID_DEVICE(pub *mut IOMMU_DOMAIN_DETACH_PASID_DEVICE);
+pub type PIOMMU_FLUSH_DOMAIN_VA_LIST = *mut IOMMU_FLUSH_DOMAIN_VA_LIST;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_DOMAIN_DETACH_PASID_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_DOMAIN_DETACH_PASID_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_FLUSH_DOMAIN(pub *mut IOMMU_FLUSH_DOMAIN);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_FLUSH_DOMAIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_FLUSH_DOMAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_FLUSH_DOMAIN_VA_LIST(pub *mut IOMMU_FLUSH_DOMAIN_VA_LIST);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_FLUSH_DOMAIN_VA_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_FLUSH_DOMAIN_VA_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE(pub *mut IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_INTERFACE_STATE_CHANGE(pub *mut IOMMU_INTERFACE_STATE_CHANGE);
-impl PIOMMU_INTERFACE_STATE_CHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_INTERFACE_STATE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK(pub *mut IOMMU_INTERFACE_STATE_CHANGE_CALLBACK);
-impl PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_INTERFACE_STATE_CHANGE_FIELDS(pub *mut IOMMU_INTERFACE_STATE_CHANGE_FIELDS);
-impl PIOMMU_INTERFACE_STATE_CHANGE_FIELDS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_INTERFACE_STATE_CHANGE_FIELDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE = *mut IOMMU_FREE_RESERVED_LOGICAL_ADDRESS_RANGE;
+pub type PIOMMU_INTERFACE_STATE_CHANGE = *mut IOMMU_INTERFACE_STATE_CHANGE;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_INTERFACE_STATE_CHANGE_CALLBACK;
+pub type PIOMMU_INTERFACE_STATE_CHANGE_FIELDS = *mut IOMMU_INTERFACE_STATE_CHANGE_FIELDS;
 #[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_IDENTITY_RANGE(pub *mut IOMMU_MAP_IDENTITY_RANGE);
+pub type PIOMMU_MAP_IDENTITY_RANGE = *mut IOMMU_MAP_IDENTITY_RANGE;
+#[cfg(all(feature = "bcrypt", feature = "usb"))]
+pub type PIOMMU_MAP_IDENTITY_RANGE_EX = *mut IOMMU_MAP_IDENTITY_RANGE_EX;
 #[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl PIOMMU_MAP_IDENTITY_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl Default for PIOMMU_MAP_IDENTITY_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_MAP_LOGICAL_RANGE = *mut IOMMU_MAP_LOGICAL_RANGE;
 #[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_IDENTITY_RANGE_EX(pub *mut IOMMU_MAP_IDENTITY_RANGE_EX);
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl PIOMMU_MAP_IDENTITY_RANGE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl Default for PIOMMU_MAP_IDENTITY_RANGE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_LOGICAL_RANGE(pub *mut IOMMU_MAP_LOGICAL_RANGE);
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl PIOMMU_MAP_LOGICAL_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl Default for PIOMMU_MAP_LOGICAL_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_LOGICAL_RANGE_EX(pub *mut IOMMU_MAP_LOGICAL_RANGE_EX);
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl PIOMMU_MAP_LOGICAL_RANGE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl Default for PIOMMU_MAP_LOGICAL_RANGE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_MAP_LOGICAL_RANGE_EX = *mut IOMMU_MAP_LOGICAL_RANGE_EX;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_PHYSICAL_ADDRESS(pub *mut IOMMU_MAP_PHYSICAL_ADDRESS);
-#[cfg(feature = "usb")]
-impl PIOMMU_MAP_PHYSICAL_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PIOMMU_MAP_PHYSICAL_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE(pub *mut IOMMU_MAP_PHYSICAL_ADDRESS_TYPE);
-impl PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_MAP_PHYSICAL_ADDRESS = *mut IOMMU_MAP_PHYSICAL_ADDRESS;
+pub type PIOMMU_MAP_PHYSICAL_ADDRESS_TYPE = *mut IOMMU_MAP_PHYSICAL_ADDRESS_TYPE;
 #[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_MAP_RESERVED_LOGICAL_RANGE(pub *mut IOMMU_MAP_RESERVED_LOGICAL_RANGE);
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl PIOMMU_MAP_RESERVED_LOGICAL_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl Default for PIOMMU_MAP_RESERVED_LOGICAL_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_PASID_CONFIGURATION_TYPE(pub *mut IOMMU_PASID_CONFIGURATION_TYPE);
-impl PIOMMU_PASID_CONFIGURATION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIOMMU_PASID_CONFIGURATION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_MAP_RESERVED_LOGICAL_RANGE = *mut IOMMU_MAP_RESERVED_LOGICAL_RANGE;
+pub type PIOMMU_PASID_CONFIGURATION_TYPE = *mut IOMMU_PASID_CONFIGURATION_TYPE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_PASID_DEVICE_CREATE(pub *mut IOMMU_PASID_DEVICE_CREATE);
+pub type PIOMMU_PASID_DEVICE_CREATE = *mut IOMMU_PASID_DEVICE_CREATE;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_PASID_DEVICE_CREATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_PASID_DEVICE_CREATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_PASID_DEVICE_DELETE(pub *mut IOMMU_PASID_DEVICE_DELETE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_PASID_DEVICE_DELETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_PASID_DEVICE_DELETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_PASID_DEVICE_DELETE = *mut IOMMU_PASID_DEVICE_DELETE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_QUERY_INPUT_MAPPINGS(pub *mut IOMMU_QUERY_INPUT_MAPPINGS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_QUERY_INPUT_MAPPINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_QUERY_INPUT_MAPPINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_QUERY_INPUT_MAPPINGS = *mut IOMMU_QUERY_INPUT_MAPPINGS;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK(pub *mut IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK);
+pub type PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE(pub *mut IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_RESERVE_LOGICAL_ADDRESS_RANGE = *mut IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_SET_DEVICE_FAULT_REPORTING(pub *mut IOMMU_SET_DEVICE_FAULT_REPORTING);
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING = *mut IOMMU_SET_DEVICE_FAULT_REPORTING;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_SET_DEVICE_FAULT_REPORTING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_SET_DEVICE_FAULT_REPORTING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_SET_DEVICE_FAULT_REPORTING_EX(pub *mut IOMMU_SET_DEVICE_FAULT_REPORTING_EX);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIOMMU_SET_DEVICE_FAULT_REPORTING_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIOMMU_SET_DEVICE_FAULT_REPORTING_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_SET_DEVICE_FAULT_REPORTING_EX = *mut IOMMU_SET_DEVICE_FAULT_REPORTING_EX;
 #[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_UNMAP_IDENTITY_RANGE(pub *mut IOMMU_UNMAP_IDENTITY_RANGE);
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl PIOMMU_UNMAP_IDENTITY_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-impl Default for PIOMMU_UNMAP_IDENTITY_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_UNMAP_IDENTITY_RANGE = *mut IOMMU_UNMAP_IDENTITY_RANGE;
 #[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_UNMAP_IDENTITY_RANGE_EX(pub *mut IOMMU_UNMAP_IDENTITY_RANGE_EX);
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl PIOMMU_UNMAP_IDENTITY_RANGE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "usb"))]
-impl Default for PIOMMU_UNMAP_IDENTITY_RANGE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_UNMAP_IDENTITY_RANGE_EX = *mut IOMMU_UNMAP_IDENTITY_RANGE_EX;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_UNMAP_LOGICAL_RANGE(pub *mut IOMMU_UNMAP_LOGICAL_RANGE);
+pub type PIOMMU_UNMAP_LOGICAL_RANGE = *mut IOMMU_UNMAP_LOGICAL_RANGE;
 #[cfg(feature = "bcrypt")]
-impl PIOMMU_UNMAP_LOGICAL_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE = *mut IOMMU_UNMAP_RESERVED_LOGICAL_RANGE;
 #[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_UNMAP_LOGICAL_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE(pub *mut IOMMU_UNMAP_RESERVED_LOGICAL_RANGE);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_UNMAP_RESERVED_LOGICAL_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK(pub *mut IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK);
-#[cfg(feature = "bcrypt")]
-impl PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_ALLOCATION_ACTION(pub *mut IO_ALLOCATION_ACTION);
-impl PIO_ALLOCATION_ACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_ALLOCATION_ACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_ATTRIBUTION_INFORMATION(pub *mut IO_ATTRIBUTION_INFORMATION);
-impl PIO_ATTRIBUTION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_ATTRIBUTION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_COMPLETION_CONTEXT(pub *mut IO_COMPLETION_CONTEXT);
-impl PIO_COMPLETION_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_COMPLETION_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK = *mut IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK;
+pub type PIO_ALLOCATION_ACTION = *mut IO_ALLOCATION_ACTION;
+pub type PIO_ATTRIBUTION_INFORMATION = *mut IO_ATTRIBUTION_INFORMATION;
+pub type PIO_COMPLETION_CONTEXT = *mut IO_COMPLETION_CONTEXT;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_COMPLETION_ROUTINE(pub *mut IO_COMPLETION_ROUTINE);
+pub type PIO_COMPLETION_ROUTINE = *mut IO_COMPLETION_ROUTINE;
+pub type PIO_COMPLETION_ROUTINE_RESULT = *mut IO_COMPLETION_ROUTINE_RESULT;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_COMPLETION_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_COMPLETION_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_COMPLETION_ROUTINE_RESULT(pub *mut IO_COMPLETION_ROUTINE_RESULT);
-impl PIO_COMPLETION_ROUTINE_RESULT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_COMPLETION_ROUTINE_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS(pub *mut IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS);
+pub type PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS = *mut IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS(pub *mut IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS(pub *mut IO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CONNECT_INTERRUPT_MESSAGE_BASED_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CONNECT_INTERRUPT_PARAMETERS(pub *mut IO_CONNECT_INTERRUPT_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CONNECT_INTERRUPT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CONNECT_INTERRUPT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_CONNECT_INTERRUPT_PARAMETERS = *mut IO_CONNECT_INTERRUPT_PARAMETERS;
 #[cfg(feature = "bcrypt")]
 pub type PIO_CONTAINER_NOTIFICATION_FUNCTION = Option<unsafe extern "system" fn() -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ(pub *mut IO_CSQ);
+pub type PIO_CSQ = *mut IO_CSQ;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIO_CSQ_ACQUIRE_LOCK = *mut IO_CSQ_ACQUIRE_LOCK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_CSQ_COMPLETE_CANCELED_IRP = *mut IO_CSQ_COMPLETE_CANCELED_IRP;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_ACQUIRE_LOCK(pub *mut IO_CSQ_ACQUIRE_LOCK);
+pub type PIO_CSQ_INSERT_IRP = *mut IO_CSQ_INSERT_IRP;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_ACQUIRE_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIO_CSQ_INSERT_IRP_EX = *mut IO_CSQ_INSERT_IRP_EX;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_ACQUIRE_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_CSQ_IRP_CONTEXT = *mut IO_CSQ_IRP_CONTEXT;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_COMPLETE_CANCELED_IRP(pub *mut IO_CSQ_COMPLETE_CANCELED_IRP);
+pub type PIO_CSQ_PEEK_NEXT_IRP = *mut IO_CSQ_PEEK_NEXT_IRP;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_COMPLETE_CANCELED_IRP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIO_CSQ_RELEASE_LOCK = *mut IO_CSQ_RELEASE_LOCK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_COMPLETE_CANCELED_IRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_INSERT_IRP(pub *mut IO_CSQ_INSERT_IRP);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_INSERT_IRP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_INSERT_IRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_INSERT_IRP_EX(pub *mut IO_CSQ_INSERT_IRP_EX);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_INSERT_IRP_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_INSERT_IRP_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_IRP_CONTEXT(pub *mut IO_CSQ_IRP_CONTEXT);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_IRP_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_IRP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_PEEK_NEXT_IRP(pub *mut IO_CSQ_PEEK_NEXT_IRP);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_PEEK_NEXT_IRP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_PEEK_NEXT_IRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_RELEASE_LOCK(pub *mut IO_CSQ_RELEASE_LOCK);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_RELEASE_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_RELEASE_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_CSQ_REMOVE_IRP(pub *mut IO_CSQ_REMOVE_IRP);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_CSQ_REMOVE_IRP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_CSQ_REMOVE_IRP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_CSQ_REMOVE_IRP = *mut IO_CSQ_REMOVE_IRP;
 #[cfg(feature = "bcrypt")]
 pub type PIO_DEVICE_EJECT_CALLBACK = Option<unsafe extern "system" fn(status: super::bcrypt::NTSTATUS, context: *mut core::ffi::c_void)>;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_DISCONNECT_INTERRUPT_PARAMETERS(pub *mut IO_DISCONNECT_INTERRUPT_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl PIO_DISCONNECT_INTERRUPT_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl Default for PIO_DISCONNECT_INTERRUPT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_DISCONNECT_INTERRUPT_PARAMETERS = *mut IO_DISCONNECT_INTERRUPT_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_DPC_ROUTINE(pub *mut IO_DPC_ROUTINE);
+pub type PIO_DPC_ROUTINE = *mut IO_DPC_ROUTINE;
+#[cfg(feature = "bcrypt")]
+pub type PIO_ERROR_LOG_MESSAGE = *mut IO_ERROR_LOG_MESSAGE;
+#[cfg(feature = "bcrypt")]
+pub type PIO_ERROR_LOG_PACKET = *mut IO_ERROR_LOG_PACKET;
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+pub type PIO_INTERRUPT_MESSAGE_INFO = *mut IO_INTERRUPT_MESSAGE_INFO;
+#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
+pub type PIO_INTERRUPT_MESSAGE_INFO_ENTRY = *mut IO_INTERRUPT_MESSAGE_INFO_ENTRY;
+pub type PIO_MINI_COMPLETION_PACKET_USER = *mut IO_MINI_COMPLETION_PACKET_USER;
+pub type PIO_MINI_PACKET_CALLBACK_ROUTINE = *mut IO_MINI_PACKET_CALLBACK_ROUTINE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_DPC_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_DPC_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_ERROR_LOG_MESSAGE(pub *mut IO_ERROR_LOG_MESSAGE);
-#[cfg(feature = "bcrypt")]
-impl PIO_ERROR_LOG_MESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIO_ERROR_LOG_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_ERROR_LOG_PACKET(pub *mut IO_ERROR_LOG_PACKET);
-#[cfg(feature = "bcrypt")]
-impl PIO_ERROR_LOG_PACKET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIO_ERROR_LOG_PACKET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_INTERRUPT_MESSAGE_INFO(pub *mut IO_INTERRUPT_MESSAGE_INFO);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl PIO_INTERRUPT_MESSAGE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl Default for PIO_INTERRUPT_MESSAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_INTERRUPT_MESSAGE_INFO_ENTRY(pub *mut IO_INTERRUPT_MESSAGE_INFO_ENTRY);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl PIO_INTERRUPT_MESSAGE_INFO_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl Default for PIO_INTERRUPT_MESSAGE_INFO_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_MINI_COMPLETION_PACKET_USER(pub *mut IO_MINI_COMPLETION_PACKET_USER);
-impl PIO_MINI_COMPLETION_PACKET_USER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_MINI_COMPLETION_PACKET_USER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_MINI_PACKET_CALLBACK_ROUTINE(pub *mut IO_MINI_PACKET_CALLBACK_ROUTINE);
-impl PIO_MINI_PACKET_CALLBACK_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_MINI_PACKET_CALLBACK_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK(pub *mut IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_PERSISTED_MEMORY_ENUMERATION_CALLBACK = *mut IO_PERSISTED_MEMORY_ENUMERATION_CALLBACK;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_REMOVE_LOCK(pub *mut IO_REMOVE_LOCK);
-#[cfg(feature = "winnt")]
-impl PIO_REMOVE_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIO_REMOVE_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_REMOVE_LOCK_TRACKING_BLOCK(pub *mut _IO_REMOVE_LOCK_TRACKING_BLOCK);
-impl PIO_REMOVE_LOCK_TRACKING_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_REMOVE_LOCK_TRACKING_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_REMOVE_LOCK = *mut IO_REMOVE_LOCK;
+pub type PIO_REMOVE_LOCK_TRACKING_BLOCK = *mut _IO_REMOVE_LOCK_TRACKING_BLOCK;
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS(pub *mut IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl PIO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-impl Default for PIO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS = *mut IO_REPORT_INTERRUPT_ACTIVE_STATE_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_RESOURCE_DESCRIPTOR(pub *mut IO_RESOURCE_DESCRIPTOR);
+pub type PIO_RESOURCE_DESCRIPTOR = *mut IO_RESOURCE_DESCRIPTOR;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PIO_RESOURCE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIO_RESOURCE_LIST = *mut IO_RESOURCE_LIST;
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PIO_RESOURCE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_RESOURCE_LIST(pub *mut IO_RESOURCE_LIST);
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PIO_RESOURCE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PIO_RESOURCE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_RESOURCE_REQUIREMENTS_LIST(pub *mut IO_RESOURCE_REQUIREMENTS_LIST);
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl PIO_RESOURCE_REQUIREMENTS_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "usb"))]
-impl Default for PIO_RESOURCE_REQUIREMENTS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_RESOURCE_REQUIREMENTS_LIST = *mut IO_RESOURCE_REQUIREMENTS_LIST;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SECURITY_CONTEXT(pub *mut IO_SECURITY_CONTEXT);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PIO_SECURITY_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PIO_SECURITY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_CONNECT_INFO(pub *mut IO_SESSION_CONNECT_INFO);
-impl PIO_SESSION_CONNECT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_SESSION_CONNECT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_EVENT(pub *mut IO_SESSION_EVENT);
-impl PIO_SESSION_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_SESSION_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_SECURITY_CONTEXT = *mut IO_SECURITY_CONTEXT;
+pub type PIO_SESSION_CONNECT_INFO = *mut IO_SESSION_CONNECT_INFO;
+pub type PIO_SESSION_EVENT = *mut IO_SESSION_EVENT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_NOTIFICATION_FUNCTION(pub *mut IO_SESSION_NOTIFICATION_FUNCTION);
-#[cfg(feature = "bcrypt")]
-impl PIO_SESSION_NOTIFICATION_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIO_SESSION_NOTIFICATION_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_STATE(pub *mut IO_SESSION_STATE);
-impl PIO_SESSION_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_SESSION_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_STATE_INFORMATION(pub *mut IO_SESSION_STATE_INFORMATION);
-impl PIO_SESSION_STATE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_SESSION_STATE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_SESSION_STATE_NOTIFICATION(pub *mut IO_SESSION_STATE_NOTIFICATION);
-impl PIO_SESSION_STATE_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_SESSION_STATE_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_SESSION_NOTIFICATION_FUNCTION = *mut IO_SESSION_NOTIFICATION_FUNCTION;
+pub type PIO_SESSION_STATE = *mut IO_SESSION_STATE;
+pub type PIO_SESSION_STATE_INFORMATION = *mut IO_SESSION_STATE_INFORMATION;
+pub type PIO_SESSION_STATE_NOTIFICATION = *mut IO_SESSION_STATE_NOTIFICATION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_STACK_LOCATION(pub *mut IO_STACK_LOCATION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_STACK_LOCATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_STACK_LOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_STACK_LOCATION = *mut IO_STACK_LOCATION;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_STATUS_BLOCK32(pub *mut IO_STATUS_BLOCK32);
-#[cfg(feature = "bcrypt")]
-impl PIO_STATUS_BLOCK32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PIO_STATUS_BLOCK32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_STATUS_BLOCK32 = *mut IO_STATUS_BLOCK32;
 #[cfg(all(feature = "bcrypt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_STATUS_BLOCK64(pub *mut IO_STATUS_BLOCK64);
-#[cfg(all(feature = "bcrypt", feature = "winternl"))]
-impl PIO_STATUS_BLOCK64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winternl"))]
-impl Default for PIO_STATUS_BLOCK64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_TIMER(pub *mut _IO_TIMER);
-impl PIO_TIMER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_TIMER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_STATUS_BLOCK64 = *mut IO_STATUS_BLOCK64;
+pub type PIO_TIMER = *mut _IO_TIMER;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_TIMER_ROUTINE(pub *mut IO_TIMER_ROUTINE);
+pub type PIO_TIMER_ROUTINE = *mut IO_TIMER_ROUTINE;
+pub type PIO_WORKITEM = *mut _IO_WORKITEM;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_TIMER_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_TIMER_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_WORKITEM(pub *mut _IO_WORKITEM);
-impl PIO_WORKITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_WORKITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_WORKITEM_ROUTINE(pub *mut IO_WORKITEM_ROUTINE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PIO_WORKITEM_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PIO_WORKITEM_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIO_WORKITEM_ROUTINE_EX(pub *mut IO_WORKITEM_ROUTINE_EX);
-impl PIO_WORKITEM_ROUTINE_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIO_WORKITEM_ROUTINE_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_DEVICE_POLICY(pub *mut IRQ_DEVICE_POLICY);
-impl PIRQ_DEVICE_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_DEVICE_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_GROUP_POLICY(pub *mut IRQ_GROUP_POLICY);
-impl PIRQ_GROUP_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_GROUP_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIRQ_PRIORITY(pub *mut IRQ_PRIORITY);
-impl PIRQ_PRIORITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIRQ_PRIORITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIO_WORKITEM_ROUTINE = *mut IO_WORKITEM_ROUTINE;
+pub type PIO_WORKITEM_ROUTINE_EX = *mut IO_WORKITEM_ROUTINE_EX;
+pub type PIRQ_DEVICE_POLICY = *mut IRQ_DEVICE_POLICY;
+pub type PIRQ_GROUP_POLICY = *mut IRQ_GROUP_POLICY;
+pub type PIRQ_PRIORITY = *mut IRQ_PRIORITY;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PJOIN_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, domainhandle: super::winnt::HANDLE) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKADDRESS_RANGE(pub *mut KADDRESS_RANGE);
-impl PKADDRESS_RANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKADDRESS_RANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKADDRESS_RANGE_DESCRIPTOR(pub *mut KADDRESS_RANGE_DESCRIPTOR);
-impl PKADDRESS_RANGE_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKADDRESS_RANGE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKAFFINITY_EX(pub *mut _KAFFINITY_EX);
-impl PKAFFINITY_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKAFFINITY_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKADDRESS_RANGE = *mut KADDRESS_RANGE;
+pub type PKADDRESS_RANGE_DESCRIPTOR = *mut KADDRESS_RANGE_DESCRIPTOR;
+pub type PKAFFINITY_EX = *mut _KAFFINITY_EX;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKAPC(pub *mut KAPC);
-#[cfg(feature = "winnt")]
-impl PKAPC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKAPC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_ADD_PAGES(pub *mut KBUGCHECK_ADD_PAGES);
-impl PKBUGCHECK_ADD_PAGES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_ADD_PAGES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKAPC = *mut KAPC;
+pub type PKBUGCHECK_ADD_PAGES = *mut KBUGCHECK_ADD_PAGES;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_CALLBACK_RECORD(pub *mut KBUGCHECK_CALLBACK_RECORD);
+pub type PKBUGCHECK_CALLBACK_RECORD = *mut KBUGCHECK_CALLBACK_RECORD;
+pub type PKBUGCHECK_CALLBACK_ROUTINE = *mut KBUGCHECK_CALLBACK_ROUTINE;
+pub type PKBUGCHECK_DUMP_IO = *mut KBUGCHECK_DUMP_IO;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKBUGCHECK_CALLBACK_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKBUGCHECK_REASON_CALLBACK_RECORD = *mut KBUGCHECK_REASON_CALLBACK_RECORD;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKBUGCHECK_CALLBACK_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_CALLBACK_ROUTINE(pub *mut KBUGCHECK_CALLBACK_ROUTINE);
-impl PKBUGCHECK_CALLBACK_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_CALLBACK_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_DUMP_IO(pub *mut KBUGCHECK_DUMP_IO);
-impl PKBUGCHECK_DUMP_IO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_DUMP_IO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKBUGCHECK_REASON_CALLBACK_ROUTINE = *mut KBUGCHECK_REASON_CALLBACK_ROUTINE;
+pub type PKBUGCHECK_REMOVE_PAGES = *mut KBUGCHECK_REMOVE_PAGES;
+pub type PKBUGCHECK_SECONDARY_DUMP_DATA = *mut KBUGCHECK_SECONDARY_DUMP_DATA;
+pub type PKBUGCHECK_SECONDARY_DUMP_DATA_EX = *mut KBUGCHECK_SECONDARY_DUMP_DATA_EX;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_REASON_CALLBACK_RECORD(pub *mut KBUGCHECK_REASON_CALLBACK_RECORD);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKBUGCHECK_REASON_CALLBACK_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKBUGCHECK_REASON_CALLBACK_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_REASON_CALLBACK_ROUTINE(pub *mut KBUGCHECK_REASON_CALLBACK_ROUTINE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKBUGCHECK_REASON_CALLBACK_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKBUGCHECK_REASON_CALLBACK_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_REMOVE_PAGES(pub *mut KBUGCHECK_REMOVE_PAGES);
-impl PKBUGCHECK_REMOVE_PAGES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_REMOVE_PAGES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_SECONDARY_DUMP_DATA(pub *mut KBUGCHECK_SECONDARY_DUMP_DATA);
-impl PKBUGCHECK_SECONDARY_DUMP_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_SECONDARY_DUMP_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_SECONDARY_DUMP_DATA_EX(pub *mut KBUGCHECK_SECONDARY_DUMP_DATA_EX);
-impl PKBUGCHECK_SECONDARY_DUMP_DATA_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKBUGCHECK_SECONDARY_DUMP_DATA_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKBUGCHECK_TRIAGE_DUMP_DATA(pub *mut KBUGCHECK_TRIAGE_DUMP_DATA);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKBUGCHECK_TRIAGE_DUMP_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKBUGCHECK_TRIAGE_DUMP_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKCRM_PROTOCOL_ID(pub *mut windows_core::GUID);
-impl PKCRM_PROTOCOL_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKCRM_PROTOCOL_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKBUGCHECK_TRIAGE_DUMP_DATA = *mut KBUGCHECK_TRIAGE_DUMP_DATA;
+pub type PKCRM_PROTOCOL_ID = *mut windows_core::GUID;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDEFERRED_ROUTINE(pub *mut KDEFERRED_ROUTINE);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl PKDEFERRED_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for PKDEFERRED_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDEFERRED_ROUTINE = *mut KDEFERRED_ROUTINE;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDEVICE_QUEUE(pub *mut KDEVICE_QUEUE);
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl PKDEVICE_QUEUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl Default for PKDEVICE_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDEVICE_QUEUE = *mut KDEVICE_QUEUE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDEVICE_QUEUE_ENTRY(pub *mut KDEVICE_QUEUE_ENTRY);
-#[cfg(feature = "winnt")]
-impl PKDEVICE_QUEUE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKDEVICE_QUEUE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDEVICE_QUEUE_ENTRY = *mut KDEVICE_QUEUE_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDPC(pub *mut KDPC);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl PKDPC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for PKDPC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDPC_WATCHDOG_INFORMATION(pub *mut KDPC_WATCHDOG_INFORMATION);
-impl PKDPC_WATCHDOG_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKDPC_WATCHDOG_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKENLISTMENT(pub *mut KENLISTMENT);
-impl PKENLISTMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKENLISTMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKERNEL_SOFT_RESTART_NOTIFICATION(pub *mut KERNEL_SOFT_RESTART_NOTIFICATION);
-impl PKERNEL_SOFT_RESTART_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKERNEL_SOFT_RESTART_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDPC = *mut KDPC;
+pub type PKDPC_WATCHDOG_INFORMATION = *mut KDPC_WATCHDOG_INFORMATION;
+pub type PKENLISTMENT = *mut KENLISTMENT;
+pub type PKERNEL_SOFT_RESTART_NOTIFICATION = *mut KERNEL_SOFT_RESTART_NOTIFICATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEVENT(pub *mut KEVENT);
-#[cfg(feature = "winnt")]
-impl PKEVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKEVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_BASIC_INFORMATION(pub *mut KEY_BASIC_INFORMATION);
-impl PKEY_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_CONTROL_FLAGS_INFORMATION(pub *mut KEY_CONTROL_FLAGS_INFORMATION);
-impl PKEY_CONTROL_FLAGS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_CONTROL_FLAGS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_FULL_INFORMATION(pub *mut KEY_FULL_INFORMATION);
-impl PKEY_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_NODE_INFORMATION(pub *mut KEY_NODE_INFORMATION);
-impl PKEY_NODE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_NODE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_SET_VIRTUALIZATION_INFORMATION(pub *mut KEY_SET_VIRTUALIZATION_INFORMATION);
-impl PKEY_SET_VIRTUALIZATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_SET_VIRTUALIZATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_TRUST_INFORMATION(pub *mut KEY_TRUST_INFORMATION);
-impl PKEY_TRUST_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_TRUST_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_BASIC_INFORMATION(pub *mut KEY_VALUE_BASIC_INFORMATION);
-impl PKEY_VALUE_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_VALUE_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_FULL_INFORMATION(pub *mut KEY_VALUE_FULL_INFORMATION);
-impl PKEY_VALUE_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_VALUE_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_LAYER_INFORMATION(pub *mut KEY_VALUE_LAYER_INFORMATION);
-impl PKEY_VALUE_LAYER_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_VALUE_LAYER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_PARTIAL_INFORMATION(pub *mut KEY_VALUE_PARTIAL_INFORMATION);
-impl PKEY_VALUE_PARTIAL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_VALUE_PARTIAL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_VALUE_PARTIAL_INFORMATION_ALIGN64(pub *mut KEY_VALUE_PARTIAL_INFORMATION_ALIGN64);
-impl PKEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_WOW64_FLAGS_INFORMATION(pub *mut KEY_WOW64_FLAGS_INFORMATION);
-impl PKEY_WOW64_FLAGS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_WOW64_FLAGS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_WRITE_TIME_INFORMATION(pub *mut KEY_WRITE_TIME_INFORMATION);
-impl PKEY_WRITE_TIME_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_WRITE_TIME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKEVENT = *mut KEVENT;
+pub type PKEY_BASIC_INFORMATION = *mut KEY_BASIC_INFORMATION;
+pub type PKEY_CONTROL_FLAGS_INFORMATION = *mut KEY_CONTROL_FLAGS_INFORMATION;
+pub type PKEY_FULL_INFORMATION = *mut KEY_FULL_INFORMATION;
+pub type PKEY_NODE_INFORMATION = *mut KEY_NODE_INFORMATION;
+pub type PKEY_SET_VIRTUALIZATION_INFORMATION = *mut KEY_SET_VIRTUALIZATION_INFORMATION;
+pub type PKEY_TRUST_INFORMATION = *mut KEY_TRUST_INFORMATION;
+pub type PKEY_VALUE_BASIC_INFORMATION = *mut KEY_VALUE_BASIC_INFORMATION;
+pub type PKEY_VALUE_FULL_INFORMATION = *mut KEY_VALUE_FULL_INFORMATION;
+pub type PKEY_VALUE_LAYER_INFORMATION = *mut KEY_VALUE_LAYER_INFORMATION;
+pub type PKEY_VALUE_PARTIAL_INFORMATION = *mut KEY_VALUE_PARTIAL_INFORMATION;
+pub type PKEY_VALUE_PARTIAL_INFORMATION_ALIGN64 = *mut KEY_VALUE_PARTIAL_INFORMATION_ALIGN64;
+pub type PKEY_WOW64_FLAGS_INFORMATION = *mut KEY_WOW64_FLAGS_INFORMATION;
+pub type PKEY_WRITE_TIME_INFORMATION = *mut KEY_WRITE_TIME_INFORMATION;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT(pub *mut KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKE_SRCU(pub *mut _KE_SRCU);
-impl PKE_SRCU {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKE_SRCU {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKE_SRCU_LOCK(pub *mut KE_SRCU_LOCK);
-impl PKE_SRCU_LOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKE_SRCU_LOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKFLOATING_SAVE(pub *mut KFLOATING_SAVE);
-impl PKFLOATING_SAVE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKFLOATING_SAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKE_PROCESSOR_CHANGE_NOTIFY_CONTEXT = *mut KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT;
+pub type PKE_SRCU = *mut _KE_SRCU;
+pub type PKE_SRCU_LOCK = *mut KE_SRCU_LOCK;
+pub type PKFLOATING_SAVE = *mut KFLOATING_SAVE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKGATE(pub *mut KGATE);
+pub type PKGATE = *mut KGATE;
 #[cfg(feature = "winnt")]
-impl PKGATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKGATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKGUARDED_MUTEX(pub *mut FAST_MUTEX);
-#[cfg(feature = "winnt")]
-impl PKGUARDED_MUTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKGUARDED_MUTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKINTERRUPT(pub *mut _KINTERRUPT);
-impl PKINTERRUPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKINTERRUPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKINTERRUPT_POLARITY(pub *mut KINTERRUPT_POLARITY);
-impl PKINTERRUPT_POLARITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKINTERRUPT_POLARITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKIPI_BROADCAST_WORKER(pub *mut KIPI_BROADCAST_WORKER);
-impl PKIPI_BROADCAST_WORKER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKIPI_BROADCAST_WORKER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKGUARDED_MUTEX = *mut FAST_MUTEX;
+pub type PKINTERRUPT = *mut _KINTERRUPT;
+pub type PKINTERRUPT_POLARITY = *mut KINTERRUPT_POLARITY;
+pub type PKIPI_BROADCAST_WORKER = *mut KIPI_BROADCAST_WORKER;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKLOCK_QUEUE_HANDLE(pub *mut KLOCK_QUEUE_HANDLE);
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl PKLOCK_QUEUE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl Default for PKLOCK_QUEUE_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKMESSAGE_SERVICE_ROUTINE(pub *mut KMESSAGE_SERVICE_ROUTINE);
-impl PKMESSAGE_SERVICE_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKMESSAGE_SERVICE_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKLOCK_QUEUE_HANDLE = *mut KLOCK_QUEUE_HANDLE;
+pub type PKMESSAGE_SERVICE_ROUTINE = *mut KMESSAGE_SERVICE_ROUTINE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKMUTANT(pub *mut KMUTANT);
+pub type PKMUTANT = *mut KMUTANT;
 #[cfg(feature = "winnt")]
-impl PKMUTANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PKMUTEX = *mut KMUTANT;
+pub type PKPROCESS = *mut _KPROCESS;
+pub type PKRESOURCEMANAGER = *mut KRESOURCEMANAGER;
 #[cfg(feature = "winnt")]
-impl Default for PKMUTANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSEMAPHORE = *mut KSEMAPHORE;
+pub type PKSERVICE_ROUTINE = *mut KSERVICE_ROUTINE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKMUTEX(pub *mut KMUTANT);
-#[cfg(feature = "winnt")]
-impl PKMUTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKMUTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKPROCESS(pub *mut _KPROCESS);
-impl PKPROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKPROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKRESOURCEMANAGER(pub *mut KRESOURCEMANAGER);
-impl PKRESOURCEMANAGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKRESOURCEMANAGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSEMAPHORE(pub *mut KSEMAPHORE);
-#[cfg(feature = "winnt")]
-impl PKSEMAPHORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSEMAPHORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSERVICE_ROUTINE(pub *mut KSERVICE_ROUTINE);
-impl PKSERVICE_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSERVICE_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPIN_LOCK_QUEUE(pub *mut KSPIN_LOCK_QUEUE);
-#[cfg(feature = "winnt")]
-impl PKSPIN_LOCK_QUEUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PKSPIN_LOCK_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSPIN_LOCK_QUEUE_NUMBER(pub *mut KSPIN_LOCK_QUEUE_NUMBER);
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-impl PKSPIN_LOCK_QUEUE_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-impl Default for PKSPIN_LOCK_QUEUE_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSTART_ROUTINE(pub *mut KSTART_ROUTINE);
-impl PKSTART_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSTART_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSYNCHRONIZE_ROUTINE(pub *mut KSYNCHRONIZE_ROUTINE);
-impl PKSYNCHRONIZE_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSYNCHRONIZE_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKSYSTEM_TIME(pub *mut KSYSTEM_TIME);
-impl PKSYSTEM_TIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKSYSTEM_TIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKT2_SET_PARAMETERS(pub *mut EXT_SET_PARAMETERS);
-impl PKT2_SET_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKT2_SET_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKTHREAD(pub *mut _KTHREAD);
-impl PKTHREAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKTHREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKSPIN_LOCK_QUEUE_NUMBER = *mut KSPIN_LOCK_QUEUE_NUMBER;
+pub type PKSTART_ROUTINE = *mut KSTART_ROUTINE;
+pub type PKSYNCHRONIZE_ROUTINE = *mut KSYNCHRONIZE_ROUTINE;
+pub type PKSYSTEM_TIME = *mut KSYSTEM_TIME;
+pub type PKT2_SET_PARAMETERS = *mut EXT_SET_PARAMETERS;
+pub type PKTHREAD = *mut _KTHREAD;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKTIMER(pub *mut KTIMER);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl PKTIMER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for PKTIMER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKTM(pub *mut KTM);
-impl PKTM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKTM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKTRANSACTION(pub *mut KTRANSACTION);
-impl PKTRANSACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKTRANSACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKTIMER = *mut KTIMER;
+pub type PKTM = *mut KTM;
+pub type PKTRANSACTION = *mut KTRANSACTION;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKTRIAGE_DUMP_DATA_ARRAY(pub *mut KTRIAGE_DUMP_DATA_ARRAY);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PKTRIAGE_DUMP_DATA_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PKTRIAGE_DUMP_DATA_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKTRIAGE_DUMP_DATA_ARRAY = *mut KTRIAGE_DUMP_DATA_ARRAY;
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKWAIT_BLOCK(pub *mut KWAIT_BLOCK);
-#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-impl PKWAIT_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-impl Default for PKWAIT_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKWAIT_CHAIN(pub *mut KWAIT_CHAIN);
-impl PKWAIT_CHAIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKWAIT_CHAIN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKWAIT_BLOCK = *mut KWAIT_BLOCK;
+pub type PKWAIT_CHAIN = *mut KWAIT_CHAIN;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PLEAVE_DMA_DOMAIN = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLEGACY_BUS_INFORMATION(pub *mut LEGACY_BUS_INFORMATION);
-impl PLEGACY_BUS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLEGACY_BUS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLINK_SHARE_ACCESS(pub *mut LINK_SHARE_ACCESS);
-impl PLINK_SHARE_ACCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLINK_SHARE_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOADER_PARTITION_INFORMATION_EX(pub *mut LOADER_PARTITION_INFORMATION_EX);
-impl PLOADER_PARTITION_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOADER_PARTITION_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLEGACY_BUS_INFORMATION = *mut LEGACY_BUS_INFORMATION;
+pub type PLINK_SHARE_ACCESS = *mut LINK_SHARE_ACCESS;
+pub type PLOADER_PARTITION_INFORMATION_EX = *mut LOADER_PARTITION_INFORMATION_EX;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOG_FILE_OBJECT(pub *mut FILE_OBJECT);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PLOG_FILE_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PLOG_FILE_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOG_FILE_OBJECT = *mut FILE_OBJECT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOOKASIDE_LIST_EX(pub *mut LOOKASIDE_LIST_EX);
-#[cfg(feature = "winnt")]
-impl PLOOKASIDE_LIST_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PLOOKASIDE_LIST_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOOKASIDE_LIST_EX = *mut LOOKASIDE_LIST_EX;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
@@ -17844,55 +12142,15 @@ pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1;
 pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4;
 pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1;
 pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMAILSLOT_CREATE_PARAMETERS(pub *mut MAILSLOT_CREATE_PARAMETERS);
-impl PMAILSLOT_CREATE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMAILSLOT_CREATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMAILSLOT_CREATE_PARAMETERS = *mut MAILSLOT_CREATE_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PMAP_TRANSFER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, currentva: *const core::ffi::c_void, length: *mut u32, writetodevice: bool) -> super::usb::PHYSICAL_ADDRESS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PMAP_TRANSFER_EX = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, mdl: *const MDL, mapregisterbase: *const core::ffi::c_void, offset: u64, deviceoffset: u32, length: *mut u32, writetodevice: bool, scattergatherbuffer: *mut SCATTER_GATHER_LIST, scattergatherbufferlength: u32, dmacompletionroutine: PDMA_COMPLETION_ROUTINE, completioncontext: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "ntdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMDLX(pub *mut MDL);
-#[cfg(feature = "ntdef")]
-impl PMDLX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntdef")]
-impl Default for PMDLX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMDLX = *mut MDL;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION(pub *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
 pub type PMM_DLL_INITIALIZE = Option<unsafe extern "system" fn(registrypath: *const super::ntsecapi::UNICODE_STRING) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
@@ -17902,181 +12160,25 @@ pub type PMM_GET_SYSTEM_ROUTINE_ADDRESS_EX = Option<unsafe extern "system" fn(mo
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PMM_MDL_PAGE_CONTENTS_STATE(pub MM_MDL_PAGE_CONTENTS_STATE);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMM_MDL_ROUTINE(pub *mut MM_MDL_ROUTINE);
-impl PMM_MDL_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMM_MDL_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMM_MDL_ROUTINE = *mut MM_MDL_ROUTINE;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMM_PHYSICAL_ADDRESS_LIST(pub *mut MM_PHYSICAL_ADDRESS_LIST);
-#[cfg(feature = "usb")]
-impl PMM_PHYSICAL_ADDRESS_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PMM_PHYSICAL_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNAMED_PIPE_CREATE_PARAMETERS(pub *mut NAMED_PIPE_CREATE_PARAMETERS);
-impl PNAMED_PIPE_CREATE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNAMED_PIPE_CREATE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNMI_CALLBACK(pub *mut NMI_CALLBACK);
-impl PNMI_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNMI_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMM_PHYSICAL_ADDRESS_LIST = *mut MM_PHYSICAL_ADDRESS_LIST;
+pub type PNAMED_PIPE_CREATE_PARAMETERS = *mut NAMED_PIPE_CREATE_PARAMETERS;
+pub type PNMI_CALLBACK = *mut NMI_CALLBACK;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPAGED_LOOKASIDE_LIST(pub *mut NPAGED_LOOKASIDE_LIST);
-#[cfg(feature = "winnt")]
-impl PNPAGED_LOOKASIDE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PNPAGED_LOOKASIDE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNPAGED_LOOKASIDE_LIST = *mut NPAGED_LOOKASIDE_LIST;
 pub const PNPBus: INTERFACE_TYPE = 15;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CAPABILITY_STANDARD(pub *mut NPEM_CAPABILITY_STANDARD);
-impl PNPEM_CAPABILITY_STANDARD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNPEM_CAPABILITY_STANDARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNPEM_CAPABILITY_STANDARD = *mut NPEM_CAPABILITY_STANDARD;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_ENABLE_DISABLE(pub *mut NPEM_CONTROL_ENABLE_DISABLE);
+pub type PNPEM_CONTROL_ENABLE_DISABLE = *mut NPEM_CONTROL_ENABLE_DISABLE;
 #[cfg(feature = "bcrypt")]
-impl PNPEM_CONTROL_ENABLE_DISABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PNPEM_CONTROL_INTERFACE = *mut NPEM_CONTROL_INTERFACE;
+pub type PNPEM_CONTROL_QUERY_CONTROL = *mut NPEM_CONTROL_QUERY_CONTROL;
 #[cfg(feature = "bcrypt")]
-impl Default for PNPEM_CONTROL_ENABLE_DISABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES = *mut NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_INTERFACE(pub *mut NPEM_CONTROL_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PNPEM_CONTROL_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PNPEM_CONTROL_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_QUERY_CONTROL(pub *mut NPEM_CONTROL_QUERY_CONTROL);
-impl PNPEM_CONTROL_QUERY_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNPEM_CONTROL_QUERY_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES(pub *mut NPEM_CONTROL_QUERY_STANDARD_CAPABILITIES);
-#[cfg(feature = "bcrypt")]
-impl PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PNPEM_CONTROL_QUERY_STANDARD_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_SET_STANDARD_CONTROL(pub *mut NPEM_CONTROL_SET_STANDARD_CONTROL);
-#[cfg(feature = "bcrypt")]
-impl PNPEM_CONTROL_SET_STANDARD_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PNPEM_CONTROL_SET_STANDARD_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNPEM_CONTROL_STANDARD_CONTROL_BIT(pub *mut NPEM_CONTROL_STANDARD_CONTROL_BIT);
-impl PNPEM_CONTROL_STANDARD_CONTROL_BIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNPEM_CONTROL_STANDARD_CONTROL_BIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNPEM_CONTROL_SET_STANDARD_CONTROL = *mut NPEM_CONTROL_SET_STANDARD_CONTROL;
+pub type PNPEM_CONTROL_STANDARD_CONTROL_BIT = *mut NPEM_CONTROL_STANDARD_CONTROL_BIT;
 pub const PNPISABus: INTERFACE_TYPE = 14;
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1;
 #[repr(C)]
@@ -18212,243 +12314,37 @@ impl Default for PNP_REPLACE_PROCESSOR_LIST_V1 {
 }
 pub const PNP_REPLACE_PROCESSOR_SUPPORTED: u32 = 2;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR(pub *mut NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR);
+pub type PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR = *mut NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR;
 #[cfg(feature = "winnt")]
-impl PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PNTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECT_HANDLE_INFORMATION(pub *mut OBJECT_HANDLE_INFORMATION);
-#[cfg(feature = "winnt")]
-impl POBJECT_HANDLE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POBJECT_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POBJECT_HANDLE_INFORMATION = *mut OBJECT_HANDLE_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECT_NAME_INFORMATION(pub *mut OBJECT_NAME_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl POBJECT_NAME_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for POBJECT_NAME_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POBJECT_TYPE(pub *mut _OBJECT_TYPE);
-impl POBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POBJECT_NAME_INFORMATION = *mut OBJECT_NAME_INFORMATION;
+pub type POBJECT_TYPE = *mut _OBJECT_TYPE;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_CALLBACK_REGISTRATION(pub *mut OB_CALLBACK_REGISTRATION);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl POB_CALLBACK_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for POB_CALLBACK_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_CALLBACK_REGISTRATION = *mut OB_CALLBACK_REGISTRATION;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_OPERATION_REGISTRATION(pub *mut OB_OPERATION_REGISTRATION);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl POB_OPERATION_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for POB_OPERATION_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_OPERATION_REGISTRATION = *mut OB_OPERATION_REGISTRATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_POST_CREATE_HANDLE_INFORMATION(pub *mut OB_POST_CREATE_HANDLE_INFORMATION);
+pub type POB_POST_CREATE_HANDLE_INFORMATION = *mut OB_POST_CREATE_HANDLE_INFORMATION;
 #[cfg(feature = "winnt")]
-impl POB_POST_CREATE_HANDLE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_POST_CREATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_POST_DUPLICATE_HANDLE_INFORMATION(pub *mut OB_POST_DUPLICATE_HANDLE_INFORMATION);
-#[cfg(feature = "winnt")]
-impl POB_POST_DUPLICATE_HANDLE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_POST_DUPLICATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_POST_DUPLICATE_HANDLE_INFORMATION = *mut OB_POST_DUPLICATE_HANDLE_INFORMATION;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type POB_POST_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *const OB_POST_OPERATION_INFORMATION)>;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_POST_OPERATION_INFORMATION(pub *mut OB_POST_OPERATION_INFORMATION);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl POB_POST_OPERATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for POB_POST_OPERATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_POST_OPERATION_INFORMATION = *mut OB_POST_OPERATION_INFORMATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_POST_OPERATION_PARAMETERS(pub *mut OB_POST_OPERATION_PARAMETERS);
+pub type POB_POST_OPERATION_PARAMETERS = *mut OB_POST_OPERATION_PARAMETERS;
+pub type POB_PREOP_CALLBACK_STATUS = *mut OB_PREOP_CALLBACK_STATUS;
 #[cfg(feature = "winnt")]
-impl POB_POST_OPERATION_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type POB_PRE_CREATE_HANDLE_INFORMATION = *mut OB_PRE_CREATE_HANDLE_INFORMATION;
 #[cfg(feature = "winnt")]
-impl Default for POB_POST_OPERATION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_PREOP_CALLBACK_STATUS(pub *mut OB_PREOP_CALLBACK_STATUS);
-impl POB_PREOP_CALLBACK_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POB_PREOP_CALLBACK_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_PRE_CREATE_HANDLE_INFORMATION(pub *mut OB_PRE_CREATE_HANDLE_INFORMATION);
-#[cfg(feature = "winnt")]
-impl POB_PRE_CREATE_HANDLE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_PRE_CREATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_PRE_DUPLICATE_HANDLE_INFORMATION(pub *mut OB_PRE_DUPLICATE_HANDLE_INFORMATION);
-#[cfg(feature = "winnt")]
-impl POB_PRE_DUPLICATE_HANDLE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_PRE_DUPLICATE_HANDLE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_PRE_DUPLICATE_HANDLE_INFORMATION = *mut OB_PRE_DUPLICATE_HANDLE_INFORMATION;
 #[cfg(feature = "winnt")]
 pub type POB_PRE_OPERATION_CALLBACK = Option<unsafe extern "system" fn(registrationcontext: *const core::ffi::c_void, operationinformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_PRE_OPERATION_INFORMATION(pub *mut OB_PRE_OPERATION_INFORMATION);
+pub type POB_PRE_OPERATION_INFORMATION = *mut OB_PRE_OPERATION_INFORMATION;
 #[cfg(feature = "winnt")]
-impl POB_PRE_OPERATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_PRE_OPERATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POB_PRE_OPERATION_PARAMETERS(pub *mut OB_PRE_OPERATION_PARAMETERS);
-#[cfg(feature = "winnt")]
-impl POB_PRE_OPERATION_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for POB_PRE_OPERATION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POB_PRE_OPERATION_PARAMETERS = *mut OB_PRE_OPERATION_PARAMETERS;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POHANDLE(pub *mut core::ffi::c_void);
@@ -18624,19 +12520,7 @@ impl Default for POWER_STATE {
     }
 }
 pub type POWER_STATE_TYPE = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POWNER_ENTRY(pub *mut OWNER_ENTRY);
-impl POWNER_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POWNER_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POWNER_ENTRY = *mut OWNER_ENTRY;
 pub const PO_CB_AC_STATUS: u32 = 1;
 pub const PO_CB_BUTTON_COLLISION: u32 = 2;
 pub const PO_CB_LID_SWITCH_STATE: u32 = 4;
@@ -18896,2627 +12780,283 @@ pub const PO_MEM_PAGE_ADDRESS: u32 = 16384;
 pub const PO_MEM_PRESERVE: u32 = 1;
 pub type PO_THERMAL_REQUEST_TYPE = i32;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPAGED_LOOKASIDE_LIST(pub *mut PAGED_LOOKASIDE_LIST);
-#[cfg(feature = "winnt")]
-impl PPAGED_LOOKASIDE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPAGED_LOOKASIDE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPARTITION_INFORMATION_CLASS(pub *mut PARTITION_INFORMATION_CLASS);
-impl PPARTITION_INFORMATION_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPARTITION_INFORMATION_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_ACS_BIT(pub *mut PCI_ACS_BIT);
-impl PPCI_ACS_BIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_ACS_BIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPAGED_LOOKASIDE_LIST = *mut PAGED_LOOKASIDE_LIST;
+pub type PPARTITION_INFORMATION_CLASS = *mut PARTITION_INFORMATION_CLASS;
+pub type PPCI_ACS_BIT = *mut PCI_ACS_BIT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_ATS_INTERFACE(pub *mut PCI_ATS_INTERFACE);
+pub type PPCI_ATS_INTERFACE = *mut PCI_ATS_INTERFACE;
+pub type PPCI_CAPABILITIES_HEADER = *mut PCI_CAPABILITIES_HEADER;
+pub type PPCI_COMMON_CONFIG = *mut PCI_COMMON_CONFIG;
+pub type PPCI_COMMON_HEADER = *mut PCI_COMMON_HEADER;
+pub type PPCI_CORRECTABLE_ERROR_MASK = *mut PCI_EXPRESS_CORRECTABLE_ERROR_MASK;
+pub type PPCI_CORRECTABLE_ERROR_STATUS = *mut PCI_EXPRESS_CORRECTABLE_ERROR_STATUS;
+pub type PPCI_DEVICE_PRESENCE_PARAMETERS = *mut PCI_DEVICE_PRESENCE_PARAMETERS;
+pub type PPCI_DEVICE_PRESENT_INTERFACE = *mut PCI_DEVICE_PRESENT_INTERFACE;
 #[cfg(feature = "bcrypt")]
-impl PPCI_ATS_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_ATS_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_CAPABILITIES_HEADER(pub *mut PCI_CAPABILITIES_HEADER);
-impl PPCI_CAPABILITIES_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_CAPABILITIES_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_COMMON_CONFIG(pub *mut PCI_COMMON_CONFIG);
-impl PPCI_COMMON_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_COMMON_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_COMMON_HEADER(pub *mut PCI_COMMON_HEADER);
-impl PPCI_COMMON_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_COMMON_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_CORRECTABLE_ERROR_MASK(pub *mut PCI_EXPRESS_CORRECTABLE_ERROR_MASK);
-impl PPCI_CORRECTABLE_ERROR_MASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_CORRECTABLE_ERROR_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_CORRECTABLE_ERROR_STATUS(pub *mut PCI_EXPRESS_CORRECTABLE_ERROR_STATUS);
-impl PPCI_CORRECTABLE_ERROR_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_CORRECTABLE_ERROR_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_DEVICE_PRESENCE_PARAMETERS(pub *mut PCI_DEVICE_PRESENCE_PARAMETERS);
-impl PPCI_DEVICE_PRESENCE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_DEVICE_PRESENCE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_DEVICE_PRESENT_INTERFACE(pub *mut PCI_DEVICE_PRESENT_INTERFACE);
-impl PPCI_DEVICE_PRESENT_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_DEVICE_PRESENT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_DOE_INTERFACE(pub *mut PCI_DOE_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_DOE_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_DOE_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_DOE_INTERFACE = *mut PCI_DOE_INTERFACE;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_DOE_INTERFACE2(pub *mut PCI_DOE_INTERFACE2);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PPCI_DOE_INTERFACE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PPCI_DOE_INTERFACE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ACS_CAPABILITY(pub *mut PCI_EXPRESS_ACS_CAPABILITY);
-impl PPCI_EXPRESS_ACS_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ACS_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ACS_CAPABILITY_REGISTER(pub *mut PCI_EXPRESS_ACS_CAPABILITY_REGISTER);
-impl PPCI_EXPRESS_ACS_CAPABILITY_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ACS_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ACS_CONTROL(pub *mut PCI_EXPRESS_ACS_CONTROL);
-impl PPCI_EXPRESS_ACS_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ACS_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_AER_CAPABILITIES(pub *mut PCI_EXPRESS_AER_CAPABILITIES);
-impl PPCI_EXPRESS_AER_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_AER_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_AER_CAPABILITY(pub *mut PCI_EXPRESS_AER_CAPABILITY);
-impl PPCI_EXPRESS_AER_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_AER_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ARI_CAPABILITY(pub *mut PCI_EXPRESS_ARI_CAPABILITY);
-impl PPCI_EXPRESS_ARI_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ARI_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ARI_CAPABILITY_REGISTER(pub *mut PCI_EXPRESS_ARI_CAPABILITY_REGISTER);
-impl PPCI_EXPRESS_ARI_CAPABILITY_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ARI_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ARI_CONTROL_REGISTER(pub *mut PCI_EXPRESS_ARI_CONTROL_REGISTER);
-impl PPCI_EXPRESS_ARI_CONTROL_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ARI_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ATS_CAPABILITY(pub *mut PCI_EXPRESS_ATS_CAPABILITY);
-impl PPCI_EXPRESS_ATS_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ATS_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ATS_CAPABILITY_REGISTER(pub *mut PCI_EXPRESS_ATS_CAPABILITY_REGISTER);
-impl PPCI_EXPRESS_ATS_CAPABILITY_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ATS_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ATS_CONTROL_REGISTER(pub *mut PCI_EXPRESS_ATS_CONTROL_REGISTER);
-impl PPCI_EXPRESS_ATS_CONTROL_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ATS_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_BRIDGE_AER_CAPABILITY(pub *mut PCI_EXPRESS_BRIDGE_AER_CAPABILITY);
-impl PPCI_EXPRESS_BRIDGE_AER_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_BRIDGE_AER_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY(pub *mut PCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY);
-impl PPCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER(pub *mut PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER);
-impl PPCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER(pub *mut PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER);
-impl PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(pub *mut PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER);
-impl PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_DOE_INTERFACE2 = *mut PCI_DOE_INTERFACE2;
+pub type PPCI_EXPRESS_ACS_CAPABILITY = *mut PCI_EXPRESS_ACS_CAPABILITY;
+pub type PPCI_EXPRESS_ACS_CAPABILITY_REGISTER = *mut PCI_EXPRESS_ACS_CAPABILITY_REGISTER;
+pub type PPCI_EXPRESS_ACS_CONTROL = *mut PCI_EXPRESS_ACS_CONTROL;
+pub type PPCI_EXPRESS_AER_CAPABILITIES = *mut PCI_EXPRESS_AER_CAPABILITIES;
+pub type PPCI_EXPRESS_AER_CAPABILITY = *mut PCI_EXPRESS_AER_CAPABILITY;
+pub type PPCI_EXPRESS_ARI_CAPABILITY = *mut PCI_EXPRESS_ARI_CAPABILITY;
+pub type PPCI_EXPRESS_ARI_CAPABILITY_REGISTER = *mut PCI_EXPRESS_ARI_CAPABILITY_REGISTER;
+pub type PPCI_EXPRESS_ARI_CONTROL_REGISTER = *mut PCI_EXPRESS_ARI_CONTROL_REGISTER;
+pub type PPCI_EXPRESS_ATS_CAPABILITY = *mut PCI_EXPRESS_ATS_CAPABILITY;
+pub type PPCI_EXPRESS_ATS_CAPABILITY_REGISTER = *mut PCI_EXPRESS_ATS_CAPABILITY_REGISTER;
+pub type PPCI_EXPRESS_ATS_CONTROL_REGISTER = *mut PCI_EXPRESS_ATS_CONTROL_REGISTER;
+pub type PPCI_EXPRESS_BRIDGE_AER_CAPABILITY = *mut PCI_EXPRESS_BRIDGE_AER_CAPABILITY;
+pub type PPCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY = *mut PCI_EXPRESS_DEVICE_3_EXTENDED_CAPABILITY;
+pub type PPCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER = *mut PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER;
+pub type PPCI_EXPRESS_DEVICE_CONTROL_3_REGISTER = *mut PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER;
+pub type PPCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = *mut PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE(pub *mut PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE);
+pub type PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = *mut PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE;
+pub type PPCI_EXPRESS_ERROR_SOURCE_ID = *mut PCI_EXPRESS_ERROR_SOURCE_ID;
 #[cfg(feature = "bcrypt")]
-impl PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = *mut PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE;
 #[cfg(feature = "bcrypt")]
-impl Default for PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ERROR_SOURCE_ID(pub *mut PCI_EXPRESS_ERROR_SOURCE_ID);
-impl PPCI_EXPRESS_ERROR_SOURCE_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ERROR_SOURCE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE(pub *mut PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE(pub *mut PCI_EXPRESS_LINK_QUIESCENT_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PASID_CAPABILITY(pub *mut PCI_EXPRESS_PASID_CAPABILITY);
-impl PPCI_EXPRESS_PASID_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PASID_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PASID_CAPABILITY_REGISTER(pub *mut PCI_EXPRESS_PASID_CAPABILITY_REGISTER);
-impl PPCI_EXPRESS_PASID_CAPABILITY_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PASID_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PASID_CONTROL_REGISTER(pub *mut PCI_EXPRESS_PASID_CONTROL_REGISTER);
-impl PPCI_EXPRESS_PASID_CONTROL_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PASID_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PRI_CAPABILITY(pub *mut PCI_EXPRESS_PRI_CAPABILITY);
-impl PPCI_EXPRESS_PRI_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PRI_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PRI_CONTROL_REGISTER(pub *mut PCI_EXPRESS_PRI_CONTROL_REGISTER);
-impl PPCI_EXPRESS_PRI_CONTROL_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PRI_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PRI_STATUS_REGISTER(pub *mut PCI_EXPRESS_PRI_STATUS_REGISTER);
-impl PPCI_EXPRESS_PRI_STATUS_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PRI_STATUS_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PTM_CAPABILITY(pub *mut PCI_EXPRESS_PTM_CAPABILITY);
-impl PPCI_EXPRESS_PTM_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PTM_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PTM_CAPABILITY_REGISTER(pub *mut PCI_EXPRESS_PTM_CAPABILITY_REGISTER);
-impl PPCI_EXPRESS_PTM_CAPABILITY_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PTM_CAPABILITY_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_PTM_CONTROL_REGISTER(pub *mut PCI_EXPRESS_PTM_CONTROL_REGISTER);
-impl PPCI_EXPRESS_PTM_CONTROL_REGISTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_PTM_CONTROL_REGISTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ROOTPORT_AER_CAPABILITY(pub *mut PCI_EXPRESS_ROOTPORT_AER_CAPABILITY);
-impl PPCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ROOTPORT_AER_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ROOT_ERROR_COMMAND(pub *mut PCI_EXPRESS_ROOT_ERROR_COMMAND);
-impl PPCI_EXPRESS_ROOT_ERROR_COMMAND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ROOT_ERROR_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ROOT_ERROR_STATUS(pub *mut PCI_EXPRESS_ROOT_ERROR_STATUS);
-impl PPCI_EXPRESS_ROOT_ERROR_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ROOT_ERROR_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_ROOT_PORT_INTERFACE(pub *mut PCI_EXPRESS_ROOT_PORT_INTERFACE);
-impl PPCI_EXPRESS_ROOT_PORT_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_ROOT_PORT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_EXPRESS_LINK_QUIESCENT_INTERFACE = *mut PCI_EXPRESS_LINK_QUIESCENT_INTERFACE;
+pub type PPCI_EXPRESS_PASID_CAPABILITY = *mut PCI_EXPRESS_PASID_CAPABILITY;
+pub type PPCI_EXPRESS_PASID_CAPABILITY_REGISTER = *mut PCI_EXPRESS_PASID_CAPABILITY_REGISTER;
+pub type PPCI_EXPRESS_PASID_CONTROL_REGISTER = *mut PCI_EXPRESS_PASID_CONTROL_REGISTER;
+pub type PPCI_EXPRESS_PRI_CAPABILITY = *mut PCI_EXPRESS_PRI_CAPABILITY;
+pub type PPCI_EXPRESS_PRI_CONTROL_REGISTER = *mut PCI_EXPRESS_PRI_CONTROL_REGISTER;
+pub type PPCI_EXPRESS_PRI_STATUS_REGISTER = *mut PCI_EXPRESS_PRI_STATUS_REGISTER;
+pub type PPCI_EXPRESS_PTM_CAPABILITY = *mut PCI_EXPRESS_PTM_CAPABILITY;
+pub type PPCI_EXPRESS_PTM_CAPABILITY_REGISTER = *mut PCI_EXPRESS_PTM_CAPABILITY_REGISTER;
+pub type PPCI_EXPRESS_PTM_CONTROL_REGISTER = *mut PCI_EXPRESS_PTM_CONTROL_REGISTER;
+pub type PPCI_EXPRESS_ROOTPORT_AER_CAPABILITY = *mut PCI_EXPRESS_ROOTPORT_AER_CAPABILITY;
+pub type PPCI_EXPRESS_ROOT_ERROR_COMMAND = *mut PCI_EXPRESS_ROOT_ERROR_COMMAND;
+pub type PPCI_EXPRESS_ROOT_ERROR_STATUS = *mut PCI_EXPRESS_ROOT_ERROR_STATUS;
+pub type PPCI_EXPRESS_ROOT_PORT_INTERFACE = *mut PCI_EXPRESS_ROOT_PORT_INTERFACE;
 pub type PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
 pub type PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, buffer: *const core::ffi::c_void, offset: u32, length: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SEC_AER_CAPABILITIES(pub *mut PCI_EXPRESS_SEC_AER_CAPABILITIES);
-impl PPCI_EXPRESS_SEC_AER_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SEC_AER_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK(pub *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK);
-impl PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY(pub *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY);
-impl PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS(pub *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS);
-impl PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SERIAL_NUMBER_CAPABILITY(pub *mut PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY);
-impl PPCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SRIOV_CAPABILITY(pub *mut PCI_EXPRESS_SRIOV_CAPABILITY);
-impl PPCI_EXPRESS_SRIOV_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SRIOV_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SRIOV_CAPS(pub *mut PCI_EXPRESS_SRIOV_CAPS);
-impl PPCI_EXPRESS_SRIOV_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SRIOV_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SRIOV_CONTROL(pub *mut PCI_EXPRESS_SRIOV_CONTROL);
-impl PPCI_EXPRESS_SRIOV_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SRIOV_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY(pub *mut PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY);
-impl PPCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_SRIOV_STATUS(pub *mut PCI_EXPRESS_SRIOV_STATUS);
-impl PPCI_EXPRESS_SRIOV_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_SRIOV_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_UNCORRECTABLE_ERROR_MASK(pub *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK);
-impl PPCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY(pub *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY);
-impl PPCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS(pub *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS);
-impl PPCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY(pub *mut PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY);
-impl PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY(pub *mut PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY);
-impl PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_IS_DEVICE_PRESENT(pub *mut PCI_IS_DEVICE_PRESENT);
-impl PPCI_IS_DEVICE_PRESENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_IS_DEVICE_PRESENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_IS_DEVICE_PRESENT_EX(pub *mut PCI_IS_DEVICE_PRESENT_EX);
-impl PPCI_IS_DEVICE_PRESENT_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_IS_DEVICE_PRESENT_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_EXPRESS_SEC_AER_CAPABILITIES = *mut PCI_EXPRESS_SEC_AER_CAPABILITIES;
+pub type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK;
+pub type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY;
+pub type PPCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS = *mut PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS;
+pub type PPCI_EXPRESS_SERIAL_NUMBER_CAPABILITY = *mut PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY;
+pub type PPCI_EXPRESS_SRIOV_CAPABILITY = *mut PCI_EXPRESS_SRIOV_CAPABILITY;
+pub type PPCI_EXPRESS_SRIOV_CAPS = *mut PCI_EXPRESS_SRIOV_CAPS;
+pub type PPCI_EXPRESS_SRIOV_CONTROL = *mut PCI_EXPRESS_SRIOV_CONTROL;
+pub type PPCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY = *mut PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY;
+pub type PPCI_EXPRESS_SRIOV_STATUS = *mut PCI_EXPRESS_SRIOV_STATUS;
+pub type PPCI_EXPRESS_UNCORRECTABLE_ERROR_MASK = *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK;
+pub type PPCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY = *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY;
+pub type PPCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS = *mut PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS;
+pub type PPCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY;
+pub type PPCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY = *mut PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY;
+pub type PPCI_IS_DEVICE_PRESENT = *mut PCI_IS_DEVICE_PRESENT;
+pub type PPCI_IS_DEVICE_PRESENT_EX = *mut PCI_IS_DEVICE_PRESENT_EX;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_MSIX_GET_ENTRY(pub *mut PCI_MSIX_GET_ENTRY);
+pub type PPCI_MSIX_GET_ENTRY = *mut PCI_MSIX_GET_ENTRY;
 #[cfg(feature = "bcrypt")]
-impl PPCI_MSIX_GET_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPCI_MSIX_GET_TABLE_SIZE = *mut PCI_MSIX_GET_TABLE_SIZE;
 #[cfg(feature = "bcrypt")]
-impl Default for PPCI_MSIX_GET_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_MSIX_MASKUNMASK_ENTRY = *mut PCI_MSIX_MASKUNMASK_ENTRY;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_MSIX_GET_TABLE_SIZE(pub *mut PCI_MSIX_GET_TABLE_SIZE);
+pub type PPCI_MSIX_SET_ENTRY = *mut PCI_MSIX_SET_ENTRY;
 #[cfg(feature = "bcrypt")]
-impl PPCI_MSIX_GET_TABLE_SIZE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPCI_MSIX_TABLE_CONFIG_INTERFACE = *mut PCI_MSIX_TABLE_CONFIG_INTERFACE;
+pub type PPCI_PMC = *mut PCI_PMC;
+pub type PPCI_PMCSR = *mut PCI_PMCSR;
+pub type PPCI_PMCSR_BSE = *mut PCI_PMCSR_BSE;
+pub type PPCI_PM_CAPABILITY = *mut PCI_PM_CAPABILITY;
 #[cfg(feature = "bcrypt")]
-impl Default for PPCI_MSIX_GET_TABLE_SIZE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_SECURITY_INTERFACE = *mut PCI_SECURITY_INTERFACE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_MSIX_MASKUNMASK_ENTRY(pub *mut PCI_MSIX_MASKUNMASK_ENTRY);
+pub type PPCI_SECURITY_INTERFACE2 = *mut PCI_SECURITY_INTERFACE2;
+pub type PPCI_SEGMENT_BUS_NUMBER = *mut PCI_SEGMENT_BUS_NUMBER;
 #[cfg(feature = "bcrypt")]
-impl PPCI_MSIX_MASKUNMASK_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPCI_SET_ACS = *mut PCI_SET_ACS;
 #[cfg(feature = "bcrypt")]
-impl Default for PPCI_MSIX_MASKUNMASK_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_SET_ACS2 = *mut PCI_SET_ACS2;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_MSIX_SET_ENTRY(pub *mut PCI_MSIX_SET_ENTRY);
+pub type PPCI_SET_ACS3 = *mut PCI_SET_ACS3;
 #[cfg(feature = "bcrypt")]
-impl PPCI_MSIX_SET_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPCI_SET_ATS = *mut PCI_SET_ATS;
+pub type PPCI_SLOT_NUMBER = *mut PCI_SLOT_NUMBER;
 #[cfg(feature = "bcrypt")]
-impl Default for PPCI_MSIX_SET_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_MSIX_TABLE_CONFIG_INTERFACE(pub *mut PCI_MSIX_TABLE_CONFIG_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_MSIX_TABLE_CONFIG_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_MSIX_TABLE_CONFIG_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_PMC(pub *mut PCI_PMC);
-impl PPCI_PMC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_PMC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_PMCSR(pub *mut PCI_PMCSR);
-impl PPCI_PMCSR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_PMCSR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_PMCSR_BSE(pub *mut PCI_PMCSR_BSE);
-impl PPCI_PMCSR_BSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_PMCSR_BSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_PM_CAPABILITY(pub *mut PCI_PM_CAPABILITY);
-impl PPCI_PM_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_PM_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SECURITY_INTERFACE(pub *mut PCI_SECURITY_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SECURITY_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SECURITY_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SECURITY_INTERFACE2(pub *mut PCI_SECURITY_INTERFACE2);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SECURITY_INTERFACE2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SECURITY_INTERFACE2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SEGMENT_BUS_NUMBER(pub *mut PCI_SEGMENT_BUS_NUMBER);
-impl PPCI_SEGMENT_BUS_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_SEGMENT_BUS_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SET_ACS(pub *mut PCI_SET_ACS);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SET_ACS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SET_ACS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SET_ACS2(pub *mut PCI_SET_ACS2);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SET_ACS2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SET_ACS2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SET_ACS3(pub *mut PCI_SET_ACS3);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SET_ACS3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SET_ACS3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SET_ATS(pub *mut PCI_SET_ATS);
-#[cfg(feature = "bcrypt")]
-impl PPCI_SET_ATS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_SET_ATS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_SLOT_NUMBER(pub *mut PCI_SLOT_NUMBER);
-impl PPCI_SLOT_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_SLOT_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_VIRTUALIZATION_INTERFACE(pub *mut PCI_VIRTUALIZATION_INTERFACE);
-#[cfg(feature = "bcrypt")]
-impl PPCI_VIRTUALIZATION_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPCI_VIRTUALIZATION_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCI_X_CAPABILITY(pub *mut PCI_X_CAPABILITY);
-impl PPCI_X_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCI_X_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_BUFFER(pub *mut _PCW_BUFFER);
-impl PPCW_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCI_VIRTUALIZATION_INTERFACE = *mut PCI_VIRTUALIZATION_INTERFACE;
+pub type PPCI_X_CAPABILITY = *mut PCI_X_CAPABILITY;
+pub type PPCW_BUFFER = *mut _PCW_BUFFER;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 pub type PPCW_CALLBACK = Option<unsafe extern "system" fn(r#type: PCW_CALLBACK_TYPE, info: *const PCW_CALLBACK_INFORMATION, context: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_CALLBACK_INFORMATION(pub *mut PCW_CALLBACK_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl PPCW_CALLBACK_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PPCW_CALLBACK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_CALLBACK_TYPE(pub *mut PCW_CALLBACK_TYPE);
-impl PPCW_CALLBACK_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_CALLBACK_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_COUNTER_DESCRIPTOR(pub *mut PCW_COUNTER_DESCRIPTOR);
-impl PPCW_COUNTER_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_COUNTER_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCW_CALLBACK_INFORMATION = *mut PCW_CALLBACK_INFORMATION;
+pub type PPCW_CALLBACK_TYPE = *mut PCW_CALLBACK_TYPE;
+pub type PPCW_COUNTER_DESCRIPTOR = *mut PCW_COUNTER_DESCRIPTOR;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_COUNTER_INFORMATION(pub *mut PCW_COUNTER_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
-impl PPCW_COUNTER_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
-impl Default for PPCW_COUNTER_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_DATA(pub *mut PCW_DATA);
-impl PPCW_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_INSTANCE(pub *mut _PCW_INSTANCE);
-impl PPCW_INSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_INSTANCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCW_COUNTER_INFORMATION = *mut PCW_COUNTER_INFORMATION;
+pub type PPCW_DATA = *mut PCW_DATA;
+pub type PPCW_INSTANCE = *mut _PCW_INSTANCE;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_MASK_INFORMATION(pub *mut PCW_MASK_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl PPCW_MASK_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PPCW_MASK_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_REGISTRATION(pub *mut _PCW_REGISTRATION);
-impl PPCW_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPCW_REGISTRATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCW_MASK_INFORMATION = *mut PCW_MASK_INFORMATION;
+pub type PPCW_REGISTRATION = *mut _PCW_REGISTRATION;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPCW_REGISTRATION_INFORMATION(pub *mut PCW_REGISTRATION_INFORMATION);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl PPCW_REGISTRATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-impl Default for PPCW_REGISTRATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPCW_REGISTRATION_INFORMATION = *mut PCW_REGISTRATION_INFORMATION;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPFN_NUMBER(pub *mut u32);
-#[cfg(target_arch = "x86")]
-impl PPFN_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PPFN_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPFN_NUMBER = *mut u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPFN_NUMBER(pub *mut u64);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PPFN_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PPFN_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPFN_NUMBER = *mut u64;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPLOG_FILE_OBJECT(pub *mut *mut FILE_OBJECT);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PPLOG_FILE_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PPLOG_FILE_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPLUGPLAY_NOTIFICATION_HEADER(pub *mut PLUGPLAY_NOTIFICATION_HEADER);
-impl PPLUGPLAY_NOTIFICATION_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPLUGPLAY_NOTIFICATION_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_BUS_INFORMATION(pub *mut PNP_BUS_INFORMATION);
-impl PPNP_BUS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPNP_BUS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_DEVICE_STATE(pub *mut u32);
-impl PPNP_DEVICE_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPNP_DEVICE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_EXTENDED_ADDRESS_INTERFACE(pub *mut PNP_EXTENDED_ADDRESS_INTERFACE);
-impl PPNP_EXTENDED_ADDRESS_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPNP_EXTENDED_ADDRESS_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPLOG_FILE_OBJECT = *mut *mut FILE_OBJECT;
+pub type PPLUGPLAY_NOTIFICATION_HEADER = *mut PLUGPLAY_NOTIFICATION_HEADER;
+pub type PPNP_BUS_INFORMATION = *mut PNP_BUS_INFORMATION;
+pub type PPNP_DEVICE_STATE = *mut u32;
+pub type PPNP_EXTENDED_ADDRESS_INTERFACE = *mut PNP_EXTENDED_ADDRESS_INTERFACE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_REPLACE_DRIVER_INTERFACE(pub *mut PNP_REPLACE_DRIVER_INTERFACE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl PPNP_REPLACE_DRIVER_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl Default for PPNP_REPLACE_DRIVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPNP_REPLACE_DRIVER_INTERFACE = *mut PNP_REPLACE_DRIVER_INTERFACE;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_REPLACE_MEMORY_LIST(pub *mut PNP_REPLACE_MEMORY_LIST);
-#[cfg(feature = "usb")]
-impl PPNP_REPLACE_MEMORY_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PPNP_REPLACE_MEMORY_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPNP_REPLACE_MEMORY_LIST = *mut PNP_REPLACE_MEMORY_LIST;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_REPLACE_PARAMETERS(pub *mut PNP_REPLACE_PARAMETERS);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl PPNP_REPLACE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
-impl Default for PPNP_REPLACE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPNP_REPLACE_PARAMETERS = *mut PNP_REPLACE_PARAMETERS;
 #[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_REPLACE_PROCESSOR_LIST(pub *mut PNP_REPLACE_PROCESSOR_LIST);
+pub type PPNP_REPLACE_PROCESSOR_LIST = *mut PNP_REPLACE_PROCESSOR_LIST;
 #[cfg(feature = "basetsd")]
-impl PPNP_REPLACE_PROCESSOR_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PPNP_REPLACE_PROCESSOR_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "basetsd")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPNP_REPLACE_PROCESSOR_LIST_V1(pub *mut PNP_REPLACE_PROCESSOR_LIST_V1);
-#[cfg(feature = "basetsd")]
-impl PPNP_REPLACE_PROCESSOR_LIST_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "basetsd")]
-impl Default for PPNP_REPLACE_PROCESSOR_LIST_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPNP_REPLACE_PROCESSOR_LIST_V1 = *mut PNP_REPLACE_PROCESSOR_LIST_V1;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_CREATE_EXTENDED_PARAMETER(pub *mut POOL_CREATE_EXTENDED_PARAMETER);
+pub type PPOOL_CREATE_EXTENDED_PARAMETER = *mut POOL_CREATE_EXTENDED_PARAMETER;
+pub type PPOOL_CREATE_EXTENDED_PARAMETER_TYPE = *mut POOL_CREATE_EXTENDED_PARAMETER_TYPE;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PPOOL_CREATE_EXTENDED_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PPOOL_CREATE_EXTENDED_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_CREATE_EXTENDED_PARAMETER_TYPE(pub *mut POOL_CREATE_EXTENDED_PARAMETER_TYPE);
-impl PPOOL_CREATE_EXTENDED_PARAMETER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOOL_CREATE_EXTENDED_PARAMETER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_CREATE_EXTENDED_PARAMS(pub *mut POOL_CREATE_EXTENDED_PARAMS);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PPOOL_CREATE_EXTENDED_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PPOOL_CREATE_EXTENDED_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOOL_CREATE_EXTENDED_PARAMS = *mut POOL_CREATE_EXTENDED_PARAMS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_EXTENDED_PARAMETER(pub *mut POOL_EXTENDED_PARAMETER);
-#[cfg(feature = "winnt")]
-impl PPOOL_EXTENDED_PARAMETER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOOL_EXTENDED_PARAMETER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOOL_EXTENDED_PARAMETER_TYPE(pub *mut POOL_EXTENDED_PARAMETER_TYPE);
-impl PPOOL_EXTENDED_PARAMETER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOOL_EXTENDED_PARAMETER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_SEQUENCE(pub *mut POWER_SEQUENCE);
-impl PPOWER_SEQUENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_SEQUENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOOL_EXTENDED_PARAMETER = *mut POOL_EXTENDED_PARAMETER;
+pub type PPOOL_EXTENDED_PARAMETER_TYPE = *mut POOL_EXTENDED_PARAMETER_TYPE;
+pub type PPOWER_SEQUENCE = *mut POWER_SEQUENCE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_SETTING_CALLBACK(pub *mut POWER_SETTING_CALLBACK);
-#[cfg(feature = "bcrypt")]
-impl PPOWER_SETTING_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPOWER_SETTING_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOWER_SETTING_CALLBACK = *mut POWER_SETTING_CALLBACK;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_STATE(pub *mut POWER_STATE);
-#[cfg(feature = "winnt")]
-impl PPOWER_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOWER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_STATE_TYPE(pub *mut POWER_STATE_TYPE);
-impl PPOWER_STATE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_STATE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_EFFECTIVE_POWER_MODE(pub *mut PO_EFFECTIVE_POWER_MODE);
-impl PPO_EFFECTIVE_POWER_MODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_EFFECTIVE_POWER_MODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_EFFECTIVE_POWER_MODE_CALLBACK(pub *mut PO_EFFECTIVE_POWER_MODE_CALLBACK);
-impl PPO_EFFECTIVE_POWER_MODE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_EFFECTIVE_POWER_MODE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT(pub *mut PO_FX_COMPONENT_V1);
-impl PPO_FX_COMPONENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK(pub *mut PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK);
-impl PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK(pub *mut PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK);
-impl PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK(pub *mut PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK);
-impl PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_IDLE_STATE(pub *mut PO_FX_COMPONENT_IDLE_STATE);
-impl PPO_FX_COMPONENT_IDLE_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_IDLE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_IDLE_STATE_CALLBACK(pub *mut PO_FX_COMPONENT_IDLE_STATE_CALLBACK);
-impl PPO_FX_COMPONENT_IDLE_STATE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_IDLE_STATE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOWER_STATE = *mut POWER_STATE;
+pub type PPOWER_STATE_TYPE = *mut POWER_STATE_TYPE;
+pub type PPO_EFFECTIVE_POWER_MODE = *mut PO_EFFECTIVE_POWER_MODE;
+pub type PPO_EFFECTIVE_POWER_MODE_CALLBACK = *mut PO_EFFECTIVE_POWER_MODE_CALLBACK;
+pub type PPO_FX_COMPONENT = *mut PO_FX_COMPONENT_V1;
+pub type PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = *mut PO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK;
+pub type PPO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK = *mut PO_FX_COMPONENT_CRITICAL_TRANSITION_CALLBACK;
+pub type PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = *mut PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK;
+pub type PPO_FX_COMPONENT_IDLE_STATE = *mut PO_FX_COMPONENT_IDLE_STATE;
+pub type PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = *mut PO_FX_COMPONENT_IDLE_STATE_CALLBACK;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_PERF_INFO(pub *mut PO_FX_COMPONENT_PERF_INFO);
+pub type PPO_FX_COMPONENT_PERF_INFO = *mut PO_FX_COMPONENT_PERF_INFO;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PPO_FX_COMPONENT_PERF_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PPO_FX_COMPONENT_PERF_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_PERF_SET(pub *mut PO_FX_COMPONENT_PERF_SET);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PPO_FX_COMPONENT_PERF_SET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PPO_FX_COMPONENT_PERF_SET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_PERF_STATE_CALLBACK(pub *mut PO_FX_COMPONENT_PERF_STATE_CALLBACK);
-impl PPO_FX_COMPONENT_PERF_STATE_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_PERF_STATE_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_V1(pub *mut PO_FX_COMPONENT_V1);
-impl PPO_FX_COMPONENT_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_COMPONENT_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_COMPONENT_PERF_SET = *mut PO_FX_COMPONENT_PERF_SET;
+pub type PPO_FX_COMPONENT_PERF_STATE_CALLBACK = *mut PO_FX_COMPONENT_PERF_STATE_CALLBACK;
+pub type PPO_FX_COMPONENT_V1 = *mut PO_FX_COMPONENT_V1;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_COMPONENT_V2(pub *mut PO_FX_COMPONENT_V2);
-#[cfg(feature = "minwindef")]
-impl PPO_FX_COMPONENT_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PPO_FX_COMPONENT_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_COMPONENT_V2 = *mut PO_FX_COMPONENT_V2;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE(pub *mut PO_FX_DEVICE_V1);
+pub type PPO_FX_DEVICE = *mut PO_FX_DEVICE_V1;
+pub type PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = *mut PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK;
+pub type PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = *mut PO_FX_DEVICE_POWER_REQUIRED_CALLBACK;
 #[cfg(feature = "bcrypt")]
-impl PPO_FX_DEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPO_FX_DEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK(pub *mut PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK);
-impl PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK(pub *mut PO_FX_DEVICE_POWER_REQUIRED_CALLBACK);
-impl PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE_V1(pub *mut PO_FX_DEVICE_V1);
-#[cfg(feature = "bcrypt")]
-impl PPO_FX_DEVICE_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPO_FX_DEVICE_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_DEVICE_V1 = *mut PO_FX_DEVICE_V1;
 #[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE_V2(pub *mut PO_FX_DEVICE_V2);
+pub type PPO_FX_DEVICE_V2 = *mut PO_FX_DEVICE_V2;
 #[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-impl PPO_FX_DEVICE_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-impl Default for PPO_FX_DEVICE_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DEVICE_V3(pub *mut PO_FX_DEVICE_V3);
-#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-impl PPO_FX_DEVICE_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-impl Default for PPO_FX_DEVICE_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DIRECTED_POWER_DOWN_CALLBACK(pub *mut PO_FX_DIRECTED_POWER_DOWN_CALLBACK);
-impl PPO_FX_DIRECTED_POWER_DOWN_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_DIRECTED_POWER_DOWN_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DIRECTED_POWER_UP_CALLBACK(pub *mut PO_FX_DIRECTED_POWER_UP_CALLBACK);
-impl PPO_FX_DIRECTED_POWER_UP_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_DIRECTED_POWER_UP_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_DEVICE_V3 = *mut PO_FX_DEVICE_V3;
+pub type PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = *mut PO_FX_DIRECTED_POWER_DOWN_CALLBACK;
+pub type PPO_FX_DIRECTED_POWER_UP_CALLBACK = *mut PO_FX_DIRECTED_POWER_UP_CALLBACK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_DRIPS_WATCHDOG_CALLBACK(pub *mut PO_FX_DRIPS_WATCHDOG_CALLBACK);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PPO_FX_DRIPS_WATCHDOG_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PPO_FX_DRIPS_WATCHDOG_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_PERF_STATE(pub *mut PO_FX_PERF_STATE);
-impl PPO_FX_PERF_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_PERF_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_PERF_STATE_CHANGE(pub *mut PO_FX_PERF_STATE_CHANGE);
-impl PPO_FX_PERF_STATE_CHANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_PERF_STATE_CHANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_PERF_STATE_TYPE(pub *mut PO_FX_PERF_STATE_TYPE);
-impl PPO_FX_PERF_STATE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_PERF_STATE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_PERF_STATE_UNIT(pub *mut PO_FX_PERF_STATE_UNIT);
-impl PPO_FX_PERF_STATE_UNIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_FX_PERF_STATE_UNIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_DRIPS_WATCHDOG_CALLBACK = *mut PO_FX_DRIPS_WATCHDOG_CALLBACK;
+pub type PPO_FX_PERF_STATE = *mut PO_FX_PERF_STATE;
+pub type PPO_FX_PERF_STATE_CHANGE = *mut PO_FX_PERF_STATE_CHANGE;
+pub type PPO_FX_PERF_STATE_TYPE = *mut PO_FX_PERF_STATE_TYPE;
+pub type PPO_FX_PERF_STATE_UNIT = *mut PO_FX_PERF_STATE_UNIT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_FX_POWER_CONTROL_CALLBACK(pub *mut PO_FX_POWER_CONTROL_CALLBACK);
-#[cfg(feature = "bcrypt")]
-impl PPO_FX_POWER_CONTROL_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPO_FX_POWER_CONTROL_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPO_THERMAL_REQUEST_TYPE(pub *mut PO_THERMAL_REQUEST_TYPE);
-impl PPO_THERMAL_REQUEST_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPO_THERMAL_REQUEST_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPO_FX_POWER_CONTROL_CALLBACK = *mut PO_FX_POWER_CONTROL_CALLBACK;
+pub type PPO_THERMAL_REQUEST_TYPE = *mut PO_THERMAL_REQUEST_TYPE;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSOR_CALLBACK_FUNCTION(pub *mut PROCESSOR_CALLBACK_FUNCTION);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PPROCESSOR_CALLBACK_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PPROCESSOR_CALLBACK_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROCESSOR_CALLBACK_FUNCTION = *mut PROCESSOR_CALLBACK_FUNCTION;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESSOR_HALT_ROUTINE(pub *mut PROCESSOR_HALT_ROUTINE);
+pub type PPROCESSOR_HALT_ROUTINE = *mut PROCESSOR_HALT_ROUTINE;
 #[cfg(feature = "bcrypt")]
-impl PPROCESSOR_HALT_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPTM_CONTROL_INTERFACE = *mut PTM_CONTROL_INTERFACE;
 #[cfg(feature = "bcrypt")]
-impl Default for PPROCESSOR_HALT_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPTM_DEVICE_DISABLE = *mut PTM_DEVICE_DISABLE;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPTM_CONTROL_INTERFACE(pub *mut PTM_CONTROL_INTERFACE);
+pub type PPTM_DEVICE_ENABLE = *mut PTM_DEVICE_ENABLE;
 #[cfg(feature = "bcrypt")]
-impl PPTM_CONTROL_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPTM_DEVICE_QUERY_GRANULARITY = *mut PTM_DEVICE_QUERY_GRANULARITY;
 #[cfg(feature = "bcrypt")]
-impl Default for PPTM_CONTROL_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPTM_DEVICE_DISABLE(pub *mut PTM_DEVICE_DISABLE);
-#[cfg(feature = "bcrypt")]
-impl PPTM_DEVICE_DISABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPTM_DEVICE_DISABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPTM_DEVICE_ENABLE(pub *mut PTM_DEVICE_ENABLE);
-#[cfg(feature = "bcrypt")]
-impl PPTM_DEVICE_ENABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPTM_DEVICE_ENABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPTM_DEVICE_QUERY_GRANULARITY(pub *mut PTM_DEVICE_QUERY_GRANULARITY);
-#[cfg(feature = "bcrypt")]
-impl PPTM_DEVICE_QUERY_GRANULARITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPTM_DEVICE_QUERY_GRANULARITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPTM_DEVICE_QUERY_TIME_SOURCE(pub *mut PTM_DEVICE_QUERY_TIME_SOURCE);
-#[cfg(feature = "bcrypt")]
-impl PPTM_DEVICE_QUERY_TIME_SOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PPTM_DEVICE_QUERY_TIME_SOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPTM_DEVICE_QUERY_TIME_SOURCE = *mut PTM_DEVICE_QUERY_TIME_SOURCE;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PPUT_DMA_ADAPTER = Option<unsafe extern "system" fn(dmaadapter: *mut DMA_ADAPTER)>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PPUT_SCATTER_GATHER_LIST = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, scattergather: *const SCATTER_GATHER_LIST, writetodevice: bool)>;
 pub type PQUERYEXTENDEDADDRESS = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, extendedaddress: *mut u64)>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PQUERY_SUPPORTED_DOE_PROTOCOLS(pub *mut QUERY_SUPPORTED_DOE_PROTOCOLS);
-#[cfg(feature = "bcrypt")]
-impl PQUERY_SUPPORTED_DOE_PROTOCOLS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PQUERY_SUPPORTED_DOE_PROTOCOLS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PQUERY_SUPPORTED_DOE_PROTOCOLS = *mut QUERY_SUPPORTED_DOE_PROTOCOLS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PREAD_DMA_COUNTER = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER) -> u32>;
 pub type PREENUMERATE_SELF = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREENUMERATE_SELF_INTERFACE_STANDARD(pub *mut REENUMERATE_SELF_INTERFACE_STANDARD);
-impl PREENUMERATE_SELF_INTERFACE_STANDARD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREENUMERATE_SELF_INTERFACE_STANDARD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREENUMERATE_SELF_INTERFACE_STANDARD = *mut REENUMERATE_SELF_INTERFACE_STANDARD;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK, param2: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
 pub type PREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, notificationhandler: PDEVICE_NOTIFY_CALLBACK2, notificationcontext: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION(pub *mut REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION);
-impl PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_CALLBACK_CONTEXT_CLEANUP_INFORMATION = *mut REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_CREATE_KEY_INFORMATION(pub *mut REG_CREATE_KEY_INFORMATION);
+pub type PREG_CREATE_KEY_INFORMATION = *mut REG_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_CREATE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_CREATE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_CREATE_KEY_INFORMATION_V1(pub *mut REG_CREATE_KEY_INFORMATION_V1);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_CREATE_KEY_INFORMATION_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_CREATE_KEY_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_DELETE_KEY_INFORMATION(pub *mut REG_DELETE_KEY_INFORMATION);
-impl PREG_DELETE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREG_DELETE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_CREATE_KEY_INFORMATION_V1 = *mut REG_CREATE_KEY_INFORMATION_V1;
+pub type PREG_DELETE_KEY_INFORMATION = *mut REG_DELETE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_DELETE_VALUE_KEY_INFORMATION(pub *mut REG_DELETE_VALUE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_DELETE_VALUE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_DELETE_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_DELETE_VALUE_KEY_INFORMATION = *mut REG_DELETE_VALUE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_ENUMERATE_KEY_INFORMATION(pub *mut REG_ENUMERATE_KEY_INFORMATION);
+pub type PREG_ENUMERATE_KEY_INFORMATION = *mut REG_ENUMERATE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
-impl PREG_ENUMERATE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PREG_ENUMERATE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_ENUMERATE_VALUE_KEY_INFORMATION(pub *mut REG_ENUMERATE_VALUE_KEY_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PREG_ENUMERATE_VALUE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PREG_ENUMERATE_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_FLUSH_KEY_INFORMATION(pub *mut REG_DELETE_KEY_INFORMATION);
-impl PREG_FLUSH_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREG_FLUSH_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_KEY_HANDLE_CLOSE_INFORMATION(pub *mut REG_KEY_HANDLE_CLOSE_INFORMATION);
-impl PREG_KEY_HANDLE_CLOSE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREG_KEY_HANDLE_CLOSE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_ENUMERATE_VALUE_KEY_INFORMATION = *mut REG_ENUMERATE_VALUE_KEY_INFORMATION;
+pub type PREG_FLUSH_KEY_INFORMATION = *mut REG_DELETE_KEY_INFORMATION;
+pub type PREG_KEY_HANDLE_CLOSE_INFORMATION = *mut REG_KEY_HANDLE_CLOSE_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_LOAD_KEY_INFORMATION(pub *mut REG_LOAD_KEY_INFORMATION);
+pub type PREG_LOAD_KEY_INFORMATION = *mut REG_LOAD_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_LOAD_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_LOAD_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_LOAD_KEY_INFORMATION_V2(pub *mut REG_LOAD_KEY_INFORMATION_V2);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_LOAD_KEY_INFORMATION_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_LOAD_KEY_INFORMATION_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_LOAD_KEY_INFORMATION_V2 = *mut REG_LOAD_KEY_INFORMATION_V2;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_OPEN_KEY_INFORMATION(pub *mut REG_CREATE_KEY_INFORMATION);
+pub type PREG_OPEN_KEY_INFORMATION = *mut REG_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_OPEN_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_OPEN_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_OPEN_KEY_INFORMATION_V1(pub *mut REG_CREATE_KEY_INFORMATION_V1);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl PREG_OPEN_KEY_INFORMATION_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREG_OPEN_KEY_INFORMATION_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_OPEN_KEY_INFORMATION_V1 = *mut REG_CREATE_KEY_INFORMATION_V1;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_POST_CREATE_KEY_INFORMATION(pub *mut REG_POST_CREATE_KEY_INFORMATION);
+pub type PREG_POST_CREATE_KEY_INFORMATION = *mut REG_POST_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_POST_CREATE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_POST_CREATE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_POST_OPEN_KEY_INFORMATION(pub *mut REG_POST_CREATE_KEY_INFORMATION);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_POST_OPEN_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_POST_OPEN_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_POST_OPEN_KEY_INFORMATION = *mut REG_POST_CREATE_KEY_INFORMATION;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_POST_OPERATION_INFORMATION(pub *mut REG_POST_OPERATION_INFORMATION);
-#[cfg(feature = "bcrypt")]
-impl PREG_POST_OPERATION_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PREG_POST_OPERATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_POST_OPERATION_INFORMATION = *mut REG_POST_OPERATION_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_PRE_CREATE_KEY_INFORMATION(pub *mut REG_PRE_CREATE_KEY_INFORMATION);
+pub type PREG_PRE_CREATE_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_PRE_CREATE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_PRE_CREATE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_PRE_OPEN_KEY_INFORMATION(pub *mut REG_PRE_CREATE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_PRE_OPEN_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_PRE_OPEN_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_PRE_OPEN_KEY_INFORMATION = *mut REG_PRE_CREATE_KEY_INFORMATION;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_QUERY_KEY_INFORMATION(pub *mut REG_QUERY_KEY_INFORMATION);
-#[cfg(feature = "minwindef")]
-impl PREG_QUERY_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PREG_QUERY_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_QUERY_KEY_INFORMATION = *mut REG_QUERY_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_QUERY_KEY_NAME(pub *mut REG_QUERY_KEY_NAME);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl PREG_QUERY_KEY_NAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl Default for PREG_QUERY_KEY_NAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_QUERY_KEY_NAME = *mut REG_QUERY_KEY_NAME;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_QUERY_KEY_SECURITY_INFORMATION(pub *mut REG_QUERY_KEY_SECURITY_INFORMATION);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PREG_QUERY_KEY_SECURITY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PREG_QUERY_KEY_SECURITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_QUERY_KEY_SECURITY_INFORMATION = *mut REG_QUERY_KEY_SECURITY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION(pub *mut REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
-impl PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
-impl Default for PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION = *mut REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_QUERY_VALUE_KEY_INFORMATION(pub *mut REG_QUERY_VALUE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl PREG_QUERY_VALUE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-impl Default for PREG_QUERY_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_QUERY_VALUE_KEY_INFORMATION = *mut REG_QUERY_VALUE_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_RENAME_KEY_INFORMATION(pub *mut REG_RENAME_KEY_INFORMATION);
+pub type PREG_RENAME_KEY_INFORMATION = *mut REG_RENAME_KEY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_RENAME_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_RENAME_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_REPLACE_KEY_INFORMATION(pub *mut REG_REPLACE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_REPLACE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_REPLACE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_REPLACE_KEY_INFORMATION = *mut REG_REPLACE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_RESTORE_KEY_INFORMATION(pub *mut REG_RESTORE_KEY_INFORMATION);
+pub type PREG_RESTORE_KEY_INFORMATION = *mut REG_RESTORE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
-impl PREG_RESTORE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PREG_SAVE_KEY_INFORMATION = *mut REG_SAVE_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
-impl Default for PREG_RESTORE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_SAVE_KEY_INFORMATION(pub *mut REG_SAVE_KEY_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PREG_SAVE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PREG_SAVE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_SAVE_MERGED_KEY_INFORMATION(pub *mut REG_SAVE_MERGED_KEY_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PREG_SAVE_MERGED_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PREG_SAVE_MERGED_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_SAVE_MERGED_KEY_INFORMATION = *mut REG_SAVE_MERGED_KEY_INFORMATION;
 #[cfg(feature = "winternl")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_SET_INFORMATION_KEY_INFORMATION(pub *mut REG_SET_INFORMATION_KEY_INFORMATION);
-#[cfg(feature = "winternl")]
-impl PREG_SET_INFORMATION_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winternl")]
-impl Default for PREG_SET_INFORMATION_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_SET_INFORMATION_KEY_INFORMATION = *mut REG_SET_INFORMATION_KEY_INFORMATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_SET_KEY_SECURITY_INFORMATION(pub *mut REG_SET_KEY_SECURITY_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PREG_SET_KEY_SECURITY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PREG_SET_KEY_SECURITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_SET_KEY_SECURITY_INFORMATION = *mut REG_SET_KEY_SECURITY_INFORMATION;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_SET_VALUE_KEY_INFORMATION(pub *mut REG_SET_VALUE_KEY_INFORMATION);
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl PREG_SET_VALUE_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for PREG_SET_VALUE_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREG_UNLOAD_KEY_INFORMATION(pub *mut REG_UNLOAD_KEY_INFORMATION);
-impl PREG_UNLOAD_KEY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PREG_UNLOAD_KEY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
+pub type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
 pub type PREPLACE_BEGIN = Option<unsafe extern "system" fn(parameters: *const PNP_REPLACE_PARAMETERS, context: *mut *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "usb"))]
@@ -21541,304 +13081,38 @@ pub type PREPLACE_SET_PROCESSOR_ID = Option<unsafe extern "system" fn(context: *
 pub type PREPLACE_SWAP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 pub type PREPLACE_UNLOAD = Option<unsafe extern "system" fn()>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PREQUEST_POWER_COMPLETE(pub *mut REQUEST_POWER_COMPLETE);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PREQUEST_POWER_COMPLETE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PREQUEST_POWER_COMPLETE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRESET_DOE_INSTANCES(pub *mut RESET_DOE_INSTANCES);
-impl PRESET_DOE_INSTANCES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRESET_DOE_INSTANCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PREQUEST_POWER_COMPLETE = *mut REQUEST_POWER_COMPLETE;
+pub type PRESET_DOE_INSTANCES = *mut RESET_DOE_INSTANCES;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRESOURCE_HASH_ENTRY(pub *mut RESOURCE_HASH_ENTRY);
+pub type PRESOURCE_HASH_ENTRY = *mut RESOURCE_HASH_ENTRY;
 #[cfg(feature = "winnt")]
-impl PRESOURCE_HASH_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PRESOURCE_PERFORMANCE_DATA = *mut RESOURCE_PERFORMANCE_DATA;
 #[cfg(feature = "winnt")]
-impl Default for PRESOURCE_HASH_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRESOURCE_PERFORMANCE_DATA(pub *mut RESOURCE_PERFORMANCE_DATA);
-#[cfg(feature = "winnt")]
-impl PRESOURCE_PERFORMANCE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRESOURCE_PERFORMANCE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKAPC(pub *mut KAPC);
-#[cfg(feature = "winnt")]
-impl PRKAPC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKAPC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRKAPC = *mut KAPC;
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKDEVICE_QUEUE(pub *mut KDEVICE_QUEUE);
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl PRKDEVICE_QUEUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ntdef", feature = "winnt"))]
-impl Default for PRKDEVICE_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRKDEVICE_QUEUE = *mut KDEVICE_QUEUE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKDEVICE_QUEUE_ENTRY(pub *mut KDEVICE_QUEUE_ENTRY);
-#[cfg(feature = "winnt")]
-impl PRKDEVICE_QUEUE_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKDEVICE_QUEUE_ENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRKDEVICE_QUEUE_ENTRY = *mut KDEVICE_QUEUE_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKDPC(pub *mut KDPC);
+pub type PRKDPC = *mut KDPC;
+pub type PRKENLISTMENT = *mut KENLISTMENT;
+#[cfg(feature = "winnt")]
+pub type PRKEVENT = *mut KEVENT;
+#[cfg(feature = "winnt")]
+pub type PRKMUTANT = *mut KMUTANT;
+#[cfg(feature = "winnt")]
+pub type PRKMUTEX = *mut KMUTANT;
+pub type PRKPROCESS = *mut _KPROCESS;
+pub type PRKRESOURCEMANAGER = *mut KRESOURCEMANAGER;
+#[cfg(feature = "winnt")]
+pub type PRKSEMAPHORE = *mut KSEMAPHORE;
+pub type PRKTHREAD = *mut _KTHREAD;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl PRKDPC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for PRKDPC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKENLISTMENT(pub *mut KENLISTMENT);
-impl PRKENLISTMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKENLISTMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKEVENT(pub *mut KEVENT);
-#[cfg(feature = "winnt")]
-impl PRKEVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKEVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKMUTANT(pub *mut KMUTANT);
-#[cfg(feature = "winnt")]
-impl PRKMUTANT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKMUTANT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKMUTEX(pub *mut KMUTANT);
-#[cfg(feature = "winnt")]
-impl PRKMUTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKMUTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKPROCESS(pub *mut _KPROCESS);
-impl PRKPROCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKPROCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKRESOURCEMANAGER(pub *mut KRESOURCEMANAGER);
-impl PRKRESOURCEMANAGER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKRESOURCEMANAGER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKSEMAPHORE(pub *mut KSEMAPHORE);
-#[cfg(feature = "winnt")]
-impl PRKSEMAPHORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PRKSEMAPHORE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKTHREAD(pub *mut _KTHREAD);
-impl PRKTHREAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKTHREAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKTIMER(pub *mut KTIMER);
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl PRKTIMER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "winnt"))]
-impl Default for PRKTIMER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKTM(pub *mut KTM);
-impl PRKTM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKTM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKTRANSACTION(pub *mut KTRANSACTION);
-impl PRKTRANSACTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRKTRANSACTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRKTIMER = *mut KTIMER;
+pub type PRKTM = *mut KTM;
+pub type PRKTRANSACTION = *mut KTRANSACTION;
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRKWAIT_BLOCK(pub *mut KWAIT_BLOCK);
-#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-impl PRKWAIT_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
-impl Default for PRKWAIT_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRKWAIT_BLOCK = *mut KWAIT_BLOCK;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callbackcontext: *const core::ffi::c_void, changecontext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, operationstatus: *mut super::bcrypt::NTSTATUS)>;
 pub const PROCESSOR_FEATURE_MAX: u32 = 64;
@@ -21849,265 +13123,33 @@ pub const PROFILE_LEVEL: u32 = 27;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PROFILE_LEVEL: u32 = 15;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRTL_BITMAP(pub *mut RTL_BITMAP);
-#[cfg(feature = "minwindef")]
-impl PRTL_BITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PRTL_BITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRTL_BITMAP_RUN(pub *mut RTL_BITMAP_RUN);
-impl PRTL_BITMAP_RUN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRTL_BITMAP_RUN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRTL_BITMAP = *mut RTL_BITMAP;
+pub type PRTL_BITMAP_RUN = *mut RTL_BITMAP_RUN;
 #[cfg(feature = "bcrypt")]
 pub type PRTL_QUERY_REGISTRY_ROUTINE = Option<unsafe extern "system" fn(valuename: windows_core::PCWSTR, valuetype: u32, valuedata: *const core::ffi::c_void, valuelength: u32, context: *const core::ffi::c_void, entrycontext: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRTL_QUERY_REGISTRY_TABLE(pub *mut RTL_QUERY_REGISTRY_TABLE);
-#[cfg(feature = "bcrypt")]
-impl PRTL_QUERY_REGISTRY_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PRTL_QUERY_REGISTRY_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRTL_QUERY_REGISTRY_TABLE = *mut RTL_QUERY_REGISTRY_TABLE;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCATTER_GATHER_ELEMENT(pub *mut SCATTER_GATHER_ELEMENT);
+pub type PSCATTER_GATHER_ELEMENT = *mut SCATTER_GATHER_ELEMENT;
 #[cfg(feature = "usb")]
-impl PSCATTER_GATHER_ELEMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PSCATTER_GATHER_ELEMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCATTER_GATHER_LIST(pub *mut SCATTER_GATHER_LIST);
-#[cfg(feature = "usb")]
-impl PSCATTER_GATHER_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PSCATTER_GATHER_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSDEV_IDENTIFIER_INTERFACE(pub *mut SDEV_IDENTIFIER_INTERFACE);
-impl PSDEV_IDENTIFIER_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSDEV_IDENTIFIER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECTION_OBJECT_POINTERS(pub *mut SECTION_OBJECT_POINTERS);
-impl PSECTION_OBJECT_POINTERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECTION_OBJECT_POINTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURE_DRIVER_INTERFACE(pub *mut SECURE_DRIVER_INTERFACE);
-impl PSECURE_DRIVER_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURE_DRIVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURE_DRIVER_PROCESS_DEREFERENCE(pub *mut SECURE_DRIVER_PROCESS_DEREFERENCE);
-impl PSECURE_DRIVER_PROCESS_DEREFERENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURE_DRIVER_PROCESS_DEREFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURE_DRIVER_PROCESS_REFERENCE(pub *mut SECURE_DRIVER_PROCESS_REFERENCE);
-impl PSECURE_DRIVER_PROCESS_REFERENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURE_DRIVER_PROCESS_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_OPERATION_CODE(pub *mut SECURITY_OPERATION_CODE);
-impl PSECURITY_OPERATION_CODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSECURITY_OPERATION_CODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCATTER_GATHER_LIST = *mut SCATTER_GATHER_LIST;
+pub type PSDEV_IDENTIFIER_INTERFACE = *mut SDEV_IDENTIFIER_INTERFACE;
+pub type PSECTION_OBJECT_POINTERS = *mut SECTION_OBJECT_POINTERS;
+pub type PSECURE_DRIVER_INTERFACE = *mut SECURE_DRIVER_INTERFACE;
+pub type PSECURE_DRIVER_PROCESS_DEREFERENCE = *mut SECURE_DRIVER_PROCESS_DEREFERENCE;
+pub type PSECURE_DRIVER_PROCESS_REFERENCE = *mut SECURE_DRIVER_PROCESS_REFERENCE;
+pub type PSECURITY_OPERATION_CODE = *mut SECURITY_OPERATION_CODE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSECURITY_SUBJECT_CONTEXT(pub *mut SECURITY_SUBJECT_CONTEXT);
-#[cfg(feature = "winnt")]
-impl PSECURITY_SUBJECT_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSECURITY_SUBJECT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSECURITY_SUBJECT_CONTEXT = *mut SECURITY_SUBJECT_CONTEXT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEND_DOE_REQUEST(pub *mut SEND_DOE_REQUEST);
-#[cfg(feature = "bcrypt")]
-impl PSEND_DOE_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PSEND_DOE_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSEND_DOE_REQUEST = *mut SEND_DOE_REQUEST;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEND_DOE_REQUEST_ASYNC(pub *mut SEND_DOE_REQUEST_ASYNC);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl PSEND_DOE_REQUEST_ASYNC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-impl Default for PSEND_DOE_REQUEST_ASYNC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSET_D3COLD_SUPPORT(pub *mut SET_D3COLD_SUPPORT);
-impl PSET_D3COLD_SUPPORT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSET_D3COLD_SUPPORT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSET_VIRTUAL_DEVICE_DATA(pub *mut SET_VIRTUAL_DEVICE_DATA);
-impl PSET_VIRTUAL_DEVICE_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSET_VIRTUAL_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_IMAGE_TYPE(pub *mut SE_IMAGE_TYPE);
-impl PSE_IMAGE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_IMAGE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSEND_DOE_REQUEST_ASYNC = *mut SEND_DOE_REQUEST_ASYNC;
+pub type PSET_D3COLD_SUPPORT = *mut SET_D3COLD_SUPPORT;
+pub type PSET_VIRTUAL_DEVICE_DATA = *mut SET_VIRTUAL_DEVICE_DATA;
+pub type PSE_IMAGE_TYPE = *mut SE_IMAGE_TYPE;
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION(pub *mut SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION);
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-impl PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi"))]
-impl Default for PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = *mut SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN(pub *mut *mut core::ffi::c_void);
@@ -22121,77 +13163,13 @@ impl Default for PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSE_IMAGE_VERIFICATION_CALLBACK_TYPE(pub *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE);
-impl PSE_IMAGE_VERIFICATION_CALLBACK_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSE_IMAGE_VERIFICATION_CALLBACK_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSHARE_ACCESS(pub *mut SHARE_ACCESS);
-impl PSHARE_ACCESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSHARE_ACCESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
+pub type PSHARE_ACCESS = *mut SHARE_ACCESS;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSPFN_NUMBER(pub *mut i32);
-#[cfg(target_arch = "x86")]
-impl PSPFN_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PSPFN_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSPFN_NUMBER = *mut i32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSPFN_NUMBER(pub *mut i64);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl PSPFN_NUMBER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl Default for PSPFN_NUMBER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYSTEM_POWER_STATE_CONTEXT(pub *mut SYSTEM_POWER_STATE_CONTEXT);
-impl PSYSTEM_POWER_STATE_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYSTEM_POWER_STATE_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSPFN_NUMBER = *mut i64;
+pub type PSYSTEM_POWER_STATE_CONTEXT = *mut SYSTEM_POWER_STATE_CONTEXT;
 pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -22207,53 +13185,11 @@ impl Default for PS_AVAILABLE_CPUS_CHANGE_REGISTRATION {
     }
 }
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTARGET_DEVICE_CUSTOM_NOTIFICATION(pub *mut TARGET_DEVICE_CUSTOM_NOTIFICATION);
+pub type PTARGET_DEVICE_CUSTOM_NOTIFICATION = *mut TARGET_DEVICE_CUSTOM_NOTIFICATION;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PTARGET_DEVICE_CUSTOM_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PTARGET_DEVICE_CUSTOM_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTARGET_DEVICE_REMOVAL_NOTIFICATION(pub *mut TARGET_DEVICE_REMOVAL_NOTIFICATION);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PTARGET_DEVICE_REMOVAL_NOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PTARGET_DEVICE_REMOVAL_NOTIFICATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTARGET_DEVICE_REMOVAL_NOTIFICATION = *mut TARGET_DEVICE_REMOVAL_NOTIFICATION;
 #[cfg(feature = "ntdef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTIME_FIELDS(pub *mut TIME_FIELDS);
-#[cfg(feature = "ntdef")]
-impl PTIME_FIELDS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntdef")]
-impl Default for PTIME_FIELDS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTIME_FIELDS = *mut TIME_FIELDS;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
 #[derive(Clone, Copy, Debug)]
@@ -22287,205 +13223,27 @@ pub type PTM_PROPAGATE_ROUTINE = Option<unsafe extern "system" fn(propagationcoo
 #[cfg(feature = "bcrypt")]
 pub type PTM_RM_NOTIFICATION = Option<unsafe extern "system" fn(enlistmentobject: *const KENLISTMENT, rmcontext: *const core::ffi::c_void, transactioncontext: *const core::ffi::c_void, transactionnotification: u32, tmvirtualclock: *mut i64, argumentlength: u32, argument: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "usb")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRANSLATE_BUS_ADDRESS(pub *mut TRANSLATE_BUS_ADDRESS);
-#[cfg(feature = "usb")]
-impl PTRANSLATE_BUS_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "usb")]
-impl Default for PTRANSLATE_BUS_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTRANSLATE_BUS_ADDRESS = *mut TRANSLATE_BUS_ADDRESS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS = Option<unsafe extern "system" fn(param0: *mut DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK)>;
 pub type PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_CHANNEL_CAPABILITIES1(pub *mut VIRTUAL_CHANNEL_CAPABILITIES1);
-impl PVIRTUAL_CHANNEL_CAPABILITIES1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_CHANNEL_CAPABILITIES1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_CHANNEL_CAPABILITIES2(pub *mut VIRTUAL_CHANNEL_CAPABILITIES2);
-impl PVIRTUAL_CHANNEL_CAPABILITIES2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_CHANNEL_CAPABILITIES2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_CHANNEL_CONTROL(pub *mut VIRTUAL_CHANNEL_CONTROL);
-impl PVIRTUAL_CHANNEL_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_CHANNEL_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_CHANNEL_STATUS(pub *mut VIRTUAL_CHANNEL_STATUS);
-impl PVIRTUAL_CHANNEL_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_CHANNEL_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_RESOURCE(pub *mut VIRTUAL_RESOURCE);
-impl PVIRTUAL_RESOURCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_RESOURCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_RESOURCE_CAPABILITY(pub *mut VIRTUAL_RESOURCE_CAPABILITY);
-impl PVIRTUAL_RESOURCE_CAPABILITY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_RESOURCE_CAPABILITY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_RESOURCE_CONTROL(pub *mut VIRTUAL_RESOURCE_CONTROL);
-impl PVIRTUAL_RESOURCE_CONTROL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_RESOURCE_CONTROL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIRTUAL_RESOURCE_STATUS(pub *mut VIRTUAL_RESOURCE_STATUS);
-impl PVIRTUAL_RESOURCE_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVIRTUAL_RESOURCE_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVIRTUAL_CHANNEL_CAPABILITIES1 = *mut VIRTUAL_CHANNEL_CAPABILITIES1;
+pub type PVIRTUAL_CHANNEL_CAPABILITIES2 = *mut VIRTUAL_CHANNEL_CAPABILITIES2;
+pub type PVIRTUAL_CHANNEL_CONTROL = *mut VIRTUAL_CHANNEL_CONTROL;
+pub type PVIRTUAL_CHANNEL_STATUS = *mut VIRTUAL_CHANNEL_STATUS;
+pub type PVIRTUAL_RESOURCE = *mut VIRTUAL_RESOURCE;
+pub type PVIRTUAL_RESOURCE_CAPABILITY = *mut VIRTUAL_RESOURCE_CAPABILITY;
+pub type PVIRTUAL_RESOURCE_CONTROL = *mut VIRTUAL_RESOURCE_CONTROL;
+pub type PVIRTUAL_RESOURCE_STATUS = *mut VIRTUAL_RESOURCE_STATUS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVPB(pub *mut VPB);
+pub type PVPB = *mut VPB;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PVPB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PVPB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWAIT_CONTEXT_BLOCK(pub *mut WAIT_CONTEXT_BLOCK);
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl PWAIT_CONTEXT_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-impl Default for PWAIT_CONTEXT_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWORKER_THREAD_ROUTINE(pub *mut WORKER_THREAD_ROUTINE);
-impl PWORKER_THREAD_ROUTINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWORKER_THREAD_ROUTINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWAIT_CONTEXT_BLOCK = *mut WAIT_CONTEXT_BLOCK;
+pub type PWORKER_THREAD_ROUTINE = *mut WORKER_THREAD_ROUTINE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWORK_QUEUE_ITEM(pub *mut WORK_QUEUE_ITEM);
+pub type PWORK_QUEUE_ITEM = *mut WORK_QUEUE_ITEM;
 #[cfg(feature = "winnt")]
-impl PWORK_QUEUE_ITEM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PWORK_QUEUE_ITEM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXSTATE_SAVE(pub *mut XSTATE_SAVE);
-#[cfg(feature = "winnt")]
-impl PXSTATE_SAVE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PXSTATE_SAVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PXSTATE_SAVE = *mut XSTATE_SAVE;
 pub const PageIn: KWAIT_REASON = 2;
 pub const PagedPool: POOL_TYPE = 1;
 pub const PagedPoolCacheAligned: POOL_TYPE = 5;
@@ -23788,19 +14546,7 @@ pub const WMIREG_ACTION_REGISTER: u32 = 1;
 pub const WMIREG_ACTION_REREGISTER: u32 = 3;
 pub const WMIREG_ACTION_UPDATE_GUIDS: u32 = 4;
 pub const WMIUPDATE: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct WMI_NOTIFICATION_CALLBACK(pub *mut FWMI_NOTIFICATION_CALLBACK);
-impl WMI_NOTIFICATION_CALLBACK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for WMI_NOTIFICATION_CALLBACK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type WMI_NOTIFICATION_CALLBACK = *mut FWMI_NOTIFICATION_CALLBACK;
 pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]

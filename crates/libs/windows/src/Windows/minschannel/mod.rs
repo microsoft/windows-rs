@@ -1,84 +1,10 @@
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_CipherStrengths(pub *mut SecPkgCred_CipherStrengths);
-impl PSecPkgCred_CipherStrengths {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgCred_CipherStrengths {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_ClientCertPolicy(pub *mut SecPkgCred_ClientCertPolicy);
-impl PSecPkgCred_ClientCertPolicy {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgCred_ClientCertPolicy {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_SessionTicketKey(pub *mut SecPkgCred_SessionTicketKey);
-impl PSecPkgCred_SessionTicketKey {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgCred_SessionTicketKey {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_SessionTicketKeys(pub *mut SecPkgCred_SessionTicketKeys);
-impl PSecPkgCred_SessionTicketKeys {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgCred_SessionTicketKeys {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgCred_CipherStrengths = *mut SecPkgCred_CipherStrengths;
+pub type PSecPkgCred_ClientCertPolicy = *mut SecPkgCred_ClientCertPolicy;
+pub type PSecPkgCred_SessionTicketKey = *mut SecPkgCred_SessionTicketKey;
+pub type PSecPkgCred_SessionTicketKeys = *mut SecPkgCred_SessionTicketKeys;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_SupportedAlgs(pub *mut SecPkgCred_SupportedAlgs);
-#[cfg(feature = "wincrypt")]
-impl PSecPkgCred_SupportedAlgs {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PSecPkgCred_SupportedAlgs {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSecPkgCred_SupportedProtocols(pub *mut SecPkgCred_SupportedProtocols);
-impl PSecPkgCred_SupportedProtocols {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSecPkgCred_SupportedProtocols {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSecPkgCred_SupportedAlgs = *mut SecPkgCred_SupportedAlgs;
+pub type PSecPkgCred_SupportedProtocols = *mut SecPkgCred_SupportedProtocols;
 pub const SECPKG_ATTR_APP_DATA: u32 = 94;
 pub const SECPKG_ATTR_CC_POLICY_RESULT: u32 = 97;
 pub const SECPKG_ATTR_CERT_CHECK_RESULT: u32 = 113;

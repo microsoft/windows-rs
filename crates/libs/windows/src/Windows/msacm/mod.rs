@@ -803,586 +803,72 @@ impl Default for HACMSTREAM {
     }
 }
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMDRIVERDETAILSA(pub *mut ACMDRIVERDETAILSA);
+pub type LPACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl LPACMDRIVERDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl Default for LPACMDRIVERDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMDRIVERDETAILSW(pub *mut ACMDRIVERDETAILSW);
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl LPACMDRIVERDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl Default for LPACMDRIVERDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMDRIVERPROC(pub *mut ACMDRIVERPROC);
+pub type LPACMDRIVERPROC = *mut ACMDRIVERPROC;
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
+pub type LPACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
+#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
+pub type LPACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
+#[cfg(feature = "mmreg")]
+pub type LPACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
+#[cfg(feature = "mmreg")]
+pub type LPACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
+pub type LPACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
+pub type LPACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
+pub type LPACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
+#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
+pub type LPACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
+#[cfg(feature = "mmeapi")]
+pub type LPACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
+#[cfg(feature = "mmeapi")]
+pub type LPACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
+pub type LPACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
+pub type LPACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
 #[cfg(feature = "minwindef")]
-impl LPACMDRIVERPROC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPACMDRIVERPROC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERCHOOSEA(pub *mut ACMFILTERCHOOSEA);
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl LPACMFILTERCHOOSEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl Default for LPACMFILTERCHOOSEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERCHOOSEW(pub *mut ACMFILTERCHOOSEW);
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl LPACMFILTERCHOOSEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl Default for LPACMFILTERCHOOSEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmreg")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERDETAILSA(pub *mut ACMFILTERDETAILSA);
-#[cfg(feature = "mmreg")]
-impl LPACMFILTERDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmreg")]
-impl Default for LPACMFILTERDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmreg")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERDETAILSW(pub *mut ACMFILTERDETAILSW);
-#[cfg(feature = "mmreg")]
-impl LPACMFILTERDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmreg")]
-impl Default for LPACMFILTERDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERTAGDETAILSA(pub *mut ACMFILTERTAGDETAILSA);
-impl LPACMFILTERTAGDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPACMFILTERTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFILTERTAGDETAILSW(pub *mut ACMFILTERTAGDETAILSW);
-impl LPACMFILTERTAGDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPACMFILTERTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATCHOOSEA(pub *mut ACMFORMATCHOOSEA);
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl LPACMFORMATCHOOSEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl Default for LPACMFORMATCHOOSEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATCHOOSEW(pub *mut ACMFORMATCHOOSEW);
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl LPACMFORMATCHOOSEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl Default for LPACMFORMATCHOOSEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATDETAILSA(pub *mut ACMFORMATDETAILSA);
-#[cfg(feature = "mmeapi")]
-impl LPACMFORMATDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPACMFORMATDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATDETAILSW(pub *mut ACMFORMATDETAILSW);
-#[cfg(feature = "mmeapi")]
-impl LPACMFORMATDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for LPACMFORMATDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATTAGDETAILSA(pub *mut ACMFORMATTAGDETAILSA);
-impl LPACMFORMATTAGDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPACMFORMATTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMFORMATTAGDETAILSW(pub *mut ACMFORMATTAGDETAILSW);
-impl LPACMFORMATTAGDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPACMFORMATTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPACMSTREAMHEADER(pub *mut ACMSTREAMHEADER);
-#[cfg(feature = "minwindef")]
-impl LPACMSTREAMHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPACMSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHACMDRIVER(pub *mut HACMDRIVER);
-impl LPHACMDRIVER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHACMDRIVER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHACMDRIVERID(pub *mut HACMDRIVERID);
-impl LPHACMDRIVERID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHACMDRIVERID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHACMOBJ(pub *mut HACMOBJ);
-impl LPHACMOBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHACMOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHACMSTREAM(pub *mut HACMSTREAM);
-impl LPHACMSTREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHACMSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPACMSTREAMHEADER = *mut ACMSTREAMHEADER;
+pub type LPHACMDRIVER = *mut HACMDRIVER;
+pub type LPHACMDRIVERID = *mut HACMDRIVERID;
+pub type LPHACMOBJ = *mut HACMOBJ;
+pub type LPHACMSTREAM = *mut HACMSTREAM;
 pub const MM_ACM_CLOSE: u32 = 981;
 pub const MM_ACM_DONE: u32 = 982;
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768;
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768;
 pub const MM_ACM_OPEN: u32 = 980;
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMDRIVERDETAILSA(pub *mut ACMDRIVERDETAILSA);
+pub type PACMDRIVERDETAILSA = *mut ACMDRIVERDETAILSA;
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl PACMDRIVERDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl Default for PACMDRIVERDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMDRIVERDETAILSW(pub *mut ACMDRIVERDETAILSW);
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl PACMDRIVERDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "mmiscapi", feature = "windef"))]
-impl Default for PACMDRIVERDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMDRIVERDETAILSW = *mut ACMDRIVERDETAILSW;
 #[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERCHOOSEA(pub *mut ACMFILTERCHOOSEA);
+pub type PACMFILTERCHOOSEA = *mut ACMFILTERCHOOSEA;
 #[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl PACMFILTERCHOOSEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl Default for PACMFILTERCHOOSEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERCHOOSEW(pub *mut ACMFILTERCHOOSEW);
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl PACMFILTERCHOOSEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmreg", feature = "windef"))]
-impl Default for PACMFILTERCHOOSEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMFILTERCHOOSEW = *mut ACMFILTERCHOOSEW;
 #[cfg(feature = "mmreg")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERDETAILSA(pub *mut ACMFILTERDETAILSA);
+pub type PACMFILTERDETAILSA = *mut ACMFILTERDETAILSA;
 #[cfg(feature = "mmreg")]
-impl PACMFILTERDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmreg")]
-impl Default for PACMFILTERDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmreg")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERDETAILSW(pub *mut ACMFILTERDETAILSW);
-#[cfg(feature = "mmreg")]
-impl PACMFILTERDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmreg")]
-impl Default for PACMFILTERDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERTAGDETAILSA(pub *mut ACMFILTERTAGDETAILSA);
-impl PACMFILTERTAGDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACMFILTERTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFILTERTAGDETAILSW(pub *mut ACMFILTERTAGDETAILSW);
-impl PACMFILTERTAGDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACMFILTERTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMFILTERDETAILSW = *mut ACMFILTERDETAILSW;
+pub type PACMFILTERTAGDETAILSA = *mut ACMFILTERTAGDETAILSA;
+pub type PACMFILTERTAGDETAILSW = *mut ACMFILTERTAGDETAILSW;
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATCHOOSEA(pub *mut ACMFORMATCHOOSEA);
+pub type PACMFORMATCHOOSEA = *mut ACMFORMATCHOOSEA;
 #[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl PACMFORMATCHOOSEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl Default for PACMFORMATCHOOSEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATCHOOSEW(pub *mut ACMFORMATCHOOSEW);
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl PACMFORMATCHOOSEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "mmeapi", feature = "windef"))]
-impl Default for PACMFORMATCHOOSEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMFORMATCHOOSEW = *mut ACMFORMATCHOOSEW;
 #[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATDETAILSA(pub *mut ACMFORMATDETAILSA);
+pub type PACMFORMATDETAILSA = *mut ACMFORMATDETAILSA;
 #[cfg(feature = "mmeapi")]
-impl PACMFORMATDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PACMFORMATDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATDETAILSW(pub *mut ACMFORMATDETAILSW);
-#[cfg(feature = "mmeapi")]
-impl PACMFORMATDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmeapi")]
-impl Default for PACMFORMATDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATTAGDETAILSA(pub *mut ACMFORMATTAGDETAILSA);
-impl PACMFORMATTAGDETAILSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACMFORMATTAGDETAILSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMFORMATTAGDETAILSW(pub *mut ACMFORMATTAGDETAILSW);
-impl PACMFORMATTAGDETAILSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACMFORMATTAGDETAILSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMFORMATDETAILSW = *mut ACMFORMATDETAILSW;
+pub type PACMFORMATTAGDETAILSA = *mut ACMFORMATTAGDETAILSA;
+pub type PACMFORMATTAGDETAILSW = *mut ACMFORMATTAGDETAILSW;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACMSTREAMHEADER(pub *mut ACMSTREAMHEADER);
-#[cfg(feature = "minwindef")]
-impl PACMSTREAMHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PACMSTREAMHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHACMDRIVER(pub *mut HACMDRIVER);
-impl PHACMDRIVER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHACMDRIVER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHACMDRIVERID(pub *mut HACMDRIVERID);
-impl PHACMDRIVERID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHACMDRIVERID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHACMOBJ(pub *mut HACMOBJ);
-impl PHACMOBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHACMOBJ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHACMSTREAM(pub *mut HACMSTREAM);
-impl PHACMSTREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHACMSTREAM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACMSTREAMHEADER = *mut ACMSTREAMHEADER;
+pub type PHACMDRIVER = *mut HACMDRIVER;
+pub type PHACMDRIVERID = *mut HACMDRIVERID;
+pub type PHACMOBJ = *mut HACMOBJ;
+pub type PHACMSTREAM = *mut HACMSTREAM;
 pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0;
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2;
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1;

@@ -600,70 +600,14 @@ pub struct APP_MEMORY_INFORMATION {
 }
 pub const KernelEnabled: MACHINE_ATTRIBUTES = 2;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROCESS_INFORMATION(pub *mut PROCESS_INFORMATION);
-#[cfg(feature = "winnt")]
-impl LPPROCESS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPPROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut _PROC_THREAD_ATTRIBUTE_LIST);
-impl LPPROC_THREAD_ATTRIBUTE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPROC_THREAD_ATTRIBUTE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
+pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSTARTUPINFO(pub LPSTARTUPINFOA);
+pub type LPSTARTUPINFO = LPSTARTUPINFOA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTARTUPINFOA(pub *mut STARTUPINFOA);
+pub type LPSTARTUPINFOA = *mut STARTUPINFOA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPSTARTUPINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPSTARTUPINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTARTUPINFOW(pub *mut STARTUPINFOW);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl LPSTARTUPINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for LPSTARTUPINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTARTUPINFOW = *mut STARTUPINFOW;
 pub type MACHINE_ATTRIBUTES = u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -674,133 +618,21 @@ pub struct MEMORY_PRIORITY_INFORMATION {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OVERRIDE_PREFETCH_PARAMETER(pub u32);
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAPC_CALLBACK_DATA(pub *mut APC_CALLBACK_DATA);
-#[cfg(feature = "winnt")]
-impl PAPC_CALLBACK_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PAPC_CALLBACK_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAPP_MEMORY_INFORMATION(pub *mut APP_MEMORY_INFORMATION);
-impl PAPP_MEMORY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAPP_MEMORY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMEMORY_PRIORITY_INFORMATION(pub *mut MEMORY_PRIORITY_INFORMATION);
-impl PMEMORY_PRIORITY_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMEMORY_PRIORITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAPC_CALLBACK_DATA = *mut APC_CALLBACK_DATA;
+pub type PAPP_MEMORY_INFORMATION = *mut APP_MEMORY_INFORMATION;
+pub type PMEMORY_PRIORITY_INFORMATION = *mut MEMORY_PRIORITY_INFORMATION;
 pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = 0;
 pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = 1;
 pub const PME_CURRENT_VERSION: u32 = 1;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_INFORMATION(pub *mut PROCESS_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PPROCESS_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPROCESS_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_LEAP_SECOND_INFO(pub *mut PROCESS_LEAP_SECOND_INFO);
-impl PPROCESS_LEAP_SECOND_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_LEAP_SECOND_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_MEMORY_EXHAUSTION_INFO(pub *mut PROCESS_MEMORY_EXHAUSTION_INFO);
-impl PPROCESS_MEMORY_EXHAUSTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_MEMORY_EXHAUSTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_MEMORY_EXHAUSTION_TYPE(pub *mut PROCESS_MEMORY_EXHAUSTION_TYPE);
-impl PPROCESS_MEMORY_EXHAUSTION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_MEMORY_EXHAUSTION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_POWER_THROTTLING_STATE(pub *mut PROCESS_POWER_THROTTLING_STATE);
-impl PPROCESS_POWER_THROTTLING_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_POWER_THROTTLING_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROC_THREAD_ATTRIBUTE_LIST(pub *mut _PROC_THREAD_ATTRIBUTE_LIST);
-impl PPROC_THREAD_ATTRIBUTE_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROC_THREAD_ATTRIBUTE_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROCESS_INFORMATION = *mut PROCESS_INFORMATION;
+pub type PPROCESS_LEAP_SECOND_INFO = *mut PROCESS_LEAP_SECOND_INFO;
+pub type PPROCESS_MEMORY_EXHAUSTION_INFO = *mut PROCESS_MEMORY_EXHAUSTION_INFO;
+pub type PPROCESS_MEMORY_EXHAUSTION_TYPE = *mut PROCESS_MEMORY_EXHAUSTION_TYPE;
+pub type PPROCESS_POWER_THROTTLING_STATE = *mut PROCESS_POWER_THROTTLING_STATE;
+pub type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]

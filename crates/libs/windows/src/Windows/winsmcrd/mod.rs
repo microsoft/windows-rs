@@ -13,112 +13,16 @@ pub const IOCTL_SMARTCARD_SET_ATTRIBUTE: u32 = 3211276;
 pub const IOCTL_SMARTCARD_SET_PROTOCOL: u32 = 3211312;
 pub const IOCTL_SMARTCARD_SWALLOW: u32 = 3211292;
 pub const IOCTL_SMARTCARD_TRANSMIT: u32 = 3211284;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCSCARD_IO_REQUEST(pub *const SCARD_IO_REQUEST);
-impl LPCSCARD_IO_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCSCARD_IO_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_IO_REQUEST(pub *mut SCARD_IO_REQUEST);
-impl LPSCARD_IO_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_IO_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_T0_COMMAND(pub *mut SCARD_T0_COMMAND);
-impl LPSCARD_T0_COMMAND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_T0_COMMAND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_T0_REQUEST(pub *mut SCARD_T0_REQUEST);
-impl LPSCARD_T0_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_T0_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSCARD_T1_REQUEST(pub *mut SCARD_T1_REQUEST);
-impl LPSCARD_T1_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSCARD_T1_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCSCARD_IO_REQUEST = *const SCARD_IO_REQUEST;
+pub type LPSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+pub type LPSCARD_T0_COMMAND = *mut SCARD_T0_COMMAND;
+pub type LPSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+pub type LPSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32;
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_IO_REQUEST(pub *mut SCARD_IO_REQUEST);
-impl PSCARD_IO_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_IO_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_T0_REQUEST(pub *mut SCARD_T0_REQUEST);
-impl PSCARD_T0_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_T0_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCARD_T1_REQUEST(pub *mut SCARD_T1_REQUEST);
-impl PSCARD_T1_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCARD_T1_REQUEST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSCARD_IO_REQUEST = *mut SCARD_IO_REQUEST;
+pub type PSCARD_T0_REQUEST = *mut SCARD_T0_REQUEST;
+pub type PSCARD_T1_REQUEST = *mut SCARD_T1_REQUEST;
 pub const SCARD_ABSENT: u32 = 1;
 pub const SCARD_ATR_LENGTH: u32 = 33;
 pub const SCARD_ATTR_ATR_STRING: u32 = 590595;

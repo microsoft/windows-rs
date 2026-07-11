@@ -4,25 +4,9 @@ pub const LOGTOKEN_SETUPAPI_DEVLOG: u32 = 3;
 pub const LOGTOKEN_TYPE_MASK: u32 = 3;
 pub const LOGTOKEN_UNSPECIFIED: u32 = 0;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSP_LOG_TOKEN(pub *mut super::winnt::DWORDLONG);
+pub type PSP_LOG_TOKEN = *mut super::winnt::DWORDLONG;
 #[cfg(feature = "winnt")]
-impl PSP_LOG_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSP_LOG_TOKEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct SP_LOG_TOKEN(pub super::winnt::DWORDLONG);
+pub type SP_LOG_TOKEN = super::winnt::DWORDLONG;
 pub const TXTLOG_BACKUP: u32 = 128;
 pub const TXTLOG_CMI: u32 = 268435456;
 pub const TXTLOG_COPYFILES: u32 = 8;

@@ -557,99 +557,17 @@ pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, r#type: u32, setting: *const core::ffi::c_void) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS(pub *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS);
-impl PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVICE_NOTIFY_SUBSCRIBE_PARAMETERS = *mut DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGLOBAL_MACHINE_POWER_POLICY(pub *mut GLOBAL_MACHINE_POWER_POLICY);
+pub type PGLOBAL_MACHINE_POWER_POLICY = *mut GLOBAL_MACHINE_POWER_POLICY;
 #[cfg(feature = "winnt")]
-impl PGLOBAL_MACHINE_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PGLOBAL_POWER_POLICY = *mut GLOBAL_POWER_POLICY;
 #[cfg(feature = "winnt")]
-impl Default for PGLOBAL_MACHINE_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGLOBAL_USER_POWER_POLICY = *mut GLOBAL_USER_POWER_POLICY;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGLOBAL_POWER_POLICY(pub *mut GLOBAL_POWER_POLICY);
+pub type PMACHINE_POWER_POLICY = *mut MACHINE_POWER_POLICY;
 #[cfg(feature = "winnt")]
-impl PGLOBAL_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PGLOBAL_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGLOBAL_USER_POWER_POLICY(pub *mut GLOBAL_USER_POWER_POLICY);
-#[cfg(feature = "winnt")]
-impl PGLOBAL_USER_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PGLOBAL_USER_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMACHINE_POWER_POLICY(pub *mut MACHINE_POWER_POLICY);
-#[cfg(feature = "winnt")]
-impl PMACHINE_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMACHINE_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMACHINE_PROCESSOR_POWER_POLICY(pub *mut MACHINE_PROCESSOR_POWER_POLICY);
-#[cfg(feature = "winnt")]
-impl PMACHINE_PROCESSOR_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PMACHINE_PROCESSOR_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMACHINE_PROCESSOR_POWER_POLICY = *mut MACHINE_PROCESSOR_POWER_POLICY;
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
 pub type POWER_DATA_ACCESSOR = i32;
@@ -660,64 +578,12 @@ pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_DATA_ACCESSOR(pub *mut POWER_DATA_ACCESSOR);
-impl PPOWER_DATA_ACCESSOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOWER_DATA_ACCESSOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOWER_DATA_ACCESSOR = *mut POWER_DATA_ACCESSOR;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_POLICY(pub *mut POWER_POLICY);
+pub type PPOWER_POLICY = *mut POWER_POLICY;
+pub type PTHERMAL_EVENT = *mut THERMAL_EVENT;
 #[cfg(feature = "winnt")]
-impl PPOWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PPOWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTHERMAL_EVENT(pub *mut THERMAL_EVENT);
-impl PTHERMAL_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTHERMAL_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUSER_POWER_POLICY(pub *mut USER_POWER_POLICY);
-#[cfg(feature = "winnt")]
-impl PUSER_POWER_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PUSER_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUSER_POWER_POLICY = *mut USER_POWER_POLICY;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: *const POWER_POLICY, context: super::minwindef::LPARAM) -> bool>;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]

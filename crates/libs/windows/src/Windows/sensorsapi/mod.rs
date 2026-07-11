@@ -878,45 +878,9 @@ pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = 3;
 pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = 0;
 pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = 1;
 pub type MagnetometerAccuracy = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFSENSOR_CATEGORY_ID(pub *const windows_core::GUID);
-impl REFSENSOR_CATEGORY_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFSENSOR_CATEGORY_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFSENSOR_ID(pub *const windows_core::GUID);
-impl REFSENSOR_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFSENSOR_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFSENSOR_TYPE_ID(pub *const windows_core::GUID);
-impl REFSENSOR_TYPE_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFSENSOR_TYPE_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type REFSENSOR_CATEGORY_ID = *const windows_core::GUID;
+pub type REFSENSOR_ID = *const windows_core::GUID;
+pub type REFSENSOR_TYPE_ID = *const windows_core::GUID;
 pub type SENSOR_CATEGORY_ID = windows_core::GUID;
 pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1;
 pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = 2;

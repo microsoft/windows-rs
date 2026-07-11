@@ -430,31 +430,5 @@ impl IEnumGUID_Vtbl {
 }
 impl windows_core::RuntimeName for IEnumGUID {}
 #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCATEGORYINFO(pub *mut CATEGORYINFO);
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-impl LPCATEGORYINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-impl Default for LPCATEGORYINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct REFCATID(pub *const windows_core::GUID);
-impl REFCATID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for REFCATID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCATEGORYINFO = *mut CATEGORYINFO;
+pub type REFCATID = *const windows_core::GUID;

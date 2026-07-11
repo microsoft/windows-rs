@@ -640,267 +640,33 @@ impl Default for HCRYPTXML {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_ALGORITHM(pub *mut CRYPT_XML_ALGORITHM);
-impl PCRYPT_XML_ALGORITHM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_ALGORITHM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_ALGORITHM_INFO(pub *mut CRYPT_XML_ALGORITHM_INFO);
-impl PCRYPT_XML_ALGORITHM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_ALGORITHM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_BLOB(pub *mut CRYPT_XML_BLOB);
-impl PCRYPT_XML_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_ALGORITHM = *mut CRYPT_XML_ALGORITHM;
+pub type PCRYPT_XML_ALGORITHM_INFO = *mut CRYPT_XML_ALGORITHM_INFO;
+pub type PCRYPT_XML_BLOB = *mut CRYPT_XML_BLOB;
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_CRYPTOGRAPHIC_INTERFACE(pub *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE);
+pub type PCRYPT_XML_CRYPTOGRAPHIC_INTERFACE = *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE;
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl PCRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCRYPT_XML_CRYPTO_PROVIDER = *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE;
+pub type PCRYPT_XML_DATA_BLOB = *mut CRYPT_XML_DATA_BLOB;
+pub type PCRYPT_XML_DATA_PROVIDER = *mut CRYPT_XML_DATA_PROVIDER;
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for PCRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_CRYPTO_PROVIDER(pub *mut CRYPT_XML_CRYPTOGRAPHIC_INTERFACE);
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl PCRYPT_XML_CRYPTO_PROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for PCRYPT_XML_CRYPTO_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_DATA_BLOB(pub *mut CRYPT_XML_DATA_BLOB);
-impl PCRYPT_XML_DATA_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_DATA_PROVIDER(pub *mut CRYPT_XML_DATA_PROVIDER);
-impl PCRYPT_XML_DATA_PROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_DATA_PROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_DOC_CTXT(pub *mut CRYPT_XML_DOC_CTXT);
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl PCRYPT_XML_DOC_CTXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for PCRYPT_XML_DOC_CTXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_DOC_CTXT = *mut CRYPT_XML_DOC_CTXT;
 #[cfg(feature = "bcrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_KEY_INFO(pub *mut CRYPT_XML_KEY_INFO);
-#[cfg(feature = "bcrypt")]
-impl PCRYPT_XML_KEY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "bcrypt")]
-impl Default for PCRYPT_XML_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_KEY_INFO = *mut CRYPT_XML_KEY_INFO;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_OBJECT(pub *mut CRYPT_XML_OBJECT);
+pub type PCRYPT_XML_OBJECT = *mut CRYPT_XML_OBJECT;
+pub type PCRYPT_XML_PROPERTY = *mut CRYPT_XML_PROPERTY;
 #[cfg(feature = "wincrypt")]
-impl PCRYPT_XML_OBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCRYPT_XML_REFERENCE = *mut CRYPT_XML_REFERENCE;
 #[cfg(feature = "wincrypt")]
-impl Default for PCRYPT_XML_OBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_PROPERTY(pub *mut CRYPT_XML_PROPERTY);
-impl PCRYPT_XML_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_REFERENCE(pub *mut CRYPT_XML_REFERENCE);
-#[cfg(feature = "wincrypt")]
-impl PCRYPT_XML_REFERENCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCRYPT_XML_REFERENCE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_REFERENCES(pub *mut CRYPT_XML_REFERENCES);
-#[cfg(feature = "wincrypt")]
-impl PCRYPT_XML_REFERENCES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCRYPT_XML_REFERENCES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_REFERENCES = *mut CRYPT_XML_REFERENCES;
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_SIGNATURE(pub *mut CRYPT_XML_SIGNATURE);
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl PCRYPT_XML_SIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-impl Default for PCRYPT_XML_SIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_SIGNATURE = *mut CRYPT_XML_SIGNATURE;
 #[cfg(feature = "wincrypt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_SIGNED_INFO(pub *mut CRYPT_XML_SIGNED_INFO);
-#[cfg(feature = "wincrypt")]
-impl PCRYPT_XML_SIGNED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincrypt")]
-impl Default for PCRYPT_XML_SIGNED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_STATUS(pub *mut CRYPT_XML_STATUS);
-impl PCRYPT_XML_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_TRANSFORM_CHAIN_CONFIG(pub *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG);
-impl PCRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_TRANSFORM_CHAIN_CONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCRYPT_XML_TRANSFORM_INFO(pub *mut CRYPT_XML_TRANSFORM_INFO);
-impl PCRYPT_XML_TRANSFORM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCRYPT_XML_TRANSFORM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCRYPT_XML_SIGNED_INFO = *mut CRYPT_XML_SIGNED_INFO;
+pub type PCRYPT_XML_STATUS = *mut CRYPT_XML_STATUS;
+pub type PCRYPT_XML_TRANSFORM_CHAIN_CONFIG = *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG;
+pub type PCRYPT_XML_TRANSFORM_INFO = *mut CRYPT_XML_TRANSFORM_INFO;
 pub type PFN_CRYPT_XML_CREATE_TRANSFORM = Option<unsafe extern "system" fn(ptransform: *const CRYPT_XML_ALGORITHM, pproviderin: *const CRYPT_XML_DATA_PROVIDER, pproviderout: *mut CRYPT_XML_DATA_PROVIDER) -> windows_core::HRESULT>;
 pub type PFN_CRYPT_XML_DATA_PROVIDER_CLOSE = Option<unsafe extern "system" fn(pvcallbackstate: *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type PFN_CRYPT_XML_DATA_PROVIDER_READ = Option<unsafe extern "system" fn(pvcallbackstate: *mut core::ffi::c_void, pbdata: *mut u8, cbdata: u32, pcbread: *mut u32) -> windows_core::HRESULT>;

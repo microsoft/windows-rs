@@ -170,19 +170,7 @@ pub const LIST_MODULES_32BIT: u32 = 1;
 pub const LIST_MODULES_64BIT: u32 = 2;
 pub const LIST_MODULES_ALL: u32 = 3;
 pub const LIST_MODULES_DEFAULT: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMODULEINFO(pub *mut MODULEINFO);
-impl LPMODULEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMODULEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct MODULEINFO {
@@ -197,19 +185,7 @@ impl Default for MODULEINFO {
 }
 pub type PENUM_PAGE_FILE_CALLBACKA = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: *mut core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: windows_core::PCWSTR) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUM_PAGE_FILE_INFORMATION(pub *mut ENUM_PAGE_FILE_INFORMATION);
-impl PENUM_PAGE_FILE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUM_PAGE_FILE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENUM_PAGE_FILE_INFORMATION = *mut ENUM_PAGE_FILE_INFORMATION;
 pub type PERFORMACE_INFORMATION = PERFORMANCE_INFORMATION;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -229,149 +205,17 @@ pub struct PERFORMANCE_INFORMATION {
     pub ProcessCount: u32,
     pub ThreadCount: u32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERFORMACE_INFORMATION(pub *mut PERFORMANCE_INFORMATION);
-impl PPERFORMACE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERFORMACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPERFORMANCE_INFORMATION(pub *mut PERFORMANCE_INFORMATION);
-impl PPERFORMANCE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPERFORMANCE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_MEMORY_COUNTERS(pub *mut PROCESS_MEMORY_COUNTERS);
-impl PPROCESS_MEMORY_COUNTERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_MEMORY_COUNTERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_MEMORY_COUNTERS_EX(pub *mut PROCESS_MEMORY_COUNTERS_EX);
-impl PPROCESS_MEMORY_COUNTERS_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_MEMORY_COUNTERS_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_MEMORY_COUNTERS_EX2(pub *mut PROCESS_MEMORY_COUNTERS_EX2);
-impl PPROCESS_MEMORY_COUNTERS_EX2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_MEMORY_COUNTERS_EX2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WORKING_SET_BLOCK(pub *mut PSAPI_WORKING_SET_BLOCK);
-impl PPSAPI_WORKING_SET_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WORKING_SET_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WORKING_SET_EX_BLOCK(pub *mut PSAPI_WORKING_SET_EX_BLOCK);
-impl PPSAPI_WORKING_SET_EX_BLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WORKING_SET_EX_BLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WORKING_SET_EX_INFORMATION(pub *mut PSAPI_WORKING_SET_EX_INFORMATION);
-impl PPSAPI_WORKING_SET_EX_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WORKING_SET_EX_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WORKING_SET_INFORMATION(pub *mut PSAPI_WORKING_SET_INFORMATION);
-impl PPSAPI_WORKING_SET_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WORKING_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WS_WATCH_INFORMATION(pub *mut PSAPI_WS_WATCH_INFORMATION);
-impl PPSAPI_WS_WATCH_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WS_WATCH_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSAPI_WS_WATCH_INFORMATION_EX(pub *mut PSAPI_WS_WATCH_INFORMATION_EX);
-impl PPSAPI_WS_WATCH_INFORMATION_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSAPI_WS_WATCH_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPERFORMACE_INFORMATION = *mut PERFORMANCE_INFORMATION;
+pub type PPERFORMANCE_INFORMATION = *mut PERFORMANCE_INFORMATION;
+pub type PPROCESS_MEMORY_COUNTERS = *mut PROCESS_MEMORY_COUNTERS;
+pub type PPROCESS_MEMORY_COUNTERS_EX = *mut PROCESS_MEMORY_COUNTERS_EX;
+pub type PPROCESS_MEMORY_COUNTERS_EX2 = *mut PROCESS_MEMORY_COUNTERS_EX2;
+pub type PPSAPI_WORKING_SET_BLOCK = *mut PSAPI_WORKING_SET_BLOCK;
+pub type PPSAPI_WORKING_SET_EX_BLOCK = *mut PSAPI_WORKING_SET_EX_BLOCK;
+pub type PPSAPI_WORKING_SET_EX_INFORMATION = *mut PSAPI_WORKING_SET_EX_INFORMATION;
+pub type PPSAPI_WORKING_SET_INFORMATION = *mut PSAPI_WORKING_SET_INFORMATION;
+pub type PPSAPI_WS_WATCH_INFORMATION = *mut PSAPI_WS_WATCH_INFORMATION;
+pub type PPSAPI_WS_WATCH_INFORMATION_EX = *mut PSAPI_WS_WATCH_INFORMATION_EX;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {

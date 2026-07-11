@@ -32,53 +32,11 @@ pub struct NLSTABLEINFO {
     pub LowerCaseTable: super::minwindef::PUSHORT,
 }
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPTABLEINFO(pub *mut CPTABLEINFO);
+pub type PCPTABLEINFO = *mut CPTABLEINFO;
 #[cfg(feature = "minwindef")]
-impl PCPTABLEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PNLSTABLEINFO = *mut NLSTABLEINFO;
 #[cfg(feature = "minwindef")]
-impl Default for PCPTABLEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNLSTABLEINFO(pub *mut NLSTABLEINFO);
-#[cfg(feature = "minwindef")]
-impl PNLSTABLEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PNLSTABLEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRTL_NLS_STATE(pub *mut RTL_NLS_STATE);
-#[cfg(feature = "minwindef")]
-impl PRTL_NLS_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PRTL_NLS_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

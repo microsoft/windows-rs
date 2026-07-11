@@ -272,9 +272,7 @@ pub const MACHINE_ACTION_CONNECT: windows_core::PCWSTR = windows_core::w!("CONNE
 pub const MACHINE_ACTION_DISCONNECT: windows_core::PCWSTR = windows_core::w!("DISCONNECT");
 pub const MACHINE_ACTION_TIDY: windows_core::PCWSTR = windows_core::w!("TIDY");
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MGMTPROPID(pub super::wtypes::PROPID);
+pub type MGMTPROPID = super::wtypes::PROPID;
 pub const MGMT_QUEUE_CORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
 pub const MGMT_QUEUE_FOREIGN_TYPE: windows_core::PCWSTR = windows_core::w!("YES");
 pub const MGMT_QUEUE_INCORRECT_TYPE: windows_core::PCWSTR = windows_core::w!("NO");
@@ -724,9 +722,7 @@ pub const MQ_SEND_ACCESS: u32 = 2;
 pub const MQ_TRANSACTIONAL: u32 = 1;
 pub const MQ_TRANSACTIONAL_NONE: u32 = 0;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct MSGPROPID(pub super::wtypes::PROPID);
+pub type MSGPROPID = super::wtypes::PROPID;
 pub const MSMQ_CONNECTED: windows_core::PCWSTR = windows_core::w!("CONNECTED");
 pub const MSMQ_DISCONNECTED: windows_core::PCWSTR = windows_core::w!("DISCONNECTED");
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
@@ -878,19 +874,13 @@ pub const PROPID_Q_QUOTA: u32 = 105;
 pub const PROPID_Q_TRANSACTION: u32 = 113;
 pub const PROPID_Q_TYPE: u32 = 102;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct QMPROPID(pub super::wtypes::PROPID);
+pub type QMPROPID = super::wtypes::PROPID;
 pub const QUERY_SORTASCEND: u32 = 0;
 pub const QUERY_SORTDESCEND: u32 = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct QUEUEHANDLE(pub super::winnt::HANDLE);
+pub type QUEUEHANDLE = super::winnt::HANDLE;
 #[cfg(feature = "wtypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct QUEUEPROPID(pub super::wtypes::PROPID);
+pub type QUEUEPROPID = super::wtypes::PROPID;
 pub const QUEUE_ACTION_EOD_RESEND: windows_core::PCWSTR = windows_core::w!("EOD_RESEND");
 pub const QUEUE_ACTION_PAUSE: windows_core::PCWSTR = windows_core::w!("PAUSE");
 pub const QUEUE_ACTION_RESUME: windows_core::PCWSTR = windows_core::w!("RESUME");

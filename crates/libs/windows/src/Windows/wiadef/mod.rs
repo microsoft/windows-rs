@@ -103,19 +103,7 @@ pub const PORTRAIT: u32 = 0;
 pub const POWERMODE_BATTERY: u32 = 2;
 pub const POWERMODE_LINE: u32 = 1;
 pub const PREFEED: u32 = 256;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWIA_RAW_HEADER(pub *mut WIA_RAW_HEADER);
-impl PWIA_RAW_HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWIA_RAW_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWIA_RAW_HEADER = *mut WIA_RAW_HEADER;
 pub const RIGHT_JUSTIFIED: u32 = 2;
 pub const ROT180: u32 = 2;
 pub const ROT270: u32 = 3;

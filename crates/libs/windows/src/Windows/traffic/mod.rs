@@ -231,140 +231,20 @@ pub struct IP_PATTERN_0_1 {
 }
 pub const MAX_STRING_LENGTH: u32 = 256;
 #[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PADDRESS_LIST_DESCRIPTOR(pub *mut ADDRESS_LIST_DESCRIPTOR);
-#[cfg(feature = "ntddndis")]
-impl PADDRESS_LIST_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntddndis")]
-impl Default for PADDRESS_LIST_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PADDRESS_LIST_DESCRIPTOR = *mut ADDRESS_LIST_DESCRIPTOR;
 #[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMERATION_BUFFER(pub *mut ENUMERATION_BUFFER);
-#[cfg(feature = "qos")]
-impl PENUMERATION_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for PENUMERATION_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIPX_PATTERN(pub *mut IPX_PATTERN);
-impl PIPX_PATTERN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIPX_PATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_PATTERN(pub *mut IP_PATTERN);
-impl PIP_PATTERN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_PATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PENUMERATION_BUFFER = *mut ENUMERATION_BUFFER;
+pub type PIPX_PATTERN = *mut IPX_PATTERN;
+pub type PIP_PATTERN = *mut IP_PATTERN;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTCI_CLIENT_FUNC_LIST(pub *mut TCI_CLIENT_FUNC_LIST);
-#[cfg(feature = "winnt")]
-impl PTCI_CLIENT_FUNC_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PTCI_CLIENT_FUNC_LIST {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTC_GEN_FILTER(pub *mut TC_GEN_FILTER);
-impl PTC_GEN_FILTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTC_GEN_FILTER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTCI_CLIENT_FUNC_LIST = *mut TCI_CLIENT_FUNC_LIST;
+pub type PTC_GEN_FILTER = *mut TC_GEN_FILTER;
 #[cfg(feature = "qos")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTC_GEN_FLOW(pub *mut TC_GEN_FLOW);
-#[cfg(feature = "qos")]
-impl PTC_GEN_FLOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "qos")]
-impl Default for PTC_GEN_FLOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTC_GEN_FLOW = *mut TC_GEN_FLOW;
 #[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTC_IFC_DESCRIPTOR(pub *mut TC_IFC_DESCRIPTOR);
+pub type PTC_IFC_DESCRIPTOR = *mut TC_IFC_DESCRIPTOR;
 #[cfg(feature = "ntddndis")]
-impl PTC_IFC_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntddndis")]
-impl Default for PTC_IFC_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ntddndis")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTC_SUPPORTED_INFO_BUFFER(pub *mut TC_SUPPORTED_INFO_BUFFER);
-#[cfg(feature = "ntddndis")]
-impl PTC_SUPPORTED_INFO_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ntddndis")]
-impl Default for PTC_SUPPORTED_INFO_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTC_SUPPORTED_INFO_BUFFER = *mut TC_SUPPORTED_INFO_BUFFER;
 #[cfg(feature = "winnt")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::winnt::HANDLE, status: u32)>;
 #[repr(C)]

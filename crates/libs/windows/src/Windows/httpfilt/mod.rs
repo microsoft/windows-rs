@@ -159,149 +159,17 @@ impl Default for HTTP_FILTER_VERSION {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_ACCESS_DENIED(pub *mut HTTP_FILTER_ACCESS_DENIED);
-impl PHTTP_FILTER_ACCESS_DENIED {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_ACCESS_DENIED {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_AUTHENT(pub *mut HTTP_FILTER_AUTHENT);
-impl PHTTP_FILTER_AUTHENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_AUTHENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_AUTH_COMPLETE_INFO(pub *mut HTTP_FILTER_AUTH_COMPLETE_INFO);
-impl PHTTP_FILTER_AUTH_COMPLETE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_AUTH_COMPLETE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_CONTEXT(pub *mut HTTP_FILTER_CONTEXT);
-impl PHTTP_FILTER_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_LOG(pub *mut HTTP_FILTER_LOG);
-impl PHTTP_FILTER_LOG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_LOG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_PREPROC_HEADERS(pub *mut HTTP_FILTER_PREPROC_HEADERS);
-impl PHTTP_FILTER_PREPROC_HEADERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_PREPROC_HEADERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_RAW_DATA(pub *mut HTTP_FILTER_RAW_DATA);
-impl PHTTP_FILTER_RAW_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_RAW_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_SEND_RESPONSE(pub *mut HTTP_FILTER_PREPROC_HEADERS);
-impl PHTTP_FILTER_SEND_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_SEND_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_URL_MAP(pub *mut HTTP_FILTER_URL_MAP);
-impl PHTTP_FILTER_URL_MAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_URL_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_URL_MAP_EX(pub *mut HTTP_FILTER_URL_MAP_EX);
-impl PHTTP_FILTER_URL_MAP_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_URL_MAP_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHTTP_FILTER_VERSION(pub *mut HTTP_FILTER_VERSION);
-impl PHTTP_FILTER_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PHTTP_FILTER_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHTTP_FILTER_ACCESS_DENIED = *mut HTTP_FILTER_ACCESS_DENIED;
+pub type PHTTP_FILTER_AUTHENT = *mut HTTP_FILTER_AUTHENT;
+pub type PHTTP_FILTER_AUTH_COMPLETE_INFO = *mut HTTP_FILTER_AUTH_COMPLETE_INFO;
+pub type PHTTP_FILTER_CONTEXT = *mut HTTP_FILTER_CONTEXT;
+pub type PHTTP_FILTER_LOG = *mut HTTP_FILTER_LOG;
+pub type PHTTP_FILTER_PREPROC_HEADERS = *mut HTTP_FILTER_PREPROC_HEADERS;
+pub type PHTTP_FILTER_RAW_DATA = *mut HTTP_FILTER_RAW_DATA;
+pub type PHTTP_FILTER_SEND_RESPONSE = *mut HTTP_FILTER_PREPROC_HEADERS;
+pub type PHTTP_FILTER_URL_MAP = *mut HTTP_FILTER_URL_MAP;
+pub type PHTTP_FILTER_URL_MAP_EX = *mut HTTP_FILTER_URL_MAP_EX;
+pub type PHTTP_FILTER_VERSION = *mut HTTP_FILTER_VERSION;
 pub const SF_DENIED_APPLICATION: u32 = 8;
 pub const SF_DENIED_BY_CONFIG: u32 = 65536;
 pub const SF_DENIED_FILTER: u32 = 4;

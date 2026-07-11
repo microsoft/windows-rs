@@ -1821,21 +1821,7 @@ pub struct MetadataTimeStamps {
     pub Presentation: i64,
 }
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PROI_AREA(pub *mut ROI_AREA);
-#[cfg(feature = "windef")]
-impl PROI_AREA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PROI_AREA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PROI_AREA = *mut ROI_AREA;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

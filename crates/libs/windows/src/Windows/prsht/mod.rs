@@ -27,237 +27,45 @@ pub unsafe fn PropertySheetW(param0: LPCPROPSHEETHEADERW) -> isize {
     windows_core::link!("comctl32.dll" "system" fn PropertySheetW(param0 : LPCPROPSHEETHEADERW) -> isize);
     unsafe { PropertySheetW(param0) }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct HPROPSHEETPAGE(pub *mut _PSP);
-impl HPROPSHEETPAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for HPROPSHEETPAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type HPROPSHEETPAGE = *mut _PSP;
 pub const ID_PSREBOOTSYSTEM: u32 = 3;
 pub const ID_PSRESTARTWINDOWS: u32 = 2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETHEADERA(pub LPCPROPSHEETHEADERA_V2);
+pub type LPCPROPSHEETHEADERA = LPCPROPSHEETHEADERA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETHEADERA_V1(pub *const PROPSHEETHEADERA_V1);
+pub type LPCPROPSHEETHEADERA_V1 = *const PROPSHEETHEADERA_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETHEADERA_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCPROPSHEETHEADERA_V2 = *const PROPSHEETHEADERA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETHEADERA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPROPSHEETHEADERW = LPCPROPSHEETHEADERW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETHEADERA_V2(pub *const PROPSHEETHEADERA_V2);
+pub type LPCPROPSHEETHEADERW_V1 = *const PROPSHEETHEADERW_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETHEADERA_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCPROPSHEETHEADERW_V2 = *const PROPSHEETHEADERW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETHEADERA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPROPSHEETPAGEA = LPCPROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETHEADERW(pub LPCPROPSHEETHEADERW_V2);
+pub type LPCPROPSHEETPAGEA_LATEST = LPCPROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETHEADERW_V1(pub *const PROPSHEETHEADERW_V1);
+pub type LPCPROPSHEETPAGEA_V1 = *const PROPSHEETPAGEA_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETHEADERW_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCPROPSHEETPAGEA_V2 = *const PROPSHEETPAGEA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETHEADERW_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPROPSHEETPAGEA_V3 = *const PROPSHEETPAGEA_V3;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETHEADERW_V2(pub *const PROPSHEETHEADERW_V2);
+pub type LPCPROPSHEETPAGEA_V4 = *const PROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETHEADERW_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPCPROPSHEETPAGEW = LPCPROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETHEADERW_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPROPSHEETPAGEW_LATEST = LPCPROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETPAGEA(pub LPCPROPSHEETPAGEA_V4);
+pub type LPCPROPSHEETPAGEW_V1 = *const PROPSHEETPAGEW_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETPAGEA_LATEST(pub LPCPROPSHEETPAGEA_V4);
+pub type LPCPROPSHEETPAGEW_V2 = *const PROPSHEETPAGEW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEA_V1(pub *const PROPSHEETPAGEA_V1);
+pub type LPCPROPSHEETPAGEW_V3 = *const PROPSHEETPAGEW_V3;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEA_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEA_V2(pub *const PROPSHEETPAGEA_V2);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEA_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEA_V3(pub *const PROPSHEETPAGEA_V3);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEA_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEA_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEA_V4(pub *const PROPSHEETPAGEA_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEA_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEA_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETPAGEW(pub LPCPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCPROPSHEETPAGEW_LATEST(pub LPCPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEW_V1(pub *const PROPSHEETPAGEW_V1);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEW_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEW_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEW_V2(pub *const PROPSHEETPAGEW_V2);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEW_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEW_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEW_V3(pub *const PROPSHEETPAGEW_V3);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEW_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEW_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCPROPSHEETPAGEW_V4(pub *const PROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPCPROPSHEETPAGEW_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPCPROPSHEETPAGEW_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCPROPSHEETPAGEW_V4 = *const PROPSHEETPAGEW_V4;
 #[cfg(feature = "minwindef")]
 pub type LPFNADDPROPSHEETPAGE = Option<unsafe extern "system" fn(param0: *mut _PSP, param1: super::minwindef::LPARAM) -> windows_core::BOOL>;
 #[cfg(feature = "minwindef")]
@@ -267,237 +75,43 @@ pub type LPFNPSPCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::windef
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
 pub type LPFNPSPCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, umsg: u32, ppsp: *mut PROPSHEETPAGEW_V4) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETHEADERA(pub LPPROPSHEETHEADERA_V2);
+pub type LPPROPSHEETHEADERA = LPPROPSHEETHEADERA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETHEADERA_V1(pub *mut PROPSHEETHEADERA_V1);
+pub type LPPROPSHEETHEADERA_V1 = *mut PROPSHEETHEADERA_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETHEADERA_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPROPSHEETHEADERA_V2 = *mut PROPSHEETHEADERA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETHEADERA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPSHEETHEADERW = LPPROPSHEETHEADERW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETHEADERA_V2(pub *mut PROPSHEETHEADERA_V2);
+pub type LPPROPSHEETHEADERW_V1 = *mut PROPSHEETHEADERW_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETHEADERA_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPROPSHEETHEADERW_V2 = *mut PROPSHEETHEADERW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETHEADERA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPSHEETPAGEA = LPPROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETHEADERW(pub LPPROPSHEETHEADERW_V2);
+pub type LPPROPSHEETPAGEA_LATEST = LPPROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETHEADERW_V1(pub *mut PROPSHEETHEADERW_V1);
+pub type LPPROPSHEETPAGEA_V1 = *mut PROPSHEETPAGEA_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETHEADERW_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPROPSHEETPAGEA_V2 = *mut PROPSHEETPAGEA_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETHEADERW_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPSHEETPAGEA_V3 = *mut PROPSHEETPAGEA_V3;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETHEADERW_V2(pub *mut PROPSHEETHEADERW_V2);
+pub type LPPROPSHEETPAGEA_V4 = *mut PROPSHEETPAGEA_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETHEADERW_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPROPSHEETPAGEW = LPPROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETHEADERW_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPSHEETPAGEW_LATEST = LPPROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETPAGEA(pub LPPROPSHEETPAGEA_V4);
+pub type LPPROPSHEETPAGEW_V1 = *mut PROPSHEETPAGEW_V1;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETPAGEA_LATEST(pub LPPROPSHEETPAGEA_V4);
+pub type LPPROPSHEETPAGEW_V2 = *mut PROPSHEETPAGEW_V2;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEA_V1(pub *mut PROPSHEETPAGEA_V1);
+pub type LPPROPSHEETPAGEW_V3 = *mut PROPSHEETPAGEW_V3;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEA_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEA_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEA_V2(pub *mut PROPSHEETPAGEA_V2);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEA_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEA_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEA_V3(pub *mut PROPSHEETPAGEA_V3);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEA_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEA_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEA_V4(pub *mut PROPSHEETPAGEA_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEA_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEA_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETPAGEW(pub LPPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROPSHEETPAGEW_LATEST(pub LPPROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEW_V1(pub *mut PROPSHEETPAGEW_V1);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEW_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEW_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEW_V2(pub *mut PROPSHEETPAGEW_V2);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEW_V2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEW_V2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEW_V3(pub *mut PROPSHEETPAGEW_V3);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEW_V3 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEW_V3 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROPSHEETPAGEW_V4(pub *mut PROPSHEETPAGEW_V4);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl LPPROPSHEETPAGEW_V4 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt", feature = "winuser"))]
-impl Default for LPPROPSHEETPAGEW_V4 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROPSHEETPAGEW_V4 = *mut PROPSHEETPAGEW_V4;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPSHNOTIFY(pub *mut PSHNOTIFY);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPPSHNOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPPSHNOTIFY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPSHNOTIFY = *mut PSHNOTIFY;
 pub const MAXPROPPAGES: u32 = 100;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type PFNPROPSHEETCALLBACK = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::LPARAM) -> i32>;
@@ -1240,9 +854,7 @@ impl Default for PROPSHEETPAGEW_V4_2 {
     }
 }
 #[cfg(feature = "winuser")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PROPSHEETPAGE_RESOURCE(pub super::winuser::LPCDLGTEMPLATE);
+pub type PROPSHEETPAGE_RESOURCE = super::winuser::LPCDLGTEMPLATE;
 #[cfg(target_arch = "x86")]
 pub const PROPSHEETPAGE_V1_SIZE: u32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]

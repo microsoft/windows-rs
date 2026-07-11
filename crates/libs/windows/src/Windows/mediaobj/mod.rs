@@ -749,19 +749,7 @@ impl IMediaObjectInPlace_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IMediaObjectInPlace {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMO_OUTPUT_DATA_BUFFER(pub *mut DMO_OUTPUT_DATA_BUFFER);
-impl PDMO_OUTPUT_DATA_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMO_OUTPUT_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct REFERENCE_TIME(pub i64);

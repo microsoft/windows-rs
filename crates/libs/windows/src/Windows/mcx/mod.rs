@@ -1,32 +1,8 @@
 pub const DIALOPTION_BILLING: u32 = 64;
 pub const DIALOPTION_DIALTONE: u32 = 256;
 pub const DIALOPTION_QUIET: u32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMODEMDEVCAPS(pub *mut MODEMDEVCAPS);
-impl LPMODEMDEVCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMODEMDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMODEMSETTINGS(pub *mut MODEMSETTINGS);
-impl LPMODEMSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMODEMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMODEMDEVCAPS = *mut MODEMDEVCAPS;
+pub type LPMODEMSETTINGS = *mut MODEMSETTINGS;
 pub const MDMSPKRFLAG_CALLSETUP: u32 = 8;
 pub const MDMSPKRFLAG_DIAL: u32 = 2;
 pub const MDMSPKRFLAG_OFF: u32 = 1;
@@ -222,29 +198,5 @@ impl Default for MODEMSETTINGS {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODEMDEVCAPS(pub *mut MODEMDEVCAPS);
-impl PMODEMDEVCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODEMDEVCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODEMSETTINGS(pub *mut MODEMSETTINGS);
-impl PMODEMSETTINGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODEMSETTINGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMODEMDEVCAPS = *mut MODEMDEVCAPS;
+pub type PMODEMSETTINGS = *mut MODEMSETTINGS;

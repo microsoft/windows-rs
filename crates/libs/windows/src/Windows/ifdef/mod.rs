@@ -15,9 +15,7 @@ impl Default for IF_COUNTED_STRING_LH {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct IF_INDEX(pub NET_IFINDEX);
+pub type IF_INDEX = NET_IFINDEX;
 pub type IF_LUID = NET_LUID;
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32;
 pub const IF_MAX_STRING_SIZE: u32 = 256;
@@ -204,409 +202,37 @@ pub const NIIF_NDIS_RESERVED4: u32 = 256;
 pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32;
 pub const NIIF_SLOT_NUMBER_UNKNOWN: i32 = -1;
 pub const NIIF_WAN_TUNNEL_TYPE_UNKNOWN: i32 = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_ADMINISTRATIVE_STATE(pub *mut IF_ADMINISTRATIVE_STATE);
-impl PIF_ADMINISTRATIVE_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_ADMINISTRATIVE_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_COUNTED_STRING(pub *mut IF_COUNTED_STRING);
-impl PIF_COUNTED_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_COUNTED_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_COUNTED_STRING_LH(pub *mut IF_COUNTED_STRING_LH);
-impl PIF_COUNTED_STRING_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_COUNTED_STRING_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_INDEX(pub *mut NET_IFINDEX);
-impl PIF_INDEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_INDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_LUID(pub *mut NET_LUID);
-impl PIF_LUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_LUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_PHYSICAL_ADDRESS(pub *mut IF_PHYSICAL_ADDRESS);
-impl PIF_PHYSICAL_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_PHYSICAL_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIF_PHYSICAL_ADDRESS_LH(pub *mut IF_PHYSICAL_ADDRESS_LH);
-impl PIF_PHYSICAL_ADDRESS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIF_PHYSICAL_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDIS_INTERFACE_INFORMATION(pub *mut NDIS_INTERFACE_INFORMATION);
-impl PNDIS_INTERFACE_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDIS_INTERFACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IFINDEX(pub *mut u32);
-impl PNET_IFINDEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IFINDEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IFTYPE(pub *mut u16);
-impl PNET_IFTYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IFTYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_ACCESS_TYPE(pub *mut NET_IF_ACCESS_TYPE);
-impl PNET_IF_ACCESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_ACCESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_ADMIN_STATUS(pub *mut NET_IF_ADMIN_STATUS);
-impl PNET_IF_ADMIN_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_ADMIN_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_ALIAS(pub *mut NET_IF_ALIAS);
-impl PNET_IF_ALIAS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_ALIAS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_ALIAS_LH(pub *mut NET_IF_ALIAS_LH);
-impl PNET_IF_ALIAS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_ALIAS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_COMPARTMENT_ID(pub *mut u32);
-impl PNET_IF_COMPARTMENT_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_COMPARTMENT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_COMPARTMENT_SCOPE(pub *mut u32);
-impl PNET_IF_COMPARTMENT_SCOPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_COMPARTMENT_SCOPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_CONNECTION_TYPE(pub *mut NET_IF_CONNECTION_TYPE);
-impl PNET_IF_CONNECTION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_CONNECTION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_DIRECTION_TYPE(pub *mut NET_IF_DIRECTION_TYPE);
-impl PNET_IF_DIRECTION_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_DIRECTION_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_MEDIA_CONNECT_STATE(pub *mut NET_IF_MEDIA_CONNECT_STATE);
-impl PNET_IF_MEDIA_CONNECT_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_MEDIA_CONNECT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_MEDIA_DUPLEX_STATE(pub *mut NET_IF_MEDIA_DUPLEX_STATE);
-impl PNET_IF_MEDIA_DUPLEX_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_MEDIA_DUPLEX_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_NETWORK_GUID(pub *mut windows_core::GUID);
-impl PNET_IF_NETWORK_GUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_NETWORK_GUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_OBJECT_ID(pub *mut u32);
-impl PNET_IF_OBJECT_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_OBJECT_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_OPER_STATUS(pub *mut NET_IF_OPER_STATUS);
-impl PNET_IF_OPER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_OPER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_RCV_ADDRESS(pub *mut NET_IF_RCV_ADDRESS);
-impl PNET_IF_RCV_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_RCV_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_RCV_ADDRESS_LH(pub *mut NET_IF_RCV_ADDRESS_LH);
-impl PNET_IF_RCV_ADDRESS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_RCV_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_IF_RCV_ADDRESS_TYPE(pub *mut NET_IF_RCV_ADDRESS_TYPE);
-impl PNET_IF_RCV_ADDRESS_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_IF_RCV_ADDRESS_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_LUID(pub *mut NET_LUID);
-impl PNET_LUID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_LUID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_LUID_LH(pub *mut NET_LUID_LH);
-impl PNET_LUID_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_LUID_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_PHYSICAL_LOCATION(pub *mut NET_PHYSICAL_LOCATION);
-impl PNET_PHYSICAL_LOCATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_PHYSICAL_LOCATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNET_PHYSICAL_LOCATION_LH(pub *mut NET_PHYSICAL_LOCATION_LH);
-impl PNET_PHYSICAL_LOCATION_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNET_PHYSICAL_LOCATION_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTUNNEL_TYPE(pub *mut TUNNEL_TYPE);
-impl PTUNNEL_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTUNNEL_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIF_ADMINISTRATIVE_STATE = *mut IF_ADMINISTRATIVE_STATE;
+pub type PIF_COUNTED_STRING = *mut IF_COUNTED_STRING;
+pub type PIF_COUNTED_STRING_LH = *mut IF_COUNTED_STRING_LH;
+pub type PIF_INDEX = *mut NET_IFINDEX;
+pub type PIF_LUID = *mut NET_LUID;
+pub type PIF_PHYSICAL_ADDRESS = *mut IF_PHYSICAL_ADDRESS;
+pub type PIF_PHYSICAL_ADDRESS_LH = *mut IF_PHYSICAL_ADDRESS_LH;
+pub type PNDIS_INTERFACE_INFORMATION = *mut NDIS_INTERFACE_INFORMATION;
+pub type PNET_IFINDEX = *mut u32;
+pub type PNET_IFTYPE = *mut u16;
+pub type PNET_IF_ACCESS_TYPE = *mut NET_IF_ACCESS_TYPE;
+pub type PNET_IF_ADMIN_STATUS = *mut NET_IF_ADMIN_STATUS;
+pub type PNET_IF_ALIAS = *mut NET_IF_ALIAS;
+pub type PNET_IF_ALIAS_LH = *mut NET_IF_ALIAS_LH;
+pub type PNET_IF_COMPARTMENT_ID = *mut u32;
+pub type PNET_IF_COMPARTMENT_SCOPE = *mut u32;
+pub type PNET_IF_CONNECTION_TYPE = *mut NET_IF_CONNECTION_TYPE;
+pub type PNET_IF_DIRECTION_TYPE = *mut NET_IF_DIRECTION_TYPE;
+pub type PNET_IF_MEDIA_CONNECT_STATE = *mut NET_IF_MEDIA_CONNECT_STATE;
+pub type PNET_IF_MEDIA_DUPLEX_STATE = *mut NET_IF_MEDIA_DUPLEX_STATE;
+pub type PNET_IF_NETWORK_GUID = *mut windows_core::GUID;
+pub type PNET_IF_OBJECT_ID = *mut u32;
+pub type PNET_IF_OPER_STATUS = *mut NET_IF_OPER_STATUS;
+pub type PNET_IF_RCV_ADDRESS = *mut NET_IF_RCV_ADDRESS;
+pub type PNET_IF_RCV_ADDRESS_LH = *mut NET_IF_RCV_ADDRESS_LH;
+pub type PNET_IF_RCV_ADDRESS_TYPE = *mut NET_IF_RCV_ADDRESS_TYPE;
+pub type PNET_LUID = *mut NET_LUID;
+pub type PNET_LUID_LH = *mut NET_LUID_LH;
+pub type PNET_PHYSICAL_LOCATION = *mut NET_PHYSICAL_LOCATION;
+pub type PNET_PHYSICAL_LOCATION_LH = *mut NET_PHYSICAL_LOCATION_LH;
+pub type PTUNNEL_TYPE = *mut TUNNEL_TYPE;
 pub type TUNNEL_TYPE = i32;
 pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = 11;
 pub const TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = 2;

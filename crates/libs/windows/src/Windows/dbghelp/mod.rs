@@ -2383,90 +2383,14 @@ pub struct LOADED_IMAGE {
     pub SizeOfImage: u32,
 }
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRESS(pub *mut ADDRESS);
-#[cfg(target_arch = "x86")]
-impl LPADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for LPADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPADDRESS64(pub *mut ADDRESS64);
-impl LPADDRESS64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPADDRESS64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAPI_VERSION(pub *mut API_VERSION);
-impl LPAPI_VERSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAPI_VERSION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPADDRESS = *mut ADDRESS;
+pub type LPADDRESS64 = *mut ADDRESS64;
+pub type LPAPI_VERSION = *mut API_VERSION;
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = Option<unsafe extern "system" fn() -> u32>;
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTACKFRAME(pub *mut STACKFRAME);
-#[cfg(target_arch = "x86")]
-impl LPSTACKFRAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for LPSTACKFRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTACKFRAME64(pub *mut STACKFRAME64);
-impl LPSTACKFRAME64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTACKFRAME64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTACKFRAME_EX(pub *mut STACKFRAME_EX);
-impl LPSTACKFRAME_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSTACKFRAME_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTACKFRAME = *mut STACKFRAME;
+pub type LPSTACKFRAME64 = *mut STACKFRAME64;
+pub type LPSTACKFRAME_EX = *mut STACKFRAME_EX;
 pub const MAX_SYM_NAME: u32 = 2000;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -2520,19 +2444,7 @@ pub struct OMAP {
     pub rvaTo: u32,
 }
 pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = Option<unsafe extern "system" fn(datatype: u32, data: *const *const core::ffi::c_void, datalength: *mut u32, userdata: *const core::ffi::c_void) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBGHELP_DATA_REPORT_STRUCT(pub *mut DBGHELP_DATA_REPORT_STRUCT);
-impl PDBGHELP_DATA_REPORT_STRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDBGHELP_DATA_REPORT_STRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDBGHELP_DATA_REPORT_STRUCT = *mut DBGHELP_DATA_REPORT_STRUCT;
 pub type PENUMDIRTREE_CALLBACK = Option<unsafe extern "system" fn(filepath: windows_core::PCSTR, callerdata: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type PENUMDIRTREE_CALLBACKW = Option<unsafe extern "system" fn(filepath: windows_core::PCWSTR, callerdata: *const core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(target_arch = "x86")]
@@ -2563,47 +2475,9 @@ pub type PGET_MODULE_BASE_ROUTINE64 = Option<unsafe extern "system" fn(hprocess:
 #[cfg(feature = "winnt")]
 pub type PGET_TARGET_ATTRIBUTE_VALUE64 = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, attribute: u32, attributedata: u64, attributevalue: *mut u64) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_CBA_EVENT(pub *mut IMAGEHLP_CBA_EVENT);
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_CBA_EVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_CBA_EVENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_CBA_EVENTW(pub *mut IMAGEHLP_CBA_EVENTW);
-impl PIMAGEHLP_CBA_EVENTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_CBA_EVENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_CBA_READ_MEMORY(pub *mut IMAGEHLP_CBA_READ_MEMORY);
-impl PIMAGEHLP_CBA_READ_MEMORY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_CBA_READ_MEMORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMAGEHLP_CBA_EVENT = *mut IMAGEHLP_CBA_EVENT;
+pub type PIMAGEHLP_CBA_EVENTW = *mut IMAGEHLP_CBA_EVENTW;
+pub type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIMAGEHLP_CONTEXT(pub *mut core::ffi::c_void);
@@ -2619,595 +2493,71 @@ impl Default for PIMAGEHLP_CONTEXT {
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_DEFERRED_SYMBOL_LOAD(pub *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD);
+pub type PIMAGEHLP_DEFERRED_SYMBOL_LOAD = *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD;
+#[cfg(feature = "winnt")]
+pub type PIMAGEHLP_DEFERRED_SYMBOL_LOAD64 = *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD64;
+#[cfg(feature = "winnt")]
+pub type PIMAGEHLP_DEFERRED_SYMBOL_LOADW64 = *mut IMAGEHLP_DEFERRED_SYMBOL_LOADW64;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_DEFERRED_SYMBOL_LOAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_DEFERRED_SYMBOL_LOAD64(pub *mut IMAGEHLP_DEFERRED_SYMBOL_LOAD64);
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_DEFERRED_SYMBOL_LOADW64(pub *mut IMAGEHLP_DEFERRED_SYMBOL_LOADW64);
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_DUPLICATE_SYMBOL(pub *mut IMAGEHLP_DUPLICATE_SYMBOL);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_DUPLICATE_SYMBOL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_DUPLICATE_SYMBOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_DUPLICATE_SYMBOL64(pub *mut IMAGEHLP_DUPLICATE_SYMBOL64);
-impl PIMAGEHLP_DUPLICATE_SYMBOL64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_DUPLICATE_SYMBOL64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMAGEHLP_DUPLICATE_SYMBOL = *mut IMAGEHLP_DUPLICATE_SYMBOL;
+pub type PIMAGEHLP_DUPLICATE_SYMBOL64 = *mut IMAGEHLP_DUPLICATE_SYMBOL64;
 #[cfg(all(feature = "basetsd", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_GET_TYPE_INFO_PARAMS(pub *mut IMAGEHLP_GET_TYPE_INFO_PARAMS);
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-impl PIMAGEHLP_GET_TYPE_INFO_PARAMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "basetsd", feature = "minwindef"))]
-impl Default for PIMAGEHLP_GET_TYPE_INFO_PARAMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_JIT_SYMBOLMAP(pub *mut IMAGEHLP_JIT_SYMBOLMAP);
-impl PIMAGEHLP_JIT_SYMBOLMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_JIT_SYMBOLMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMAGEHLP_GET_TYPE_INFO_PARAMS = *mut IMAGEHLP_GET_TYPE_INFO_PARAMS;
+pub type PIMAGEHLP_JIT_SYMBOLMAP = *mut IMAGEHLP_JIT_SYMBOLMAP;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_LINE(pub *mut IMAGEHLP_LINE);
+pub type PIMAGEHLP_LINE = *mut IMAGEHLP_LINE;
+#[cfg(feature = "winnt")]
+pub type PIMAGEHLP_LINE64 = *mut IMAGEHLP_LINE64;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-impl PIMAGEHLP_LINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIMAGEHLP_LINEW = *mut IMAGEHLP_LINEW;
+pub type PIMAGEHLP_LINEW64 = *mut IMAGEHLP_LINEW64;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_MODULE = *mut IMAGEHLP_MODULE;
+pub type PIMAGEHLP_MODULE64 = *mut IMAGEHLP_MODULE64;
+pub type PIMAGEHLP_MODULE64_EX = *mut IMAGEHLP_MODULE64_EX;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_MODULEW = *mut IMAGEHLP_MODULEW;
+pub type PIMAGEHLP_MODULEW64 = *mut IMAGEHLP_MODULEW64;
+pub type PIMAGEHLP_MODULEW64_EX = *mut IMAGEHLP_MODULEW64_EX;
+pub type PIMAGEHLP_STACK_FRAME = *mut IMAGEHLP_STACK_FRAME;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_SYMBOL = *mut IMAGEHLP_SYMBOL;
+pub type PIMAGEHLP_SYMBOL64 = *mut IMAGEHLP_SYMBOL64;
+pub type PIMAGEHLP_SYMBOL64_PACKAGE = *mut IMAGEHLP_SYMBOL64_PACKAGE;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_SYMBOLW = *mut IMAGEHLP_SYMBOLW;
+pub type PIMAGEHLP_SYMBOLW64 = *mut IMAGEHLP_SYMBOLW64;
+pub type PIMAGEHLP_SYMBOLW64_PACKAGE = *mut IMAGEHLP_SYMBOLW64_PACKAGE;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_SYMBOLW_PACKAGE = *mut IMAGEHLP_SYMBOLW_PACKAGE;
+#[cfg(target_arch = "x86")]
+pub type PIMAGEHLP_SYMBOL_PACKAGE = *mut IMAGEHLP_SYMBOL_PACKAGE;
+pub type PIMAGEHLP_SYMBOL_SRC = *mut IMAGEHLP_SYMBOL_SRC;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_LINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_LINE64(pub *mut IMAGEHLP_LINE64);
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_LINE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_LINE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIMAGE_DEBUG_INFORMATION = *mut IMAGE_DEBUG_INFORMATION;
 #[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_LINEW(pub *mut IMAGEHLP_LINEW);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl PIMAGEHLP_LINEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for PIMAGEHLP_LINEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_LINEW64(pub *mut IMAGEHLP_LINEW64);
-impl PIMAGEHLP_LINEW64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_LINEW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULE(pub *mut IMAGEHLP_MODULE);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_MODULE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_MODULE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULE64(pub *mut IMAGEHLP_MODULE64);
-impl PIMAGEHLP_MODULE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_MODULE64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULE64_EX(pub *mut IMAGEHLP_MODULE64_EX);
-impl PIMAGEHLP_MODULE64_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_MODULE64_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULEW(pub *mut IMAGEHLP_MODULEW);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_MODULEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_MODULEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULEW64(pub *mut IMAGEHLP_MODULEW64);
-impl PIMAGEHLP_MODULEW64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_MODULEW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_MODULEW64_EX(pub *mut IMAGEHLP_MODULEW64_EX);
-impl PIMAGEHLP_MODULEW64_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_MODULEW64_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_STACK_FRAME(pub *mut IMAGEHLP_STACK_FRAME);
-impl PIMAGEHLP_STACK_FRAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_STACK_FRAME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOL(pub *mut IMAGEHLP_SYMBOL);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_SYMBOL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_SYMBOL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOL64(pub *mut IMAGEHLP_SYMBOL64);
-impl PIMAGEHLP_SYMBOL64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_SYMBOL64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOL64_PACKAGE(pub *mut IMAGEHLP_SYMBOL64_PACKAGE);
-impl PIMAGEHLP_SYMBOL64_PACKAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_SYMBOL64_PACKAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOLW(pub *mut IMAGEHLP_SYMBOLW);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_SYMBOLW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_SYMBOLW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOLW64(pub *mut IMAGEHLP_SYMBOLW64);
-impl PIMAGEHLP_SYMBOLW64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_SYMBOLW64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOLW64_PACKAGE(pub *mut IMAGEHLP_SYMBOLW64_PACKAGE);
-impl PIMAGEHLP_SYMBOLW64_PACKAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_SYMBOLW64_PACKAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOLW_PACKAGE(pub *mut IMAGEHLP_SYMBOLW_PACKAGE);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_SYMBOLW_PACKAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_SYMBOLW_PACKAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOL_PACKAGE(pub *mut IMAGEHLP_SYMBOL_PACKAGE);
-#[cfg(target_arch = "x86")]
-impl PIMAGEHLP_SYMBOL_PACKAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PIMAGEHLP_SYMBOL_PACKAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGEHLP_SYMBOL_SRC(pub *mut IMAGEHLP_SYMBOL_SRC);
-impl PIMAGEHLP_SYMBOL_SRC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIMAGEHLP_SYMBOL_SRC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIMAGE_DEBUG_INFORMATION(pub *mut IMAGE_DEBUG_INFORMATION);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl PIMAGE_DEBUG_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "winnt")]
-impl Default for PIMAGE_DEBUG_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDHELP(pub *mut KDHELP);
-#[cfg(target_arch = "x86")]
-impl PKDHELP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "x86")]
-impl Default for PKDHELP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKDHELP64(pub *mut KDHELP64);
-impl PKDHELP64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKDHELP64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PKDHELP = *mut KDHELP;
+pub type PKDHELP64 = *mut KDHELP64;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOADED_IMAGE(pub *mut LOADED_IMAGE);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PLOADED_IMAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PLOADED_IMAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODLOAD_CVMISC(pub *mut MODLOAD_CVMISC);
-impl PMODLOAD_CVMISC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODLOAD_CVMISC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODLOAD_DATA(pub *mut MODLOAD_DATA);
-impl PMODLOAD_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODLOAD_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODLOAD_PDBGUID_PDBAGE(pub *mut MODLOAD_PDBGUID_PDBAGE);
-impl PMODLOAD_PDBGUID_PDBAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODLOAD_PDBGUID_PDBAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMODULE_TYPE_INFO(pub *mut MODULE_TYPE_INFO);
-impl PMODULE_TYPE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMODULE_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POMAP(pub *mut OMAP);
-impl POMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOADED_IMAGE = *mut LOADED_IMAGE;
+pub type PMODLOAD_CVMISC = *mut MODLOAD_CVMISC;
+pub type PMODLOAD_DATA = *mut MODLOAD_DATA;
+pub type PMODLOAD_PDBGUID_PDBAGE = *mut MODLOAD_PDBGUID_PDBAGE;
+pub type PMODULE_TYPE_INFO = *mut MODULE_TYPE_INFO;
+pub type POMAP = *mut OMAP;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 pub type PREAD_PROCESS_MEMORY_ROUTINE = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, lpbaseaddress: u32, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
 pub type PREAD_PROCESS_MEMORY_ROUTINE64 = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, qwbaseaddress: u64, lpbuffer: *mut core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOURCEFILE(pub *mut SOURCEFILE);
-#[cfg(feature = "winnt")]
-impl PSOURCEFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSOURCEFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSOURCEFILEW(pub *mut SOURCEFILEW);
-impl PSOURCEFILEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSOURCEFILEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSRCCODEINFO(pub *mut SRCCODEINFO);
-impl PSRCCODEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSRCCODEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSRCCODEINFOW(pub *mut SRCCODEINFOW);
-impl PSRCCODEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSRCCODEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSOURCEFILE = *mut SOURCEFILE;
+pub type PSOURCEFILEW = *mut SOURCEFILEW;
+pub type PSRCCODEINFO = *mut SRCCODEINFO;
+pub type PSRCCODEINFOW = *mut SRCCODEINFOW;
 pub type PSYMBOLSERVERBYINDEXPROC = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type PSYMBOLSERVERBYINDEXPROCA = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: windows_core::PCSTR, param3: windows_core::PCSTR) -> windows_core::BOOL>;
 pub type PSYMBOLSERVERBYINDEXPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR, param1: windows_core::PCWSTR, param2: windows_core::PCWSTR, param3: windows_core::PCWSTR) -> windows_core::BOOL>;
@@ -3246,102 +2596,18 @@ pub type PSYMBOLSERVERWEXPROC = Option<unsafe extern "system" fn(param0: windows
 pub type PSYMBOL_FUNCENTRY_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, addrbase: u32, usercontext: *const core::ffi::c_void) -> *mut core::ffi::c_void>;
 #[cfg(feature = "winnt")]
 pub type PSYMBOL_FUNCENTRY_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, addrbase: u64, usercontext: u64) -> *mut core::ffi::c_void>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMBOL_INFO(pub *mut SYMBOL_INFO);
-impl PSYMBOL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMBOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMBOL_INFOW(pub *mut SYMBOL_INFOW);
-impl PSYMBOL_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMBOL_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMBOL_INFO_PACKAGE(pub *mut SYMBOL_INFO_PACKAGE);
-impl PSYMBOL_INFO_PACKAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMBOL_INFO_PACKAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMBOL_INFO_PACKAGEW(pub *mut SYMBOL_INFO_PACKAGEW);
-impl PSYMBOL_INFO_PACKAGEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMBOL_INFO_PACKAGEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSYMBOL_INFO = *mut SYMBOL_INFO;
+pub type PSYMBOL_INFOW = *mut SYMBOL_INFOW;
+pub type PSYMBOL_INFO_PACKAGE = *mut SYMBOL_INFO_PACKAGE;
+pub type PSYMBOL_INFO_PACKAGEW = *mut SYMBOL_INFO_PACKAGEW;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 pub type PSYMBOL_REGISTERED_CALLBACK = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, actioncode: u32, callbackdata: *const core::ffi::c_void, usercontext: *const core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
 pub type PSYMBOL_REGISTERED_CALLBACK64 = Option<unsafe extern "system" fn(hprocess: super::winnt::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> windows_core::BOOL>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMSRV_EXTENDED_OUTPUT_DATA(pub *mut SYMSRV_EXTENDED_OUTPUT_DATA);
-impl PSYMSRV_EXTENDED_OUTPUT_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMSRV_EXTENDED_OUTPUT_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMSRV_INDEX_INFO(pub *mut SYMSRV_INDEX_INFO);
-impl PSYMSRV_INDEX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMSRV_INDEX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSYMSRV_INDEX_INFOW(pub *mut SYMSRV_INDEX_INFOW);
-impl PSYMSRV_INDEX_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSYMSRV_INDEX_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PSYMSRV_EXTENDED_OUTPUT_DATA = *mut SYMSRV_EXTENDED_OUTPUT_DATA;
+pub type PSYMSRV_INDEX_INFO = *mut SYMSRV_INDEX_INFO;
+pub type PSYMSRV_INDEX_INFOW = *mut SYMSRV_INDEX_INFOW;
 pub type PSYM_ENUMERATESYMBOLS_CALLBACK = Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const core::ffi::c_void) -> windows_core::BOOL>;
 pub type PSYM_ENUMLINES_CALLBACK = Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const core::ffi::c_void) -> windows_core::BOOL>;

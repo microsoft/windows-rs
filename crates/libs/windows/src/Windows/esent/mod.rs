@@ -1144,13 +1144,9 @@ pub unsafe fn JetUpdate2(sesid: JET_SESID, tableid: JET_TABLEID, pvbookmark: Opt
     unsafe { JetUpdate2(sesid, tableid, pvbookmark.unwrap_or(core::mem::zeroed()) as _, cbbookmark, pcbactual.unwrap_or(core::mem::zeroed()) as _, grbit) }
 }
 #[cfg(target_arch = "x86")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_API_PTR(pub JET_UINT32);
+pub type JET_API_PTR = JET_UINT32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_API_PTR(pub JET_UINT64);
+pub type JET_API_PTR = JET_UINT64;
 pub const JET_BASE_NAME_LENGTH: u32 = 3;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1229,15 +1225,11 @@ pub struct JET_BKLOGTIME_1_0 {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_BYTE(pub u8);
 pub type JET_CALLBACK = Option<unsafe extern "system" fn(sesid: JET_SESID, dbid: JET_DBID, tableid: JET_TABLEID, cbtyp: JET_CBTYP, pvarg1: JET_PVOID, pvarg2: JET_PVOID, pvcontext: JET_PVOID, ulunused: JET_API_PTR) -> JET_ERR>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_CBTYP(pub JET_UINT32);
+pub type JET_CBTYP = JET_UINT32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct JET_CHAR(pub i8);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_COLTYP(pub JET_UINT32);
+pub type JET_COLTYP = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_COLUMNBASE_A {
@@ -1319,9 +1311,7 @@ pub struct JET_COLUMNDEF {
     pub cbMax: JET_UINT32,
     pub grbit: JET_GRBIT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_COLUMNID(pub JET_UINT32);
+pub type JET_COLUMNID = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_COLUMNLIST {
@@ -1439,9 +1429,7 @@ impl Default for JET_CONVERT_W_0 {
 pub struct JET_CONVERT_W_0_0 {
     pub _bitfield: JET_UINT32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_CP(pub JET_UINT16);
+pub type JET_CP = JET_UINT16;
 pub const JET_ColInfo: u32 = 0;
 pub const JET_ColInfoBase: u32 = 4;
 pub const JET_ColInfoBaseByColid: u32 = 8;
@@ -1453,9 +1441,7 @@ pub const JET_ColInfoList: u32 = 1;
 pub const JET_ColInfoListCompact: u32 = 5;
 pub const JET_ColInfoListSortColumnid: u32 = 7;
 pub const JET_ColInfoSysTabCursor: u32 = 3;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_DBID(pub JET_UINT32);
+pub type JET_DBID = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct JET_DBINFOMISC {
@@ -1737,9 +1723,7 @@ pub struct JET_ENUMCOLUMNVALUE {
     pub cbData: JET_UINT32,
     pub pvData: JET_PVOID,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_ERR(pub JET_INT32);
+pub type JET_ERR = JET_INT32;
 pub type JET_ERRCAT = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -1766,12 +1750,8 @@ pub const JET_EventLoggingLevelMin: u32 = 1;
 pub const JET_ExceptionFailFast: u32 = 4;
 pub const JET_ExceptionMsgBox: u32 = 1;
 pub const JET_ExceptionNone: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_GRBIT(pub JET_UINT32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_HANDLE(pub JET_API_PTR);
+pub type JET_GRBIT = JET_UINT32;
+pub type JET_HANDLE = JET_API_PTR;
 pub type JET_INDEXCHECKING = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2091,9 +2071,7 @@ impl Default for JET_INDEX_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_INSTANCE(pub JET_API_PTR);
+pub type JET_INSTANCE = JET_API_PTR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_INSTANCE_INFO_A {
@@ -2159,12 +2137,8 @@ pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3;
 pub const JET_IndexCheckingOff: JET_INDEXCHECKING = 0;
 pub const JET_IndexCheckingOn: JET_INDEXCHECKING = 1;
 pub const JET_InstanceMiscInfoLogSignature: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_LANGID(pub JET_UINT16);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_LCID(pub JET_UINT32);
+pub type JET_LANGID = JET_UINT16;
+pub type JET_LCID = JET_UINT32;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct JET_LGPOS {
@@ -2247,9 +2221,7 @@ impl Default for JET_LOGTIME_1 {
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: JET_BYTE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_LS(pub JET_API_PTR);
+pub type JET_LS = JET_API_PTR;
 pub const JET_LSNil: i32 = -1;
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15;
 pub const JET_MoveFirst: u32 = 2147483648;
@@ -2298,9 +2270,7 @@ pub struct JET_OBJECTLIST {
     pub columnidcRecord: JET_COLUMNID,
     pub columnidcPage: JET_COLUMNID,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_OBJTYP(pub JET_UINT32);
+pub type JET_OBJTYP = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct JET_OPENTEMPORARYTABLE {
@@ -2346,9 +2316,7 @@ pub struct JET_OPERATIONCONTEXT {
     pub nClientType: JET_BYTE,
     pub fFlags: JET_BYTE,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_OSSNAPID(pub JET_API_PTR);
+pub type JET_OSSNAPID = JET_API_PTR;
 pub const JET_ObjInfo: u32 = 0;
 pub const JET_ObjInfoList: u32 = 2;
 pub const JET_ObjInfoListACM: u32 = 4;
@@ -2363,19 +2331,7 @@ pub const JET_OnlineDefragAllOBSOLETE: u32 = 1;
 pub const JET_OnlineDefragDatabases: u32 = 2;
 pub const JET_OnlineDefragDisable: u32 = 0;
 pub const JET_OnlineDefragSpaceTrees: u32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct JET_PCSTR(pub *const JET_CHAR);
-impl JET_PCSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for JET_PCSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type JET_PCSTR = *const JET_CHAR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_PCVOID(pub *const core::ffi::c_void);
@@ -2389,35 +2345,11 @@ impl Default for JET_PCVOID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct JET_PCWSTR(pub *const JET_WCHAR);
-impl JET_PCWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for JET_PCWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type JET_PCWSTR = *const JET_WCHAR;
 pub type JET_PFNDURABLECOMMITCALLBACK = Option<unsafe extern "system" fn(instance: JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: JET_GRBIT) -> JET_ERR>;
 pub type JET_PFNREALLOC = Option<unsafe extern "system" fn(pvcontext: JET_PVOID, pv: JET_PVOID, cb: JET_UINT32) -> JET_PVOID>;
 pub type JET_PFNSTATUS = Option<unsafe extern "system" fn(sesid: JET_SESID, snp: JET_SNP, snt: JET_SNT, pv: JET_PVOID) -> JET_ERR>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct JET_PSTR(pub *mut JET_CHAR);
-impl JET_PSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for JET_PSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type JET_PSTR = *mut JET_CHAR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_PVOID(pub *mut core::ffi::c_void);
@@ -2431,19 +2363,7 @@ impl Default for JET_PVOID {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct JET_PWSTR(pub *mut JET_WCHAR);
-impl JET_PWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for JET_PWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type JET_PWSTR = *mut JET_WCHAR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_RECORDLIST {
@@ -2604,9 +2524,7 @@ pub struct JET_RSTMAP_W {
     pub szDatabaseName: JET_PWSTR,
     pub szNewDatabaseName: JET_PWSTR,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_SESID(pub JET_API_PTR);
+pub type JET_SESID = JET_API_PTR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_SETCOLUMN {
@@ -2653,9 +2571,7 @@ impl Default for JET_SIGNATURE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_SNP(pub JET_UINT32);
+pub type JET_SNP = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_SNPROG {
@@ -2663,9 +2579,7 @@ pub struct JET_SNPROG {
     pub cunitDone: JET_UINT32,
     pub cunitTotal: JET_UINT32,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_SNT(pub JET_UINT32);
+pub type JET_SNT = JET_UINT32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_SPACEHINTS {
@@ -2870,9 +2784,7 @@ impl Default for JET_TABLECREATE_W {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct JET_TABLEID(pub JET_API_PTR);
+pub type JET_TABLEID = JET_API_PTR;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct JET_THREADSTATS {
@@ -3107,7 +3019,7 @@ pub const JET_bitLogStreamMustExist: u32 = 64;
 pub const JET_bitMoveFirst: u32 = 0;
 pub const JET_bitMoveKeyNE: u32 = 1;
 pub const JET_bitNewKey: u32 = 1;
-pub const JET_bitNil: JET_GRBIT = JET_GRBIT(JET_UINT32(0 as _));
+pub const JET_bitNil: JET_GRBIT = JET_UINT32(0 as _);
 pub const JET_bitNoMove: u32 = 2;
 pub const JET_bitNormalizedKey: u32 = 8;
 pub const JET_bitObjectSystem: u32 = 2147483648;
@@ -3299,7 +3211,7 @@ pub const JET_configRemoveQuotas: u32 = 2;
 pub const JET_configRunSilent: u32 = 256;
 pub const JET_configSSDProfileIO: u32 = 128;
 pub const JET_configUnthrottledMemory: u32 = 512;
-pub const JET_dbidNil: JET_DBID = JET_DBID(JET_UINT32(4294967295u32 as _));
+pub const JET_dbidNil: JET_DBID = JET_UINT32(4294967295u32 as _);
 pub const JET_dbstateBeingConverted: u32 = 4;
 pub const JET_dbstateCleanShutdown: u32 = 3;
 pub const JET_dbstateDirtyShutdown: u32 = 2;

@@ -588,437 +588,51 @@ pub const MAX_HOSTNAME_LEN: u32 = 128;
 pub const MAX_SCOPE_ID_LEN: u32 = 256;
 pub const MIXED_NODETYPE: u32 = 4;
 pub const PEER_TO_PEER_NODETYPE: u32 = 2;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFIXED_INFO(pub *mut FIXED_INFO_W2KSP1);
-impl PFIXED_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFIXED_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFIXED_INFO_W2KSP1(pub *mut FIXED_INFO_W2KSP1);
-impl PFIXED_INFO_W2KSP1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFIXED_INFO_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFIXED_INFO = *mut FIXED_INFO_W2KSP1;
+pub type PFIXED_INFO_W2KSP1 = *mut FIXED_INFO_W2KSP1;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ADDRESSES(pub *mut IP_ADAPTER_ADDRESSES_LH);
+pub type PIP_ADAPTER_ADDRESSES = *mut IP_ADAPTER_ADDRESSES_LH;
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl PIP_ADAPTER_ADDRESSES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl Default for PIP_ADAPTER_ADDRESSES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ADDRESSES_LH(pub *mut IP_ADAPTER_ADDRESSES_LH);
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl PIP_ADAPTER_ADDRESSES_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl Default for PIP_ADAPTER_ADDRESSES_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_ADDRESSES_LH = *mut IP_ADAPTER_ADDRESSES_LH;
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ADDRESSES_XP(pub *mut IP_ADAPTER_ADDRESSES_XP);
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl PIP_ADAPTER_ADDRESSES_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
-impl Default for PIP_ADAPTER_ADDRESSES_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_ADDRESSES_XP = *mut IP_ADAPTER_ADDRESSES_XP;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ANYCAST_ADDRESS(pub *mut IP_ADAPTER_ANYCAST_ADDRESS_XP);
+pub type PIP_ADAPTER_ANYCAST_ADDRESS = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-impl PIP_ADAPTER_ANYCAST_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIP_ADAPTER_ANYCAST_ADDRESS_XP = *mut IP_ADAPTER_ANYCAST_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_ANYCAST_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_DNS_SERVER_ADDRESS = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_ANYCAST_ADDRESS_XP(pub *mut IP_ADAPTER_ANYCAST_ADDRESS_XP);
+pub type PIP_ADAPTER_DNS_SERVER_ADDRESS_XP = *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP;
+pub type PIP_ADAPTER_DNS_SUFFIX = *mut IP_ADAPTER_DNS_SUFFIX;
 #[cfg(feature = "ws2")]
-impl PIP_ADAPTER_ANYCAST_ADDRESS_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIP_ADAPTER_GATEWAY_ADDRESS = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
 #[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_ANYCAST_ADDRESS_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_DNS_SERVER_ADDRESS(pub *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_DNS_SERVER_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_DNS_SERVER_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_DNS_SERVER_ADDRESS_XP(pub *mut IP_ADAPTER_DNS_SERVER_ADDRESS_XP);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_DNS_SERVER_ADDRESS_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_DNS_SERVER_ADDRESS_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_DNS_SUFFIX(pub *mut IP_ADAPTER_DNS_SUFFIX);
-impl PIP_ADAPTER_DNS_SUFFIX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_ADAPTER_DNS_SUFFIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_GATEWAY_ADDRESS(pub *mut IP_ADAPTER_GATEWAY_ADDRESS_LH);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_GATEWAY_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_GATEWAY_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_GATEWAY_ADDRESS_LH(pub *mut IP_ADAPTER_GATEWAY_ADDRESS_LH);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_GATEWAY_ADDRESS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_GATEWAY_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_GATEWAY_ADDRESS_LH = *mut IP_ADAPTER_GATEWAY_ADDRESS_LH;
 #[cfg(feature = "corecrt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_INFO(pub *mut IP_ADAPTER_INFO);
-#[cfg(feature = "corecrt")]
-impl PIP_ADAPTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "corecrt")]
-impl Default for PIP_ADAPTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_INFO = *mut IP_ADAPTER_INFO;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_MULTICAST_ADDRESS(pub *mut IP_ADAPTER_MULTICAST_ADDRESS_XP);
+pub type PIP_ADAPTER_MULTICAST_ADDRESS = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-impl PIP_ADAPTER_MULTICAST_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIP_ADAPTER_MULTICAST_ADDRESS_XP = *mut IP_ADAPTER_MULTICAST_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_MULTICAST_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_PREFIX = *mut IP_ADAPTER_PREFIX_XP;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_MULTICAST_ADDRESS_XP(pub *mut IP_ADAPTER_MULTICAST_ADDRESS_XP);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_MULTICAST_ADDRESS_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_MULTICAST_ADDRESS_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_PREFIX(pub *mut IP_ADAPTER_PREFIX_XP);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_PREFIX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_PREFIX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_PREFIX_XP(pub *mut IP_ADAPTER_PREFIX_XP);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_PREFIX_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_PREFIX_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_PREFIX_XP = *mut IP_ADAPTER_PREFIX_XP;
 #[cfg(all(feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_UNICAST_ADDRESS(pub *mut IP_ADAPTER_UNICAST_ADDRESS_LH);
+pub type PIP_ADAPTER_UNICAST_ADDRESS = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
 #[cfg(all(feature = "nldef", feature = "ws2"))]
-impl PIP_ADAPTER_UNICAST_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PIP_ADAPTER_UNICAST_ADDRESS_LH = *mut IP_ADAPTER_UNICAST_ADDRESS_LH;
 #[cfg(all(feature = "nldef", feature = "ws2"))]
-impl Default for PIP_ADAPTER_UNICAST_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_UNICAST_ADDRESS_LH(pub *mut IP_ADAPTER_UNICAST_ADDRESS_LH);
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-impl PIP_ADAPTER_UNICAST_ADDRESS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-impl Default for PIP_ADAPTER_UNICAST_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_UNICAST_ADDRESS_XP(pub *mut IP_ADAPTER_UNICAST_ADDRESS_XP);
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-impl PIP_ADAPTER_UNICAST_ADDRESS_XP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "nldef", feature = "ws2"))]
-impl Default for PIP_ADAPTER_UNICAST_ADDRESS_XP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_UNICAST_ADDRESS_XP = *mut IP_ADAPTER_UNICAST_ADDRESS_XP;
 #[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_WINS_SERVER_ADDRESS(pub *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH);
+pub type PIP_ADAPTER_WINS_SERVER_ADDRESS = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
 #[cfg(feature = "ws2")]
-impl PIP_ADAPTER_WINS_SERVER_ADDRESS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_WINS_SERVER_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "ws2")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADAPTER_WINS_SERVER_ADDRESS_LH(pub *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH);
-#[cfg(feature = "ws2")]
-impl PIP_ADAPTER_WINS_SERVER_ADDRESS_LH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "ws2")]
-impl Default for PIP_ADAPTER_WINS_SERVER_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADDRESS_STRING(pub *mut IP_MASK_STRING);
-impl PIP_ADDRESS_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_ADDRESS_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_ADDR_STRING(pub *mut IP_ADDR_STRING);
-impl PIP_ADDR_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_ADDR_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_INTERFACE_NAME_INFO(pub *mut IP_INTERFACE_NAME_INFO_W2KSP1);
-impl PIP_INTERFACE_NAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_INTERFACE_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_INTERFACE_NAME_INFO_W2KSP1(pub *mut IP_INTERFACE_NAME_INFO_W2KSP1);
-impl PIP_INTERFACE_NAME_INFO_W2KSP1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_INTERFACE_NAME_INFO_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_MASK_STRING(pub *mut IP_MASK_STRING);
-impl PIP_MASK_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_MASK_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_PER_ADAPTER_INFO(pub *mut IP_PER_ADAPTER_INFO_W2KSP1);
-impl PIP_PER_ADAPTER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_PER_ADAPTER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIP_PER_ADAPTER_INFO_W2KSP1(pub *mut IP_PER_ADAPTER_INFO_W2KSP1);
-impl PIP_PER_ADAPTER_INFO_W2KSP1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIP_PER_ADAPTER_INFO_W2KSP1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PIP_ADAPTER_WINS_SERVER_ADDRESS_LH = *mut IP_ADAPTER_WINS_SERVER_ADDRESS_LH;
+pub type PIP_ADDRESS_STRING = *mut IP_MASK_STRING;
+pub type PIP_ADDR_STRING = *mut IP_ADDR_STRING;
+pub type PIP_INTERFACE_NAME_INFO = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
+pub type PIP_INTERFACE_NAME_INFO_W2KSP1 = *mut IP_INTERFACE_NAME_INFO_W2KSP1;
+pub type PIP_MASK_STRING = *mut IP_MASK_STRING;
+pub type PIP_PER_ADAPTER_INFO = *mut IP_PER_ADAPTER_INFO_W2KSP1;
+pub type PIP_PER_ADAPTER_INFO_W2KSP1 = *mut IP_PER_ADAPTER_INFO_W2KSP1;

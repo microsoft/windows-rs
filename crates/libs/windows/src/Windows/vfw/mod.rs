@@ -1208,9 +1208,7 @@ pub const FIND_RET: u32 = 61440;
 pub const FIND_SIZE: u32 = 12288;
 pub const FIND_TYPE: u32 = 240;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct HDRAWDIB(pub super::winnt::HANDLE);
+pub type HDRAWDIB = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIC(pub *mut core::ffi::c_void);
@@ -2165,193 +2163,25 @@ impl IGetFrame_Vtbl {
 }
 #[cfg(feature = "wingdi")]
 impl windows_core::RuntimeName for IGetFrame {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAVICOMPRESSOPTIONS(pub *mut AVICOMPRESSOPTIONS);
-impl LPAVICOMPRESSOPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAVICOMPRESSOPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAVIFILEINFOA(pub *mut AVIFILEINFOA);
-impl LPAVIFILEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAVIFILEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAVIFILEINFOW(pub *mut AVIFILEINFOW);
-impl LPAVIFILEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAVIFILEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAVICOMPRESSOPTIONS = *mut AVICOMPRESSOPTIONS;
+pub type LPAVIFILEINFOA = *mut AVIFILEINFOA;
+pub type LPAVIFILEINFOW = *mut AVIFILEINFOW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAVISTREAMINFOA(pub *mut AVISTREAMINFOA);
+pub type LPAVISTREAMINFOA = *mut AVISTREAMINFOA;
 #[cfg(feature = "windef")]
-impl LPAVISTREAMINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPAVISTREAMINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAVISTREAMINFOW(pub *mut AVISTREAMINFOW);
-#[cfg(feature = "windef")]
-impl LPAVISTREAMINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPAVISTREAMINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPAVISTREAMINFOW = *mut AVISTREAMINFOW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCAPDRIVERCAPS(pub *mut CAPDRIVERCAPS);
-#[cfg(feature = "winnt")]
-impl LPCAPDRIVERCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPCAPDRIVERCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCAPDRIVERCAPS = *mut CAPDRIVERCAPS;
 #[cfg(feature = "mmiscapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCAPINFOCHUNK(pub *mut CAPINFOCHUNK);
-#[cfg(feature = "mmiscapi")]
-impl LPCAPINFOCHUNK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmiscapi")]
-impl Default for LPCAPINFOCHUNK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCAPINFOCHUNK = *mut CAPINFOCHUNK;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCAPSTATUS(pub *mut CAPSTATUS);
-#[cfg(feature = "windef")]
-impl LPCAPSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPCAPSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCAPTUREPARMS(pub *mut CAPTUREPARMS);
-impl LPCAPTUREPARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCAPTUREPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHANNEL_CAPS(pub *mut CHANNEL_CAPS);
-impl LPCHANNEL_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCHANNEL_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDRAWDIBTIME(pub *mut DRAWDIBTIME);
-impl LPDRAWDIBTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDRAWDIBTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHVIDEO(pub *mut HVIDEO);
-impl LPHVIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHVIDEO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCAPSTATUS = *mut CAPSTATUS;
+pub type LPCAPTUREPARMS = *mut CAPTUREPARMS;
+pub type LPCHANNEL_CAPS = *mut CHANNEL_CAPS;
+pub type LPDRAWDIBTIME = *mut DRAWDIBTIME;
+pub type LPHVIDEO = *mut HVIDEO;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPVIDEOHDR(pub *mut VIDEOHDR);
-#[cfg(feature = "minwindef")]
-impl LPVIDEOHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPVIDEOHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPVIDEOHDR = *mut VIDEOHDR;
 pub const MCIWNDF_NOAUTOSIZEMOVIE: u32 = 4;
 pub const MCIWNDF_NOAUTOSIZEWINDOW: u32 = 1;
 pub const MCIWNDF_NOERRORDLG: u32 = 16384;
@@ -2475,116 +2305,22 @@ impl Default for MainAVIHeader {
     }
 }
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCAPDRIVERCAPS(pub *mut CAPDRIVERCAPS);
-#[cfg(feature = "winnt")]
-impl PCAPDRIVERCAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCAPDRIVERCAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCAPDRIVERCAPS = *mut CAPDRIVERCAPS;
 #[cfg(feature = "mmiscapi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCAPINFOCHUNK(pub *mut CAPINFOCHUNK);
-#[cfg(feature = "mmiscapi")]
-impl PCAPINFOCHUNK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "mmiscapi")]
-impl Default for PCAPINFOCHUNK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCAPINFOCHUNK = *mut CAPINFOCHUNK;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCAPSTATUS(pub *mut CAPSTATUS);
-#[cfg(feature = "windef")]
-impl PCAPSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PCAPSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCAPTUREPARMS(pub *mut CAPTUREPARMS);
-impl PCAPTUREPARMS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCAPTUREPARMS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCHANNEL_CAPS(pub *mut CHANNEL_CAPS);
-impl PCHANNEL_CAPS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCHANNEL_CAPS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCAPSTATUS = *mut CAPSTATUS;
+pub type PCAPTUREPARMS = *mut CAPTUREPARMS;
+pub type PCHANNEL_CAPS = *mut CHANNEL_CAPS;
 #[cfg(feature = "wingdi")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOMPVARS(pub *mut COMPVARS);
-#[cfg(feature = "wingdi")]
-impl PCOMPVARS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wingdi")]
-impl Default for PCOMPVARS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOMPVARS = *mut COMPVARS;
 pub const PD_CAN_DRAW_DIB: u32 = 1;
 pub const PD_CAN_STRETCHDIB: u32 = 2;
 pub const PD_STRETCHDIB_1_1_OK: u32 = 4;
 pub const PD_STRETCHDIB_1_2_OK: u32 = 8;
 pub const PD_STRETCHDIB_1_N_OK: u32 = 16;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVIDEOHDR(pub *mut VIDEOHDR);
-#[cfg(feature = "minwindef")]
-impl PVIDEOHDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for PVIDEOHDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVIDEOHDR = *mut VIDEOHDR;
 pub const SEARCH_ANY: u32 = 32;
 pub const SEARCH_BACKWARD: u32 = 4;
 pub const SEARCH_FORWARD: u32 = 1;

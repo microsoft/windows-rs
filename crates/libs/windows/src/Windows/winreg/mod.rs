@@ -811,92 +811,16 @@ pub const HKEY_PERFORMANCE_TEXT: super::minwindef::HKEY = super::minwindef::HKEY
 #[cfg(feature = "minwindef")]
 pub const HKEY_USERS: super::minwindef::HKEY = super::minwindef::HKEY(-2147483645 as _);
 pub const MAX_SHUTDOWN_TIMEOUT: u32 = 315360000;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROVIDER(pub *mut REG_PROVIDER);
-impl PPROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROVIDER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPVALUE(pub PPVALUEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPVALUEA(pub *mut PVALUEA);
-impl PPVALUEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPVALUEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPVALUEW(pub *mut PVALUEW);
-impl PPVALUEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPVALUEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPROVIDER = *mut REG_PROVIDER;
+pub type PPVALUE = PPVALUEA;
+pub type PPVALUEA = *mut PVALUEA;
+pub type PPVALUEW = *mut PVALUEW;
 pub type PQUERYHANDLER = Option<unsafe extern "C" fn(keycontext: *mut core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVALCONTEXT(pub *mut val_context);
-impl PVALCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVALCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PVALENT(pub PVALENTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVALENTA(pub *mut VALENTA);
-impl PVALENTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVALENTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVALENTW(pub *mut VALENTW);
-impl PVALENTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVALENTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVALCONTEXT = *mut val_context;
+pub type PVALENT = PVALENTA;
+pub type PVALENTA = *mut VALENTA;
+pub type PVALENTW = *mut VALENTW;
 pub type PVALUE = PVALUEA;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -935,9 +859,7 @@ pub const REASON_SWINSTALL: u32 = 196610;
 pub const REASON_UNKNOWN: u32 = 255;
 pub const REASON_UNSTABLE: u32 = 327686;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct REGSAM(pub super::winnt::ACCESS_MASK);
+pub type REGSAM = super::winnt::ACCESS_MASK;
 pub const REG_ALLOW_TRANSPORT_FALLBACK: u32 = 2;
 pub const REG_ALLOW_UNSECURE_CONNECTION: u32 = 4;
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1;

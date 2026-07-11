@@ -19,29 +19,5 @@ impl Default for IN6_ADDR_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPIN6_ADDR(pub *mut IN6_ADDR);
-impl LPIN6_ADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPIN6_ADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PIN6_ADDR(pub *mut IN6_ADDR);
-impl PIN6_ADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PIN6_ADDR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPIN6_ADDR = *mut IN6_ADDR;
+pub type PIN6_ADDR = *mut IN6_ADDR;

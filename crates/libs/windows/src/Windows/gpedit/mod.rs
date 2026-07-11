@@ -637,21 +637,7 @@ impl IRSOPInformation_Vtbl {
 }
 impl windows_core::RuntimeName for IRSOPInformation {}
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGPOBROWSEINFO(pub *mut GPOBROWSEINFO);
-#[cfg(feature = "windef")]
-impl LPGPOBROWSEINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPGPOBROWSEINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPGPOBROWSEINFO = *mut GPOBROWSEINFO;
 pub const NODEID_Machine: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b737_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_MachineSWSettings: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b73a_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_RSOPMachine: windows_core::GUID = windows_core::GUID::from_u128(0xbd4c1a2e_0b7a_4a62_a6b0_c0577539c97e);
@@ -660,30 +646,6 @@ pub const NODEID_RSOPUser: windows_core::GUID = windows_core::GUID::from_u128(0x
 pub const NODEID_RSOPUserSWSettings: windows_core::GUID = windows_core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
 pub const NODEID_User: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_UserSWSettings: windows_core::GUID = windows_core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_POLICY_HINT_TYPE(pub *mut GROUP_POLICY_HINT_TYPE);
-impl PGROUP_POLICY_HINT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGROUP_POLICY_HINT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGROUP_POLICY_OBJECT_TYPE(pub *mut GROUP_POLICY_OBJECT_TYPE);
-impl PGROUP_POLICY_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGROUP_POLICY_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PGROUP_POLICY_HINT_TYPE = *mut GROUP_POLICY_HINT_TYPE;
+pub type PGROUP_POLICY_OBJECT_TYPE = *mut GROUP_POLICY_OBJECT_TYPE;
 pub const RSOP_INFO_FLAG_DIAGNOSTIC_MODE: u32 = 1;

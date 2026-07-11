@@ -139,136 +139,16 @@ pub const NLS_IME_DISABLE: u32 = 536870912;
 pub const NLS_KATAKANA: u32 = 131072;
 pub const NLS_ROMAN: u32 = 4194304;
 pub const NUMLOCK_ON: u32 = 32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCHAR_INFO(pub *mut CHAR_INFO);
-impl PCHAR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCHAR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_FONT_INFO(pub *mut CONSOLE_FONT_INFO);
-impl PCONSOLE_FONT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONSOLE_FONT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOORD(pub *mut COORD);
-impl PCOORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFOCUS_EVENT_RECORD(pub *mut FOCUS_EVENT_RECORD);
-impl PFOCUS_EVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFOCUS_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PINPUT_RECORD(pub *mut INPUT_RECORD);
-impl PINPUT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PINPUT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PKEY_EVENT_RECORD(pub *mut KEY_EVENT_RECORD);
-impl PKEY_EVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PKEY_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMENU_EVENT_RECORD(pub *mut MENU_EVENT_RECORD);
-impl PMENU_EVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMENU_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMOUSE_EVENT_RECORD(pub *mut MOUSE_EVENT_RECORD);
-impl PMOUSE_EVENT_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMOUSE_EVENT_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSMALL_RECT(pub *mut SMALL_RECT);
-impl PSMALL_RECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSMALL_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWINDOW_BUFFER_SIZE_RECORD(pub *mut WINDOW_BUFFER_SIZE_RECORD);
-impl PWINDOW_BUFFER_SIZE_RECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWINDOW_BUFFER_SIZE_RECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCHAR_INFO = *mut CHAR_INFO;
+pub type PCONSOLE_FONT_INFO = *mut CONSOLE_FONT_INFO;
+pub type PCOORD = *mut COORD;
+pub type PFOCUS_EVENT_RECORD = *mut FOCUS_EVENT_RECORD;
+pub type PINPUT_RECORD = *mut INPUT_RECORD;
+pub type PKEY_EVENT_RECORD = *mut KEY_EVENT_RECORD;
+pub type PMENU_EVENT_RECORD = *mut MENU_EVENT_RECORD;
+pub type PMOUSE_EVENT_RECORD = *mut MOUSE_EVENT_RECORD;
+pub type PSMALL_RECT = *mut SMALL_RECT;
+pub type PWINDOW_BUFFER_SIZE_RECORD = *mut WINDOW_BUFFER_SIZE_RECORD;
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2;
 pub const RIGHT_ALT_PRESSED: u32 = 1;
 pub const RIGHT_CTRL_PRESSED: u32 = 4;

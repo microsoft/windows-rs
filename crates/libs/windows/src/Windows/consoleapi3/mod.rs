@@ -263,47 +263,7 @@ pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2;
 pub const CONSOLE_WINDOWED_MODE: u32 = 2;
 pub const HISTORY_NO_DUP_FLAG: u32 = 1;
 #[cfg(feature = "wincontypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_FONT_INFOEX(pub *mut CONSOLE_FONT_INFOEX);
+pub type PCONSOLE_FONT_INFOEX = *mut CONSOLE_FONT_INFOEX;
+pub type PCONSOLE_HISTORY_INFO = *mut CONSOLE_HISTORY_INFO;
 #[cfg(feature = "wincontypes")]
-impl PCONSOLE_FONT_INFOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincontypes")]
-impl Default for PCONSOLE_FONT_INFOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_HISTORY_INFO(pub *mut CONSOLE_HISTORY_INFO);
-impl PCONSOLE_HISTORY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCONSOLE_HISTORY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "wincontypes")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONSOLE_SELECTION_INFO(pub *mut CONSOLE_SELECTION_INFO);
-#[cfg(feature = "wincontypes")]
-impl PCONSOLE_SELECTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "wincontypes")]
-impl Default for PCONSOLE_SELECTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCONSOLE_SELECTION_INFO = *mut CONSOLE_SELECTION_INFO;

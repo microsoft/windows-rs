@@ -4513,182 +4513,28 @@ pub const LOGON32_PROVIDER_WINNT50: u32 = 3;
 pub const LOGON_NETCREDENTIALS_ONLY: u32 = 2;
 pub const LOGON_WITH_PROFILE: u32 = 1;
 pub const LOGON_ZERO_PASSWORD_BUFFER: u32 = 2147483648;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMMCONFIG(pub *mut COMMCONFIG);
-impl LPCOMMCONFIG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMMCONFIG {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMMPROP(pub *mut COMMPROP);
-impl LPCOMMPROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMMPROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMMTIMEOUTS(pub *mut COMMTIMEOUTS);
-impl LPCOMMTIMEOUTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMMTIMEOUTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOMSTAT(pub *mut COMSTAT);
-impl LPCOMSTAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOMSTAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDCB(pub *mut DCB);
-impl LPDCB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEVENTLOG_FULL_INFORMATION(pub *mut EVENTLOG_FULL_INFORMATION);
-impl LPEVENTLOG_FULL_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEVENTLOG_FULL_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCOMMCONFIG = *mut COMMCONFIG;
+pub type LPCOMMPROP = *mut COMMPROP;
+pub type LPCOMMTIMEOUTS = *mut COMMTIMEOUTS;
+pub type LPCOMSTAT = *mut COMSTAT;
+pub type LPDCB = *mut DCB;
+pub type LPEVENTLOG_FULL_INFORMATION = *mut EVENTLOG_FULL_INFORMATION;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPEXCEPTION_POINTERS(pub super::winnt::PEXCEPTION_POINTERS);
+pub type LPEXCEPTION_POINTERS = super::winnt::PEXCEPTION_POINTERS;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPEXCEPTION_RECORD(pub super::winnt::PEXCEPTION_RECORD);
+pub type LPEXCEPTION_RECORD = super::winnt::PEXCEPTION_RECORD;
 pub type LPFIBER_START_ROUTINE = PFIBER_START_ROUTINE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFILE_ID_DESCRIPTOR(pub *mut FILE_ID_DESCRIPTOR);
-#[cfg(feature = "winnt")]
-impl LPFILE_ID_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPFILE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPHW_PROFILE_INFO(pub LPHW_PROFILE_INFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHW_PROFILE_INFOA(pub *mut HW_PROFILE_INFOA);
-impl LPHW_PROFILE_INFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHW_PROFILE_INFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHW_PROFILE_INFOW(pub *mut HW_PROFILE_INFOW);
-impl LPHW_PROFILE_INFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPHW_PROFILE_INFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJIT_DEBUG_INFO(pub *mut JIT_DEBUG_INFO);
-impl LPJIT_DEBUG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJIT_DEBUG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJIT_DEBUG_INFO32(pub *mut JIT_DEBUG_INFO);
-impl LPJIT_DEBUG_INFO32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJIT_DEBUG_INFO32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPJIT_DEBUG_INFO64(pub *mut JIT_DEBUG_INFO);
-impl LPJIT_DEBUG_INFO64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPJIT_DEBUG_INFO64 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFILE_ID_DESCRIPTOR = *mut FILE_ID_DESCRIPTOR;
+pub type LPHW_PROFILE_INFO = LPHW_PROFILE_INFOA;
+pub type LPHW_PROFILE_INFOA = *mut HW_PROFILE_INFOA;
+pub type LPHW_PROFILE_INFOW = *mut HW_PROFILE_INFOW;
+pub type LPJIT_DEBUG_INFO = *mut JIT_DEBUG_INFO;
+pub type LPJIT_DEBUG_INFO32 = *mut JIT_DEBUG_INFO;
+pub type LPJIT_DEBUG_INFO64 = *mut JIT_DEBUG_INFO;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPLDT_ENTRY(pub super::winnt::PLDT_ENTRY);
+pub type LPLDT_ENTRY = super::winnt::PLDT_ENTRY;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -4705,113 +4551,21 @@ impl Default for LPLDT_ENTRY {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMEMORYSTATUS(pub *mut MEMORYSTATUS);
-impl LPMEMORYSTATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMEMORYSTATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOFSTRUCT(pub *mut OFSTRUCT);
-impl LPOFSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPOFSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMEMORYSTATUS = *mut MEMORYSTATUS;
+pub type LPOFSTRUCT = *mut OFSTRUCT;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOWER_REQUEST_CONTEXT(pub *mut super::minwinbase::REASON_CONTEXT);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl LPPOWER_REQUEST_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for LPPOWER_REQUEST_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPOWER_REQUEST_CONTEXT = *mut super::minwinbase::REASON_CONTEXT;
 #[cfg(feature = "winnt")]
 pub type LPPROGRESS_ROUTINE = Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: u32, hsourcefile: super::winnt::HANDLE, hdestinationfile: super::winnt::HANDLE, lpdata: *const core::ffi::c_void) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSTARTUPINFOEX(pub LPSTARTUPINFOEXA);
+pub type LPSTARTUPINFOEX = LPSTARTUPINFOEXA;
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTARTUPINFOEXA(pub *mut STARTUPINFOEXA);
+pub type LPSTARTUPINFOEXA = *mut STARTUPINFOEXA;
 #[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl LPSTARTUPINFOEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl Default for LPSTARTUPINFOEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSTARTUPINFOEXW(pub *mut STARTUPINFOEXW);
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl LPSTARTUPINFOEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "processthreadsapi", feature = "winnt"))]
-impl Default for LPSTARTUPINFOEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPSYSTEM_POWER_STATUS(pub *mut SYSTEM_POWER_STATUS);
-impl LPSYSTEM_POWER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPSYSTEM_POWER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPSTARTUPINFOEXW = *mut STARTUPINFOEXW;
+pub type LPSYSTEM_POWER_STATUS = *mut SYSTEM_POWER_STATUS;
 pub const LPTx: u32 = 128;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWIN32_STREAM_ID(pub *mut WIN32_STREAM_ID);
-impl LPWIN32_STREAM_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWIN32_STREAM_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWIN32_STREAM_ID = *mut WIN32_STREAM_ID;
 pub const MARKPARITY: u32 = 3;
 pub const MAXINTATOM: u32 = 49152;
 pub const MAX_COMPUTERNAME_LENGTH: u32 = 15;
@@ -4905,204 +4659,36 @@ pub const OPERATION_START_TRACE_CURRENT_THREAD: u32 = 1;
 pub const OVERWRITE_HIDDEN: u32 = 4;
 pub const ObjectIdType: FILE_ID_TYPE = 1;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PACTCTX(pub PACTCTXA);
+pub type PACTCTX = PACTCTXA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTCTXA(pub *mut ACTCTXA);
+pub type PACTCTXA = *mut ACTCTXA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PACTCTXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PACTCTXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTCTXW(pub *mut ACTCTXW);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PACTCTXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PACTCTXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTCTXW = *mut ACTCTXW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTCTX_SECTION_KEYED_DATA(pub *mut ACTCTX_SECTION_KEYED_DATA);
+pub type PACTCTX_SECTION_KEYED_DATA = *mut ACTCTX_SECTION_KEYED_DATA;
 #[cfg(feature = "winnt")]
-impl PACTCTX_SECTION_KEYED_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PACTCTX_SECTION_KEYED_DATA_2600 = *mut ACTCTX_SECTION_KEYED_DATA_2600;
+pub type PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = *mut ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA;
 #[cfg(feature = "winnt")]
-impl Default for PACTCTX_SECTION_KEYED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTCTX_SECTION_KEYED_DATA_2600(pub *mut ACTCTX_SECTION_KEYED_DATA_2600);
-#[cfg(feature = "winnt")]
-impl PACTCTX_SECTION_KEYED_DATA_2600 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTCTX_SECTION_KEYED_DATA_2600 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(pub *mut ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA);
-impl PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PACTIVATION_CONTEXT_BASIC_INFORMATION(pub *mut ACTIVATION_CONTEXT_BASIC_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PACTIVATION_CONTEXT_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PACTIVATION_CONTEXT_BASIC_INFORMATION = *mut ACTIVATION_CONTEXT_BASIC_INFORMATION;
 pub const PARITY_EVEN: u16 = 1024;
 pub const PARITY_MARK: u16 = 2048;
 pub const PARITY_NONE: u16 = 256;
 pub const PARITY_ODD: u16 = 512;
 pub const PARITY_SPACE: u16 = 4096;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCACTCTX(pub PCACTCTXA);
+pub type PCACTCTX = PCACTCTXA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTCTXA(pub *const ACTCTXA);
+pub type PCACTCTXA = *const ACTCTXA;
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PCACTCTXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PCACTCTXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTCTXW(pub *const ACTCTXW);
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl PCACTCTXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "winnt"))]
-impl Default for PCACTCTXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCACTCTXW = *const ACTCTXW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTCTX_SECTION_KEYED_DATA(pub *const ACTCTX_SECTION_KEYED_DATA);
+pub type PCACTCTX_SECTION_KEYED_DATA = *const ACTCTX_SECTION_KEYED_DATA;
 #[cfg(feature = "winnt")]
-impl PCACTCTX_SECTION_KEYED_DATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PCACTCTX_SECTION_KEYED_DATA_2600 = *const ACTCTX_SECTION_KEYED_DATA_2600;
+pub type PCACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA = *const ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA;
 #[cfg(feature = "winnt")]
-impl Default for PCACTCTX_SECTION_KEYED_DATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTCTX_SECTION_KEYED_DATA_2600(pub *const ACTCTX_SECTION_KEYED_DATA_2600);
-#[cfg(feature = "winnt")]
-impl PCACTCTX_SECTION_KEYED_DATA_2600 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCACTCTX_SECTION_KEYED_DATA_2600 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA(pub *const ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA);
-impl PCACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCACTIVATION_CONTEXT_BASIC_INFORMATION(pub *const ACTIVATION_CONTEXT_BASIC_INFORMATION);
-#[cfg(feature = "winnt")]
-impl PCACTIVATION_CONTEXT_BASIC_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCACTIVATION_CONTEXT_BASIC_INFORMATION = *const ACTIVATION_CONTEXT_BASIC_INFORMATION;
 pub const PCF_16BITMODE: u32 = 512;
 pub const PCF_DTRDSR: u32 = 1;
 pub const PCF_INTTIMEOUTS: u32 = 128;
@@ -5113,310 +4699,38 @@ pub const PCF_SETXCHAR: u32 = 32;
 pub const PCF_SPECIALCHARS: u32 = 256;
 pub const PCF_TOTALTIMEOUTS: u32 = 64;
 pub const PCF_XONXOFF: u32 = 16;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOPYFILE2_CREATE_OPLOCK_KEYS(pub *mut COPYFILE2_CREATE_OPLOCK_KEYS);
-impl PCOPYFILE2_CREATE_OPLOCK_KEYS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOPYFILE2_CREATE_OPLOCK_KEYS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCOPYFILE2_CREATE_OPLOCK_KEYS = *mut COPYFILE2_CREATE_OPLOCK_KEYS;
 #[cfg(feature = "winnt")]
 pub type PCOPYFILE2_PROGRESS_ROUTINE = Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
 pub type PFE_EXPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const core::ffi::c_void, ullength: u32) -> u32>;
 pub type PFE_IMPORT_FUNC = Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const core::ffi::c_void, ullength: *mut u32) -> u32>;
 pub type PFIBER_CALLOUT_ROUTINE = Option<unsafe extern "system" fn(lpparameter: *mut core::ffi::c_void) -> *mut core::ffi::c_void>;
 pub type PFIBER_START_ROUTINE = Option<unsafe extern "system" fn(lpfiberparameter: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ALIGNMENT_INFO(pub *mut FILE_ALIGNMENT_INFO);
-impl PFILE_ALIGNMENT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_ALIGNMENT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ALLOCATION_INFO(pub *mut FILE_ALLOCATION_INFO);
-impl PFILE_ALLOCATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_ALLOCATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ATTRIBUTE_TAG_INFO(pub *mut FILE_ATTRIBUTE_TAG_INFO);
-impl PFILE_ATTRIBUTE_TAG_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_ATTRIBUTE_TAG_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_BASIC_INFO(pub *mut FILE_BASIC_INFO);
-impl PFILE_BASIC_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_BASIC_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_CASE_SENSITIVE_INFO(pub *mut FILE_CASE_SENSITIVE_INFO);
-impl PFILE_CASE_SENSITIVE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_CASE_SENSITIVE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_COMPRESSION_INFO(pub *mut FILE_COMPRESSION_INFO);
-impl PFILE_COMPRESSION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_COMPRESSION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_DISPOSITION_INFO(pub *mut FILE_DISPOSITION_INFO);
-impl PFILE_DISPOSITION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_DISPOSITION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_DISPOSITION_INFO_EX(pub *mut FILE_DISPOSITION_INFO_EX);
-impl PFILE_DISPOSITION_INFO_EX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_DISPOSITION_INFO_EX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_END_OF_FILE_INFO(pub *mut FILE_END_OF_FILE_INFO);
-impl PFILE_END_OF_FILE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_END_OF_FILE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_FULL_DIR_INFO(pub *mut FILE_FULL_DIR_INFO);
-impl PFILE_FULL_DIR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_FULL_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_ALIGNMENT_INFO = *mut FILE_ALIGNMENT_INFO;
+pub type PFILE_ALLOCATION_INFO = *mut FILE_ALLOCATION_INFO;
+pub type PFILE_ATTRIBUTE_TAG_INFO = *mut FILE_ATTRIBUTE_TAG_INFO;
+pub type PFILE_BASIC_INFO = *mut FILE_BASIC_INFO;
+pub type PFILE_CASE_SENSITIVE_INFO = *mut FILE_CASE_SENSITIVE_INFO;
+pub type PFILE_COMPRESSION_INFO = *mut FILE_COMPRESSION_INFO;
+pub type PFILE_DISPOSITION_INFO = *mut FILE_DISPOSITION_INFO;
+pub type PFILE_DISPOSITION_INFO_EX = *mut FILE_DISPOSITION_INFO_EX;
+pub type PFILE_END_OF_FILE_INFO = *mut FILE_END_OF_FILE_INFO;
+pub type PFILE_FULL_DIR_INFO = *mut FILE_FULL_DIR_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ID_BOTH_DIR_INFO(pub *mut FILE_ID_BOTH_DIR_INFO);
+pub type PFILE_ID_BOTH_DIR_INFO = *mut FILE_ID_BOTH_DIR_INFO;
 #[cfg(feature = "winnt")]
-impl PFILE_ID_BOTH_DIR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PFILE_ID_EXTD_DIR_INFO = *mut FILE_ID_EXTD_DIR_INFO;
 #[cfg(feature = "winnt")]
-impl Default for PFILE_ID_BOTH_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_ID_INFO = *mut FILE_ID_INFO;
+pub type PFILE_ID_TYPE = *mut FILE_ID_TYPE;
+pub type PFILE_IO_PRIORITY_HINT_INFO = *mut FILE_IO_PRIORITY_HINT_INFO;
+pub type PFILE_NAME_INFO = *mut FILE_NAME_INFO;
+pub type PFILE_REMOTE_PROTOCOL_INFO = *mut FILE_REMOTE_PROTOCOL_INFO;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ID_EXTD_DIR_INFO(pub *mut FILE_ID_EXTD_DIR_INFO);
-#[cfg(feature = "winnt")]
-impl PFILE_ID_EXTD_DIR_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PFILE_ID_EXTD_DIR_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ID_INFO(pub *mut FILE_ID_INFO);
-#[cfg(feature = "winnt")]
-impl PFILE_ID_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PFILE_ID_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_ID_TYPE(pub *mut FILE_ID_TYPE);
-impl PFILE_ID_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_ID_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_IO_PRIORITY_HINT_INFO(pub *mut FILE_IO_PRIORITY_HINT_INFO);
-impl PFILE_IO_PRIORITY_HINT_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_IO_PRIORITY_HINT_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_NAME_INFO(pub *mut FILE_NAME_INFO);
-impl PFILE_NAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_NAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_REMOTE_PROTOCOL_INFO(pub *mut FILE_REMOTE_PROTOCOL_INFO);
-impl PFILE_REMOTE_PROTOCOL_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_REMOTE_PROTOCOL_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_RENAME_INFO(pub *mut FILE_RENAME_INFO);
-#[cfg(feature = "winnt")]
-impl PFILE_RENAME_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PFILE_RENAME_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_STANDARD_INFO(pub *mut FILE_STANDARD_INFO);
-impl PFILE_STANDARD_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_STANDARD_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_STORAGE_INFO(pub *mut FILE_STORAGE_INFO);
-impl PFILE_STORAGE_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_STORAGE_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFILE_STREAM_INFO(pub *mut FILE_STREAM_INFO);
-impl PFILE_STREAM_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFILE_STREAM_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFILE_RENAME_INFO = *mut FILE_RENAME_INFO;
+pub type PFILE_STANDARD_INFO = *mut FILE_STANDARD_INFO;
+pub type PFILE_STORAGE_INFO = *mut FILE_STORAGE_INFO;
+pub type PFILE_STREAM_INFO = *mut FILE_STREAM_INFO;
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = Option<unsafe extern "system" fn(lpbuffer: windows_core::PSTR, usize: u32) -> u32>;
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = Option<unsafe extern "system" fn(lpbuffer: windows_core::PWSTR, usize: u32) -> u32>;
 pub const PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
@@ -5433,89 +4747,15 @@ pub const PIPE_TYPE_BYTE: u32 = 0;
 pub const PIPE_TYPE_MESSAGE: u32 = 4;
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255;
 pub const PIPE_WAIT: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POFSTRUCT(pub *mut OFSTRUCT);
-impl POFSTRUCT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POFSTRUCT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPERATION_END_PARAMETERS(pub *mut OPERATION_END_PARAMETERS);
-impl POPERATION_END_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POPERATION_END_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POPERATION_START_PARAMETERS(pub *mut OPERATION_START_PARAMETERS);
-impl POPERATION_START_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for POPERATION_START_PARAMETERS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type POFSTRUCT = *mut OFSTRUCT;
+pub type POPERATION_END_PARAMETERS = *mut OPERATION_END_PARAMETERS;
+pub type POPERATION_START_PARAMETERS = *mut OPERATION_START_PARAMETERS;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 pub type POWER_REQUEST_CONTEXT = super::minwinbase::REASON_CONTEXT;
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOWER_REQUEST_CONTEXT(pub *mut super::minwinbase::REASON_CONTEXT);
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl PPOWER_REQUEST_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "minwindef"))]
-impl Default for PPOWER_REQUEST_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_CREATION_SME_VECTOR_LENGTH(pub *mut PROCESS_CREATION_SME_VECTOR_LENGTH);
-impl PPROCESS_CREATION_SME_VECTOR_LENGTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_CREATION_SME_VECTOR_LENGTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPROCESS_CREATION_SVE_VECTOR_LENGTH(pub *mut PROCESS_CREATION_SVE_VECTOR_LENGTH);
-impl PPROCESS_CREATION_SVE_VECTOR_LENGTH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPROCESS_CREATION_SVE_VECTOR_LENGTH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOWER_REQUEST_CONTEXT = *mut super::minwinbase::REASON_CONTEXT;
+pub type PPROCESS_CREATION_SME_VECTOR_LENGTH = *mut PROCESS_CREATION_SME_VECTOR_LENGTH;
+pub type PPROCESS_CREATION_SVE_VECTOR_LENGTH = *mut PROCESS_CREATION_SVE_VECTOR_LENGTH;
 #[cfg(feature = "winnt")]
 pub type PQUERYACTCTXW_FUNC = Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::winnt::HANDLE, pvsubinstance: *const core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> windows_core::BOOL>;
 pub type PRIORITY_HINT = i32;
@@ -5825,50 +5065,10 @@ impl Default for PUMS_CONTEXT {
 #[cfg(feature = "winnt")]
 pub type PUMS_SCHEDULER_ENTRY_POINT = super::winnt::PRTL_UMS_SCHEDULER_ENTRY_POINT;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUMS_SCHEDULER_STARTUP_INFO(pub *mut UMS_SCHEDULER_STARTUP_INFO);
+pub type PUMS_SCHEDULER_STARTUP_INFO = *mut UMS_SCHEDULER_STARTUP_INFO;
+pub type PUMS_SYSTEM_THREAD_INFORMATION = *mut UMS_SYSTEM_THREAD_INFORMATION;
 #[cfg(feature = "winnt")]
-impl PUMS_SCHEDULER_STARTUP_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PUMS_SCHEDULER_STARTUP_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUMS_SYSTEM_THREAD_INFORMATION(pub *mut UMS_SYSTEM_THREAD_INFORMATION);
-impl PUMS_SYSTEM_THREAD_INFORMATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PUMS_SYSTEM_THREAD_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PUMS_THREAD_INFO_CLASS(pub *mut super::winnt::RTL_UMS_THREAD_INFO_CLASS);
-#[cfg(feature = "winnt")]
-impl PUMS_THREAD_INFO_CLASS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PUMS_THREAD_INFO_CLASS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PUMS_THREAD_INFO_CLASS = *mut super::winnt::RTL_UMS_THREAD_INFO_CLASS;
 pub const PURGE_RXABORT: u32 = 2;
 pub const PURGE_RXCLEAR: u32 = 8;
 pub const PURGE_TXABORT: u32 = 1;

@@ -5674,369 +5674,41 @@ pub struct LOGPEN {
 }
 pub const LOGPIXELSX: u32 = 88;
 pub const LOGPIXELSY: u32 = 90;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPABC(pub *mut ABC);
-impl LPABC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPABC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPABCFLOAT(pub *mut ABCFLOAT);
-impl LPABCFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPABCFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPAXESLIST(pub LPAXESLISTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAXESLISTA(pub *mut AXESLISTA);
-impl LPAXESLISTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAXESLISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAXESLISTW(pub *mut AXESLISTW);
-impl LPAXESLISTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAXESLISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPAXISINFO(pub LPAXISINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAXISINFOA(pub *mut AXISINFOA);
-impl LPAXISINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAXISINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPAXISINFOW(pub *mut AXISINFOW);
-impl LPAXISINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPAXISINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAP(pub *mut BITMAP);
-impl LPBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPCOREHEADER(pub *mut BITMAPCOREHEADER);
-impl LPBITMAPCOREHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPCOREHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPCOREINFO(pub *mut BITMAPCOREINFO);
-impl LPBITMAPCOREINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPCOREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPFILEHEADER(pub *mut BITMAPFILEHEADER);
-impl LPBITMAPFILEHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPFILEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPINFO(pub *mut BITMAPINFO);
-impl LPBITMAPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPINFOHEADER(pub *mut BITMAPINFOHEADER);
-impl LPBITMAPINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPV4HEADER(pub *mut BITMAPV4HEADER);
-impl LPBITMAPV4HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPV4HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPBITMAPV5HEADER(pub *mut BITMAPV5HEADER);
-impl LPBITMAPV5HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPBITMAPV5HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHARSETINFO(pub *mut CHARSETINFO);
-impl LPCHARSETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCHARSETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCIEXYZ(pub *mut CIEXYZ);
-impl LPCIEXYZ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCIEXYZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCIEXYZTRIPLE(pub *mut CIEXYZTRIPLE);
-impl LPCIEXYZTRIPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCIEXYZTRIPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCOLORADJUSTMENT(pub *mut COLORADJUSTMENT);
-impl LPCOLORADJUSTMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPCOLORADJUSTMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDESIGNVECTOR(pub *mut DESIGNVECTOR);
-impl LPDESIGNVECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDESIGNVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPABC = *mut ABC;
+pub type LPABCFLOAT = *mut ABCFLOAT;
+pub type LPAXESLIST = LPAXESLISTA;
+pub type LPAXESLISTA = *mut AXESLISTA;
+pub type LPAXESLISTW = *mut AXESLISTW;
+pub type LPAXISINFO = LPAXISINFOA;
+pub type LPAXISINFOA = *mut AXISINFOA;
+pub type LPAXISINFOW = *mut AXISINFOW;
+pub type LPBITMAP = *mut BITMAP;
+pub type LPBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
+pub type LPBITMAPCOREINFO = *mut BITMAPCOREINFO;
+pub type LPBITMAPFILEHEADER = *mut BITMAPFILEHEADER;
+pub type LPBITMAPINFO = *mut BITMAPINFO;
+pub type LPBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
+pub type LPBITMAPV4HEADER = *mut BITMAPV4HEADER;
+pub type LPBITMAPV5HEADER = *mut BITMAPV5HEADER;
+pub type LPCHARSETINFO = *mut CHARSETINFO;
+pub type LPCIEXYZ = *mut CIEXYZ;
+pub type LPCIEXYZTRIPLE = *mut CIEXYZTRIPLE;
+pub type LPCOLORADJUSTMENT = *mut COLORADJUSTMENT;
+pub type LPDESIGNVECTOR = *mut DESIGNVECTOR;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDEVMODE(pub LPDEVMODEA);
+pub type LPDEVMODE = LPDEVMODEA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDEVMODEA(pub *mut DEVMODEA);
+pub type LPDEVMODEA = *mut DEVMODEA;
 #[cfg(feature = "windef")]
-impl LPDEVMODEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDEVMODEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDEVMODEW(pub *mut DEVMODEW);
-#[cfg(feature = "windef")]
-impl LPDEVMODEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPDEVMODEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDEVMODEW = *mut DEVMODEW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDIBSECTION(pub *mut DIBSECTION);
-#[cfg(feature = "winnt")]
-impl LPDIBSECTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPDIBSECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDISPLAY_DEVICE(pub LPDISPLAY_DEVICEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDISPLAY_DEVICEA(pub *mut DISPLAY_DEVICEA);
-impl LPDISPLAY_DEVICEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDISPLAY_DEVICEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDISPLAY_DEVICEW(pub *mut DISPLAY_DEVICEW);
-impl LPDISPLAY_DEVICEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDISPLAY_DEVICEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPDOCINFO(pub LPDOCINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOCINFOA(pub *mut DOCINFOA);
-impl LPDOCINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOCINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDOCINFOW(pub *mut DOCINFOW);
-impl LPDOCINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDOCINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDIBSECTION = *mut DIBSECTION;
+pub type LPDISPLAY_DEVICE = LPDISPLAY_DEVICEA;
+pub type LPDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
+pub type LPDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
+pub type LPDOCINFO = LPDOCINFOA;
+pub type LPDOCINFOA = *mut DOCINFOA;
+pub type LPDOCINFOW = *mut DOCINFOW;
 pub const LPD_DOUBLEBUFFER: u32 = 1;
 pub const LPD_SHARE_ACCUM: u32 = 256;
 pub const LPD_SHARE_DEPTH: u32 = 64;
@@ -6050,930 +5722,104 @@ pub const LPD_TRANSPARENT: u32 = 4096;
 pub const LPD_TYPE_COLORINDEX: u32 = 1;
 pub const LPD_TYPE_RGBA: u32 = 0;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENHMETAHEADER(pub *mut ENHMETAHEADER);
+pub type LPENHMETAHEADER = *mut ENHMETAHEADER;
+pub type LPENHMETARECORD = *mut ENHMETARECORD;
+pub type LPENUMLOGFONT = LPENUMLOGFONTA;
+pub type LPENUMLOGFONTA = *mut ENUMLOGFONTA;
+pub type LPENUMLOGFONTEX = LPENUMLOGFONTEXA;
+pub type LPENUMLOGFONTEXA = *mut ENUMLOGFONTEXA;
+pub type LPENUMLOGFONTEXDV = LPENUMLOGFONTEXDVA;
+pub type LPENUMLOGFONTEXDVA = *mut ENUMLOGFONTEXDVA;
+pub type LPENUMLOGFONTEXDVW = *mut ENUMLOGFONTEXDVW;
+pub type LPENUMLOGFONTEXW = *mut ENUMLOGFONTEXW;
+pub type LPENUMLOGFONTW = *mut ENUMLOGFONTW;
+pub type LPENUMTEXTMETRIC = LPENUMTEXTMETRICA;
+pub type LPENUMTEXTMETRICA = *mut ENUMTEXTMETRICA;
+pub type LPENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
+pub type LPEXTLOGFONT = LPEXTLOGFONTA;
+pub type LPEXTLOGFONTA = *mut EXTLOGFONTA;
+pub type LPEXTLOGFONTW = *mut EXTLOGFONTW;
 #[cfg(feature = "windef")]
-impl LPENHMETAHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPEXTLOGPEN = *mut EXTLOGPEN;
 #[cfg(feature = "windef")]
-impl Default for LPENHMETAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENHMETARECORD(pub *mut ENHMETARECORD);
-impl LPENHMETARECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENHMETARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUMLOGFONT(pub LPENUMLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTA(pub *mut ENUMLOGFONTA);
-impl LPENUMLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUMLOGFONTEX(pub LPENUMLOGFONTEXA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTEXA(pub *mut ENUMLOGFONTEXA);
-impl LPENUMLOGFONTEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUMLOGFONTEXDV(pub LPENUMLOGFONTEXDVA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTEXDVA(pub *mut ENUMLOGFONTEXDVA);
-impl LPENUMLOGFONTEXDVA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTEXDVA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTEXDVW(pub *mut ENUMLOGFONTEXDVW);
-impl LPENUMLOGFONTEXDVW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTEXDVW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTEXW(pub *mut ENUMLOGFONTEXW);
-impl LPENUMLOGFONTEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMLOGFONTW(pub *mut ENUMLOGFONTW);
-impl LPENUMLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPENUMTEXTMETRIC(pub LPENUMTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMTEXTMETRICA(pub *mut ENUMTEXTMETRICA);
-impl LPENUMTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPENUMTEXTMETRICW(pub *mut ENUMTEXTMETRICW);
-impl LPENUMTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPENUMTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPEXTLOGFONT(pub LPEXTLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTLOGFONTA(pub *mut EXTLOGFONTA);
-impl LPEXTLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXTLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTLOGFONTW(pub *mut EXTLOGFONTW);
-impl LPEXTLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPEXTLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTLOGPEN(pub *mut EXTLOGPEN);
-#[cfg(feature = "windef")]
-impl LPEXTLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPEXTLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPEXTLOGPEN32(pub *mut EXTLOGPEN32);
-#[cfg(feature = "windef")]
-impl LPEXTLOGPEN32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPEXTLOGPEN32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPEXTLOGPEN32 = *mut EXTLOGPEN32;
 #[cfg(feature = "windef")]
 pub type LPFNDEVCAPS = Option<unsafe extern "system" fn(param0: windows_core::PCSTR, param1: windows_core::PCSTR, param2: u32, param3: windows_core::PCSTR, param4: LPDEVMODE) -> u32>;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFNDEVMODE = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: super::minwindef::HMODULE, param2: LPDEVMODE, param3: windows_core::PCSTR, param4: windows_core::PCSTR, param5: LPDEVMODE, param6: windows_core::PCSTR, param7: u32) -> u32>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFONTSIGNATURE(pub *mut FONTSIGNATURE);
-impl LPFONTSIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFONTSIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFXPT16DOT16(pub *mut i32);
-impl LPFXPT16DOT16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFXPT16DOT16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFXPT2DOT30(pub *mut i32);
-impl LPFXPT2DOT30 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPFXPT2DOT30 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPGCP_RESULTS(pub LPGCP_RESULTSA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGCP_RESULTSA(pub *mut GCP_RESULTSA);
-impl LPGCP_RESULTSA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGCP_RESULTSA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGCP_RESULTSW(pub *mut GCP_RESULTSW);
-impl LPGCP_RESULTSW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGCP_RESULTSW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFONTSIGNATURE = *mut FONTSIGNATURE;
+pub type LPFXPT16DOT16 = *mut i32;
+pub type LPFXPT2DOT30 = *mut i32;
+pub type LPGCP_RESULTS = LPGCP_RESULTSA;
+pub type LPGCP_RESULTSA = *mut GCP_RESULTSA;
+pub type LPGCP_RESULTSW = *mut GCP_RESULTSW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGLYPHMETRICS(pub *mut GLYPHMETRICS);
+pub type LPGLYPHMETRICS = *mut GLYPHMETRICS;
+pub type LPGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
+pub type LPGLYPHSET = *mut GLYPHSET;
+pub type LPGRADIENT_RECT = *mut GRADIENT_RECT;
+pub type LPGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
 #[cfg(feature = "windef")]
-impl LPGLYPHMETRICS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPHANDLETABLE = *mut HANDLETABLE;
+pub type LPKERNINGPAIR = *mut KERNINGPAIR;
 #[cfg(feature = "windef")]
-impl Default for LPGLYPHMETRICS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGLYPHMETRICSFLOAT(pub *mut GLYPHMETRICSFLOAT);
-impl LPGLYPHMETRICSFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGLYPHMETRICSFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGLYPHSET(pub *mut GLYPHSET);
-impl LPGLYPHSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGLYPHSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGRADIENT_RECT(pub *mut GRADIENT_RECT);
-impl LPGRADIENT_RECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGRADIENT_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPGRADIENT_TRIANGLE(pub *mut GRADIENT_TRIANGLE);
-impl LPGRADIENT_TRIANGLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPGRADIENT_TRIANGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
+pub type LPLOCALESIGNATURE = *mut LOCALESIGNATURE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPHANDLETABLE(pub *mut HANDLETABLE);
+pub type LPLOGBRUSH = *mut LOGBRUSH;
 #[cfg(feature = "windef")]
-impl LPHANDLETABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPLOGBRUSH32 = *mut LOGBRUSH32;
+pub type LPLOGCOLORSPACE = LPLOGCOLORSPACEA;
+pub type LPLOGCOLORSPACEA = *mut LOGCOLORSPACEA;
+pub type LPLOGCOLORSPACEW = *mut LOGCOLORSPACEW;
+pub type LPLOGFONT = LPLOGFONTA;
+pub type LPLOGFONTA = *mut LOGFONTA;
+pub type LPLOGFONTW = *mut LOGFONTW;
+pub type LPLOGPALETTE = *mut LOGPALETTE;
 #[cfg(feature = "windef")]
-impl Default for LPHANDLETABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPKERNINGPAIR(pub *mut KERNINGPAIR);
-impl LPKERNINGPAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPKERNINGPAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLAYERPLANEDESCRIPTOR(pub *mut LAYERPLANEDESCRIPTOR);
-#[cfg(feature = "windef")]
-impl LPLAYERPLANEDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLAYERPLANEDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOCALESIGNATURE(pub *mut LOCALESIGNATURE);
-impl LPLOCALESIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOCALESIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGBRUSH(pub *mut LOGBRUSH);
-#[cfg(feature = "windef")]
-impl LPLOGBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLOGBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGBRUSH32(pub *mut LOGBRUSH32);
-#[cfg(feature = "windef")]
-impl LPLOGBRUSH32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLOGBRUSH32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPLOGCOLORSPACE(pub LPLOGCOLORSPACEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGCOLORSPACEA(pub *mut LOGCOLORSPACEA);
-impl LPLOGCOLORSPACEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOGCOLORSPACEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGCOLORSPACEW(pub *mut LOGCOLORSPACEW);
-impl LPLOGCOLORSPACEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOGCOLORSPACEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPLOGFONT(pub LPLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGFONTA(pub *mut LOGFONTA);
-impl LPLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGFONTW(pub *mut LOGFONTW);
-impl LPLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGPALETTE(pub *mut LOGPALETTE);
-impl LPLOGPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPLOGPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPLOGPEN(pub *mut LOGPEN);
-#[cfg(feature = "windef")]
-impl LPLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMAT2(pub *mut MAT2);
-impl LPMAT2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMAT2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPLOGPEN = *mut LOGPEN;
+pub type LPMAT2 = *mut MAT2;
 #[cfg(feature = "minwindef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMETAFILEPICT(pub *mut METAFILEPICT);
-#[cfg(feature = "minwindef")]
-impl LPMETAFILEPICT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "minwindef")]
-impl Default for LPMETAFILEPICT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMETAHEADER(pub *mut METAHEADER);
-impl LPMETAHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMETAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPMETARECORD(pub *mut METARECORD);
-impl LPMETARECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPMETARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPNEWTEXTMETRIC(pub LPNEWTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNEWTEXTMETRICA(pub *mut NEWTEXTMETRICA);
-impl LPNEWTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNEWTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPNEWTEXTMETRICW(pub *mut NEWTEXTMETRICW);
-impl LPNEWTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPNEWTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPMETAFILEPICT = *mut METAFILEPICT;
+pub type LPMETAHEADER = *mut METAHEADER;
+pub type LPMETARECORD = *mut METARECORD;
+pub type LPNEWTEXTMETRIC = LPNEWTEXTMETRICA;
+pub type LPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+pub type LPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOUTLINETEXTMETRIC(pub LPOUTLINETEXTMETRICA);
+pub type LPOUTLINETEXTMETRIC = LPOUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOUTLINETEXTMETRICA(pub *mut OUTLINETEXTMETRICA);
+pub type LPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-impl LPOUTLINETEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
+pub type LPPALETTEENTRY = *mut PALETTEENTRY;
+pub type LPPANOSE = *mut PANOSE;
 #[cfg(feature = "windef")]
-impl Default for LPOUTLINETEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPATTERN = *mut PATTERN;
+pub type LPPELARRAY = *mut PELARRAY;
+pub type LPPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
+pub type LPPOINTFX = *mut POINTFX;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOUTLINETEXTMETRICW(pub *mut OUTLINETEXTMETRICW);
+pub type LPPOLYTEXT = LPPOLYTEXTA;
 #[cfg(feature = "windef")]
-impl LPOUTLINETEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPPOLYTEXTA = *mut POLYTEXTA;
 #[cfg(feature = "windef")]
-impl Default for LPOUTLINETEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPALETTEENTRY(pub *mut PALETTEENTRY);
-impl LPPALETTEENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPALETTEENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPANOSE(pub *mut PANOSE);
-impl LPPANOSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPANOSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPOLYTEXTW = *mut POLYTEXTW;
+pub type LPRASTERIZER_STATUS = *mut RASTERIZER_STATUS;
+pub type LPRGBQUAD = *mut RGBQUAD;
+pub type LPRGBTRIPLE = *mut RGBTRIPLE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPATTERN(pub *mut PATTERN);
+pub type LPRGNDATA = *mut RGNDATA;
+pub type LPTEXTMETRIC = LPTEXTMETRICA;
+pub type LPTEXTMETRICA = *mut TEXTMETRICA;
+pub type LPTEXTMETRICW = *mut TEXTMETRICW;
+pub type LPTRIVERTEX = *mut TRIVERTEX;
+pub type LPTTPOLYCURVE = *mut TTPOLYCURVE;
+pub type LPTTPOLYGONHEADER = *mut TTPOLYGONHEADER;
+pub type LPWCRANGE = *mut WCRANGE;
 #[cfg(feature = "windef")]
-impl LPPATTERN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPPATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPELARRAY(pub *mut PELARRAY);
-impl LPPELARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPELARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPIXELFORMATDESCRIPTOR(pub *mut PIXELFORMATDESCRIPTOR);
-impl LPPIXELFORMATDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPIXELFORMATDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOINTFX(pub *mut POINTFX);
-impl LPPOINTFX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPOINTFX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPOLYTEXT(pub LPPOLYTEXTA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOLYTEXTA(pub *mut POLYTEXTA);
-#[cfg(feature = "windef")]
-impl LPPOLYTEXTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPPOLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPOLYTEXTW(pub *mut POLYTEXTW);
-#[cfg(feature = "windef")]
-impl LPPOLYTEXTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPPOLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRASTERIZER_STATUS(pub *mut RASTERIZER_STATUS);
-impl LPRASTERIZER_STATUS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPRASTERIZER_STATUS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRGBQUAD(pub *mut RGBQUAD);
-impl LPRGBQUAD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPRGBQUAD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRGBTRIPLE(pub *mut RGBTRIPLE);
-impl LPRGBTRIPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPRGBTRIPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPRGNDATA(pub *mut RGNDATA);
-#[cfg(feature = "windef")]
-impl LPRGNDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPRGNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPTEXTMETRIC(pub LPTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTEXTMETRICA(pub *mut TEXTMETRICA);
-impl LPTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTEXTMETRICW(pub *mut TEXTMETRICW);
-impl LPTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTRIVERTEX(pub *mut TRIVERTEX);
-impl LPTRIVERTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTRIVERTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTPOLYCURVE(pub *mut TTPOLYCURVE);
-impl LPTTPOLYCURVE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTTPOLYCURVE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPTTPOLYGONHEADER(pub *mut TTPOLYGONHEADER);
-impl LPTTPOLYGONHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPTTPOLYGONHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWCRANGE(pub *mut WCRANGE);
-impl LPWCRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPWCRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPWGLSWAP(pub *mut WGLSWAP);
-#[cfg(feature = "windef")]
-impl LPWGLSWAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for LPWGLSWAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPXFORM(pub *mut XFORM);
-impl LPXFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPXFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPWGLSWAP = *mut WGLSWAP;
+pub type LPXFORM = *mut XFORM;
 pub const LTGRAY_BRUSH: u32 = 1;
 pub const MAC_CHARSET: u32 = 77;
 #[repr(C)]
@@ -7190,433 +6036,57 @@ pub const NOMIRRORBITMAP: u32 = 2147483648;
 pub const NONANTIALIASED_QUALITY: u32 = 3;
 pub const NOTSRCCOPY: u32 = 3342344;
 pub const NOTSRCERASE: u32 = 1114278;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPABC(pub *mut ABC);
-impl NPABC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPABC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPABCFLOAT(pub *mut ABCFLOAT);
-impl NPABCFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPABCFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPBITMAP(pub *mut BITMAP);
-impl NPBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPCHARSETINFO(pub *mut CHARSETINFO);
-impl NPCHARSETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPCHARSETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPABC = *mut ABC;
+pub type NPABCFLOAT = *mut ABCFLOAT;
+pub type NPBITMAP = *mut BITMAP;
+pub type NPCHARSETINFO = *mut CHARSETINFO;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPDEVMODE(pub NPDEVMODEA);
+pub type NPDEVMODE = NPDEVMODEA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDEVMODEA(pub *mut DEVMODEA);
+pub type NPDEVMODEA = *mut DEVMODEA;
 #[cfg(feature = "windef")]
-impl NPDEVMODEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPDEVMODEW = *mut DEVMODEW;
+pub type NPEXTLOGFONT = NPEXTLOGFONTA;
+pub type NPEXTLOGFONTA = *mut EXTLOGFONTA;
+pub type NPEXTLOGFONTW = *mut EXTLOGFONTW;
 #[cfg(feature = "windef")]
-impl Default for NPDEVMODEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPEXTLOGPEN = *mut EXTLOGPEN;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPDEVMODEW(pub *mut DEVMODEW);
+pub type NPEXTLOGPEN32 = *mut EXTLOGPEN32;
 #[cfg(feature = "windef")]
-impl NPDEVMODEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPLOGBRUSH = *mut LOGBRUSH;
 #[cfg(feature = "windef")]
-impl Default for NPDEVMODEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPEXTLOGFONT(pub NPEXTLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPEXTLOGFONTA(pub *mut EXTLOGFONTA);
-impl NPEXTLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPEXTLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPEXTLOGFONTW(pub *mut EXTLOGFONTW);
-impl NPEXTLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPEXTLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPLOGBRUSH32 = *mut LOGBRUSH32;
+pub type NPLOGFONT = NPLOGFONTA;
+pub type NPLOGFONTA = *mut LOGFONTA;
+pub type NPLOGFONTW = *mut LOGFONTW;
+pub type NPLOGPALETTE = *mut LOGPALETTE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPEXTLOGPEN(pub *mut EXTLOGPEN);
+pub type NPLOGPEN = *mut LOGPEN;
+pub type NPNEWTEXTMETRIC = NPNEWTEXTMETRICA;
+pub type NPNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+pub type NPNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
 #[cfg(feature = "windef")]
-impl NPEXTLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPOUTLINETEXTMETRIC = NPOUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-impl Default for NPEXTLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPOUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPEXTLOGPEN32(pub *mut EXTLOGPEN32);
+pub type NPOUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
 #[cfg(feature = "windef")]
-impl NPEXTLOGPEN32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPPATTERN = *mut PATTERN;
+pub type NPPELARRAY = *mut PELARRAY;
 #[cfg(feature = "windef")]
-impl Default for NPEXTLOGPEN32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPPOLYTEXT = NPPOLYTEXTA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGBRUSH(pub *mut LOGBRUSH);
+pub type NPPOLYTEXTA = *mut POLYTEXTA;
 #[cfg(feature = "windef")]
-impl NPLOGBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type NPPOLYTEXTW = *mut POLYTEXTW;
+pub type NPRGBTRIPLE = *mut RGBTRIPLE;
 #[cfg(feature = "windef")]
-impl Default for NPLOGBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGBRUSH32(pub *mut LOGBRUSH32);
-#[cfg(feature = "windef")]
-impl NPLOGBRUSH32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPLOGBRUSH32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPLOGFONT(pub NPLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGFONTA(pub *mut LOGFONTA);
-impl NPLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGFONTW(pub *mut LOGFONTW);
-impl NPLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGPALETTE(pub *mut LOGPALETTE);
-impl NPLOGPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPLOGPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPLOGPEN(pub *mut LOGPEN);
-#[cfg(feature = "windef")]
-impl NPLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPNEWTEXTMETRIC(pub NPNEWTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPNEWTEXTMETRICA(pub *mut NEWTEXTMETRICA);
-impl NPNEWTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPNEWTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPNEWTEXTMETRICW(pub *mut NEWTEXTMETRICW);
-impl NPNEWTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPNEWTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPOUTLINETEXTMETRIC(pub NPOUTLINETEXTMETRICA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOUTLINETEXTMETRICA(pub *mut OUTLINETEXTMETRICA);
-#[cfg(feature = "windef")]
-impl NPOUTLINETEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPOUTLINETEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPOUTLINETEXTMETRICW(pub *mut OUTLINETEXTMETRICW);
-#[cfg(feature = "windef")]
-impl NPOUTLINETEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPOUTLINETEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPPATTERN(pub *mut PATTERN);
-#[cfg(feature = "windef")]
-impl NPPATTERN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPPATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPPELARRAY(pub *mut PELARRAY);
-impl NPPELARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPPELARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPPOLYTEXT(pub NPPOLYTEXTA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPPOLYTEXTA(pub *mut POLYTEXTA);
-#[cfg(feature = "windef")]
-impl NPPOLYTEXTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPPOLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPPOLYTEXTW(pub *mut POLYTEXTW);
-#[cfg(feature = "windef")]
-impl NPPOLYTEXTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPPOLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPRGBTRIPLE(pub *mut RGBTRIPLE);
-impl NPRGBTRIPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPRGBTRIPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPRGNDATA(pub *mut RGNDATA);
-#[cfg(feature = "windef")]
-impl NPRGNDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for NPRGNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NPTEXTMETRIC(pub NPTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPTEXTMETRICA(pub *mut TEXTMETRICA);
-impl NPTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NPTEXTMETRICW(pub *mut TEXTMETRICW);
-impl NPTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NPTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NPRGNDATA = *mut RGNDATA;
+pub type NPTEXTMETRIC = NPTEXTMETRICA;
+pub type NPTEXTMETRICA = *mut TEXTMETRICA;
+pub type NPTEXTMETRICW = *mut TEXTMETRICW;
 pub const NTM_BOLD: u32 = 32;
 pub const NTM_DSIG: u32 = 2097152;
 pub const NTM_ITALIC: u32 = 1;
@@ -7744,32 +6214,8 @@ pub const OUT_STRING_PRECIS: u32 = 1;
 pub const OUT_STROKE_PRECIS: u32 = 3;
 pub const OUT_TT_ONLY_PRECIS: u32 = 7;
 pub const OUT_TT_PRECIS: u32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PABC(pub *mut ABC);
-impl PABC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PABC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PABCFLOAT(pub *mut ABCFLOAT);
-impl PABCFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PABCFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PABC = *mut ABC;
+pub type PABCFLOAT = *mut ABCFLOAT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PALETTEENTRY {
@@ -7905,207 +6351,23 @@ pub const PATINVERT: u32 = 5898313;
 pub const PATPAINT: u32 = 16452105;
 #[cfg(feature = "windef")]
 pub type PATTERN = LOGBRUSH;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PAXESLIST(pub PAXESLISTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAXESLISTA(pub *mut AXESLISTA);
-impl PAXESLISTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAXESLISTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAXESLISTW(pub *mut AXESLISTW);
-impl PAXESLISTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAXESLISTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PAXISINFO(pub PAXISINFOA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAXISINFOA(pub *mut AXISINFOA);
-impl PAXISINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAXISINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PAXISINFOW(pub *mut AXISINFOW);
-impl PAXISINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PAXISINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAP(pub *mut BITMAP);
-impl PBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPCOREHEADER(pub *mut BITMAPCOREHEADER);
-impl PBITMAPCOREHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPCOREHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPCOREINFO(pub *mut BITMAPCOREINFO);
-impl PBITMAPCOREINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPCOREINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPFILEHEADER(pub *mut BITMAPFILEHEADER);
-impl PBITMAPFILEHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPFILEHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPINFO(pub *mut BITMAPINFO);
-impl PBITMAPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPINFOHEADER(pub *mut BITMAPINFOHEADER);
-impl PBITMAPINFOHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPINFOHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPV4HEADER(pub *mut BITMAPV4HEADER);
-impl PBITMAPV4HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPV4HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBITMAPV5HEADER(pub *mut BITMAPV5HEADER);
-impl PBITMAPV5HEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBITMAPV5HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PBLENDFUNCTION(pub *mut BLENDFUNCTION);
-impl PBLENDFUNCTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PBLENDFUNCTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCHARSETINFO(pub *mut CHARSETINFO);
-impl PCHARSETINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCHARSETINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCOLORADJUSTMENT(pub *mut COLORADJUSTMENT);
-impl PCOLORADJUSTMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCOLORADJUSTMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PAXESLIST = PAXESLISTA;
+pub type PAXESLISTA = *mut AXESLISTA;
+pub type PAXESLISTW = *mut AXESLISTW;
+pub type PAXISINFO = PAXISINFOA;
+pub type PAXISINFOA = *mut AXISINFOA;
+pub type PAXISINFOW = *mut AXISINFOW;
+pub type PBITMAP = *mut BITMAP;
+pub type PBITMAPCOREHEADER = *mut BITMAPCOREHEADER;
+pub type PBITMAPCOREINFO = *mut BITMAPCOREINFO;
+pub type PBITMAPFILEHEADER = *mut BITMAPFILEHEADER;
+pub type PBITMAPINFO = *mut BITMAPINFO;
+pub type PBITMAPINFOHEADER = *mut BITMAPINFOHEADER;
+pub type PBITMAPV4HEADER = *mut BITMAPV4HEADER;
+pub type PBITMAPV5HEADER = *mut BITMAPV5HEADER;
+pub type PBLENDFUNCTION = *mut BLENDFUNCTION;
+pub type PCHARSETINFO = *mut CHARSETINFO;
+pub type PCOLORADJUSTMENT = *mut COLORADJUSTMENT;
 pub const PC_EXPLICIT: u32 = 2;
 pub const PC_INTERIORS: u32 = 128;
 pub const PC_NOCOLLAPSE: u32 = 4;
@@ -8121,117 +6383,21 @@ pub const PC_TRAPEZOID: u32 = 4;
 pub const PC_WIDE: u32 = 16;
 pub const PC_WIDESTYLED: u32 = 64;
 pub const PC_WINDPOLYGON: u32 = 4;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDESIGNVECTOR(pub *mut DESIGNVECTOR);
-impl PDESIGNVECTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDESIGNVECTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDESIGNVECTOR = *mut DESIGNVECTOR;
 pub const PDEVICESIZE: u32 = 26;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDEVMODE(pub PDEVMODEA);
+pub type PDEVMODE = PDEVMODEA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVMODEA(pub *mut DEVMODEA);
+pub type PDEVMODEA = *mut DEVMODEA;
 #[cfg(feature = "windef")]
-impl PDEVMODEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PDEVMODEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDEVMODEW(pub *mut DEVMODEW);
-#[cfg(feature = "windef")]
-impl PDEVMODEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PDEVMODEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDEVMODEW = *mut DEVMODEW;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDIBSECTION(pub *mut DIBSECTION);
-#[cfg(feature = "winnt")]
-impl PDIBSECTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PDIBSECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PDISPLAY_DEVICE(pub PDISPLAY_DEVICEA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDISPLAY_DEVICEA(pub *mut DISPLAY_DEVICEA);
-impl PDISPLAY_DEVICEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDISPLAY_DEVICEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDISPLAY_DEVICEW(pub *mut DISPLAY_DEVICEW);
-impl PDISPLAY_DEVICEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDISPLAY_DEVICEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDIBSECTION = *mut DIBSECTION;
+pub type PDISPLAY_DEVICE = PDISPLAY_DEVICEA;
+pub type PDISPLAY_DEVICEA = *mut DISPLAY_DEVICEA;
+pub type PDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDRAWPATRECT(pub *mut DRAWPATRECT);
-#[cfg(feature = "windef")]
-impl PDRAWPATRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PDRAWPATRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDRAWPATRECT = *mut DRAWPATRECT;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct PELARRAY {
@@ -8241,1890 +6407,204 @@ pub struct PELARRAY {
     pub paYExt: i32,
     pub paRGBs: u8,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMR(pub *mut EMR);
-impl PEMR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRABORTPATH(pub *mut EMRABORTPATH);
-impl PEMRABORTPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRABORTPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRALPHABLEND(pub *mut EMRALPHABLEND);
-#[cfg(feature = "windef")]
-impl PEMRALPHABLEND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRALPHABLEND {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRANGLEARC(pub *mut EMRANGLEARC);
-#[cfg(feature = "windef")]
-impl PEMRANGLEARC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRANGLEARC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRARC(pub *mut EMRARC);
-#[cfg(feature = "windef")]
-impl PEMRARC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRARC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRARCTO(pub *mut EMRARC);
-#[cfg(feature = "windef")]
-impl PEMRARCTO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRARCTO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRBEGINPATH(pub *mut EMRABORTPATH);
-impl PEMRBEGINPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRBEGINPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRBITBLT(pub *mut EMRBITBLT);
-#[cfg(feature = "windef")]
-impl PEMRBITBLT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRBITBLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCHORD(pub *mut EMRARC);
-#[cfg(feature = "windef")]
-impl PEMRCHORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRCHORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCLOSEFIGURE(pub *mut EMRABORTPATH);
-impl PEMRCLOSEFIGURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCLOSEFIGURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCOLORCORRECTPALETTE(pub *mut EMRCOLORCORRECTPALETTE);
-impl PEMRCOLORCORRECTPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCOLORCORRECTPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCOLORMATCHTOTARGET(pub *mut EMRCOLORMATCHTOTARGET);
-impl PEMRCOLORMATCHTOTARGET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCOLORMATCHTOTARGET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATEBRUSHINDIRECT(pub *mut EMRCREATEBRUSHINDIRECT);
-#[cfg(feature = "windef")]
-impl PEMRCREATEBRUSHINDIRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRCREATEBRUSHINDIRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATECOLORSPACE(pub *mut EMRCREATECOLORSPACE);
-impl PEMRCREATECOLORSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCREATECOLORSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATECOLORSPACEW(pub *mut EMRCREATECOLORSPACEW);
-impl PEMRCREATECOLORSPACEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCREATECOLORSPACEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATEDIBPATTERNBRUSHPT(pub *mut EMRCREATEDIBPATTERNBRUSHPT);
-impl PEMRCREATEDIBPATTERNBRUSHPT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCREATEDIBPATTERNBRUSHPT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATEMONOBRUSH(pub *mut EMRCREATEMONOBRUSH);
-impl PEMRCREATEMONOBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCREATEMONOBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATEPALETTE(pub *mut EMRCREATEPALETTE);
-impl PEMRCREATEPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRCREATEPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRCREATEPEN(pub *mut EMRCREATEPEN);
-#[cfg(feature = "windef")]
-impl PEMRCREATEPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRCREATEPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRDELETECOLORSPACE(pub *mut EMRSETCOLORSPACE);
-impl PEMRDELETECOLORSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRDELETECOLORSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRDELETEOBJECT(pub *mut EMRSELECTOBJECT);
-impl PEMRDELETEOBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRDELETEOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRDRAWESCAPE(pub *mut EMREXTESCAPE);
-impl PEMRDRAWESCAPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRDRAWESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRELLIPSE(pub *mut EMRELLIPSE);
-#[cfg(feature = "windef")]
-impl PEMRELLIPSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRELLIPSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRENDPATH(pub *mut EMRABORTPATH);
-impl PEMRENDPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRENDPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREOF(pub *mut EMREOF);
-impl PEMREOF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMREOF {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXCLUDECLIPRECT(pub *mut EMREXCLUDECLIPRECT);
-#[cfg(feature = "windef")]
-impl PEMREXCLUDECLIPRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMREXCLUDECLIPRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTCREATEFONTINDIRECTW(pub *mut EMREXTCREATEFONTINDIRECTW);
-impl PEMREXTCREATEFONTINDIRECTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMREXTCREATEFONTINDIRECTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTCREATEPEN(pub *mut EMREXTCREATEPEN);
-#[cfg(feature = "windef")]
-impl PEMREXTCREATEPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMREXTCREATEPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTESCAPE(pub *mut EMREXTESCAPE);
-impl PEMREXTESCAPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMREXTESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTFLOODFILL(pub *mut EMREXTFLOODFILL);
-#[cfg(feature = "windef")]
-impl PEMREXTFLOODFILL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMREXTFLOODFILL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTSELECTCLIPRGN(pub *mut EMREXTSELECTCLIPRGN);
-impl PEMREXTSELECTCLIPRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMREXTSELECTCLIPRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTTEXTOUTA(pub *mut EMREXTTEXTOUTA);
-#[cfg(feature = "windef")]
-impl PEMREXTTEXTOUTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMREXTTEXTOUTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMREXTTEXTOUTW(pub *mut EMREXTTEXTOUTA);
-#[cfg(feature = "windef")]
-impl PEMREXTTEXTOUTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMREXTTEXTOUTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRFILLPATH(pub *mut EMRFILLPATH);
-#[cfg(feature = "windef")]
-impl PEMRFILLPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRFILLPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRFILLRGN(pub *mut EMRFILLRGN);
-#[cfg(feature = "windef")]
-impl PEMRFILLRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRFILLRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRFLATTENPATH(pub *mut EMRABORTPATH);
-impl PEMRFLATTENPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRFLATTENPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRFORMAT(pub *mut EMRFORMAT);
-impl PEMRFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRFRAMERGN(pub *mut EMRFRAMERGN);
-#[cfg(feature = "windef")]
-impl PEMRFRAMERGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRFRAMERGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRGDICOMMENT(pub *mut EMRGDICOMMENT);
-impl PEMRGDICOMMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRGDICOMMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRGLSBOUNDEDRECORD(pub *mut EMRGLSBOUNDEDRECORD);
-#[cfg(feature = "windef")]
-impl PEMRGLSBOUNDEDRECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRGLSBOUNDEDRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRGLSRECORD(pub *mut EMRGLSRECORD);
-impl PEMRGLSRECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRGLSRECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRGRADIENTFILL(pub *mut EMRGRADIENTFILL);
-#[cfg(feature = "windef")]
-impl PEMRGRADIENTFILL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRGRADIENTFILL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRINTERSECTCLIPRECT(pub *mut EMREXCLUDECLIPRECT);
-#[cfg(feature = "windef")]
-impl PEMRINTERSECTCLIPRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRINTERSECTCLIPRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRINVERTRGN(pub *mut EMRINVERTRGN);
-#[cfg(feature = "windef")]
-impl PEMRINVERTRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRINVERTRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRLINETO(pub *mut EMRLINETO);
-#[cfg(feature = "windef")]
-impl PEMRLINETO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRLINETO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRMASKBLT(pub *mut EMRMASKBLT);
-#[cfg(feature = "windef")]
-impl PEMRMASKBLT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRMASKBLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRMODIFYWORLDTRANSFORM(pub *mut EMRMODIFYWORLDTRANSFORM);
-impl PEMRMODIFYWORLDTRANSFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRMODIFYWORLDTRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRMOVETOEX(pub *mut EMRLINETO);
-#[cfg(feature = "windef")]
-impl PEMRMOVETOEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRMOVETOEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRNAMEDESCAPE(pub *mut EMRNAMEDESCAPE);
-impl PEMRNAMEDESCAPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRNAMEDESCAPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMROFFSETCLIPRGN(pub *mut EMROFFSETCLIPRGN);
-#[cfg(feature = "windef")]
-impl PEMROFFSETCLIPRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMROFFSETCLIPRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPAINTRGN(pub *mut EMRINVERTRGN);
-#[cfg(feature = "windef")]
-impl PEMRPAINTRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPAINTRGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPIE(pub *mut EMRARC);
-#[cfg(feature = "windef")]
-impl PEMRPIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPIE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPIXELFORMAT(pub *mut EMRPIXELFORMAT);
-impl PEMRPIXELFORMAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRPIXELFORMAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPLGBLT(pub *mut EMRPLGBLT);
-#[cfg(feature = "windef")]
-impl PEMRPLGBLT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPLGBLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYBEZIER(pub *mut EMRPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYBEZIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYBEZIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYBEZIER16(pub *mut EMRPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYBEZIER16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYBEZIER16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYBEZIERTO(pub *mut EMRPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYBEZIERTO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYBEZIERTO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYBEZIERTO16(pub *mut EMRPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYBEZIERTO16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYBEZIERTO16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYDRAW(pub *mut EMRPOLYDRAW);
-#[cfg(feature = "windef")]
-impl PEMRPOLYDRAW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYDRAW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYDRAW16(pub *mut EMRPOLYDRAW16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYDRAW16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYDRAW16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYGON(pub *mut EMRPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYGON16(pub *mut EMRPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYGON16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYGON16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYLINE(pub *mut EMRPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYLINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYLINE16(pub *mut EMRPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYLINE16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYLINE16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYLINETO(pub *mut EMRPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYLINETO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYLINETO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYLINETO16(pub *mut EMRPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYLINETO16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYLINETO16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYPOLYGON(pub *mut EMRPOLYPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYPOLYGON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYPOLYGON {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYPOLYGON16(pub *mut EMRPOLYPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYPOLYGON16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYPOLYGON16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYPOLYLINE(pub *mut EMRPOLYPOLYLINE);
-#[cfg(feature = "windef")]
-impl PEMRPOLYPOLYLINE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYPOLYLINE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYPOLYLINE16(pub *mut EMRPOLYPOLYLINE16);
-#[cfg(feature = "windef")]
-impl PEMRPOLYPOLYLINE16 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYPOLYLINE16 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYTEXTOUTA(pub *mut EMRPOLYTEXTOUTA);
-#[cfg(feature = "windef")]
-impl PEMRPOLYTEXTOUTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYTEXTOUTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRPOLYTEXTOUTW(pub *mut EMRPOLYTEXTOUTA);
-#[cfg(feature = "windef")]
-impl PEMRPOLYTEXTOUTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRPOLYTEXTOUTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRREALIZEPALETTE(pub *mut EMRABORTPATH);
-impl PEMRREALIZEPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRREALIZEPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRRECTANGLE(pub *mut EMRELLIPSE);
-#[cfg(feature = "windef")]
-impl PEMRRECTANGLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRRECTANGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRRESIZEPALETTE(pub *mut EMRRESIZEPALETTE);
-impl PEMRRESIZEPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRRESIZEPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRRESTOREDC(pub *mut EMRRESTOREDC);
-impl PEMRRESTOREDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRRESTOREDC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRROUNDRECT(pub *mut EMRROUNDRECT);
-#[cfg(feature = "windef")]
-impl PEMRROUNDRECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRROUNDRECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSAVEDC(pub *mut EMRABORTPATH);
-impl PEMRSAVEDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSAVEDC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSCALEVIEWPORTEXTEX(pub *mut EMRSCALEVIEWPORTEXTEX);
-impl PEMRSCALEVIEWPORTEXTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSCALEVIEWPORTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSCALEWINDOWEXTEX(pub *mut EMRSCALEVIEWPORTEXTEX);
-impl PEMRSCALEWINDOWEXTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSCALEWINDOWEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSELECTCLIPPATH(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSELECTCLIPPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSELECTCLIPPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSELECTCOLORSPACE(pub *mut EMRSETCOLORSPACE);
-impl PEMRSELECTCOLORSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSELECTCOLORSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSELECTOBJECT(pub *mut EMRSELECTOBJECT);
-impl PEMRSELECTOBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSELECTOBJECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSELECTPALETTE(pub *mut EMRSELECTPALETTE);
-impl PEMRSELECTPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSELECTPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETARCDIRECTION(pub *mut EMRSETARCDIRECTION);
-impl PEMRSETARCDIRECTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETARCDIRECTION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETBKCOLOR(pub *mut EMRSETBKCOLOR);
-#[cfg(feature = "windef")]
-impl PEMRSETBKCOLOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETBKCOLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETBKMODE(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETBKMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETBKMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETBRUSHORGEX(pub *mut EMRSETVIEWPORTORGEX);
-#[cfg(feature = "windef")]
-impl PEMRSETBRUSHORGEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETBRUSHORGEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETCOLORADJUSTMENT(pub *mut EMRSETCOLORADJUSTMENT);
-impl PEMRSETCOLORADJUSTMENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETCOLORADJUSTMENT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETCOLORSPACE(pub *mut EMRSETCOLORSPACE);
-impl PEMRSETCOLORSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETCOLORSPACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETDIBITSTODEVICE(pub *mut EMRSETDIBITSTODEVICE);
-#[cfg(feature = "windef")]
-impl PEMRSETDIBITSTODEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETDIBITSTODEVICE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETICMMODE(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETICMMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETICMMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETICMPROFILE(pub *mut EMRSETICMPROFILE);
-impl PEMRSETICMPROFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETICMPROFILE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETICMPROFILEA(pub *mut EMRSETICMPROFILE);
-impl PEMRSETICMPROFILEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETICMPROFILEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETICMPROFILEW(pub *mut EMRSETICMPROFILE);
-impl PEMRSETICMPROFILEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETICMPROFILEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETLAYOUT(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETLAYOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETLAYOUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETMAPMODE(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETMAPMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETMAPMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETMAPPERFLAGS(pub *mut EMRSETMAPPERFLAGS);
-impl PEMRSETMAPPERFLAGS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETMAPPERFLAGS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETMETARGN(pub *mut EMRABORTPATH);
-impl PEMRSETMETARGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETMETARGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETMITERLIMIT(pub *mut EMRSETMITERLIMIT);
-impl PEMRSETMITERLIMIT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETMITERLIMIT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETPALETTEENTRIES(pub *mut EMRSETPALETTEENTRIES);
-impl PEMRSETPALETTEENTRIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETPALETTEENTRIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETPIXELV(pub *mut EMRSETPIXELV);
-#[cfg(feature = "windef")]
-impl PEMRSETPIXELV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETPIXELV {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETPOLYFILLMODE(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETPOLYFILLMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETPOLYFILLMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETROP2(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETROP2 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETROP2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETSTRETCHBLTMODE(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETSTRETCHBLTMODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETSTRETCHBLTMODE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETTEXTALIGN(pub *mut EMRSELECTCLIPPATH);
-impl PEMRSETTEXTALIGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETTEXTALIGN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETTEXTCOLOR(pub *mut EMRSETBKCOLOR);
-#[cfg(feature = "windef")]
-impl PEMRSETTEXTCOLOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETTEXTCOLOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETVIEWPORTEXTEX(pub *mut EMRSETVIEWPORTEXTEX);
-#[cfg(feature = "windef")]
-impl PEMRSETVIEWPORTEXTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETVIEWPORTEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETVIEWPORTORGEX(pub *mut EMRSETVIEWPORTORGEX);
-#[cfg(feature = "windef")]
-impl PEMRSETVIEWPORTORGEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETVIEWPORTORGEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETWINDOWEXTEX(pub *mut EMRSETVIEWPORTEXTEX);
-#[cfg(feature = "windef")]
-impl PEMRSETWINDOWEXTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETWINDOWEXTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETWINDOWORGEX(pub *mut EMRSETVIEWPORTORGEX);
-#[cfg(feature = "windef")]
-impl PEMRSETWINDOWORGEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSETWINDOWORGEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSETWORLDTRANSFORM(pub *mut EMRSETWORLDTRANSFORM);
-impl PEMRSETWORLDTRANSFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRSETWORLDTRANSFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSTRETCHBLT(pub *mut EMRSTRETCHBLT);
-#[cfg(feature = "windef")]
-impl PEMRSTRETCHBLT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSTRETCHBLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSTRETCHDIBITS(pub *mut EMRSTRETCHDIBITS);
-#[cfg(feature = "windef")]
-impl PEMRSTRETCHDIBITS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSTRETCHDIBITS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSTROKEANDFILLPATH(pub *mut EMRFILLPATH);
-#[cfg(feature = "windef")]
-impl PEMRSTROKEANDFILLPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSTROKEANDFILLPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRSTROKEPATH(pub *mut EMRFILLPATH);
-#[cfg(feature = "windef")]
-impl PEMRSTROKEPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRSTROKEPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRTEXT(pub *mut EMRTEXT);
-#[cfg(feature = "windef")]
-impl PEMRTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRTRANSPARENTBLT(pub *mut EMRTRANSPARENTBLT);
-#[cfg(feature = "windef")]
-impl PEMRTRANSPARENTBLT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEMRTRANSPARENTBLT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEMRWIDENPATH(pub *mut EMRABORTPATH);
-impl PEMRWIDENPATH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEMRWIDENPATH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENHMETAHEADER(pub *mut ENHMETAHEADER);
-#[cfg(feature = "windef")]
-impl PENHMETAHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PENHMETAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENHMETARECORD(pub *mut ENHMETARECORD);
-impl PENHMETARECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENHMETARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PENUMLOGFONTEXDV(pub PENUMLOGFONTEXDVA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMLOGFONTEXDVA(pub *mut ENUMLOGFONTEXDVA);
-impl PENUMLOGFONTEXDVA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMLOGFONTEXDVA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMLOGFONTEXDVW(pub *mut ENUMLOGFONTEXDVW);
-impl PENUMLOGFONTEXDVW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMLOGFONTEXDVW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PENUMTEXTMETRIC(pub PENUMTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMTEXTMETRICA(pub *mut ENUMTEXTMETRICA);
-impl PENUMTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PENUMTEXTMETRICW(pub *mut ENUMTEXTMETRICW);
-impl PENUMTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PENUMTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PEXTLOGFONT(pub PEXTLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTLOGFONTA(pub *mut EXTLOGFONTA);
-impl PEXTLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTLOGFONTW(pub *mut EXTLOGFONTW);
-impl PEXTLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PEXTLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTLOGPEN(pub *mut EXTLOGPEN);
-#[cfg(feature = "windef")]
-impl PEXTLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEXTLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PEXTLOGPEN32(pub *mut EXTLOGPEN32);
-#[cfg(feature = "windef")]
-impl PEXTLOGPEN32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PEXTLOGPEN32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PEMR = *mut EMR;
+pub type PEMRABORTPATH = *mut EMRABORTPATH;
+#[cfg(feature = "windef")]
+pub type PEMRALPHABLEND = *mut EMRALPHABLEND;
+#[cfg(feature = "windef")]
+pub type PEMRANGLEARC = *mut EMRANGLEARC;
+#[cfg(feature = "windef")]
+pub type PEMRARC = *mut EMRARC;
+#[cfg(feature = "windef")]
+pub type PEMRARCTO = *mut EMRARC;
+pub type PEMRBEGINPATH = *mut EMRABORTPATH;
+#[cfg(feature = "windef")]
+pub type PEMRBITBLT = *mut EMRBITBLT;
+#[cfg(feature = "windef")]
+pub type PEMRCHORD = *mut EMRARC;
+pub type PEMRCLOSEFIGURE = *mut EMRABORTPATH;
+pub type PEMRCOLORCORRECTPALETTE = *mut EMRCOLORCORRECTPALETTE;
+pub type PEMRCOLORMATCHTOTARGET = *mut EMRCOLORMATCHTOTARGET;
+#[cfg(feature = "windef")]
+pub type PEMRCREATEBRUSHINDIRECT = *mut EMRCREATEBRUSHINDIRECT;
+pub type PEMRCREATECOLORSPACE = *mut EMRCREATECOLORSPACE;
+pub type PEMRCREATECOLORSPACEW = *mut EMRCREATECOLORSPACEW;
+pub type PEMRCREATEDIBPATTERNBRUSHPT = *mut EMRCREATEDIBPATTERNBRUSHPT;
+pub type PEMRCREATEMONOBRUSH = *mut EMRCREATEMONOBRUSH;
+pub type PEMRCREATEPALETTE = *mut EMRCREATEPALETTE;
+#[cfg(feature = "windef")]
+pub type PEMRCREATEPEN = *mut EMRCREATEPEN;
+pub type PEMRDELETECOLORSPACE = *mut EMRSETCOLORSPACE;
+pub type PEMRDELETEOBJECT = *mut EMRSELECTOBJECT;
+pub type PEMRDRAWESCAPE = *mut EMREXTESCAPE;
+#[cfg(feature = "windef")]
+pub type PEMRELLIPSE = *mut EMRELLIPSE;
+pub type PEMRENDPATH = *mut EMRABORTPATH;
+pub type PEMREOF = *mut EMREOF;
+#[cfg(feature = "windef")]
+pub type PEMREXCLUDECLIPRECT = *mut EMREXCLUDECLIPRECT;
+pub type PEMREXTCREATEFONTINDIRECTW = *mut EMREXTCREATEFONTINDIRECTW;
+#[cfg(feature = "windef")]
+pub type PEMREXTCREATEPEN = *mut EMREXTCREATEPEN;
+pub type PEMREXTESCAPE = *mut EMREXTESCAPE;
+#[cfg(feature = "windef")]
+pub type PEMREXTFLOODFILL = *mut EMREXTFLOODFILL;
+pub type PEMREXTSELECTCLIPRGN = *mut EMREXTSELECTCLIPRGN;
+#[cfg(feature = "windef")]
+pub type PEMREXTTEXTOUTA = *mut EMREXTTEXTOUTA;
+#[cfg(feature = "windef")]
+pub type PEMREXTTEXTOUTW = *mut EMREXTTEXTOUTA;
+#[cfg(feature = "windef")]
+pub type PEMRFILLPATH = *mut EMRFILLPATH;
+#[cfg(feature = "windef")]
+pub type PEMRFILLRGN = *mut EMRFILLRGN;
+pub type PEMRFLATTENPATH = *mut EMRABORTPATH;
+pub type PEMRFORMAT = *mut EMRFORMAT;
+#[cfg(feature = "windef")]
+pub type PEMRFRAMERGN = *mut EMRFRAMERGN;
+pub type PEMRGDICOMMENT = *mut EMRGDICOMMENT;
+#[cfg(feature = "windef")]
+pub type PEMRGLSBOUNDEDRECORD = *mut EMRGLSBOUNDEDRECORD;
+pub type PEMRGLSRECORD = *mut EMRGLSRECORD;
+#[cfg(feature = "windef")]
+pub type PEMRGRADIENTFILL = *mut EMRGRADIENTFILL;
+#[cfg(feature = "windef")]
+pub type PEMRINTERSECTCLIPRECT = *mut EMREXCLUDECLIPRECT;
+#[cfg(feature = "windef")]
+pub type PEMRINVERTRGN = *mut EMRINVERTRGN;
+#[cfg(feature = "windef")]
+pub type PEMRLINETO = *mut EMRLINETO;
+#[cfg(feature = "windef")]
+pub type PEMRMASKBLT = *mut EMRMASKBLT;
+pub type PEMRMODIFYWORLDTRANSFORM = *mut EMRMODIFYWORLDTRANSFORM;
+#[cfg(feature = "windef")]
+pub type PEMRMOVETOEX = *mut EMRLINETO;
+pub type PEMRNAMEDESCAPE = *mut EMRNAMEDESCAPE;
+#[cfg(feature = "windef")]
+pub type PEMROFFSETCLIPRGN = *mut EMROFFSETCLIPRGN;
+#[cfg(feature = "windef")]
+pub type PEMRPAINTRGN = *mut EMRINVERTRGN;
+#[cfg(feature = "windef")]
+pub type PEMRPIE = *mut EMRARC;
+pub type PEMRPIXELFORMAT = *mut EMRPIXELFORMAT;
+#[cfg(feature = "windef")]
+pub type PEMRPLGBLT = *mut EMRPLGBLT;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYBEZIER = *mut EMRPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYBEZIER16 = *mut EMRPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYBEZIERTO = *mut EMRPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYBEZIERTO16 = *mut EMRPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYDRAW = *mut EMRPOLYDRAW;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYDRAW16 = *mut EMRPOLYDRAW16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYGON = *mut EMRPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYGON16 = *mut EMRPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYLINE = *mut EMRPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYLINE16 = *mut EMRPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYLINETO = *mut EMRPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYLINETO16 = *mut EMRPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYPOLYGON = *mut EMRPOLYPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYPOLYGON16 = *mut EMRPOLYPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYPOLYLINE = *mut EMRPOLYPOLYLINE;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYPOLYLINE16 = *mut EMRPOLYPOLYLINE16;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYTEXTOUTA = *mut EMRPOLYTEXTOUTA;
+#[cfg(feature = "windef")]
+pub type PEMRPOLYTEXTOUTW = *mut EMRPOLYTEXTOUTA;
+pub type PEMRREALIZEPALETTE = *mut EMRABORTPATH;
+#[cfg(feature = "windef")]
+pub type PEMRRECTANGLE = *mut EMRELLIPSE;
+pub type PEMRRESIZEPALETTE = *mut EMRRESIZEPALETTE;
+pub type PEMRRESTOREDC = *mut EMRRESTOREDC;
+#[cfg(feature = "windef")]
+pub type PEMRROUNDRECT = *mut EMRROUNDRECT;
+pub type PEMRSAVEDC = *mut EMRABORTPATH;
+pub type PEMRSCALEVIEWPORTEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
+pub type PEMRSCALEWINDOWEXTEX = *mut EMRSCALEVIEWPORTEXTEX;
+pub type PEMRSELECTCLIPPATH = *mut EMRSELECTCLIPPATH;
+pub type PEMRSELECTCOLORSPACE = *mut EMRSETCOLORSPACE;
+pub type PEMRSELECTOBJECT = *mut EMRSELECTOBJECT;
+pub type PEMRSELECTPALETTE = *mut EMRSELECTPALETTE;
+pub type PEMRSETARCDIRECTION = *mut EMRSETARCDIRECTION;
+#[cfg(feature = "windef")]
+pub type PEMRSETBKCOLOR = *mut EMRSETBKCOLOR;
+pub type PEMRSETBKMODE = *mut EMRSELECTCLIPPATH;
+#[cfg(feature = "windef")]
+pub type PEMRSETBRUSHORGEX = *mut EMRSETVIEWPORTORGEX;
+pub type PEMRSETCOLORADJUSTMENT = *mut EMRSETCOLORADJUSTMENT;
+pub type PEMRSETCOLORSPACE = *mut EMRSETCOLORSPACE;
+#[cfg(feature = "windef")]
+pub type PEMRSETDIBITSTODEVICE = *mut EMRSETDIBITSTODEVICE;
+pub type PEMRSETICMMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETICMPROFILE = *mut EMRSETICMPROFILE;
+pub type PEMRSETICMPROFILEA = *mut EMRSETICMPROFILE;
+pub type PEMRSETICMPROFILEW = *mut EMRSETICMPROFILE;
+pub type PEMRSETLAYOUT = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETMAPMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETMAPPERFLAGS = *mut EMRSETMAPPERFLAGS;
+pub type PEMRSETMETARGN = *mut EMRABORTPATH;
+pub type PEMRSETMITERLIMIT = *mut EMRSETMITERLIMIT;
+pub type PEMRSETPALETTEENTRIES = *mut EMRSETPALETTEENTRIES;
+#[cfg(feature = "windef")]
+pub type PEMRSETPIXELV = *mut EMRSETPIXELV;
+pub type PEMRSETPOLYFILLMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETROP2 = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETSTRETCHBLTMODE = *mut EMRSELECTCLIPPATH;
+pub type PEMRSETTEXTALIGN = *mut EMRSELECTCLIPPATH;
+#[cfg(feature = "windef")]
+pub type PEMRSETTEXTCOLOR = *mut EMRSETBKCOLOR;
+#[cfg(feature = "windef")]
+pub type PEMRSETVIEWPORTEXTEX = *mut EMRSETVIEWPORTEXTEX;
+#[cfg(feature = "windef")]
+pub type PEMRSETVIEWPORTORGEX = *mut EMRSETVIEWPORTORGEX;
+#[cfg(feature = "windef")]
+pub type PEMRSETWINDOWEXTEX = *mut EMRSETVIEWPORTEXTEX;
+#[cfg(feature = "windef")]
+pub type PEMRSETWINDOWORGEX = *mut EMRSETVIEWPORTORGEX;
+pub type PEMRSETWORLDTRANSFORM = *mut EMRSETWORLDTRANSFORM;
+#[cfg(feature = "windef")]
+pub type PEMRSTRETCHBLT = *mut EMRSTRETCHBLT;
+#[cfg(feature = "windef")]
+pub type PEMRSTRETCHDIBITS = *mut EMRSTRETCHDIBITS;
+#[cfg(feature = "windef")]
+pub type PEMRSTROKEANDFILLPATH = *mut EMRFILLPATH;
+#[cfg(feature = "windef")]
+pub type PEMRSTROKEPATH = *mut EMRFILLPATH;
+#[cfg(feature = "windef")]
+pub type PEMRTEXT = *mut EMRTEXT;
+#[cfg(feature = "windef")]
+pub type PEMRTRANSPARENTBLT = *mut EMRTRANSPARENTBLT;
+pub type PEMRWIDENPATH = *mut EMRABORTPATH;
+#[cfg(feature = "windef")]
+pub type PENHMETAHEADER = *mut ENHMETAHEADER;
+pub type PENHMETARECORD = *mut ENHMETARECORD;
+pub type PENUMLOGFONTEXDV = PENUMLOGFONTEXDVA;
+pub type PENUMLOGFONTEXDVA = *mut ENUMLOGFONTEXDVA;
+pub type PENUMLOGFONTEXDVW = *mut ENUMLOGFONTEXDVW;
+pub type PENUMTEXTMETRIC = PENUMTEXTMETRICA;
+pub type PENUMTEXTMETRICA = *mut ENUMTEXTMETRICA;
+pub type PENUMTEXTMETRICW = *mut ENUMTEXTMETRICW;
+pub type PEXTLOGFONT = PEXTLOGFONTA;
+pub type PEXTLOGFONTA = *mut EXTLOGFONTA;
+pub type PEXTLOGFONTW = *mut EXTLOGFONTW;
+#[cfg(feature = "windef")]
+pub type PEXTLOGPEN = *mut EXTLOGPEN;
+#[cfg(feature = "windef")]
+pub type PEXTLOGPEN32 = *mut EXTLOGPEN32;
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912;
 pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384;
 pub const PFD_DOUBLEBUFFER: u32 = 1;
@@ -10149,87 +6629,13 @@ pub const PFD_SWAP_LAYER_BUFFERS: u32 = 2048;
 pub const PFD_TYPE_COLORINDEX: u32 = 1;
 pub const PFD_TYPE_RGBA: u32 = 0;
 pub const PFD_UNDERLAY_PLANE: i32 = -1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFONTSIGNATURE(pub *mut FONTSIGNATURE);
-impl PFONTSIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFONTSIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGLYPHMETRICSFLOAT(pub *mut GLYPHMETRICSFLOAT);
-impl PGLYPHMETRICSFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGLYPHMETRICSFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGLYPHSET(pub *mut GLYPHSET);
-impl PGLYPHSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGLYPHSET {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGRADIENT_RECT(pub *mut GRADIENT_RECT);
-impl PGRADIENT_RECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGRADIENT_RECT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGRADIENT_TRIANGLE(pub *mut GRADIENT_TRIANGLE);
-impl PGRADIENT_TRIANGLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGRADIENT_TRIANGLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFONTSIGNATURE = *mut FONTSIGNATURE;
+pub type PGLYPHMETRICSFLOAT = *mut GLYPHMETRICSFLOAT;
+pub type PGLYPHSET = *mut GLYPHSET;
+pub type PGRADIENT_RECT = *mut GRADIENT_RECT;
+pub type PGRADIENT_TRIANGLE = *mut GRADIENT_TRIANGLE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PHANDLETABLE(pub *mut HANDLETABLE);
-#[cfg(feature = "windef")]
-impl PHANDLETABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PHANDLETABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PHANDLETABLE = *mut HANDLETABLE;
 pub const PHYSICALHEIGHT: u32 = 111;
 pub const PHYSICALOFFSETX: u32 = 112;
 pub const PHYSICALOFFSETY: u32 = 113;
@@ -10266,179 +6672,23 @@ pub struct PIXELFORMATDESCRIPTOR {
 }
 pub const PLANES: u32 = 14;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLAYERPLANEDESCRIPTOR(pub *mut LAYERPLANEDESCRIPTOR);
+pub type PLAYERPLANEDESCRIPTOR = *mut LAYERPLANEDESCRIPTOR;
+pub type PLOCALESIGNATURE = *mut LOCALESIGNATURE;
 #[cfg(feature = "windef")]
-impl PLAYERPLANEDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PLOGBRUSH = *mut LOGBRUSH;
 #[cfg(feature = "windef")]
-impl Default for PLAYERPLANEDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOCALESIGNATURE(pub *mut LOCALESIGNATURE);
-impl PLOCALESIGNATURE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOCALESIGNATURE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOGBRUSH32 = *mut LOGBRUSH32;
+pub type PLOGFONT = PLOGFONTA;
+pub type PLOGFONTA = *mut LOGFONTA;
+pub type PLOGFONTW = *mut LOGFONTW;
+pub type PLOGPALETTE = *mut LOGPALETTE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGBRUSH(pub *mut LOGBRUSH);
-#[cfg(feature = "windef")]
-impl PLOGBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLOGBRUSH {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGBRUSH32(pub *mut LOGBRUSH32);
-#[cfg(feature = "windef")]
-impl PLOGBRUSH32 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLOGBRUSH32 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PLOGFONT(pub PLOGFONTA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGFONTA(pub *mut LOGFONTA);
-impl PLOGFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOGFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGFONTW(pub *mut LOGFONTW);
-impl PLOGFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOGFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGPALETTE(pub *mut LOGPALETTE);
-impl PLOGPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PLOGPALETTE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PLOGPEN(pub *mut LOGPEN);
-#[cfg(feature = "windef")]
-impl PLOGPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PLOGPEN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMETAHEADER(pub *mut METAHEADER);
-impl PMETAHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMETAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMETARECORD(pub *mut METARECORD);
-impl PMETARECORD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMETARECORD {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PNEWTEXTMETRIC(pub PNEWTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEWTEXTMETRICA(pub *mut NEWTEXTMETRICA);
-impl PNEWTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNEWTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNEWTEXTMETRICW(pub *mut NEWTEXTMETRICW);
-impl PNEWTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNEWTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PLOGPEN = *mut LOGPEN;
+pub type PMETAHEADER = *mut METAHEADER;
+pub type PMETARECORD = *mut METARECORD;
+pub type PNEWTEXTMETRIC = PNEWTEXTMETRICA;
+pub type PNEWTEXTMETRICA = *mut NEWTEXTMETRICA;
+pub type PNEWTEXTMETRICW = *mut NEWTEXTMETRICW;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct POINTFLOAT {
@@ -10497,229 +6747,31 @@ pub const POSTSCRIPT_IGNORE: u32 = 38;
 pub const POSTSCRIPT_INJECTION: u32 = 4118;
 pub const POSTSCRIPT_PASSTHROUGH: u32 = 4115;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct POUTLINETEXTMETRIC(pub POUTLINETEXTMETRICA);
+pub type POUTLINETEXTMETRIC = POUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POUTLINETEXTMETRICA(pub *mut OUTLINETEXTMETRICA);
+pub type POUTLINETEXTMETRICA = *mut OUTLINETEXTMETRICA;
 #[cfg(feature = "windef")]
-impl POUTLINETEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type POUTLINETEXTMETRICW = *mut OUTLINETEXTMETRICW;
+pub type PPALETTEENTRY = *mut PALETTEENTRY;
 #[cfg(feature = "windef")]
-impl Default for POUTLINETEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPATTERN = *mut PATTERN;
+pub type PPELARRAY = *mut PELARRAY;
+pub type PPIXELFORMATDESCRIPTOR = *mut PIXELFORMATDESCRIPTOR;
+pub type PPOINTFLOAT = *mut POINTFLOAT;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct POUTLINETEXTMETRICW(pub *mut OUTLINETEXTMETRICW);
+pub type PPOLYTEXT = PPOLYTEXTA;
 #[cfg(feature = "windef")]
-impl POUTLINETEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PPOLYTEXTA = *mut POLYTEXTA;
 #[cfg(feature = "windef")]
-impl Default for POUTLINETEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPALETTEENTRY(pub *mut PALETTEENTRY);
-impl PPALETTEENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPALETTEENTRY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PPOLYTEXTW = *mut POLYTEXTW;
+pub type PPSFEATURE_CUSTPAPER = *mut PSFEATURE_CUSTPAPER;
+pub type PPSFEATURE_OUTPUT = *mut PSFEATURE_OUTPUT;
+pub type PPSINJECTDATA = *mut PSINJECTDATA;
+pub type PRGBTRIPLE = *mut RGBTRIPLE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPATTERN(pub *mut PATTERN);
+pub type PRGNDATA = *mut RGNDATA;
 #[cfg(feature = "windef")]
-impl PPATTERN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPATTERN {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPELARRAY(pub *mut PELARRAY);
-impl PPELARRAY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPELARRAY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPIXELFORMATDESCRIPTOR(pub *mut PIXELFORMATDESCRIPTOR);
-impl PPIXELFORMATDESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPIXELFORMATDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOINTFLOAT(pub *mut POINTFLOAT);
-impl PPOINTFLOAT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPOINTFLOAT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PPOLYTEXT(pub PPOLYTEXTA);
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLYTEXTA(pub *mut POLYTEXTA);
-#[cfg(feature = "windef")]
-impl PPOLYTEXTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPOLYTEXTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPOLYTEXTW(pub *mut POLYTEXTW);
-#[cfg(feature = "windef")]
-impl PPOLYTEXTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PPOLYTEXTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSFEATURE_CUSTPAPER(pub *mut PSFEATURE_CUSTPAPER);
-impl PPSFEATURE_CUSTPAPER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSFEATURE_CUSTPAPER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSFEATURE_OUTPUT(pub *mut PSFEATURE_OUTPUT);
-impl PPSFEATURE_OUTPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSFEATURE_OUTPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPSINJECTDATA(pub *mut PSINJECTDATA);
-impl PPSINJECTDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPSINJECTDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRGBTRIPLE(pub *mut RGBTRIPLE);
-impl PRGBTRIPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRGBTRIPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRGNDATA(pub *mut RGNDATA);
-#[cfg(feature = "windef")]
-impl PRGNDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PRGNDATA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRGNDATAHEADER(pub *mut RGNDATAHEADER);
-#[cfg(feature = "windef")]
-impl PRGNDATAHEADER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PRGNDATAHEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRGNDATAHEADER = *mut RGNDATAHEADER;
 pub const PRINTRATEUNIT_CPS: u32 = 2;
 pub const PRINTRATEUNIT_IPM: u32 = 4;
 pub const PRINTRATEUNIT_LPM: u32 = 3;
@@ -10809,94 +6861,18 @@ pub const PS_SOLID: u32 = 0;
 pub const PS_STYLE_MASK: u32 = 15;
 pub const PS_TYPE_MASK: u32 = 983040;
 pub const PS_USERSTYLE: u32 = 7;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PTEXTMETRIC(pub PTEXTMETRICA);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTEXTMETRICA(pub *mut TEXTMETRICA);
-impl PTEXTMETRICA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTEXTMETRICA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTEXTMETRICW(pub *mut TEXTMETRICW);
-impl PTEXTMETRICW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTEXTMETRICW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PTRIVERTEX(pub *mut TRIVERTEX);
-impl PTRIVERTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PTRIVERTEX {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PTEXTMETRIC = PTEXTMETRICA;
+pub type PTEXTMETRICA = *mut TEXTMETRICA;
+pub type PTEXTMETRICW = *mut TEXTMETRICW;
+pub type PTRIVERTEX = *mut TRIVERTEX;
 pub const PT_BEZIERTO: u32 = 4;
 pub const PT_CLOSEFIGURE: u32 = 1;
 pub const PT_LINETO: u32 = 2;
 pub const PT_MOVETO: u32 = 6;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWCRANGE(pub *mut WCRANGE);
-impl PWCRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PWCRANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWCRANGE = *mut WCRANGE;
 #[cfg(feature = "windef")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PWGLSWAP(pub *mut WGLSWAP);
-#[cfg(feature = "windef")]
-impl PWGLSWAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "windef")]
-impl Default for PWGLSWAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXFORM(pub *mut XFORM);
-impl PXFORM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PXFORM {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PWGLSWAP = *mut WGLSWAP;
+pub type PXFORM = *mut XFORM;
 pub const QDC_ALL_PATHS: u32 = 1;
 pub const QDC_DATABASE_CURRENT: u32 = 4;
 pub const QDC_INCLUDE_HMD: u32 = 32;

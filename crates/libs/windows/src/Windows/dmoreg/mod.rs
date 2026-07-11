@@ -50,16 +50,4 @@ pub struct DMO_PARTIAL_MEDIATYPE {
 }
 pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = 1;
 pub type DMO_REGISTER_FLAGS = i32;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDMO_PARTIAL_MEDIATYPE(pub *mut DMO_PARTIAL_MEDIATYPE);
-impl PDMO_PARTIAL_MEDIATYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDMO_PARTIAL_MEDIATYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDMO_PARTIAL_MEDIATYPE = *mut DMO_PARTIAL_MEDIATYPE;

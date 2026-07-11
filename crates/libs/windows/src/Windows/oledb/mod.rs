@@ -597,9 +597,7 @@ pub struct DBFAILUREINFO {
 pub struct DBHASHVALUE(pub u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DBHASHVALUE(pub super::winnt::DWORDLONG);
+pub type DBHASHVALUE = super::winnt::DWORDLONG;
 #[repr(C, packed(2))]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1684,9 +1682,7 @@ pub const DBREASON_ROW_UPDATE: DBREASONENUM = 13;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DBREFCOUNT(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DBRESULTFLAG(pub DB_LRESERVE);
+pub type DBRESULTFLAG = DB_LRESERVE;
 pub type DBRESULTFLAGENUM = i32;
 pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = 0;
 pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = 2;
@@ -1947,9 +1943,7 @@ pub const DB_COUNTUNAVAILABLE: i32 = -1;
 pub struct DB_DWRESERVE(pub u32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct DB_DWRESERVE(pub super::winnt::DWORDLONG);
+pub type DB_DWRESERVE = super::winnt::DWORDLONG;
 pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0;
 pub const DB_IMP_LEVEL_DELEGATE: u32 = 3;
 pub const DB_IMP_LEVEL_IDENTIFY: u32 = 1;
@@ -7116,21 +7110,7 @@ pub const MD_DIMTYPE_TIME: u32 = 1;
 pub const MD_DIMTYPE_UNKNOWN: u32 = 0;
 pub const OLEDBVER: u32 = 624;
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDBPROPINFO(pub *mut DBPROPINFO);
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl PDBPROPINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-impl Default for PDBPROPINFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDBPROPINFO = *mut DBPROPINFO;
 pub const PERM_ALL: ACCESS_MASKENUM = 268435456;
 pub const PERM_CREATE: ACCESS_MASKENUM = 16384;
 pub const PERM_DELETE: ACCESS_MASKENUM = 65536;

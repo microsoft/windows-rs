@@ -126,253 +126,25 @@ impl IVssEnumObject_Vtbl {
     }
 }
 impl windows_core::RuntimeName for IVssEnumObject {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_APPLICATION_LEVEL(pub *mut VSS_APPLICATION_LEVEL);
-impl PVSS_APPLICATION_LEVEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_APPLICATION_LEVEL {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_BACKUP_SCHEMA(pub *mut VSS_BACKUP_SCHEMA);
-impl PVSS_BACKUP_SCHEMA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_BACKUP_SCHEMA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_BACKUP_TYPE(pub *mut VSS_BACKUP_TYPE);
-impl PVSS_BACKUP_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_BACKUP_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_FILE_SPEC_BACKUP_TYPE(pub *mut VSS_FILE_SPEC_BACKUP_TYPE);
-impl PVSS_FILE_SPEC_BACKUP_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_FILE_SPEC_BACKUP_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_HARDWARE_OPTIONS(pub *mut VSS_HARDWARE_OPTIONS);
-impl PVSS_HARDWARE_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_HARDWARE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_OBJECT_PROP(pub *mut VSS_OBJECT_PROP);
-impl PVSS_OBJECT_PROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_OBJECT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_OBJECT_TYPE(pub *mut VSS_OBJECT_TYPE);
-impl PVSS_OBJECT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_PROVIDER_CAPABILITIES(pub *mut VSS_PROVIDER_CAPABILITIES);
-impl PVSS_PROVIDER_CAPABILITIES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_PROVIDER_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_PROVIDER_PROP(pub *mut VSS_PROVIDER_PROP);
-impl PVSS_PROVIDER_PROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_PROVIDER_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_PROVIDER_TYPE(pub *mut VSS_PROVIDER_TYPE);
-impl PVSS_PROVIDER_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_PROVIDER_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_RECOVERY_OPTIONS(pub *mut VSS_RECOVERY_OPTIONS);
-impl PVSS_RECOVERY_OPTIONS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_RECOVERY_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_RESTORE_TYPE(pub *mut VSS_RESTORE_TYPE);
-impl PVSS_RESTORE_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_RESTORE_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_ROLLFORWARD_TYPE(pub *mut VSS_ROLLFORWARD_TYPE);
-impl PVSS_ROLLFORWARD_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_ROLLFORWARD_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_SNAPSHOT_CONTEXT(pub *mut VSS_SNAPSHOT_CONTEXT);
-impl PVSS_SNAPSHOT_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_SNAPSHOT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_SNAPSHOT_PROP(pub *mut VSS_SNAPSHOT_PROP);
-impl PVSS_SNAPSHOT_PROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_SNAPSHOT_PROP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_SNAPSHOT_PROPERTY_ID(pub *mut VSS_SNAPSHOT_PROPERTY_ID);
-impl PVSS_SNAPSHOT_PROPERTY_ID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_SNAPSHOT_PROPERTY_ID {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_SNAPSHOT_STATE(pub *mut VSS_SNAPSHOT_STATE);
-impl PVSS_SNAPSHOT_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_SNAPSHOT_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_VOLUME_SNAPSHOT_ATTRIBUTES(pub *mut VSS_VOLUME_SNAPSHOT_ATTRIBUTES);
-impl PVSS_VOLUME_SNAPSHOT_ATTRIBUTES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_VOLUME_SNAPSHOT_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PVSS_WRITER_STATE(pub *mut VSS_WRITER_STATE);
-impl PVSS_WRITER_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PVSS_WRITER_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PVSS_APPLICATION_LEVEL = *mut VSS_APPLICATION_LEVEL;
+pub type PVSS_BACKUP_SCHEMA = *mut VSS_BACKUP_SCHEMA;
+pub type PVSS_BACKUP_TYPE = *mut VSS_BACKUP_TYPE;
+pub type PVSS_FILE_SPEC_BACKUP_TYPE = *mut VSS_FILE_SPEC_BACKUP_TYPE;
+pub type PVSS_HARDWARE_OPTIONS = *mut VSS_HARDWARE_OPTIONS;
+pub type PVSS_OBJECT_PROP = *mut VSS_OBJECT_PROP;
+pub type PVSS_OBJECT_TYPE = *mut VSS_OBJECT_TYPE;
+pub type PVSS_PROVIDER_CAPABILITIES = *mut VSS_PROVIDER_CAPABILITIES;
+pub type PVSS_PROVIDER_PROP = *mut VSS_PROVIDER_PROP;
+pub type PVSS_PROVIDER_TYPE = *mut VSS_PROVIDER_TYPE;
+pub type PVSS_RECOVERY_OPTIONS = *mut VSS_RECOVERY_OPTIONS;
+pub type PVSS_RESTORE_TYPE = *mut VSS_RESTORE_TYPE;
+pub type PVSS_ROLLFORWARD_TYPE = *mut VSS_ROLLFORWARD_TYPE;
+pub type PVSS_SNAPSHOT_CONTEXT = *mut VSS_SNAPSHOT_CONTEXT;
+pub type PVSS_SNAPSHOT_PROP = *mut VSS_SNAPSHOT_PROP;
+pub type PVSS_SNAPSHOT_PROPERTY_ID = *mut VSS_SNAPSHOT_PROPERTY_ID;
+pub type PVSS_SNAPSHOT_STATE = *mut VSS_SNAPSHOT_STATE;
+pub type PVSS_VOLUME_SNAPSHOT_ATTRIBUTES = *mut VSS_VOLUME_SNAPSHOT_ATTRIBUTES;
+pub type PVSS_WRITER_STATE = *mut VSS_WRITER_STATE;
 pub type VSS_APPLICATION_LEVEL = i32;
 pub const VSS_APP_AUTO: VSS_APPLICATION_LEVEL = -1;
 pub const VSS_APP_BACK_END: VSS_APPLICATION_LEVEL = 2;
@@ -490,19 +262,7 @@ pub const VSS_PRV_CAPABILITY_MULTIPLE_IMPORT: VSS_PROVIDER_CAPABILITIES = 32;
 pub const VSS_PRV_CAPABILITY_OFFLINE_CREATION: VSS_PROVIDER_CAPABILITIES = 16;
 pub const VSS_PRV_CAPABILITY_PLEX: VSS_PROVIDER_CAPABILITIES = 128;
 pub const VSS_PRV_CAPABILITY_RECYCLING: VSS_PROVIDER_CAPABILITIES = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct VSS_PWSZ(pub *mut u16);
-impl VSS_PWSZ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for VSS_PWSZ {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type VSS_PWSZ = *mut u16;
 pub const VSS_RECOVERY_NO_VOLUME_CHECK: VSS_RECOVERY_OPTIONS = 512;
 pub type VSS_RECOVERY_OPTIONS = i32;
 pub const VSS_RECOVERY_REVERT_IDENTITY_ALL: VSS_RECOVERY_OPTIONS = 256;

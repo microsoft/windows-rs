@@ -641,401 +641,77 @@ pub type LPCCHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPCFHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCHOOSECOLOR(pub LPCHOOSECOLORA);
+pub type LPCHOOSECOLOR = LPCHOOSECOLORA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHOOSECOLORA(pub *mut CHOOSECOLORA);
+pub type LPCHOOSECOLORA = *mut CHOOSECOLORA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPCHOOSECOLORA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPCHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHOOSECOLORW(pub *mut CHOOSECOLORW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPCHOOSECOLORW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPCHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCHOOSECOLORW = *mut CHOOSECOLORW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPCHOOSEFONT(pub LPCHOOSEFONTA);
+pub type LPCHOOSEFONT = LPCHOOSEFONTA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHOOSEFONTA(pub *mut CHOOSEFONTA);
+pub type LPCHOOSEFONTA = *mut CHOOSEFONTA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl LPCHOOSEFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for LPCHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPCHOOSEFONTW(pub *mut CHOOSEFONTW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl LPCHOOSEFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for LPCHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDEVNAMES(pub *mut DEVNAMES);
-impl LPDEVNAMES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDEVNAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPCHOOSEFONTW = *mut CHOOSEFONTW;
+pub type LPDEVNAMES = *mut DEVNAMES;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPFINDREPLACE(pub LPFINDREPLACEA);
+pub type LPFINDREPLACE = LPFINDREPLACEA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFINDREPLACEA(pub *mut FINDREPLACEA);
+pub type LPFINDREPLACEA = *mut FINDREPLACEA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFINDREPLACEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFINDREPLACEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPFINDREPLACEW(pub *mut FINDREPLACEW);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPFINDREPLACEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPFINDREPLACEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPFINDREPLACEW = *mut FINDREPLACEW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPFRHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPOFNHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOFNOTIFY(pub LPOFNOTIFYA);
+pub type LPOFNOTIFY = LPOFNOTIFYA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOFNOTIFYA(pub *mut OFNOTIFYA);
+pub type LPOFNOTIFYA = *mut OFNOTIFYA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPOFNOTIFYA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPOFNOTIFYEX = LPOFNOTIFYEXA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPOFNOTIFYA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOFNOTIFYEXA = *mut OFNOTIFYEXA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOFNOTIFYEX(pub LPOFNOTIFYEXA);
+pub type LPOFNOTIFYEXW = *mut OFNOTIFYEXW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOFNOTIFYEXA(pub *mut OFNOTIFYEXA);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPOFNOTIFYEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPOFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOFNOTIFYEXW(pub *mut OFNOTIFYEXW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPOFNOTIFYEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPOFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOFNOTIFYW(pub *mut OFNOTIFYW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl LPOFNOTIFYW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-impl Default for LPOFNOTIFYW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOFNOTIFYW = *mut OFNOTIFYW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOPENFILENAME(pub LPOPENFILENAMEA);
+pub type LPOPENFILENAME = LPOPENFILENAMEA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENFILENAMEA(pub *mut OPENFILENAMEA);
+pub type LPOPENFILENAMEA = *mut OPENFILENAMEA;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPOPENFILENAMEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type LPOPENFILENAMEW = *mut OPENFILENAMEW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPOPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOPENFILENAME_NT4 = LPOPENFILENAME_NT4A;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENFILENAMEW(pub *mut OPENFILENAMEW);
+pub type LPOPENFILENAME_NT4A = *mut OPENFILENAME_NT4A;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPOPENFILENAMEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPOPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPOPENFILENAME_NT4(pub LPOPENFILENAME_NT4A);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENFILENAME_NT4A(pub *mut OPENFILENAME_NT4A);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPOPENFILENAME_NT4A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPOPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPOPENFILENAME_NT4W(pub *mut OPENFILENAME_NT4W);
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl LPOPENFILENAME_NT4W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef"))]
-impl Default for LPOPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPOPENFILENAME_NT4W = *mut OPENFILENAME_NT4W;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPPAGEPAINTHOOK = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPAGESETUPDLG(pub LPPAGESETUPDLGA);
+pub type LPPAGESETUPDLG = LPPAGESETUPDLGA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPAGESETUPDLGA(pub *mut PAGESETUPDLGA);
+pub type LPPAGESETUPDLGA = *mut PAGESETUPDLGA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPPAGESETUPDLGA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPPAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPAGESETUPDLGW(pub *mut PAGESETUPDLGW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPPAGESETUPDLGW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPPAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPAGESETUPDLGW = *mut PAGESETUPDLGW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPPAGESETUPHOOK = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTDLG(pub LPPRINTDLGA);
+pub type LPPRINTDLG = LPPRINTDLGA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTDLGA(pub *mut PRINTDLGA);
+pub type LPPRINTDLGA = *mut PRINTDLGA;
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
+pub type LPPRINTDLGEX = LPPRINTDLGEXA;
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
+pub type LPPRINTDLGEXA = *mut PRINTDLGEXA;
+#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
+pub type LPPRINTDLGEXW = *mut PRINTDLGEXW;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPPRINTDLGA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPPRINTDLGA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPRINTDLGEX(pub LPPRINTDLGEXA);
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTDLGEXA(pub *mut PRINTDLGEXA);
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl LPPRINTDLGEXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for LPPRINTDLGEXA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTDLGEXW(pub *mut PRINTDLGEXW);
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl LPPRINTDLGEXW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-impl Default for LPPRINTDLGEXW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTDLGW(pub *mut PRINTDLGW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl LPPRINTDLGW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-impl Default for LPPRINTDLGW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTDLGW = *mut PRINTDLGW;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPPRINTHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPRINTPAGERANGE(pub *mut PRINTPAGERANGE);
-impl LPPRINTPAGERANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPPRINTPAGERANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPRINTPAGERANGE = *mut PRINTPAGERANGE;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type LPSETUPHOOKPROC = Option<unsafe extern "system" fn(param0: super::windef::HWND, param1: u32, param2: super::minwindef::WPARAM, param3: super::minwindef::LPARAM) -> usize>;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
@@ -1523,67 +1199,13 @@ pub struct PAGESETUPDLGW {
     pub hPageSetupTemplate: super::minwindef::HGLOBAL,
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PCCHOOSEFONT(pub PCCHOOSEFONTA);
+pub type PCCHOOSEFONT = PCCHOOSEFONTA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCHOOSEFONTA(pub *const CHOOSEFONTA);
+pub type PCCHOOSEFONTA = *const CHOOSEFONTA;
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl PCCHOOSEFONTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for PCCHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCCHOOSEFONTW(pub *const CHOOSEFONTW);
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl PCCHOOSEFONTW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwindef", feature = "windef", feature = "wingdi"))]
-impl Default for PCCHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCDEVNAMES(pub *const DEVNAMES);
-impl PCDEVNAMES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCDEVNAMES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCPRINTPAGERANGE(pub *const PRINTPAGERANGE);
-impl PCPRINTPAGERANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PCPRINTPAGERANGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PCCHOOSEFONTW = *const CHOOSEFONTW;
+pub type PCDEVNAMES = *const DEVNAMES;
+pub type PCPRINTPAGERANGE = *const PRINTPAGERANGE;
 pub const PD_ALLPAGES: u32 = 0;
 pub const PD_COLLATE: u32 = 16;
 pub const PD_CURRENTPAGE: u32 = 4194304;

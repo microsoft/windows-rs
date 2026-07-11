@@ -491,55 +491,7 @@ pub const MAX_PROTECTED_ITEM_CATEGORY: FH_PROTECTED_ITEM_CATEGORY = 2;
 pub const MAX_RETENTION_TYPE: FH_RETENTION_TYPES = 3;
 pub const MAX_TARGET_PROPERTY: FH_TARGET_PROPERTY_TYPE = 3;
 pub const MAX_VALIDATION_RESULT: FH_DEVICE_VALIDATION_RESULT = 7;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFH_DEVICE_VALIDATION_RESULT(pub *mut FH_DEVICE_VALIDATION_RESULT);
-impl PFH_DEVICE_VALIDATION_RESULT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFH_DEVICE_VALIDATION_RESULT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFH_LOCAL_POLICY_TYPE(pub *mut FH_LOCAL_POLICY_TYPE);
-impl PFH_LOCAL_POLICY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFH_LOCAL_POLICY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFH_PROTECTED_ITEM_CATEGORY(pub *mut FH_PROTECTED_ITEM_CATEGORY);
-impl PFH_PROTECTED_ITEM_CATEGORY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFH_PROTECTED_ITEM_CATEGORY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFH_TARGET_PROPERTY_TYPE(pub *mut FH_TARGET_PROPERTY_TYPE);
-impl PFH_TARGET_PROPERTY_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFH_TARGET_PROPERTY_TYPE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFH_DEVICE_VALIDATION_RESULT = *mut FH_DEVICE_VALIDATION_RESULT;
+pub type PFH_LOCAL_POLICY_TYPE = *mut FH_LOCAL_POLICY_TYPE;
+pub type PFH_PROTECTED_ITEM_CATEGORY = *mut FH_PROTECTED_ITEM_CATEGORY;
+pub type PFH_TARGET_PROPERTY_TYPE = *mut FH_TARGET_PROPERTY_TYPE;

@@ -433,57 +433,21 @@ pub const INIT_ONCE_CHECK_ONLY: u32 = 1;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPINIT_ONCE(pub super::winnt::PRTL_RUN_ONCE);
+pub type LPINIT_ONCE = super::winnt::PRTL_RUN_ONCE;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPSYNCHRONIZATION_BARRIER(pub super::winnt::PRTL_BARRIER);
+pub type LPSYNCHRONIZATION_BARRIER = super::winnt::PRTL_BARRIER;
 pub const MUTEX_ALL_ACCESS: u32 = 2031617;
 pub const MUTEX_MODIFY_STATE: u32 = 1;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PCONDITION_VARIABLE(pub *mut super::winnt::RTL_CONDITION_VARIABLE);
+pub type PCONDITION_VARIABLE = *mut super::winnt::RTL_CONDITION_VARIABLE;
 #[cfg(feature = "winnt")]
-impl PCONDITION_VARIABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PCONDITION_VARIABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PINIT_ONCE(pub super::winnt::PRTL_RUN_ONCE);
+pub type PINIT_ONCE = super::winnt::PRTL_RUN_ONCE;
 #[cfg(feature = "winnt")]
 pub type PINIT_ONCE_FN = Option<unsafe extern "system" fn(initonce: PINIT_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> windows_core::BOOL>;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSRWLOCK(pub *mut super::winnt::RTL_SRWLOCK);
+pub type PSRWLOCK = *mut super::winnt::RTL_SRWLOCK;
 #[cfg(feature = "winnt")]
-impl PSRWLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for PSRWLOCK {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct PSYNCHRONIZATION_BARRIER(pub super::winnt::PRTL_BARRIER);
+pub type PSYNCHRONIZATION_BARRIER = super::winnt::PRTL_BARRIER;
 pub type PTIMERAPCROUTINE = Option<unsafe extern "system" fn(lpargtocompletionroutine: *const core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
 #[cfg(feature = "winnt")]
 pub type SRWLOCK = super::winnt::RTL_SRWLOCK;

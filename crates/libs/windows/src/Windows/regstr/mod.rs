@@ -77,19 +77,7 @@ pub const IT_TYPICAL: u32 = 1;
 pub const LASTGOOD_OPERATION: u32 = 255;
 pub const LASTGOOD_OPERATION_DELETE: u32 = 1;
 pub const LASTGOOD_OPERATION_NOPOSTPROC: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPDSKTLSYSTEMTIME(pub *mut DSKTLSYSTEMTIME);
-impl LPDSKTLSYSTEMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for LPDSKTLSYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPDSKTLSYSTEMTIME = *mut DSKTLSYSTEMTIME;
 pub const MF_FLAGS_CREATE_BUT_NO_SHOW_DISABLED: u32 = 8;
 pub const MF_FLAGS_EVEN_IF_NO_RESOURCE: u32 = 1;
 pub const MF_FLAGS_FILL_IN_UNKNOWN_RESOURCE: u32 = 4;
@@ -109,19 +97,7 @@ pub const PCMCIA_OPT_HAVE_SOCKET: u32 = 1;
 pub const PCMCIA_OPT_NO_APMREMOVE: u32 = 32;
 pub const PCMCIA_OPT_NO_AUDIO: u32 = 16;
 pub const PCMCIA_OPT_NO_SOUND: u32 = 8;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PDSKTLSYSTEMTIME(pub *mut DSKTLSYSTEMTIME);
-impl PDSKTLSYSTEMTIME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PDSKTLSYSTEMTIME {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PDSKTLSYSTEMTIME = *mut DSKTLSYSTEMTIME;
 pub const PIR_OPTION_DEFAULT: u32 = 15;
 pub const PIR_OPTION_ENABLED: u32 = 1;
 pub const PIR_OPTION_MSSPEC: u32 = 4;

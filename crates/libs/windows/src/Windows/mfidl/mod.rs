@@ -13150,32 +13150,8 @@ pub const PEACTION_PLAY: MFPOLICYMANAGER_ACTION = 1;
 pub const PEACTION_RESERVED1: MFPOLICYMANAGER_ACTION = 5;
 pub const PEACTION_RESERVED2: MFPOLICYMANAGER_ACTION = 6;
 pub const PEACTION_RESERVED3: MFPOLICYMANAGER_ACTION = 7;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFRR_COMPONENTS(pub *mut MFRR_COMPONENTS);
-impl PMFRR_COMPONENTS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFRR_COMPONENTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMFRR_COMPONENT_HASH_INFO(pub *mut MFRR_COMPONENT_HASH_INFO);
-impl PMFRR_COMPONENT_HASH_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMFRR_COMPONENT_HASH_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMFRR_COMPONENTS = *mut MFRR_COMPONENTS;
+pub type PMFRR_COMPONENT_HASH_INFO = *mut MFRR_COMPONENT_HASH_INFO;
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807;
 pub const REQUIRE_PROMPT: MFNetCredentialRequirements = 1;
 pub const REQUIRE_SAVE_SELECTED: MFNetCredentialRequirements = 2;

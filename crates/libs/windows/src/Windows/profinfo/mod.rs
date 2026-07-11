@@ -1,39 +1,9 @@
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct LPPROFILEINFO(pub LPPROFILEINFOA);
+pub type LPPROFILEINFO = LPPROFILEINFOA;
 #[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROFILEINFOA(pub *mut PROFILEINFOA);
+pub type LPPROFILEINFOA = *mut PROFILEINFOA;
 #[cfg(feature = "winnt")]
-impl LPPROFILEINFOA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPPROFILEINFOA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct LPPROFILEINFOW(pub *mut PROFILEINFOW);
-#[cfg(feature = "winnt")]
-impl LPPROFILEINFOW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "winnt")]
-impl Default for LPPROFILEINFOW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type LPPROFILEINFOW = *mut PROFILEINFOW;
 #[cfg(feature = "winnt")]
 pub type PROFILEINFO = PROFILEINFOA;
 #[repr(C)]

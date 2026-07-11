@@ -2994,19 +2994,7 @@ pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct NDR_SCONTEXT(pub *mut _NDR_SCONTEXT);
-impl NDR_SCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for NDR_SCONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
 pub struct NDR_USER_MARSHAL_INFO {
@@ -3061,218 +3049,28 @@ impl Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
 }
 pub const NDR_VAX_FLOAT: u32 = 256;
 pub const NT351_INTERFACE_SIZE: u32 = 64;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PARAM_OFFSETTABLE(pub *mut u16);
-impl PARAM_OFFSETTABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PARAM_OFFSETTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PARRAY_INFO(pub *mut ARRAY_INFO);
-impl PARRAY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PARRAY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PARAM_OFFSETTABLE = *mut u16;
+pub type PARRAY_INFO = *mut ARRAY_INFO;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
 pub type PFN_RPCNOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(pasync: *mut RPC_ASYNC_STATE, context: *mut core::ffi::c_void, event: RPC_ASYNC_EVENT)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFORMAT_STRING(pub *const u8);
-impl PFORMAT_STRING {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFORMAT_STRING {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PFULL_PTR_XLAT_TABLES(pub *mut FULL_PTR_XLAT_TABLES);
-impl PFULL_PTR_XLAT_TABLES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PFULL_PTR_XLAT_TABLES {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGENERIC_BINDING_INFO(pub *mut GENERIC_BINDING_INFO);
-impl PGENERIC_BINDING_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGENERIC_BINDING_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PGENERIC_BINDING_ROUTINE_PAIR(pub *mut GENERIC_BINDING_ROUTINE_PAIR);
-impl PGENERIC_BINDING_ROUTINE_PAIR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PGENERIC_BINDING_ROUTINE_PAIR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_INTERCEPTION_INFO(pub *mut MIDL_INTERCEPTION_INFO);
-impl PMIDL_INTERCEPTION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIDL_INTERCEPTION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_METHOD_PROPERTY(pub *mut MIDL_METHOD_PROPERTY);
-impl PMIDL_METHOD_PROPERTY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIDL_METHOD_PROPERTY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_METHOD_PROPERTY_MAP(pub *mut MIDL_METHOD_PROPERTY_MAP);
-impl PMIDL_METHOD_PROPERTY_MAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIDL_METHOD_PROPERTY_MAP {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PFORMAT_STRING = *const u8;
+pub type PFULL_PTR_XLAT_TABLES = *mut FULL_PTR_XLAT_TABLES;
+pub type PGENERIC_BINDING_INFO = *mut GENERIC_BINDING_INFO;
+pub type PGENERIC_BINDING_ROUTINE_PAIR = *mut GENERIC_BINDING_ROUTINE_PAIR;
+pub type PMIDL_INTERCEPTION_INFO = *mut MIDL_INTERCEPTION_INFO;
+pub type PMIDL_METHOD_PROPERTY = *mut MIDL_METHOD_PROPERTY;
+pub type PMIDL_METHOD_PROPERTY_MAP = *mut MIDL_METHOD_PROPERTY_MAP;
 #[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_SERVER_INFO(pub *mut MIDL_SERVER_INFO);
+pub type PMIDL_SERVER_INFO = *mut MIDL_SERVER_INFO;
 #[cfg(feature = "objidlbase")]
-impl PMIDL_SERVER_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
+pub type PMIDL_STUBLESS_PROXY_INFO = *mut MIDL_STUBLESS_PROXY_INFO;
 #[cfg(feature = "objidlbase")]
-impl Default for PMIDL_SERVER_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDL_STUB_DESC = *const MIDL_STUB_DESC;
 #[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_STUBLESS_PROXY_INFO(pub *mut MIDL_STUBLESS_PROXY_INFO);
+pub type PMIDL_STUB_MESSAGE = *mut MIDL_STUB_MESSAGE;
+pub type PMIDL_SYNTAX_INFO = *mut MIDL_SYNTAX_INFO;
 #[cfg(feature = "objidlbase")]
-impl PMIDL_STUBLESS_PROXY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for PMIDL_STUBLESS_PROXY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_STUB_DESC(pub *const MIDL_STUB_DESC);
-#[cfg(feature = "objidlbase")]
-impl PMIDL_STUB_DESC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for PMIDL_STUB_DESC {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_STUB_MESSAGE(pub *mut MIDL_STUB_MESSAGE);
-#[cfg(feature = "objidlbase")]
-impl PMIDL_STUB_MESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for PMIDL_STUB_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_SYNTAX_INFO(pub *mut MIDL_SYNTAX_INFO);
-impl PMIDL_SYNTAX_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PMIDL_SYNTAX_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PMIDL_WINRT_TYPE_SERIALIZATION_INFO(pub *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO);
-#[cfg(feature = "objidlbase")]
-impl PMIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for PMIDL_WINRT_TYPE_SERIALIZATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATION_INFO;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_XMIT_TYPE(pub *mut core::ffi::c_void);
@@ -3286,45 +3084,9 @@ impl Default for PMIDL_XMIT_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDR_ASYNC_MESSAGE(pub *mut _NDR_ASYNC_MESSAGE);
-impl PNDR_ASYNC_MESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDR_ASYNC_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PNDR_CORRELATION_INFO(pub *mut _NDR_CORRELATION_INFO);
-impl PNDR_CORRELATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PNDR_CORRELATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPARAM_OFFSETTABLE(pub *mut u16);
-impl PPARAM_OFFSETTABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PPARAM_OFFSETTABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PNDR_ASYNC_MESSAGE = *mut _NDR_ASYNC_MESSAGE;
+pub type PNDR_CORRELATION_INFO = *mut _NDR_CORRELATION_INFO;
+pub type PPARAM_OFFSETTABLE = *mut u16;
 pub const PROTOCOL_ADDRESS_CHANGE: RPC_ADDRESS_CHANGE_TYPE = 3;
 pub const PROTOCOL_LOADED: RPC_ADDRESS_CHANGE_TYPE = 2;
 pub const PROTOCOL_NOT_LOADED: RPC_ADDRESS_CHANGE_TYPE = 1;
@@ -3335,271 +3097,27 @@ pub type PROXY_PHASE = i32;
 pub const PROXY_SENDRECEIVE: PROXY_PHASE = 3;
 pub const PROXY_UNMARSHAL: PROXY_PHASE = 4;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_ASYNC_NOTIFICATION_INFO(pub *mut RPC_ASYNC_NOTIFICATION_INFO);
+pub type PRPC_ASYNC_NOTIFICATION_INFO = *mut RPC_ASYNC_NOTIFICATION_INFO;
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl PRPC_ASYNC_NOTIFICATION_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl Default for PRPC_ASYNC_NOTIFICATION_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_ASYNC_STATE(pub *mut RPC_ASYNC_STATE);
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl PRPC_ASYNC_STATE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-impl Default for PRPC_ASYNC_STATE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_BINDING_HANDLE_OPTIONS_V1(pub *mut RPC_BINDING_HANDLE_OPTIONS_V1);
-impl PRPC_BINDING_HANDLE_OPTIONS_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_BINDING_HANDLE_OPTIONS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_BINDING_HANDLE_SECURITY_V1_A(pub *mut RPC_BINDING_HANDLE_SECURITY_V1_A);
-impl PRPC_BINDING_HANDLE_SECURITY_V1_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_BINDING_HANDLE_SECURITY_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_BINDING_HANDLE_SECURITY_V1_W(pub *mut RPC_BINDING_HANDLE_SECURITY_V1_W);
-impl PRPC_BINDING_HANDLE_SECURITY_V1_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_BINDING_HANDLE_SECURITY_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_BINDING_HANDLE_TEMPLATE_V1_A(pub *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A);
-impl PRPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_BINDING_HANDLE_TEMPLATE_V1_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_BINDING_HANDLE_TEMPLATE_V1_W(pub *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W);
-impl PRPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_BINDING_HANDLE_TEMPLATE_V1_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_CALL_LOCAL_ADDRESS_V1(pub *mut RPC_CALL_LOCAL_ADDRESS_V1);
-impl PRPC_CALL_LOCAL_ADDRESS_V1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_CALL_LOCAL_ADDRESS_V1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_CLIENT_INFORMATION1(pub *mut RPC_CLIENT_INFORMATION1);
-impl PRPC_CLIENT_INFORMATION1 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_CLIENT_INFORMATION1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_CLIENT_INTERFACE(pub *mut RPC_CLIENT_INTERFACE);
-impl PRPC_CLIENT_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_CLIENT_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_DISPATCH_TABLE(pub *mut RPC_DISPATCH_TABLE);
-impl PRPC_DISPATCH_TABLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_DISPATCH_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_ENDPOINT_TEMPLATEA(pub *mut RPC_ENDPOINT_TEMPLATEA);
-impl PRPC_ENDPOINT_TEMPLATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_ENDPOINT_TEMPLATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_ENDPOINT_TEMPLATEW(pub *mut RPC_ENDPOINT_TEMPLATEW);
-impl PRPC_ENDPOINT_TEMPLATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_ENDPOINT_TEMPLATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_A(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_HTTP_TRANSPORT_CREDENTIALS_W(pub *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W);
-impl PRPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_HTTP_TRANSPORT_CREDENTIALS_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_IMPORT_CONTEXT_P(pub *mut RPC_IMPORT_CONTEXT_P);
-impl PRPC_IMPORT_CONTEXT_P {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_IMPORT_CONTEXT_P {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRPC_ASYNC_STATE = *mut RPC_ASYNC_STATE;
+pub type PRPC_BINDING_HANDLE_OPTIONS_V1 = *mut RPC_BINDING_HANDLE_OPTIONS_V1;
+pub type PRPC_BINDING_HANDLE_SECURITY_V1_A = *mut RPC_BINDING_HANDLE_SECURITY_V1_A;
+pub type PRPC_BINDING_HANDLE_SECURITY_V1_W = *mut RPC_BINDING_HANDLE_SECURITY_V1_W;
+pub type PRPC_BINDING_HANDLE_TEMPLATE_V1_A = *mut RPC_BINDING_HANDLE_TEMPLATE_V1_A;
+pub type PRPC_BINDING_HANDLE_TEMPLATE_V1_W = *mut RPC_BINDING_HANDLE_TEMPLATE_V1_W;
+pub type PRPC_CALL_LOCAL_ADDRESS_V1 = *mut RPC_CALL_LOCAL_ADDRESS_V1;
+pub type PRPC_CLIENT_INFORMATION1 = *mut RPC_CLIENT_INFORMATION1;
+pub type PRPC_CLIENT_INTERFACE = *mut RPC_CLIENT_INTERFACE;
+pub type PRPC_DISPATCH_TABLE = *mut RPC_DISPATCH_TABLE;
+pub type PRPC_ENDPOINT_TEMPLATEA = *mut RPC_ENDPOINT_TEMPLATEA;
+pub type PRPC_ENDPOINT_TEMPLATEW = *mut RPC_ENDPOINT_TEMPLATEW;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_A = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_A = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_V2_W = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_A = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_V3_W = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W;
+pub type PRPC_HTTP_TRANSPORT_CREDENTIALS_W = *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W;
+pub type PRPC_IMPORT_CONTEXT_P = *mut RPC_IMPORT_CONTEXT_P;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRPC_INTERFACE_GROUP(pub *mut *mut core::ffi::c_void);
@@ -3613,283 +3131,29 @@ impl Default for PRPC_INTERFACE_GROUP {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_INTERFACE_TEMPLATEA(pub *mut RPC_INTERFACE_TEMPLATEA);
-impl PRPC_INTERFACE_TEMPLATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_INTERFACE_TEMPLATEA {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_INTERFACE_TEMPLATEW(pub *mut RPC_INTERFACE_TEMPLATEW);
-impl PRPC_INTERFACE_TEMPLATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_INTERFACE_TEMPLATEW {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_MESSAGE(pub *mut RPC_MESSAGE);
-impl PRPC_MESSAGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_MESSAGE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_POLICY(pub *mut RPC_POLICY);
-impl PRPC_POLICY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_POLICY {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_PROTSEQ_ENDPOINT(pub *mut RPC_PROTSEQ_ENDPOINT);
-impl PRPC_PROTSEQ_ENDPOINT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_PROTSEQ_ENDPOINT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRPC_INTERFACE_TEMPLATEA = *mut RPC_INTERFACE_TEMPLATEA;
+pub type PRPC_INTERFACE_TEMPLATEW = *mut RPC_INTERFACE_TEMPLATEW;
+pub type PRPC_MESSAGE = *mut RPC_MESSAGE;
+pub type PRPC_POLICY = *mut RPC_POLICY;
+pub type PRPC_PROTSEQ_ENDPOINT = *mut RPC_PROTSEQ_ENDPOINT;
 pub type PRPC_RUNDOWN = Option<unsafe extern "system" fn(associationcontext: *mut core::ffi::c_void)>;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS(pub *mut RPC_SECURITY_QOS);
-impl PRPC_SECURITY_QOS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V2_A(pub *mut RPC_SECURITY_QOS_V2_A);
-impl PRPC_SECURITY_QOS_V2_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V2_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V2_W(pub *mut RPC_SECURITY_QOS_V2_W);
-impl PRPC_SECURITY_QOS_V2_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V2_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V3_A(pub *mut RPC_SECURITY_QOS_V3_A);
-impl PRPC_SECURITY_QOS_V3_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V3_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V3_W(pub *mut RPC_SECURITY_QOS_V3_W);
-impl PRPC_SECURITY_QOS_V3_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V3_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V4_A(pub *mut RPC_SECURITY_QOS_V4_A);
-impl PRPC_SECURITY_QOS_V4_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V4_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V4_W(pub *mut RPC_SECURITY_QOS_V4_W);
-impl PRPC_SECURITY_QOS_V4_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V4_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V5_A(pub *mut RPC_SECURITY_QOS_V5_A);
-impl PRPC_SECURITY_QOS_V5_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V5_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SECURITY_QOS_V5_W(pub *mut RPC_SECURITY_QOS_V5_W);
-impl PRPC_SECURITY_QOS_V5_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SECURITY_QOS_V5_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SEC_CONTEXT_KEY_INFO(pub *mut RPC_SEC_CONTEXT_KEY_INFO);
-impl PRPC_SEC_CONTEXT_KEY_INFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SEC_CONTEXT_KEY_INFO {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SERVER_INTERFACE(pub *mut RPC_SERVER_INTERFACE);
-impl PRPC_SERVER_INTERFACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SERVER_INTERFACE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PRPC_SYNTAX_IDENTIFIER(pub *mut RPC_SYNTAX_IDENTIFIER);
-impl PRPC_SYNTAX_IDENTIFIER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PRPC_SYNTAX_IDENTIFIER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSCONTEXT_QUEUE(pub *mut SCONTEXT_QUEUE);
-impl PSCONTEXT_QUEUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSCONTEXT_QUEUE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEC_WINNT_AUTH_IDENTITY_A(pub *mut SEC_WINNT_AUTH_IDENTITY_A);
-impl PSEC_WINNT_AUTH_IDENTITY_A {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEC_WINNT_AUTH_IDENTITY_A {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSEC_WINNT_AUTH_IDENTITY_W(pub *mut SEC_WINNT_AUTH_IDENTITY_W);
-impl PSEC_WINNT_AUTH_IDENTITY_W {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for PSEC_WINNT_AUTH_IDENTITY_W {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRPC_SECURITY_QOS = *mut RPC_SECURITY_QOS;
+pub type PRPC_SECURITY_QOS_V2_A = *mut RPC_SECURITY_QOS_V2_A;
+pub type PRPC_SECURITY_QOS_V2_W = *mut RPC_SECURITY_QOS_V2_W;
+pub type PRPC_SECURITY_QOS_V3_A = *mut RPC_SECURITY_QOS_V3_A;
+pub type PRPC_SECURITY_QOS_V3_W = *mut RPC_SECURITY_QOS_V3_W;
+pub type PRPC_SECURITY_QOS_V4_A = *mut RPC_SECURITY_QOS_V4_A;
+pub type PRPC_SECURITY_QOS_V4_W = *mut RPC_SECURITY_QOS_V4_W;
+pub type PRPC_SECURITY_QOS_V5_A = *mut RPC_SECURITY_QOS_V5_A;
+pub type PRPC_SECURITY_QOS_V5_W = *mut RPC_SECURITY_QOS_V5_W;
+pub type PRPC_SEC_CONTEXT_KEY_INFO = *mut RPC_SEC_CONTEXT_KEY_INFO;
+pub type PRPC_SERVER_INTERFACE = *mut RPC_SERVER_INTERFACE;
+pub type PRPC_SYNTAX_IDENTIFIER = *mut RPC_SYNTAX_IDENTIFIER;
+pub type PSCONTEXT_QUEUE = *mut SCONTEXT_QUEUE;
+pub type PSEC_WINNT_AUTH_IDENTITY_A = *mut SEC_WINNT_AUTH_IDENTITY_A;
+pub type PSEC_WINNT_AUTH_IDENTITY_W = *mut SEC_WINNT_AUTH_IDENTITY_W;
 #[cfg(feature = "objidlbase")]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PXMIT_ROUTINE_QUINTUPLE(pub *mut XMIT_ROUTINE_QUINTUPLE);
-#[cfg(feature = "objidlbase")]
-impl PXMIT_ROUTINE_QUINTUPLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(feature = "objidlbase")]
-impl Default for PXMIT_ROUTINE_QUINTUPLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RDR_CALLOUT_STATE {
@@ -4031,9 +3295,7 @@ pub const RPC_BHO_DONTLINGER: u32 = 2;
 pub const RPC_BHO_EXCLUSIVE_AND_GUARANTEED: u32 = 4;
 pub const RPC_BHO_NONCAUSAL: u32 = 1;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RPC_BINDING_HANDLE(pub I_RPC_HANDLE);
+pub type RPC_BINDING_HANDLE = I_RPC_HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
@@ -4141,19 +3403,7 @@ pub const RPC_BUFFER_COMPLETE: u32 = 4096;
 pub const RPC_BUFFER_EXTRA: u32 = 16384;
 pub const RPC_BUFFER_NONOTIFY: u32 = 65536;
 pub const RPC_BUFFER_PARTIAL: u32 = 8192;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RPC_BUFPTR(pub *mut u8);
-impl RPC_BUFPTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RPC_BUFPTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type RPC_BUFPTR = *mut u8;
 #[cfg(feature = "winnt")]
 pub type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
 #[repr(C)]
@@ -4365,32 +3615,8 @@ pub const RPC_CONTEXT_HANDLE_DEFAULT_FLAGS: u32 = 0;
 pub const RPC_CONTEXT_HANDLE_DONT_SERIALIZE: u32 = 536870912;
 pub const RPC_CONTEXT_HANDLE_FLAGS: u32 = 805306368;
 pub const RPC_CONTEXT_HANDLE_SERIALIZE: u32 = 268435456;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RPC_CSTR(pub *mut u8);
-impl RPC_CSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RPC_CSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RPC_CWSTR(pub *const u16);
-impl RPC_CWSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RPC_CWSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type RPC_CSTR = *mut u8;
+pub type RPC_CWSTR = *const u16;
 pub const RPC_C_AUTHN_CLOUD_AP: u32 = 36;
 pub const RPC_C_AUTHN_DCE_PRIVATE: u32 = 1;
 pub const RPC_C_AUTHN_DCE_PUBLIC: u32 = 2;
@@ -4602,19 +3828,7 @@ impl Default for RPC_ENDPOINT_TEMPLATEW {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RPC_EP_INQ_HANDLE(pub *mut I_RPC_HANDLE);
-impl RPC_EP_INQ_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RPC_EP_INQ_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type RPC_EP_INQ_HANDLE = *mut I_RPC_HANDLE;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct RPC_ERROR_ENUM_HANDLE {
@@ -5289,19 +4503,7 @@ pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct RPC_WSTR(pub *mut u16);
-impl RPC_WSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl Default for RPC_WSTR {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type RPC_WSTR = *mut u16;
 pub const RPC_X_ENUM_VALUE_TOO_LARGE: u32 = 1781;
 pub const RPC_X_INVALID_BOUND: u32 = 1734;
 pub const RPC_X_INVALID_BUFFER: u32 = 1784;
@@ -5520,9 +4722,7 @@ pub struct boolean(pub u8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct byte(pub u8);
 pub const cbNDRContext: u32 = 20;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct cs_byte(pub byte);
+pub type cs_byte = byte;
 pub const eeptAnsiString: ExtendedErrorParamTypes = 1;
 pub const eeptBinary: ExtendedErrorParamTypes = 7;
 pub const eeptLongVal: ExtendedErrorParamTypes = 3;
@@ -5533,9 +4733,7 @@ pub const eeptUnicodeString: ExtendedErrorParamTypes = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct error_status_t(pub u32);
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct handle_t(pub RPC_BINDING_HANDLE);
+pub type handle_t = RPC_BINDING_HANDLE;
 pub const rcclClientUnknownLocality: RpcCallClientLocality = 3;
 pub const rcclInvalid: RpcCallClientLocality = 0;
 pub const rcclLocal: RpcCallClientLocality = 1;
