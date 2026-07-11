@@ -156,6 +156,19 @@ remaps, and per-kind modules (`r#enum`, `r#struct`, `r#const`, `r#fn`, `callback
 partitioning routes each declaration back to its defining header so the output is a
 per-header `<stem>.rdl` file set.
 
+`lib.rs` holds the `clang()`/`Clang` builder, the `Parser` cursor walker, and the two
+emit terminals; its cross-cutting free helpers are grouped into focused sibling modules:
+`guid` (GUID-initializer parsing), `scope` (the reachability sweep, reference/resolution
+maps, and header-in-scope tests), `naming` (tag-rename and nested-type synthetic naming),
+and `macros` (the object-like-macro evaluation pass). Both emit paths — `parse_and_emit`
+(the namespaced `write` path used by `tool_webview`) and `parse_and_emit_by_header` (the
+flat per-header `write_by_header` path used by `tool_win32`/`tool_wdk`) — share one
+`parse_inputs` helper that loads libclang and parses every header and in-memory source into
+translation units once. Its `ParsedInputs` return owns the libclang `Library` guard and
+`Index` so the translation units stay valid for its whole lifetime; the paths bind it whole
+(never destructure it) so its field declaration order governs drop, disposing the units and
+index before the guard unloads libclang.
+
 Because `windows-clang` reuses `windows_rdl::emit`, the RDL it produces is spelled
 identically to the RDL the winmd → RDL writer produces — the round-trip
 `headers → RDL → winmd → RDL` converges, which the golden tests enforce.
