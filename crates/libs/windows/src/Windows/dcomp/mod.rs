@@ -23,28 +23,34 @@ pub unsafe fn DCompositionBoostCompositorClock(enable: bool) -> windows_core::HR
 }
 #[cfg(feature = "dxgi")]
 #[inline]
-pub unsafe fn DCompositionCreateDevice<P0>(dxgidevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DCompositionCreateDevice<P0, T>(dxgidevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::dxgi::IDXGIDevice>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice(dxgidevice : *mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice(dxgidevice.param().abi(), iid, dcompositiondevice as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice(dxgidevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn DCompositionCreateDevice2<P0>(renderingdevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DCompositionCreateDevice2<P0, T>(renderingdevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice2(renderingdevice : *mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice2(renderingdevice.param().abi(), iid, dcompositiondevice as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice2(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn DCompositionCreateDevice3<P0>(renderingdevice: P0, iid: *const windows_core::GUID, dcompositiondevice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DCompositionCreateDevice3<P0, T>(renderingdevice: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionCreateDevice3(renderingdevice : *mut core::ffi::c_void, iid : *const windows_core::GUID, dcompositiondevice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DCompositionCreateDevice3(renderingdevice.param().abi(), iid, dcompositiondevice as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DCompositionCreateDevice3(renderingdevice.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -4773,8 +4779,12 @@ windows_core::imp::define_interface!(IDCompositionSurface, IDCompositionSurface_
 windows_core::imp::interface_hierarchy!(IDCompositionSurface, windows_core::IUnknown);
 impl IDCompositionSurface {
     #[cfg(feature = "windef")]
-    pub unsafe fn BeginDraw(&self, updaterect: Option<*const super::windef::RECT>, iid: *const windows_core::GUID, updateobject: *mut *mut core::ffi::c_void, updateoffset: *mut super::windef::POINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, iid, updateobject as _, updateoffset as _) }
+    pub unsafe fn BeginDraw<T>(&self, updaterect: Option<*const super::windef::RECT>, updateoffset: *mut super::windef::POINT) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).BeginDraw)(windows_core::Interface::as_raw(self), updaterect.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__, updateoffset as _).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn EndDraw(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndDraw)(windows_core::Interface::as_raw(self)) }
@@ -5230,8 +5240,12 @@ impl IDCompositionTexture {
     pub unsafe fn SetAlphaMode(&self, alphamode: super::dxgi::DXGI_ALPHA_MODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetAlphaMode)(windows_core::Interface::as_raw(self), alphamode) }
     }
-    pub unsafe fn GetAvailableFence(&self, fencevalue: *mut u64, iid: *const windows_core::GUID, availablefence: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, iid, availablefence as _) }
+    pub unsafe fn GetAvailableFence<T>(&self, fencevalue: *mut u64) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetAvailableFence)(windows_core::Interface::as_raw(self), fencevalue as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

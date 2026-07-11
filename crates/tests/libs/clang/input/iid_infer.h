@@ -1,0 +1,56 @@
+//! flat
+//! namespace Windows.Win32
+
+// Caller-chosen-type COM creators that the SDK headers ship WITHOUT `_COM_Outptr_` SAL
+// and WITHOUT a MIDL `[iid_is]` block comment (the real `DCompositionCreateDevice`,
+// `OleCreate*`/`OleLoad*`, and property-system `PS*` families). `infer_iid_is` recovers
+// the `ComOutPtr` (`#[iid_is]`) marker from the signature shape rather than a per-parameter
+// annotation, so the projected surface matches the annotated creators (`QueryInterface`
+// idiom) instead of a raw double pointer.
+//
+// The gate is deliberately narrow so it is a promotion of a genuine idiom, never a lossy
+// guess: the function must return `HRESULT`, a `*const GUID` parameter must be named
+// `riid`/`iid`/`riidltf`, and the promoted parameter must be a `*mut *mut void` output.
+
+typedef int HRESULT;
+typedef struct _GUID {
+    unsigned long Data1;
+} GUID;
+typedef const GUID *REFIID;
+
+#define _Out_writes_to_(c, w) __attribute__((annotate("_Out_writes_to_(" #c "," #w ")")))
+
+// POSITIVE: `HRESULT` return + `REFIID` named `iid` + `void**` out -> `#[iid_is]` inferred.
+// This is the `DCompositionCreateDevice` shape.
+HRESULT CreateThing(REFIID iid, void **ppThing);
+
+// POSITIVE: adjacency is NOT required. Several parameters sit between the `riid` selector
+// and the `void**` out-pointer (the `OleCreate*` shape).
+HRESULT LoadThing(unsigned int flags, unsigned int mode, const GUID *riid, void **ppv);
+
+// NEGATIVE: the return type is not `HRESULT` (`unsigned long` -> `u32`), so the `void**`
+// out-pointer stays a bare `*mut *mut void`. This is what excludes the buffer-style
+// GUID-out functions (`RpcServerInqIf`, `WlanQueryInterface`) that return a status code.
+unsigned long QueryThing(REFIID iid, void **ppThing);
+
+// NEGATIVE: the `*const GUID` parameter is data, not a type selector — its name is not
+// `riid`/`iid`/`riidltf` — so the `void**` out-pointer stays a bare `*mut *mut void`.
+// This is the `DsReplicaGetInfoW`/`TdhCreatePayloadFilter` shape.
+HRESULT GetThing(const GUID *providerGuid, void **ppData);
+
+// NEGATIVE: a caller-chosen-type ARRAY enumerator. The `void**` carries a `size_is(celt)`
+// length, so it is a counted array, not a single-object out-pointer; promoting it would
+// drop the count parameter the projection still references. This is the `IEnumObjects::Next`
+// shape.
+HRESULT NextThings(unsigned long celt, REFIID riid, _Out_writes_to_(celt, *pFetched) void **rgelt, unsigned long *pFetched);
+
+// The inference applies to COM interface methods too — the `GetService`/`Activate`/
+// `CreateInstance` families that lack `_COM_Outptr_` SAL and a `[iid_is]` comment.
+struct __declspec(uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e")) IThingFactory {
+    // POSITIVE: `HRESULT` method + `REFIID` named `riid` + `void**` out -> `#[iid_is]`.
+    virtual HRESULT GetService(REFIID riid, void **ppv) = 0;
+
+    // NEGATIVE: no `riid`-named selector -> the `void**` out-pointer stays bare.
+    virtual HRESULT GetBuffer(void **ppBuffer) = 0;
+};
+

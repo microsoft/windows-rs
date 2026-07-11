@@ -355,13 +355,15 @@ pub unsafe fn MFCreateMediaEvent(met: super::mfobjects::MediaEventType, guidexte
     }
 }
 #[inline]
-pub unsafe fn MFCreateMediaExtensionActivate<P0, P1>(szactivatableclassid: P0, pconfiguration: P1, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreateMediaExtensionActivate<P0, P1, T>(szactivatableclassid: P0, pconfiguration: P1) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaExtensionActivate(szactivatableclassid : windows_core::PCWSTR, pconfiguration : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateMediaExtensionActivate(szactivatableclassid.param().abi(), pconfiguration.param().abi(), riid, ppvobject as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateMediaExtensionActivate(szactivatableclassid.param().abi(), pconfiguration.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -481,9 +483,13 @@ pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const windows_core:
     }
 }
 #[inline]
-pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn MFCreateVideoSampleAllocatorEx<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("mfplat.dll" "system" fn MFCreateVideoSampleAllocatorEx(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoSampleAllocatorEx(riid, ppsampleallocator as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateVideoSampleAllocatorEx(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

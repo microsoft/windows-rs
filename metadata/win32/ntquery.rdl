@@ -93,7 +93,7 @@ mod Windows {
         #[library("query.dll")]
         extern fn LoadIFilter(pwcsPath: PCWSTR, pUnkOuter: IUnknown, ppIUnk: *mut *mut void) -> HRESULT;
         #[library("query.dll")]
-        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: u32, riid: *const GUID, ppIUnk: *mut *mut void) -> HRESULT;
+        extern fn LoadIFilterEx(pwcsPath: PCWSTR, dwFlags: u32, riid: *const GUID, #[iid_is] ppIUnk: *mut *mut void) -> HRESULT;
         const MSIDXSPROP_COMMAND_LOCALE_STRING: u32 = 3;
         const MSIDXSPROP_MAX_RANK: u32 = 6;
         const MSIDXSPROP_PARSE_TREE: u32 = 5;

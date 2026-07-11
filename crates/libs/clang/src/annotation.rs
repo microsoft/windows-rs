@@ -293,6 +293,85 @@ fn is_void_double_ptr(ty: &metadata::Type) -> bool {
     }
 }
 
+/// Parameter names conventionally used for the `REFIID` that selects a caller-chosen
+/// COM out-pointer's runtime type (`riid`/`iid`/`riidltf`). A `*const GUID` parameter so
+/// named is the *type selector* of the `QueryInterface` idiom, not a data GUID.
+const IID_SELECTOR_PARAM_NAMES: [&str; 3] = ["riid", "iid", "riidltf"];
+
+/// Returns `true` when `ty` names the `HRESULT` scalar typedef.
+fn is_hresult(ty: &metadata::Type) -> bool {
+    matches!(ty, metadata::Type::ValueName(tn) if tn.name == "HRESULT")
+}
+
+/// Returns `true` when `ty` is a single-indirection `*const GUID` — the `REFIID`/`REFCLSID`
+/// shape a caller-chosen-type COM creator uses to select its out-pointer's type. (`IID` and
+/// friends are already collapsed to `GUID` by [`super::canon`].)
+fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
+    matches!(ty, metadata::Type::PtrConst(inner, 1)
+        if matches!(inner.as_ref(), metadata::Type::ValueName(tn) if tn.name == "GUID"))
+}
+
+/// Infer a `ComOutPtr` (`#[iid_is]`) marker on an *unannotated* caller-chosen-type COM
+/// out-pointer.
+///
+/// Some QueryInterface-idiom creators (`DCompositionCreateDevice`, `D3D11CreateDevice`'s
+/// interop factories, the `OleCreate*`/`OleLoad*` family, the property-system `PS*`
+/// functions, …) ship in the SDK headers with **no** `_COM_Outptr_` SAL and **no** MIDL
+/// `[iid_is]` comment, so [`parse_params`] leaves the `void**` out-parameter a bare,
+/// caller-opaque `*mut *mut c_void`. This recovers the marker from the surrounding
+/// signature shape rather than a per-parameter annotation, so the projected surface matches
+/// the annotated creators (`-> Result<T>` via `QueryInterface`) instead of a raw double
+/// pointer.
+///
+/// The gate is deliberately narrow, so it is a *promotion* of a genuine idiom and never a
+/// lossy guess: the function must return `HRESULT`, a `*const GUID` parameter must be named
+/// `riid`/`iid`/`riidltf` (the `REFIID` convention), and the promoted parameter must be a
+/// `*mut *mut void` output *with no array/buffer length* (`size`/`array` unset). The
+/// `HRESULT`-return + `riid`-*name* requirement is what excludes the buffer-style GUID-out
+/// functions whose GUID parameter is *data*, not a type selector (`DsReplicaGetInfoW`'s
+/// `puuidForSourceDsaObjGuid`, `RpcServerInqIf`'s `MgrTypeUuid`, `WlanQueryInterface`'s
+/// `pInterfaceGuid`, `TdhCreatePayloadFilter`'s `ProviderGuid` — all returning
+/// `u32`/`RPC_STATUS`/`TDHSTATUS`, not `HRESULT`). The array/length exclusion is what excludes
+/// the caller-chosen-type *array enumerators* (`IEnumObjects::Next(celt, riid,
+/// size_is(celt) void **rgelt, …)`) whose `void**` is a counted array, not a single-object
+/// out-pointer — promoting those to a `ComOutPtr` generic produces broken codegen (the
+/// projection would drop the array/count parameter it still references). Adjacency is *not*
+/// required — the OLE family has several parameters between the `riid` and the out-pointer.
+/// Only sets the marker (never clears one) and only on a not-already-`In` `void**`, so it
+/// composes with the SAL/MIDL promotion in [`parse_params`].
+pub(crate) fn infer_iid_is(params: &mut [Param], return_type: &metadata::Type) {
+    if !is_hresult(return_type) {
+        return;
+    }
+    let has_iid_selector = params
+        .iter()
+        .any(|p| IID_SELECTOR_PARAM_NAMES.contains(&p.name.as_str()) && is_const_guid_ptr(&p.ty));
+    if !has_iid_selector {
+        return;
+    }
+    for param in params.iter_mut() {
+        if !param.annotation.com_out_ptr
+            && !param.annotation.in_param
+            && param.annotation.array.is_none()
+            && param.annotation.size.is_none()
+            && is_void_double_ptr(&param.ty)
+        {
+            param.annotation.com_out_ptr = true;
+            // The out-pointer is an output; mark it so `param_attrs_for_annotation` renders
+            // the direction like the annotated (`_COM_Outptr_`/`[iid_is]`) path rather than
+            // defaulting a now-`is_annotated` mutable pointer to `#[in]`.
+            param.annotation.out_param = true;
+            // Normalise to the canonical `*mut *mut void` shape the SAL/MIDL promotion
+            // emits (see [`parse_params`]), so an inferred `ComOutPtr` is byte-identical to
+            // an annotated one in the RDL.
+            param.ty = metadata::Type::PtrMut(
+                Box::new(metadata::Type::PtrMut(Box::new(metadata::Type::Void), 1)),
+                1,
+            );
+        }
+    }
+}
+
 pub(crate) fn parse_params(
     cursor: &Cursor,
     midl_annotations: &[ParamAnnotation],

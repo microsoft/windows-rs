@@ -128,17 +128,7 @@ fn main() -> windows::core::Result<()> {
                 let device_3d = create_device_3d()?;
                 let device_2d = create_device_2d(&device_3d)?;
                 self.device = Some(device_3d);
-                // dcompapi.h annotates the riid/ppv pair with neither `_COM_Outptr_` nor
-                // `#[iid_is]`, so the projection can't offer the generic wrapper and we call
-                // the raw form.
-                let mut desktop: Option<IDCompositionDesktopDevice> = None;
-                DCompositionCreateDevice2(
-                    &device_2d,
-                    &IDCompositionDesktopDevice::IID,
-                    &mut desktop as *mut _ as *mut *mut core::ffi::c_void,
-                )
-                .ok()?;
-                let desktop = desktop.unwrap();
+                let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
 
                 // First release any previous target, otherwise `CreateTargetForHwnd` will find the HWND occupied.
                 self.target = None;
@@ -627,19 +617,8 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
     ) -> Result<()> {
         unsafe {
-            // dcomp.h models BeginDraw's riid/ppv without `_COM_Outptr_`/`#[iid_is]`, so
-            // there is no generic wrapper; call the raw form.
             let mut offset = POINT::default();
-            let mut dc: Option<ID2D1DeviceContext> = None;
-            surface
-                .BeginDraw(
-                    None,
-                    &ID2D1DeviceContext::IID,
-                    &mut dc as *mut _ as *mut *mut core::ffi::c_void,
-                    &mut offset,
-                )
-                .ok()?;
-            let dc = dc.unwrap();
+            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -680,16 +659,7 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let mut dc_offset = POINT::default();
-            let mut dc: Option<ID2D1DeviceContext> = None;
-            surface
-                .BeginDraw(
-                    None,
-                    &ID2D1DeviceContext::IID,
-                    &mut dc as *mut _ as *mut *mut core::ffi::c_void,
-                    &mut dc_offset,
-                )
-                .ok()?;
-            let dc = dc.unwrap();
+            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(

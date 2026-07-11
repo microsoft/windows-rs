@@ -196,9 +196,13 @@ pub unsafe fn D3DReflect(psrcdata: *const core::ffi::c_void, srcdatasize: usize,
     unsafe { D3DReflect(psrcdata, srcdatasize, pinterface, ppreflector as _) }
 }
 #[inline]
-pub unsafe fn D3DReflectLibrary(psrcdata: *const core::ffi::c_void, srcdatasize: usize, riid: *const windows_core::GUID, ppreflector: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn D3DReflectLibrary<T>(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DReflectLibrary(psrcdata : *const core::ffi::c_void, srcdatasize : usize, riid : *const windows_core::GUID, ppreflector : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { D3DReflectLibrary(psrcdata, srcdatasize, riid, ppreflector as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { D3DReflectLibrary(psrcdata, srcdatasize, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "d3dcommon")]
 #[inline]

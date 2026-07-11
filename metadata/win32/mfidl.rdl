@@ -424,7 +424,7 @@ mod Windows {
         #[guid(0x09ef5be3_c8a7_469e_8b70_73bf25bb193f)]
         interface IMFObjectReferenceStream: IUnknown {
             fn SaveReference(&self, riid: *const GUID, pUnk: IUnknown) -> HRESULT;
-            fn LoadReference(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn LoadReference(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x7f00f10a_daed_41af_ab26_5fdfa4dfba3c)]
         interface IMFOutputPolicy: IMFAttributes {
@@ -1086,7 +1086,7 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFCreateMuxSink(guidOutputSubType: GUID, #[opt] pOutputAttributes: IMFAttributes, #[opt] pOutputByteStream: IMFByteStream, ppMuxSink: *mut IMFMediaSink) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFCreateNetSchemePlugin(riid: *const GUID, ppvHandler: *mut *mut void) -> HRESULT;
+        extern fn MFCreateNetSchemePlugin(riid: *const GUID, #[iid_is] ppvHandler: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreatePMPMediaSession(dwCreationFlags: u32, pConfiguration: IMFAttributes, ppMediaSession: *mut IMFMediaSession, ppEnablerActivate: *mut IMFActivate) -> HRESULT;
         #[library("MF.dll")]
@@ -1096,7 +1096,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreatePresentationDescriptor(cStreamDescriptors: u32, #[len_param(0)] #[opt] apStreamDescriptors: *const IMFStreamDescriptor, ppPresentationDescriptor: *mut IMFPresentationDescriptor) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreatePropertiesFromMediaType(pMediaType: IMFMediaType, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreatePropertiesFromMediaType(pMediaType: IMFMediaType, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
         extern fn MFCreateProtectedEnvironmentAccess(ppAccess: *mut IMFProtectedEnvironmentAccess) -> HRESULT;
         #[library("MF.dll")]
@@ -1134,7 +1134,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateStreamOnMFByteStream(pByteStream: IMFByteStream, ppStream: *mut IStream) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateStreamOnMFByteStreamEx(pByteStream: IMFByteStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn MFCreateStreamOnMFByteStreamEx(pByteStream: IMFByteStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateSystemTimeSource(ppSystemTimeSource: *mut IMFPresentationTimeSource) -> HRESULT;
         #[library("MF.dll")]
@@ -1170,7 +1170,7 @@ mod Windows {
         #[library("MF.dll")]
         extern fn MFGetLocalId(#[size_param(1)] verifier: *const u8, size: u32, id: *mut PWSTR) -> HRESULT;
         #[library("MF.dll")]
-        extern fn MFGetService(punkObject: IUnknown, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn MFGetService(punkObject: IUnknown, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFGetSupportedMimeTypes(pPropVarMimeTypeArray: *mut PROPVARIANT) -> HRESULT;
         #[library("MFPlat.DLL")]

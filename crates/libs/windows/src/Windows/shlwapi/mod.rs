@@ -1,7 +1,11 @@
 #[inline]
-pub unsafe fn AssocCreate(clsid: windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn AssocCreate<T>(clsid: windows_core::GUID) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shlwapi.dll" "system" fn AssocCreate(clsid : windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { AssocCreate(core::mem::transmute(clsid), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { AssocCreate(core::mem::transmute(clsid), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -239,12 +243,14 @@ pub unsafe fn IUnknown_AtomicRelease(ppunk: Option<*mut *mut core::ffi::c_void>)
     unsafe { IUnknown_AtomicRelease(ppunk.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn IUnknown_GetSite<P0>(punk: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn IUnknown_GetSite<P0, T>(punk: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shlwapi.dll" "system" fn IUnknown_GetSite(punk : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { IUnknown_GetSite(punk.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { IUnknown_GetSite(punk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1415,12 +1421,14 @@ where
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHGetViewStatePropertyBag<P1>(pidl: Option<*const super::shtypes::ITEMIDLIST>, pszbagname: P1, dwflags: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHGetViewStatePropertyBag<P1, T>(pidl: Option<*const super::shtypes::ITEMIDLIST>, pszbagname: P1, dwflags: u32) -> windows_core::Result<T>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const super::shtypes::ITEMIDLIST, pszbagname : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetViewStatePropertyBag(pidl.unwrap_or(core::mem::zeroed()) as _, pszbagname.param().abi(), dwflags, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetViewStatePropertyBag(pidl.unwrap_or(core::mem::zeroed()) as _, pszbagname.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32 {
@@ -3049,11 +3057,13 @@ impl IQueryAssociations {
     {
         unsafe { (windows_core::Interface::vtable(self).GetData)(windows_core::Interface::as_raw(self), flags, data, pszextra.param().abi(), pvout.unwrap_or(core::mem::zeroed()) as _, pcbout.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn GetEnum<P2>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P2, riid: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn GetEnum<P2, T>(&self, flags: ASSOCF, assocenum: ASSOCENUM, pszextra: P2) -> windows_core::Result<T>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEnum)(windows_core::Interface::as_raw(self), flags, assocenum, pszextra.param().abi(), riid, ppvout as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetEnum)(windows_core::Interface::as_raw(self), flags, assocenum, pszextra.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

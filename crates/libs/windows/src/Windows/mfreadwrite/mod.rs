@@ -68,20 +68,24 @@ windows_core::imp::define_interface!(IMFReadWriteClassFactory, IMFReadWriteClass
 windows_core::imp::interface_hierarchy!(IMFReadWriteClassFactory, windows_core::IUnknown);
 impl IMFReadWriteClassFactory {
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn CreateInstanceFromURL<P1, P2>(&self, clsid: *const windows_core::GUID, pwszurl: P1, pattributes: P2, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn CreateInstanceFromURL<P1, P2, T>(&self, clsid: *const windows_core::GUID, pwszurl: P1, pattributes: P2) -> windows_core::Result<T>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<super::mfobjects::IMFAttributes>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstanceFromURL)(windows_core::Interface::as_raw(self), clsid, pwszurl.param().abi(), pattributes.param().abi(), riid, ppvobject as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateInstanceFromURL)(windows_core::Interface::as_raw(self), clsid, pwszurl.param().abi(), pattributes.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "mfobjects")]
-    pub unsafe fn CreateInstanceFromObject<P1, P2>(&self, clsid: *const windows_core::GUID, punkobject: P1, pattributes: P2, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn CreateInstanceFromObject<P1, P2, T>(&self, clsid: *const windows_core::GUID, punkobject: P1, pattributes: P2) -> windows_core::Result<T>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<super::mfobjects::IMFAttributes>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateInstanceFromObject)(windows_core::Interface::as_raw(self), clsid, punkobject.param().abi(), pattributes.param().abi(), riid, ppvobject as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateInstanceFromObject)(windows_core::Interface::as_raw(self), clsid, punkobject.param().abi(), pattributes.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -175,8 +179,12 @@ impl IMFSinkWriter {
     pub unsafe fn Finalize(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finalize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject as _) }
+    pub unsafe fn GetServiceForStream<T>(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetStatistics(&self, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), dwstreamindex, pstats as _) }
@@ -567,8 +575,12 @@ impl IMFSourceReader {
     pub unsafe fn Flush(&self, dwstreamindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self), dwstreamindex) }
     }
-    pub unsafe fn GetServiceForStream(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, riid, ppvobject as _) }
+    pub unsafe fn GetServiceForStream<T>(&self, dwstreamindex: u32, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetServiceForStream)(windows_core::Interface::as_raw(self), dwstreamindex, guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPresentationAttribute(&self, dwstreamindex: u32, guidattribute: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {

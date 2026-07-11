@@ -6,9 +6,7 @@ fn test() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let mut writer: Option<IXmlWriter> = None;
-        CreateXmlWriter(&IXmlWriter::IID, &mut writer as *mut _ as _, None).ok()?;
-        let writer = writer.unwrap();
+        let writer: IXmlWriter = CreateXmlWriter(None)?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartDocument(XmlStandalone_Omit).ok()?;
@@ -33,9 +31,7 @@ fn test() -> Result<()> {
             .ok()?;
         assert_eq!(pos, 0);
 
-        let mut reader: Option<IXmlReader> = None;
-        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None).ok()?;
-        let reader = reader.unwrap();
+        let reader: IXmlReader = CreateXmlReader(None)?;
         reader.SetInput(&stream).ok()?;
 
         let mut node_type = XmlNodeType_None;
@@ -114,9 +110,7 @@ fn lite() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let mut writer: Option<IXmlWriterLite> = None;
-        CreateXmlWriter(&IXmlWriterLite::IID, &mut writer as *mut _ as _, None).ok()?;
-        let writer = writer.unwrap();
+        let writer: IXmlWriterLite = CreateXmlWriter(None)?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartElement(&HSTRING::from("html")).ok()?;
@@ -135,9 +129,7 @@ fn lite() -> Result<()> {
             .ok()?;
         assert_eq!(pos, 0);
 
-        let mut reader: Option<IXmlReader> = None;
-        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None).ok()?;
-        let reader = reader.unwrap();
+        let reader: IXmlReader = CreateXmlReader(None)?;
         reader.SetInput(&stream).ok()?;
 
         let mut name = PCWSTR::null();

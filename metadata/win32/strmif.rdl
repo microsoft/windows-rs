@@ -862,7 +862,7 @@ mod Windows {
         }
         #[guid(0x632105fa_072e_11d3_8af9_00c04fb6bd3d)]
         interface IAMGraphStreams: IUnknown {
-            fn FindUpstreamInterface(&self, pPin: IPin, riid: *const GUID, ppvInterface: *mut *mut void, dwFlags: u32) -> HRESULT;
+            fn FindUpstreamInterface(&self, pPin: IPin, riid: *const GUID, #[iid_is] ppvInterface: *mut *mut void, dwFlags: u32) -> HRESULT;
             fn SyncUsingStreamOffset(&self, bUseStreamOffset: BOOL) -> HRESULT;
             fn SetMaxGraphLatency(&self, rtMaxGraphLatency: REFERENCE_TIME) -> HRESULT;
         }
@@ -1082,7 +1082,7 @@ mod Windows {
             fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
             fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
-            fn FindInterface(&self, #[opt] pCategory: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, pf: IBaseFilter, riid: *const GUID, #[iid_is] ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[opt] pCategory: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
             fn ControlStream(&self, #[opt] pCategory: *const GUID, pFilter: IBaseFilter, pstart: *const REFERENCE_TIME, pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
             fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
@@ -1093,7 +1093,7 @@ mod Windows {
             fn SetFiltergraph(&self, pfg: IGraphBuilder) -> HRESULT;
             fn GetFiltergraph(&self, ppfg: *mut IGraphBuilder) -> HRESULT;
             fn SetOutputFileName(&self, pType: *const GUID, lpstrFile: PCWSTR, ppf: *mut IBaseFilter, ppSink: *mut IFileSinkFilter) -> HRESULT;
-            fn FindInterface(&self, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, pf: IBaseFilter, riid: *const GUID, ppint: *mut *mut void) -> HRESULT;
+            fn FindInterface(&self, #[opt] pCategory: *const GUID, #[opt] pType: *const GUID, pf: IBaseFilter, riid: *const GUID, #[iid_is] ppint: *mut *mut void) -> HRESULT;
             fn RenderStream(&self, #[opt] pCategory: *const GUID, pType: *const GUID, pSource: IUnknown, pfCompressor: IBaseFilter, pfRenderer: IBaseFilter) -> HRESULT;
             fn ControlStream(&self, pCategory: *const GUID, pType: *const GUID, pFilter: IBaseFilter, #[opt] pstart: *const REFERENCE_TIME, #[opt] pstop: *const REFERENCE_TIME, wStartCookie: u16, wStopCookie: u16) -> HRESULT;
             fn AllocCapFile(&self, lpstr: PCWSTR, dwlSize: DWORDLONG) -> HRESULT;
@@ -1273,7 +1273,7 @@ mod Windows {
         #[guid(0xfcc152b6_f372_11d0_8e00_00c04fd7c08b)]
         interface IDvdGraphBuilder: IUnknown {
             fn GetFiltergraph(&self, ppGB: *mut IGraphBuilder) -> HRESULT;
-            fn GetDvdInterface(&self, riid: *const GUID, ppvIF: *mut *mut void) -> HRESULT;
+            fn GetDvdInterface(&self, riid: *const GUID, #[iid_is] ppvIF: *mut *mut void) -> HRESULT;
             fn RenderDvdVideoVolume(&self, lpcwszPathName: PCWSTR, dwFlags: u32, pStatus: *mut AM_DVD_RENDERSTATUS) -> HRESULT;
         }
         #[guid(0xa70efe60_e2a3_11d0_a9be_00aa0061be93)]

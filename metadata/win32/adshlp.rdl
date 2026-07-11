@@ -18,9 +18,9 @@ mod Windows {
         #[library("ACTIVEDS.dll")]
         extern fn ADsGetLastError(lpError: *mut u32, #[len_param(2)] #[out] lpErrorBuf: PWSTR, dwErrorBufLen: u32, #[len_param(4)] #[out] lpNameBuf: PWSTR, dwNameBufLen: u32) -> HRESULT;
         #[library("ACTIVEDS.dll")]
-        extern fn ADsGetObject(lpszPathName: PCWSTR, riid: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+        extern fn ADsGetObject(lpszPathName: PCWSTR, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
         #[library("ACTIVEDS.dll")]
-        extern fn ADsOpenObject(lpszPathName: PCWSTR, lpszUserName: PCWSTR, lpszPassword: PCWSTR, dwReserved: u32, riid: *const GUID, ppObject: *mut *mut void) -> HRESULT;
+        extern fn ADsOpenObject(lpszPathName: PCWSTR, lpszUserName: PCWSTR, lpszPassword: PCWSTR, dwReserved: u32, riid: *const GUID, #[iid_is] ppObject: *mut *mut void) -> HRESULT;
         #[library("ACTIVEDS.dll")]
         extern fn ADsSetLastError(dwErr: u32, pszError: PCWSTR, pszProvider: PCWSTR);
         #[library("ACTIVEDS.dll")]

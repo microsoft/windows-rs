@@ -115,9 +115,13 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn StgCreateStorageEx(pwcsname: Option<*const u16>, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, riid: *const windows_core::GUID, ppobjectopen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn StgCreateStorageEx<T>(pwcsname: Option<*const u16>, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn StgCreateStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StgCreateStorageEx(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, riid, ppobjectopen as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { StgCreateStorageEx(pwcsname.unwrap_or(core::mem::zeroed()) as _, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn StgIsStorageFile(pwcsname: *const u16) -> windows_core::HRESULT {
@@ -159,9 +163,13 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn StgOpenStorageEx(pwcsname: *const u16, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>, riid: *const windows_core::GUID, ppobjectopen: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn StgOpenStorageEx<T>(pwcsname: *const u16, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: Option<*mut STGOPTIONS>, psecuritydescriptor: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn StgOpenStorageEx(pwcsname : *const u16, grfmode : u32, stgfmt : u32, grfattrs : u32, pstgoptions : *mut STGOPTIONS, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, riid : *const windows_core::GUID, ppobjectopen : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StgOpenStorageEx(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, riid, ppobjectopen as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { StgOpenStorageEx(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]

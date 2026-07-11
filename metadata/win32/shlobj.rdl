@@ -110,7 +110,7 @@ mod Windows {
         interface IDockingWindowFrame: IOleWindow {
             fn AddToolbar(&self, punkSrc: IUnknown, pwszItem: PCWSTR, dwAddFlags: u32) -> HRESULT;
             fn RemoveToolbar(&self, punkSrc: IUnknown, dwRemoveFlags: u32) -> HRESULT;
-            fn FindToolbar(&self, pwszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn FindToolbar(&self, pwszItem: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         struct IEnumPrivacyRecords {}
         #[guid(0x4622ad16_ff23_11d0_8d34_00a0c90f2719)]

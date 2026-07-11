@@ -331,7 +331,7 @@ mod Windows {
         }
         #[guid(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b)]
         interface IDirect3DSurface9: IDirect3DResource9 {
-            fn GetContainer(&self, riid: *const GUID, ppContainer: *mut *mut void) -> HRESULT;
+            fn GetContainer(&self, riid: *const GUID, #[iid_is] ppContainer: *mut *mut void) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DSURFACE_DESC) -> HRESULT;
             fn LockRect(&self, pLockedRect: *mut D3DLOCKED_RECT, pRect: *const RECT, Flags: u32) -> HRESULT;
             fn UnlockRect(&self) -> HRESULT;
@@ -384,7 +384,7 @@ mod Windows {
             fn SetPrivateData(&self, refguid: *const GUID, pData: *const void, SizeOfData: u32, Flags: u32) -> HRESULT;
             fn GetPrivateData(&self, refguid: *const GUID, pData: *mut void, pSizeOfData: *mut u32) -> HRESULT;
             fn FreePrivateData(&self, refguid: *const GUID) -> HRESULT;
-            fn GetContainer(&self, riid: *const GUID, ppContainer: *mut *mut void) -> HRESULT;
+            fn GetContainer(&self, riid: *const GUID, #[iid_is] ppContainer: *mut *mut void) -> HRESULT;
             fn GetDesc(&self, pDesc: *mut D3DVOLUME_DESC) -> HRESULT;
             fn LockBox(&self, pLockedVolume: *mut D3DLOCKED_BOX, pBox: *const D3DBOX, Flags: u32) -> HRESULT;
             fn UnlockBox(&self) -> HRESULT;

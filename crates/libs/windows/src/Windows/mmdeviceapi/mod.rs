@@ -317,8 +317,12 @@ windows_core::imp::define_interface!(IMMDevice, IMMDevice_Vtbl, 0xd666063f_1587_
 windows_core::imp::interface_hierarchy!(IMMDevice, windows_core::IUnknown);
 impl IMMDevice {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Activate(&self, iid: *const windows_core::GUID, dwclsctx: u32, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), iid, dwclsctx, pactivationparams.unwrap_or(core::mem::zeroed()) as _, ppinterface as _) }
+    pub unsafe fn Activate<T>(&self, dwclsctx: u32, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, dwclsctx, pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "propsys")]
     pub unsafe fn OpenPropertyStore(&self, stgmaccess: u32) -> windows_core::Result<super::propsys::IPropertyStore> {
@@ -425,11 +429,13 @@ windows_core::imp::define_interface!(IMMDeviceActivator, IMMDeviceActivator_Vtbl
 windows_core::imp::interface_hierarchy!(IMMDeviceActivator, windows_core::IUnknown);
 impl IMMDeviceActivator {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn Activate<P1>(&self, iid: *const windows_core::GUID, pdevice: P1, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn Activate<P1, T>(&self, pdevice: P1, pactivationparams: Option<*const super::propidlbase::PROPVARIANT>) -> windows_core::Result<T>
     where
         P1: windows_core::Param<IMMDevice>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), iid, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, ppinterface as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Activate)(windows_core::Interface::as_raw(self), &T::IID, pdevice.param().abi(), pactivationparams.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

@@ -81,15 +81,7 @@ fn main() -> windows::core::Result<()> {
             )?;
 
             let provider: IServiceProvider = desktop.cast()?;
-            let mut browser = None;
-            provider
-                .QueryService(
-                    &SID_STopLevelBrowser,
-                    &IShellBrowser::IID,
-                    &mut browser as *mut _ as _,
-                )
-                .ok()?;
-            let browser: IShellBrowser = browser.unwrap();
+            let browser: IShellBrowser = provider.QueryService(&SID_STopLevelBrowser)?;
             let view = browser.QueryActiveShellView()?;
             view.cast()
         }

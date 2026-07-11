@@ -298,9 +298,13 @@ where
     }
 }
 #[inline]
-pub unsafe fn MFCreateNetSchemePlugin(riid: *const windows_core::GUID, ppvhandler: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn MFCreateNetSchemePlugin<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("mf.dll" "system" fn MFCreateNetSchemePlugin(riid : *const windows_core::GUID, ppvhandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateNetSchemePlugin(riid, ppvhandler as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateNetSchemePlugin(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -338,12 +342,14 @@ pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Optio
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreatePropertiesFromMediaType<P0>(pmediatype: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreatePropertiesFromMediaType<P0, T>(pmediatype: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::mfobjects::IMFMediaType>,
+    T: windows_core::Interface,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreatePropertiesFromMediaType(pmediatype : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreatePropertiesFromMediaType(pmediatype.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreatePropertiesFromMediaType(pmediatype.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> windows_core::Result<IMFProtectedEnvironmentAccess> {
@@ -529,12 +535,14 @@ where
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
-pub unsafe fn MFCreateStreamOnMFByteStreamEx<P0>(pbytestream: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreateStreamOnMFByteStreamEx<P0, T>(pbytestream: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::mfobjects::IMFByteStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStreamEx(pbytestream : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateStreamOnMFByteStreamEx(pbytestream.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateStreamOnMFByteStreamEx(pbytestream.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateSystemTimeSource() -> windows_core::Result<IMFPresentationTimeSource> {
@@ -672,12 +680,14 @@ pub unsafe fn MFGetLocalId(verifier: &[u8]) -> windows_core::Result<windows_core
     }
 }
 #[inline]
-pub unsafe fn MFGetService<P0>(punkobject: P0, guidservice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFGetService<P0, T>(punkobject: P0, guidservice: *const windows_core::GUID) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("mf.dll" "system" fn MFGetService(punkobject : *mut core::ffi::c_void, guidservice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFGetService(punkobject.param().abi(), guidservice, riid, ppvobject as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFGetService(punkobject.param().abi(), guidservice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -5842,8 +5852,12 @@ impl IMFObjectReferenceStream {
     {
         unsafe { (windows_core::Interface::vtable(self).SaveReference)(windows_core::Interface::as_raw(self), riid, punk.param().abi()) }
     }
-    pub unsafe fn LoadReference(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LoadReference)(windows_core::Interface::as_raw(self), riid, ppv as _) }
+    pub unsafe fn LoadReference<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).LoadReference)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

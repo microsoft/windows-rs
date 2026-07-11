@@ -1,10 +1,12 @@
 #[inline]
-pub unsafe fn MFCreateVideoMixer<P0>(powner: P0, riiddevice: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreateVideoMixer<P0, T>(powner: P0, riiddevice: *const windows_core::GUID) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("evr.dll" "C" fn MFCreateVideoMixer(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoMixerAndPresenter<P0, P1>(pmixerowner: P0, ppresenterowner: P1, riidmixer: *const windows_core::GUID, ppvvideomixer: *mut *mut core::ffi::c_void, riidpresenter: *const windows_core::GUID, ppvvideopresenter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
@@ -16,12 +18,14 @@ where
     unsafe { MFCreateVideoMixerAndPresenter(pmixerowner.param().abi(), ppresenterowner.param().abi(), riidmixer, ppvvideomixer as _, riidpresenter, ppvvideopresenter as _) }
 }
 #[inline]
-pub unsafe fn MFCreateVideoPresenter<P0>(powner: P0, riiddevice: *const windows_core::GUID, riid: *const windows_core::GUID, ppvideopresenter: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn MFCreateVideoPresenter<P0, T>(powner: P0, riiddevice: *const windows_core::GUID) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("evr.dll" "C" fn MFCreateVideoPresenter(powner : *mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, riid, ppvideopresenter as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppvideorenderer: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -29,9 +33,13 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppv
     unsafe { MFCreateVideoRenderer(riidrenderer, ppvideorenderer as _) }
 }
 #[inline]
-pub unsafe fn MFCreateVideoSampleAllocator(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn MFCreateVideoSampleAllocator<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("evr.dll" "C" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFCreateVideoSampleAllocator(riid, ppsampleallocator as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MFCreateVideoSampleAllocator(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

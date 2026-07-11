@@ -149,9 +149,13 @@ pub unsafe fn GetWindowSubclass(hwnd: super::windef::HWND, pfnsubclass: SUBCLASS
     unsafe { GetWindowSubclass(hwnd, pfnsubclass, uidsubclass, pdwrefdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn HIMAGELIST_QueryInterface(himl: *const _IMAGELIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn HIMAGELIST_QueryInterface<T>(himl: *const _IMAGELIST) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("comctl32.dll" "system" fn HIMAGELIST_QueryInterface(himl : *const _IMAGELIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { HIMAGELIST_QueryInterface(himl, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { HIMAGELIST_QueryInterface(himl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -303,12 +307,14 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn ImageList_ReadEx<P1>(dwflags: u32, pstm: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn ImageList_ReadEx<P1, T>(dwflags: u32, pstm: P1) -> windows_core::Result<T>
 where
     P1: windows_core::Param<super::objidlbase::IStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("comctl32.dll" "system" fn ImageList_ReadEx(dwflags : u32, pstm : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { ImageList_ReadEx(dwflags, pstm.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { ImageList_ReadEx(dwflags, pstm.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn ImageList_Remove(himl: *const _IMAGELIST, i: i32) -> windows_core::BOOL {

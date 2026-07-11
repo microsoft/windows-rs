@@ -28,12 +28,14 @@ where
     unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _) }
 }
 #[inline]
-pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn LoadIFilterEx<P0, T>(pwcspath: P0, dwflags: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("query.dll" "system" fn LoadIFilterEx(pwcspath : windows_core::PCWSTR, dwflags : u32, riid : *const windows_core::GUID, ppiunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, riid, ppiunk as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { LoadIFilterEx(pwcspath.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 pub const CIADMIN: windows_core::PCWSTR = windows_core::w!("::_nodocstore_::");
 pub const CICAT_ALL_OPENED: u32 = 32;

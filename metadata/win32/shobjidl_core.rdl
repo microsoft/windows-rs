@@ -2613,7 +2613,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHAssocEnumHandlers(pszExtra: PCWSTR, afFilter: ASSOC_FILTER, ppEnumHandler: *mut IEnumAssocHandlers) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, enumHandlers: *mut *mut void) -> HRESULT;
+        extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, #[iid_is] enumHandlers: *mut *mut void) -> HRESULT;
         const SHCIDS_ALLFIELDS: u32 = 2147483648;
         const SHCIDS_BITMASK: u32 = 4294901760;
         const SHCIDS_CANONICALONLY: u32 = 268435456;
@@ -2635,27 +2635,27 @@ mod Windows {
             SHCONTF_INCLUDESUPERHIDDEN = 65536,
         }
         #[library("SHELL32.dll")]
-        extern fn SHCreateAssociationRegistration(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateAssociationRegistration(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDefaultExtractIcon(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateDefaultExtractIcon(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromRelativeName(psiParent: IShellItem, pszName: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromRelativeName(psiParent: IShellItem, pszName: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemInKnownFolder(kfid: *const KNOWNFOLDERID, dwKFFlags: u32, #[opt] pszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemInKnownFolder(kfid: *const KNOWNFOLDERID, dwKFFlags: u32, #[opt] pszItem: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemWithParent(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, ppvItem: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemWithParent(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, #[iid_is] ppvItem: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateShellItemArray(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psf: IShellFolder, cidl: u32, #[len_param(2)] #[opt] ppidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItemArrayFromDataObject(pdo: IDataObject, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateShellItemArrayFromDataObject(pdo: IDataObject, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateShellItemArrayFromIDLists(cidl: u32, #[len_param(0)] rgpidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         struct SHDRAGIMAGE {
             sizeDragImage: SIZE,
             ptOffset: POINT,
@@ -2678,15 +2678,15 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetIDListFromObject(punk: IUnknown, ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetItemFromDataObject(pdtobj: IDataObject, dwFlags: DATAOBJ_GET_ITEM_FLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetItemFromDataObject(pdtobj: IDataObject, dwFlags: DATAOBJ_GET_ITEM_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetItemFromObject(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetItemFromObject(punk: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetNameFromIDList(pidl: *const ITEMIDLIST, sigdnName: SIGDN, ppszName: *mut PWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreFromIDList(pidl: *const ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreFromIDList(pidl: *const ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("SHELL32.dll")]

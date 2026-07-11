@@ -8,11 +8,11 @@ mod Windows {
         #[library("dcomp.dll")]
         extern fn DCompositionBoostCompositorClock(enable: BOOL) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice(#[opt] dxgiDevice: IDXGIDevice, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice(#[opt] dxgiDevice: IDXGIDevice, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice2(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice2(#[opt] renderingDevice: IUnknown, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
-        extern fn DCompositionCreateDevice3(#[opt] renderingDevice: IUnknown, iid: *const GUID, dcompositionDevice: *mut *mut void) -> HRESULT;
+        extern fn DCompositionCreateDevice3(#[opt] renderingDevice: IUnknown, iid: *const GUID, #[iid_is] dcompositionDevice: *mut *mut void) -> HRESULT;
         #[library("dcomp.dll")]
         extern fn DCompositionCreateSurfaceHandle(desiredAccess: u32, #[opt] securityAttributes: *const SECURITY_ATTRIBUTES, surfaceHandle: *mut HANDLE) -> HRESULT;
         #[library("dcomp.dll")]
@@ -356,7 +356,7 @@ mod Windows {
         }
         #[guid(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac)]
         interface IDCompositionSurface: IUnknown {
-            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
             fn EndDraw(&self) -> HRESULT;
             fn SuspendDraw(&self) -> HRESULT;
             fn ResumeDraw(&self) -> HRESULT;
@@ -396,7 +396,7 @@ mod Windows {
             fn SetSourceRect(&self, sourceRect: *const D2D_RECT_U) -> HRESULT;
             fn SetColorSpace(&self, colorSpace: DXGI_COLOR_SPACE_TYPE) -> HRESULT;
             fn SetAlphaMode(&self, alphaMode: DXGI_ALPHA_MODE) -> HRESULT;
-            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, availableFence: *mut *mut void) -> HRESULT;
+            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, #[iid_is] availableFence: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55)]
         interface IDCompositionTransform: IDCompositionTransform3D {}

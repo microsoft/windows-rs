@@ -5,12 +5,14 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
 }
 #[cfg(feature = "d3d9")]
 #[inline]
-pub unsafe fn DXVA2CreateVideoService<P0>(pdd: P0, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn DXVA2CreateVideoService<P0, T>(pdd: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::d3d9::IDirect3DDevice9>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DXVA2CreateVideoService(pdd.param().abi(), riid, ppservice as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DXVA2CreateVideoService(pdd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -511,8 +513,12 @@ impl IDirect3DDeviceManager9 {
         unsafe { (windows_core::Interface::vtable(self).UnlockDevice)(windows_core::Interface::as_raw(self), hdevice, fsavestate.into()) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetVideoService(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, riid, ppservice as _) }
+    pub unsafe fn GetVideoService<T>(&self, hdevice: super::winnt::HANDLE) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

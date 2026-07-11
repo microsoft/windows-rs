@@ -1038,7 +1038,7 @@ mod Windows {
         #[library("DDRAW.dll")]
         extern fn DirectDrawCreateClipper(dwFlags: u32, lplpDDClipper: *mut IDirectDrawClipper, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
-        extern fn DirectDrawCreateEx(lpGuid: *mut GUID, lplpDD: *mut *mut void, iid: *const GUID, pUnkOuter: IUnknown) -> HRESULT;
+        extern fn DirectDrawCreateEx(lpGuid: *mut GUID, #[iid_is] lplpDD: *mut *mut void, iid: *const GUID, pUnkOuter: IUnknown) -> HRESULT;
         #[library("DDRAW.dll")]
         extern fn DirectDrawEnumerateA(lpCallback: LPDDENUMCALLBACKA, lpContext: *mut void) -> HRESULT;
         #[library("DDRAW.dll")]

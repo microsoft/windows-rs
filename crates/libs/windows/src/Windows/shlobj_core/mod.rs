@@ -351,38 +351,48 @@ pub unsafe fn SHAlloc(cb: usize) -> *mut core::ffi::c_void {
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHBindToFolderIDListParent<P0>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT
+pub unsafe fn SHBindToFolderIDListParent<P0, T>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::shobjidl_core::IShellFolder>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHBindToFolderIDListParent(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
-    unsafe { SHBindToFolderIDListParent(psfroot.param().abi(), pidl, riid, ppv as _, ppidllast as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHBindToFolderIDListParent(psfroot.param().abi(), pidl, &T::IID, &mut result__, ppidllast as _).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHBindToFolderIDListParentEx<P0, P2>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, ppbc: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT
+pub unsafe fn SHBindToFolderIDListParentEx<P0, P2, T>(psfroot: P0, pidl: *const super::shtypes::ITEMIDLIST, ppbc: P2, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::shobjidl_core::IShellFolder>,
     P2: windows_core::Param<super::objidl::IBindCtx>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHBindToFolderIDListParentEx(psfroot : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, ppbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
-    unsafe { SHBindToFolderIDListParentEx(psfroot.param().abi(), pidl, ppbc.param().abi(), riid, ppv as _, ppidllast as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHBindToFolderIDListParentEx(psfroot.param().abi(), pidl, ppbc.param().abi(), &T::IID, &mut result__, ppidllast as _).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHBindToObject<P0, P2>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, pbc: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHBindToObject<P0, P2, T>(psf: P0, pidl: *const super::shtypes::ITEMIDLIST, pbc: P2) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::shobjidl_core::IShellFolder>,
     P2: windows_core::Param<super::objidl::IBindCtx>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHBindToObject(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHBindToObject(psf.param().abi(), pidl, pbc.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHBindToObject(psf.param().abi(), pidl, pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHBindToParent(pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT {
+pub unsafe fn SHBindToParent<T>(pidl: *const super::shtypes::ITEMIDLIST, ppidllast: *mut super::shtypes::LPCITEMIDLIST) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHBindToParent(pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void, ppidllast : *mut super::shtypes::LPCITEMIDLIST) -> windows_core::HRESULT);
-    unsafe { SHBindToParent(pidl, riid, ppv as _, ppidllast as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHBindToParent(pidl, &T::IID, &mut result__, ppidllast as _).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
 #[inline]
@@ -442,28 +452,36 @@ pub unsafe fn SHCloneSpecialIDList(hwnd: Option<super::windef::HWND>, csidl: i32
     unsafe { SHCloneSpecialIDList(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, fcreate.into()) }
 }
 #[inline]
-pub unsafe fn SHCoCreateInstance<P0, P2>(pszclsid: P0, pclsid: Option<*const windows_core::GUID>, punkouter: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCoCreateInstance<P0, P2, T>(pszclsid: P0, pclsid: Option<*const windows_core::GUID>, punkouter: P2) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCoCreateInstance(pszclsid : windows_core::PCWSTR, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCoCreateInstance(pszclsid.param().abi(), pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCoCreateInstance(pszclsid.param().abi(), pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHCreateDataObject<P3>(pidlfolder: Option<*const super::shtypes::ITEMIDLIST>, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, pdtinner: P3, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateDataObject<P3, T>(pidlfolder: Option<*const super::shtypes::ITEMIDLIST>, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, pdtinner: P3) -> windows_core::Result<T>
 where
     P3: windows_core::Param<super::objidl::IDataObject>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
-pub unsafe fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHCreateDefaultContextMenu<T>(pdcm: *const DEFCONTEXTMENU) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateDefaultContextMenu(core::mem::transmute(pdcm), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateDefaultContextMenu(core::mem::transmute(pdcm), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -493,12 +511,14 @@ where
     unsafe { SHCreateDirectoryExW(hwnd.unwrap_or(core::mem::zeroed()) as _, pszpath.param().abi(), psa.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SHCreateFileExtractIconW<P0>(pszfile: P0, dwfileattributes: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateFileExtractIconW<P0, T>(pszfile: P0, dwfileattributes: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateFileExtractIconW(pszfile : windows_core::PCWSTR, dwfileattributes : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateFileExtractIconW(pszfile.param().abi(), dwfileattributes, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateFileExtractIconW(pszfile.param().abi(), dwfileattributes, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
 #[inline]
@@ -713,9 +733,13 @@ pub unsafe fn SHGetKnownFolderIDList(rfid: *const super::shtypes::KNOWNFOLDERID,
 }
 #[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
-pub unsafe fn SHGetKnownFolderItem(rfid: *const super::shtypes::KNOWNFOLDERID, flags: KNOWN_FOLDER_FLAG, htoken: Option<super::winnt::HANDLE>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHGetKnownFolderItem<T>(rfid: *const super::shtypes::KNOWNFOLDERID, flags: KNOWN_FOLDER_FLAG, htoken: Option<super::winnt::HANDLE>) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHGetKnownFolderItem(rfid : *const super::shtypes::KNOWNFOLDERID, flags : KNOWN_FOLDER_FLAG, htoken : super::winnt::HANDLE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetKnownFolderItem(rfid, flags, htoken.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetKnownFolderItem(rfid, flags, htoken.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "shtypes", feature = "winnt"))]
 #[inline]
@@ -1049,13 +1073,15 @@ pub unsafe fn SignalFileOpen(pidl: *const super::shtypes::ITEMIDLIST) -> windows
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn StgMakeUniqueName<P0, P1>(pstgparent: P0, pszfilespec: P1, grfmode: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn StgMakeUniqueName<P0, P1, T>(pstgparent: P0, pszfilespec: P1, grfmode: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::objidl::IStorage>,
     P1: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn StgMakeUniqueName(pstgparent : *mut core::ffi::c_void, pszfilespec : windows_core::PCWSTR, grfmode : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { StgMakeUniqueName(pstgparent.param().abi(), pszfilespec.param().abi(), grfmode, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { StgMakeUniqueName(pstgparent.param().abi(), pszfilespec.param().abi(), grfmode, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn Win32DeleteFile<P0>(pszpath: P0) -> windows_core::BOOL

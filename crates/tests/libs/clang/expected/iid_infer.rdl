@@ -1,0 +1,25 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("")]
+        extern fn CreateThing(iid: *const GUID, #[iid_is] ppThing: *mut *mut void) -> HRESULT;
+        struct GUID {
+            Data1: u32,
+        }
+        #[library("")]
+        extern fn GetThing(providerGuid: *const GUID, ppData: *mut *mut void) -> HRESULT;
+        type HRESULT = i32;
+        #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
+        interface IThingFactory {
+            fn GetService(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn GetBuffer(&self, ppBuffer: *mut *mut void) -> HRESULT;
+        }
+        #[library("")]
+        extern fn LoadThing(flags: u32, mode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        #[library("")]
+        extern fn NextThings(celt: u32, riid: *const GUID, #[len_param(0)] rgelt: *mut *mut void, pFetched: *mut u32) -> HRESULT;
+        #[library("")]
+        extern fn QueryThing(iid: *const GUID, ppThing: *mut *mut void) -> u32;
+        type REFIID = *const GUID;
+    }
+}

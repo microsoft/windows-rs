@@ -604,7 +604,7 @@ mod Windows {
         const HICF_TOGGLEDROPDOWN: u32 = 256;
         type HIMAGELIST = *mut _IMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn HIMAGELIST_QueryInterface(himl: *const _IMAGELIST, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn HIMAGELIST_QueryInterface(himl: *const _IMAGELIST, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         const HINST_COMMCTRL: HINSTANCE = -1;
         const HIST_ADDTOFAVORITES: u32 = 3;
         const HIST_BACK: u32 = 0;
@@ -801,7 +801,7 @@ mod Windows {
         #[library("COMCTL32.dll")]
         extern fn ImageList_Read(pstm: IStream) -> HIMAGELIST;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_ReadEx(dwFlags: u32, pstm: IStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn ImageList_ReadEx(dwFlags: u32, pstm: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("COMCTL32.dll")]
         extern fn ImageList_Remove(himl: *const _IMAGELIST, i: i32) -> BOOL;
         #[library("COMCTL32.dll")]

@@ -3046,11 +3046,13 @@ impl windows_core::RuntimeName for IAMGraphBuilderCallback {}
 windows_core::imp::define_interface!(IAMGraphStreams, IAMGraphStreams_Vtbl, 0x632105fa_072e_11d3_8af9_00c04fb6bd3d);
 windows_core::imp::interface_hierarchy!(IAMGraphStreams, windows_core::IUnknown);
 impl IAMGraphStreams {
-    pub unsafe fn FindUpstreamInterface<P0>(&self, ppin: P0, riid: *const windows_core::GUID, ppvinterface: *mut *mut core::ffi::c_void, dwflags: u32) -> windows_core::HRESULT
+    pub unsafe fn FindUpstreamInterface<P0, T>(&self, ppin: P0, dwflags: u32) -> windows_core::Result<T>
     where
         P0: windows_core::Param<IPin>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindUpstreamInterface)(windows_core::Interface::as_raw(self), ppin.param().abi(), riid, ppvinterface as _, dwflags) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).FindUpstreamInterface)(windows_core::Interface::as_raw(self), ppin.param().abi(), &T::IID, &mut result__, dwflags).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn SyncUsingStreamOffset(&self, busestreamoffset: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SyncUsingStreamOffset)(windows_core::Interface::as_raw(self), busestreamoffset.into()) }
@@ -5860,11 +5862,13 @@ impl ICaptureGraphBuilder {
         unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn FindInterface<P1>(&self, pcategory: Option<*const windows_core::GUID>, pf: P1, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn FindInterface<P1, T>(&self, pcategory: Option<*const windows_core::GUID>, pf: P1) -> windows_core::Result<T>
     where
         P1: windows_core::Param<IBaseFilter>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), riid, ppint as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn RenderStream<P1, P2, P3>(&self, pcategory: Option<*const windows_core::GUID>, psource: P1, pfcompressor: P2, pfrenderer: P3) -> windows_core::HRESULT
@@ -6035,11 +6039,13 @@ impl ICaptureGraphBuilder2 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputFileName)(windows_core::Interface::as_raw(self), ptype, lpstrfile.param().abi(), core::mem::transmute(ppf), core::mem::transmute(ppsink)) }
     }
     #[cfg(feature = "objidl")]
-    pub unsafe fn FindInterface<P2>(&self, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, pf: P2, riid: *const windows_core::GUID, ppint: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn FindInterface<P2, T>(&self, pcategory: Option<*const windows_core::GUID>, ptype: Option<*const windows_core::GUID>, pf: P2) -> windows_core::Result<T>
     where
         P2: windows_core::Param<IBaseFilter>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, ptype.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), riid, ppint as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).FindInterface)(windows_core::Interface::as_raw(self), pcategory.unwrap_or(core::mem::zeroed()) as _, ptype.unwrap_or(core::mem::zeroed()) as _, pf.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "objidl")]
     pub unsafe fn RenderStream<P2, P3, P4>(&self, pcategory: Option<*const windows_core::GUID>, ptype: *const windows_core::GUID, psource: P2, pfcompressor: P3, pfrenderer: P4) -> windows_core::HRESULT
@@ -8452,8 +8458,12 @@ impl IDvdGraphBuilder {
             (windows_core::Interface::vtable(self).GetFiltergraph)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDvdInterface(&self, riid: *const windows_core::GUID, ppvif: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDvdInterface)(windows_core::Interface::as_raw(self), riid, ppvif as _) }
+    pub unsafe fn GetDvdInterface<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetDvdInterface)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn RenderDvdVideoVolume<P0>(&self, lpcwszpathname: P0, dwflags: u32, pstatus: *mut AM_DVD_RENDERSTATUS) -> windows_core::HRESULT
     where

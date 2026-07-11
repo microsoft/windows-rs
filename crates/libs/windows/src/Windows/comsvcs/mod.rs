@@ -1,10 +1,12 @@
 #[inline]
-pub unsafe fn CoCreateActivity<P0>(piunknown: P0, riid: *const windows_core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn CoCreateActivity<P0, T>(piunknown: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoCreateActivity(piunknown.param().abi(), riid, ppobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoCreateActivity(piunknown.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoEnterServiceDomain<P0>(pconfigobject: P0) -> windows_core::HRESULT
@@ -31,9 +33,13 @@ pub unsafe fn GetManagedExtensions() -> windows_core::Result<u32> {
     }
 }
 #[inline]
-pub unsafe fn MTSCreateActivity(riid: *const windows_core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn MTSCreateActivity<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MTSCreateActivity(riid, ppobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MTSCreateActivity(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> windows_core::HRESULT {

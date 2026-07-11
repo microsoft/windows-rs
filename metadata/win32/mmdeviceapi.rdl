@@ -88,14 +88,14 @@ mod Windows {
         }
         #[guid(0xd666063f_1587_4e43_81f1_b948e807363f)]
         interface IMMDevice: IUnknown {
-            fn Activate(&self, iid: *const GUID, dwClsCtx: u32, #[opt] pActivationParams: *const PROPVARIANT, ppInterface: *mut *mut void) -> HRESULT;
+            fn Activate(&self, iid: *const GUID, dwClsCtx: u32, #[opt] pActivationParams: *const PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
             fn OpenPropertyStore(&self, stgmAccess: u32, ppProperties: *mut IPropertyStore) -> HRESULT;
             fn GetId(&self, ppstrId: *mut PWSTR) -> HRESULT;
             fn GetState(&self, pdwState: *mut u32) -> HRESULT;
         }
         #[guid(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0)]
         interface IMMDeviceActivator: IUnknown {
-            fn Activate(&self, iid: *const GUID, pDevice: IMMDevice, #[opt] pActivationParams: *const PROPVARIANT, ppInterface: *mut *mut void) -> HRESULT;
+            fn Activate(&self, iid: *const GUID, pDevice: IMMDevice, #[opt] pActivationParams: *const PROPVARIANT, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e)]
         interface IMMDeviceCollection: IUnknown {

@@ -416,20 +416,7 @@ fn main() -> windows::core::Result<()> {
             options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
         }
 
-        // d2d1.h annotates neither the riid/ppv pair (no `_COM_Outptr_`/`__RPC__deref_out`)
-        // nor links them (`#[iid_is]`), so the projection can't offer the usual generic
-        // `D2D1CreateFactory::<ID2D1Factory1>(..)` wrapper and we call the raw form.
-        let mut factory: Option<ID2D1Factory1> = None;
-        unsafe {
-            D2D1CreateFactory(
-                D2D1_FACTORY_TYPE_SINGLE_THREADED,
-                &ID2D1Factory1::IID,
-                Some(&options),
-                &mut factory as *mut _ as *mut *mut core::ffi::c_void,
-            )
-            .ok()?;
-        }
-        Ok(factory.unwrap())
+        unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
     }
 
     fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {

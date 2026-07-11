@@ -99,7 +99,12 @@ impl Interface {
             let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
             let return_type = child.result_type().to_type(parser);
 
-            let params = parse_params(&child, &midl_param_annotations, parser);
+            let mut params = parse_params(&child, &midl_param_annotations, parser);
+
+            // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM methods
+            // (`GetService`, `Activate`, `CreateInstance`, …) that the SDK headers leave
+            // unannotated, from the signature shape. See [`infer_iid_is`] for the gate.
+            infer_iid_is(&mut params, &return_type);
 
             methods.push(InterfaceMethod {
                 name: method_name,

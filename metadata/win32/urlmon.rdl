@@ -286,7 +286,7 @@ mod Windows {
         }
         const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1;
         #[library("urlmon.dll")]
-        extern fn CoGetClassObjectFromURL(rCLASSID: *const GUID, szCODE: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, szTYPE: PCWSTR, pBindCtx: IBindCtx, dwClsContext: u32, #[reserved] pvReserved: *const void, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetClassObjectFromURL(rCLASSID: *const GUID, szCODE: PCWSTR, dwFileVersionMS: u32, dwFileVersionLS: u32, szTYPE: PCWSTR, pBindCtx: IBindCtx, dwClsContext: u32, #[reserved] pvReserved: *const void, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("urlmon.dll")]
         extern fn CoInternetCombineIUri(pBaseUri: IUri, pRelativeUri: IUri, dwCombineFlags: u32, ppCombinedUri: *mut IUri, #[opt] dwReserved: usize) -> HRESULT;
         #[library("urlmon.dll")]
@@ -428,8 +428,8 @@ mod Windows {
         #[guid(0xfc4801a1_2ba9_11cf_a229_00aa003d7352)]
         interface IBindHost: IUnknown {
             fn CreateMoniker(&self, szName: PCWSTR, pBC: IBindCtx, ppmk: *mut IMoniker, dwReserved: u32) -> HRESULT;
-            fn MonikerBindToStorage(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn MonikerBindToObject(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+            fn MonikerBindToStorage(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
+            fn MonikerBindToObject(&self, pMk: IMoniker, pBC: IBindCtx, pBSC: IBindStatusCallback, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         }
         #[guid(0xa9eda967_f50e_4a33_b358_206f6ef3086d)]
         interface IBindHttpSecurity: IUnknown {

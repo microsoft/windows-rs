@@ -2,11 +2,13 @@ windows_core::imp::define_interface!(ICreatePropBagOnRegKey, ICreatePropBagOnReg
 windows_core::imp::interface_hierarchy!(ICreatePropBagOnRegKey, windows_core::IUnknown);
 impl ICreatePropBagOnRegKey {
     #[cfg(feature = "minwindef")]
-    pub unsafe fn Create<P1>(&self, hkey: super::minwindef::HKEY, subkey: P1, uloptions: u32, samdesired: u32, iid: *const windows_core::GUID, ppbag: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn Create<P1, T>(&self, hkey: super::minwindef::HKEY, subkey: P1, uloptions: u32, samdesired: u32) -> windows_core::Result<T>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, subkey.param().abi(), uloptions, samdesired, iid, ppbag as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), hkey, subkey.param().abi(), uloptions, samdesired, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]

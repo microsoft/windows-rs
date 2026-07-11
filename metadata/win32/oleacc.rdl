@@ -17,7 +17,7 @@ mod Windows {
         #[library("OLEACC.dll")]
         extern fn AccessibleObjectFromPoint(ptScreen: POINT, ppacc: *mut IAccessible, pvarChild: *mut VARIANT) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn AccessibleObjectFromWindow(hwnd: HWND, dwId: u32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn AccessibleObjectFromWindow(hwnd: HWND, dwId: u32, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[repr(i32)]
         enum AnnoScope {
             ANNO_THIS = 0,
@@ -26,11 +26,11 @@ mod Windows {
         const CAccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
         const CLSID_AccPropServices: GUID = 0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleObject(hwnd: HWND, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleObject(hwnd: HWND, idObject: i32, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleProxyA(hwnd: HWND, pClassName: PCSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleProxyA(hwnd: HWND, pClassName: PCSTR, idObject: i32, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[library("OLEACC.dll")]
-        extern fn CreateStdAccessibleProxyW(hwnd: HWND, pClassName: PCWSTR, idObject: i32, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn CreateStdAccessibleProxyW(hwnd: HWND, pClassName: PCWSTR, idObject: i32, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         const DISPID_ACC_CHILD: i32 = -5002;
         const DISPID_ACC_CHILDCOUNT: i32 = -5001;
         const DISPID_ACC_DEFAULTACTION: i32 = -5013;
@@ -168,7 +168,7 @@ mod Windows {
         const NAVDIR_RIGHT: u32 = 4;
         const NAVDIR_UP: u32 = 1;
         #[library("OLEACC.dll")]
-        extern fn ObjectFromLresult(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn ObjectFromLresult(lResult: LRESULT, riid: *const GUID, wParam: WPARAM, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         const PROPID_ACC_DEFAULTACTION: GUID = 0x180c072b_c27f_43c7_9922_f63562a4632b;
         const PROPID_ACC_DESCRIPTION: GUID = 0x4d48dfe4_bd3f_491f_a648_492d6f20c588;
         const PROPID_ACC_DESCRIPTIONMAP: GUID = 0x1ff1435f_8a14_477b_b226_a0abe279975d;

@@ -166,9 +166,13 @@ pub unsafe fn CoGetApartmentType(papttype: *mut super::objidlbase::APTTYPE, papt
     unsafe { CoGetApartmentType(papttype as _, paptqualifier as _) }
 }
 #[inline]
-pub unsafe fn CoGetCallContext(riid: *const windows_core::GUID, ppinterface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoGetCallContext<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetCallContext(riid : *const windows_core::GUID, ppinterface : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetCallContext(riid, ppinterface as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetCallContext(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
@@ -179,14 +183,22 @@ pub unsafe fn CoGetCallerTID() -> windows_core::Result<u32> {
     }
 }
 #[inline]
-pub unsafe fn CoGetCancelObject(dwthreadid: u32, iid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoGetCancelObject<T>(dwthreadid: u32) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetCancelObject(dwthreadid : u32, iid : *const windows_core::GUID, ppunk : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetCancelObject(dwthreadid, iid, ppunk as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetCancelObject(dwthreadid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn CoGetClassObject(rclsid: *const windows_core::GUID, dwclscontext: u32, pvreserved: Option<*const core::ffi::c_void>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoGetClassObject<T>(rclsid: *const windows_core::GUID, dwclscontext: u32, pvreserved: Option<*const core::ffi::c_void>) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetClassObject(rclsid : *const windows_core::GUID, dwclscontext : u32, pvreserved : *const core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetClassObject(rclsid, dwclscontext, pvreserved.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetClassObject(rclsid, dwclscontext, pvreserved.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetContextToken() -> windows_core::Result<usize> {
@@ -211,9 +223,13 @@ pub unsafe fn CoGetCurrentProcess() -> u32 {
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CoGetDefaultContext(apttype: super::objidlbase::APTTYPE, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoGetDefaultContext<T>(apttype: super::objidlbase::APTTYPE) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::objidlbase::APTTYPE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetDefaultContext(apttype, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetDefaultContext(apttype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -244,9 +260,13 @@ where
     unsafe { CoGetMarshalSizeMax(pulsize as _, riid, punk.param().abi(), dwdestcontext, pvdestcontext.unwrap_or(core::mem::zeroed()) as _, mshlflags) }
 }
 #[inline]
-pub unsafe fn CoGetObjectContext(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn CoGetObjectContext<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("ole32.dll" "system" fn CoGetObjectContext(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetObjectContext(riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetObjectContext(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CoGetPSClsid(riid: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID> {

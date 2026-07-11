@@ -85,13 +85,13 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoGetApartmentType(pAptType: *mut APTTYPE, pAptQualifier: *mut APTTYPEQUALIFIER) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetCallContext(riid: *const GUID, ppInterface: *mut *mut void) -> HRESULT;
+        extern fn CoGetCallContext(riid: *const GUID, #[iid_is] ppInterface: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetCallerTID(lpdwTID: *mut u32) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetCancelObject(dwThreadId: u32, iid: *const GUID, ppUnk: *mut *mut void) -> HRESULT;
+        extern fn CoGetCancelObject(dwThreadId: u32, iid: *const GUID, #[iid_is] ppUnk: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetClassObject(rclsid: *const GUID, dwClsContext: u32, #[opt] pvReserved: *const void, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetClassObject(rclsid: *const GUID, dwClsContext: u32, #[opt] pvReserved: *const void, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetContextToken(pToken: *mut usize) -> HRESULT;
         #[library("ole32.dll")]
@@ -99,7 +99,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoGetCurrentProcess() -> u32;
         #[library("ole32.dll")]
-        extern fn CoGetDefaultContext(aptType: APTTYPE, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetDefaultContext(aptType: APTTYPE, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetInterfaceAndReleaseStream(pStm: IStream, iid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
@@ -107,7 +107,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoGetMarshalSizeMax(pulSize: *mut u32, riid: *const GUID, pUnk: IUnknown, dwDestContext: u32, #[opt] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetObjectContext(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetObjectContext(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetPSClsid(riid: *const GUID, pClsid: *mut GUID) -> HRESULT;
         #[library("ole32.dll")]

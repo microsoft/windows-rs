@@ -1,14 +1,22 @@
 #[cfg(feature = "wtypes")]
 #[inline]
-pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn OleCreateFontIndirect<T>(lpfontdesc: *mut FONTDESC) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("oleaut32.dll" "system" fn OleCreateFontIndirect(lpfontdesc : *mut FONTDESC, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreateFontIndirect(lpfontdesc as _, riid, lplpvobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { OleCreateFontIndirect(lpfontdesc as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
-pub unsafe fn OleCreatePictureIndirect(lppictdesc: *mut PICTDESC, riid: *const windows_core::GUID, fown: bool, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn OleCreatePictureIndirect<T>(lppictdesc: *mut PICTDESC, fown: bool) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("oleaut32.dll" "system" fn OleCreatePictureIndirect(lppictdesc : *mut PICTDESC, riid : *const windows_core::GUID, fown : windows_core::BOOL, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleCreatePictureIndirect(lppictdesc as _, riid, fown.into(), lplpvobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { OleCreatePictureIndirect(lppictdesc as _, &T::IID, fown.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -33,21 +41,25 @@ pub unsafe fn OleIconToCursor(hinstexe: super::minwindef::HINSTANCE, hicon: supe
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn OleLoadPicture<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPicture<P0, T>(lpstream: P0, lsize: i32, frunmode: bool) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::objidlbase::IStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPicture(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleLoadPicture(lpstream.param().abi(), lsize, frunmode.into(), riid, lplpvobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { OleLoadPicture(lpstream.param().abi(), lsize, frunmode.into(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn OleLoadPictureEx<P0>(lpstream: P0, lsize: i32, frunmode: bool, riid: *const windows_core::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPictureEx<P0, T>(lpstream: P0, lsize: i32, frunmode: bool, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::objidlbase::IStream>,
+    T: windows_core::Interface,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPictureEx(lpstream : *mut core::ffi::c_void, lsize : i32, frunmode : windows_core::BOOL, riid : *const windows_core::GUID, xsizedesired : u32, ysizedesired : u32, dwflags : u32, lplpvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.into(), riid, xsizedesired, ysizedesired, dwflags, lplpvobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { OleLoadPictureEx(lpstream.param().abi(), lsize, frunmode.into(), &T::IID, xsizedesired, ysizedesired, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -69,13 +81,15 @@ pub unsafe fn OleLoadPictureFileEx(varfilename: &super::oaidl::VARIANT, xsizedes
 }
 #[cfg(feature = "ocidl")]
 #[inline]
-pub unsafe fn OleLoadPicturePath<P0, P1>(szurlorpath: P0, punkcaller: P1, dwreserved: u32, clrreserved: super::ocidl::OLE_COLOR, riid: *const windows_core::GUID, ppvret: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn OleLoadPicturePath<P0, P1, T>(szurlorpath: P0, punkcaller: P1, dwreserved: u32, clrreserved: super::ocidl::OLE_COLOR) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("oleaut32.dll" "system" fn OleLoadPicturePath(szurlorpath : windows_core::PCWSTR, punkcaller : *mut core::ffi::c_void, dwreserved : u32, clrreserved : super::ocidl::OLE_COLOR, riid : *const windows_core::GUID, ppvret : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { OleLoadPicturePath(szurlorpath.param().abi(), punkcaller.param().abi(), dwreserved, clrreserved, riid, ppvret as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { OleLoadPicturePath(szurlorpath.param().abi(), punkcaller.param().abi(), dwreserved, clrreserved, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]

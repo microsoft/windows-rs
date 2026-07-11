@@ -14,7 +14,7 @@ mod Windows {
         }
         #[guid(0x8f02d140_56fc_4302_a705_3a97c78be779)]
         interface IMFCaptureEngineClassFactory: IUnknown {
-            fn CreateInstance(&self, clsid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, clsid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xaeda51c0_9025_4983_9012_de597b88b089)]
         interface IMFCaptureEngineOnEventCallback: IUnknown {

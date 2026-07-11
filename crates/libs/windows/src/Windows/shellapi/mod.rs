@@ -268,9 +268,13 @@ where
     unsafe { SHGetFileInfoW(pszpath.param().abi(), dwfileattributes, psfi.unwrap_or(core::mem::zeroed()) as _, cbfileinfo, uflags) }
 }
 #[inline]
-pub unsafe fn SHGetImageList(iimagelist: i32, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHGetImageList<T>(iimagelist: i32) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHGetImageList(iimagelist : i32, riid : *const windows_core::GUID, ppvobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetImageList(iimagelist, riid, ppvobj as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetImageList(iimagelist, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn SHGetLocalizedName<P0>(pszpath: P0, pszresmodule: &mut [u16], pidsres: *mut i32) -> windows_core::HRESULT
@@ -300,9 +304,13 @@ where
 }
 #[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn SHGetPropertyStoreForWindow(hwnd: super::windef::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHGetPropertyStoreForWindow<T>(hwnd: super::windef::HWND) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreForWindow(hwnd : super::windef::HWND, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetPropertyStoreForWindow(hwnd, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetPropertyStoreForWindow(hwnd, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]

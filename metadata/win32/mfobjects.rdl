@@ -110,9 +110,9 @@ mod Windows {
         }
         #[guid(0xe7174cfa_1c9e_48b1_8866_626226bfc258)]
         interface IMFDXGIBuffer: IUnknown {
-            fn GetResource(&self, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn GetResource(&self, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
             fn GetSubresourceIndex(&self, puSubresource: *mut u32) -> HRESULT;
-            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn GetUnknown(&self, guid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
             fn SetUnknown(&self, guid: *const GUID, #[opt] pUnkData: IUnknown) -> HRESULT;
         }
         #[guid(0xb25d03fb_d148_45ef_bfed_f778b7566c07)]
@@ -125,8 +125,8 @@ mod Windows {
         #[guid(0xeb533d5d_2db6_40f8_97a9_494692014f07)]
         interface IMFDXGIDeviceManager: IUnknown {
             fn CloseDeviceHandle(&self, hDevice: HANDLE) -> HRESULT;
-            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
-            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
+            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
+            fn LockDevice(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppUnkDevice: *mut *mut void, fBlock: BOOL) -> HRESULT;
             fn OpenDeviceHandle(&self, phDevice: *mut HANDLE) -> HRESULT;
             fn ResetDevice(&self, pUnkDevice: IUnknown, resetToken: u32) -> HRESULT;
             fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;

@@ -1471,8 +1471,12 @@ impl windows_core::RuntimeName for IMFCollection {}
 windows_core::imp::define_interface!(IMFDXGIBuffer, IMFDXGIBuffer_Vtbl, 0xe7174cfa_1c9e_48b1_8866_626226bfc258);
 windows_core::imp::interface_hierarchy!(IMFDXGIBuffer, windows_core::IUnknown);
 impl IMFDXGIBuffer {
-    pub unsafe fn GetResource(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), riid, ppvobject as _) }
+    pub unsafe fn GetResource<T>(&self) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetResource)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSubresourceIndex(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1480,8 +1484,12 @@ impl IMFDXGIBuffer {
             (windows_core::Interface::vtable(self).GetSubresourceIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUnknown(&self, guid: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guid, riid, ppvobject as _) }
+    pub unsafe fn GetUnknown<T>(&self, guid: *const windows_core::GUID) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetUnknown)(windows_core::Interface::as_raw(self), guid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn SetUnknown<P1>(&self, guid: *const windows_core::GUID, punkdata: P1) -> windows_core::HRESULT
     where
@@ -1654,12 +1662,20 @@ impl IMFDXGIDeviceManager {
         unsafe { (windows_core::Interface::vtable(self).CloseDeviceHandle)(windows_core::Interface::as_raw(self), hdevice) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn GetVideoService(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppservice: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, riid, ppservice as _) }
+    pub unsafe fn GetVideoService<T>(&self, hdevice: super::winnt::HANDLE) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetVideoService)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "winnt")]
-    pub unsafe fn LockDevice(&self, hdevice: super::winnt::HANDLE, riid: *const windows_core::GUID, ppunkdevice: *mut *mut core::ffi::c_void, fblock: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, riid, ppunkdevice as _, fblock.into()) }
+    pub unsafe fn LockDevice<T>(&self, hdevice: super::winnt::HANDLE, fblock: bool) -> windows_core::Result<T>
+    where
+        T: windows_core::Interface,
+    {
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).LockDevice)(windows_core::Interface::as_raw(self), hdevice, &T::IID, &mut result__, fblock.into()).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn OpenDeviceHandle(&self) -> windows_core::Result<super::winnt::HANDLE> {

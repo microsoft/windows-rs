@@ -1,11 +1,13 @@
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn DirectInput8Create<P4>(hinst: super::minwindef::HINSTANCE, dwversion: u32, riidltf: *const windows_core::GUID, ppvout: *mut *mut core::ffi::c_void, punkouter: P4) -> windows_core::HRESULT
+pub unsafe fn DirectInput8Create<P4, T>(hinst: super::minwindef::HINSTANCE, dwversion: u32, punkouter: P4) -> windows_core::Result<T>
 where
     P4: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("dinput8.dll" "system" fn DirectInput8Create(hinst : super::minwindef::HINSTANCE, dwversion : u32, riidltf : *const windows_core::GUID, ppvout : *mut *mut core::ffi::c_void, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectInput8Create(hinst, dwversion, riidltf, ppvout as _, punkouter.param().abi()) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DirectInput8Create(hinst, dwversion, &T::IID, &mut result__, punkouter.param().abi()).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 pub const CLSID_DirectInput: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e0_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInput8: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e4_b259_11cf_bfc7_444553540000);

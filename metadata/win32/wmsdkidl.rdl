@@ -382,7 +382,7 @@ mod Windows {
         }
         #[guid(0xbddc4d08_944d_4d52_a612_46c3fda07dd4)]
         interface IWMReaderAccelerator: IUnknown {
-            fn GetCodecInterface(&self, dwOutputNum: u32, riid: *const GUID, ppvCodecInterface: *mut *mut void) -> HRESULT;
+            fn GetCodecInterface(&self, dwOutputNum: u32, riid: *const GUID, #[iid_is] ppvCodecInterface: *mut *mut void) -> HRESULT;
             fn Notify(&self, dwOutputNum: u32, pSubtype: *const WM_MEDIA_TYPE) -> HRESULT;
         }
         #[guid(0x96406bea_2b2b_11d3_b36b_00c04f6108ff)]

@@ -228,7 +228,13 @@ impl Fn {
         let midl_annotations = scan_method_param_annotations(&fn_tokens, anchor);
         let calling_convention = detect_calling_convention(&fn_tokens, anchor, parser.macro_defs);
 
-        let params = parse_params(&cursor, &midl_annotations, parser);
+        let mut params = parse_params(&cursor, &midl_annotations, parser);
+
+        // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM creators
+        // that the SDK headers leave unannotated (no `_COM_Outptr_` SAL, no MIDL `[iid_is]`)
+        // — `DCompositionCreateDevice`, the `OleCreate*`/`PS*` families, … — from the
+        // signature shape. See [`infer_iid_is`] for the (deliberately narrow) gate.
+        infer_iid_is(&mut params, &return_type);
 
         // Prefer the DLL recovered from the import libraries for this exact
         // symbol; fall back to the run-wide library when the function is not

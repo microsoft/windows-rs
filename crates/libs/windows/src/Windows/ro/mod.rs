@@ -13,9 +13,13 @@ pub unsafe fn IsErrorPropagationEnabled() -> windows_core::BOOL {
     unsafe { IsErrorPropagationEnabled() }
 }
 #[inline]
-pub unsafe fn MetaDataGetDispenser(rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn MetaDataGetDispenser<T>(rclsid: *const windows_core::GUID) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("rometadata.dll" "system" fn MetaDataGetDispenser(rclsid : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MetaDataGetDispenser(rclsid, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { MetaDataGetDispenser(rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {

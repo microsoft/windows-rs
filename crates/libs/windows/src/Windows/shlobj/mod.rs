@@ -786,11 +786,13 @@ impl IDockingWindowFrame {
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveToolbar)(windows_core::Interface::as_raw(self), punksrc.param().abi(), dwremoveflags) }
     }
-    pub unsafe fn FindToolbar<P0>(&self, pwszitem: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn FindToolbar<P0, T>(&self, pwszitem: P0) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindToolbar)(windows_core::Interface::as_raw(self), pwszitem.param().abi(), riid, ppv as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).FindToolbar)(windows_core::Interface::as_raw(self), pwszitem.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[cfg(feature = "oleidl")]

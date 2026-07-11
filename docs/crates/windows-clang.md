@@ -1528,6 +1528,20 @@ above). None blocks CI.
   [Type remapping](#type-remapping--one-canon-surface), but no scraper code loads these frozen files —
   `tool_wdk`'s exclusion reference is the in-house `Windows.Win32.winmd`.) Keep the frozen winmds
   until the corpus has soaked, then drop the probes and delete the files.
+  - **Delete the now-dead reference-metadata handlers in `windows-bindgen`.** A code-coverage pass
+    (`cargo llvm-cov` across all six bindgen consumers — `tool_package`, `tool_bindings`, `tool_msvc`,
+    `tool_gnu`, `tool_reactor`, `tool_webview`) confirmed two attribute handlers whose bodies **never
+    execute** under the in-house pipeline, because no RDL/writer/clang/WinRT source emits the
+    attribute: **`AlsoUsableForAttribute`** (`crates/libs/bindgen/src/types/cpp_enum.rs` ~L95-100,
+    `cpp_struct.rs` ~L570-575, `cpp_handle.rs` ~L128-144 — the old win32metadata handle-alias /
+    "also usable for" mechanism that emitted `CanInto`/`From` impls, superseded by the bare-alias
+    handle modelling above) and **`AssociatedEnumAttribute`** (`tables/method_def.rs` ~L67-73, plus the
+    adjacent `ConstAttribute`-on-return-value branch ~L51-52). ~40 lines total. **Do not touch**
+    `OverloadAttribute`, `NativeArrayInfoAttribute`, or `MemorySizeAttribute` — coverage shows these are
+    **live** (WinRT `[overload]` / Win32 array+size params); a static-only read wrongly flags them.
+    Because `windows-bindgen` is a published general-purpose tool, these handlers are the only thing
+    that still lets it faithfully project *Microsoft's* external win32metadata, so delete them **in
+    lockstep** with retiring the reference winmds and probes — not before.
 - **C flags/enum idiom harmonization — DONE (see the [detailed writeup](#type-remapping--one-canon-surface)
   ~line 822).** 41 `enum _FOO` + `typedef <int> FOO` pairs that previously emitted a bare `type FOO =
   <int>` plus a stray `_FOO` enum (with `_FOO`-typed consts). `merge_enum_typedef_idiom` now renames
@@ -1560,3 +1574,73 @@ above). None blocks CI.
   (parsed once on the builder, cloned per arch); direct-to-winmd is declined (RDL is the committed
   artifact); PCH/preamble caching has limited upside (per-arch preambles are not cross-arch shareable).
   No cheap win remains.
+- **Infer `[iid_is]` for unannotated `void**` creators (e.g. `DCompositionCreateDevice`) — DONE.**
+  Some QueryInterface-idiom creators ship with **no** SAL (`_COM_Outptr_`) and no MIDL `[iid_is]`
+  comment, so the SAL/MIDL promotion gate (`is_void_double_ptr` **and** a `com_out_ptr_token`,
+  `annotation.rs` `parse_params`) left them as a raw `iid: *const GUID, out: *mut *mut c_void` —
+  `DCompositionCreateDevice` was the canonical case (the reference win32metadata *does* mark it
+  `ComOutPtr`). `infer_iid_is` (`annotation.rs`) now recovers the marker from the whole-signature
+  shape: **HRESULT return + a `*const GUID` param named `riid`/`iid`/`riidltf` + a `*mut *mut void`
+  OUT param**. Called from both `fn.rs` (free functions) and `interface.rs` (COM methods). The
+  `riid`-**name** + `HRESULT`-return gate is the key discriminator: it excludes the buffer-style
+  GUID-out cases (`DsReplicaGetInfoW`'s `puuidForSourceDsaObjGuid`, `RpcServerInqIf`'s `MgrTypeUuid`,
+  `WlanQueryInterface`'s `pInterfaceGuid`, `TdhCreatePayloadFilter`'s `ProviderGuid` — all returning
+  `u32`/`RPC_STATUS`/`TDHSTATUS`, not `HRESULT`). Adjacency is **not** required — the OLE family has
+  many params between the `riid` and the out-pointer. Result: **155** additions across the Win32
+  corpus (0 removals), every one a genuine idiom (`CoCreate*`/`OleCreate*`/`OleLoad*`/`PSCreate*`/
+  `SHCreateItem*`/`MFCreate*`, `CreateXmlReader`, `StgOpenStorageEx`, `GetService`/`Activate`/
+  `CreateInstance`, …) — several of which the reference winmd *missed*, so the in-house metadata is now
+  **more** complete than the reference. Guarded by the `iid_infer` `test_clang` fixture (positive +
+  negative cases for both free functions and methods).
+- **`DWriteCreateFactory` base-interface variant — already documented, decision was to reject.** The
+  `REFIID iid, _COM_Outptr_ IUnknown **factory` shape (out-param scraped as `*mut IUnknown`, not
+  `*mut *mut void`) is *not* auto-promoted; see [Base-interface `_COM_Outptr_` creators](#base-interface-_com_outptr_-creators-are-not-auto-promoted-rejected-heuristic).
+  The `void**` inference above does not catch it (its out-param is a base-interface single-indirection,
+  not `void**`). Now that the `riid`-name + HRESULT gate has proven reliable in practice (155 clean
+  additions, zero false positives), revisit whether a base-interface arm (accept a `*mut IUnknown`/
+  `*mut IInspectable` OUT param preceded by a `riid`) is now safe enough to promote — affected set
+  includes `ActivateAudioInterfaceAsync`, `RoGetAgileReference`, `RoGetMatchingRestrictedErrorInfo`,
+  `BindMoniker`. The current writeup rejected it as lossy on a *positional* rule; the name-based gate
+  was not evaluated there.
+- **Drop the `Windows.Graphics.Capture.Interop.h` shim until there's demand.**
+  `crates/tools/win32/src/shims/Windows.Graphics.Capture.Interop.h` is a hand-authored replacement
+  header that lets `tool_win32` scrape `IGraphicsCaptureItemInterop` without the C++/WinRT projection
+  includes (which trip a self-conflicting typedef in `Windows.Devices.Sensors.h`). It works, but it is
+  a regrettable per-header workaround for an unscrapeable SDK header, and nothing in-tree currently
+  consumes the interface. Consider removing the shim (and the `SHIM_DIR` plumbing if it becomes the
+  only entry) and re-adding it only when a sample/crate actually needs `IGraphicsCaptureItemInterop`.
+- **Reconsider the `is_invalid()` helper on pointer-backed handles.** `windows-bindgen`'s
+  `write_cpp_handle` (`cpp_handle.rs` ~L106-114) emits `is_invalid()` for every pointer-backed handle
+  as a plain `self.0.is_null()`, gated only on `ty.is_pointer()`. It used to be driven by the old
+  win32metadata invalid-value attribute (which recorded sentinels like `INVALID_HANDLE_VALUE` = -1);
+  that metadata is gone, so the helper is now *only* a null check — and therefore **wrong** for
+  `-1`-sentinel handles (`HANDLE`/`SC_HANDLE`/…). All 229 generated `is_invalid()` bodies in the
+  `windows` crate are `self.0.is_null()`; none check `-1`. Consider removing the helper (it is a
+  breaking public-API change on e.g. `HANDLE::is_invalid`) or re-deriving real sentinels.
+- **`tool_features` + `Windows.Wdk.winmd` — investigated, NOT a bug.** The `WINMD` array in
+  `tool_features` lists only `target/features/Windows.Win32.winmd` + `Windows.winmd` and never names
+  the WDK winmd directly, but `prepare_metadata()` runs `tool_package::remap::run` over
+  `tool_package::corpora()` — which includes `crates/libs/bindgen/default/Windows.Wdk.winmd` — and both
+  corpora are remapped **together** into the single `Windows.Win32.winmd` output (both use `root =
+  "Windows"`). Verified empirically: a WDK-net-new symbol (`BOOT_DRIVER_CALLBACK_FUNCTION`) appears on
+  the generated `web/features/index.html`. The literal string `Windows.Wdk` is absent from the page
+  only because WDK types remap into `Windows.<header-stem>` namespaces, not a `Windows.Wdk.*` prefix.
+  No action needed.
+- **Simplify `tool_win32`/`tool_wdk` config: fold the TOML into `main.rs` consts.** Both tools split
+  their configuration arbitrarily: toolchain/build knobs are Rust `const`s at the top of `main.rs`
+  (`SDK_VERSION`, `WINMD`, `RDL_DIR`, `CLANG_ARGS`, `PRELUDE`, `GUID_RESET`, …) while the declarative
+  surface (`root`, `headers`, `scope`, `archs`, `import-libs`, `satellite-headers`,
+  `reference-winmds`) lives in `win32.toml`/`wdk.toml` behind a serde `Manifest` struct. The TOML buys
+  nothing dynamic — it is read once from a hard-coded path by a single binary, never edited by
+  non-developers — so the header/scope/arch/import-lib lists could just as well be `const … : &[&str]`
+  arrays alongside the existing consts, dropping the `serde`/`toml` deps, the `#[derive(Deserialize)]`
+  `Manifest`, the kebab-case/`deny_unknown_fields` attributes, and the read+parse+validate boilerplate
+  (`assert_no_duplicate_headers` etc.). Net simplification with no loss of capability; the long
+  header list stays readable as a `const` slice.
+- **Spot-check `INTERLOCKED_RESULT` — arch-divergent enum values look fishy.** The scraped
+  `INTERLOCKED_RESULT` enum has *completely different* member values across architectures, which is
+  unusual for a plain enum and suggests either a genuine per-arch SDK definition or a scrape/merge
+  artifact (e.g. arch-conditioned `#define`s bleeding into the enum, or the arch-merge picking
+  divergent bodies). Investigate: compare the x64/x86/arm64 `.rdl` bodies against the SDK header, and
+  confirm whether the divergence is real (keep + arch-tag) or spurious (fix the scrape). Worth a spot
+  check before retiring the reference metadata.

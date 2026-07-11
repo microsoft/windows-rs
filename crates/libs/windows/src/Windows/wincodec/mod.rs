@@ -2324,20 +2324,24 @@ windows_core::imp::define_interface!(IWICD3DTextureSource, IWICD3DTextureSource_
 windows_core::imp::interface_hierarchy!(IWICD3DTextureSource, windows_core::IUnknown);
 impl IWICD3DTextureSource {
     #[cfg(feature = "ocidl")]
-    pub unsafe fn GetTexture<P0, P1>(&self, pd3ddevice: P0, pid3dtextureoptions: P1, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn GetTexture<P0, P1, T>(&self, pd3ddevice: P0, pid3dtextureoptions: P1) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::ocidl::IPropertyBag2>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTexture)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pid3dtextureoptions.param().abi(), riid, pptexture as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetTexture)(windows_core::Interface::as_raw(self), pd3ddevice.param().abi(), pid3dtextureoptions.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "ocidl")]
-    pub unsafe fn GetTransformedTexture<P5, P6>(&self, prc: Option<*const WICRect>, uiwidth: u32, uiheight: u32, pguiddstformat: Option<*const WICPixelFormatGUID>, dsttransform: WICBitmapTransformOptions, pd3ddevice: P5, pid3dtextureoptions: P6, riid: *const windows_core::GUID, pptexture: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+    pub unsafe fn GetTransformedTexture<P5, P6, T>(&self, prc: Option<*const WICRect>, uiwidth: u32, uiheight: u32, pguiddstformat: Option<*const WICPixelFormatGUID>, dsttransform: WICBitmapTransformOptions, pd3ddevice: P5, pid3dtextureoptions: P6) -> windows_core::Result<T>
     where
         P5: windows_core::Param<windows_core::IUnknown>,
         P6: windows_core::Param<super::ocidl::IPropertyBag2>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTransformedTexture)(windows_core::Interface::as_raw(self), prc.unwrap_or(core::mem::zeroed()) as _, uiwidth, uiheight, pguiddstformat.unwrap_or(core::mem::zeroed()) as _, dsttransform, pd3ddevice.param().abi(), pid3dtextureoptions.param().abi(), riid, pptexture as _) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).GetTransformedTexture)(windows_core::Interface::as_raw(self), prc.unwrap_or(core::mem::zeroed()) as _, uiwidth, uiheight, pguiddstformat.unwrap_or(core::mem::zeroed()) as _, dsttransform, pd3ddevice.param().abi(), pid3dtextureoptions.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DoesSupportD3DDeviceType(&self, riid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
         unsafe {

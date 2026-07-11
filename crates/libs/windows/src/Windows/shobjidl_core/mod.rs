@@ -18,67 +18,89 @@ where
     }
 }
 #[inline]
-pub unsafe fn SHAssocEnumHandlersForProtocolByApplication<P0>(protocol: P0, riid: *const windows_core::GUID, enumhandlers: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHAssocEnumHandlersForProtocolByApplication<P0, T>(protocol: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHAssocEnumHandlersForProtocolByApplication(protocol : windows_core::PCWSTR, riid : *const windows_core::GUID, enumhandlers : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHAssocEnumHandlersForProtocolByApplication(protocol.param().abi(), riid, enumhandlers as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHAssocEnumHandlersForProtocolByApplication(protocol.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn SHCreateAssociationRegistration(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHCreateAssociationRegistration<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHCreateAssociationRegistration(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateAssociationRegistration(riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateAssociationRegistration(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn SHCreateDefaultExtractIcon(riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHCreateDefaultExtractIcon<T>() -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultExtractIcon(riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateDefaultExtractIcon(riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateDefaultExtractIcon(&T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHCreateItemFromIDList(pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHCreateItemFromIDList<T>(pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromIDList(pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateItemFromIDList(pidl, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateItemFromIDList(pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHCreateItemFromParsingName<P0, P1>(pszpath: P0, pbc: P1, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateItemFromParsingName<P0, P1, T>(pszpath: P0, pbc: P1) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::objidl::IBindCtx>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateItemFromParsingName(pszpath.param().abi(), pbc.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateItemFromParsingName(pszpath.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHCreateItemFromRelativeName<P0, P1, P2>(psiparent: P0, pszname: P1, pbc: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateItemFromRelativeName<P0, P1, P2, T>(psiparent: P0, pszname: P1, pbc: P2) -> windows_core::Result<T>
 where
     P0: windows_core::Param<IShellItem>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::objidl::IBindCtx>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemFromRelativeName(psiparent : *mut core::ffi::c_void, pszname : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateItemFromRelativeName(psiparent.param().abi(), pszname.param().abi(), pbc.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateItemFromRelativeName(psiparent.param().abi(), pszname.param().abi(), pbc.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHCreateItemInKnownFolder<P2>(kfid: *const super::shtypes::KNOWNFOLDERID, dwkfflags: u32, pszitem: P2, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateItemInKnownFolder<P2, T>(kfid: *const super::shtypes::KNOWNFOLDERID, dwkfflags: u32, pszitem: P2) -> windows_core::Result<T>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemInKnownFolder(kfid : *const super::shtypes::KNOWNFOLDERID, dwkfflags : u32, pszitem : windows_core::PCWSTR, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateItemInKnownFolder(kfid, dwkfflags, pszitem.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
-pub unsafe fn SHCreateItemWithParent<P1>(pidlparent: Option<*const super::shtypes::ITEMIDLIST>, psfparent: P1, pidl: *const super::shtypes::ITEMIDLIST, riid: *const windows_core::GUID, ppvitem: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateItemWithParent<P1, T>(pidlparent: Option<*const super::shtypes::ITEMIDLIST>, psfparent: P1, pidl: *const super::shtypes::ITEMIDLIST) -> windows_core::Result<T>
 where
     P1: windows_core::Param<IShellFolder>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateItemWithParent(pidlparent : *const super::shtypes::ITEMIDLIST, psfparent : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, riid : *const windows_core::GUID, ppvitem : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateItemWithParent(pidlparent.unwrap_or(core::mem::zeroed()) as _, psfparent.param().abi(), pidl, riid, ppvitem as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateItemWithParent(pidlparent.unwrap_or(core::mem::zeroed()) as _, psfparent.param().abi(), pidl, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -94,12 +116,14 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHCreateShellItemArrayFromDataObject<P0>(pdo: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateShellItemArrayFromDataObject<P0, T>(pdo: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::objidl::IDataObject>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromDataObject(pdo : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateShellItemArrayFromDataObject(pdo.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateShellItemArrayFromDataObject(pdo.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -111,12 +135,14 @@ pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::shtypes::LPCITE
     }
 }
 #[inline]
-pub unsafe fn SHCreateShellItemArrayFromShellItem<P0>(psi: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHCreateShellItemArrayFromShellItem<P0, T>(psi: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<IShellItem>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromShellItem(psi : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHCreateShellItemArrayFromShellItem(psi.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHCreateShellItemArrayFromShellItem(psi.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -132,20 +158,24 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn SHGetItemFromDataObject<P0>(pdtobj: P0, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHGetItemFromDataObject<P0, T>(pdtobj: P0, dwflags: DATAOBJ_GET_ITEM_FLAGS) -> windows_core::Result<T>
 where
     P0: windows_core::Param<super::objidl::IDataObject>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetItemFromDataObject(pdtobj : *mut core::ffi::c_void, dwflags : DATAOBJ_GET_ITEM_FLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetItemFromDataObject(pdtobj.param().abi(), dwflags, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetItemFromDataObject(pdtobj.param().abi(), dwflags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
-pub unsafe fn SHGetItemFromObject<P0>(punk: P0, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHGetItemFromObject<P0, T>(punk: P0) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetItemFromObject(punk : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetItemFromObject(punk.param().abi(), riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetItemFromObject(punk.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -158,19 +188,25 @@ pub unsafe fn SHGetNameFromIDList(pidl: *const super::shtypes::ITEMIDLIST, sigdn
 }
 #[cfg(all(feature = "propsys", feature = "shtypes"))]
 #[inline]
-pub unsafe fn SHGetPropertyStoreFromIDList(pidl: *const super::shtypes::ITEMIDLIST, flags: super::propsys::GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+pub unsafe fn SHGetPropertyStoreFromIDList<T>(pidl: *const super::shtypes::ITEMIDLIST, flags: super::propsys::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreFromIDList(pidl : *const super::shtypes::ITEMIDLIST, flags : super::propsys::GETPROPERTYSTOREFLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetPropertyStoreFromIDList(pidl, flags, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetPropertyStoreFromIDList(pidl, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "objidl", feature = "propsys"))]
 #[inline]
-pub unsafe fn SHGetPropertyStoreFromParsingName<P0, P1>(pszpath: P0, pbc: P1, flags: super::propsys::GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn SHGetPropertyStoreFromParsingName<P0, P1, T>(pszpath: P0, pbc: P1, flags: super::propsys::GETPROPERTYSTOREFLAGS) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::objidl::IBindCtx>,
+    T: windows_core::Interface,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetPropertyStoreFromParsingName(pszpath : windows_core::PCWSTR, pbc : *mut core::ffi::c_void, flags : super::propsys::GETPROPERTYSTOREFLAGS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHGetPropertyStoreFromParsingName(pszpath.param().abi(), pbc.param().abi(), flags, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { SHGetPropertyStoreFromParsingName(pszpath.param().abi(), pbc.param().abi(), flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]

@@ -2,13 +2,13 @@
 mod Windows {
     mod Win32 {
         #[library("XmlLite.dll")]
-        extern fn CreateXmlReader(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        extern fn CreateXmlReader(riid: *const GUID, #[iid_is] ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
         #[library("XmlLite.dll")]
         extern fn CreateXmlReaderInputWithEncodingCodePage(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]
         extern fn CreateXmlReaderInputWithEncodingName(pInputStream: IUnknown, #[opt] pMalloc: IMalloc, pwszEncodingName: PCWSTR, fEncodingHint: BOOL, #[opt] pwszBaseUri: PCWSTR, ppInput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]
-        extern fn CreateXmlWriter(riid: *const GUID, ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
+        extern fn CreateXmlWriter(riid: *const GUID, #[iid_is] ppvObject: *mut *mut void, #[opt] pMalloc: IMalloc) -> HRESULT;
         #[library("XmlLite.dll")]
         extern fn CreateXmlWriterOutputWithEncodingCodePage(pOutputStream: IUnknown, #[opt] pMalloc: IMalloc, nEncodingCodePage: u32, ppOutput: *mut IUnknown) -> HRESULT;
         #[library("XmlLite.dll")]

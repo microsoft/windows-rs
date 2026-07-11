@@ -2,7 +2,7 @@
 mod Windows {
     mod Win32 {
         #[library("d2d1.dll")]
-        extern fn D2D1CreateFactory(factoryType: D2D1_FACTORY_TYPE, riid: *const GUID, #[opt] pFactoryOptions: *const D2D1_FACTORY_OPTIONS, ppIFactory: *mut *mut void) -> HRESULT;
+        extern fn D2D1CreateFactory(factoryType: D2D1_FACTORY_TYPE, riid: *const GUID, #[opt] pFactoryOptions: *const D2D1_FACTORY_OPTIONS, #[iid_is] ppIFactory: *mut *mut void) -> HRESULT;
         #[library("d2d1.dll")]
         extern fn D2D1InvertMatrix(#[in] #[out] matrix: *mut D2D_MATRIX_3X2_F) -> BOOL;
         #[library("d2d1.dll")]

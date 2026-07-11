@@ -71,7 +71,7 @@ mod Windows {
             ASSOCSTR_MAX = 24,
         }
         #[library("SHLWAPI.dll")]
-        extern fn AssocCreate(clsid: GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn AssocCreate(clsid: GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn AssocGetPerceivedType(pszExt: PCWSTR, ptype: *mut PERCEIVED, pflag: *mut PERCEIVEDFLAG, ppszType: *mut PWSTR) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -189,7 +189,7 @@ mod Windows {
             fn GetString(&self, flags: ASSOCF, str: ASSOCSTR, #[opt] pszExtra: PCWSTR, #[len_param(4)] #[out] #[opt] pszOut: PWSTR, #[in] #[out] pcchOut: *mut u32) -> HRESULT;
             fn GetKey(&self, flags: ASSOCF, key: ASSOCKEY, #[opt] pszExtra: PCWSTR, phkeyOut: *mut HKEY) -> HRESULT;
             fn GetData(&self, flags: ASSOCF, data: ASSOCDATA, #[opt] pszExtra: PCWSTR, #[size_param(4)] #[opt] pvOut: *mut void, #[in] #[out] #[opt] pcbOut: *mut u32) -> HRESULT;
-            fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, #[opt] pszExtra: PCWSTR, riid: *const GUID, ppvOut: *mut *mut void) -> HRESULT;
+            fn GetEnum(&self, flags: ASSOCF, assocenum: ASSOCENUM, #[opt] pszExtra: PCWSTR, riid: *const GUID, #[iid_is] ppvOut: *mut *mut void) -> HRESULT;
         }
         #[library("SHLWAPI.dll")]
         extern fn IStream_Copy(pstmFrom: IStream, pstmTo: IStream, cb: u32) -> HRESULT;
@@ -212,7 +212,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_AtomicRelease(#[in] #[out] #[opt] ppunk: *mut *mut void);
         #[library("SHLWAPI.dll")]
-        extern fn IUnknown_GetSite(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn IUnknown_GetSite(punk: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn IUnknown_GetWindow(punk: IUnknown, phwnd: *mut HWND) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -687,7 +687,7 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetViewStatePropertyBag(#[opt] pidl: *const ITEMIDLIST, #[opt] pszBagName: PCWSTR, dwFlags: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetViewStatePropertyBag(#[opt] pidl: *const ITEMIDLIST, #[opt] pszBagName: PCWSTR, dwFlags: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
         extern fn SHGlobalCounterDecrement(id: SHGLOBALCOUNTER) -> i32;
         #[library("SHLWAPI.dll")]

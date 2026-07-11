@@ -2061,7 +2061,7 @@ mod Windows {
         const DI_TRUNCATEDANDRESTARTED: HRESULT = 12;
         const DI_WRITEPROTECT: HRESULT = 19;
         #[library("DINPUT8.dll")]
-        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: u32, riidltf: *const GUID, ppvOut: *mut *mut void, punkOuter: IUnknown) -> HRESULT;
+        extern fn DirectInput8Create(hinst: HINSTANCE, dwVersion: u32, riidltf: *const GUID, #[iid_is] ppvOut: *mut *mut void, punkOuter: IUnknown) -> HRESULT;
         const GUID_Button: GUID = 0xa36d02f0_c9f3_11cf_bfc7_444553540000;
         const GUID_ConstantForce: GUID = 0x13541c20_8e33_11d0_9ad0_00a0c9a06e35;
         const GUID_CustomForce: GUID = 0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35;

@@ -1,11 +1,13 @@
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlReader<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
+pub unsafe fn CreateXmlReader<P2, T>(pmalloc: P2) -> windows_core::Result<T>
 where
     P2: windows_core::Param<super::objidlbase::IMalloc>,
+    T: windows_core::Interface,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlReader(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlReader(riid, ppvobject as _, pmalloc.param().abi()) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateXmlReader(&T::IID, &mut result__, pmalloc.param().abi()).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -38,12 +40,14 @@ where
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
-pub unsafe fn CreateXmlWriter<P2>(riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void, pmalloc: P2) -> windows_core::HRESULT
+pub unsafe fn CreateXmlWriter<P2, T>(pmalloc: P2) -> windows_core::Result<T>
 where
     P2: windows_core::Param<super::objidlbase::IMalloc>,
+    T: windows_core::Interface,
 {
     windows_core::link!("xmllite.dll" "system" fn CreateXmlWriter(riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void, pmalloc : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateXmlWriter(riid, ppvobject as _, pmalloc.param().abi()) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateXmlWriter(&T::IID, &mut result__, pmalloc.param().abi()).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]

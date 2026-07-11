@@ -15,12 +15,14 @@ where
     unsafe { DirectDrawCreateClipper(dwflags, core::mem::transmute(lplpddclipper), punkouter.param().abi()) }
 }
 #[inline]
-pub unsafe fn DirectDrawCreateEx<P3>(lpguid: *mut windows_core::GUID, lplpdd: *mut *mut core::ffi::c_void, iid: *const windows_core::GUID, punkouter: P3) -> windows_core::HRESULT
+pub unsafe fn DirectDrawCreateEx<P3, T>(lpguid: *mut windows_core::GUID, punkouter: P3) -> windows_core::Result<T>
 where
     P3: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ddraw.dll" "system" fn DirectDrawCreateEx(lpguid : *mut windows_core::GUID, lplpdd : *mut *mut core::ffi::c_void, iid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DirectDrawCreateEx(lpguid as _, lplpdd as _, iid, punkouter.param().abi()) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DirectDrawCreateEx(lpguid as _, &mut result__, &T::IID, punkouter.param().abi()).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut core::ffi::c_void) -> windows_core::HRESULT {

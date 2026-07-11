@@ -64,12 +64,14 @@ where
 }
 #[cfg(feature = "objidl")]
 #[inline]
-pub unsafe fn CoGetObject<P0>(pszname: P0, pbindoptions: Option<*const super::objidl::BIND_OPTS>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn CoGetObject<P0, T>(pszname: P0, pbindoptions: Option<*const super::objidl::BIND_OPTS>) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetObject(pszname : windows_core::PCWSTR, pbindoptions : *const super::objidl::BIND_OPTS, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoGetObject(pszname.param().abi(), pbindoptions.unwrap_or(core::mem::zeroed()) as _, riid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CoGetObject(pszname.param().abi(), pbindoptions.unwrap_or(core::mem::zeroed()) as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -203,12 +205,14 @@ pub unsafe fn CreateDataAdviseHolder() -> windows_core::Result<super::objidl::ID
     }
 }
 #[inline]
-pub unsafe fn CreateDataCache<P0>(punkouter: P0, rclsid: *const windows_core::GUID, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT
+pub unsafe fn CreateDataCache<P0, T>(punkouter: P0, rclsid: *const windows_core::GUID) -> windows_core::Result<T>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
+    T: windows_core::Interface,
 {
     windows_core::link!("ole32.dll" "system" fn CreateDataCache(punkouter : *mut core::ffi::c_void, rclsid : *const windows_core::GUID, iid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, iid, ppv as _) }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { CreateDataCache(punkouter.param().abi(), rclsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
