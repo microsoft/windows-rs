@@ -8,7 +8,7 @@ fn main() {
         unsafe {
             let library = LoadLibraryExA(library, None, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
 
-            if library.0.0.is_null() {
+            if library.0.is_null() {
                 return None;
             };
 

@@ -476,7 +476,7 @@ fn main() -> windows::core::Result<()> {
             image
                 .Initialize(
                     &source,
-                    REFWICPixelFormatGUID(&GUID_WICPixelFormat32bppBGR),
+                    &GUID_WICPixelFormat32bppBGR,
                     WICBitmapDitherTypeNone,
                     None,
                     0.0,

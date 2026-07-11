@@ -4,7 +4,7 @@ use windows::{
     minwindef::HKEY,
     threadpoolapiset::CreateThreadpool,
     winnt::{ACCESS_MASK, KEY_QUERY_VALUE},
-    winreg::{HKEY_CLASSES_ROOT, REGSAM, RegOpenKeyExA, RegQueryValueExA},
+    winreg::{HKEY_CLASSES_ROOT, RegOpenKeyExA, RegQueryValueExA},
     winuser::*,
 };
 
@@ -13,7 +13,7 @@ use windows::{
 fn test() -> Result<()> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
-        assert!(!CreateThreadpool(None).0.is_null());
+        assert!(!CreateThreadpool(None).is_null());
 
         assert_eq!(
             TrackPopupMenu(
@@ -34,7 +34,7 @@ fn test() -> Result<()> {
                 HKEY_CLASSES_ROOT,
                 s!(r".txt"),
                 None,
-                REGSAM(ACCESS_MASK(KEY_QUERY_VALUE)),
+                ACCESS_MASK(KEY_QUERY_VALUE),
                 &mut key,
             )
             .0,

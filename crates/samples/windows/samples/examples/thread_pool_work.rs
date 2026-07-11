@@ -14,15 +14,15 @@ fn main() -> windows::core::Result<()> {
 
     unsafe {
         let work = CreateThreadpoolWork(Some(callback), None, None);
-        if work.is_invalid() {
+        if work.is_null() {
             return Err(windows::core::Error::from_thread());
         }
 
         for _ in 0..10 {
-            SubmitThreadpoolWork(work.0);
+            SubmitThreadpoolWork(work);
         }
 
-        WaitForThreadpoolWorkCallbacks(work.0, false);
+        WaitForThreadpoolWorkCallbacks(work, false);
     }
 
     let counter = COUNTER.read().unwrap();

@@ -11,20 +11,20 @@ fn main() -> windows::core::Result<()> {
         _ = GetTokenInformation(token, TokenPrivileges, None, 0, &mut bytes_required);
 
         let buffer = LocalAlloc(LPTR, bytes_required as usize);
-        if buffer.0.is_invalid() {
+        if buffer.is_invalid() {
             return Err(Error::from_thread());
         }
 
         GetTokenInformation(
             token,
             TokenPrivileges,
-            Some(buffer.0.0),
+            Some(buffer.0),
             bytes_required,
             &mut bytes_required,
         )
         .ok()?;
 
-        let header = &*(buffer.0.0 as *const TOKEN_PRIVILEGES);
+        let header = &*(buffer.0 as *const TOKEN_PRIVILEGES);
 
         let privileges =
             std::slice::from_raw_parts(header.Privileges.as_ptr(), header.PrivilegeCount as usize);

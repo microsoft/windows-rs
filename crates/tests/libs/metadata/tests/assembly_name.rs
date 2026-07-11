@@ -10,8 +10,7 @@ fn file() {
     let reader = reader::File::read("tests/assembly_name.winmd").unwrap();
     assert_eq!(reader.assembly_name(), Some("TestName"));
 
-    let reader =
-        reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let reader = reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
     assert_eq!(reader.assembly_name(), Some("Windows.Win32.winmd"));
 }
 

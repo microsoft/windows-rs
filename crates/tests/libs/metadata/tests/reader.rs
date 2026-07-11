@@ -39,8 +39,7 @@ fn item_index() {
     };
     assert_eq!(function.name(), "ReadFileEx");
 
-    let reader::Item::Const(constant) = index.expect_item("Windows.Win32", "CONTROL_C_EXIT")
-    else {
+    let reader::Item::Const(constant) = index.expect_item("Windows.Win32", "CONTROL_C_EXIT") else {
         panic!()
     };
     assert_eq!(constant.name(), "CONTROL_C_EXIT");
@@ -48,8 +47,7 @@ fn item_index() {
 
 #[test]
 fn array() {
-    let index =
-        reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
     let def = index
         .types()
         .find(|def| def.name() == "SID_IDENTIFIER_AUTHORITY")
@@ -62,8 +60,7 @@ fn array() {
 
 #[test]
 fn nested() {
-    let index =
-        reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
+    let index = reader::Index::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
 
     let def = index
         .types()

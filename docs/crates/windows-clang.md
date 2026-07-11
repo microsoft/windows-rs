@@ -627,12 +627,25 @@ signal for *which* headers matter. Not everything is reachable from the pinned S
 
 ### Performance
 
-- **Direct-to-winmd in-memory scrape** — build the winmd without the intermediate
-  per-header `.rdl` write, keeping RDL as the committed source-of-truth / regeneration
-  path.
-- **Cache import-lib resolution** — each of the three arch workers re-runs the
-  import-lib filesystem scan; resolve once and cache.
-- **PCH / preamble caching** for the shared translation unit.
+The multi-arch scrape is already parallel (the three arch workers run under
+`windows_threading::for_each`) and the per-arch clang parse of the SDK translation unit dominates
+wall time. Assessed levers:
+
+- **Cache import-lib resolution — already effectively done.** The COFF `.lib` files are read once on
+  the `Clang` builder (`import_library`/`libraries`, populating the `symbol → DLL` map); `scrape_arch`
+  does `self.clone()`, so each arch worker inherits the already-resolved map (a cheap `HashMap` clone),
+  not a fresh filesystem scan. No re-parse per arch.
+- **Direct-to-winmd in-memory scrape — declined.** Building the winmd without the intermediate
+  per-header `.rdl` write is possible but undesirable: the RDL text *is* the committed source-of-truth
+  / regeneration path and the review artifact. The RDL round-trip is not the bottleneck (clang parsing
+  is).
+- **PCH / preamble caching — limited upside.** A precompiled preamble is not shareable across arches
+  (each target defines different macros — `_AMD64_`/`_ARM64_`/pointer size/`intrin.h`), and within a
+  single arch the scrape is one parse, so a preamble cache would not amortise. High libclang-API
+  complexity for little gain.
+
+Net: no cheap, low-risk win remains; the pipeline is near-optimal for its structure and the cost is
+inherent SDK parsing, already parallelised.
 
 ### tool_wdk: whole-header model
 
@@ -825,8 +838,18 @@ promotes to the unsigned repr and matches the old `u32` typedefs), and `Typedef:
 now-redundant typedef. Must NOT touch: typedefs with no matching `_FOO` enum (`HWND`, `WPARAM`,
 `DXGI_USAGE`), or `_`-prefixed enums with no matching typedef. Regenerating rescrapes ~41 `*.rdl`
 files (`_FOO → FOO`, typedef dropped) and the downstream `windows`/`windows-sys` output; samples then
-drop the `TASKDIALOG_FLAGS(…)` / `FILEOPENDIALOGOPTIONS(…)` wraps. Deferred until sample migration is
-further along; pick up only if it stays low-complexity.
+drop the `TASKDIALOG_FLAGS(…)` / `FILEOPENDIALOGOPTIONS(…)` wraps. **Two edge cases raise this from
+low to moderate complexity** (found while investigating): (a) `DEFINE_ENUM_FLAG_OPERATORS` keying is
+*inconsistent* — most headers key on the public name `FOO`, but a few key on the tag `_FOO` (e.g.
+`_SVGIO` already carries `#[flags]`+`u32`), so the `_FOO → FOO` rename must also propagate
+`flag_enums` membership (`if flag_enums.contains("_FOO") { insert "FOO" }`) or the rename silently
+loses the flags promotion; (b) the enum repr (often `i32`) differs from the sibling typedef repr
+(`u32` for 32 of the 40 pairs) — after rename the repr follows the enum + flags promotion, which for
+`FOO`-keyed flag enums yields `u32` (matches the old editorial typedef) but leaves non-flag pairs at
+`i32`, so a repr audit against the dropped typedefs is needed. Deferred until sample migration is
+further along; when picked up, do it as a **separate focused change** (moderate + a ~4-min win32
+rescrape + wdk rescrape + a large published-crate diff that should not be stacked on an unrelated
+regen), not folded into another regeneration.
 2. *(fixed)* `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) emitted only
    `#arches` and never a per-item `#[cfg(feature = …)]`, so a handle referencing a type from
    another header namespace was not gated on that header's feature — under a partial feature set
@@ -1484,9 +1507,16 @@ above). None blocks CI.
   and primitive-backed handles (`JET_GRBIT`) keep the newtype. Constant emitter + `write_newtype_wrap`
   updated to construct through the concrete newtype an alias resolves to. `windows-sys` byte-identical;
   `windows --all-features` compiles. See "To investigate: inconsistent handle modelling" above.
+  Follow-up: the bare-alias change required updating a few **hand-written** consumers that used the
+  old newtype API — `test_reserved`/`test_win32` (`PLDAPSearch`/`REGSAM`/`PTP_POOL` no longer
+  `.0`-indexed or tuple-constructed), and the `windows_dcomp`/`privileges`/`thread_pool_work`/
+  `delay_load` samples (`HLOCAL`/`HMODULE`/`PTP_WORK`/`REFWICPixelFormatGUID` now bare aliases: drop
+  the `.0` layer, use `.is_null()` for pointer aliases instead of `.is_invalid()`).
 - **Coverage gaps.** No missing SDK interop interfaces remain: `IGraphicsCaptureItemInterop` is
   scraped via a shim, and `IWindowNative` (WinUI/App-SDK-only) is hand-declared in `tool_reactor`'s
   `extras.rdl` — the correct home for WinUI-specific surface (see the interop-interfaces note above).
-- **Performance.** Opportunities to speed the scrape: emit winmd directly instead of round-tripping
-  through RDL text, cache import-library resolution across arches, and use a precompiled header (PCH)
-  for the common SDK include set.
+- **Performance — assessed, near-optimal (see [Performance](#performance)).** The multi-arch scrape is
+  already parallel and the per-arch clang parse dominates. Import-lib resolution is already cached
+  (parsed once on the builder, cloned per arch); direct-to-winmd is declined (RDL is the committed
+  artifact); PCH/preamble caching has limited upside (per-arch preambles are not cross-arch shareable).
+  No cheap win remains.
