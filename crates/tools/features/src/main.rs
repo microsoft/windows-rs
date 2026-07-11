@@ -3,14 +3,20 @@ use std::fmt::Write;
 use windows_metadata::reader::{File, Index, Item, TypeCategory};
 use windows_metadata::{Signature, Type};
 
-/// The metadata that backs the published `windows` and `windows-sys` crates.
-/// Both crates share the same namespace-to-feature taxonomy, so a single index
-/// answers "which feature do I enable?" for either crate.
-const WINMD: [&str; 3] = [
-    "crates/tools/package/reference/Windows.winmd",
-    "crates/tools/package/reference/Windows.Win32.winmd",
-    "crates/tools/package/reference/Windows.Wdk.winmd",
+/// The metadata that backs the published `windows` and `windows-sys` crates. Both crates share the
+/// same namespace-to-feature taxonomy, so a single index answers "which feature do I enable?" for
+/// either crate. These are the header-namespaced winmds staged by [`prepare_metadata`] under
+/// `target` — the same remap `tool_package` applies — so the page reports the crates' actual
+/// header-stem features (`winnt`, `d2d`, …) rather than the retired editorial namespaces.
+const WINMD: [&str; 2] = [
+    "target/features/Windows.Win32.winmd",
+    "target/features/Windows.winmd",
 ];
+
+/// Throwaway directory (under `target`, not committed) holding the remapped Win32/WDK winmd plus a
+/// copy of the WinRT `Windows.winmd`.
+const PACKAGE_DIR: &str = "target/features";
+const REMAP_OUTPUT: &str = "target/features/Windows.Win32.winmd";
 
 /// The folder published to GitHub Pages by `web.yml`; regenerated and checked
 /// in by `gen.yml` like every other tool's output. Nested under `features` so
@@ -28,8 +34,22 @@ struct Entry {
 
 fn main() {
     let time = std::time::Instant::now();
+    prepare_metadata();
     generate_page(OUTPUT);
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
+}
+
+/// Remaps the flat canonical Win32/WDK winmds into the same header-based namespaces the published
+/// `windows`/`windows-sys` crates use — reusing `tool_package`'s routing so the feature names cannot
+/// drift — and stages the already-namespaced WinRT winmd alongside. Everything is written under
+/// `target` (not committed); only the generated page is checked in.
+fn prepare_metadata() {
+    std::fs::create_dir_all(PACKAGE_DIR)
+        .unwrap_or_else(|e| panic!("failed to create `{PACKAGE_DIR}`: {e}"));
+    tool_package::remap::run(&tool_package::corpora(), REMAP_OUTPUT);
+    let winrt = format!("{PACKAGE_DIR}/Windows.winmd");
+    std::fs::copy(tool_package::WINRT_WINMD, &winrt)
+        .unwrap_or_else(|e| panic!("failed to stage `{}`: {e}", tool_package::WINRT_WINMD));
 }
 
 /// Loads the bundled metadata and projects every type, function, constant, and

@@ -701,12 +701,28 @@ in-house metadata has not shipped so no released consumer breaks. There is **no*
   emits throwaway namespaced winmds under `target/`, and runs `--package` against those plus the
   already-namespaced WinRT `Windows.winmd`.
 
-**Remaining after the winmd remap works:** migrate the in-repo consumers (samples/tests) from
-the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
-header-based names (`winnt`, `d2d`, …), repoint `tool_features` at the remapped
-metadata, retire `crates/tools/package/reference/*.winmd` (and the reference-only clang
-normalisations gated on it, per [Type remapping](#type-remapping--one-canon-surface)), and
-address the metadata-shape differences the switch surfaces (see "Metadata-shape fallout").
+**Remaining after the winmd remap works:** ~~migrate the in-repo consumers (samples/tests)~~ (done)
+from the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
+header-based names (`winnt`, `d2d`, …), ~~repoint `tool_features` at the remapped metadata~~ (done —
+see "Feature-search page" below), retire `crates/tools/package/reference/*.winmd` (and the
+reference-only clang normalisations gated on it, per
+[Type remapping](#type-remapping--one-canon-surface)) — **deferred**, see
+[Deferred / upcoming work](#deferred--upcoming-work) — and ~~address the metadata-shape differences
+the switch surfaces~~ (done, see "Metadata-shape fallout").
+
+**Feature-search page (`tool_features`) — done.** The GitHub Pages feature-search page
+(`web/features/index.html`) derives its feature taxonomy purely from the winmd namespaces it reads,
+so it must read the *same* header namespaces the published crates use — not the frozen editorial
+`reference/*.winmd`. To avoid duplicating the fold rules, `tool_package` was split into a lib+bin
+(`crates/tools/package/src/lib.rs` exposes `remap`, `corpora()`, `WINRT_WINMD`) and `tool_features`
+depends on it: `prepare_metadata()` runs `tool_package::remap::run(&corpora(), …)` into
+`target/features/` (throwaway, not committed) and stages the WinRT `Windows.winmd` alongside, then the
+existing page logic reads those two remapped winmds. Feature names now match the crates' actual
+header stems (`winnt`, `d2d`, `fileapi`, …) with WinRT features (`Foundation_Numerics`, …) preserved;
+output is deterministic (byte-identical re-run) and drives no committed change beyond the page.
+Because CI runs each tool standalone on a fresh checkout (`gen.yml` + `git diff --exit-code`),
+`tool_features` cannot read `tool_package`'s throwaway output — it re-runs the remap itself from the
+committed RDL corpus + flat winmds.
 
 **Status.** The remap is wired end to end for the **full corpus** and both published crates
 compile. `tool_package` reads the flat `Windows.Win32`/`Windows.Wdk` winmds and routes every
@@ -739,14 +755,16 @@ dependency is now derived from the namespace's **dot** structure (`Windows.Win32
 `Win32`), the `Win32` and WinRT `Foundation` umbrellas are base features (no dependency), and
 `Wdk` depends on the `Win32` umbrella.
 
-**Metadata-shape fallout.** Unfreezing the crates from the old win32metadata means their output
-now reflects the in-house flat metadata (PR #4649), which differs in shape from the old
+**Metadata-shape fallout (resolved).** Unfreezing the crates from the old win32metadata means their
+output now reflects the in-house flat metadata (PR #4649), which differs in shape from the old
 editorial winmd in ways unrelated to namespaces. E.g. some typedef'd Win32 callbacks that the
-editorial winmd emitted as plain `type X = Option<extern fn …>` aliases are emitted by the
-in-house metadata as newtype structs (`pub struct PROPENUMPROCEX(pub PROPENUMPROCEXA)`) that
-`#[derive(PartialEq)]`, tripping rustc's `unpredictable_function_pointer_comparisons` lint in
-the full `windows` crate. These are pre-existing properties of the in-house corpus surfaced by
-the switch, not remap artefacts, and must be resolved before CI's `-D warnings` passes.
+editorial winmd emitted as plain `type X = Option<extern fn …>` aliases would, if newtyped, emit as
+`#[derive(PartialEq)]` structs (`pub struct PROPENUMPROCEX(pub PROPENUMPROCEXA)`) and trip rustc's
+`unpredictable_function_pointer_comparisons` lint in the full `windows` crate under `-D warnings`.
+Fixed in `windows-bindgen`: `write_cpp_handle` (`crates/libs/bindgen/src/types/cpp_handle.rs`) now
+emits any typedef that transitively aliases a callback as a transparent `pub type … = …` alias in
+every style (matching `--sys`/`--minimal`), so no `PartialEq` is derived over a function pointer.
+CI's `windows` job is green.
 
 **Bindgen fix surfaced by this work.** Validating a narrow filter (WDK-only, `--flat`) against
 the remapped winmd exposed a latent dependency-gathering bug in `windows-bindgen`: when an
@@ -1417,3 +1435,36 @@ Test-specific drift beyond the sample patterns:
   published `windows` crate (rather than generating its own bindings), so it now belongs alongside the
   other `crates/samples/windows/` samples and stays there. It is in the workspace `members` (via the
   `crates/samples/*/*` glob) and builds against the flat default metadata.
+
+## Deferred / upcoming work
+
+The flat-metadata pipeline and the `windows-clang` design are functionally complete; the items below
+are intentionally deferred and tracked here for a future cleanup pass (post the `#1`/`#2` follow-ups
+above). None blocks CI.
+
+- **Retire `crates/tools/package/reference/*.winmd`.** The published crates and `tool_features` no
+  longer read the frozen editorial winmds, but they are still entangled and cannot be deleted yet:
+  - `crates/tests/libs/metadata/tests/reader.rs` and `assembly_name.rs` are **active** (non-ignored)
+    tests that use them as fixtures.
+  - Six diagnostic probe tests (`parity_probe`, `coverage_probe`, `collision_probe`, `nested_probe`,
+    `delegate_probe`, `arch_probe`) are `#[ignore]`d comparisons of in-house vs reference metadata,
+    run manually with `--ignored` — they are the **parity safety net** while the in-house corpus
+    stabilises.
+  - Some reference-only clang normalisations are gated on the reference winmd (per
+    [Type remapping](#type-remapping--one-canon-surface)).
+  Retiring removes the parity net and is a large, judgment-heavy cleanup; keep the reference winmds
+  until the in-house corpus has soaked, then migrate the active tests to in-house fixtures, drop the
+  probes, and remove the gated normalisations.
+- **C flags/enum idiom harmonization.** ~41 flag/enum pairs still differ in idiom between the
+  canonical RDL and the old editorial shape (bitflag-vs-enum, signedness). Harmonise in the canonical
+  RDL emitted by `windows-clang` rather than downstream (doc ~line 710).
+- **Handle-in-handle newtype modelling.** `--package` (default) mode nests handle aliases as newtype
+  structs, so a handle nested inside another handle emits `pub struct GLOBALHANDLE(pub
+  super::winnt::HANDLE)` where `--minimal`/`--sys` keep the plain alias. Decide the intended
+  `--package` handle model (see "To investigate: inconsistent handle modelling" above).
+- **Coverage gaps.** Missing interop interface `IWindowNative` ships in the Windows App SDK / WinUI
+  (`microsoft.ui.xaml.window.h`), not the Windows SDK, so it is out of scope for the SDK header scrape
+  and needs a separate source. (`IGraphicsCaptureItemInterop` is now scraped via a shim.)
+- **Performance.** Opportunities to speed the scrape: emit winmd directly instead of round-tripping
+  through RDL text, cache import-library resolution across arches, and use a precompiled header (PCH)
+  for the common SDK include set.

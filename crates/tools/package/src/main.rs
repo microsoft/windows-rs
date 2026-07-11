@@ -1,13 +1,10 @@
-mod remap;
-
-use remap::Corpus;
+use tool_package::remap::{self, Corpus};
+use tool_package::{WINRT_WINMD, corpora};
 
 /// Throwaway `--in` directory feeding `--package` generation (under `target`, not committed).
 /// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
 const PACKAGE_DIR: &str = "target/package";
 const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
-/// The already-namespaced WinRT metadata, copied verbatim alongside the remapped winmd.
-const WINRT_WINMD: &str = "crates/libs/bindgen/default/Windows.winmd";
 
 /// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\tWin32_d2d1`) for every routed item to
 /// `path`, so downstream consumer migration can look up the header feature/module for an API.
@@ -42,18 +39,7 @@ fn main() {
     // partition. One namespace per defining header (`.rdl` stem) gives a mechanical, source-derived
     // one. Both corpora are remapped together so WDK's references to Win32 types resolve to the
     // remapped Win32 namespaces.
-    let corpora = [
-        Corpus {
-            rdl_dir: "metadata/win32",
-            winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
-            root: "Windows",
-        },
-        Corpus {
-            rdl_dir: "metadata/wdk",
-            winmd: "crates/libs/bindgen/default/Windows.Wdk.winmd",
-            root: "Windows",
-        },
-    ];
+    let corpora = corpora();
 
     let summary = remap::run(&corpora, REMAP_OUTPUT);
 
