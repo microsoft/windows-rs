@@ -383,6 +383,7 @@ pub unsafe fn RtlCopyBitMap(source: *const RTL_BITMAP, destination: *const RTL_B
     windows_core::link!("ntdll.dll" "system" fn RtlCopyBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32));
     unsafe { RtlCopyBitMap(source, destination, targetbit) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlCopyMemoryNonTemporal(destination: *mut core::ffi::c_void, source: *const core::ffi::c_void, length: usize) {
     windows_core::link!("ntdll.dll" "system" fn RtlCopyMemoryNonTemporal(destination : *mut core::ffi::c_void, source : *const core::ffi::c_void, length : usize));
@@ -436,6 +437,7 @@ pub unsafe fn RtlExtractBitMap(source: *const RTL_BITMAP, destination: *const RT
     windows_core::link!("ntdll.dll" "system" fn RtlExtractBitMap(source : *const RTL_BITMAP, destination : *const RTL_BITMAP, targetbit : u32, numberofbits : u32));
     unsafe { RtlExtractBitMap(source, destination, targetbit, numberofbits) }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlFillMemoryNonTemporal(destination: *mut core::ffi::c_void, length: usize, value: u8) {
     windows_core::link!("ntdll.dll" "system" fn RtlFillMemoryNonTemporal(destination : *mut core::ffi::c_void, length : usize, value : u8));
@@ -1343,6 +1345,98 @@ pub type ALLOCATE_FUNCTION_EX = Option<unsafe extern "system" fn(pooltype: POOL_
 pub const ALLOC_DATA_PRAGMA: u32 = 1;
 pub const ALLOC_PRAGMA: u32 = 1;
 pub type ALTERNATIVE_ARCHITECTURE_TYPE = i32;
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union AMD_L1_CACHE_INFO {
+    pub Ulong: u32,
+    pub Anonymous: AMD_L1_CACHE_INFO_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for AMD_L1_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct AMD_L1_CACHE_INFO_0 {
+    pub LineSize: u8,
+    pub LinesPerTag: u8,
+    pub Associativity: u8,
+    pub Size: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union AMD_L2_CACHE_INFO {
+    pub Ulong: u32,
+    pub Anonymous: AMD_L2_CACHE_INFO_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for AMD_L2_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct AMD_L2_CACHE_INFO_0 {
+    pub LineSize: u8,
+    pub _bitfield: u8,
+    pub Size: u16,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union AMD_L3_CACHE_INFO {
+    pub Ulong: u32,
+    pub Anonymous: AMD_L3_CACHE_INFO_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for AMD_L3_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct AMD_L3_CACHE_INFO_0 {
+    pub LineSize: u8,
+    pub _bitfield1: u8,
+    pub _bitfield2: u16,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy)]
+pub union ARM64_IDCODE {
+    pub Ulong: u64,
+    pub Anonymous: ARM64_IDCODE_0,
+    pub Arm: ARM64_IDCODE_1,
+}
+#[cfg(target_arch = "aarch64")]
+impl Default for ARM64_IDCODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ARM64_IDCODE_0 {
+    pub _bitfield: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ARM64_IDCODE_1 {
+    pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+pub const ARM64_PCR_RESERVED_MASK: u32 = 4095;
 pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1;
 pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = 5;
 pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = 1;
@@ -1379,7 +1473,9 @@ impl Default for BOOTDISK_INFORMATION_LITE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type BOUND_CALLBACK = Option<unsafe extern "system" fn() -> BOUND_CALLBACK_STATUS>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type BOUND_CALLBACK_STATUS = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -1436,9 +1532,13 @@ pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
 }
 pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = 4;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = 0;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const BoundExceptionError: BOUND_CALLBACK_STATUS = 2;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = 1;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = 3;
 pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = 0;
 pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = 3;
@@ -1598,7 +1698,15 @@ impl Default for CLFS_MGMT_POLICY_0_9 {
 }
 pub type CLFS_MGMT_POLICY_TYPE = i32;
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const CLOCK1_LEVEL: u32 = 28;
+#[cfg(target_arch = "x86")]
+pub const CLOCK2_LEVEL: u32 = 28;
+#[cfg(target_arch = "x86")]
+pub const CLOCK_LEVEL: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const CLOCK_LEVEL: u32 = 13;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub const CMCI_LEVEL: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
@@ -1751,6 +1859,7 @@ pub struct CM_MONITOR_DEVICE_DATA {
     pub VerticalSyncHigh: u16,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
@@ -1759,6 +1868,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
     pub Flags: u16,
     pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
@@ -1766,6 +1876,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
@@ -1784,6 +1895,7 @@ pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12,
     pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     fn default() -> Self {
@@ -1791,6 +1903,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
     }
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
@@ -1798,6 +1911,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
@@ -1805,6 +1919,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
@@ -1812,6 +1927,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
     pub Length40: u32,
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
@@ -1819,6 +1935,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
     pub Length48: u32,
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
@@ -1826,6 +1943,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
     pub Length64: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
@@ -1836,20 +1954,23 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub IdLowPart: u32,
     pub IdHighPart: u32,
 }
-#[repr(C, packed(4))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: super::basetsd::KAFFINITY,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     fn default() -> Self {
@@ -1857,36 +1978,41 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy)]
 pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
     pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(4))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
     pub Vector: u32,
     pub Affinity: super::basetsd::KAFFINITY,
 }
-#[repr(C, packed(4))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
     pub Vector: u32,
     pub Affinity: super::basetsd::KAFFINITY,
 }
 #[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Default)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
@@ -1894,6 +2020,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
     pub Length: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
@@ -1902,6 +2029,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Reserved1: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
@@ -1913,11 +2041,13 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Reserved3: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     fn default() -> Self {
@@ -1925,6 +2055,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
@@ -1933,6 +2064,221 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Reserved: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
+    pub DataSize: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
+    pub Type: u8,
+    pub ShareDisposition: u8,
+    pub Flags: u16,
+    pub u: CM_PARTIAL_RESOURCE_DESCRIPTOR_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy)]
+pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
+    pub Generic: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0,
+    pub Port: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1,
+    pub Interrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2,
+    pub MessageInterrupt: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3,
+    pub Memory: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4,
+    pub Dma: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5,
+    pub DmaV3: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6,
+    pub DevicePrivate: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7,
+    pub BusNumber: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8,
+    pub DeviceSpecificData: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9,
+    pub Memory40: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10,
+    pub Memory48: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11,
+    pub Memory64: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12,
+    pub Connection: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_0 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_1 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_10 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length40: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_11 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length48: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length64: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
+    pub Class: u8,
+    pub Type: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub IdLowPart: u32,
+    pub IdHighPart: u32,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
+    pub Level: u32,
+    pub Vector: u32,
+    pub Affinity: super::basetsd::KAFFINITY,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    pub Anonymous: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy)]
+pub union CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
+    pub Raw: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0,
+    pub Translated: CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
+    pub Reserved: u16,
+    pub MessageCount: u16,
+    pub Vector: u32,
+    pub Affinity: super::basetsd::KAFFINITY,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
+    pub Level: u32,
+    pub Vector: u32,
+    pub Affinity: super::basetsd::KAFFINITY,
+}
+#[repr(C, packed(4))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Default)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
+    pub Start: super::usb::PHYSICAL_ADDRESS,
+    pub Length: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
+    pub Channel: u32,
+    pub Port: u32,
+    pub Reserved1: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
+    pub Channel: u32,
+    pub RequestLine: u32,
+    pub TransferWidth: u8,
+    pub Reserved1: u8,
+    pub Reserved2: u8,
+    pub Reserved3: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    pub Data: [u32; 3],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "usb"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
+    pub Start: u32,
+    pub Length: u32,
+    pub Reserved: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
@@ -2380,7 +2726,8 @@ pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub SymbolicLinkName: super::ntsecapi::PUNICODE_STRING,
 }
 pub const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1;
-#[repr(C, align(16))]
+#[repr(C, align(8))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct DEVICE_OBJECT {
@@ -2410,6 +2757,7 @@ pub struct DEVICE_OBJECT {
     pub DeviceObjectExtension: *mut DEVOBJ_EXTENSION,
     pub Reserved: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT {
     fn default() -> Self {
@@ -2417,12 +2765,67 @@ impl Default for DEVICE_OBJECT {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union DEVICE_OBJECT_0 {
     pub ListEntry: super::winnt::LIST_ENTRY,
     pub Wcb: WAIT_CONTEXT_BLOCK,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for DEVICE_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(16))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct DEVICE_OBJECT {
+    pub Type: super::ntdef::CSHORT,
+    pub Size: u16,
+    pub ReferenceCount: i32,
+    pub DriverObject: *mut DRIVER_OBJECT,
+    pub NextDevice: *mut Self,
+    pub AttachedDevice: *mut Self,
+    pub CurrentIrp: *mut IRP,
+    pub Timer: PIO_TIMER,
+    pub Flags: u32,
+    pub Characteristics: u32,
+    pub Vpb: PVPB,
+    pub DeviceExtension: *mut core::ffi::c_void,
+    pub DeviceType: u32,
+    pub StackSize: super::winnt::CCHAR,
+    pub Queue: DEVICE_OBJECT_0,
+    pub AlignmentRequirement: u32,
+    pub DeviceQueue: KDEVICE_QUEUE,
+    pub Dpc: KDPC,
+    pub ActiveThreadCount: u32,
+    pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
+    pub DeviceLock: KEVENT,
+    pub SectorSize: u16,
+    pub Spare1: u16,
+    pub DeviceObjectExtension: *mut DEVOBJ_EXTENSION,
+    pub Reserved: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for DEVICE_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union DEVICE_OBJECT_0 {
+    pub ListEntry: super::winnt::LIST_ENTRY,
+    pub Wcb: WAIT_CONTEXT_BLOCK,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for DEVICE_OBJECT_0 {
     fn default() -> Self {
@@ -2533,6 +2936,7 @@ pub type DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
 pub const DIRECTORY_QUERY: u32 = 1;
 pub const DIRECTORY_TRAVERSE: u32 = 2;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_HEADER {
@@ -2540,6 +2944,7 @@ pub struct DISPATCHER_HEADER {
     pub SignalState: i32,
     pub WaitListHead: super::winnt::LIST_ENTRY,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER {
     fn default() -> Self {
@@ -2547,6 +2952,7 @@ impl Default for DISPATCHER_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0 {
@@ -2558,6 +2964,7 @@ pub union DISPATCHER_HEADER_0 {
     pub Anonymous6: DISPATCHER_HEADER_0_5,
     pub Anonymous7: DISPATCHER_HEADER_0_6,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0 {
     fn default() -> Self {
@@ -2565,12 +2972,14 @@ impl Default for DISPATCHER_HEADER_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_0 {
     pub Lock: i32,
     pub LockNV: i32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_0 {
     fn default() -> Self {
@@ -2578,6 +2987,7 @@ impl Default for DISPATCHER_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_1 {
@@ -2587,6 +2997,7 @@ pub struct DISPATCHER_HEADER_0_1 {
     pub Reserved1: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_HEADER_0_2 {
@@ -2595,6 +3006,7 @@ pub struct DISPATCHER_HEADER_0_2 {
     pub Hand: u8,
     pub Anonymous2: DISPATCHER_HEADER_0_2_1,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_2 {
     fn default() -> Self {
@@ -2602,12 +3014,14 @@ impl Default for DISPATCHER_HEADER_0_2 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_2_0 {
     pub TimerControlFlags: u8,
     pub Anonymous: DISPATCHER_HEADER_0_2_0_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_2_0 {
     fn default() -> Self {
@@ -2615,18 +3029,21 @@ impl Default for DISPATCHER_HEADER_0_2_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_2_1 {
     pub TimerMiscFlags: u8,
     pub Anonymous: DISPATCHER_HEADER_0_2_1_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_2_1 {
     fn default() -> Self {
@@ -2634,12 +3051,14 @@ impl Default for DISPATCHER_HEADER_0_2_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_1_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_HEADER_0_3 {
@@ -2648,6 +3067,7 @@ pub struct DISPATCHER_HEADER_0_3 {
     pub Timer2ComponentId: u8,
     pub Timer2RelativeId: u8,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_3 {
     fn default() -> Self {
@@ -2655,12 +3075,14 @@ impl Default for DISPATCHER_HEADER_0_3 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_3_0 {
     pub Timer2Flags: u8,
     pub Anonymous: DISPATCHER_HEADER_0_3_0_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_3_0 {
     fn default() -> Self {
@@ -2668,12 +3090,14 @@ impl Default for DISPATCHER_HEADER_0_3_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_3_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_HEADER_0_4 {
@@ -2682,6 +3106,7 @@ pub struct DISPATCHER_HEADER_0_4 {
     pub QueueSize: u8,
     pub QueueReserved: u8,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_4 {
     fn default() -> Self {
@@ -2689,12 +3114,14 @@ impl Default for DISPATCHER_HEADER_0_4 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_4_0 {
     pub QueueControlFlags: u8,
     pub Anonymous: DISPATCHER_HEADER_0_4_0_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_4_0 {
     fn default() -> Self {
@@ -2702,12 +3129,14 @@ impl Default for DISPATCHER_HEADER_0_4_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_4_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct DISPATCHER_HEADER_0_5 {
@@ -2716,6 +3145,7 @@ pub struct DISPATCHER_HEADER_0_5 {
     pub Anonymous: DISPATCHER_HEADER_0_5_0,
     pub Anonymous2: DISPATCHER_HEADER_0_5_1,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_5 {
     fn default() -> Self {
@@ -2723,12 +3153,14 @@ impl Default for DISPATCHER_HEADER_0_5 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_5_0 {
     pub ThreadControlFlags: u8,
     pub Anonymous: DISPATCHER_HEADER_0_5_0_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_5_0 {
     fn default() -> Self {
@@ -2736,18 +3168,20 @@ impl Default for DISPATCHER_HEADER_0_5_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union DISPATCHER_HEADER_0_5_1 {
     pub DebugActive: u8,
-    pub Anonymous: DISPATCHER_HEADER_0_5_1_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for DISPATCHER_HEADER_0_5_1 {
     fn default() -> Self {
@@ -2755,12 +3189,278 @@ impl Default for DISPATCHER_HEADER_0_5_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_6 {
+    pub MutantType: u8,
+    pub MutantSize: u8,
+    pub DpcActive: bool,
+    pub MutantReserved: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_HEADER {
+    pub Anonymous: DISPATCHER_HEADER_0,
+    pub SignalState: i32,
+    pub WaitListHead: super::winnt::LIST_ENTRY,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0 {
+    pub Anonymous: DISPATCHER_HEADER_0_0,
+    pub Anonymous2: DISPATCHER_HEADER_0_1,
+    pub Anonymous3: DISPATCHER_HEADER_0_2,
+    pub Anonymous4: DISPATCHER_HEADER_0_3,
+    pub Anonymous5: DISPATCHER_HEADER_0_4,
+    pub Anonymous6: DISPATCHER_HEADER_0_5,
+    pub Anonymous7: DISPATCHER_HEADER_0_6,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_0 {
+    pub Lock: i32,
+    pub LockNV: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_1 {
+    pub Type: u8,
+    pub Signalling: u8,
+    pub Size: u8,
+    pub Reserved1: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_HEADER_0_2 {
+    pub TimerType: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_2_0,
+    pub Hand: u8,
+    pub Anonymous2: DISPATCHER_HEADER_0_2_1,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_2_0 {
+    pub TimerControlFlags: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_2_0_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_2_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_2_1 {
+    pub TimerMiscFlags: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_2_1_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_2_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_2_1_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_HEADER_0_3 {
+    pub Timer2Type: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_3_0,
+    pub Timer2ComponentId: u8,
+    pub Timer2RelativeId: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_3_0 {
+    pub Timer2Flags: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_3_0_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_3_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_HEADER_0_4 {
+    pub QueueType: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_4_0,
+    pub QueueSize: u8,
+    pub QueueReserved: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_4_0 {
+    pub QueueControlFlags: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_4_0_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_4_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_4_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct DISPATCHER_HEADER_0_5 {
+    pub ThreadType: u8,
+    pub ThreadReserved: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_5_0,
+    pub Anonymous2: DISPATCHER_HEADER_0_5_1,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_5_0 {
+    pub ThreadControlFlags: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_5_0_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_5_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct DISPATCHER_HEADER_0_5_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union DISPATCHER_HEADER_0_5_1 {
+    pub DebugActive: u8,
+    pub Anonymous: DISPATCHER_HEADER_0_5_1_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for DISPATCHER_HEADER_0_5_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_1_0 {
     pub _bitfield: bool,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct DISPATCHER_HEADER_0_6 {
@@ -3104,6 +3804,9 @@ pub struct DMA_OPERATIONS {
 }
 pub type DMA_SPEED = i32;
 pub const DMA_SYNCHRONOUS_CALLBACK: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 64;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128;
 pub const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1;
 #[repr(C)]
@@ -3363,6 +4066,7 @@ pub type DRIVER_RUNTIME_INIT_FLAGS = i32;
 pub type DRIVER_STARTIO = Option<unsafe extern "system" fn(deviceobject: *mut DEVICE_OBJECT, irp: *mut IRP)>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_UNLOAD = Option<unsafe extern "system" fn(driverobject: *const DRIVER_OBJECT)>;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DRS_LEVEL: u32 = 14;
 pub const DRVO_BUILTIN_DRIVER: u32 = 4;
 pub const DRVO_LEGACY_DRIVER: u32 = 2;
@@ -3456,6 +4160,12 @@ pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = 0;
 pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = 1;
 pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = 2;
 pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = 1;
+#[cfg(target_arch = "x86")]
+pub const EFLAG_SELECT: u32 = 49152;
+#[cfg(target_arch = "x86")]
+pub const EFLAG_SIGN: u32 = 32768;
+#[cfg(target_arch = "x86")]
+pub const EFLAG_ZERO: u32 = 16384;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
@@ -3518,6 +4228,49 @@ pub const EISA_SYSTEM_MEMORY: u32 = 0;
 #[cfg(feature = "bcrypt")]
 pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: bool, enablemigrationinterrupt: bool, enablevirtualization: bool) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct ERESOURCE {
+    pub SystemResourcesList: super::winnt::LIST_ENTRY,
+    pub OwnerTable: POWNER_ENTRY,
+    pub ActiveCount: i16,
+    pub Flag: u8,
+    pub WaiterPriority: u8,
+    pub SharedWaiters: *mut core::ffi::c_void,
+    pub ExclusiveWaiters: *mut core::ffi::c_void,
+    pub OwnerEntry: OWNER_ENTRY,
+    pub ActiveEntries: u32,
+    pub ContentionCount: u32,
+    pub NumberOfSharedWaiters: u32,
+    pub NumberOfExclusiveWaiters: u32,
+    pub Anonymous: ERESOURCE_0,
+    pub SpinLock: super::winnt::KSPIN_LOCK,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for ERESOURCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union ERESOURCE_0 {
+    pub Address: *mut core::ffi::c_void,
+    pub CreatorBackTraceIndex: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for ERESOURCE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ERESOURCE {
@@ -3539,6 +4292,7 @@ pub struct ERESOURCE {
     pub Anonymous: ERESOURCE_0,
     pub SpinLock: super::winnt::KSPIN_LOCK,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl Default for ERESOURCE {
     fn default() -> Self {
@@ -3546,12 +4300,14 @@ impl Default for ERESOURCE {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union ERESOURCE_0 {
     pub Address: *mut core::ffi::c_void,
     pub CreatorBackTraceIndex: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl Default for ERESOURCE_0 {
     fn default() -> Self {
@@ -3562,6 +4318,9 @@ impl Default for ERESOURCE_0 {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ERESOURCE_THREAD(pub usize);
 pub const ERROR_LOG_LIMIT_SIZE: u32 = 240;
+#[cfg(target_arch = "x86")]
+pub const ERROR_LOG_MAXIMUM_SIZE: u32 = 152;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const ERROR_LOG_MAXIMUM_SIZE: u32 = 240;
 pub const ERROR_LOG_MESSAGE_LIMIT_SIZE: u32 = 344;
 #[cfg(feature = "evntprov")]
@@ -3619,6 +4378,22 @@ impl Default for EXTENDED_CREATE_INFORMATION {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct EXTENDED_CREATE_INFORMATION_32 {
+    pub ExtendedCreateFlags: i64,
+    pub EaBuffer: *mut core::ffi::c_void,
+    pub EaLength: u32,
+    pub DualOplockKeys: PEXTENDED_CREATE_DUAL_OPLOCK_KEYS,
+}
+#[cfg(target_arch = "x86")]
+impl Default for EXTENDED_CREATE_INFORMATION_32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub ExtendedCreateFlags: i64,
@@ -3626,6 +4401,7 @@ pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub EaLength: u32,
     pub DualOplockKeys: *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for EXTENDED_CREATE_INFORMATION_32 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4155,7 +4931,10 @@ pub const FILE_WORD_ALIGNMENT: u32 = 1;
 pub const FILE_WRITE_ONCE_MEDIA: u32 = 8;
 pub const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295;
 pub const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 19;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const FLUSH_MULTIPLE_MAXIMUM: u32 = 32;
 pub const FM_LOCK_BIT: u32 = 1;
 pub const FM_LOCK_BIT_V: u32 = 0;
 pub const FO_ALERTABLE_IO: u32 = 4;
@@ -4260,7 +5039,8 @@ pub const FileFsVolumeInformation: FS_INFORMATION_CLASS = 1;
 pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = 13;
 pub const FreePage: KWAIT_REASON = 1;
 pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = 0;
-#[repr(C, align(64))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct GENERAL_LOOKASIDE {
@@ -4281,6 +5061,7 @@ pub struct GENERAL_LOOKASIDE {
     pub Anonymous6: GENERAL_LOOKASIDE_5,
     pub Future: [u32; 2],
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE {
     fn default() -> Self {
@@ -4288,12 +5069,14 @@ impl Default for GENERAL_LOOKASIDE {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_0 {
     pub ListHead: super::winnt::SLIST_HEADER,
     pub SingleListHead: super::winnt::SINGLE_LIST_ENTRY,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_0 {
     fn default() -> Self {
@@ -4301,12 +5084,14 @@ impl Default for GENERAL_LOOKASIDE_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_1 {
     pub AllocateMisses: u32,
     pub AllocateHits: u32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_1 {
     fn default() -> Self {
@@ -4314,12 +5099,14 @@ impl Default for GENERAL_LOOKASIDE_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_2 {
     pub FreeMisses: u32,
     pub FreeHits: u32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_2 {
     fn default() -> Self {
@@ -4327,12 +5114,14 @@ impl Default for GENERAL_LOOKASIDE_2 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_3 {
     pub AllocateEx: PALLOCATE_FUNCTION_EX,
     pub Allocate: PALLOCATE_FUNCTION,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_3 {
     fn default() -> Self {
@@ -4340,12 +5129,14 @@ impl Default for GENERAL_LOOKASIDE_3 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_4 {
     pub FreeEx: PFREE_FUNCTION_EX,
     pub Free: PFREE_FUNCTION,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_4 {
     fn default() -> Self {
@@ -4353,12 +5144,252 @@ impl Default for GENERAL_LOOKASIDE_4 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union GENERAL_LOOKASIDE_5 {
     pub LastAllocateMisses: u32,
     pub LastAllocateHits: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(64))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct GENERAL_LOOKASIDE {
+    pub Anonymous: GENERAL_LOOKASIDE_0,
+    pub Depth: u16,
+    pub MaximumDepth: u16,
+    pub TotalAllocates: u32,
+    pub Anonymous2: GENERAL_LOOKASIDE_1,
+    pub TotalFrees: u32,
+    pub Anonymous3: GENERAL_LOOKASIDE_2,
+    pub Type: POOL_TYPE,
+    pub Tag: u32,
+    pub Size: u32,
+    pub Anonymous4: GENERAL_LOOKASIDE_3,
+    pub Anonymous5: GENERAL_LOOKASIDE_4,
+    pub ListEntry: super::winnt::LIST_ENTRY,
+    pub LastTotalAllocates: u32,
+    pub Anonymous6: GENERAL_LOOKASIDE_5,
+    pub Future: [u32; 2],
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_0 {
+    pub ListHead: super::winnt::SLIST_HEADER,
+    pub SingleListHead: super::winnt::SINGLE_LIST_ENTRY,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_1 {
+    pub AllocateMisses: u32,
+    pub AllocateHits: u32,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_2 {
+    pub FreeMisses: u32,
+    pub FreeHits: u32,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_3 {
+    pub AllocateEx: PALLOCATE_FUNCTION_EX,
+    pub Allocate: PALLOCATE_FUNCTION,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_4 {
+    pub FreeEx: PFREE_FUNCTION_EX,
+    pub Free: PFREE_FUNCTION,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_5 {
+    pub LastAllocateMisses: u32,
+    pub LastAllocateHits: u32,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(128))]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct GENERAL_LOOKASIDE {
+    pub Anonymous: GENERAL_LOOKASIDE_0,
+    pub Depth: u16,
+    pub MaximumDepth: u16,
+    pub TotalAllocates: u32,
+    pub Anonymous2: GENERAL_LOOKASIDE_1,
+    pub TotalFrees: u32,
+    pub Anonymous3: GENERAL_LOOKASIDE_2,
+    pub Type: POOL_TYPE,
+    pub Tag: u32,
+    pub Size: u32,
+    pub Anonymous4: GENERAL_LOOKASIDE_3,
+    pub Anonymous5: GENERAL_LOOKASIDE_4,
+    pub ListEntry: super::winnt::LIST_ENTRY,
+    pub LastTotalAllocates: u32,
+    pub Anonymous6: GENERAL_LOOKASIDE_5,
+    pub Future: [u32; 2],
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_0 {
+    pub ListHead: super::winnt::SLIST_HEADER,
+    pub SingleListHead: super::winnt::SINGLE_LIST_ENTRY,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_1 {
+    pub AllocateMisses: u32,
+    pub AllocateHits: u32,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_2 {
+    pub FreeMisses: u32,
+    pub FreeHits: u32,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_3 {
+    pub AllocateEx: PALLOCATE_FUNCTION_EX,
+    pub Allocate: PALLOCATE_FUNCTION,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_4 {
+    pub FreeEx: PFREE_FUNCTION_EX,
+    pub Free: PFREE_FUNCTION,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for GENERAL_LOOKASIDE_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union GENERAL_LOOKASIDE_5 {
+    pub LastAllocateMisses: u32,
+    pub LastAllocateHits: u32,
+}
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
 impl Default for GENERAL_LOOKASIDE_5 {
     fn default() -> Self {
@@ -4536,6 +5567,46 @@ impl Default for INITIAL_PRIVILEGE_SET {
 pub struct INPUT_MAPPING_ELEMENT {
     pub InputMappingId: u32,
 }
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union INTEL_CACHE_INFO_EAX {
+    pub Ulong: u32,
+    pub Anonymous: INTEL_CACHE_INFO_EAX_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for INTEL_CACHE_INFO_EAX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct INTEL_CACHE_INFO_EAX_0 {
+    pub _bitfield: INTEL_CACHE_TYPE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub union INTEL_CACHE_INFO_EBX {
+    pub Ulong: u32,
+    pub Anonymous: INTEL_CACHE_INFO_EBX_0,
+}
+#[cfg(target_arch = "x86")]
+impl Default for INTEL_CACHE_INFO_EBX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct INTEL_CACHE_INFO_EBX_0 {
+    pub _bitfield: u32,
+}
+#[cfg(target_arch = "x86")]
+pub type INTEL_CACHE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
 pub struct INTERFACE {
@@ -5079,6 +6150,9 @@ pub struct IO_ERROR_LOG_MESSAGE {
     pub DriverNameOffset: u32,
     pub EntryData: IO_ERROR_LOG_PACKET,
 }
+#[cfg(target_arch = "x86")]
+pub const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 256;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 344;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
@@ -5482,6 +6556,7 @@ pub const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128;
 pub const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648;
 pub const IO_SOUND_INCREMENT: u32 = 8;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION {
@@ -5495,6 +6570,7 @@ pub struct IO_STACK_LOCATION {
     pub CompletionRoutine: PIO_COMPLETION_ROUTINE,
     pub Context: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION {
     fn default() -> Self {
@@ -5502,6 +6578,7 @@ impl Default for IO_STACK_LOCATION {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0 {
@@ -5545,6 +6622,7 @@ pub union IO_STACK_LOCATION_0 {
     pub WMI: IO_STACK_LOCATION_0_37,
     pub Others: IO_STACK_LOCATION_0_38,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0 {
     fn default() -> Self {
@@ -5552,6 +6630,7 @@ impl Default for IO_STACK_LOCATION_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
@@ -5562,6 +6641,7 @@ pub struct IO_STACK_LOCATION_0_0 {
     pub EaLength: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
@@ -5572,6 +6652,7 @@ pub struct IO_STACK_LOCATION_0_1 {
     pub Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
@@ -5580,6 +6661,7 @@ pub struct IO_STACK_LOCATION_0_10 {
     pub EaListLength: u32,
     pub EaIndex: u32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_10 {
     fn default() -> Self {
@@ -5587,19 +6669,22 @@ impl Default for IO_STACK_LOCATION_0_10 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: u32,
 }
-#[repr(C, align(8))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
     pub FsInformationClass: FS_INFORMATION_CLASS,
 }
-#[repr(C, align(8))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
@@ -5607,6 +6692,7 @@ pub struct IO_STACK_LOCATION_0_13 {
     pub FsInformationClass: FS_INFORMATION_CLASS,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
@@ -5615,21 +6701,24 @@ pub struct IO_STACK_LOCATION_0_14 {
     pub FsControlCode: u32,
     pub Type3InputBuffer: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_14 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C)]
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Default)]
 pub struct IO_STACK_LOCATION_0_15 {
     pub Length: super::winnt::PLARGE_INTEGER,
     pub Key: u32,
     pub ByteOffset: i64,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
@@ -5638,13 +6727,15 @@ pub struct IO_STACK_LOCATION_0_16 {
     pub IoControlCode: u32,
     pub Type3InputBuffer: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_16 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, align(8))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
@@ -5652,6 +6743,7 @@ pub struct IO_STACK_LOCATION_0_17 {
     pub Length: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
@@ -5659,6 +6751,7 @@ pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
@@ -5667,6 +6760,7 @@ pub struct IO_STACK_LOCATION_0_19 {
     pub OutputBufferLength: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
@@ -5677,6 +6771,7 @@ pub struct IO_STACK_LOCATION_0_2 {
     pub Parameters: PMAILSLOT_CREATE_PARAMETERS,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
@@ -5684,11 +6779,13 @@ pub struct IO_STACK_LOCATION_0_20 {
     pub DeviceObject: PDEVICE_OBJECT,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_21 {
     fn default() -> Self {
@@ -5696,6 +6793,7 @@ impl Default for IO_STACK_LOCATION_0_21 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
@@ -5705,18 +6803,21 @@ pub struct IO_STACK_LOCATION_0_22 {
     pub SidListLength: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
@@ -5726,6 +6827,7 @@ pub struct IO_STACK_LOCATION_0_25 {
     pub Interface: PINTERFACE,
     pub InterfaceSpecificData: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_25 {
     fn default() -> Self {
@@ -5733,18 +6835,21 @@ impl Default for IO_STACK_LOCATION_0_25 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
@@ -5753,6 +6858,7 @@ pub struct IO_STACK_LOCATION_0_28 {
     pub Offset: u32,
     pub Length: u32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_28 {
     fn default() -> Self {
@@ -5760,12 +6866,544 @@ impl Default for IO_STACK_LOCATION_0_28 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_29 {
+    pub Lock: bool,
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Default)]
+pub struct IO_STACK_LOCATION_0_3 {
+    pub Length: u32,
+    pub Key: u32,
+    pub ByteOffset: i64,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_30 {
+    pub IdType: BUS_QUERY_ID_TYPE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_31 {
+    pub DeviceTextType: DEVICE_TEXT_TYPE,
+    pub LocaleId: super::winnt::LCID,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_32 {
+    pub InPath: bool,
+    pub Reserved: [bool; 3],
+    pub Type: DEVICE_USAGE_NOTIFICATION_TYPE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_33 {
+    pub PowerState: super::winnt::SYSTEM_POWER_STATE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_34 {
+    pub PowerSequence: PPOWER_SEQUENCE,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_35 {
+    pub Anonymous: IO_STACK_LOCATION_0_35_0,
+    pub Type: POWER_STATE_TYPE,
+    pub State: POWER_STATE,
+    pub ShutdownType: super::winnt::POWER_ACTION,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_35 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IO_STACK_LOCATION_0_35_0 {
+    pub SystemContext: u32,
+    pub SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_35_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_36 {
+    pub AllocatedResources: PCM_RESOURCE_LIST,
+    pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_37 {
+    pub ProviderId: usize,
+    pub DataPath: *mut core::ffi::c_void,
+    pub BufferSize: u32,
+    pub Buffer: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_37 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_38 {
+    pub Argument1: *mut core::ffi::c_void,
+    pub Argument2: *mut core::ffi::c_void,
+    pub Argument3: *mut core::ffi::c_void,
+    pub Argument4: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_38 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(4))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Default)]
+pub struct IO_STACK_LOCATION_0_4 {
+    pub Length: u32,
+    pub Key: u32,
+    pub ByteOffset: i64,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_5 {
+    pub Length: u32,
+    pub FileName: super::ntsecapi::PUNICODE_STRING,
+    pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
+    pub FileIndex: u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_6 {
+    pub Length: u32,
+    pub CompletionFilter: u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_7 {
+    pub Length: u32,
+    pub CompletionFilter: u32,
+    pub DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_8 {
+    pub Length: u32,
+    pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION_0_9 {
+    pub Length: u32,
+    pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
+    pub FileObject: PFILE_OBJECT,
+    pub Anonymous: IO_STACK_LOCATION_0_9_0,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_9 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IO_STACK_LOCATION_0_9_0 {
+    pub Anonymous: IO_STACK_LOCATION_0_9_0_0,
+    pub ClusterCount: u32,
+    pub DeleteHandle: super::winnt::HANDLE,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_9_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_9_0_0 {
+    pub ReplaceIfExists: bool,
+    pub AdvanceOnly: bool,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IO_STACK_LOCATION {
+    pub MajorFunction: u8,
+    pub MinorFunction: u8,
+    pub Flags: u8,
+    pub Control: u8,
+    pub Parameters: IO_STACK_LOCATION_0,
+    pub DeviceObject: PDEVICE_OBJECT,
+    pub FileObject: PFILE_OBJECT,
+    pub CompletionRoutine: PIO_COMPLETION_ROUTINE,
+    pub Context: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IO_STACK_LOCATION_0 {
+    pub Create: IO_STACK_LOCATION_0_0,
+    pub CreatePipe: IO_STACK_LOCATION_0_1,
+    pub CreateMailslot: IO_STACK_LOCATION_0_2,
+    pub Read: IO_STACK_LOCATION_0_3,
+    pub Write: IO_STACK_LOCATION_0_4,
+    pub QueryDirectory: IO_STACK_LOCATION_0_5,
+    pub NotifyDirectory: IO_STACK_LOCATION_0_6,
+    pub NotifyDirectoryEx: IO_STACK_LOCATION_0_7,
+    pub QueryFile: IO_STACK_LOCATION_0_8,
+    pub SetFile: IO_STACK_LOCATION_0_9,
+    pub QueryEa: IO_STACK_LOCATION_0_10,
+    pub SetEa: IO_STACK_LOCATION_0_11,
+    pub QueryVolume: IO_STACK_LOCATION_0_12,
+    pub SetVolume: IO_STACK_LOCATION_0_13,
+    pub FileSystemControl: IO_STACK_LOCATION_0_14,
+    pub LockControl: IO_STACK_LOCATION_0_15,
+    pub DeviceIoControl: IO_STACK_LOCATION_0_16,
+    pub QuerySecurity: IO_STACK_LOCATION_0_17,
+    pub SetSecurity: IO_STACK_LOCATION_0_18,
+    pub MountVolume: IO_STACK_LOCATION_0_19,
+    pub VerifyVolume: IO_STACK_LOCATION_0_20,
+    pub Scsi: IO_STACK_LOCATION_0_21,
+    pub QueryQuota: IO_STACK_LOCATION_0_22,
+    pub SetQuota: IO_STACK_LOCATION_0_23,
+    pub QueryDeviceRelations: IO_STACK_LOCATION_0_24,
+    pub QueryInterface: IO_STACK_LOCATION_0_25,
+    pub DeviceCapabilities: IO_STACK_LOCATION_0_26,
+    pub FilterResourceRequirements: IO_STACK_LOCATION_0_27,
+    pub ReadWriteConfig: IO_STACK_LOCATION_0_28,
+    pub SetLock: IO_STACK_LOCATION_0_29,
+    pub QueryId: IO_STACK_LOCATION_0_30,
+    pub QueryDeviceText: IO_STACK_LOCATION_0_31,
+    pub UsageNotification: IO_STACK_LOCATION_0_32,
+    pub WaitWake: IO_STACK_LOCATION_0_33,
+    pub PowerSequence: IO_STACK_LOCATION_0_34,
+    pub Power: IO_STACK_LOCATION_0_35,
+    pub StartDevice: IO_STACK_LOCATION_0_36,
+    pub WMI: IO_STACK_LOCATION_0_37,
+    pub Others: IO_STACK_LOCATION_0_38,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_0 {
+    pub SecurityContext: PIO_SECURITY_CONTEXT,
+    pub Options: u32,
+    pub FileAttributes: u16,
+    pub ShareAccess: u16,
+    pub EaLength: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_1 {
+    pub SecurityContext: PIO_SECURITY_CONTEXT,
+    pub Options: u32,
+    pub Reserved: u16,
+    pub ShareAccess: u16,
+    pub Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_10 {
+    pub Length: u32,
+    pub EaList: *mut core::ffi::c_void,
+    pub EaListLength: u32,
+    pub EaIndex: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_10 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_11 {
+    pub Length: u32,
+}
+#[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_12 {
+    pub Length: u32,
+    pub FsInformationClass: FS_INFORMATION_CLASS,
+}
+#[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_13 {
+    pub Length: u32,
+    pub FsInformationClass: FS_INFORMATION_CLASS,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_14 {
+    pub OutputBufferLength: u32,
+    pub InputBufferLength: u32,
+    pub FsControlCode: u32,
+    pub Type3InputBuffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_14 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_15 {
+    pub Length: super::winnt::PLARGE_INTEGER,
+    pub Key: u32,
+    pub ByteOffset: i64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_16 {
+    pub OutputBufferLength: u32,
+    pub InputBufferLength: u32,
+    pub IoControlCode: u32,
+    pub Type3InputBuffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_16 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_17 {
+    pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
+    pub Length: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_18 {
+    pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
+    pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_19 {
+    pub Vpb: PVPB,
+    pub DeviceObject: PDEVICE_OBJECT,
+    pub OutputBufferLength: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_2 {
+    pub SecurityContext: PIO_SECURITY_CONTEXT,
+    pub Options: u32,
+    pub Reserved: u16,
+    pub ShareAccess: u16,
+    pub Parameters: PMAILSLOT_CREATE_PARAMETERS,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_20 {
+    pub Vpb: PVPB,
+    pub DeviceObject: PDEVICE_OBJECT,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_21 {
+    pub Srb: *mut _SCSI_REQUEST_BLOCK,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_21 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_22 {
+    pub Length: u32,
+    pub StartSid: super::winnt::PSID,
+    pub SidList: PFILE_GET_QUOTA_INFORMATION,
+    pub SidListLength: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_23 {
+    pub Length: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_24 {
+    pub Type: DEVICE_RELATION_TYPE,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_25 {
+    pub InterfaceType: *const windows_core::GUID,
+    pub Size: u16,
+    pub Version: u16,
+    pub Interface: PINTERFACE,
+    pub InterfaceSpecificData: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_25 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_26 {
+    pub Capabilities: PDEVICE_CAPABILITIES,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IO_STACK_LOCATION_0_27 {
+    pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IO_STACK_LOCATION_0_28 {
+    pub WhichSpace: u32,
+    pub Buffer: *mut core::ffi::c_void,
+    pub Offset: u32,
+    pub Length: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IO_STACK_LOCATION_0_28 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
     pub Lock: bool,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_3 {
@@ -5775,12 +7413,14 @@ pub struct IO_STACK_LOCATION_0_3 {
     pub ByteOffset: i64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
@@ -5788,6 +7428,7 @@ pub struct IO_STACK_LOCATION_0_31 {
     pub LocaleId: super::winnt::LCID,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
@@ -5795,6 +7436,7 @@ pub struct IO_STACK_LOCATION_0_32 {
     pub Reserved: [bool; 3],
     pub Type: DEVICE_USAGE_NOTIFICATION_TYPE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_32 {
     fn default() -> Self {
@@ -5802,18 +7444,21 @@ impl Default for IO_STACK_LOCATION_0_32 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::winnt::SYSTEM_POWER_STATE,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_35 {
@@ -5822,6 +7467,7 @@ pub struct IO_STACK_LOCATION_0_35 {
     pub State: POWER_STATE,
     pub ShutdownType: super::winnt::POWER_ACTION,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35 {
     fn default() -> Self {
@@ -5829,12 +7475,14 @@ impl Default for IO_STACK_LOCATION_0_35 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_35_0 {
     pub SystemContext: u32,
     pub SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_35_0 {
     fn default() -> Self {
@@ -5842,6 +7490,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
@@ -5849,6 +7498,7 @@ pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
@@ -5857,6 +7507,7 @@ pub struct IO_STACK_LOCATION_0_37 {
     pub BufferSize: u32,
     pub Buffer: *mut core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_37 {
     fn default() -> Self {
@@ -5864,6 +7515,7 @@ impl Default for IO_STACK_LOCATION_0_37 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
@@ -5872,6 +7524,7 @@ pub struct IO_STACK_LOCATION_0_38 {
     pub Argument3: *mut core::ffi::c_void,
     pub Argument4: *mut core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_38 {
     fn default() -> Self {
@@ -5879,6 +7532,7 @@ impl Default for IO_STACK_LOCATION_0_38 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_4 {
@@ -5888,6 +7542,7 @@ pub struct IO_STACK_LOCATION_0_4 {
     pub ByteOffset: i64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
@@ -5897,6 +7552,7 @@ pub struct IO_STACK_LOCATION_0_5 {
     pub FileIndex: u32,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
@@ -5904,6 +7560,7 @@ pub struct IO_STACK_LOCATION_0_6 {
     pub CompletionFilter: u32,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
@@ -5912,6 +7569,7 @@ pub struct IO_STACK_LOCATION_0_7 {
     pub DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS,
 }
 #[repr(C, align(8))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
@@ -5919,6 +7577,7 @@ pub struct IO_STACK_LOCATION_0_8 {
     pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IO_STACK_LOCATION_0_9 {
@@ -5927,6 +7586,7 @@ pub struct IO_STACK_LOCATION_0_9 {
     pub FileObject: PFILE_OBJECT,
     pub Anonymous: IO_STACK_LOCATION_0_9_0,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9 {
     fn default() -> Self {
@@ -5934,6 +7594,7 @@ impl Default for IO_STACK_LOCATION_0_9 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IO_STACK_LOCATION_0_9_0 {
@@ -5941,6 +7602,7 @@ pub union IO_STACK_LOCATION_0_9_0 {
     pub ClusterCount: u32,
     pub DeleteHandle: super::winnt::HANDLE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IO_STACK_LOCATION_0_9_0 {
     fn default() -> Self {
@@ -5948,6 +7610,7 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
@@ -5961,6 +7624,37 @@ pub struct IO_STATUS_BLOCK32 {
     pub Status: super::bcrypt::NTSTATUS,
     pub Information: u32,
 }
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "bcrypt")]
+#[derive(Clone, Copy)]
+pub struct IO_STATUS_BLOCK64 {
+    pub Anonymous: IO_STATUS_BLOCK64_0,
+    pub Information: u64,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "bcrypt")]
+impl Default for IO_STATUS_BLOCK64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "bcrypt")]
+#[derive(Clone, Copy)]
+pub union IO_STATUS_BLOCK64_0 {
+    pub Status: super::bcrypt::NTSTATUS,
+    pub Pointer: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "bcrypt")]
+impl Default for IO_STATUS_BLOCK64_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "bcrypt", feature = "winternl"))]
 pub type IO_STATUS_BLOCK64 = super::winternl::IO_STATUS_BLOCK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
@@ -5986,8 +7680,12 @@ pub const IO_VIDEO_INCREMENT: u32 = 1;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type IO_WORKITEM_ROUTINE = Option<unsafe extern "system" fn(deviceobject: *const DEVICE_OBJECT, context: *const core::ffi::c_void)>;
 pub type IO_WORKITEM_ROUTINE_EX = Option<unsafe extern "system" fn(ioobject: *const core::ffi::c_void, context: *const core::ffi::c_void, ioworkitem: *const _IO_WORKITEM)>;
+#[cfg(target_arch = "x86")]
+pub const IPI_LEVEL: u32 = 29;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IPI_LEVEL: u32 = 14;
-#[repr(C, align(16))]
+#[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP {
@@ -6013,6 +7711,7 @@ pub struct IRP {
     pub UserBuffer: *mut core::ffi::c_void,
     pub Tail: IRP_3,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP {
     fn default() -> Self {
@@ -6020,6 +7719,7 @@ impl Default for IRP {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_0 {
@@ -6027,6 +7727,7 @@ pub union IRP_0 {
     pub IrpCount: i32,
     pub SystemBuffer: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_0 {
     fn default() -> Self {
@@ -6034,12 +7735,14 @@ impl Default for IRP_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_1 {
     pub UserIosb: super::winternl::PIO_STATUS_BLOCK,
     pub IoRingContext: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_1 {
     fn default() -> Self {
@@ -6047,12 +7750,14 @@ impl Default for IRP_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2 {
     pub AsynchronousParameters: IRP_2_0,
     pub AllocationSize: i64,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2 {
     fn default() -> Self {
@@ -6060,12 +7765,14 @@ impl Default for IRP_2 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_2_0 {
     pub Anonymous: IRP_2_0_0,
     pub Anonymous2: IRP_2_0_1,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0 {
     fn default() -> Self {
@@ -6073,12 +7780,14 @@ impl Default for IRP_2_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_0 {
     pub UserApcRoutine: super::winternl::PIO_APC_ROUTINE,
     pub IssuingProcess: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_0 {
     fn default() -> Self {
@@ -6086,12 +7795,14 @@ impl Default for IRP_2_0_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_2_0_1 {
     pub UserApcContext: *mut core::ffi::c_void,
     pub IoRing: *mut _IORING_OBJECT,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_2_0_1 {
     fn default() -> Self {
@@ -6099,6 +7810,7 @@ impl Default for IRP_2_0_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3 {
@@ -6106,6 +7818,7 @@ pub union IRP_3 {
     pub Apc: KAPC,
     pub CompletionKey: *mut core::ffi::c_void,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3 {
     fn default() -> Self {
@@ -6113,6 +7826,7 @@ impl Default for IRP_3 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0 {
@@ -6122,6 +7836,7 @@ pub struct IRP_3_0 {
     pub Anonymous2: IRP_3_0_1,
     pub OriginalFileObject: PFILE_OBJECT,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0 {
     fn default() -> Self {
@@ -6129,12 +7844,14 @@ impl Default for IRP_3_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_0 {
     pub DeviceQueueEntry: KDEVICE_QUEUE_ENTRY,
     pub Anonymous: IRP_3_0_0_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0 {
     fn default() -> Self {
@@ -6142,11 +7859,13 @@ impl Default for IRP_3_0_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut core::ffi::c_void; 4],
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_0_0 {
     fn default() -> Self {
@@ -6154,12 +7873,14 @@ impl Default for IRP_3_0_0_0 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct IRP_3_0_1 {
     pub ListEntry: super::winnt::LIST_ENTRY,
     pub Anonymous: IRP_3_0_1_0,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1 {
     fn default() -> Self {
@@ -6167,12 +7888,232 @@ impl Default for IRP_3_0_1 {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub union IRP_3_0_1_0 {
     pub CurrentStackLocation: *mut IO_STACK_LOCATION,
     pub PacketType: u32,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3_0_1_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, align(16))]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IRP {
+    pub Type: super::ntdef::CSHORT,
+    pub Size: u16,
+    pub MdlAddress: super::usb::PMDL,
+    pub Flags: u32,
+    pub AssociatedIrp: IRP_0,
+    pub ThreadListEntry: super::winnt::LIST_ENTRY,
+    pub IoStatus: super::winternl::IO_STATUS_BLOCK,
+    pub RequestorMode: KPROCESSOR_MODE,
+    pub PendingReturned: bool,
+    pub StackCount: i8,
+    pub CurrentLocation: i8,
+    pub Cancel: bool,
+    pub CancelIrql: super::ntdef::KIRQL,
+    pub ApcEnvironment: super::winnt::CCHAR,
+    pub AllocationFlags: u8,
+    pub Anonymous: IRP_1,
+    pub UserEvent: PKEVENT,
+    pub Overlay: IRP_2,
+    pub CancelRoutine: PDRIVER_CANCEL,
+    pub UserBuffer: *mut core::ffi::c_void,
+    pub Tail: IRP_3,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_0 {
+    pub MasterIrp: *mut IRP,
+    pub IrpCount: i32,
+    pub SystemBuffer: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_1 {
+    pub UserIosb: super::winternl::PIO_STATUS_BLOCK,
+    pub IoRingContext: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_2 {
+    pub AsynchronousParameters: IRP_2_0,
+    pub AllocationSize: i64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IRP_2_0 {
+    pub Anonymous: IRP_2_0_0,
+    pub Anonymous2: IRP_2_0_1,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_2_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_2_0_0 {
+    pub UserApcRoutine: super::winternl::PIO_APC_ROUTINE,
+    pub IssuingProcess: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_2_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_2_0_1 {
+    pub UserApcContext: *mut core::ffi::c_void,
+    pub IoRing: *mut _IORING_OBJECT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_2_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_3 {
+    pub Overlay: IRP_3_0,
+    pub Apc: KAPC,
+    pub CompletionKey: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IRP_3_0 {
+    pub Anonymous: IRP_3_0_0,
+    pub Thread: PETHREAD,
+    pub AuxiliaryBuffer: super::winnt::PCHAR,
+    pub Anonymous2: IRP_3_0_1,
+    pub OriginalFileObject: PFILE_OBJECT,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_3_0_0 {
+    pub DeviceQueueEntry: KDEVICE_QUEUE_ENTRY,
+    pub Anonymous: IRP_3_0_0_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct IRP_3_0_0_0 {
+    pub DriverContext: [*mut core::ffi::c_void; 4],
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3_0_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub struct IRP_3_0_1 {
+    pub ListEntry: super::winnt::LIST_ENTRY,
+    pub Anonymous: IRP_3_0_1_0,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl Default for IRP_3_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+#[derive(Clone, Copy)]
+pub union IRP_3_0_1_0 {
+    pub CurrentStackLocation: *mut IO_STACK_LOCATION,
+    pub PacketType: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for IRP_3_0_1_0 {
     fn default() -> Self {
@@ -6281,6 +8222,18 @@ pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = 2;
 pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = 3;
 pub const InstallStateInstalled: DEVICE_INSTALL_STATE = 0;
 pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = 1;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheData: INTEL_CACHE_TYPE = 1;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheInstruction: INTEL_CACHE_TYPE = 2;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheNull: INTEL_CACHE_TYPE = 0;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheRam: INTEL_CACHE_TYPE = 4;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheTrace: INTEL_CACHE_TYPE = 5;
+#[cfg(target_arch = "x86")]
+pub const IntelCacheUnified: INTEL_CACHE_TYPE = 3;
 pub const InterfaceTypeUndefined: INTERFACE_TYPE = -1;
 pub const Internal: INTERFACE_TYPE = 0;
 pub const InternalPowerBus: INTERFACE_TYPE = 13;
@@ -6346,9 +8299,13 @@ pub const IrqPriorityHigh: IRQ_PRIORITY = 3;
 pub const IrqPriorityLow: IRQ_PRIORITY = 1;
 pub const IrqPriorityNormal: IRQ_PRIORITY = 2;
 pub const IrqPriorityUndefined: IRQ_PRIORITY = 0;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IsNEC_98: u32 = 0;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const IsNotNEC_98: u32 = 1;
 pub const Isa: INTERFACE_TYPE = 1;
+#[cfg(target_arch = "x86")]
+pub const KADDRESS_BASE: u32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KADDRESS_RANGE {
@@ -6396,10 +8353,19 @@ impl Default for KAPC {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const KAPC_OFFSET_TO_APCSTATEINDEX: u32 = 44;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KAPC_OFFSET_TO_APCSTATEINDEX: u32 = 80;
 pub const KAPC_OFFSET_TO_SPARE_BYTE1: u32 = 3;
 pub const KAPC_OFFSET_TO_SPARE_LONG: u32 = 4;
+#[cfg(target_arch = "x86")]
+pub const KAPC_OFFSET_TO_SYSTEMARGUMENT1: u32 = 36;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KAPC_OFFSET_TO_SYSTEMARGUMENT1: u32 = 64;
+#[cfg(target_arch = "x86")]
+pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 72;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -6541,6 +8507,7 @@ pub type KCRM_PROTOCOL_ID = windows_core::GUID;
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 pub type KDEFERRED_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deferredcontext: *const core::ffi::c_void, systemargument1: *const core::ffi::c_void, systemargument2: *const core::ffi::c_void)>;
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KDEVICE_QUEUE {
@@ -6550,6 +8517,7 @@ pub struct KDEVICE_QUEUE {
     pub Lock: super::winnt::KSPIN_LOCK,
     pub Anonymous: KDEVICE_QUEUE_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 impl Default for KDEVICE_QUEUE {
     fn default() -> Self {
@@ -6557,12 +8525,14 @@ impl Default for KDEVICE_QUEUE {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KDEVICE_QUEUE_0 {
     pub Busy: bool,
     pub Anonymous: KDEVICE_QUEUE_0_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 impl Default for KDEVICE_QUEUE_0 {
     fn default() -> Self {
@@ -6570,10 +8540,22 @@ impl Default for KDEVICE_QUEUE_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KDEVICE_QUEUE_0_0 {
     pub _bitfield: i64,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[cfg(all(feature = "ntdef", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KDEVICE_QUEUE {
+    pub Type: super::ntdef::CSHORT,
+    pub Size: super::ntdef::CSHORT,
+    pub DeviceListHead: super::winnt::LIST_ENTRY,
+    pub Lock: super::winnt::KSPIN_LOCK,
+    pub Busy: bool,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -6815,6 +8797,20 @@ impl Default for KE_SRCU_LOCK {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KFLOATING_SAVE {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub Spare0: u32,
+    pub Spare1: u32,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KFLOATING_SAVE {
     pub Dummy: u32,
@@ -6916,9 +8912,12 @@ impl Default for KSPIN_LOCK_QUEUE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KSPIN_LOCK_QUEUE_NUMBER(pub u64);
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub type KSPIN_LOCK_QUEUE_NUMBER = i32;
 pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
 pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> bool>;
 #[repr(C)]
@@ -6930,6 +8929,25 @@ pub struct KSYSTEM_TIME {
 }
 pub type KT2_SET_PARAMETERS = EXT_SET_PARAMETERS;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KTIMER {
+    pub Header: DISPATCHER_HEADER,
+    pub DueTime: u64,
+    pub TimerListEntry: super::winnt::LIST_ENTRY,
+    pub Dpc: *mut KDPC,
+    pub Period: u32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "winnt"))]
+impl Default for KTIMER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KTIMER {
@@ -6942,6 +8960,7 @@ pub struct KTIMER {
     pub TimerDifObjTracking: i8,
     pub Period: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
 impl Default for KTIMER {
     fn default() -> Self {
@@ -6974,6 +8993,43 @@ impl Default for KTRIAGE_DUMP_DATA_ARRAY {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KWAIT_BLOCK {
+    pub WaitListEntry: super::winnt::LIST_ENTRY,
+    pub WaitType: u8,
+    pub BlockState: u8,
+    pub WaitKey: u16,
+    pub Anonymous: KWAIT_BLOCK_0,
+    pub Object: *mut core::ffi::c_void,
+    pub SparePtr: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
+impl Default for KWAIT_BLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KWAIT_BLOCK_0 {
+    pub Thread: *mut _KTHREAD,
+    pub NotificationQueue: *mut super::ntifs::KQUEUE,
+    pub Dpc: *mut KDPC,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
+impl Default for KWAIT_BLOCK_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KWAIT_BLOCK {
@@ -6986,6 +9042,7 @@ pub struct KWAIT_BLOCK {
     pub Object: *mut core::ffi::c_void,
     pub SparePtr: *mut core::ffi::c_void,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 impl Default for KWAIT_BLOCK {
     fn default() -> Self {
@@ -6993,6 +9050,7 @@ impl Default for KWAIT_BLOCK {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KWAIT_BLOCK_0 {
@@ -7000,6 +9058,7 @@ pub union KWAIT_BLOCK_0 {
     pub NotificationQueue: *mut super::ntifs::KQUEUE,
     pub Dpc: *mut KDPC,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "ntifs", feature = "winnt"))]
 impl Default for KWAIT_BLOCK_0 {
     fn default() -> Self {
@@ -7095,6 +9154,9 @@ pub const LOCK_QUEUE_HALTED: u32 = 4;
 pub const LOCK_QUEUE_HALTED_BIT: u32 = 2;
 pub const LOCK_QUEUE_OWNER: u32 = 2;
 pub const LOCK_QUEUE_OWNER_BIT: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const LOCK_QUEUE_VALID_FLAGS: u32 = 3;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LOCK_QUEUE_VALID_FLAGS: u32 = 7;
 pub const LOCK_QUEUE_WAIT: u32 = 1;
 pub const LOCK_QUEUE_WAIT_BIT: u32 = 0;
@@ -7120,6 +9182,9 @@ impl Default for LOOKASIDE_LIST_EX {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const LOOKASIDE_MINIMUM_BLOCK_SIZE: u32 = 4;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LOOKASIDE_MINIMUM_BLOCK_SIZE: u32 = 8;
 pub const LOWBYTE_MASK: u32 = 255;
 pub const LOW_LEVEL: u32 = 0;
@@ -7132,24 +9197,78 @@ pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = 2;
 pub const Latched: KINTERRUPT_MODE = 1;
 pub const LevelSensitive: KINTERRUPT_MODE = 0;
 pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 3;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueAfdWorkQueueLock: u32 = 13;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = 13 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueBcbLock: u32 = 14;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = 14 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCancelLock: u32 = 7;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = 7 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoCompletionLock: u32 = 11;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = 11 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoDatabaseLock: u32 = 10;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = 10 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueIoVpbLock: u32 = 9;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = 9 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMasterLock: u32 = 5;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = 5 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueMaximumLock: u32 = 17;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = 17 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNonPagedPoolLock: u32 = 6;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = 6 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueNtfsStructLock: u32 = 12;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = 12 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare0: u32 = 0;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = 0 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare1: u32 = 1;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = 1 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare15: u32 = 15;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = 15 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare16: u32 = 16;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = 16 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare2: u32 = 2;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = 2 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare3: u32 = 3;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = 3 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueUnusedSpare8: u32 = 8;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = 8 as _;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LockQueueVacbLock: u32 = 4;
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = 4 as _;
 pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = 10;
 pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = 8;
 pub const LowImportance: KDPC_IMPORTANCE = 0;
@@ -7167,6 +9286,8 @@ pub struct MAILSLOT_CREATE_PARAMETERS {
 }
 pub const MAXIMUM_FILENAME_LENGTH: u32 = 256;
 pub const MAXIMUM_PRIORITY: u32 = 32;
+#[cfg(target_arch = "aarch64")]
+pub const MAX_EVENT_COUNTERS: u32 = 31;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -7309,11 +9430,28 @@ pub type NMI_CALLBACK = Option<unsafe extern "system" fn(context: *const core::f
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NODE_REQUIREMENT(pub u32);
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct NPAGED_LOOKASIDE_LIST {
+    pub L: GENERAL_LOOKASIDE,
+    pub Lock__ObsoleteButDoNotDelete: super::winnt::KSPIN_LOCK,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for NPAGED_LOOKASIDE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct NPAGED_LOOKASIDE_LIST {
     pub L: GENERAL_LOOKASIDE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl Default for NPAGED_LOOKASIDE_LIST {
     fn default() -> Self {
@@ -7667,16 +9805,38 @@ impl Default for PACPI_INTERFACE_STANDARD2 {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "ntddscsi")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PADAPTER_OBJECT(pub *mut super::ntddscsi::_ADAPTER_OBJECT);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "ntddscsi")]
+impl PADAPTER_OBJECT {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "ntddscsi")]
+impl Default for PADAPTER_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PADAPTER_OBJECT(pub *mut DMA_ADAPTER);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl PADAPTER_OBJECT {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 impl Default for PADAPTER_OBJECT {
     fn default() -> Self {
@@ -7697,11 +9857,28 @@ impl Default for PAFFINITY_TOKEN {
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct PAGED_LOOKASIDE_LIST {
+    pub L: GENERAL_LOOKASIDE,
+    pub Lock__ObsoleteButDoNotDelete: FAST_MUTEX,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for PAGED_LOOKASIDE_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PAGED_LOOKASIDE_LIST {
     pub L: GENERAL_LOOKASIDE,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl Default for PAGED_LOOKASIDE_LIST {
     fn default() -> Self {
@@ -7750,6 +9927,70 @@ impl PALLOCATE_FUNCTION_EX {
 }
 #[cfg(feature = "winnt")]
 impl Default for PALLOCATE_FUNCTION_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PAMD_L1_CACHE_INFO(pub *mut AMD_L1_CACHE_INFO);
+#[cfg(target_arch = "x86")]
+impl PAMD_L1_CACHE_INFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+impl Default for PAMD_L1_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PAMD_L2_CACHE_INFO(pub *mut AMD_L2_CACHE_INFO);
+#[cfg(target_arch = "x86")]
+impl PAMD_L2_CACHE_INFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+impl Default for PAMD_L2_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PAMD_L3_CACHE_INFO(pub *mut AMD_L3_CACHE_INFO);
+#[cfg(target_arch = "x86")]
+impl PAMD_L3_CACHE_INFO {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+impl Default for PAMD_L3_CACHE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "aarch64")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PARM64_IDCODE(pub *mut ARM64_IDCODE);
+#[cfg(target_arch = "aarch64")]
+impl PARM64_IDCODE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "aarch64")]
+impl Default for PARM64_IDCODE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -7810,27 +10051,33 @@ impl Default for PBOOTDISK_INFORMATION_LITE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBOUND_CALLBACK(pub *mut BOUND_CALLBACK);
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl PBOUND_CALLBACK {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for PBOUND_CALLBACK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PBOUND_CALLBACK_STATUS(pub *mut BOUND_CALLBACK_STATUS);
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl PBOUND_CALLBACK_STATUS {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 impl Default for PBOUND_CALLBACK_STATUS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9018,6 +11265,9 @@ impl Default for PCI_MSIX_TABLE_CONFIG_INTERFACE {
     }
 }
 pub const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 28;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 56;
 pub const PCI_MULTIFUNCTION: u32 = 128;
 #[repr(C)]
@@ -12447,6 +14697,11 @@ pub type PFN_NT_QUERY_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn
 pub type PFN_NT_ROLLBACK_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::winnt::HANDLE, wait: bool) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type PFN_NT_SET_INFORMATION_TRANSACTION = Option<unsafe extern "system" fn(transactionhandle: super::winnt::HANDLE, transactioninformationclass: super::winnt::TRANSACTION_INFORMATION_CLASS, transactioninformation: *const core::ffi::c_void, transactioninformationlength: u32) -> super::bcrypt::NTSTATUS>;
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct PFN_NUMBER(pub u32);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFN_NUMBER(pub u64);
@@ -12900,6 +15155,38 @@ impl PINPUT_MAPPING_ELEMENT {
     }
 }
 impl Default for PINPUT_MAPPING_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PINTEL_CACHE_INFO_EAX(pub *mut INTEL_CACHE_INFO_EAX);
+#[cfg(target_arch = "x86")]
+impl PINTEL_CACHE_INFO_EAX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+impl Default for PINTEL_CACHE_INFO_EAX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PINTEL_CACHE_INFO_EBX(pub *mut INTEL_CACHE_INFO_EBX);
+#[cfg(target_arch = "x86")]
+impl PINTEL_CACHE_INFO_EBX {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "x86")]
+impl Default for PINTEL_CACHE_INFO_EBX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -15305,6 +17592,22 @@ impl Default for PKSPIN_LOCK_QUEUE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PKSPIN_LOCK_QUEUE_NUMBER(pub *mut KSPIN_LOCK_QUEUE_NUMBER);
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+impl PKSPIN_LOCK_QUEUE_NUMBER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
+impl Default for PKSPIN_LOCK_QUEUE_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKSTART_ROUTINE(pub *mut KSTART_ROUTINE);
@@ -15829,6 +18132,9 @@ pub struct PNP_REPLACE_DRIVER_INTERFACE {
     pub GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
     pub EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
 }
+#[cfg(target_arch = "x86")]
+pub const PNP_REPLACE_DRIVER_INTERFACE_MINIMUM_SIZE: u32 = 36;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PNP_REPLACE_DRIVER_INTERFACE_MINIMUM_SIZE: u32 = 64;
 pub const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1;
 pub const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4;
@@ -16280,12 +18586,20 @@ pub const POOL_FLAG_USE_QUOTA: u32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct POOL_NODE_REQUIREMENT(pub u32);
 pub const POOL_NX_ALLOCATION: u32 = 512;
+#[cfg(target_arch = "aarch64")]
+pub const POOL_NX_OPTIN_AUTO: u32 = 1;
 pub const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8;
 pub const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16;
 pub const POOL_TAGGING: u32 = 1;
 pub type POOL_TYPE = i32;
 pub const POOL_ZERO_ALLOCATION: u32 = 1024;
+#[cfg(target_arch = "x86")]
+pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 256;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512;
+#[cfg(target_arch = "x86")]
+pub const POWER_LEVEL: u32 = 30;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const POWER_LEVEL: u32 = 14;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -17850,14 +20164,33 @@ impl Default for PPCW_REGISTRATION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PPFN_NUMBER(pub *mut u64);
+pub struct PPFN_NUMBER(pub *mut u32);
+#[cfg(target_arch = "x86")]
 impl PPFN_NUMBER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(target_arch = "x86")]
+impl Default for PPFN_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PPFN_NUMBER(pub *mut u64);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl PPFN_NUMBER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for PPFN_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -19511,6 +21844,9 @@ pub type PROCESSOR_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(callback
 pub const PROCESSOR_FEATURE_MAX: u32 = 64;
 #[cfg(feature = "bcrypt")]
 pub type PROCESSOR_HALT_ROUTINE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
+#[cfg(target_arch = "x86")]
+pub const PROFILE_LEVEL: u32 = 27;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PROFILE_LEVEL: u32 = 15;
 #[cfg(feature = "minwindef")]
 #[repr(transparent)]
@@ -19811,14 +22147,33 @@ impl Default for PSHARE_ACCESS {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub struct PSPFN_NUMBER(pub *mut i64);
+pub struct PSPFN_NUMBER(pub *mut i32);
+#[cfg(target_arch = "x86")]
 impl PSPFN_NUMBER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(target_arch = "x86")]
+impl Default for PSPFN_NUMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PSPFN_NUMBER(pub *mut i64);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl PSPFN_NUMBER {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for PSPFN_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -21100,6 +23455,11 @@ pub const SL_VERIFY_COMPLETION: u32 = 4;
 pub const SL_WATCH_TREE: u32 = 1;
 pub const SL_WRITE_ACCESS_GRANTED: u32 = 4;
 pub const SL_WRITE_THROUGH: u32 = 4;
+#[cfg(target_arch = "x86")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct SPFN_NUMBER(pub i32);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SPFN_NUMBER(pub i64);
@@ -21219,6 +23579,8 @@ pub const TypeA: DMA_SPEED = 1;
 pub const TypeB: DMA_SPEED = 2;
 pub const TypeC: DMA_SPEED = 3;
 pub const TypeF: DMA_SPEED = 4;
+#[cfg(target_arch = "x86")]
+pub const UADDRESS_BASE: u32 = 0;
 pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = 0;
 pub const UserRequest: KWAIT_REASON = 6;
 #[repr(C)]
@@ -21499,6 +23861,56 @@ pub const WrVirtualMemory: KWAIT_REASON = 18;
 pub const WrYieldExecution: KWAIT_REASON = 33;
 pub const WriteAccess: IO_ACCESS_TYPE = 1;
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct XSTATE_SAVE {
+    pub Anonymous: XSTATE_SAVE_0,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for XSTATE_SAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub union XSTATE_SAVE_0 {
+    pub Anonymous: XSTATE_SAVE_0_0,
+    pub XStateContext: super::winnt::XSTATE_CONTEXT,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for XSTATE_SAVE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XSTATE_SAVE_0_0 {
+    pub Reserved1: i64,
+    pub Reserved2: u32,
+    pub Prev: *mut XSTATE_SAVE,
+    pub Reserved3: super::winnt::PXSAVE_AREA,
+    pub Thread: *mut _KTHREAD,
+    pub Reserved4: *mut core::ffi::c_void,
+    pub Level: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl Default for XSTATE_SAVE_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct XSTATE_SAVE {
@@ -21507,6 +23919,25 @@ pub struct XSTATE_SAVE {
     pub Level: u8,
     pub XStateContext: super::winnt::XSTATE_CONTEXT,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl Default for XSTATE_SAVE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct XSTATE_SAVE {
+    pub Prev: *mut Self,
+    pub Thread: *mut _KTHREAD,
+    pub Level: u8,
+    pub XStateContext: super::winnt::XSTATE_CONTEXT,
+    pub Reserved: usize,
+}
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
 impl Default for XSTATE_SAVE {
     fn default() -> Self {

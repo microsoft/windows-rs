@@ -1,7 +1,7 @@
 #[win32]
 mod Windows {
     mod Win32 {
-        extern fn ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(7)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        extern fn ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(7)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
         const ANSI_DOS_DOT: u32 = 34;
         const ANSI_DOS_QM: u32 = 62;
         const ANSI_DOS_STAR: u32 = 60;
@@ -891,7 +891,7 @@ mod Windows {
         const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1;
         const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2;
         const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4;
-        extern fn FREE_VIRTUAL_MEMORY_EX_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        extern fn FREE_VIRTUAL_MEMORY_EX_CALLBACK(#[in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
         struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
             FileOffset: LARGE_INTEGER,
             ByteCount: LARGE_INTEGER,
@@ -1647,95 +1647,95 @@ mod Windows {
         }
         const NO_8DOT3_NAME_PRESENT: u32 = 1;
         #[library("ntdll.dll")]
-        extern "system" fn NtAccessCheckAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, DesiredAccess: ACCESS_MASK, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtAccessCheckAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, DesiredAccess: ACCESS_MASK, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAccessCheckByTypeAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtAccessCheckByTypeAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, GrantedAccess: *mut ACCESS_MASK, AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(10)] GrantedAccess: *mut ACCESS_MASK, #[len_param(10)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtAccessCheckByTypeResultListAndAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(10)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(10)] GrantedAccess: *mut ACCESS_MASK, #[len_param(10)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(11)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(11)] GrantedAccess: *mut ACCESS_MASK, #[len_param(11)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] PrincipalSelfSid: PSID, DesiredAccess: ACCESS_MASK, AuditType: AUDIT_EVENT_TYPE, Flags: u32, #[len_param(11)] #[opt] ObjectTypeList: *const OBJECT_TYPE_LIST, ObjectTypeListLength: u32, GenericMapping: *const GENERIC_MAPPING, ObjectCreation: BOOLEAN, #[len_param(11)] GrantedAccess: *mut ACCESS_MASK, #[len_param(11)] AccessStatus: *mut NTSTATUS, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAdjustGroupsToken(TokenHandle: HANDLE, ResetToDefault: BOOLEAN, #[opt] NewState: *const TOKEN_GROUPS, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_GROUPS, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtAdjustGroupsToken(TokenHandle: HANDLE, ResetToDefault: BOOLEAN, #[opt] NewState: *const TOKEN_GROUPS, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_GROUPS, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAdjustPrivilegesToken(TokenHandle: HANDLE, DisableAllPrivileges: BOOLEAN, #[opt] NewState: *const TOKEN_PRIVILEGES, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_PRIVILEGES, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtAdjustPrivilegesToken(TokenHandle: HANDLE, DisableAllPrivileges: BOOLEAN, #[opt] NewState: *const TOKEN_PRIVILEGES, BufferLength: u32, #[size_param(3)] #[opt] PreviousState: *mut TOKEN_PRIVILEGES, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtAllocateVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
+        extern fn NtAllocateVirtualMemory(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCloseObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
+        extern fn NtCloseObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCopyFileChunk(SourceHandle: HANDLE, DestHandle: HANDLE, #[opt] Event: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, Length: u32, SourceOffset: *const LARGE_INTEGER, DestOffset: *const LARGE_INTEGER, #[opt] SourceKey: *const u32, #[opt] DestKey: *const u32, Flags: u32) -> NTSTATUS;
+        extern fn NtCopyFileChunk(SourceHandle: HANDLE, DestHandle: HANDLE, #[opt] Event: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, Length: u32, SourceOffset: *const LARGE_INTEGER, DestOffset: *const LARGE_INTEGER, #[opt] SourceKey: *const u32, #[opt] DestKey: *const u32, Flags: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE) -> NTSTATUS;
+        extern fn NtCreateSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateSectionEx(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE, #[len_param(8)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        extern fn NtCreateSectionEx(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtDeleteObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
+        extern fn NtDeleteObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, GenerateOnClose: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtFilterToken(ExistingTokenHandle: HANDLE, Flags: u32, #[opt] SidsToDisable: *const TOKEN_GROUPS, #[opt] PrivilegesToDelete: *const TOKEN_PRIVILEGES, #[opt] RestrictedSids: *const TOKEN_GROUPS, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtFilterToken(ExistingTokenHandle: HANDLE, Flags: u32, #[opt] SidsToDisable: *const TOKEN_GROUPS, #[opt] PrivilegesToDelete: *const TOKEN_PRIVILEGES, #[opt] RestrictedSids: *const TOKEN_GROUPS, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtFlushBuffersFileEx(FileHandle: HANDLE, Flags: u32, #[size_param(3)] Parameters: *const void, ParametersSize: u32, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        extern fn NtFlushBuffersFileEx(FileHandle: HANDLE, Flags: u32, #[size_param(3)] Parameters: *const void, ParametersSize: u32, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtFreeVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        extern fn NtFreeVirtualMemory(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn NtFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtImpersonateAnonymousToken(ThreadHandle: HANDLE) -> NTSTATUS;
+        extern fn NtImpersonateAnonymousToken(ThreadHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
+        extern fn NtLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, GrantedAccess: ACCESS_MASK, #[opt] Privileges: *const PRIVILEGE_SET, ObjectCreation: BOOLEAN, AccessGranted: BOOLEAN, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtOpenObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ObjectTypeName: *const UNICODE_STRING, ObjectName: *const UNICODE_STRING, #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, GrantedAccess: ACCESS_MASK, #[opt] Privileges: *const PRIVILEGE_SET, ObjectCreation: BOOLEAN, AccessGranted: BOOLEAN, GenerateOnClose: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenProcessToken(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtOpenProcessToken(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenThreadToken(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtOpenThreadToken(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn NtOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrivilegeCheck(ClientToken: HANDLE, #[r#in] #[out] RequiredPrivileges: *mut PRIVILEGE_SET, Result: *mut BOOLEAN) -> NTSTATUS;
+        extern fn NtPrivilegeCheck(ClientToken: HANDLE, #[in] #[out] RequiredPrivileges: *mut PRIVILEGE_SET, Result: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrivilegeObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
+        extern fn NtPrivilegeObjectAuditAlarm(SubsystemName: *const UNICODE_STRING, #[opt] HandleId: *const void, ClientToken: HANDLE, DesiredAccess: ACCESS_MASK, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrivilegedServiceAuditAlarm(SubsystemName: *const UNICODE_STRING, ServiceName: *const UNICODE_STRING, ClientToken: HANDLE, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
+        extern fn NtPrivilegedServiceAuditAlarm(SubsystemName: *const UNICODE_STRING, ServiceName: *const UNICODE_STRING, ClientToken: HANDLE, Privileges: *const PRIVILEGE_SET, AccessGranted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
+        extern fn NtQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn NtQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationByName(ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn NtQueryInformationByName(ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn NtQueryInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
+        extern fn NtQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
+        extern fn NtQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] #[opt] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        extern fn NtQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *mut void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn NtQueryVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *mut void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtReadFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *mut void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        extern fn NtReadFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *mut void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *const void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn NtSetInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *const void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
+        extern fn NtSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
+        extern fn NtSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn NtSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
+        extern fn NtUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtWriteFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *const void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        extern fn NtWriteFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *const void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
         struct OPEN_REPARSE_LIST {
             OpenReparseList: LIST_ENTRY,
         }
@@ -1792,7 +1792,7 @@ mod Windows {
         const OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: u32 = 65536;
         const OPLOCK_UPPER_FLAG_NOTIFY_REFRESH_READ: u32 = 131072;
         extern fn PACQUIRE_FOR_LAZY_WRITE(Context: *const void, Wait: BOOLEAN) -> BOOLEAN;
-        extern fn PACQUIRE_FOR_LAZY_WRITE_EX(Context: *const void, InFlags: u32, #[r#in] #[out] OutFlags: *mut u32) -> BOOLEAN;
+        extern fn PACQUIRE_FOR_LAZY_WRITE_EX(Context: *const void, InFlags: u32, #[in] #[out] OutFlags: *mut u32) -> BOOLEAN;
         extern fn PACQUIRE_FOR_READ_AHEAD(Context: *const void, Wait: BOOLEAN) -> BOOLEAN;
         type PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = *mut ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK;
         extern fn PASYNC_READ_COMPLETION_CALLBACK(Context: *const void) -> BOOLEAN;
@@ -1908,7 +1908,7 @@ mod Windows {
         type PFSRTL_AUXILIARY_BUFFER = *mut FSRTL_AUXILIARY_BUFFER;
         type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
         type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
-        extern fn PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK(#[r#in] #[out] EcpContext: *mut void, EcpType: *const GUID);
+        extern fn PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK(#[in] #[out] EcpContext: *mut void, EcpType: *const GUID);
         type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
         type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
         type PFSRTL_PER_FILEOBJECT_CONTEXT = *mut FSRTL_PER_FILEOBJECT_CONTEXT;
@@ -2076,7 +2076,7 @@ mod Windows {
         type PRKQUEUE = *mut KQUEUE;
         extern fn PRTL_ALLOCATE_STRING_ROUTINE(NumberOfBytes: usize) -> *mut void;
         extern fn PRTL_FREE_STRING_ROUTINE(Buffer: *const void);
-        extern fn PRTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[r#in] #[out] CommitAddress: *mut *mut void, #[r#in] #[out] CommitSize: *mut usize) -> NTSTATUS;
+        extern fn PRTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[in] #[out] CommitAddress: *mut *mut void, #[in] #[out] CommitSize: *mut usize) -> NTSTATUS;
         type PRTL_HEAP_MEMORY_LIMIT_DATA = *mut RTL_HEAP_MEMORY_LIMIT_DATA;
         type PRTL_HEAP_MEMORY_LIMIT_INFO = *mut RTL_HEAP_MEMORY_LIMIT_INFO;
         type PRTL_HEAP_PARAMETERS = *mut RTL_HEAP_PARAMETERS;
@@ -2114,13 +2114,13 @@ mod Windows {
         type PVETO_BINDING_ECP_CONTEXT = *mut VETO_BINDING_ECP_CONTEXT;
         type PVOLUME_REFS_INFO_BUFFER = *mut VOLUME_REFS_INFO_BUFFER;
         #[library("ntdll.dll")]
-        extern "system" fn PfxFindPrefix(PrefixTable: *const PREFIX_TABLE, FullName: *const STRING) -> PPREFIX_TABLE_ENTRY;
+        extern fn PfxFindPrefix(PrefixTable: *const PREFIX_TABLE, FullName: *const STRING) -> PPREFIX_TABLE_ENTRY;
         #[library("ntdll.dll")]
-        extern "system" fn PfxInitialize(PrefixTable: *mut PREFIX_TABLE);
+        extern fn PfxInitialize(PrefixTable: *mut PREFIX_TABLE);
         #[library("ntdll.dll")]
-        extern "system" fn PfxInsertPrefix(PrefixTable: *const PREFIX_TABLE, Prefix: *const STRING, PrefixTableEntry: *mut PREFIX_TABLE_ENTRY) -> BOOLEAN;
+        extern fn PfxInsertPrefix(PrefixTable: *const PREFIX_TABLE, Prefix: *const STRING, PrefixTableEntry: *mut PREFIX_TABLE_ENTRY) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn PfxRemovePrefix(PrefixTable: *const PREFIX_TABLE, PrefixTableEntry: *const PREFIX_TABLE_ENTRY);
+        extern fn PfxRemovePrefix(PrefixTable: *const PREFIX_TABLE, PrefixTableEntry: *const PREFIX_TABLE_ENTRY);
         const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2;
         struct QUERY_DIRECT_ACCESS_EXTENTS {
             FileOffset: i64,
@@ -2148,12 +2148,24 @@ mod Windows {
             SecurityInformationRequested: SECURITY_INFORMATION,
             SecurityInformation: QUERY_ON_CREATE_SECURITY_INFORMATION,
         }
+        #[arch(X64 | Arm64)]
         const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 152;
+        #[arch(X86)]
+        const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 136;
+        #[arch(X64 | Arm64)]
         const QUERY_ON_CREATE_ECP_CONTEXT_EA_INFO_END: u32 = 136;
+        #[arch(X86)]
+        const QUERY_ON_CREATE_ECP_CONTEXT_EA_INFO_END: u32 = 124;
         const QUERY_ON_CREATE_ECP_CONTEXT_LX_INFO_END: u32 = 116;
+        #[arch(X64 | Arm64)]
         const QUERY_ON_CREATE_ECP_CONTEXT_SECURITY_INFO_END: u32 = 200;
+        #[arch(X86)]
+        const QUERY_ON_CREATE_ECP_CONTEXT_SECURITY_INFO_END: u32 = 176;
         const QUERY_ON_CREATE_ECP_CONTEXT_STAT_INFO_END: u32 = 88;
+        #[arch(X64 | Arm64)]
         const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 176;
+        #[arch(X86)]
+        const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 160;
         struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
             EffectiveAccess: ACCESS_MASK,
             LxFlags: u32,
@@ -2202,7 +2214,7 @@ mod Windows {
         struct QUERY_PATH_RESPONSE {
             LengthAccepted: u32,
         }
-        extern fn QUERY_VIRTUAL_MEMORY_CALLBACK(#[r#in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[size_param(5)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        extern fn QUERY_VIRTUAL_MEMORY_CALLBACK(#[in] #[out] CallbackContext: HANDLE, ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: HEAP_MEMORY_INFO_CLASS, #[size_param(5)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
         const QoCFileEaInformation: u32 = 4;
         const QoCFileLxInformation: u32 = 2;
         const QoCFileSecurityInformation: u32 = 16;
@@ -2549,7 +2561,7 @@ mod Windows {
         const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: u32 = 2;
         const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: u32 = 1;
         extern fn RTL_FREE_STRING_ROUTINE(Buffer: *const void);
-        extern fn RTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[r#in] #[out] CommitAddress: *mut *mut void, #[r#in] #[out] CommitSize: *mut usize) -> NTSTATUS;
+        extern fn RTL_HEAP_COMMIT_ROUTINE(Base: *const void, #[in] #[out] CommitAddress: *mut *mut void, #[in] #[out] CommitSize: *mut usize) -> NTSTATUS;
         const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1;
         struct RTL_HEAP_MEMORY_LIMIT_DATA {
             CommitLimitBytes: usize,
@@ -2612,189 +2624,189 @@ mod Windows {
         #[encoding("utf-16")]
         const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: String = "System Volume Information";
         #[library("ntdll.dll")]
-        extern "system" fn RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[r#in] #[out] BufferLength: *mut u32) -> NTSTATUS;
+        extern fn RtlAbsoluteToSelfRelativeSD(AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] BufferLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAddAccessAllowedAce(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
+        extern fn RtlAddAccessAllowedAce(#[in] #[out] Acl: *mut ACL, AceRevision: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAddAccessAllowedAceEx(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, AceFlags: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
+        extern fn RtlAddAccessAllowedAceEx(#[in] #[out] Acl: *mut ACL, AceRevision: u32, AceFlags: u32, AccessMask: ACCESS_MASK, Sid: PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAddAce(#[r#in] #[out] Acl: *mut ACL, AceRevision: u32, StartingAceIndex: u32, #[size_param(4)] AceList: *const void, AceListLength: u32) -> NTSTATUS;
+        extern fn RtlAddAce(#[in] #[out] Acl: *mut ACL, AceRevision: u32, StartingAceIndex: u32, #[size_param(4)] AceList: *const void, AceListLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAllocateAndInitializeSid(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, SubAuthority0: u32, SubAuthority1: u32, SubAuthority2: u32, SubAuthority3: u32, SubAuthority4: u32, SubAuthority5: u32, SubAuthority6: u32, SubAuthority7: u32, Sid: *mut PSID) -> NTSTATUS;
+        extern fn RtlAllocateAndInitializeSid(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, SubAuthority0: u32, SubAuthority1: u32, SubAuthority2: u32, SubAuthority3: u32, SubAuthority4: u32, SubAuthority5: u32, SubAuthority6: u32, SubAuthority7: u32, Sid: *mut PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAllocateAndInitializeSidEx(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, #[len_param(1)] SubAuthorities: *const u32, Sid: *mut PSID) -> NTSTATUS;
+        extern fn RtlAllocateAndInitializeSidEx(IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, #[len_param(1)] SubAuthorities: *const u32, Sid: *mut PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAllocateHeap(HeapHandle: *const void, #[opt] Flags: u32, Size: usize) -> *mut void;
+        extern fn RtlAllocateHeap(HeapHandle: *const void, #[opt] Flags: u32, Size: usize) -> *mut void;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAppendStringToString(#[r#in] #[out] Destination: *mut STRING, Source: *const STRING) -> NTSTATUS;
+        extern fn RtlAppendStringToString(#[in] #[out] Destination: *mut STRING, Source: *const STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCompareAltitudes(Altitude1: *const UNICODE_STRING, Altitude2: *const UNICODE_STRING) -> i32;
+        extern fn RtlCompareAltitudes(Altitude1: *const UNICODE_STRING, Altitude2: *const UNICODE_STRING) -> i32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCompareMemoryUlong(#[size_param(1)] Source: *const void, Length: usize, Pattern: u32) -> usize;
+        extern fn RtlCompareMemoryUlong(#[size_param(1)] Source: *const void, Length: usize, Pattern: u32) -> usize;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCompressBuffer(CompressionFormatAndEngine: u16, #[size_param(2)] UncompressedBuffer: *const u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *mut u8, CompressedBufferSize: u32, UncompressedChunkSize: u32, FinalCompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
+        extern fn RtlCompressBuffer(CompressionFormatAndEngine: u16, #[size_param(2)] UncompressedBuffer: *const u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *mut u8, CompressedBufferSize: u32, UncompressedChunkSize: u32, FinalCompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCopyLuid(DestinationLuid: *mut LUID, SourceLuid: *const LUID);
+        extern fn RtlCopyLuid(DestinationLuid: *mut LUID, SourceLuid: *const LUID);
         #[library("ntdll.dll")]
-        extern "system" fn RtlCopySid(DestinationSidLength: u32, #[size_param(0)] #[out] DestinationSid: PSID, SourceSid: PSID) -> NTSTATUS;
+        extern fn RtlCopySid(DestinationSidLength: u32, #[size_param(0)] #[out] DestinationSid: PSID, SourceSid: PSID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateAcl(#[size_param(1)] Acl: *mut ACL, AclLength: u32, AclRevision: u32) -> NTSTATUS;
+        extern fn RtlCreateAcl(#[size_param(1)] Acl: *mut ACL, AclLength: u32, AclRevision: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateHeap(Flags: u32, #[opt] HeapBase: *const void, #[opt] ReserveSize: usize, #[opt] CommitSize: usize, #[opt] Lock: *const void, Parameters: *mut RTL_HEAP_PARAMETERS) -> *mut void;
+        extern fn RtlCreateHeap(Flags: u32, #[opt] HeapBase: *const void, #[opt] ReserveSize: usize, #[opt] CommitSize: usize, #[opt] Lock: *const void, Parameters: *mut RTL_HEAP_PARAMETERS) -> *mut void;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateServiceSid(ServiceName: *const UNICODE_STRING, #[size_param(2)] #[out] #[opt] ServiceSid: PSID, #[r#in] #[out] ServiceSidLength: *mut u32) -> NTSTATUS;
+        extern fn RtlCreateServiceSid(ServiceName: *const UNICODE_STRING, #[size_param(2)] #[out] #[opt] ServiceSid: PSID, #[in] #[out] ServiceSidLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateSystemVolumeInformationFolder(VolumeRootPath: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlCreateSystemVolumeInformationFolder(VolumeRootPath: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR) -> BOOLEAN;
+        extern fn RtlCreateUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PCWSTR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateVirtualAccountSid(Name: *const UNICODE_STRING, BaseSubAuthority: u32, #[size_param(3)] #[out] Sid: PSID, #[r#in] #[out] SidLength: *mut u32) -> NTSTATUS;
+        extern fn RtlCreateVirtualAccountSid(Name: *const UNICODE_STRING, BaseSubAuthority: u32, #[size_param(3)] #[out] Sid: PSID, #[in] #[out] SidLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCustomCPToUnicodeN(CustomCP: *const CPTABLEINFO, #[size_param(2)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(5)] CustomCPString: *const i8, BytesInCustomCPString: u32) -> NTSTATUS;
+        extern fn RtlCustomCPToUnicodeN(CustomCP: *const CPTABLEINFO, #[size_param(2)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(5)] CustomCPString: *const i8, BytesInCustomCPString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDecompressBuffer(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32) -> NTSTATUS;
+        extern fn RtlDecompressBuffer(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDecompressBufferEx(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32, #[opt] WorkSpace: *const void) -> NTSTATUS;
+        extern fn RtlDecompressBufferEx(CompressionFormat: u16, #[size_param(2)] UncompressedBuffer: *mut u8, UncompressedBufferSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FinalUncompressedSize: *mut u32, #[opt] WorkSpace: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDecompressFragment(CompressionFormat: u16, #[size_param(2)] UncompressedFragment: *mut u8, UncompressedFragmentSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FragmentOffset: u32, FinalUncompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
+        extern fn RtlDecompressFragment(CompressionFormat: u16, #[size_param(2)] UncompressedFragment: *mut u8, UncompressedFragmentSize: u32, #[size_param(4)] CompressedBuffer: *const u8, CompressedBufferSize: u32, FragmentOffset: u32, FinalUncompressedSize: *mut u32, WorkSpace: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDeleteAce(#[r#in] #[out] Acl: *mut ACL, AceIndex: u32) -> NTSTATUS;
+        extern fn RtlDeleteAce(#[in] #[out] Acl: *mut ACL, AceIndex: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDestroyHeap(HeapHandle: *const void) -> *mut void;
+        extern fn RtlDestroyHeap(HeapHandle: *const void) -> *mut void;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDowncaseUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlDowncaseUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDuplicateUnicodeString(Flags: u32, StringIn: *const UNICODE_STRING, StringOut: *mut UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlDuplicateUnicodeString(Flags: u32, StringIn: *const UNICODE_STRING, StringOut: *mut UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlEqualPrefixSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
+        extern fn RtlEqualPrefixSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlEqualSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
+        extern fn RtlEqualSid(Sid1: PSID, Sid2: PSID) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFreeHeap(HeapHandle: *const void, #[opt] Flags: u32, BaseAddress: *mut void) -> LOGICAL;
+        extern fn RtlFreeHeap(HeapHandle: *const void, #[opt] Flags: u32, BaseAddress: *mut void) -> LOGICAL;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFreeSid(Sid: PSID) -> *mut void;
+        extern fn RtlFreeSid(Sid: PSID) -> *mut void;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGenerate8dot3Name(Name: *const UNICODE_STRING, AllowExtendedCharacters: BOOLEAN, #[r#in] #[out] Context: *mut GENERATE_NAME_CONTEXT, #[r#in] #[out] Name8dot3: *mut UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlGenerate8dot3Name(Name: *const UNICODE_STRING, AllowExtendedCharacters: BOOLEAN, #[in] #[out] Context: *mut GENERATE_NAME_CONTEXT, #[in] #[out] Name8dot3: *mut UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetAce(Acl: *const ACL, AceIndex: u32, Ace: *mut *mut void) -> NTSTATUS;
+        extern fn RtlGetAce(Acl: *const ACL, AceIndex: u32, Ace: *mut *mut void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetAcesBufferSize(Acl: *const ACL, AcesBufferSize: *mut u32) -> NTSTATUS;
+        extern fn RtlGetAcesBufferSize(Acl: *const ACL, AcesBufferSize: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetCompressionWorkSpaceSize(CompressionFormatAndEngine: u16, CompressBufferWorkSpaceSize: *mut u32, CompressFragmentWorkSpaceSize: *mut u32) -> NTSTATUS;
+        extern fn RtlGetCompressionWorkSpaceSize(CompressionFormatAndEngine: u16, CompressBufferWorkSpaceSize: *mut u32, CompressFragmentWorkSpaceSize: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetDaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, DaclPresent: *mut BOOLEAN, Dacl: *mut PACL, DaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlGetDaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, DaclPresent: *mut BOOLEAN, Dacl: *mut PACL, DaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetGroupSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Group: *mut PSID, GroupDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlGetGroupSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Group: *mut PSID, GroupDefaulted: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetOwnerSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Owner: *mut PSID, OwnerDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlGetOwnerSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, Owner: *mut PSID, OwnerDefaulted: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetSaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, SaclPresent: *mut BOOLEAN, Sacl: *mut PACL, SaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlGetSaclSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR, SaclPresent: *mut BOOLEAN, Sacl: *mut PACL, SaclDefaulted: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIdentifierAuthoritySid(Sid: PSID) -> PSID_IDENTIFIER_AUTHORITY;
+        extern fn RtlIdentifierAuthoritySid(Sid: PSID) -> PSID_IDENTIFIER_AUTHORITY;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIdnToAscii(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        extern fn RtlIdnToAscii(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIdnToNameprepUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        extern fn RtlIdnToNameprepUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIdnToUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        extern fn RtlIdnToUnicode(Flags: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitCodePageTable(#[len_const(2)] #[opt] TableBase: *const u16, #[r#in] #[out] CodePageTable: *mut CPTABLEINFO);
+        extern fn RtlInitCodePageTable(#[len_const(2)] #[opt] TableBase: *const u16, #[in] #[out] CodePageTable: *mut CPTABLEINFO);
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitUnicodeStringEx(DestinationString: *mut UNICODE_STRING, #[opt] SourceString: PCWSTR) -> NTSTATUS;
+        extern fn RtlInitUnicodeStringEx(DestinationString: *mut UNICODE_STRING, #[opt] SourceString: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitializeSid(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8) -> NTSTATUS;
+        extern fn RtlInitializeSid(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn RtlInitializeSidEx(#[out] Sid: PSID, IdentifierAuthority: *const SID_IDENTIFIER_AUTHORITY, SubAuthorityCount: u8, ...) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsCloudFilesPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
+        extern fn RtlIsCloudFilesPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsNonEmptyDirectoryReparsePointAllowed(ReparseTag: u32) -> BOOLEAN;
+        extern fn RtlIsNonEmptyDirectoryReparsePointAllowed(ReparseTag: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsNormalizedString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, Normalized: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlIsNormalizedString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, Normalized: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsPartialPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
+        extern fn RtlIsPartialPlaceholder(FileAttributes: u32, ReparseTag: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsPartialPlaceholderFileHandle(FileHandle: HANDLE, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlIsPartialPlaceholderFileHandle(FileHandle: HANDLE, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsPartialPlaceholderFileInfo(InfoBuffer: *const void, InfoClass: FILE_INFORMATION_CLASS, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlIsPartialPlaceholderFileInfo(InfoBuffer: *const void, InfoClass: FILE_INFORMATION_CLASS, IsPartialPlaceholder: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlLengthRequiredSid(SubAuthorityCount: u32) -> u32;
+        extern fn RtlLengthRequiredSid(SubAuthorityCount: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlLengthSid(Sid: PSID) -> u32;
+        extern fn RtlLengthSid(Sid: PSID) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlMultiByteToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
+        extern fn RtlMultiByteToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlMultiByteToUnicodeSize(BytesInUnicodeString: *mut u32, #[size_param(2)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
+        extern fn RtlMultiByteToUnicodeSize(BytesInUnicodeString: *mut u32, #[size_param(2)] MultiByteString: *const i8, BytesInMultiByteString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNormalizeString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[r#in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
+        extern fn RtlNormalizeString(NormForm: u32, SourceString: PCWSTR, SourceStringLength: i32, #[len_param(4)] #[out] DestinationString: PWSTR, #[in] #[out] DestinationStringLength: *mut i32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNtStatusToDosErrorNoTeb(Status: NTSTATUS) -> u32;
+        extern fn RtlNtStatusToDosErrorNoTeb(Status: NTSTATUS) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlOemStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlOemStringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: *const STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlOemToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] OemString: *const i8, BytesInOemString: u32) -> NTSTATUS;
+        extern fn RtlOemToUnicodeN(#[size_param(1)] UnicodeString: *mut u16, MaxBytesInUnicodeString: u32, #[opt] BytesInUnicodeString: *mut u32, #[size_param(4)] OemString: *const i8, BytesInOemString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlPrefixString(String1: *const STRING, String2: *const STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
+        extern fn RtlPrefixString(String1: *const STRING, String2: *const STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryPackageIdentity(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[r#in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[r#in] #[out] #[opt] AppIdSize: *mut usize, #[opt] Packaged: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlQueryPackageIdentity(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[in] #[out] #[opt] AppIdSize: *mut usize, #[opt] Packaged: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryPackageIdentityEx(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[r#in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[r#in] #[out] #[opt] AppIdSize: *mut usize, #[opt] DynamicId: *mut GUID, #[opt] Flags: *mut u64) -> NTSTATUS;
+        extern fn RtlQueryPackageIdentityEx(TokenObject: *const void, #[size_param(2)] #[out] PackageFullName: PWSTR, #[in] #[out] PackageSize: *mut usize, #[size_param(4)] #[out] #[opt] AppId: PWSTR, #[in] #[out] #[opt] AppIdSize: *mut usize, #[opt] DynamicId: *mut GUID, #[opt] Flags: *mut u64) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8;
+        extern fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8;
+        extern fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8;
         #[library("ntdll.dll")]
-        extern "system" fn RtlRandom(#[r#in] #[out] Seed: *mut u32) -> u32;
+        extern fn RtlRandom(#[in] #[out] Seed: *mut u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlRandomEx(#[r#in] #[out] Seed: *mut u32) -> u32;
+        extern fn RtlRandomEx(#[in] #[out] Seed: *mut u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlReplaceSidInSd(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, OldSid: PSID, NewSid: PSID, NumChanges: *mut u32) -> NTSTATUS;
+        extern fn RtlReplaceSidInSd(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, OldSid: PSID, NewSid: PSID, NumChanges: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSecondsSince1970ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
+        extern fn RtlSecondsSince1970ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
         #[library("ntdll.dll")]
-        extern "system" fn RtlSecondsSince1980ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
+        extern fn RtlSecondsSince1980ToTime(ElapsedSeconds: u32, Time: *mut LARGE_INTEGER);
         #[library("ntdll.dll")]
-        extern "system" fn RtlSelfRelativeToAbsoluteSD(SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[r#in] #[out] AbsoluteSecurityDescriptorSize: *mut u32, #[size_param(4)] #[opt] Dacl: *mut ACL, #[r#in] #[out] DaclSize: *mut u32, #[size_param(6)] #[opt] Sacl: *mut ACL, #[r#in] #[out] SaclSize: *mut u32, #[size_param(8)] #[out] #[opt] Owner: PSID, #[r#in] #[out] OwnerSize: *mut u32, #[size_param(10)] #[out] #[opt] PrimaryGroup: PSID, #[r#in] #[out] PrimaryGroupSize: *mut u32) -> NTSTATUS;
+        extern fn RtlSelfRelativeToAbsoluteSD(SelfRelativeSecurityDescriptor: PSECURITY_DESCRIPTOR, #[size_param(2)] #[out] #[opt] AbsoluteSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] AbsoluteSecurityDescriptorSize: *mut u32, #[size_param(4)] #[opt] Dacl: *mut ACL, #[in] #[out] DaclSize: *mut u32, #[size_param(6)] #[opt] Sacl: *mut ACL, #[in] #[out] SaclSize: *mut u32, #[size_param(8)] #[out] #[opt] Owner: PSID, #[in] #[out] OwnerSize: *mut u32, #[size_param(10)] #[out] #[opt] PrimaryGroup: PSID, #[in] #[out] PrimaryGroupSize: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetGroupSecurityDescriptor(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Group: PSID, GroupDefaulted: BOOLEAN) -> NTSTATUS;
+        extern fn RtlSetGroupSecurityDescriptor(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Group: PSID, GroupDefaulted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetOwnerSecurityDescriptor(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Owner: PSID, OwnerDefaulted: BOOLEAN) -> NTSTATUS;
+        extern fn RtlSetOwnerSecurityDescriptor(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, #[opt] Owner: PSID, OwnerDefaulted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetProcessPlaceholderCompatibilityMode(Mode: i8) -> i8;
+        extern fn RtlSetProcessPlaceholderCompatibilityMode(Mode: i8) -> i8;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetThreadPlaceholderCompatibilityMode(Mode: i8) -> i8;
+        extern fn RtlSetThreadPlaceholderCompatibilityMode(Mode: i8) -> i8;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSubAuthorityCountSid(Sid: PSID) -> PUCHAR;
+        extern fn RtlSubAuthorityCountSid(Sid: PSID) -> PUCHAR;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSubAuthoritySid(Sid: PSID, SubAuthority: u32) -> PULONG;
+        extern fn RtlSubAuthoritySid(Sid: PSID, SubAuthority: u32) -> PULONG;
         #[library("ntdll.dll")]
-        extern "system" fn RtlTimeToSecondsSince1980(Time: *const LARGE_INTEGER, ElapsedSeconds: *mut u32) -> BOOLEAN;
+        extern fn RtlTimeToSecondsSince1980(Time: *const LARGE_INTEGER, ElapsedSeconds: *mut u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUpcaseUnicodeStringToCountedOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUpcaseUnicodeStringToOemString(DestinationString: POEM_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUpcaseUnicodeToCustomCPN(CustomCP: *const CPTABLEINFO, #[size_param(2)] CustomCPString: *mut i8, MaxBytesInCustomCPString: u32, #[opt] BytesInCustomCPString: *mut u32, #[size_param(5)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUpcaseUnicodeToMultiByteN(#[size_param(1)] MultiByteString: *mut i8, MaxBytesInMultiByteString: u32, #[opt] BytesInMultiByteString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
+        extern fn RtlUpcaseUnicodeToOemN(#[size_param(1)] OemString: *mut i8, MaxBytesInOemString: u32, #[opt] BytesInOemString: *mut u32, #[size_param(4)] UnicodeString: *const u16, BytesInUnicodeString: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlValidSid(Sid: PSID) -> BOOLEAN;
+        extern fn RtlValidSid(Sid: PSID) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlValidateUnicodeString(#[reserved] Flags: u32, String: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlValidateUnicodeString(#[reserved] Flags: u32, String: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlxOemStringToUnicodeSize(OemString: *const STRING) -> u32;
+        extern fn RtlxOemStringToUnicodeSize(OemString: *const STRING) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlxUnicodeStringToOemSize(UnicodeString: *const UNICODE_STRING) -> u32;
+        extern fn RtlxUnicodeStringToOemSize(UnicodeString: *const UNICODE_STRING) -> u32;
         struct SECURITY_CLIENT_CONTEXT {
             SecurityQos: SECURITY_QUALITY_OF_SERVICE,
             ClientToken: PACCESS_TOKEN,
@@ -3132,71 +3144,71 @@ mod Windows {
         const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
         const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2;
         #[library("ntdll.dll")]
-        extern "system" fn ZwAllocateVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
+        extern fn ZwAllocateVirtualMemory(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, ZeroBits: usize, #[in] #[out] RegionSize: *mut usize, AllocationType: u32, Protect: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwAllocateVirtualMemoryEx(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        extern fn ZwAllocateVirtualMemoryEx(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(6)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateEvent(EventHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EventType: EVENT_TYPE, InitialState: BOOLEAN) -> NTSTATUS;
+        extern fn ZwCreateEvent(EventHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EventType: EVENT_TYPE, InitialState: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwDeleteFile(ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwDeleteFile(ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwDuplicateObject(SourceProcessHandle: HANDLE, SourceHandle: HANDLE, #[opt] TargetProcessHandle: HANDLE, #[opt] TargetHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, Options: u32) -> NTSTATUS;
+        extern fn ZwDuplicateObject(SourceProcessHandle: HANDLE, SourceHandle: HANDLE, #[opt] TargetProcessHandle: HANDLE, #[opt] TargetHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, Options: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn ZwDuplicateToken(ExistingTokenHandle: HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, EffectiveOnly: BOOLEAN, TokenType: TOKEN_TYPE, NewTokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwFlushBuffersFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwFlushBuffersFileEx(FileHandle: HANDLE, FLags: u32, #[size_param(3)] Parameters: *const void, ParametersSize: u32, IoStatusBlock: *mut IO_STATUS_BLOCK) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwFlushVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, IoStatus: *mut IO_STATUS_BLOCK) -> NTSTATUS;
+        extern fn ZwFlushVirtualMemory(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, IoStatus: *mut IO_STATUS_BLOCK) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwFreeVirtualMemory(ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
+        extern fn ZwFreeVirtualMemory(ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] RegionSize: *mut usize, FreeType: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn ZwFsControlFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, FsControlCode: u32, #[size_param(7)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(9)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
+        extern fn ZwLockFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32, FailImmediately: BOOLEAN, ExclusiveLock: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwNotifyChangeKey(KeyHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(8)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
+        extern fn ZwNotifyChangeKey(KeyHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, CompletionFilter: u32, WatchTree: BOOLEAN, #[size_param(8)] #[opt] Buffer: *mut void, BufferSize: u32, Asynchronous: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenDirectoryObject(DirectoryHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenDirectoryObject(DirectoryHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn ZwOpenProcessTokenEx(ProcessHandle: HANDLE, DesiredAccess: ACCESS_MASK, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
+        extern fn ZwOpenThreadTokenEx(ThreadHandle: HANDLE, DesiredAccess: ACCESS_MASK, OpenAsSelf: BOOLEAN, HandleAttributes: u32, TokenHandle: *mut HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
+        extern fn ZwQueryDirectoryFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, ReturnSingleEntry: BOOLEAN, #[opt] FileName: *const UNICODE_STRING, RestartScan: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwQueryDirectoryFileEx(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS, QueryFlags: u32, #[opt] FileName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwQueryEaFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] EaList: *const void, EaListLength: u32, #[opt] EaIndex: *const u32, RestartScan: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] #[opt] TokenInformation: *mut void, TokenInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryObject(#[opt] Handle: HANDLE, ObjectInformationClass: OBJECT_INFORMATION_CLASS, #[size_param(3)] #[opt] ObjectInformation: *mut void, ObjectInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
+        extern fn ZwQueryQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *mut void, Length: u32, ReturnSingleEntry: BOOLEAN, #[size_param(6)] #[opt] SidList: *const void, SidListLength: u32, #[opt] StartSid: PSID, RestartScan: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
+        extern fn ZwQuerySecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, #[size_param(3)] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, Length: u32, LengthNeeded: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
+        extern fn ZwQueryVirtualMemory(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void, MemoryInformationClass: MEMORY_INFORMATION_CLASS, #[size_param(4)] MemoryInformation: *mut void, MemoryInformationLength: usize, #[opt] ReturnLength: *mut usize) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwSetEaFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetEvent(EventHandle: HANDLE, #[opt] PreviousState: *mut i32) -> NTSTATUS;
+        extern fn ZwSetEvent(EventHandle: HANDLE, #[opt] PreviousState: *mut i32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationToken(TokenHandle: HANDLE, TokenInformationClass: TOKEN_INFORMATION_CLASS, #[size_param(3)] TokenInformation: *const void, TokenInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationVirtualMemory(ProcessHandle: HANDLE, VmInformationClass: VIRTUAL_MEMORY_INFORMATION_CLASS, NumberOfEntries: usize, #[len_param(2)] VirtualAddresses: *const MEMORY_RANGE_ENTRY, #[size_param(5)] VmInformation: *const void, VmInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
+        extern fn ZwSetQuotaInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] Buffer: *const void, Length: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
+        extern fn ZwSetSecurityObject(Handle: HANDLE, SecurityInformation: SECURITY_INFORMATION, SecurityDescriptor: PSECURITY_DESCRIPTOR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwSetVolumeInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FsInformation: *const void, Length: u32, FsInformationClass: FS_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
+        extern fn ZwUnlockFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, ByteOffset: *const LARGE_INTEGER, Length: *const LARGE_INTEGER, Key: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwWaitForSingleObject(Handle: HANDLE, Alertable: BOOLEAN, #[opt] Timeout: *const LARGE_INTEGER) -> NTSTATUS;
         #[repr(i32)]
         enum _LCN_WEAK_REFERENCE_STATE {
             LCN_WEAK_REFERENCE_VALID = 1,

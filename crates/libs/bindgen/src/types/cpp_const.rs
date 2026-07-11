@@ -4,11 +4,26 @@ use super::*;
 pub struct CppConst {
     pub namespace: &'static str,
     pub field: Field,
+    /// Architecture bits of the parent unscoped enum when this constant is an enum member;
+    /// `0` for a free-standing constant. Enum-member fields are themselves arch-neutral (the
+    /// `SupportedArchitecture` tag sits on the enum type), so an arch-divergent member must
+    /// inherit the enum's arches — otherwise the neutral member collides with a same-named
+    /// arch-specific macro constant on the complementary architecture.
+    pub enum_arches: i32,
+    /// `true` when this constant is a member of an unscoped enum. Such a member is always
+    /// projected as a bare alias constant, even when its type resolves by name to a same-named
+    /// non-enum sibling (e.g. `KSPIN_LOCK_QUEUE_NUMBER` is an enum on x86/arm64 but a pointer
+    /// typedef on x64), which would otherwise wrap the value in an invalid tuple constructor.
+    pub is_enum_member: bool,
 }
 
 impl Ord for CppConst {
     fn cmp(&self, other: &Self) -> Ordering {
-        (self.field.name(), self.field).cmp(&(other.field.name(), other.field))
+        (self.field.name(), self.field, self.enum_arches).cmp(&(
+            other.field.name(),
+            other.field,
+            other.enum_arches,
+        ))
     }
 }
 
@@ -21,6 +36,17 @@ impl PartialOrd for CppConst {
 impl CppConst {
     pub fn type_name(&self) -> TypeName {
         TypeName(self.namespace, self.field.name())
+    }
+
+    /// The architectures this constant is emitted for: the field's own `SupportedArchitecture`
+    /// bits when present, otherwise the parent enum's (for enum members).
+    pub fn effective_arches(&self) -> i32 {
+        let field_arches = self.field.arches();
+        if field_arches != 0 {
+            field_arches
+        } else {
+            self.enum_arches
+        }
     }
 
     pub fn write_name(&self, config: &Config) -> TokenStream {
@@ -48,7 +74,7 @@ impl CppConst {
             to_ident(self.field.name())
         };
 
-        let arches = write_arches(self.field);
+        let arches = write_arch_bits(self.effective_arches());
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
 
@@ -165,7 +191,8 @@ impl CppConst {
                 // style (see `cpp_enum`), so their constants are plain integers everywhere. In
                 // `--sys` every wrapper is a bare alias; in `--minimal` handle structs are too.
                 // Scoped enums and (in default/minimal) handle newtypes still get the constructor.
-                let unscoped_enum_const = matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
+                let unscoped_enum_const = self.is_enum_member
+                    || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
                 let emit_alias_const = config.bindgen.style.is_sys()
                     || unscoped_enum_const
                     || (config.bindgen.style.is_minimal()

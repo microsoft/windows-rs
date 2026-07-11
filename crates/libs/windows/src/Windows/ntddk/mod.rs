@@ -842,6 +842,18 @@ pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = 2;
 pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = 0;
 pub const BitErrorDdr4: PAGE_OFFLINE_ERROR_TYPES = 0;
 pub const BitErrorDdr5: PAGE_OFFLINE_ERROR_TYPES = 2;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarBhbClr: PCR_BTI_VBAR_INDEX = 5;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarBhbDsbIsb: PCR_BTI_VBAR_INDEX = 3;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarBhbSb: PCR_BTI_VBAR_INDEX = 4;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarNone: PCR_BTI_VBAR_INDEX = 0;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarTrapHvc: PCR_BTI_VBAR_INDEX = 1;
+#[cfg(target_arch = "aarch64")]
+pub const BtiVbarTrapSmc: PCR_BTI_VBAR_INDEX = 2;
 pub const BusWidth32Bits: PCI_BUS_WIDTH = 0;
 pub const BusWidth64Bits: PCI_BUS_WIDTH = 1;
 pub const CMCI_NOTIFY_TYPE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x919448b2_3739_4b7f_a8f1_e0062805c2a3);
@@ -2003,6 +2015,9 @@ pub const INJECT_ERRTYPE_PROCESSOR_CORRECTABLE: u32 = 1;
 pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLEFATAL: u32 = 4;
 pub const INJECT_ERRTYPE_PROCESSOR_UNCORRECTABLENONFATAL: u32 = 2;
 pub const INTEL_ADDRESS_TRANSLATION_PRM_HANDLER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x1de4055d_d2f3_4e11_b7d9_7d6c19173fee);
+#[cfg(target_arch = "x86")]
+pub type INTERLOCKED_RESULT = i32;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type INTERLOCKED_RESULT = i32;
 pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320;
 pub const IO_ATTACH_DEVICE: u32 = 1024;
@@ -2139,13 +2154,45 @@ pub const IpmiOsSelRecordTypeWheaErrorPci: IPMI_OS_SEL_RECORD_TYPE = 3;
 pub const IpmiOsSelRecordTypeWheaErrorXpfMca: IPMI_OS_SEL_RECORD_TYPE = 2;
 pub const IsochCommand: EXTENDED_AGP_REGISTER = 6;
 pub const IsochStatus: EXTENDED_AGP_REGISTER = 0;
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[derive(Clone, Copy)]
+pub struct KARM64_VFP_STATE {
+    pub Link: *mut Self,
+    pub Fpcr: u32,
+    pub Fpsr: u32,
+    pub V: [super::winnt::NEON128; 32],
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for KARM64_VFP_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type KD_CALLBACK_ACTION = i32;
 pub type KD_NAMESPACE_ENUM = i32;
+#[cfg(target_arch = "x86")]
+pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KERNEL_LARGE_STACK_COMMIT: u32 = 24576;
+#[cfg(target_arch = "aarch64")]
+pub const KERNEL_LARGE_STACK_COMMIT: u32 = 32768;
+#[cfg(target_arch = "x86")]
+pub const KERNEL_LARGE_STACK_SIZE: u32 = 61440;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KERNEL_LARGE_STACK_SIZE: u32 = 73728;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KERNEL_MCA_EXCEPTION_STACK_SIZE: u32 = 8192;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KERNEL_SHADOW_STACK_SIZE: u32 = 4096;
+#[cfg(target_arch = "x86")]
+pub const KERNEL_STACK_SIZE: u32 = 12288;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KERNEL_STACK_SIZE: u32 = 24576;
+#[cfg(target_arch = "aarch64")]
+pub const KERNEL_STACK_SIZE: u32 = 32768;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KERNEL_USER_TIMES {
@@ -2155,6 +2202,7 @@ pub struct KERNEL_USER_TIMES {
     pub UserTime: i64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KEXCEPTION_FRAME {
@@ -2187,6 +2235,23 @@ pub struct KEXCEPTION_FRAME {
     pub R13: u64,
     pub R14: u64,
     pub R15: u64,
+    pub Return: u64,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KEXCEPTION_FRAME {
+    pub X19: u64,
+    pub X20: u64,
+    pub X21: u64,
+    pub X22: u64,
+    pub X23: u64,
+    pub X24: u64,
+    pub X25: u64,
+    pub X26: u64,
+    pub X27: u64,
+    pub X28: u64,
+    pub Fp: u64,
     pub Return: u64,
 }
 #[repr(C)]
@@ -2223,6 +2288,7 @@ pub struct KEY_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KFRED_TRAP_FRAME {
@@ -2230,6 +2296,7 @@ pub struct KFRED_TRAP_FRAME {
     pub EventInformation: u64,
     pub Reserved: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KFRED_TRAP_FRAME {
     fn default() -> Self {
@@ -2237,7 +2304,79 @@ impl Default for KFRED_TRAP_FRAME {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KPCR {
+    pub Anonymous: KPCR_0,
+    pub SelfPcr: *mut Self,
+    pub Prcb: *mut _KPRCB,
+    pub Irql: super::ntdef::KIRQL,
+    pub IRR: u32,
+    pub IrrActive: u32,
+    pub IDR: u32,
+    pub KdVersionBlock: *mut core::ffi::c_void,
+    pub IDT: *mut _KIDTENTRY,
+    pub GDT: *mut _KGDTENTRY,
+    pub TSS: *mut _KTSS,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub SetMember: super::basetsd::KAFFINITY,
+    pub StallScaleFactor: u32,
+    pub SpareUnused: u8,
+    pub Number: u8,
+    pub Spare0: u8,
+    pub SecondLevelCacheAssociativity: u8,
+    pub VdmAlert: u32,
+    pub KernelReserved: [u32; 14],
+    pub SecondLevelCacheSize: u32,
+    pub HalReserved: [u32; 16],
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_0 {
+    pub NtTib: super::winnt::NT_TIB,
+    pub Anonymous: KPCR_0_0,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KPCR_0_0 {
+    pub Used_ExceptionList: *mut super::winnt::EXCEPTION_REGISTRATION_RECORD,
+    pub Used_StackBase: *mut core::ffi::c_void,
+    pub MxCsr: u32,
+    pub TssCopy: *mut core::ffi::c_void,
+    pub ContextSwitches: u32,
+    pub SetMemberCopy: super::basetsd::KAFFINITY,
+    pub Used_Self: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KPCR {
     pub Anonymous: KPCR_0,
@@ -2260,27 +2399,31 @@ pub struct KPCR {
     pub Unused3: *mut core::ffi::c_void,
     pub PcrAlign1: [u32; 24],
 }
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KPCR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KPCR_0 {
     pub NtTib: super::winnt::NT_TIB,
     pub Anonymous: KPCR_0_0,
 }
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KPCR_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KPCR_0_0 {
     pub GdtBase: *mut _KGDTENTRY64,
@@ -2291,13 +2434,169 @@ pub struct KPCR_0_0 {
     pub LockArray: super::wdm::PKSPIN_LOCK_QUEUE,
     pub Used_Self: *mut core::ffi::c_void,
 }
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KPCR_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KPCR {
+    pub Anonymous: KPCR_0,
+    pub CurrentIrql: super::ntdef::KIRQL,
+    pub SecondLevelCacheAssociativity: u8,
+    pub Pad1: [u8; 2],
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub StallScaleFactor: u32,
+    pub SecondLevelCacheSize: u32,
+    pub Anonymous2: KPCR_1,
+    pub InterruptPad: u16,
+    pub Anonymous3: KPCR_2,
+    pub Anonymous4: KPCR_3,
+    pub BhbMitigation: u8,
+    pub Anonymous5: KPCR_4,
+    pub PanicStorage: [u64; 6],
+    pub KdVersionBlock: *mut core::ffi::c_void,
+    pub HalReserved: [*mut core::ffi::c_void; 14],
+    pub KvaUserModeTtbr1: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_0 {
+    pub NtTib: super::winnt::NT_TIB,
+    pub Anonymous: KPCR_0_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KPCR_0_0 {
+    pub TibPad0: [*mut core::ffi::c_void; 2],
+    pub Spare1: *mut core::ffi::c_void,
+    pub Self_: *mut KPCR,
+    pub PcrReserved0: *mut core::ffi::c_void,
+    pub LockArray: super::wdm::PKSPIN_LOCK_QUEUE,
+    pub Used_Self: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_1 {
+    pub SoftwareInterruptPending: u16,
+    pub Anonymous: KPCR_1_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KPCR_1_0 {
+    pub ApcInterrupt: u8,
+    pub DispatchInterrupt: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_2 {
+    pub BtiMitigation: u8,
+    pub Anonymous: KPCR_2_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KPCR_2_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_3 {
+    pub SsbMitigationFlags: u8,
+    pub Anonymous: KPCR_3_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KPCR_3_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KPCR_4 {
+    pub CachePrefetcherMitigationFlags: u8,
+    pub Anonymous: KPCR_4_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KPCR_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KPCR_4_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KTRAP_FRAME {
@@ -2345,6 +2644,7 @@ pub struct KTRAP_FRAME {
     pub Rsp: u64,
     pub Anonymous7: KTRAP_FRAME_6,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME {
     fn default() -> Self {
@@ -2352,6 +2652,7 @@ impl Default for KTRAP_FRAME {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_0 {
@@ -2359,6 +2660,7 @@ pub union KTRAP_FRAME_0 {
     pub GsSwap: u64,
     pub VectorMask: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_0 {
     fn default() -> Self {
@@ -2366,12 +2668,14 @@ impl Default for KTRAP_FRAME_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_1 {
     pub FaultAddress: u64,
     pub ContextRecord: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_1 {
     fn default() -> Self {
@@ -2379,12 +2683,14 @@ impl Default for KTRAP_FRAME_1 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_2 {
     pub Anonymous: KTRAP_FRAME_2_0,
     pub Anonymous2: KTRAP_FRAME_2_1,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_2 {
     fn default() -> Self {
@@ -2392,6 +2698,7 @@ impl Default for KTRAP_FRAME_2 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_2_0 {
@@ -2403,12 +2710,14 @@ pub struct KTRAP_FRAME_2_0 {
     pub Dr7: u64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KTRAP_FRAME_2_1 {
     pub ShadowStackFrame: u64,
     pub Spare: [u64; 5],
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_2_1 {
     fn default() -> Self {
@@ -2416,6 +2725,7 @@ impl Default for KTRAP_FRAME_2_1 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_3 {
@@ -2426,12 +2736,14 @@ pub struct KTRAP_FRAME_3 {
     pub LastExceptionFromRip: u64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_4 {
     pub ErrorCode: u64,
     pub ExceptionFrame: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_4 {
     fn default() -> Self {
@@ -2439,12 +2751,14 @@ impl Default for KTRAP_FRAME_4 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_5 {
     pub Anonymous: KTRAP_FRAME_5_0,
     pub Anonymous2: KTRAP_FRAME_5_1,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_5 {
     fn default() -> Self {
@@ -2452,6 +2766,7 @@ impl Default for KTRAP_FRAME_5 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KTRAP_FRAME_5_0 {
@@ -2460,6 +2775,7 @@ pub struct KTRAP_FRAME_5_0 {
     pub Logging: u8,
     pub Fill1: [u16; 2],
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_5_0 {
     fn default() -> Self {
@@ -2467,18 +2783,21 @@ impl Default for KTRAP_FRAME_5_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_5_1 {
     pub _bitfield: u64,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_6 {
     pub Anonymous: KTRAP_FRAME_6_0,
     pub Anonymous2: KTRAP_FRAME_6_1,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_6 {
     fn default() -> Self {
@@ -2486,6 +2805,7 @@ impl Default for KTRAP_FRAME_6 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_6_0 {
@@ -2494,12 +2814,14 @@ pub struct KTRAP_FRAME_6_0 {
     pub Fill4: u32,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KTRAP_FRAME_6_1 {
     pub Anonymous: KTRAP_FRAME_6_1_0,
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_6_1 {
     fn default() -> Self {
@@ -2507,12 +2829,14 @@ impl Default for KTRAP_FRAME_6_1 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KTRAP_FRAME_6_1_0 {
     pub Anonymous: KTRAP_FRAME_6_1_0_0,
     pub Anonymous2: KTRAP_FRAME_6_1_0_1,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KTRAP_FRAME_6_1_0 {
     fn default() -> Self {
@@ -2520,18 +2844,126 @@ impl Default for KTRAP_FRAME_6_1_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_6_1_0_0 {
     pub EventInformation: u32,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KTRAP_FRAME_6_1_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KTRAP_FRAME {
+    pub ExceptionActive: u8,
+    pub ContextFromKFramesUnwound: u8,
+    pub DebugRegistersValid: u8,
+    pub Anonymous: KTRAP_FRAME_0,
+    pub Reserved: u32,
+    pub Anonymous2: KTRAP_FRAME_1,
+    pub VfpState: PKARM64_VFP_STATE,
+    pub Bcr: [u32; 8],
+    pub Bvr: [u64; 8],
+    pub Wcr: [u32; 2],
+    pub Wvr: [u64; 2],
+    pub Spsr: u32,
+    pub Esr: u32,
+    pub Sp: u64,
+    pub Anonymous3: KTRAP_FRAME_2,
+    pub Lr: u64,
+    pub Fp: u64,
+    pub Pc: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KTRAP_FRAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KTRAP_FRAME_0 {
+    pub PreviousMode: super::wdm::KPROCESSOR_MODE,
+    pub PreviousIrql: super::ntdef::KIRQL,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KTRAP_FRAME_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KTRAP_FRAME_1 {
+    pub FaultAddress: u64,
+    pub TrapFrame: u64,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KTRAP_FRAME_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KTRAP_FRAME_2 {
+    pub X: [u64; 19],
+    pub Anonymous: KTRAP_FRAME_2_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KTRAP_FRAME_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KTRAP_FRAME_2_0 {
+    pub X0: u64,
+    pub X1: u64,
+    pub X2: u64,
+    pub X3: u64,
+    pub X4: u64,
+    pub X5: u64,
+    pub X6: u64,
+    pub X7: u64,
+    pub X8: u64,
+    pub X9: u64,
+    pub X10: u64,
+    pub X11: u64,
+    pub X12: u64,
+    pub X13: u64,
+    pub X14: u64,
+    pub X15: u64,
+    pub X16: u64,
+    pub X17: u64,
+    pub X18: u64,
+}
+#[cfg(target_arch = "aarch64")]
+pub const KTRAP_FRAME_ARGUMENTS: u32 = 80;
+#[cfg(target_arch = "aarch64")]
+pub const KTRAP_FRAME_SIGNATURE: u32 = 1886540875;
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KUMS_CONTEXT_HEADER {
@@ -2550,6 +2982,7 @@ pub struct KUMS_CONTEXT_HEADER {
     pub SourceThread: *mut super::wdm::_KTHREAD,
     pub Return: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUMS_CONTEXT_HEADER {
     fn default() -> Self {
@@ -2557,12 +2990,14 @@ impl Default for KUMS_CONTEXT_HEADER {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUMS_CONTEXT_HEADER_0 {
     pub Anonymous: KUMS_CONTEXT_HEADER_0_0,
     pub Flags: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUMS_CONTEXT_HEADER_0 {
     fn default() -> Self {
@@ -2570,14 +3005,18 @@ impl Default for KUMS_CONTEXT_HEADER_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUMS_CONTEXT_HEADER_0_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KUMS_UCH_VOLATILE_BIT: u32 = 0;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KUMS_UCH_VOLATILE_MASK: u32 = 1;
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KUSER_SHARED_DATA {
@@ -2664,6 +3103,7 @@ pub struct KUSER_SHARED_DATA {
     pub FeatureConfigurationChangeStamp: super::wdm::KSYSTEM_TIME,
     pub Spare: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA {
     fn default() -> Self {
@@ -2671,12 +3111,14 @@ impl Default for KUSER_SHARED_DATA {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_0 {
     pub MitigationPolicies: u8,
     pub Anonymous: KUSER_SHARED_DATA_0_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_0 {
     fn default() -> Self {
@@ -2684,17 +3126,20 @@ impl Default for KUSER_SHARED_DATA_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_1 {
     pub VirtualizationFlags: u8,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_1 {
     fn default() -> Self {
@@ -2702,12 +3147,14 @@ impl Default for KUSER_SHARED_DATA_1 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_2 {
     pub SharedDataFlags: u32,
     pub Anonymous: KUSER_SHARED_DATA_2_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_2 {
     fn default() -> Self {
@@ -2715,12 +3162,14 @@ impl Default for KUSER_SHARED_DATA_2 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_2_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_3 {
@@ -2728,6 +3177,7 @@ pub union KUSER_SHARED_DATA_3 {
     pub TickCountQuad: u64,
     pub Anonymous: KUSER_SHARED_DATA_3_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_3 {
     fn default() -> Self {
@@ -2735,12 +3185,14 @@ impl Default for KUSER_SHARED_DATA_3 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct KUSER_SHARED_DATA_3_0 {
     pub ReservedTickCountOverlay: [u32; 3],
     pub TickCountPad: [u32; 1],
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_3_0 {
     fn default() -> Self {
@@ -2748,12 +3200,14 @@ impl Default for KUSER_SHARED_DATA_3_0 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KUSER_SHARED_DATA_4 {
     pub QpcData: u16,
     pub Anonymous: KUSER_SHARED_DATA_4_0,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for KUSER_SHARED_DATA_4 {
     fn default() -> Self {
@@ -2761,6 +3215,222 @@ impl Default for KUSER_SHARED_DATA_4 {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KUSER_SHARED_DATA_4_0 {
+    pub QpcBypassEnabled: u8,
+    pub QpcReserved: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub struct KUSER_SHARED_DATA {
+    pub TickCountLowDeprecated: u32,
+    pub TickCountMultiplier: u32,
+    pub InterruptTime: super::wdm::KSYSTEM_TIME,
+    pub SystemTime: super::wdm::KSYSTEM_TIME,
+    pub TimeZoneBias: super::wdm::KSYSTEM_TIME,
+    pub ImageNumberLow: u16,
+    pub ImageNumberHigh: u16,
+    pub NtSystemRoot: [u16; 260],
+    pub MaxStackTraceDepth: u32,
+    pub CryptoExponent: u32,
+    pub TimeZoneId: u32,
+    pub LargePageMinimum: u32,
+    pub AitSamplingValue: u32,
+    pub AppCompatFlag: u32,
+    pub RNGSeedVersion: u64,
+    pub GlobalValidationRunlevel: u32,
+    pub TimeZoneBiasStamp: i32,
+    pub NtBuildNumber: u32,
+    pub NtProductType: super::ntdef::NT_PRODUCT_TYPE,
+    pub ProductTypeIsValid: bool,
+    pub Reserved0: [bool; 1],
+    pub NativeProcessorArchitecture: u16,
+    pub NtMajorVersion: u32,
+    pub NtMinorVersion: u32,
+    pub ProcessorFeatures: [bool; 64],
+    pub Reserved1: u32,
+    pub Reserved3: u32,
+    pub TimeSlip: u32,
+    pub AlternativeArchitecture: super::wdm::ALTERNATIVE_ARCHITECTURE_TYPE,
+    pub BootId: u32,
+    pub SystemExpirationDate: i64,
+    pub SuiteMask: u32,
+    pub KdDebuggerEnabled: bool,
+    pub Anonymous: KUSER_SHARED_DATA_0,
+    pub CyclesPerYield: u16,
+    pub ActiveConsoleId: u32,
+    pub DismountCount: u32,
+    pub ComPlusPackage: u32,
+    pub LastSystemRITEventTickCount: u32,
+    pub NumberOfPhysicalPages: u32,
+    pub SafeBootMode: bool,
+    pub Anonymous2: KUSER_SHARED_DATA_1,
+    pub Reserved12: [u8; 2],
+    pub Anonymous3: KUSER_SHARED_DATA_2,
+    pub DataFlagsPad: [u32; 1],
+    pub TestRetInstruction: u64,
+    pub QpcFrequency: i64,
+    pub SystemCall: u32,
+    pub Reserved2: u32,
+    pub FullNumberOfPhysicalPages: u64,
+    pub SystemCallPad: [u64; 1],
+    pub Anonymous4: KUSER_SHARED_DATA_3,
+    pub Cookie: u32,
+    pub CookiePad: [u32; 1],
+    pub ConsoleSessionForegroundProcessId: i64,
+    pub TimeUpdateLock: u64,
+    pub BaselineSystemTimeQpc: u64,
+    pub BaselineInterruptTimeQpc: u64,
+    pub QpcSystemTimeIncrement: u64,
+    pub QpcInterruptTimeIncrement: u64,
+    pub QpcSystemTimeIncrementShift: u8,
+    pub QpcInterruptTimeIncrementShift: u8,
+    pub UnparkedProcessorCount: u16,
+    pub EnclaveFeatureMask: [u32; 4],
+    pub TelemetryCoverageRound: u32,
+    pub UserModeGlobalLogger: [u16; 16],
+    pub ImageFileExecutionOptions: u32,
+    pub LangGenerationCount: u32,
+    pub Reserved4: u64,
+    pub InterruptTimeBias: u64,
+    pub QpcBias: u64,
+    pub ActiveProcessorCount: u32,
+    pub ActiveGroupCount: u8,
+    pub Reserved9: u8,
+    pub Anonymous5: KUSER_SHARED_DATA_4,
+    pub TimeZoneBiasEffectiveStart: i64,
+    pub TimeZoneBiasEffectiveEnd: i64,
+    pub XState: super::winnt::XSTATE_CONFIGURATION,
+    pub UserPointerAuthMask: u64,
+    pub XStateArm64: super::winnt::XSTATE_CONFIGURATION,
+    pub FeatureConfigurationChangeStamp: super::wdm::KSYSTEM_TIME,
+    pub Spare: u32,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KUSER_SHARED_DATA_0 {
+    pub MitigationPolicies: u8,
+    pub Anonymous: KUSER_SHARED_DATA_0_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KUSER_SHARED_DATA_0_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KUSER_SHARED_DATA_1 {
+    pub VirtualizationFlags: u8,
+    pub Anonymous: KUSER_SHARED_DATA_1_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KUSER_SHARED_DATA_1_0 {
+    pub _bitfield: u8,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KUSER_SHARED_DATA_2 {
+    pub SharedDataFlags: u32,
+    pub Anonymous: KUSER_SHARED_DATA_2_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct KUSER_SHARED_DATA_2_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KUSER_SHARED_DATA_3 {
+    pub TickCount: super::wdm::KSYSTEM_TIME,
+    pub TickCountQuad: u64,
+    pub Anonymous: KUSER_SHARED_DATA_3_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct KUSER_SHARED_DATA_3_0 {
+    pub ReservedTickCountOverlay: [u32; 3],
+    pub TickCountPad: [u32; 1],
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_3_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[derive(Clone, Copy)]
+pub union KUSER_SHARED_DATA_4 {
+    pub QpcData: u16,
+    pub Anonymous: KUSER_SHARED_DATA_4_0,
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl Default for KUSER_SHARED_DATA_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct KUSER_SHARED_DATA_4_0 {
@@ -2823,6 +3493,9 @@ impl Default for MAP_REGISTER_ENTRY {
     }
 }
 pub const MAXIMUM_DEBUG_BARS: u32 = 6;
+#[cfg(target_arch = "x86")]
+pub const MAXIMUM_EXPANSION_SIZE: u32 = 59392;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const MAXIMUM_EXPANSION_SIZE: u32 = 71680;
 pub const MAX_SEL_RAW_EVENT_PAYLOAD_LENGTH: u32 = 256;
 #[repr(C)]
@@ -2968,6 +3641,8 @@ pub const MM_COPY_MEMORY_VIRTUAL: u32 = 2;
 pub const MM_GET_CACHE_ATTRIBUTE_IO_SPACE: u32 = 1;
 pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_ALL_PARTITIONS: u32 = 2;
 pub const MM_GET_PHYSICAL_MEMORY_RANGES_INCLUDE_FILE_ONLY: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const MM_LOWEST_USER_ADDRESS: usize = 65536;
 pub const MM_REMOVE_PHYSICAL_MEMORY_BAD_ONLY: u32 = 1;
 pub type MM_ROTATE_DIRECTION = i32;
 pub const MM_SECURE_EXCLUSIVE: u32 = 1;
@@ -2975,6 +3650,8 @@ pub const MM_SECURE_NO_CHANGE: u32 = 2;
 pub const MM_SECURE_NO_INHERIT: u32 = 8;
 pub const MM_SECURE_USER_MODE_ONLY: u32 = 4;
 pub const MM_SYSTEM_PARTITION_OBJECT: u32 = 0;
+#[cfg(target_arch = "x86")]
+pub const MM_SYSTEM_SPACE_END: u32 = 4294967295;
 pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1;
 pub const MPIConfiguration: BUS_DATA_TYPE = 8;
 pub const MPSAConfiguration: BUS_DATA_TYPE = 9;
@@ -3715,6 +4392,9 @@ impl Default for PCI_BUS_INTERFACE_STANDARD {
     }
 }
 pub const PCI_BUS_INTERFACE_STANDARD_VERSION: u32 = 2;
+#[cfg(target_arch = "x86")]
+pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: u32 = 40;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const PCI_BUS_INTERFACE_STANDARD_VERSION_1_LENGTH: u32 = 80;
 pub type PCI_BUS_WIDTH = i32;
 pub const PCI_DATA_TAG: u32 = 541672272;
@@ -5624,8 +6304,22 @@ impl Default for PCREATE_USER_PROCESS_ECP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16;
+#[cfg(target_arch = "aarch64")]
+pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32;
+#[cfg(target_arch = "aarch64")]
+pub const PCR_BTI_MITIGATION_TRAP_HVC: u32 = 2;
+#[cfg(target_arch = "aarch64")]
+pub const PCR_BTI_MITIGATION_VBAR_MASK: u32 = 14;
+#[cfg(target_arch = "aarch64")]
+pub type PCR_BTI_VBAR_INDEX = i32;
+#[cfg(target_arch = "aarch64")]
+pub const PCR_KVA_MITIGATION_VBAR_MASK: u32 = 1;
 pub const PCR_MAJOR_VERSION: u32 = 1;
 pub const PCR_MINOR_VERSION: u32 = 1;
+#[cfg(target_arch = "aarch64")]
+pub const PCR_MITIGATION_VBAR_MASK: u32 = 15;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCXL_BUS_OSC_CONTROL_FIELD(pub *mut CXL_BUS_OSC_CONTROL_FIELD);
@@ -5806,6 +6500,8 @@ impl Default for PDEVICE_HANDLER_OBJECT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PDE_PER_PAGE: u32 = 512;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDIMM_ADDRESS(pub *mut DIMM_ADDRESS);
@@ -5884,6 +6580,8 @@ impl Default for PDISK_SIGNATURE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PDI_SHIFT: u32 = 21;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDOE_DISCOVERY_REQUEST(pub *mut DOE_DISCOVERY_REQUEST);
@@ -5949,12 +6647,27 @@ impl Default for PDOE_OBJECT_HEADER {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "mce")]
 pub type PDRIVER_CMC_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const super::mce::MCA_EXCEPTION)>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "mce")]
+pub type PDRIVER_CMC_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: super::mce::PCMC_EXCEPTION)>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "mce")]
 pub type PDRIVER_CPE_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: *const super::mce::MCA_EXCEPTION)>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "mce")]
+pub type PDRIVER_CPE_EXCEPTION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, cmclog: super::mce::PCPE_EXCEPTION)>;
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "mce")]
+pub type PDRIVER_EXCPTN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, banklog: *const super::mce::MCA_EXCEPTION)>;
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "mce", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 pub type PDRIVER_EXCPTN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, trapframe: *const KTRAP_FRAME, exceptionframe: *const KEXCEPTION_FRAME, exception: *const super::mce::MCA_EXCEPTION) -> super::mce::ERROR_SEVERITY>;
+#[cfg(target_arch = "aarch64")]
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+pub type PDRIVER_EXCPTN_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, trapframe: *const KTRAP_FRAME, exceptionframe: *const KEXCEPTION_FRAME, exception: *const core::ffi::c_void)>;
 #[cfg(all(feature = "mce", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 pub type PDRIVER_MCA_EXCEPTION_CALLBACK = PDRIVER_EXCPTN_CALLBACK;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -6714,6 +7427,25 @@ impl Default for PIPMI_OS_SEL_RECORD_TYPE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct PKARM64_VFP_STATE(pub *mut KARM64_VFP_STATE);
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl PKARM64_VFP_STATE {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "winnt")]
+impl Default for PKARM64_VFP_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKD_CALLBACK_ACTION(pub *mut KD_CALLBACK_ACTION);
@@ -6753,16 +7485,19 @@ impl Default for PKERNEL_USER_TIMES {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKEXCEPTION_FRAME(pub *mut KEXCEPTION_FRAME);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl PKEXCEPTION_FRAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 impl Default for PKEXCEPTION_FRAME {
     fn default() -> Self {
@@ -6821,64 +7556,73 @@ impl Default for PKEY_VIRTUALIZATION_INFORMATION {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKFRED_TRAP_FRAME(pub *mut KFRED_TRAP_FRAME);
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl PKFRED_TRAP_FRAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for PKFRED_TRAP_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKPCR(pub *mut KPCR);
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl PKPCR {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
-#[cfg(all(feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
+#[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for PKPCR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKTRAP_FRAME(pub *mut KTRAP_FRAME);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl PKTRAP_FRAME {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for PKTRAP_FRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKUMS_CONTEXT_HEADER(pub *mut KUMS_CONTEXT_HEADER);
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl PKUMS_CONTEXT_HEADER {
     pub fn is_invalid(&self) -> bool {
         self.0.is_null()
     }
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 impl Default for PKUMS_CONTEXT_HEADER {
     fn default() -> Self {
@@ -9125,6 +9869,8 @@ impl Default for PPHYSICAL_MEMORY_RANGE {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PPI_SHIFT: u32 = 30;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PPM_DISPATCH_TABLE(pub *mut PM_DISPATCH_TABLE);
@@ -10080,6 +10826,8 @@ pub struct PS_CREATE_NOTIFY_INFO_0_0 {
 }
 pub const PS_IMAGE_NOTIFY_CONFLICTING_ARCHITECTURE: u32 = 1;
 pub const PS_INVALID_SILO_CONTEXT_SLOT: u32 = 4294967295;
+#[cfg(target_arch = "x86")]
+pub const PTE_PER_PAGE: u32 = 512;
 pub type PTIMER_APC_ROUTINE = Option<unsafe extern "system" fn(timercontext: *const core::ffi::c_void, timerlowvalue: u32, timerhighvalue: i32)>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
 #[repr(transparent)]
@@ -10097,6 +10845,8 @@ impl Default for PTIMER_SET_COALESCABLE_TIMER_INFO {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const PTI_SHIFT: u32 = 12;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PTRANSLATE_RESOURCE_HANDLER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, source: *const super::wdm::CM_PARTIAL_RESOURCE_DESCRIPTOR, direction: RESOURCE_TRANSLATION_DIRECTION, alternativescount: u32, alternatives: *const super::wdm::IO_RESOURCE_DESCRIPTOR, physicaldeviceobject: *const super::wdm::DEVICE_OBJECT, target: *mut super::wdm::CM_PARTIAL_RESOURCE_DESCRIPTOR) -> super::bcrypt::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -14190,8 +14940,17 @@ pub const RCB128Bytes: PCI_EXPRESS_RCB = 1;
 pub const RCB64Bytes: PCI_EXPRESS_RCB = 0;
 pub const RECOVERY_INFO_SECTION_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
 pub type RESOURCE_TRANSLATION_DIRECTION = i32;
+#[cfg(target_arch = "x86")]
+pub const RESULT_NEGATIVE: u32 = 32768;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RESULT_NEGATIVE: u32 = 1;
+#[cfg(target_arch = "x86")]
+pub const RESULT_POSITIVE: u32 = 0;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RESULT_POSITIVE: u32 = 2;
+#[cfg(target_arch = "x86")]
+pub const RESULT_ZERO: u32 = 16384;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RESULT_ZERO: u32 = 0;
 #[cfg(feature = "ntdef")]
 pub type RTL_AVL_ALLOCATE_ROUTINE = Option<unsafe extern "system" fn(table: *const RTL_AVL_TABLE, bytesize: super::ntdef::CLONG) -> *mut core::ffi::c_void>;
@@ -14353,8 +15112,17 @@ pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 6;
 pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 3;
 pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 1;
 pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 0;
+#[cfg(target_arch = "x86")]
+pub const ResultNegative: INTERLOCKED_RESULT = 32768;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const ResultNegative: INTERLOCKED_RESULT = 1;
+#[cfg(target_arch = "x86")]
+pub const ResultPositive: INTERLOCKED_RESULT = 0;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const ResultPositive: INTERLOCKED_RESULT = 2;
+#[cfg(target_arch = "x86")]
+pub const ResultZero: INTERLOCKED_RESULT = 16384;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const ResultZero: INTERLOCKED_RESULT = 0;
 pub const RowErrorDdr4: PAGE_OFFLINE_ERROR_TYPES = 1;
 pub const RowErrorDdr5: PAGE_OFFLINE_ERROR_TYPES = 3;
@@ -19557,15 +20325,31 @@ pub struct _IMAGE_NT_HEADERS(pub u8);
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _IMAGE_NT_HEADERS64(pub u8);
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct _KGDTENTRY(pub u8);
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _KGDTENTRY64(pub u8);
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct _KIDTENTRY(pub u8);
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _KIDTENTRY64(pub u8);
 #[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _KPRCB(pub u8);
 #[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct _KTSS(pub u8);
+#[repr(C)]
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct _KTSS64(pub u8);
 #[repr(C)]
@@ -19607,6 +20391,10 @@ pub type pHalFfaRegisterNotification = Option<unsafe extern "system" fn(registra
 pub type pHalFfaRunTarget = Option<unsafe extern "system" fn(inputparameters: *const _FFA_RUN_TARGET_INPUT_PARAMETERS, outputparameters: *mut _FFA_RUN_TARGET_OUTPUT_PARAMETERS) -> super::bcrypt::NTSTATUS>;
 #[cfg(feature = "bcrypt")]
 pub type pHalFfaUnregisterNotification = Option<unsafe extern "system" fn(token: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "usb")]
+pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::usb::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u32, nextbus: bool) -> bool>;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "usb")]
 pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::usb::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u64, nextbus: bool) -> bool>;
 pub type pHalGetAcpiTable = Option<unsafe extern "system" fn(signature: u32, oemid: windows_core::PCSTR, oemtableid: windows_core::PCSTR) -> *mut core::ffi::c_void>;

@@ -297,7 +297,7 @@ fn main() {
             .collect();
         let seed = format!("{RDL_DIR}/{METADATA_SEED}");
         let m = std::time::Instant::now();
-        merge_arch_rdl(&arch_inputs, &seed, RDL_DIR)
+        merge_arch_rdl(&arch_inputs, Some(&seed), RDL_DIR)
             .unwrap_or_else(|e| panic!("arch-merge failed: {e}"));
         merge_wall = m.elapsed().as_secs_f32();
         let w = std::time::Instant::now();

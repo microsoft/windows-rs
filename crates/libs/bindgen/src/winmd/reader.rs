@@ -87,13 +87,19 @@ impl Reader {
                                 insert(types, name, Type::CppEnum(CppEnum { def }));
 
                                 if !def.has_attribute("ScopedEnumAttribute") {
+                                    let enum_arches = def.arches();
                                     for field in def.fields() {
                                         if field.flags().contains(FieldAttributes::Literal) {
                                             let field_name = field.name();
                                             insert(
                                                 types,
                                                 field_name,
-                                                Type::CppConst(CppConst { namespace, field }),
+                                                Type::CppConst(CppConst {
+                                                    namespace,
+                                                    field,
+                                                    enum_arches,
+                                                    is_enum_member: true,
+                                                }),
                                             );
                                         }
                                     }
@@ -151,7 +157,16 @@ impl Reader {
                 }
                 windows_metadata::reader::Item::Const(field) => {
                     let types = reader.map.entry(namespace).or_default();
-                    insert(types, name, Type::CppConst(CppConst { namespace, field }));
+                    insert(
+                        types,
+                        name,
+                        Type::CppConst(CppConst {
+                            namespace,
+                            field,
+                            enum_arches: 0,
+                            is_enum_member: false,
+                        }),
+                    );
                 }
             }
         }

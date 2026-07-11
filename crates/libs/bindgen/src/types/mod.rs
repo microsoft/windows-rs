@@ -130,7 +130,8 @@ impl Type {
             Self::CppFn(ty) => ty.method.arches(),
             Self::CppStruct(ty) => ty.def.arches(),
             Self::CppDelegate(ty) => ty.def.arches(),
-            Self::CppConst(ty) => ty.field.arches(),
+            Self::CppEnum(ty) => ty.def.arches(),
+            Self::CppConst(ty) => ty.effective_arches(),
             _ => 0,
         };
 
@@ -1171,42 +1172,32 @@ fn write_full_cfg(ty: &impl Dependencies, config: &Config) -> (Cfg, TokenStream)
 /// a `[SupportedArchitectureAttribute]`. Independent of `--package` /
 /// `--flat` layout — the generated arch gate is always meaningful.
 pub fn write_arches<R: HasAttributes<'static>>(row: R) -> TokenStream {
+    write_arch_bits(row.arches())
+}
+
+/// Emit a `#[cfg(target_arch = ...)]` attribute from raw architecture bits
+/// (`x86 = 1`, `x64 = 2`, `arm64 = 4`), or nothing when `value` is `0`.
+pub fn write_arch_bits(value: i32) -> TokenStream {
     let mut tokens = quote! {};
+    let mut arches = BTreeSet::new();
 
-    if let Some(attribute) = row.find_attribute("SupportedArchitectureAttribute") {
-        let arch_value = match attribute.value().first() {
-            Some((_, Value::I32(v))) => Some(*v),
-            Some((_, Value::EnumValue(_, inner))) => {
-                if let Value::I32(v) = inner.as_ref() {
-                    Some(*v)
-                } else {
-                    None
-                }
-            }
-            _ => None,
-        };
-        if let Some(value) = arch_value {
-            let mut arches = BTreeSet::new();
+    if value & 1 == 1 {
+        arches.insert("x86");
+    }
 
-            if value & 1 == 1 {
-                arches.insert("x86");
-            }
+    if value & 2 == 2 {
+        arches.insert("x86_64");
+        arches.insert("arm64ec");
+    }
 
-            if value & 2 == 2 {
-                arches.insert("x86_64");
-                arches.insert("arm64ec");
-            }
+    if value & 4 == 4 {
+        arches.insert("aarch64");
+    }
 
-            if value & 4 == 4 {
-                arches.insert("aarch64");
-            }
-
-            match arches.len() {
-                0 => {}
-                1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
-                _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
-            }
-        }
+    match arches.len() {
+        0 => {}
+        1 => tokens.combine(quote! { #[cfg(#(target_arch = #arches),*)] }),
+        _ => tokens.combine(quote! { #[cfg(any(#(target_arch = #arches),*))] }),
     }
 
     tokens

@@ -1245,10 +1245,21 @@ impl Clang {
         }
 
         // The set of every entity name now emitted across all files — the canonical owners
-        // that follow-up consts and opaque placeholders must defer to.
+        // that follow-up consts and opaque placeholders must defer to. A flat-layout enum
+        // contributes both its type name and every member name, since its members are
+        // emitted as top-level constants: a macro sharing a member's name would collide
+        // (the WDK ARM64 `#define NonPagedPool NonPagedPoolNx` shadowing the
+        // `POOL_TYPE::NonPagedPool` enumerator).
         let mut global_names: HashSet<String> = collectors
             .values()
-            .flat_map(|c| c.keys().cloned())
+            .flat_map(|c| c.values())
+            .flat_map(|item| {
+                let mut names = vec![item.to_string()];
+                if let Item::Enum(e) = item {
+                    names.extend(e.variants.iter().map(|(name, _)| name.clone()));
+                }
+                names
+            })
             .collect();
 
         // Emit macro constants, skipping any name already owned by a real entity or an

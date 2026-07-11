@@ -3561,11 +3561,23 @@ impl Default for QUERY_ON_CREATE_ECP_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
+#[cfg(target_arch = "x86")]
+pub const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 136;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_COMMON_BUFFER_END: u32 = 152;
+#[cfg(target_arch = "x86")]
+pub const QUERY_ON_CREATE_ECP_CONTEXT_EA_INFO_END: u32 = 124;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_EA_INFO_END: u32 = 136;
 pub const QUERY_ON_CREATE_ECP_CONTEXT_LX_INFO_END: u32 = 116;
+#[cfg(target_arch = "x86")]
+pub const QUERY_ON_CREATE_ECP_CONTEXT_SECURITY_INFO_END: u32 = 176;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_SECURITY_INFO_END: u32 = 200;
 pub const QUERY_ON_CREATE_ECP_CONTEXT_STAT_INFO_END: u32 = 88;
+#[cfg(target_arch = "x86")]
+pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 160;
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 176;
 #[repr(C)]
 #[cfg(feature = "winnt")]

@@ -54,7 +54,7 @@ mod Windows {
         const ADAPTER_INFO_HYBRID_PASSTHROUGH: u32 = 4;
         const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1;
         extern fn ALLOCATE_FUNCTION(PoolType: POOL_TYPE, NumberOfBytes: usize, Tag: u32) -> *mut void;
-        extern fn ALLOCATE_FUNCTION_EX(PoolType: POOL_TYPE, NumberOfBytes: usize, Tag: u32, #[r#in] #[out] Lookaside: *mut LOOKASIDE_LIST_EX) -> *mut void;
+        extern fn ALLOCATE_FUNCTION_EX(PoolType: POOL_TYPE, NumberOfBytes: usize, Tag: u32, #[in] #[out] Lookaside: *mut LOOKASIDE_LIST_EX) -> *mut void;
         const ALLOC_DATA_PRAGMA: u32 = 1;
         const ALLOC_PRAGMA: u32 = 1;
         #[repr(i32)]
@@ -63,6 +63,46 @@ mod Windows {
             NEC98x86 = 1,
             EndAlternatives = 2,
         }
+        #[arch(X86)]
+        union AMD_L1_CACHE_INFO {
+            Ulong: u32,
+            Anonymous: struct {
+                LineSize: u8,
+                LinesPerTag: u8,
+                Associativity: u8,
+                Size: u8,
+            },
+        }
+        #[arch(X86)]
+        union AMD_L2_CACHE_INFO {
+            Ulong: u32,
+            Anonymous: struct {
+                LineSize: u8,
+                _bitfield: u8,
+                Size: u16,
+            },
+        }
+        #[arch(X86)]
+        union AMD_L3_CACHE_INFO {
+            Ulong: u32,
+            Anonymous: struct {
+                LineSize: u8,
+                _bitfield1: u8,
+                _bitfield2: u16,
+            },
+        }
+        #[arch(Arm64)]
+        union ARM64_IDCODE {
+            Ulong: u64,
+            Anonymous: struct {
+                _bitfield: u64,
+            },
+            Arm: struct {
+                _bitfield: u64,
+            },
+        }
+        #[arch(Arm64)]
+        const ARM64_PCR_RESERVED_MASK: u32 = 4095;
         const ATS_DEVICE_SVM_OPTOUT: u32 = 1;
         struct BOOTDISK_INFORMATION {
             BootPartitionOffset: i64,
@@ -84,8 +124,10 @@ mod Windows {
             NumberEntries: u32,
             Entries: [LOADER_PARTITION_INFORMATION_EX; 1],
         }
+        #[arch(X86 | X64)]
         extern fn BOUND_CALLBACK() -> BOUND_CALLBACK_STATUS;
         #[repr(i32)]
+        #[arch(X86 | X64)]
         enum BOUND_CALLBACK_STATUS {
             BoundExceptionContinueSearch = 0,
             BoundExceptionHandled = 1,
@@ -210,7 +252,15 @@ mod Windows {
             ClfsMgmtPolicyInvalid = 10,
         }
         const CLFS_MGMT_POLICY_VERSION: u32 = 1;
+        #[arch(X86)]
+        const CLOCK1_LEVEL: u32 = 28;
+        #[arch(X86)]
+        const CLOCK2_LEVEL: u32 = 28;
+        #[arch(X64 | Arm64)]
         const CLOCK_LEVEL: u32 = 13;
+        #[arch(X86)]
+        const CLOCK_LEVEL: u32 = 28;
+        #[arch(X86 | X64)]
         const CMCI_LEVEL: u32 = 5;
         struct CM_COMPONENT_INFORMATION {
             Flags: DEVICE_FLAGS,
@@ -328,6 +378,7 @@ mod Windows {
             VerticalSync: u16,
             VerticalSyncHigh: u16,
         }
+        #[arch(X64 | Arm64)]
         struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
             Type: u8,
             ShareDisposition: u8,
@@ -355,6 +406,92 @@ mod Windows {
                             Affinity: KAFFINITY,
                         },
                         Translated: #[packed(4)] struct {
+                            Level: u32,
+                            Vector: u32,
+                            Affinity: KAFFINITY,
+                        },
+                    },
+                },
+                Memory: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length: u32,
+                },
+                Dma: struct {
+                    Channel: u32,
+                    Port: u32,
+                    Reserved1: u32,
+                },
+                DmaV3: struct {
+                    Channel: u32,
+                    RequestLine: u32,
+                    TransferWidth: u8,
+                    Reserved1: u8,
+                    Reserved2: u8,
+                    Reserved3: u8,
+                },
+                DevicePrivate: struct {
+                    Data: [u32; 3],
+                },
+                BusNumber: struct {
+                    Start: u32,
+                    Length: u32,
+                    Reserved: u32,
+                },
+                DeviceSpecificData: struct {
+                    DataSize: u32,
+                    Reserved1: u32,
+                    Reserved2: u32,
+                },
+                Memory40: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length40: u32,
+                },
+                Memory48: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length48: u32,
+                },
+                Memory64: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length64: u32,
+                },
+                Connection: struct {
+                    Class: u8,
+                    Type: u8,
+                    Reserved1: u8,
+                    Reserved2: u8,
+                    IdLowPart: u32,
+                    IdHighPart: u32,
+                },
+            },
+        }
+        #[arch(X86)]
+        struct CM_PARTIAL_RESOURCE_DESCRIPTOR {
+            Type: u8,
+            ShareDisposition: u8,
+            Flags: u16,
+            u: union {
+                Generic: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length: u32,
+                },
+                Port: #[packed(4)] struct {
+                    Start: PHYSICAL_ADDRESS,
+                    Length: u32,
+                },
+                Interrupt: struct {
+                    Level: u32,
+                    Vector: u32,
+                    Affinity: KAFFINITY,
+                },
+                MessageInterrupt: struct {
+                    Anonymous: union {
+                        Raw: struct {
+                            Reserved: u16,
+                            MessageCount: u16,
+                            Vector: u32,
+                            Affinity: KAFFINITY,
+                        },
+                        Translated: struct {
                             Level: u32,
                             Vector: u32,
                             Affinity: KAFFINITY,
@@ -645,7 +782,7 @@ mod Windows {
             D2Latency: u32,
             D3Latency: u32,
         }
-        extern fn DEVICE_CHANGE_COMPLETE_CALLBACK(#[r#in] #[out] #[opt] Context: *mut void);
+        extern fn DEVICE_CHANGE_COMPLETE_CALLBACK(#[in] #[out] #[opt] Context: *mut void);
         struct DEVICE_DESCRIPTION {
             Version: u32,
             Master: BOOLEAN,
@@ -699,6 +836,39 @@ mod Windows {
         }
         const DEVICE_INTERFACE_INCLUDE_NONACTIVE: u32 = 1;
         #[align(16)]
+        #[arch(X64 | Arm64)]
+        struct DEVICE_OBJECT {
+            Type: CSHORT,
+            Size: u16,
+            ReferenceCount: i32,
+            DriverObject: *mut DRIVER_OBJECT,
+            NextDevice: *mut DEVICE_OBJECT,
+            AttachedDevice: *mut DEVICE_OBJECT,
+            CurrentIrp: *mut IRP,
+            Timer: PIO_TIMER,
+            Flags: u32,
+            Characteristics: u32,
+            Vpb: PVPB,
+            DeviceExtension: *mut void,
+            DeviceType: u32,
+            StackSize: CCHAR,
+            Queue: union {
+                ListEntry: LIST_ENTRY,
+                Wcb: WAIT_CONTEXT_BLOCK,
+            },
+            AlignmentRequirement: u32,
+            DeviceQueue: KDEVICE_QUEUE,
+            Dpc: KDPC,
+            ActiveThreadCount: u32,
+            SecurityDescriptor: PSECURITY_DESCRIPTOR,
+            DeviceLock: KEVENT,
+            SectorSize: u16,
+            Spare1: u16,
+            DeviceObjectExtension: *mut DEVOBJ_EXTENSION,
+            Reserved: *mut void,
+        }
+        #[align(8)]
+        #[arch(X86)]
         struct DEVICE_OBJECT {
             Type: CSHORT,
             Size: u16,
@@ -776,7 +946,7 @@ mod Windows {
             RemovalPolicyExpectOrderlyRemoval = 2,
             RemovalPolicyExpectSurpriseRemoval = 3,
         }
-        extern fn DEVICE_RESET_COMPLETION(Status: NTSTATUS, #[r#in] #[out] #[opt] Context: *mut void);
+        extern fn DEVICE_RESET_COMPLETION(Status: NTSTATUS, #[in] #[out] #[opt] Context: *mut void);
         extern fn DEVICE_RESET_HANDLER(InterfaceContext: *const void, ResetType: DEVICE_RESET_TYPE, Flags: u32, #[opt] ResetParameters: *const void) -> NTSTATUS;
         struct DEVICE_RESET_INTERFACE_STANDARD {
             Size: u16,
@@ -863,6 +1033,7 @@ mod Windows {
         }
         const DIRECTORY_QUERY: u32 = 1;
         const DIRECTORY_TRAVERSE: u32 = 2;
+        #[arch(X64 | Arm64)]
         struct DISPATCHER_HEADER {
             Anonymous: union {
                 Anonymous: union {
@@ -927,6 +1098,80 @@ mod Windows {
                         Anonymous: struct {
                             _bitfield: BOOLEAN,
                         },
+                    },
+                },
+                Anonymous7: struct {
+                    MutantType: u8,
+                    MutantSize: u8,
+                    DpcActive: BOOLEAN,
+                    MutantReserved: u8,
+                },
+            },
+            SignalState: i32,
+            WaitListHead: LIST_ENTRY,
+        }
+        #[arch(X86)]
+        struct DISPATCHER_HEADER {
+            Anonymous: union {
+                Anonymous: union {
+                    Lock: i32,
+                    LockNV: i32,
+                },
+                Anonymous2: struct {
+                    Type: u8,
+                    Signalling: u8,
+                    Size: u8,
+                    Reserved1: u8,
+                },
+                Anonymous3: struct {
+                    TimerType: u8,
+                    Anonymous: union {
+                        TimerControlFlags: u8,
+                        Anonymous: struct {
+                            _bitfield: u8,
+                        },
+                    },
+                    Hand: u8,
+                    Anonymous2: union {
+                        TimerMiscFlags: u8,
+                        Anonymous: struct {
+                            _bitfield: u8,
+                        },
+                    },
+                },
+                Anonymous4: struct {
+                    Timer2Type: u8,
+                    Anonymous: union {
+                        Timer2Flags: u8,
+                        Anonymous: struct {
+                            _bitfield: u8,
+                        },
+                    },
+                    Timer2ComponentId: u8,
+                    Timer2RelativeId: u8,
+                },
+                Anonymous5: struct {
+                    QueueType: u8,
+                    Anonymous: union {
+                        QueueControlFlags: u8,
+                        Anonymous: struct {
+                            _bitfield: u8,
+                        },
+                    },
+                    QueueSize: u8,
+                    QueueReserved: u8,
+                },
+                Anonymous6: struct {
+                    ThreadType: u8,
+                    ThreadReserved: u8,
+                    Anonymous: union {
+                        ThreadControlFlags: u8,
+                        Anonymous: struct {
+                            _bitfield: u8,
+                        },
+                    },
+                    Anonymous2: union {
+                        DebugActive: u8,
                     },
                 },
                 Anonymous7: struct {
@@ -1186,7 +1431,10 @@ mod Windows {
             MaximumDmaSpeed = 5,
         }
         const DMA_SYNCHRONOUS_CALLBACK: u32 = 1;
+        #[arch(X64 | Arm64)]
         const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 128;
+        #[arch(X86)]
+        const DMA_TRANSFER_CONTEXT_SIZE_V1: u32 = 64;
         const DMA_TRANSFER_CONTEXT_VERSION1: u32 = 1;
         struct DMA_TRANSFER_INFO {
             Version: u32,
@@ -1271,16 +1519,16 @@ mod Windows {
         const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_SIGNATURE: u32 = 2931740382;
         const DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK_VER_1_SIZE: u32 = 16;
         extern fn DRIVER_ADD_DEVICE(DriverObject: *const DRIVER_OBJECT, PhysicalDeviceObject: *const DEVICE_OBJECT) -> NTSTATUS;
-        extern fn DRIVER_CANCEL(#[r#in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP);
-        extern fn DRIVER_CONTROL(DeviceObject: *const DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP, MapRegisterBase: *const void, Context: *const void) -> IO_ALLOCATION_ACTION;
+        extern fn DRIVER_CANCEL(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP);
+        extern fn DRIVER_CONTROL(DeviceObject: *const DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP, MapRegisterBase: *const void, Context: *const void) -> IO_ALLOCATION_ACTION;
         #[repr(i32)]
         enum DRIVER_DIRECTORY_TYPE {
             DriverDirectoryImage = 0,
             DriverDirectoryData = 1,
             DriverDirectorySharedData = 2,
         }
-        extern fn DRIVER_DISPATCH(DeviceObject: *const DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP) -> NTSTATUS;
-        extern fn DRIVER_DISPATCH_PAGED(DeviceObject: *const DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP) -> NTSTATUS;
+        extern fn DRIVER_DISPATCH(DeviceObject: *const DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP) -> NTSTATUS;
+        extern fn DRIVER_DISPATCH_PAGED(DeviceObject: *const DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP) -> NTSTATUS;
         type DRIVER_DISPATCH_RAISED = DRIVER_DISPATCH;
         struct DRIVER_EXTENSION {
             DriverObject: *mut DRIVER_OBJECT,
@@ -1290,7 +1538,7 @@ mod Windows {
         }
         extern fn DRIVER_INITIALIZE(DriverObject: *const DRIVER_OBJECT, RegistryPath: *const UNICODE_STRING) -> NTSTATUS;
         extern fn DRIVER_LIST_CONTROL(DeviceObject: *const DEVICE_OBJECT, Irp: *const IRP, ScatterGather: *const SCATTER_GATHER_LIST, Context: *const void);
-        extern fn DRIVER_NOTIFICATION_CALLBACK_ROUTINE(NotificationStructure: *const void, #[r#in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        extern fn DRIVER_NOTIFICATION_CALLBACK_ROUTINE(NotificationStructure: *const void, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
         struct DRIVER_OBJECT {
             Type: CSHORT,
             Size: CSHORT,
@@ -1369,8 +1617,9 @@ mod Windows {
             DrvRtPoolNxOptIn = 1,
             LastDrvRtFlag = 2,
         }
-        extern fn DRIVER_STARTIO(#[r#in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP);
+        extern fn DRIVER_STARTIO(#[in] #[out] DeviceObject: *mut DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP);
         extern fn DRIVER_UNLOAD(DriverObject: *const DRIVER_OBJECT);
+        #[arch(X64 | Arm64)]
         const DRS_LEVEL: u32 = 14;
         const DRVO_BUILTIN_DRIVER: u32 = 4;
         const DRVO_LEGACY_DRIVER: u32 = 2;
@@ -1383,9 +1632,15 @@ mod Windows {
         #[library("ntdll.dll")]
         extern "C" fn DbgPrintReturnControlC(Format: PCSTR, ...) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn DbgQueryDebugFilterState(ComponentId: u32, Level: u32) -> NTSTATUS;
+        extern fn DbgQueryDebugFilterState(ComponentId: u32, Level: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn DbgSetDebugFilterState(ComponentId: u32, Level: u32, State: BOOLEAN) -> NTSTATUS;
+        extern fn DbgSetDebugFilterState(ComponentId: u32, Level: u32, State: BOOLEAN) -> NTSTATUS;
+        #[arch(X86)]
+        const EFLAG_SELECT: u32 = 49152;
+        #[arch(X86)]
+        const EFLAG_SIGN: u32 = 32768;
+        #[arch(X86)]
+        const EFLAG_ZERO: u32 = 16384;
         struct EISA_DMA_CONFIGURATION {
             ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
             ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
@@ -1433,7 +1688,8 @@ mod Windows {
             _bitfield: u8,
         }
         const EISA_SYSTEM_MEMORY: u32 = 0;
-        extern fn ENABLE_VIRTUALIZATION(#[r#in] #[out] Context: *mut void, NumVFs: u16, EnableVfMigration: BOOLEAN, EnableMigrationInterrupt: BOOLEAN, EnableVirtualization: BOOLEAN) -> NTSTATUS;
+        extern fn ENABLE_VIRTUALIZATION(#[in] #[out] Context: *mut void, NumVFs: u16, EnableVfMigration: BOOLEAN, EnableMigrationInterrupt: BOOLEAN, EnableVirtualization: BOOLEAN) -> NTSTATUS;
+        #[arch(X64 | Arm64)]
         struct ERESOURCE {
             SystemResourcesList: LIST_ENTRY,
             OwnerTable: POWNER_ENTRY,
@@ -1456,11 +1712,34 @@ mod Windows {
             },
             SpinLock: KSPIN_LOCK,
         }
+        #[arch(X86)]
+        struct ERESOURCE {
+            SystemResourcesList: LIST_ENTRY,
+            OwnerTable: POWNER_ENTRY,
+            ActiveCount: i16,
+            Flag: u8,
+            WaiterPriority: u8,
+            SharedWaiters: *mut void,
+            ExclusiveWaiters: *mut void,
+            OwnerEntry: OWNER_ENTRY,
+            ActiveEntries: u32,
+            ContentionCount: u32,
+            NumberOfSharedWaiters: u32,
+            NumberOfExclusiveWaiters: u32,
+            Anonymous: union {
+                Address: *mut void,
+                CreatorBackTraceIndex: usize,
+            },
+            SpinLock: KSPIN_LOCK,
+        }
         type ERESOURCE_THREAD = usize;
         const ERROR_LOG_LIMIT_SIZE: u32 = 240;
+        #[arch(X64 | Arm64)]
         const ERROR_LOG_MAXIMUM_SIZE: u32 = 240;
+        #[arch(X86)]
+        const ERROR_LOG_MAXIMUM_SIZE: u32 = 152;
         const ERROR_LOG_MESSAGE_LIMIT_SIZE: u32 = 344;
-        extern fn ETWENABLECALLBACK(SourceId: *const GUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[r#in] #[out] #[opt] CallbackContext: *mut void);
+        extern fn ETWENABLECALLBACK(SourceId: *const GUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
         struct ETW_TRACE_SESSION_SETTINGS {
             Version: u32,
             BufferSize: u32,
@@ -1502,11 +1781,19 @@ mod Windows {
             EaLength: u32,
             DualOplockKeys: PEXTENDED_CREATE_DUAL_OPLOCK_KEYS,
         }
+        #[arch(X64 | Arm64)]
         struct EXTENDED_CREATE_INFORMATION_32 {
             ExtendedCreateFlags: i64,
             EaBuffer: *mut void,
             EaLength: u32,
             DualOplockKeys: *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS,
+        }
+        #[arch(X86)]
+        struct EXTENDED_CREATE_INFORMATION_32 {
+            ExtendedCreateFlags: i64,
+            EaBuffer: *mut void,
+            EaLength: u32,
+            DualOplockKeys: PEXTENDED_CREATE_DUAL_OPLOCK_KEYS,
         }
         extern fn EXT_CALLBACK(Timer: *const _EX_TIMER, #[opt] Context: *const void);
         extern fn EXT_DELETE_CALLBACK(#[opt] Context: *const void);
@@ -1609,7 +1896,7 @@ mod Windows {
         extern fn FAST_IO_PREPARE_MDL_WRITE(FileObject: *const FILE_OBJECT, FileOffset: *const LARGE_INTEGER, Length: u32, LockKey: u32, MdlChain: *mut PMDL, IoStatus: *mut IO_STATUS_BLOCK, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_QUERY_BASIC_INFO(FileObject: *const FILE_OBJECT, Wait: BOOLEAN, Buffer: *mut FILE_BASIC_INFORMATION, IoStatus: *mut IO_STATUS_BLOCK, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_QUERY_NETWORK_OPEN_INFO(FileObject: *const FILE_OBJECT, Wait: BOOLEAN, Buffer: *mut FILE_NETWORK_OPEN_INFORMATION, IoStatus: *mut IO_STATUS_BLOCK, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
-        extern fn FAST_IO_QUERY_OPEN(#[r#in] #[out] Irp: *mut IRP, NetworkInformation: *mut FILE_NETWORK_OPEN_INFORMATION, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
+        extern fn FAST_IO_QUERY_OPEN(#[in] #[out] Irp: *mut IRP, NetworkInformation: *mut FILE_NETWORK_OPEN_INFORMATION, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_QUERY_STANDARD_INFO(FileObject: *const FILE_OBJECT, Wait: BOOLEAN, Buffer: *mut FILE_STANDARD_INFORMATION, IoStatus: *mut IO_STATUS_BLOCK, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_READ(FileObject: *const FILE_OBJECT, FileOffset: *const LARGE_INTEGER, Length: u32, Wait: BOOLEAN, LockKey: u32, Buffer: *mut void, IoStatus: *mut IO_STATUS_BLOCK, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
         extern fn FAST_IO_READ_COMPRESSED(FileObject: *const FILE_OBJECT, FileOffset: *const LARGE_INTEGER, Length: u32, LockKey: u32, Buffer: *mut void, MdlChain: *mut PMDL, IoStatus: *mut IO_STATUS_BLOCK, #[size_param(8)] CompressedDataInfo: *mut COMPRESSED_DATA_INFO, CompressedDataInfoLength: u32, DeviceObject: *const DEVICE_OBJECT) -> BOOLEAN;
@@ -1851,7 +2138,10 @@ mod Windows {
         const FILE_WRITE_ONCE_MEDIA: u32 = 8;
         const FILE_WRITE_TO_END_OF_FILE: u32 = 4294967295;
         const FLAG_OWNER_POINTER_IS_THREAD: u32 = 1;
+        #[arch(X64)]
         const FLUSH_MULTIPLE_MAXIMUM: u32 = 19;
+        #[arch(X86 | Arm64)]
+        const FLUSH_MULTIPLE_MAXIMUM: u32 = 32;
         const FM_LOCK_BIT: u32 = 1;
         const FM_LOCK_BIT_V: u32 = 0;
         const FO_ALERTABLE_IO: u32 = 4;
@@ -1903,7 +2193,7 @@ mod Windows {
         }
         extern fn FPGA_CONTROL_LINK(#[opt] Context: *const void, Enable: BOOLEAN) -> NTSTATUS;
         extern fn FREE_FUNCTION(Buffer: *const void);
-        extern fn FREE_FUNCTION_EX(Buffer: *const void, #[r#in] #[out] Lookaside: *mut LOOKASIDE_LIST_EX);
+        extern fn FREE_FUNCTION_EX(Buffer: *const void, #[in] #[out] Lookaside: *mut LOOKASIDE_LIST_EX);
         #[repr(i32)]
         enum FS_INFORMATION_CLASS {
             FileFsVolumeInformation = 1,
@@ -1929,7 +2219,83 @@ mod Windows {
             CompletionContext: *mut void,
         }
         extern fn FWMI_NOTIFICATION_CALLBACK(Wnode: *mut void, Context: *mut void);
+        #[align(128)]
+        #[arch(Arm64)]
+        struct GENERAL_LOOKASIDE {
+            Anonymous: union {
+                ListHead: SLIST_HEADER,
+                SingleListHead: SINGLE_LIST_ENTRY,
+            },
+            Depth: u16,
+            MaximumDepth: u16,
+            TotalAllocates: u32,
+            Anonymous2: union {
+                AllocateMisses: u32,
+                AllocateHits: u32,
+            },
+            TotalFrees: u32,
+            Anonymous3: union {
+                FreeMisses: u32,
+                FreeHits: u32,
+            },
+            Type: POOL_TYPE,
+            Tag: u32,
+            Size: u32,
+            Anonymous4: union {
+                AllocateEx: PALLOCATE_FUNCTION_EX,
+                Allocate: PALLOCATE_FUNCTION,
+            },
+            Anonymous5: union {
+                FreeEx: PFREE_FUNCTION_EX,
+                Free: PFREE_FUNCTION,
+            },
+            ListEntry: LIST_ENTRY,
+            LastTotalAllocates: u32,
+            Anonymous6: union {
+                LastAllocateMisses: u32,
+                LastAllocateHits: u32,
+            },
+            Future: [u32; 2],
+        }
         #[align(64)]
+        #[arch(X64)]
+        struct GENERAL_LOOKASIDE {
+            Anonymous: union {
+                ListHead: SLIST_HEADER,
+                SingleListHead: SINGLE_LIST_ENTRY,
+            },
+            Depth: u16,
+            MaximumDepth: u16,
+            TotalAllocates: u32,
+            Anonymous2: union {
+                AllocateMisses: u32,
+                AllocateHits: u32,
+            },
+            TotalFrees: u32,
+            Anonymous3: union {
+                FreeMisses: u32,
+                FreeHits: u32,
+            },
+            Type: POOL_TYPE,
+            Tag: u32,
+            Size: u32,
+            Anonymous4: union {
+                AllocateEx: PALLOCATE_FUNCTION_EX,
+                Allocate: PALLOCATE_FUNCTION,
+            },
+            Anonymous5: union {
+                FreeEx: PFREE_FUNCTION_EX,
+                Free: PFREE_FUNCTION,
+            },
+            ListEntry: LIST_ENTRY,
+            LastTotalAllocates: u32,
+            Anonymous6: union {
+                LastAllocateMisses: u32,
+                LastAllocateHits: u32,
+            },
+            Future: [u32; 2],
+        }
+        #[arch(X86)]
         struct GENERAL_LOOKASIDE {
             Anonymous: union {
                 ListHead: SLIST_HEADER,
@@ -2005,16 +2371,16 @@ mod Windows {
         extern fn GET_D3COLD_CAPABILITY(#[opt] Context: *const void, D3ColdSupported: *mut BOOLEAN) -> NTSTATUS;
         extern fn GET_D3COLD_LAST_TRANSITION_STATUS(#[opt] Context: *const void, LastTransitionStatus: *mut D3COLD_LAST_TRANSITION_STATUS);
         extern fn GET_DEVICE_RESET_STATUS(InterfaceContext: *const void, IsResetting: *mut BOOLEAN, ResetTypeSelected: *mut DEVICE_BUS_SPECIFIC_RESET_TYPE, Flags: *mut DEVICE_RESET_STATUS_FLAGS) -> NTSTATUS;
-        extern fn GET_DMA_ADAPTER(#[r#in] #[out] #[opt] Context: *mut void, DeviceDescriptor: *const DEVICE_DESCRIPTION, NumberOfMapRegisters: *mut u32) -> *mut DMA_ADAPTER;
+        extern fn GET_DMA_ADAPTER(#[in] #[out] #[opt] Context: *mut void, DeviceDescriptor: *const DEVICE_DESCRIPTION, NumberOfMapRegisters: *mut u32) -> *mut DMA_ADAPTER;
         extern fn GET_DOE_PREVIOUS_RESPONSE(InterfaceContext: *const void, RequestId: i64, OutputArrayCount: u32, OutputWritten: *mut u32, #[len_param(2)] #[opt] OutputArray: *mut u32, DoeStatus: *mut NTSTATUS) -> NTSTATUS;
         extern fn GET_IDLE_WAKE_INFO(#[opt] Context: *const void, SystemPowerState: SYSTEM_POWER_STATE, DeepestWakeableDstate: *mut DEVICE_WAKE_DEPTH) -> NTSTATUS;
         extern fn GET_SDEV_IDENTIFIER(InterfaceContext: *const void) -> u64;
-        extern fn GET_SET_DEVICE_DATA(#[r#in] #[out] #[opt] Context: *mut void, DataType: u32, #[size_param(4)] #[r#in] #[out] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
+        extern fn GET_SET_DEVICE_DATA(#[in] #[out] #[opt] Context: *mut void, DataType: u32, #[size_param(4)] #[in] #[out] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
         extern fn GET_UPDATED_BUS_RESOURCE(#[opt] Context: *const void, UpdatedResourceList: *mut PCM_RESOURCE_LIST, UpdatedTranslatedResourceList: *mut PCM_RESOURCE_LIST) -> NTSTATUS;
-        extern fn GET_VIRTUAL_DEVICE_DATA(#[r#in] #[out] Context: *mut void, VirtualFunction: u16, #[size_param(4)] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
-        extern fn GET_VIRTUAL_DEVICE_LOCATION(#[r#in] #[out] Context: *mut void, VirtualFunction: u16, SegmentNumber: *mut u16, BusNumber: *mut u8, FunctionNumber: *mut u8) -> NTSTATUS;
-        extern fn GET_VIRTUAL_DEVICE_RESOURCES(#[r#in] #[out] Context: *mut void, CapturedBusNumbers: *mut u8);
-        extern fn GET_VIRTUAL_FUNCTION_PROBED_BARS(#[r#in] #[out] Context: *mut void, #[len_const(6)] BaseRegisterValues: *mut u32) -> NTSTATUS;
+        extern fn GET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: *mut void, VirtualFunction: u16, #[size_param(4)] Buffer: *mut void, Offset: u32, Length: u32) -> u32;
+        extern fn GET_VIRTUAL_DEVICE_LOCATION(#[in] #[out] Context: *mut void, VirtualFunction: u16, SegmentNumber: *mut u16, BusNumber: *mut u8, FunctionNumber: *mut u8) -> NTSTATUS;
+        extern fn GET_VIRTUAL_DEVICE_RESOURCES(#[in] #[out] Context: *mut void, CapturedBusNumbers: *mut u8);
+        extern fn GET_VIRTUAL_FUNCTION_PROBED_BARS(#[in] #[out] Context: *mut void, #[len_const(6)] BaseRegisterValues: *mut u32) -> NTSTATUS;
         const HAL_DMA_ADAPTER_VERSION_1: u32 = 1;
         const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0;
         const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2;
@@ -2036,6 +2402,30 @@ mod Windows {
         }
         struct INPUT_MAPPING_ELEMENT {
             InputMappingId: u32,
+        }
+        #[arch(X86)]
+        union INTEL_CACHE_INFO_EAX {
+            Ulong: u32,
+            Anonymous: struct {
+                _bitfield: INTEL_CACHE_TYPE,
+            },
+        }
+        #[arch(X86)]
+        union INTEL_CACHE_INFO_EBX {
+            Ulong: u32,
+            Anonymous: struct {
+                _bitfield: u32,
+            },
+        }
+        #[repr(i32)]
+        #[arch(X86)]
+        enum INTEL_CACHE_TYPE {
+            IntelCacheNull = 0,
+            IntelCacheData = 1,
+            IntelCacheInstruction = 2,
+            IntelCacheUnified = 3,
+            IntelCacheRam = 4,
+            IntelCacheTrace = 5,
         }
         struct INTERFACE {
             Size: u16,
@@ -2209,7 +2599,7 @@ mod Windows {
             MapPhysicalAddressTypePfn = 2,
             MapPhysicalAddressTypeMax = 3,
         }
-        extern fn IOMMU_MAP_RESERVED_LOGICAL_RANGE(#[r#in] #[out] LogicalAddressToken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN, Offset: usize, Permissions: u32, PhysicalAddressToMap: *const IOMMU_MAP_PHYSICAL_ADDRESS, MappedSegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> NTSTATUS;
+        extern fn IOMMU_MAP_RESERVED_LOGICAL_RANGE(#[in] #[out] LogicalAddressToken: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN, Offset: usize, Permissions: u32, PhysicalAddressToMap: *const IOMMU_MAP_PHYSICAL_ADDRESS, MappedSegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> NTSTATUS;
         #[repr(i32)]
         enum IOMMU_PASID_CONFIGURATION_TYPE {
             PasidConfigTypeDefaultPasidOnly = 0,
@@ -2218,7 +2608,7 @@ mod Windows {
         }
         extern fn IOMMU_PASID_DEVICE_CREATE(DmaDevice: *const IOMMU_DMA_DEVICE, PasidDeviceOut: *mut PIOMMU_DMA_PASID_DEVICE, AsidOut: *mut u32) -> NTSTATUS;
         extern fn IOMMU_PASID_DEVICE_DELETE(PasidDevice: *const IOMMU_DMA_PASID_DEVICE) -> NTSTATUS;
-        extern fn IOMMU_QUERY_INPUT_MAPPINGS(PhysicalDeviceObject: *const DEVICE_OBJECT, #[r#in] #[out] Buffer: *mut INPUT_MAPPING_ELEMENT, BufferLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn IOMMU_QUERY_INPUT_MAPPINGS(PhysicalDeviceObject: *const DEVICE_OBJECT, #[in] #[out] Buffer: *mut INPUT_MAPPING_ELEMENT, BufferLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         extern fn IOMMU_REGISTER_INTERFACE_STATE_CHANGE_CALLBACK(StateChangeCallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, #[opt] Context: *const void, DmaDevice: *const IOMMU_DMA_DEVICE, StateFields: *const IOMMU_INTERFACE_STATE_CHANGE_FIELDS) -> NTSTATUS;
         extern fn IOMMU_RESERVE_LOGICAL_ADDRESS_RANGE(Domain: *const IOMMU_DMA_DOMAIN, Size: usize, #[opt] ExplicitLogicalAddress: *const u64, #[opt] MinLogicalAddress: *const u64, #[opt] MaxLogicalAddress: *const u64, LogicalAddressToken: *mut PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN) -> NTSTATUS;
         extern fn IOMMU_SET_DEVICE_FAULT_REPORTING(PhysicalDeviceObject: *const DEVICE_OBJECT, InputMappingIdBase: u32, Enable: BOOLEAN, #[opt] FaultConfig: *const DEVICE_FAULT_CONFIGURATION) -> NTSTATUS;
@@ -2226,7 +2616,7 @@ mod Windows {
         extern fn IOMMU_UNMAP_IDENTITY_RANGE(Domain: *const IOMMU_DMA_DOMAIN, Mdl: *const MDL) -> NTSTATUS;
         extern fn IOMMU_UNMAP_IDENTITY_RANGE_EX(Domain: *const IOMMU_DMA_DOMAIN, MappedPhysicalAddress: *const IOMMU_MAP_PHYSICAL_ADDRESS) -> NTSTATUS;
         extern fn IOMMU_UNMAP_LOGICAL_RANGE(Domain: *const IOMMU_DMA_DOMAIN, LogicalAddress: u64, NumberOfPages: u64) -> NTSTATUS;
-        extern fn IOMMU_UNMAP_RESERVED_LOGICAL_RANGE(#[r#in] #[out] MappedSegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> NTSTATUS;
+        extern fn IOMMU_UNMAP_RESERVED_LOGICAL_RANGE(#[in] #[out] MappedSegment: *mut IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT) -> NTSTATUS;
         extern fn IOMMU_UNREGISTER_INTERFACE_STATE_CHANGE_CALLBACK(StateChangeCallback: PIOMMU_INTERFACE_STATE_CHANGE_CALLBACK, DmaDevice: *const IOMMU_DMA_DEVICE) -> NTSTATUS;
         #[repr(i32)]
         enum IO_ACCESS_MODE {
@@ -2364,7 +2754,7 @@ mod Windows {
             },
         }
         const IO_DISK_INCREMENT: u32 = 1;
-        extern fn IO_DPC_ROUTINE(Dpc: *const KDPC, DeviceObject: *const DEVICE_OBJECT, #[r#in] #[out] Irp: *mut IRP, #[opt] Context: *const void);
+        extern fn IO_DPC_ROUTINE(Dpc: *const KDPC, DeviceObject: *const DEVICE_OBJECT, #[in] #[out] Irp: *mut IRP, #[opt] Context: *const void);
         struct IO_ERROR_LOG_MESSAGE {
             Type: u16,
             Size: u16,
@@ -2373,7 +2763,10 @@ mod Windows {
             DriverNameOffset: u32,
             EntryData: IO_ERROR_LOG_PACKET,
         }
+        #[arch(X64 | Arm64)]
         const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 344;
+        #[arch(X86)]
+        const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 256;
         struct IO_ERROR_LOG_PACKET {
             MajorFunctionCode: u8,
             RetryCount: u8,
@@ -2638,6 +3031,7 @@ mod Windows {
         const IO_SHARE_ACCESS_NON_PRIMARY_STREAM: u32 = 128;
         const IO_SHARE_ACCESS_NO_WRITE_PERMISSION: u32 = 2147483648;
         const IO_SOUND_INCREMENT: u32 = 8;
+        #[arch(X64 | Arm64)]
         struct IO_STACK_LOCATION {
             MajorFunction: u8,
             MinorFunction: u8,
@@ -2846,11 +3240,227 @@ mod Windows {
             CompletionRoutine: PIO_COMPLETION_ROUTINE,
             Context: *mut void,
         }
+        #[arch(X86)]
+        struct IO_STACK_LOCATION {
+            MajorFunction: u8,
+            MinorFunction: u8,
+            Flags: u8,
+            Control: u8,
+            Parameters: union {
+                Create: struct {
+                    SecurityContext: PIO_SECURITY_CONTEXT,
+                    Options: u32,
+                    FileAttributes: u16,
+                    ShareAccess: u16,
+                    EaLength: u32,
+                },
+                CreatePipe: struct {
+                    SecurityContext: PIO_SECURITY_CONTEXT,
+                    Options: u32,
+                    Reserved: u16,
+                    ShareAccess: u16,
+                    Parameters: PNAMED_PIPE_CREATE_PARAMETERS,
+                },
+                CreateMailslot: struct {
+                    SecurityContext: PIO_SECURITY_CONTEXT,
+                    Options: u32,
+                    Reserved: u16,
+                    ShareAccess: u16,
+                    Parameters: PMAILSLOT_CREATE_PARAMETERS,
+                },
+                Read: #[packed(4)] struct {
+                    Length: u32,
+                    Key: u32,
+                    ByteOffset: LARGE_INTEGER,
+                },
+                Write: #[packed(4)] struct {
+                    Length: u32,
+                    Key: u32,
+                    ByteOffset: LARGE_INTEGER,
+                },
+                QueryDirectory: struct {
+                    Length: u32,
+                    FileName: PUNICODE_STRING,
+                    FileInformationClass: FILE_INFORMATION_CLASS,
+                    FileIndex: u32,
+                },
+                NotifyDirectory: struct {
+                    Length: u32,
+                    CompletionFilter: u32,
+                },
+                NotifyDirectoryEx: struct {
+                    Length: u32,
+                    CompletionFilter: u32,
+                    DirectoryNotifyInformationClass: DIRECTORY_NOTIFY_INFORMATION_CLASS,
+                },
+                QueryFile: struct {
+                    Length: u32,
+                    FileInformationClass: FILE_INFORMATION_CLASS,
+                },
+                SetFile: struct {
+                    Length: u32,
+                    FileInformationClass: FILE_INFORMATION_CLASS,
+                    FileObject: PFILE_OBJECT,
+                    Anonymous: union {
+                        Anonymous: struct {
+                            ReplaceIfExists: BOOLEAN,
+                            AdvanceOnly: BOOLEAN,
+                        },
+                        ClusterCount: u32,
+                        DeleteHandle: HANDLE,
+                    },
+                },
+                QueryEa: struct {
+                    Length: u32,
+                    EaList: *mut void,
+                    EaListLength: u32,
+                    EaIndex: u32,
+                },
+                SetEa: struct {
+                    Length: u32,
+                },
+                QueryVolume: struct {
+                    Length: u32,
+                    FsInformationClass: FS_INFORMATION_CLASS,
+                },
+                SetVolume: struct {
+                    Length: u32,
+                    FsInformationClass: FS_INFORMATION_CLASS,
+                },
+                FileSystemControl: struct {
+                    OutputBufferLength: u32,
+                    InputBufferLength: u32,
+                    FsControlCode: u32,
+                    Type3InputBuffer: *mut void,
+                },
+                LockControl: #[packed(4)] struct {
+                    Length: PLARGE_INTEGER,
+                    Key: u32,
+                    ByteOffset: LARGE_INTEGER,
+                },
+                DeviceIoControl: struct {
+                    OutputBufferLength: u32,
+                    InputBufferLength: u32,
+                    IoControlCode: u32,
+                    Type3InputBuffer: *mut void,
+                },
+                QuerySecurity: struct {
+                    SecurityInformation: SECURITY_INFORMATION,
+                    Length: u32,
+                },
+                SetSecurity: struct {
+                    SecurityInformation: SECURITY_INFORMATION,
+                    SecurityDescriptor: PSECURITY_DESCRIPTOR,
+                },
+                MountVolume: struct {
+                    Vpb: PVPB,
+                    DeviceObject: PDEVICE_OBJECT,
+                    OutputBufferLength: u32,
+                },
+                VerifyVolume: struct {
+                    Vpb: PVPB,
+                    DeviceObject: PDEVICE_OBJECT,
+                },
+                Scsi: struct {
+                    Srb: *mut _SCSI_REQUEST_BLOCK,
+                },
+                QueryQuota: struct {
+                    Length: u32,
+                    StartSid: PSID,
+                    SidList: PFILE_GET_QUOTA_INFORMATION,
+                    SidListLength: u32,
+                },
+                SetQuota: struct {
+                    Length: u32,
+                },
+                QueryDeviceRelations: struct {
+                    Type: DEVICE_RELATION_TYPE,
+                },
+                QueryInterface: struct {
+                    InterfaceType: *const GUID,
+                    Size: u16,
+                    Version: u16,
+                    Interface: PINTERFACE,
+                    InterfaceSpecificData: *mut void,
+                },
+                DeviceCapabilities: struct {
+                    Capabilities: PDEVICE_CAPABILITIES,
+                },
+                FilterResourceRequirements: struct {
+                    IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
+                },
+                ReadWriteConfig: struct {
+                    WhichSpace: u32,
+                    Buffer: *mut void,
+                    Offset: u32,
+                    Length: u32,
+                },
+                SetLock: struct {
+                    Lock: BOOLEAN,
+                },
+                QueryId: struct {
+                    IdType: BUS_QUERY_ID_TYPE,
+                },
+                QueryDeviceText: struct {
+                    DeviceTextType: DEVICE_TEXT_TYPE,
+                    LocaleId: LCID,
+                },
+                UsageNotification: struct {
+                    InPath: BOOLEAN,
+                    Reserved: [BOOLEAN; 3],
+                    Type: DEVICE_USAGE_NOTIFICATION_TYPE,
+                },
+                WaitWake: struct {
+                    PowerState: SYSTEM_POWER_STATE,
+                },
+                PowerSequence: struct {
+                    PowerSequence: PPOWER_SEQUENCE,
+                },
+                Power: struct {
+                    Anonymous: union {
+                        SystemContext: u32,
+                        SystemPowerStateContext: SYSTEM_POWER_STATE_CONTEXT,
+                    },
+                    Type: POWER_STATE_TYPE,
+                    State: POWER_STATE,
+                    ShutdownType: POWER_ACTION,
+                },
+                StartDevice: struct {
+                    AllocatedResources: PCM_RESOURCE_LIST,
+                    AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
+                },
+                WMI: struct {
+                    ProviderId: usize,
+                    DataPath: *mut void,
+                    BufferSize: u32,
+                    Buffer: *mut void,
+                },
+                Others: struct {
+                    Argument1: *mut void,
+                    Argument2: *mut void,
+                    Argument3: *mut void,
+                    Argument4: *mut void,
+                },
+            },
+            DeviceObject: PDEVICE_OBJECT,
+            FileObject: PFILE_OBJECT,
+            CompletionRoutine: PIO_COMPLETION_ROUTINE,
+            Context: *mut void,
+        }
         struct IO_STATUS_BLOCK32 {
             Status: NTSTATUS,
             Information: u32,
         }
+        #[arch(X64 | Arm64)]
         type IO_STATUS_BLOCK64 = IO_STATUS_BLOCK;
+        #[arch(X86)]
+        struct IO_STATUS_BLOCK64 {
+            Anonymous: union {
+                Status: NTSTATUS,
+                Pointer: *mut void,
+            },
+            Information: u64,
+        }
         extern fn IO_TIMER_ROUTINE(DeviceObject: *const DEVICE_OBJECT, #[opt] Context: *const void);
         const IO_TYPE_ADAPTER: u32 = 1;
         const IO_TYPE_CONTROLLER: u32 = 2;
@@ -2872,8 +3482,76 @@ mod Windows {
         const IO_VIDEO_INCREMENT: u32 = 1;
         extern fn IO_WORKITEM_ROUTINE(DeviceObject: *const DEVICE_OBJECT, #[opt] Context: *const void);
         extern fn IO_WORKITEM_ROUTINE_EX(IoObject: *const void, #[opt] Context: *const void, IoWorkItem: *const _IO_WORKITEM);
+        #[arch(X64 | Arm64)]
         const IPI_LEVEL: u32 = 14;
+        #[arch(X86)]
+        const IPI_LEVEL: u32 = 29;
         #[align(16)]
+        #[arch(X64 | Arm64)]
+        struct IRP {
+            Type: CSHORT,
+            Size: u16,
+            MdlAddress: PMDL,
+            Flags: u32,
+            AssociatedIrp: union {
+                MasterIrp: *mut IRP,
+                IrpCount: i32,
+                SystemBuffer: *mut void,
+            },
+            ThreadListEntry: LIST_ENTRY,
+            IoStatus: IO_STATUS_BLOCK,
+            RequestorMode: KPROCESSOR_MODE,
+            PendingReturned: BOOLEAN,
+            StackCount: i8,
+            CurrentLocation: i8,
+            Cancel: BOOLEAN,
+            CancelIrql: KIRQL,
+            ApcEnvironment: CCHAR,
+            AllocationFlags: u8,
+            Anonymous: union {
+                UserIosb: PIO_STATUS_BLOCK,
+                IoRingContext: *mut void,
+            },
+            UserEvent: PKEVENT,
+            Overlay: union {
+                AsynchronousParameters: struct {
+                    Anonymous: union {
+                        UserApcRoutine: PIO_APC_ROUTINE,
+                        IssuingProcess: *mut void,
+                    },
+                    Anonymous2: union {
+                        UserApcContext: *mut void,
+                        IoRing: *mut _IORING_OBJECT,
+                    },
+                },
+                AllocationSize: LARGE_INTEGER,
+            },
+            CancelRoutine: PDRIVER_CANCEL,
+            UserBuffer: *mut void,
+            Tail: union {
+                Overlay: struct {
+                    Anonymous: union {
+                        DeviceQueueEntry: KDEVICE_QUEUE_ENTRY,
+                        Anonymous: struct {
+                            DriverContext: [*mut void; 4],
+                        },
+                    },
+                    Thread: PETHREAD,
+                    AuxiliaryBuffer: PCHAR,
+                    Anonymous2: struct {
+                        ListEntry: LIST_ENTRY,
+                        Anonymous: union {
+                            CurrentStackLocation: *mut IO_STACK_LOCATION,
+                            PacketType: u32,
+                        },
+                    },
+                    OriginalFileObject: PFILE_OBJECT,
+                },
+                Apc: KAPC,
+                CompletionKey: *mut void,
+            },
+        }
+        #[arch(X86)]
         struct IRP {
             Type: CSHORT,
             Size: u16,
@@ -3051,8 +3729,12 @@ mod Windows {
             IrqPriorityNormal = 2,
             IrqPriorityHigh = 3,
         }
+        #[arch(X64 | Arm64)]
         const IsNEC_98: u32 = 0;
+        #[arch(X64 | Arm64)]
         const IsNotNEC_98: u32 = 1;
+        #[arch(X86)]
+        const KADDRESS_BASE: u32 = 0;
         struct KADDRESS_RANGE {
             Address: *mut void,
             Size: usize,
@@ -3077,11 +3759,20 @@ mod Windows {
             ApcMode: KPROCESSOR_MODE,
             Inserted: BOOLEAN,
         }
+        #[arch(X64 | Arm64)]
         const KAPC_OFFSET_TO_APCSTATEINDEX: u32 = 80;
+        #[arch(X86)]
+        const KAPC_OFFSET_TO_APCSTATEINDEX: u32 = 44;
         const KAPC_OFFSET_TO_SPARE_BYTE1: u32 = 3;
         const KAPC_OFFSET_TO_SPARE_LONG: u32 = 4;
+        #[arch(X64 | Arm64)]
         const KAPC_OFFSET_TO_SYSTEMARGUMENT1: u32 = 64;
+        #[arch(X86)]
+        const KAPC_OFFSET_TO_SYSTEMARGUMENT1: u32 = 36;
+        #[arch(X64 | Arm64)]
         const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 72;
+        #[arch(X86)]
+        const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 40;
         struct KBUGCHECK_ADD_PAGES {
             Context: *mut void,
             Flags: u32,
@@ -3142,7 +3833,7 @@ mod Windows {
             Reason: KBUGCHECK_CALLBACK_REASON,
             State: u8,
         }
-        extern fn KBUGCHECK_REASON_CALLBACK_ROUTINE(Reason: KBUGCHECK_CALLBACK_REASON, Record: *const KBUGCHECK_REASON_CALLBACK_RECORD, #[r#in] #[out] ReasonSpecificData: *mut void, ReasonSpecificDataLength: u32);
+        extern fn KBUGCHECK_REASON_CALLBACK_ROUTINE(Reason: KBUGCHECK_CALLBACK_REASON, Record: *const KBUGCHECK_REASON_CALLBACK_RECORD, #[in] #[out] ReasonSpecificData: *mut void, ReasonSpecificDataLength: u32);
         struct KBUGCHECK_REMOVE_PAGES {
             Context: *mut void,
             Flags: u32,
@@ -3195,6 +3886,7 @@ mod Windows {
         const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1;
         type KCRM_PROTOCOL_ID = GUID;
         extern fn KDEFERRED_ROUTINE(Dpc: *const KDPC, #[opt] DeferredContext: *const void, #[opt] SystemArgument1: *const void, #[opt] SystemArgument2: *const void);
+        #[arch(X64)]
         struct KDEVICE_QUEUE {
             Type: CSHORT,
             Size: CSHORT,
@@ -3206,6 +3898,14 @@ mod Windows {
                     _bitfield: i64,
                 },
             },
+        }
+        #[arch(X86 | Arm64)]
+        struct KDEVICE_QUEUE {
+            Type: CSHORT,
+            Size: CSHORT,
+            DeviceListHead: LIST_ENTRY,
+            Lock: KSPIN_LOCK,
+            Busy: BOOLEAN,
         }
         struct KDEVICE_QUEUE_ENTRY {
             DeviceListEntry: LIST_ENTRY,
@@ -3369,8 +4069,20 @@ mod Windows {
         struct KE_SRCU_LOCK {
             Placeholder: [usize; 2],
         }
+        #[arch(X64 | Arm64)]
         struct KFLOATING_SAVE {
             Dummy: u32,
+        }
+        #[arch(X86)]
+        struct KFLOATING_SAVE {
+            ControlWord: u32,
+            StatusWord: u32,
+            ErrorOffset: u32,
+            ErrorSelector: u32,
+            DataOffset: u32,
+            DataSelector: u32,
+            Spare0: u32,
+            Spare1: u32,
         }
         struct KGATE {
             Header: DISPATCHER_HEADER,
@@ -3450,7 +4162,30 @@ mod Windows {
             Next: *mut KSPIN_LOCK_QUEUE,
             Lock: PKSPIN_LOCK,
         }
+        #[arch(X64)]
         type KSPIN_LOCK_QUEUE_NUMBER = u64;
+        #[repr(i32)]
+        #[arch(X86 | Arm64)]
+        enum KSPIN_LOCK_QUEUE_NUMBER {
+            LockQueueUnusedSpare0 = 0,
+            LockQueueUnusedSpare1 = 1,
+            LockQueueUnusedSpare2 = 2,
+            LockQueueUnusedSpare3 = 3,
+            LockQueueVacbLock = 4,
+            LockQueueMasterLock = 5,
+            LockQueueNonPagedPoolLock = 6,
+            LockQueueIoCancelLock = 7,
+            LockQueueUnusedSpare8 = 8,
+            LockQueueIoVpbLock = 9,
+            LockQueueIoDatabaseLock = 10,
+            LockQueueIoCompletionLock = 11,
+            LockQueueNtfsStructLock = 12,
+            LockQueueAfdWorkQueueLock = 13,
+            LockQueueBcbLock = 14,
+            LockQueueUnusedSpare15 = 15,
+            LockQueueUnusedSpare16 = 16,
+            LockQueueMaximumLock = 17,
+        }
         extern fn KSTART_ROUTINE(StartContext: *const void);
         extern fn KSYNCHRONIZE_ROUTINE(#[opt] SynchronizeContext: *const void) -> BOOLEAN;
         struct KSYSTEM_TIME {
@@ -3459,6 +4194,7 @@ mod Windows {
             High2Time: i32,
         }
         type KT2_SET_PARAMETERS = EXT_SET_PARAMETERS;
+        #[arch(X64 | Arm64)]
         struct KTIMER {
             Header: DISPATCHER_HEADER,
             DueTime: ULARGE_INTEGER,
@@ -3467,6 +4203,14 @@ mod Windows {
             Processor: u16,
             TimerType: u8,
             TimerDifObjTracking: i8,
+            Period: u32,
+        }
+        #[arch(X86)]
+        struct KTIMER {
+            Header: DISPATCHER_HEADER,
+            DueTime: ULARGE_INTEGER,
+            TimerListEntry: LIST_ENTRY,
+            Dpc: *mut KDPC,
             Period: u32,
         }
         struct KTM {}
@@ -3481,12 +4225,27 @@ mod Windows {
             ComponentName: PUCHAR,
             Blocks: [KADDRESS_RANGE; 1],
         }
+        #[arch(X64 | Arm64)]
         struct KWAIT_BLOCK {
             WaitListEntry: LIST_ENTRY,
             WaitType: u8,
             BlockState: u8,
             WaitKey: u16,
             SpareLong: i32,
+            Anonymous: union {
+                Thread: *mut _KTHREAD,
+                NotificationQueue: *mut KQUEUE,
+                Dpc: *mut KDPC,
+            },
+            Object: *mut void,
+            SparePtr: *mut void,
+        }
+        #[arch(X86)]
+        struct KWAIT_BLOCK {
+            WaitListEntry: LIST_ENTRY,
+            WaitType: u8,
+            BlockState: u8,
+            WaitKey: u16,
             Anonymous: union {
                 Thread: *mut _KTHREAD,
                 NotificationQueue: *mut KQUEUE,
@@ -3574,7 +4333,10 @@ mod Windows {
         const LOCK_QUEUE_HALTED_BIT: u32 = 2;
         const LOCK_QUEUE_OWNER: u32 = 2;
         const LOCK_QUEUE_OWNER_BIT: u32 = 1;
+        #[arch(X64 | Arm64)]
         const LOCK_QUEUE_VALID_FLAGS: u32 = 7;
+        #[arch(X86)]
+        const LOCK_QUEUE_VALID_FLAGS: u32 = 3;
         const LOCK_QUEUE_WAIT: u32 = 1;
         const LOCK_QUEUE_WAIT_BIT: u32 = 0;
         type LOG_FILE_OBJECT = FILE_OBJECT;
@@ -3589,28 +4351,49 @@ mod Windows {
         struct LOOKASIDE_LIST_EX {
             L: GENERAL_LOOKASIDE_POOL,
         }
+        #[arch(X64 | Arm64)]
         const LOOKASIDE_MINIMUM_BLOCK_SIZE: u32 = 8;
+        #[arch(X86)]
+        const LOOKASIDE_MINIMUM_BLOCK_SIZE: u32 = 4;
         const LOWBYTE_MASK: u32 = 255;
         const LOW_LEVEL: u32 = 0;
         const LOW_PRIORITY: u32 = 0;
         const LOW_REALTIME_PRIORITY: u32 = 16;
+        #[arch(X64)]
         const LockQueueAfdWorkQueueLock: u32 = 13;
+        #[arch(X64)]
         const LockQueueBcbLock: u32 = 14;
+        #[arch(X64)]
         const LockQueueIoCancelLock: u32 = 7;
+        #[arch(X64)]
         const LockQueueIoCompletionLock: u32 = 11;
+        #[arch(X64)]
         const LockQueueIoDatabaseLock: u32 = 10;
+        #[arch(X64)]
         const LockQueueIoVpbLock: u32 = 9;
+        #[arch(X64)]
         const LockQueueMasterLock: u32 = 5;
+        #[arch(X64)]
         const LockQueueMaximumLock: u32 = 17;
+        #[arch(X64)]
         const LockQueueNonPagedPoolLock: u32 = 6;
+        #[arch(X64)]
         const LockQueueNtfsStructLock: u32 = 12;
+        #[arch(X64)]
         const LockQueueUnusedSpare0: u32 = 0;
+        #[arch(X64)]
         const LockQueueUnusedSpare1: u32 = 1;
+        #[arch(X64)]
         const LockQueueUnusedSpare15: u32 = 15;
+        #[arch(X64)]
         const LockQueueUnusedSpare16: u32 = 16;
+        #[arch(X64)]
         const LockQueueUnusedSpare2: u32 = 2;
+        #[arch(X64)]
         const LockQueueUnusedSpare3: u32 = 3;
+        #[arch(X64)]
         const LockQueueUnusedSpare8: u32 = 8;
+        #[arch(X64)]
         const LockQueueVacbLock: u32 = 4;
         struct MAILSLOT_CREATE_PARAMETERS {
             MailslotQuota: u32,
@@ -3620,6 +4403,8 @@ mod Windows {
         }
         const MAXIMUM_FILENAME_LENGTH: u32 = 256;
         const MAXIMUM_PRIORITY: u32 = 32;
+        #[arch(Arm64)]
+        const MAX_EVENT_COUNTERS: u32 = 31;
         struct MDL {
             Next: *mut MDL,
             Size: CSHORT,
@@ -3728,8 +4513,14 @@ mod Windows {
         }
         extern fn NMI_CALLBACK(#[opt] Context: *const void, Handled: BOOLEAN) -> BOOLEAN;
         type NODE_REQUIREMENT = u32;
+        #[arch(X64 | Arm64)]
         struct NPAGED_LOOKASIDE_LIST {
             L: GENERAL_LOOKASIDE,
+        }
+        #[arch(X86)]
+        struct NPAGED_LOOKASIDE_LIST {
+            L: GENERAL_LOOKASIDE,
+            Lock__ObsoleteButDoNotDelete: KSPIN_LOCK,
         }
         union NPEM_CAPABILITY_STANDARD {
             Anonymous: struct {
@@ -3771,89 +4562,89 @@ mod Windows {
         }
         extern fn NTFS_DEREF_EXPORTED_SECURITY_DESCRIPTOR(Vcb: *const void, SecurityDescriptor: PSECURITY_DESCRIPTOR);
         #[library("ntdll.dll")]
-        extern "system" fn NtCommitComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtCommitComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCommitEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtCommitEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCommitTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
+        extern fn NtCommitTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, TransactionHandle: HANDLE, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, NotificationMask: NOTIFICATION_MASK, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
+        extern fn NtCreateEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, TransactionHandle: HANDLE, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, NotificationMask: NOTIFICATION_MASK, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, RmGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn NtCreateResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, RmGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Uow: *const GUID, #[opt] TmHandle: HANDLE, #[opt] CreateOptions: u32, #[opt] IsolationLevel: u32, #[opt] IsolationFlags: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn NtCreateTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Uow: *const GUID, #[opt] TmHandle: HANDLE, #[opt] CreateOptions: u32, #[opt] IsolationLevel: u32, #[opt] IsolationFlags: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtCreateTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] CreateOptions: u32, #[opt] CommitStrength: u32) -> NTSTATUS;
+        extern fn NtCreateTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] CreateOptions: u32, #[opt] CommitStrength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtEnumerateTransactionObject(#[opt] RootObjectHandle: HANDLE, QueryType: KTMOBJECT_TYPE, #[size_param(3)] #[r#in] #[out] ObjectCursor: *mut KTMOBJECT_CURSOR, ObjectCursorLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtEnumerateTransactionObject(#[opt] RootObjectHandle: HANDLE, QueryType: KTMOBJECT_TYPE, #[size_param(3)] #[in] #[out] ObjectCursor: *mut KTMOBJECT_CURSOR, ObjectCursorLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtGetNotificationResourceManager(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, NotificationLength: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] ReturnLength: *mut u32, Asynchronous: u32, #[opt] AsynchronousContext: usize) -> NTSTATUS;
+        extern fn NtGetNotificationResourceManager(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, NotificationLength: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] ReturnLength: *mut u32, Asynchronous: u32, #[opt] AsynchronousContext: usize) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtManagePartition(TargetHandle: HANDLE, #[opt] SourceHandle: HANDLE, PartitionInformationClass: PARTITION_INFORMATION_CLASS, #[size_param(4)] #[r#in] #[out] PartitionInformation: *mut void, PartitionInformationLength: u32) -> NTSTATUS;
+        extern fn NtManagePartition(TargetHandle: HANDLE, #[opt] SourceHandle: HANDLE, PartitionInformationClass: PARTITION_INFORMATION_CLASS, #[size_param(4)] #[in] #[out] PartitionInformation: *mut void, PartitionInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, EnlistmentGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn NtOpenEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, EnlistmentGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenRegistryTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn NtOpenRegistryTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, #[opt] ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn NtOpenResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, #[opt] ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, Uow: *const GUID, #[opt] TmHandle: HANDLE) -> NTSTATUS;
+        extern fn NtOpenTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, Uow: *const GUID, #[opt] TmHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtOpenTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] TmIdentity: *const GUID, #[opt] OpenOptions: u32) -> NTSTATUS;
+        extern fn NtOpenTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] TmIdentity: *const GUID, #[opt] OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
+        extern fn NtPowerInformation(InformationLevel: POWER_INFORMATION_LEVEL, #[size_param(2)] #[opt] InputBuffer: *const void, InputBufferLength: u32, #[size_param(4)] #[opt] OutputBuffer: *mut void, OutputBufferLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrePrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtPrePrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrePrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtPrePrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtPrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtPrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPropagationComplete(ResourceManagerHandle: HANDLE, RequestCookie: u32, BufferLength: u32, Buffer: *const void) -> NTSTATUS;
+        extern fn NtPropagationComplete(ResourceManagerHandle: HANDLE, RequestCookie: u32, BufferLength: u32, Buffer: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtPropagationFailed(ResourceManagerHandle: HANDLE, RequestCookie: u32, PropStatus: NTSTATUS) -> NTSTATUS;
+        extern fn NtPropagationFailed(ResourceManagerHandle: HANDLE, RequestCookie: u32, PropStatus: NTSTATUS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *mut void, EnlistmentInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *mut void, EnlistmentInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *mut void, ResourceManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *mut void, ResourceManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *mut void, TransactionInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *mut void, TransactionInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtQueryInformationTransactionManager(TransactionManagerHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *mut void, TransactionManagerInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn NtQueryInformationTransactionManager(TransactionManagerHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *mut void, TransactionManagerInformationLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtReadOnlyEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtReadOnlyEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRecoverEnlistment(EnlistmentHandle: HANDLE, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
+        extern fn NtRecoverEnlistment(EnlistmentHandle: HANDLE, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRecoverResourceManager(ResourceManagerHandle: HANDLE) -> NTSTATUS;
+        extern fn NtRecoverResourceManager(ResourceManagerHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRecoverTransactionManager(TransactionManagerHandle: HANDLE) -> NTSTATUS;
+        extern fn NtRecoverTransactionManager(TransactionManagerHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRegisterProtocolAddressInformation(ResourceManager: HANDLE, ProtocolId: *const GUID, ProtocolInformationSize: u32, ProtocolInformation: *const void, #[opt] CreateOptions: u32) -> NTSTATUS;
+        extern fn NtRegisterProtocolAddressInformation(ResourceManager: HANDLE, ProtocolId: *const GUID, ProtocolInformationSize: u32, ProtocolInformation: *const void, #[opt] CreateOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRenameTransactionManager(LogFileName: *const UNICODE_STRING, ExistingTransactionManagerGuid: *const GUID) -> NTSTATUS;
+        extern fn NtRenameTransactionManager(LogFileName: *const UNICODE_STRING, ExistingTransactionManagerGuid: *const GUID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRollbackComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtRollbackComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRollbackEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtRollbackEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRollbackRegistryTransaction(TransactionHandle: HANDLE, Flags: u32) -> NTSTATUS;
+        extern fn NtRollbackRegistryTransaction(TransactionHandle: HANDLE, Flags: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRollbackTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
+        extern fn NtRollbackTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtRollforwardTransactionManager(TransactionManagerHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtRollforwardTransactionManager(TransactionManagerHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationEnlistment(#[opt] EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *const void, EnlistmentInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationEnlistment(#[opt] EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *const void, EnlistmentInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *const void, ResourceManagerInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *const void, ResourceManagerInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *const void, TransactionInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *const void, TransactionInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSetInformationTransactionManager(#[opt] TmHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *const void, TransactionManagerInformationLength: u32) -> NTSTATUS;
+        extern fn NtSetInformationTransactionManager(#[opt] TmHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *const void, TransactionManagerInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn NtSinglePhaseReject(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn NtSinglePhaseReject(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         struct OBJECT_HANDLE_INFORMATION {
             HandleAttributes: u32,
             GrantedAccess: ACCESS_MASK,
@@ -3953,10 +4744,19 @@ mod Windows {
         type PACCESS_STATE = *mut ACCESS_STATE;
         type PACPI_INTERFACE_STANDARD = *mut ACPI_INTERFACE_STANDARD;
         type PACPI_INTERFACE_STANDARD2 = *mut ACPI_INTERFACE_STANDARD2;
+        #[arch(X64 | Arm64)]
         type PADAPTER_OBJECT = *mut DMA_ADAPTER;
+        #[arch(X86)]
+        type PADAPTER_OBJECT = *mut _ADAPTER_OBJECT;
         type PAFFINITY_TOKEN = *mut _AFFINITY_TOKEN;
+        #[arch(X64 | Arm64)]
         struct PAGED_LOOKASIDE_LIST {
             L: GENERAL_LOOKASIDE,
+        }
+        #[arch(X86)]
+        struct PAGED_LOOKASIDE_LIST {
+            L: GENERAL_LOOKASIDE,
+            Lock__ObsoleteButDoNotDelete: FAST_MUTEX,
         }
         const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912;
         const PAGE_SHIFT: u32 = 12;
@@ -3970,6 +4770,14 @@ mod Windows {
         extern fn PALLOCATE_DOMAIN_COMMON_BUFFER(DmaAdapter: *const DMA_ADAPTER, DomainHandle: HANDLE, #[opt] MaximumAddress: *const LARGE_INTEGER, Length: u32, Flags: u32, #[opt] CacheType: *const MEMORY_CACHING_TYPE, PreferredNode: NODE_REQUIREMENT, LogicalAddress: *mut LARGE_INTEGER, VirtualAddress: *mut *mut void) -> NTSTATUS;
         type PALLOCATE_FUNCTION = *mut ALLOCATE_FUNCTION;
         type PALLOCATE_FUNCTION_EX = *mut ALLOCATE_FUNCTION_EX;
+        #[arch(X86)]
+        type PAMD_L1_CACHE_INFO = *mut AMD_L1_CACHE_INFO;
+        #[arch(X86)]
+        type PAMD_L2_CACHE_INFO = *mut AMD_L2_CACHE_INFO;
+        #[arch(X86)]
+        type PAMD_L3_CACHE_INFO = *mut AMD_L3_CACHE_INFO;
+        #[arch(Arm64)]
+        type PARM64_IDCODE = *mut ARM64_IDCODE;
         #[repr(i32)]
         enum PARTITION_INFORMATION_CLASS {
             SystemMemoryPartitionInformation = 0,
@@ -3980,7 +4788,9 @@ mod Windows {
         type PBOOTDISK_INFORMATION = *mut BOOTDISK_INFORMATION;
         type PBOOTDISK_INFORMATION_EX = *mut BOOTDISK_INFORMATION_EX;
         type PBOOTDISK_INFORMATION_LITE = *mut BOOTDISK_INFORMATION_LITE;
+        #[arch(X86 | X64)]
         type PBOUND_CALLBACK = *mut BOUND_CALLBACK;
+        #[arch(X86 | X64)]
         type PBOUND_CALLBACK_STATUS = *mut BOUND_CALLBACK_STATUS;
         extern fn PBUILD_MDL_FROM_SCATTER_GATHER_LIST(DmaAdapter: *const DMA_ADAPTER, ScatterGather: *const SCATTER_GATHER_LIST, OriginalMdl: *const MDL, TargetMdl: *mut PMDL) -> NTSTATUS;
         extern fn PBUILD_SCATTER_GATHER_LIST(DmaAdapter: *const DMA_ADAPTER, DeviceObject: *const DEVICE_OBJECT, Mdl: *const MDL, CurrentVa: *const void, Length: u32, ExecutionRoutine: PDRIVER_LIST_CONTROL, Context: *const void, WriteToDevice: BOOLEAN, ScatterGatherBuffer: *const void, ScatterGatherLength: u32) -> NTSTATUS;
@@ -4325,7 +5135,7 @@ mod Windows {
             CapabilityID: u16,
             _bitfield: u16,
         }
-        extern fn PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE(#[r#in] #[out] Context: *mut void) -> NTSTATUS;
+        extern fn PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE(#[in] #[out] Context: *mut void) -> NTSTATUS;
         union PCI_EXPRESS_ERROR_SOURCE_ID {
             Anonymous: struct {
                 _bitfield1: u16,
@@ -4333,7 +5143,7 @@ mod Windows {
             },
             AsULONG: u32,
         }
-        extern fn PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE(#[r#in] #[out] Context: *mut void) -> NTSTATUS;
+        extern fn PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE(#[in] #[out] Context: *mut void) -> NTSTATUS;
         const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33;
         const PCI_EXPRESS_IDE_CAP_ID: u32 = 48;
         const PCI_EXPRESS_L1_PM_SS_CAP_ID: u32 = 30;
@@ -4588,7 +5398,10 @@ mod Windows {
             GetTableSize: PPCI_MSIX_GET_TABLE_SIZE,
         }
         const PCI_MSIX_TABLE_CONFIG_INTERFACE_VERSION: u32 = 1;
+        #[arch(X64 | Arm64)]
         const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 56;
+        #[arch(X86)]
+        const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 28;
         const PCI_MULTIFUNCTION: u32 = 128;
         struct PCI_PMC {
             _bitfield: u8,
@@ -4659,9 +5472,9 @@ mod Windows {
                 AsULONG: u32,
             },
         }
-        extern fn PCI_SET_ACS(#[r#in] #[out] Context: *mut void, EnableSourceValidation: PCI_ACS_BIT, EnableTranslationBlocking: PCI_ACS_BIT, EnableP2PRequestRedirect: PCI_ACS_BIT, EnableCompletionRedirect: PCI_ACS_BIT, EnableUpstreamForwarding: PCI_ACS_BIT, EnableEgressControl: PCI_ACS_BIT, EnableDirectTranslatedP2P: PCI_ACS_BIT) -> NTSTATUS;
-        extern fn PCI_SET_ACS2(#[r#in] #[out] Context: *mut void, ScenariosToModify: u32, ScenarioState: u32) -> NTSTATUS;
-        extern fn PCI_SET_ACS3(#[r#in] #[out] Context: *mut void, ScenariosToModify: u32, ScenarioState: u32, PartitionId: u64) -> NTSTATUS;
+        extern fn PCI_SET_ACS(#[in] #[out] Context: *mut void, EnableSourceValidation: PCI_ACS_BIT, EnableTranslationBlocking: PCI_ACS_BIT, EnableP2PRequestRedirect: PCI_ACS_BIT, EnableCompletionRedirect: PCI_ACS_BIT, EnableUpstreamForwarding: PCI_ACS_BIT, EnableEgressControl: PCI_ACS_BIT, EnableDirectTranslatedP2P: PCI_ACS_BIT) -> NTSTATUS;
+        extern fn PCI_SET_ACS2(#[in] #[out] Context: *mut void, ScenariosToModify: u32, ScenarioState: u32) -> NTSTATUS;
+        extern fn PCI_SET_ACS3(#[in] #[out] Context: *mut void, ScenariosToModify: u32, ScenarioState: u32, PartitionId: u64) -> NTSTATUS;
         extern fn PCI_SET_ATS(Context: *const void, EnableAts: BOOLEAN) -> NTSTATUS;
         struct PCI_SLOT_NUMBER {
             u: union {
@@ -5007,7 +5820,7 @@ mod Windows {
         type PERESOURCE = *mut ERESOURCE;
         type PERESOURCE_THREAD = *mut ERESOURCE_THREAD;
         type PETHREAD = *mut _KTHREAD;
-        extern fn PETWENABLECALLBACK(SourceId: *const GUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[r#in] #[out] #[opt] CallbackContext: *mut void);
+        extern fn PETWENABLECALLBACK(SourceId: *const GUID, ControlCode: u32, Level: u8, MatchAnyKeyword: u64, MatchAllKeyword: u64, #[opt] FilterData: *const EVENT_FILTER_DESCRIPTOR, #[in] #[out] #[opt] CallbackContext: *mut void);
         type PETW_TRACE_SESSION_SETTINGS = *mut ETW_TRACE_SESSION_SETTINGS;
         type PEXTENDED_CREATE_DUAL_OPLOCK_KEYS = *mut EXTENDED_CREATE_DUAL_OPLOCK_KEYS;
         type PEXTENDED_CREATE_INFORMATION = *mut EXTENDED_CREATE_INFORMATION;
@@ -5091,7 +5904,10 @@ mod Windows {
         extern fn PFN_NT_QUERY_INFORMATION_TRANSACTION(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *mut void, TransactionInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         extern fn PFN_NT_ROLLBACK_TRANSACTION(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
         extern fn PFN_NT_SET_INFORMATION_TRANSACTION(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, TransactionInformation: *const void, TransactionInformationLength: u32) -> NTSTATUS;
+        #[arch(X64 | Arm64)]
         type PFN_NUMBER = u64;
+        #[arch(X86)]
+        type PFN_NUMBER = u32;
         extern fn PFN_RTL_IS_NTDDI_VERSION_AVAILABLE(Version: u32) -> BOOLEAN;
         extern fn PFN_RTL_IS_SERVICE_PACK_VERSION_INSTALLED(Version: u32) -> BOOLEAN;
         type PFPGA_BUS_SCAN = *mut FPGA_BUS_SCAN;
@@ -5116,10 +5932,10 @@ mod Windows {
         type PGET_D3COLD_LAST_TRANSITION_STATUS = *mut GET_D3COLD_LAST_TRANSITION_STATUS;
         type PGET_DEVICE_RESET_STATUS = *mut GET_DEVICE_RESET_STATUS;
         type PGET_DMA_ADAPTER = *mut GET_DMA_ADAPTER;
-        extern fn PGET_DMA_ADAPTER_INFO(DmaAdapter: *const DMA_ADAPTER, #[r#in] #[out] AdapterInfo: *mut DMA_ADAPTER_INFO) -> NTSTATUS;
+        extern fn PGET_DMA_ADAPTER_INFO(DmaAdapter: *const DMA_ADAPTER, #[in] #[out] AdapterInfo: *mut DMA_ADAPTER_INFO) -> NTSTATUS;
         extern fn PGET_DMA_ALIGNMENT(DmaAdapter: *const DMA_ADAPTER) -> u32;
         extern fn PGET_DMA_DOMAIN(DmaAdapter: *const DMA_ADAPTER) -> HANDLE;
-        extern fn PGET_DMA_TRANSFER_INFO(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, Offset: u64, Length: u32, WriteOnly: BOOLEAN, #[r#in] #[out] TransferInfo: *mut DMA_TRANSFER_INFO) -> NTSTATUS;
+        extern fn PGET_DMA_TRANSFER_INFO(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, Offset: u64, Length: u32, WriteOnly: BOOLEAN, #[in] #[out] TransferInfo: *mut DMA_TRANSFER_INFO) -> NTSTATUS;
         type PGET_DOE_PREVIOUS_RESPONSE = *mut GET_DOE_PREVIOUS_RESPONSE;
         type PGET_IDLE_WAKE_INFO = *mut GET_IDLE_WAKE_INFO;
         extern fn PGET_SCATTER_GATHER_LIST(DmaAdapter: *const DMA_ADAPTER, DeviceObject: *const DEVICE_OBJECT, Mdl: *const MDL, CurrentVa: *const void, Length: u32, ExecutionRoutine: PDRIVER_LIST_CONTROL, Context: *const void, WriteToDevice: BOOLEAN) -> NTSTATUS;
@@ -5147,6 +5963,10 @@ mod Windows {
         extern fn PINITIALIZE_DMA_TRANSFER_CONTEXT(DmaAdapter: *const DMA_ADAPTER, DmaTransferContext: *mut void) -> NTSTATUS;
         type PINITIAL_PRIVILEGE_SET = *mut INITIAL_PRIVILEGE_SET;
         type PINPUT_MAPPING_ELEMENT = *mut INPUT_MAPPING_ELEMENT;
+        #[arch(X86)]
+        type PINTEL_CACHE_INFO_EAX = *mut INTEL_CACHE_INFO_EAX;
+        #[arch(X86)]
+        type PINTEL_CACHE_INFO_EBX = *mut INTEL_CACHE_INFO_EBX;
         type PINTERFACE = *mut INTERFACE;
         extern fn PINTERFACE_DEREFERENCE(Context: *mut void);
         extern fn PINTERFACE_REFERENCE(Context: *mut void);
@@ -5227,7 +6047,7 @@ mod Windows {
         type PIO_CSQ_PEEK_NEXT_IRP = *mut IO_CSQ_PEEK_NEXT_IRP;
         type PIO_CSQ_RELEASE_LOCK = *mut IO_CSQ_RELEASE_LOCK;
         type PIO_CSQ_REMOVE_IRP = *mut IO_CSQ_REMOVE_IRP;
-        extern fn PIO_DEVICE_EJECT_CALLBACK(Status: NTSTATUS, #[r#in] #[out] #[opt] Context: *mut void);
+        extern fn PIO_DEVICE_EJECT_CALLBACK(Status: NTSTATUS, #[in] #[out] #[opt] Context: *mut void);
         type PIO_DISCONNECT_INTERRUPT_PARAMETERS = *mut IO_DISCONNECT_INTERRUPT_PARAMETERS;
         type PIO_DPC_ROUTINE = *mut IO_DPC_ROUTINE;
         type PIO_ERROR_LOG_MESSAGE = *mut IO_ERROR_LOG_MESSAGE;
@@ -5316,6 +6136,8 @@ mod Windows {
         type PKSEMAPHORE = *mut KSEMAPHORE;
         type PKSERVICE_ROUTINE = *mut KSERVICE_ROUTINE;
         type PKSPIN_LOCK_QUEUE = *mut KSPIN_LOCK_QUEUE;
+        #[arch(X86 | Arm64)]
+        type PKSPIN_LOCK_QUEUE_NUMBER = *mut KSPIN_LOCK_QUEUE_NUMBER;
         type PKSTART_ROUTINE = *mut KSTART_ROUTINE;
         type PKSYNCHRONIZE_ROUTINE = *mut KSYNCHRONIZE_ROUTINE;
         type PKSYSTEM_TIME = *mut KSYSTEM_TIME;
@@ -5343,8 +6165,8 @@ mod Windows {
         const PLUGPLAY_REGKEY_DEVICE: u32 = 1;
         const PLUGPLAY_REGKEY_DRIVER: u32 = 2;
         type PMAILSLOT_CREATE_PARAMETERS = *mut MAILSLOT_CREATE_PARAMETERS;
-        extern fn PMAP_TRANSFER(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, MapRegisterBase: *const void, CurrentVa: *const void, #[r#in] #[out] Length: *mut u32, WriteToDevice: BOOLEAN) -> PHYSICAL_ADDRESS;
-        extern fn PMAP_TRANSFER_EX(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, MapRegisterBase: *const void, Offset: u64, DeviceOffset: u32, #[r#in] #[out] Length: *mut u32, WriteToDevice: BOOLEAN, #[size_param(8)] #[opt] ScatterGatherBuffer: *mut SCATTER_GATHER_LIST, ScatterGatherBufferLength: u32, #[opt] DmaCompletionRoutine: PDMA_COMPLETION_ROUTINE, #[opt] CompletionContext: *const void) -> NTSTATUS;
+        extern fn PMAP_TRANSFER(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, MapRegisterBase: *const void, CurrentVa: *const void, #[in] #[out] Length: *mut u32, WriteToDevice: BOOLEAN) -> PHYSICAL_ADDRESS;
+        extern fn PMAP_TRANSFER_EX(DmaAdapter: *const DMA_ADAPTER, Mdl: *const MDL, MapRegisterBase: *const void, Offset: u64, DeviceOffset: u32, #[in] #[out] Length: *mut u32, WriteToDevice: BOOLEAN, #[size_param(8)] #[opt] ScatterGatherBuffer: *mut SCATTER_GATHER_LIST, ScatterGatherBufferLength: u32, #[opt] DmaCompletionRoutine: PDMA_COMPLETION_ROUTINE, #[opt] CompletionContext: *const void) -> NTSTATUS;
         type PMDLX = *mut MDL;
         type PMEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION = *mut MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION;
         extern fn PMM_DLL_INITIALIZE(RegistryPath: *const UNICODE_STRING) -> NTSTATUS;
@@ -5403,7 +6225,10 @@ mod Windows {
             GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION,
             EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE,
         }
+        #[arch(X64 | Arm64)]
         const PNP_REPLACE_DRIVER_INTERFACE_MINIMUM_SIZE: u32 = 64;
+        #[arch(X86)]
+        const PNP_REPLACE_DRIVER_INTERFACE_MINIMUM_SIZE: u32 = 36;
         const PNP_REPLACE_DRIVER_INTERFACE_VERSION: u32 = 1;
         const PNP_REPLACE_HARDWARE_MEMORY_MIRRORING: u32 = 4;
         const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8;
@@ -5460,7 +6285,7 @@ mod Windows {
         type POB_PREOP_CALLBACK_STATUS = *mut OB_PREOP_CALLBACK_STATUS;
         type POB_PRE_CREATE_HANDLE_INFORMATION = *mut OB_PRE_CREATE_HANDLE_INFORMATION;
         type POB_PRE_DUPLICATE_HANDLE_INFORMATION = *mut OB_PRE_DUPLICATE_HANDLE_INFORMATION;
-        extern fn POB_PRE_OPERATION_CALLBACK(RegistrationContext: *const void, #[r#in] #[out] OperationInformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS;
+        extern fn POB_PRE_OPERATION_CALLBACK(RegistrationContext: *const void, #[in] #[out] OperationInformation: *mut OB_PRE_OPERATION_INFORMATION) -> OB_PREOP_CALLBACK_STATUS;
         type POB_PRE_OPERATION_INFORMATION = *mut OB_PRE_OPERATION_INFORMATION;
         type POB_PRE_OPERATION_PARAMETERS = *mut OB_PRE_OPERATION_PARAMETERS;
         type POHANDLE = *mut void;
@@ -5542,6 +6367,8 @@ mod Windows {
         const POOL_FLAG_USE_QUOTA: u32 = 1;
         type POOL_NODE_REQUIREMENT = u32;
         const POOL_NX_ALLOCATION: u32 = 512;
+        #[arch(Arm64)]
+        const POOL_NX_OPTIN_AUTO: u32 = 1;
         const POOL_QUOTA_FAIL_INSTEAD_OF_RAISE: u32 = 8;
         const POOL_RAISE_IF_ALLOCATION_FAILURE: u32 = 16;
         const POOL_TAGGING: u32 = 1;
@@ -5572,14 +6399,20 @@ mod Windows {
             NonPagedPoolSessionNx = 544,
         }
         const POOL_ZERO_ALLOCATION: u32 = 1024;
+        #[arch(X64 | Arm64)]
         const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 512;
+        #[arch(X86)]
+        const PORT_MAXIMUM_MESSAGE_LENGTH: u32 = 256;
+        #[arch(X64 | Arm64)]
         const POWER_LEVEL: u32 = 14;
+        #[arch(X86)]
+        const POWER_LEVEL: u32 = 30;
         struct POWER_SEQUENCE {
             SequenceD1: u32,
             SequenceD2: u32,
             SequenceD3: u32,
         }
-        extern fn POWER_SETTING_CALLBACK(SettingGuid: *const GUID, #[size_param(2)] Value: *const void, ValueLength: u32, #[r#in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        extern fn POWER_SETTING_CALLBACK(SettingGuid: *const GUID, #[size_param(2)] Value: *const void, ValueLength: u32, #[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
         union POWER_STATE {
             SystemState: SYSTEM_POWER_STATE,
             DeviceState: DEVICE_POWER_STATE,
@@ -5862,7 +6695,10 @@ mod Windows {
         type PPCW_MASK_INFORMATION = *mut PCW_MASK_INFORMATION;
         type PPCW_REGISTRATION = *mut _PCW_REGISTRATION;
         type PPCW_REGISTRATION_INFORMATION = *mut PCW_REGISTRATION_INFORMATION;
+        #[arch(X64 | Arm64)]
         type PPFN_NUMBER = *mut u64;
+        #[arch(X86)]
+        type PPFN_NUMBER = *mut u32;
         type PPLOG_FILE_OBJECT = *mut *mut FILE_OBJECT;
         type PPLUGPLAY_NOTIFICATION_HEADER = *mut PLUGPLAY_NOTIFICATION_HEADER;
         type PPNP_BUS_INFORMATION = *mut PNP_BUS_INFORMATION;
@@ -5959,12 +6795,12 @@ mod Windows {
         type PREG_SET_VALUE_KEY_INFORMATION = *mut REG_SET_VALUE_KEY_INFORMATION;
         type PREG_UNLOAD_KEY_INFORMATION = *mut REG_UNLOAD_KEY_INFORMATION;
         extern fn PREPLACE_BEGIN(Parameters: *const PNP_REPLACE_PARAMETERS, Context: *mut *mut void) -> NTSTATUS;
-        extern fn PREPLACE_DRIVER_INIT(#[r#in] #[out] Interface: *mut PNP_REPLACE_DRIVER_INTERFACE, Unused: *const void) -> NTSTATUS;
+        extern fn PREPLACE_DRIVER_INIT(#[in] #[out] Interface: *mut PNP_REPLACE_DRIVER_INTERFACE, Unused: *const void) -> NTSTATUS;
         extern fn PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE(Context: *const void, Enable: BOOLEAN) -> NTSTATUS;
         extern fn PREPLACE_END(Context: *const void) -> NTSTATUS;
         extern fn PREPLACE_GET_MEMORY_DESTINATION(Context: *const void, SourceAddress: PHYSICAL_ADDRESS, DestinationAddress: *mut LARGE_INTEGER) -> NTSTATUS;
         extern fn PREPLACE_INITIATE_HARDWARE_MIRROR(Context: *const void) -> NTSTATUS;
-        extern fn PREPLACE_MAP_MEMORY(TargetPhysicalAddress: PHYSICAL_ADDRESS, SparePhysicalAddress: PHYSICAL_ADDRESS, #[r#in] #[out] NumberOfBytes: *mut LARGE_INTEGER, TargetAddress: *mut *mut void, SpareAddress: *mut *mut void) -> NTSTATUS;
+        extern fn PREPLACE_MAP_MEMORY(TargetPhysicalAddress: PHYSICAL_ADDRESS, SparePhysicalAddress: PHYSICAL_ADDRESS, #[in] #[out] NumberOfBytes: *mut LARGE_INTEGER, TargetAddress: *mut *mut void, SpareAddress: *mut *mut void) -> NTSTATUS;
         extern fn PREPLACE_MIRROR_PHYSICAL_MEMORY(Context: *const void, PhysicalAddress: PHYSICAL_ADDRESS, ByteCount: LARGE_INTEGER) -> NTSTATUS;
         extern fn PREPLACE_MIRROR_PLATFORM_MEMORY(Context: *const void) -> NTSTATUS;
         extern fn PREPLACE_SET_PROCESSOR_ID(Context: *const void, ApicId: u32, Target: BOOLEAN) -> NTSTATUS;
@@ -5990,10 +6826,13 @@ mod Windows {
         type PRKTM = *mut KTM;
         type PRKTRANSACTION = *mut KTRANSACTION;
         type PRKWAIT_BLOCK = *mut KWAIT_BLOCK;
-        extern fn PROCESSOR_CALLBACK_FUNCTION(CallbackContext: *const void, ChangeContext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, #[r#in] #[out] OperationStatus: *mut NTSTATUS);
+        extern fn PROCESSOR_CALLBACK_FUNCTION(CallbackContext: *const void, ChangeContext: *const KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT, #[in] #[out] OperationStatus: *mut NTSTATUS);
         const PROCESSOR_FEATURE_MAX: u32 = 64;
-        extern fn PROCESSOR_HALT_ROUTINE(#[r#in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        extern fn PROCESSOR_HALT_ROUTINE(#[in] #[out] #[opt] Context: *mut void) -> NTSTATUS;
+        #[arch(X64 | Arm64)]
         const PROFILE_LEVEL: u32 = 15;
+        #[arch(X86)]
+        const PROFILE_LEVEL: u32 = 27;
         type PRTL_BITMAP = *mut RTL_BITMAP;
         type PRTL_BITMAP_RUN = *mut RTL_BITMAP_RUN;
         extern fn PRTL_QUERY_REGISTRY_ROUTINE(ValueName: PCWSTR, ValueType: u32, #[size_param(3)] #[opt] ValueData: *const void, ValueLength: u32, #[opt] Context: *const void, #[opt] EntryContext: *const void) -> NTSTATUS;
@@ -6016,7 +6855,10 @@ mod Windows {
         type PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut *mut void;
         type PSE_IMAGE_VERIFICATION_CALLBACK_TYPE = *mut SE_IMAGE_VERIFICATION_CALLBACK_TYPE;
         type PSHARE_ACCESS = *mut SHARE_ACCESS;
+        #[arch(X64 | Arm64)]
         type PSPFN_NUMBER = *mut i64;
+        #[arch(X86)]
+        type PSPFN_NUMBER = *mut i32;
         type PSYSTEM_POWER_STATE_CONTEXT = *mut SYSTEM_POWER_STATE_CONTEXT;
         extern fn PS_AVAILABLE_CPUS_CHANGE_CALLBACK(Parameter: *const void);
         type PS_AVAILABLE_CPUS_CHANGE_REGISTRATION = *mut void;
@@ -6039,7 +6881,7 @@ mod Windows {
         extern fn PTM_DEVICE_QUERY_GRANULARITY(Context: *const void, Granularity: *mut u8) -> NTSTATUS;
         extern fn PTM_DEVICE_QUERY_TIME_SOURCE(Context: *const void, TimeSource: *mut u32) -> NTSTATUS;
         extern fn PTM_PROPAGATE_ROUTINE(PropagationCookie: *const void, CallbackData: *const void, PropagationStatus: NTSTATUS, TransactionGuid: GUID) -> NTSTATUS;
-        extern fn PTM_RM_NOTIFICATION(EnlistmentObject: *const KENLISTMENT, RMContext: *const void, TransactionContext: *const void, TransactionNotification: u32, #[r#in] #[out] TmVirtualClock: *mut LARGE_INTEGER, ArgumentLength: u32, Argument: *const void) -> NTSTATUS;
+        extern fn PTM_RM_NOTIFICATION(EnlistmentObject: *const KENLISTMENT, RMContext: *const void, TransactionContext: *const void, TransactionNotification: u32, #[in] #[out] TmVirtualClock: *mut LARGE_INTEGER, ArgumentLength: u32, Argument: *const void) -> NTSTATUS;
         type PTRANSLATE_BUS_ADDRESS = *mut TRANSLATE_BUS_ADDRESS;
         extern fn PUNREGISTER_FOR_DEVICE_NOTIFICATIONS(param0: *mut DEVICE_OBJECT, param1: PDEVICE_NOTIFY_CALLBACK);
         extern fn PUNREGISTER_FOR_DEVICE_NOTIFICATIONS2(Context: *mut void);
@@ -6484,153 +7326,155 @@ mod Windows {
         const ResourceOwnedExclusive: u32 = 128;
         const ResourceReleaseByOtherThread: u32 = 32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAppendUnicodeStringToString(#[r#in] #[out] Destination: *mut UNICODE_STRING, Source: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlAppendUnicodeStringToString(#[in] #[out] Destination: *mut UNICODE_STRING, Source: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAppendUnicodeToString(#[r#in] #[out] Destination: *mut UNICODE_STRING, #[opt] Source: PCWSTR) -> NTSTATUS;
+        extern fn RtlAppendUnicodeToString(#[in] #[out] Destination: *mut UNICODE_STRING, #[opt] Source: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAreBitsClear(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> BOOLEAN;
+        extern fn RtlAreBitsClear(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAreBitsSet(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> BOOLEAN;
+        extern fn RtlAreBitsSet(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlAssert(VoidFailedAssertion: *const void, VoidFileName: *const void, LineNumber: u32, #[opt] MutableMessage: PCSTR);
+        extern fn RtlAssert(VoidFailedAssertion: *const void, VoidFileName: *const void, LineNumber: u32, #[opt] MutableMessage: PCSTR);
         #[library("ntdll.dll")]
-        extern "system" fn RtlCheckRegistryKey(RelativeTo: u32, Path: PCWSTR) -> NTSTATUS;
+        extern fn RtlCheckRegistryKey(RelativeTo: u32, Path: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlClearAllBits(BitMapHeader: *const RTL_BITMAP);
+        extern fn RtlClearAllBits(BitMapHeader: *const RTL_BITMAP);
         #[library("ntdll.dll")]
-        extern "system" fn RtlClearBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32);
+        extern fn RtlClearBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32);
         #[library("ntdll.dll")]
-        extern "system" fn RtlClearBits(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, NumberToClear: u32);
+        extern fn RtlClearBits(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, NumberToClear: u32);
         #[library("ntdll.dll")]
-        extern "system" fn RtlCmDecodeMemIoResource(Descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, #[opt] Start: *mut u64) -> u64;
+        extern fn RtlCmDecodeMemIoResource(Descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, #[opt] Start: *mut u64) -> u64;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCmEncodeMemIoResource(Descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, Type: u8, Length: u64, Start: u64) -> NTSTATUS;
+        extern fn RtlCmEncodeMemIoResource(Descriptor: *const CM_PARTIAL_RESOURCE_DESCRIPTOR, Type: u8, Length: u64, Start: u64) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCompareUnicodeString(String1: *const UNICODE_STRING, String2: *const UNICODE_STRING, CaseInSensitive: BOOLEAN) -> i32;
+        extern fn RtlCompareUnicodeString(String1: *const UNICODE_STRING, String2: *const UNICODE_STRING, CaseInSensitive: BOOLEAN) -> i32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCompareUnicodeStrings(#[len_param(1)] String1: *const u16, String1Length: usize, #[len_param(3)] String2: *const u16, String2Length: usize, CaseInSensitive: BOOLEAN) -> i32;
+        extern fn RtlCompareUnicodeStrings(#[len_param(1)] String1: *const u16, String1Length: usize, #[len_param(3)] String2: *const u16, String2Length: usize, CaseInSensitive: BOOLEAN) -> i32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCopyBitMap(Source: *const RTL_BITMAP, Destination: *const RTL_BITMAP, TargetBit: u32);
+        extern fn RtlCopyBitMap(Source: *const RTL_BITMAP, Destination: *const RTL_BITMAP, TargetBit: u32);
+        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "system" fn RtlCopyMemoryNonTemporal(#[size_param(2)] Destination: *mut void, #[size_param(2)] Source: *const void, Length: usize);
+        extern fn RtlCopyMemoryNonTemporal(#[size_param(2)] Destination: *mut void, #[size_param(2)] Source: *const void, Length: usize);
         #[library("ntdll.dll")]
-        extern "system" fn RtlCopyUnicodeString(#[r#in] #[out] DestinationString: *mut UNICODE_STRING, #[opt] SourceString: *const UNICODE_STRING);
+        extern fn RtlCopyUnicodeString(#[in] #[out] DestinationString: *mut UNICODE_STRING, #[opt] SourceString: *const UNICODE_STRING);
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateRegistryKey(RelativeTo: u32, Path: PCWSTR) -> NTSTATUS;
+        extern fn RtlCreateRegistryKey(RelativeTo: u32, Path: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, Revision: u32) -> NTSTATUS;
+        extern fn RtlCreateSecurityDescriptor(#[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, Revision: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDeleteRegistryValue(RelativeTo: u32, Path: PCWSTR, ValueName: PCWSTR) -> NTSTATUS;
+        extern fn RtlDeleteRegistryValue(RelativeTo: u32, Path: PCWSTR, ValueName: PCWSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlDowncaseUnicodeChar(SourceCharacter: u16) -> u16;
+        extern fn RtlDowncaseUnicodeChar(SourceCharacter: u16) -> u16;
         #[library("ntdll.dll")]
-        extern "system" fn RtlEqualUnicodeString(String1: *const UNICODE_STRING, String2: *const UNICODE_STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
+        extern fn RtlEqualUnicodeString(String1: *const UNICODE_STRING, String2: *const UNICODE_STRING, CaseInSensitive: BOOLEAN) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlExtractBitMap(Source: *const RTL_BITMAP, Destination: *const RTL_BITMAP, TargetBit: u32, NumberOfBits: u32);
+        extern fn RtlExtractBitMap(Source: *const RTL_BITMAP, Destination: *const RTL_BITMAP, TargetBit: u32, NumberOfBits: u32);
+        #[arch(X64 | Arm64)]
         #[library("ntdll.dll")]
-        extern "system" fn RtlFillMemoryNonTemporal(#[size_param(1)] Destination: *mut void, Length: usize, Value: u8);
+        extern fn RtlFillMemoryNonTemporal(#[size_param(1)] Destination: *mut void, Length: usize, Value: u8);
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindClearBits(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
+        extern fn RtlFindClearBits(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindClearBitsAndSet(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
+        extern fn RtlFindClearBitsAndSet(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindClearRuns(BitMapHeader: *const RTL_BITMAP, #[len_param(2)] RunArray: *mut RTL_BITMAP_RUN, SizeOfRunArray: u32, LocateLongestRuns: BOOLEAN) -> u32;
+        extern fn RtlFindClearRuns(BitMapHeader: *const RTL_BITMAP, #[len_param(2)] RunArray: *mut RTL_BITMAP_RUN, SizeOfRunArray: u32, LocateLongestRuns: BOOLEAN) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindClosestEncodableLength(SourceLength: u64, TargetLength: *mut u64) -> NTSTATUS;
+        extern fn RtlFindClosestEncodableLength(SourceLength: u64, TargetLength: *mut u64) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindLastBackwardRunClear(BitMapHeader: *const RTL_BITMAP, FromIndex: u32, StartingRunIndex: *mut u32) -> u32;
+        extern fn RtlFindLastBackwardRunClear(BitMapHeader: *const RTL_BITMAP, FromIndex: u32, StartingRunIndex: *mut u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindLeastSignificantBit(Set: u64) -> CCHAR;
+        extern fn RtlFindLeastSignificantBit(Set: u64) -> CCHAR;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindLongestRunClear(BitMapHeader: *const RTL_BITMAP, StartingIndex: *mut u32) -> u32;
+        extern fn RtlFindLongestRunClear(BitMapHeader: *const RTL_BITMAP, StartingIndex: *mut u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindMostSignificantBit(Set: u64) -> CCHAR;
+        extern fn RtlFindMostSignificantBit(Set: u64) -> CCHAR;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindNextForwardRunClear(BitMapHeader: *const RTL_BITMAP, FromIndex: u32, StartingRunIndex: *mut u32) -> u32;
+        extern fn RtlFindNextForwardRunClear(BitMapHeader: *const RTL_BITMAP, FromIndex: u32, StartingRunIndex: *mut u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindSetBits(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
+        extern fn RtlFindSetBits(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFindSetBitsAndClear(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
+        extern fn RtlFindSetBitsAndClear(BitMapHeader: *const RTL_BITMAP, NumberToFind: u32, HintIndex: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlFreeUTF8String(#[r#in] #[out] utf8String: PUTF8_STRING);
+        extern fn RtlFreeUTF8String(#[in] #[out] utf8String: PUTF8_STRING);
         #[library("ntdll.dll")]
-        extern "system" fn RtlGUIDFromString(GuidString: *const UNICODE_STRING, Guid: *mut GUID) -> NTSTATUS;
+        extern fn RtlGUIDFromString(GuidString: *const UNICODE_STRING, Guid: *mut GUID) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlGetVersion(lpVersionInformation: *mut OSVERSIONINFOW) -> NTSTATUS;
+        extern fn RtlGetVersion(lpVersionInformation: *mut OSVERSIONINFOW) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlHashUnicodeString(String: *const UNICODE_STRING, CaseInSensitive: BOOLEAN, HashAlgorithm: u32, HashValue: *mut u32) -> NTSTATUS;
+        extern fn RtlHashUnicodeString(String: *const UNICODE_STRING, CaseInSensitive: BOOLEAN, HashAlgorithm: u32, HashValue: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[opt] SourceString: PCSTR);
+        extern fn RtlInitUTF8String(#[out] DestinationString: PUTF8_STRING, #[opt] SourceString: PCSTR);
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[opt] SourceString: PCSTR) -> NTSTATUS;
+        extern fn RtlInitUTF8StringEx(#[out] DestinationString: PUTF8_STRING, #[opt] SourceString: PCSTR) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlInitializeBitMap(BitMapHeader: *mut RTL_BITMAP, #[opt] BitMapBuffer: *const u32, #[opt] SizeOfBitMap: u32);
+        extern fn RtlInitializeBitMap(BitMapHeader: *mut RTL_BITMAP, #[opt] BitMapBuffer: *const u32, #[opt] SizeOfBitMap: u32);
         #[library("ntdll.dll")]
-        extern "system" fn RtlInt64ToUnicodeString(Value: u64, #[opt] Base: u32, #[r#in] #[out] String: *mut UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlInt64ToUnicodeString(Value: u64, #[opt] Base: u32, #[in] #[out] String: *mut UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIntegerToUnicodeString(Value: u32, #[opt] Base: u32, #[r#in] #[out] String: *mut UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlIntegerToUnicodeString(Value: u32, #[opt] Base: u32, #[in] #[out] String: *mut UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIoDecodeMemIoResource(Descriptor: *const IO_RESOURCE_DESCRIPTOR, #[opt] Alignment: *mut u64, #[opt] MinimumAddress: *mut u64, #[opt] MaximumAddress: *mut u64) -> u64;
+        extern fn RtlIoDecodeMemIoResource(Descriptor: *const IO_RESOURCE_DESCRIPTOR, #[opt] Alignment: *mut u64, #[opt] MinimumAddress: *mut u64, #[opt] MaximumAddress: *mut u64) -> u64;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIoEncodeMemIoResource(Descriptor: *const IO_RESOURCE_DESCRIPTOR, Type: u8, Length: u64, Alignment: u64, MinimumAddress: u64, MaximumAddress: u64) -> NTSTATUS;
+        extern fn RtlIoEncodeMemIoResource(Descriptor: *const IO_RESOURCE_DESCRIPTOR, Type: u8, Length: u64, Alignment: u64, MinimumAddress: u64, MaximumAddress: u64) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlIsUntrustedObject(#[opt] Handle: HANDLE, #[opt] Object: *const void, UntrustedObject: *mut BOOLEAN) -> NTSTATUS;
+        extern fn RtlIsUntrustedObject(#[opt] Handle: HANDLE, #[opt] Object: *const void, UntrustedObject: *mut BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlLengthSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR) -> u32;
+        extern fn RtlLengthSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNumberOfClearBits(BitMapHeader: *const RTL_BITMAP) -> u32;
+        extern fn RtlNumberOfClearBits(BitMapHeader: *const RTL_BITMAP) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNumberOfClearBitsInRange(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> u32;
+        extern fn RtlNumberOfClearBitsInRange(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNumberOfSetBits(BitMapHeader: *const RTL_BITMAP) -> u32;
+        extern fn RtlNumberOfSetBits(BitMapHeader: *const RTL_BITMAP) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNumberOfSetBitsInRange(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> u32;
+        extern fn RtlNumberOfSetBitsInRange(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, Length: u32) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlNumberOfSetBitsUlongPtr(Target: usize) -> u32;
+        extern fn RtlNumberOfSetBitsUlongPtr(Target: usize) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryRegistryValues(RelativeTo: u32, Path: PCWSTR, #[r#in] #[out] QueryTable: *mut RTL_QUERY_REGISTRY_TABLE, #[opt] Context: *const void, #[opt] Environment: *const void) -> NTSTATUS;
+        extern fn RtlQueryRegistryValues(RelativeTo: u32, Path: PCWSTR, #[in] #[out] QueryTable: *mut RTL_QUERY_REGISTRY_TABLE, #[opt] Context: *const void, #[opt] Environment: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlQueryValidationRunlevel(#[opt] ComponentName: *const UNICODE_STRING) -> u32;
+        extern fn RtlQueryValidationRunlevel(#[opt] ComponentName: *const UNICODE_STRING) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetAllBits(BitMapHeader: *const RTL_BITMAP);
+        extern fn RtlSetAllBits(BitMapHeader: *const RTL_BITMAP);
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32);
+        extern fn RtlSetBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32);
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetBits(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, NumberToSet: u32);
+        extern fn RtlSetBits(BitMapHeader: *const RTL_BITMAP, StartingIndex: u32, NumberToSet: u32);
         #[library("ntdll.dll")]
-        extern "system" fn RtlSetDaclSecurityDescriptor(#[r#in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, DaclPresent: BOOLEAN, #[opt] Dacl: *const ACL, DaclDefaulted: BOOLEAN) -> NTSTATUS;
+        extern fn RtlSetDaclSecurityDescriptor(#[in] #[out] SecurityDescriptor: PSECURITY_DESCRIPTOR, DaclPresent: BOOLEAN, #[opt] Dacl: *const ACL, DaclDefaulted: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlStringFromGUID(Guid: *const GUID, GuidString: *mut UNICODE_STRING) -> NTSTATUS;
+        extern fn RtlStringFromGUID(Guid: *const GUID, GuidString: *mut UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlTestBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32) -> BOOLEAN;
+        extern fn RtlTestBit(BitMapHeader: *const RTL_BITMAP, BitNumber: u32) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlTimeFieldsToTime(TimeFields: *const TIME_FIELDS, Time: *mut LARGE_INTEGER) -> BOOLEAN;
+        extern fn RtlTimeFieldsToTime(TimeFields: *const TIME_FIELDS, Time: *mut LARGE_INTEGER) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlTimeToTimeFields(Time: *const LARGE_INTEGER, TimeFields: *mut TIME_FIELDS);
+        extern fn RtlTimeToTimeFields(Time: *const LARGE_INTEGER, TimeFields: *mut TIME_FIELDS);
         #[library("ntdll.dll")]
-        extern "system" fn RtlUTF8StringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PUTF8_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUTF8StringToUnicodeString(DestinationString: *mut UNICODE_STRING, SourceString: PUTF8_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUTF8ToUnicodeN(#[size_param(1)] #[out] UnicodeStringDestination: PWSTR, UnicodeStringMaxByteCount: u32, UnicodeStringActualByteCount: *mut u32, #[size_param(4)] UTF8StringSource: *const i8, UTF8StringByteCount: u32) -> NTSTATUS;
+        extern fn RtlUTF8ToUnicodeN(#[size_param(1)] #[out] UnicodeStringDestination: PWSTR, UnicodeStringMaxByteCount: u32, UnicodeStringActualByteCount: *mut u32, #[size_param(4)] UTF8StringSource: *const i8, UTF8StringByteCount: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeStringToInteger(String: *const UNICODE_STRING, #[opt] Base: u32, Value: *mut u32) -> NTSTATUS;
+        extern fn RtlUnicodeStringToInteger(String: *const UNICODE_STRING, #[opt] Base: u32, Value: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeStringToUTF8String(DestinationString: PUTF8_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
+        extern fn RtlUnicodeStringToUTF8String(DestinationString: PUTF8_STRING, SourceString: *const UNICODE_STRING, AllocateDestinationString: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUnicodeToUTF8N(#[size_param(1)] UTF8StringDestination: *mut i8, UTF8StringMaxByteCount: u32, UTF8StringActualByteCount: *mut u32, #[size_param(4)] UnicodeStringSource: *const u16, UnicodeStringByteCount: u32) -> NTSTATUS;
+        extern fn RtlUnicodeToUTF8N(#[size_param(1)] UTF8StringDestination: *mut i8, UTF8StringMaxByteCount: u32, UTF8StringActualByteCount: *mut u32, #[size_param(4)] UnicodeStringSource: *const u16, UnicodeStringByteCount: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlUpcaseUnicodeChar(SourceCharacter: u16) -> u16;
+        extern fn RtlUpcaseUnicodeChar(SourceCharacter: u16) -> u16;
         #[library("ntdll.dll")]
-        extern "system" fn RtlValidRelativeSecurityDescriptor(#[size_param(1)] SecurityDescriptorInput: PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, RequiredInformation: SECURITY_INFORMATION) -> BOOLEAN;
+        extern fn RtlValidRelativeSecurityDescriptor(#[size_param(1)] SecurityDescriptorInput: PSECURITY_DESCRIPTOR, SecurityDescriptorLength: u32, RequiredInformation: SECURITY_INFORMATION) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlValidSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
+        extern fn RtlValidSecurityDescriptor(SecurityDescriptor: PSECURITY_DESCRIPTOR) -> BOOLEAN;
         #[library("ntdll.dll")]
-        extern "system" fn RtlVerifyVersionInfo(VersionInfo: *const OSVERSIONINFOEXW, TypeMask: u32, ConditionMask: u64) -> NTSTATUS;
+        extern fn RtlVerifyVersionInfo(VersionInfo: *const OSVERSIONINFOEXW, TypeMask: u32, ConditionMask: u64) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlWriteRegistryValue(RelativeTo: u32, Path: PCWSTR, ValueName: PCWSTR, ValueType: u32, #[size_param(5)] #[opt] ValueData: *const void, ValueLength: u32) -> NTSTATUS;
+        extern fn RtlWriteRegistryValue(RelativeTo: u32, Path: PCWSTR, ValueName: PCWSTR, ValueType: u32, #[size_param(5)] #[opt] ValueData: *const void, ValueLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn RtlxAnsiStringToUnicodeSize(AnsiString: PCANSI_STRING) -> u32;
+        extern fn RtlxAnsiStringToUnicodeSize(AnsiString: PCANSI_STRING) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn RtlxUnicodeStringToAnsiSize(UnicodeString: *const UNICODE_STRING) -> u32;
+        extern fn RtlxUnicodeStringToAnsiSize(UnicodeString: *const UNICODE_STRING) -> u32;
         struct SCATTER_GATHER_ELEMENT {
             Address: PHYSICAL_ADDRESS,
             Length: u32,
@@ -6688,7 +7532,7 @@ mod Windows {
         extern fn SEND_DOE_REQUEST(InterfaceContext: *const void, DataObjectVendorId: u16, DataObjectType: u8, InputArrayCount: u32, #[len_param(3)] #[opt] InputArray: *const u32, OutputArrayCount: u32, OutputWritten: *mut u32, #[len_param(5)] #[opt] OutputArray: *mut u32) -> NTSTATUS;
         extern fn SEND_DOE_REQUEST_ASYNC(InterfaceContext: *const void, DataObjectVendorId: u16, DataObjectType: u8, InputArrayCount: u32, #[len_param(3)] #[opt] InputArray: *const u32, CompletionEvent: *const KEVENT, RequestId: *mut i64) -> NTSTATUS;
         extern fn SET_D3COLD_SUPPORT(#[opt] Context: *const void, D3ColdSupport: BOOLEAN);
-        extern fn SET_VIRTUAL_DEVICE_DATA(#[r#in] #[out] Context: *mut void, VirtualFunction: u16, #[size_param(4)] Buffer: *const void, Offset: u32, Length: u32) -> u32;
+        extern fn SET_VIRTUAL_DEVICE_DATA(#[in] #[out] Context: *mut void, VirtualFunction: u16, #[size_param(4)] Buffer: *const void, Offset: u32, Length: u32) -> u32;
         const SE_ASSIGNPRIMARYTOKEN_PRIVILEGE: u32 = 3;
         const SE_AUDIT_PRIVILEGE: u32 = 21;
         const SE_BACKUP_PRIVILEGE: u32 = 17;
@@ -6710,7 +7554,7 @@ mod Windows {
             SeImageTypeAll = 4,
             SeImageTypeMax = 5,
         }
-        extern fn SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION(#[opt] CallbackContext: *const void, ImageType: SE_IMAGE_TYPE, #[r#in] #[out] ImageInformation: *mut BDCB_IMAGE_INFORMATION);
+        extern fn SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION(#[opt] CallbackContext: *const void, ImageType: SE_IMAGE_TYPE, #[in] #[out] ImageInformation: *mut BDCB_IMAGE_INFORMATION);
         type SE_IMAGE_VERIFICATION_CALLBACK_TOKEN = *mut void;
         #[repr(i32)]
         enum SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
@@ -6791,7 +7635,10 @@ mod Windows {
         const SL_WATCH_TREE: u32 = 1;
         const SL_WRITE_ACCESS_GRANTED: u32 = 4;
         const SL_WRITE_THROUGH: u32 = 4;
+        #[arch(X64 | Arm64)]
         type SPFN_NUMBER = i64;
+        #[arch(X86)]
+        type SPFN_NUMBER = i32;
         const STATUS_CONTINUE_COMPLETION: u32 = 0;
         const SYMBOLIC_LINK_ALL_ACCESS: u32 = 983041;
         const SYMBOLIC_LINK_ALL_ACCESS_EX: u32 = 1048575;
@@ -6854,9 +7701,11 @@ mod Windows {
             WdfNotifyRoutinesClass = 15,
             MaxTraceInformationClass = 16,
         }
-        extern fn TRANSLATE_BUS_ADDRESS(#[r#in] #[out] #[opt] Context: *mut void, BusAddress: PHYSICAL_ADDRESS, Length: u32, AddressSpace: *mut u32, TranslatedAddress: *mut LARGE_INTEGER) -> BOOLEAN;
+        extern fn TRANSLATE_BUS_ADDRESS(#[in] #[out] #[opt] Context: *mut void, BusAddress: PHYSICAL_ADDRESS, Length: u32, AddressSpace: *mut u32, TranslatedAddress: *mut LARGE_INTEGER) -> BOOLEAN;
         const TREE_CONNECT_NO_CLIENT_BUFFERING: u32 = 8;
         const TREE_CONNECT_WRITE_THROUGH: u32 = 2;
+        #[arch(X86)]
+        const UADDRESS_BASE: u32 = 0;
         union VIRTUAL_CHANNEL_CAPABILITIES1 {
             Anonymous: struct {
                 _bitfield: u32,
@@ -6968,168 +7817,192 @@ mod Windows {
             MaximumWorkQueue = 7,
             CustomPriorityWorkQueue = 32,
         }
+        #[arch(Arm64)]
+        struct XSTATE_SAVE {
+            Prev: *mut XSTATE_SAVE,
+            Thread: *mut _KTHREAD,
+            Level: u8,
+            XStateContext: XSTATE_CONTEXT,
+            Reserved: usize,
+        }
+        #[arch(X64)]
         struct XSTATE_SAVE {
             Prev: *mut XSTATE_SAVE,
             Thread: *mut _KTHREAD,
             Level: u8,
             XStateContext: XSTATE_CONTEXT,
         }
+        #[arch(X86)]
+        struct XSTATE_SAVE {
+            Anonymous: union {
+                Anonymous: struct {
+                    Reserved1: i64,
+                    Reserved2: u32,
+                    Prev: *mut XSTATE_SAVE,
+                    Reserved3: PXSAVE_AREA,
+                    Thread: *mut _KTHREAD,
+                    Reserved4: *mut void,
+                    Level: u8,
+                },
+                XStateContext: XSTATE_CONTEXT,
+            },
+        }
         #[library("ntdll.dll")]
-        extern "system" fn ZwClose(Handle: HANDLE) -> NTSTATUS;
+        extern fn ZwClose(Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCommitComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwCommitComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCommitEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwCommitEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCommitRegistryTransaction(TransactionHandle: HANDLE, Flags: u32) -> NTSTATUS;
+        extern fn ZwCommitRegistryTransaction(TransactionHandle: HANDLE, Flags: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCommitTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
+        extern fn ZwCommitTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCopyFileChunk(SourceHandle: HANDLE, DestHandle: HANDLE, #[opt] Event: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, Length: u32, SourceOffset: *const LARGE_INTEGER, DestOffset: *const LARGE_INTEGER, #[opt] SourceKey: *const u32, #[opt] DestKey: *const u32, Flags: u32) -> NTSTATUS;
+        extern fn ZwCopyFileChunk(SourceHandle: HANDLE, DestHandle: HANDLE, #[opt] Event: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, Length: u32, SourceOffset: *const LARGE_INTEGER, DestOffset: *const LARGE_INTEGER, #[opt] SourceKey: *const u32, #[opt] DestKey: *const u32, Flags: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateDirectoryObject(DirectoryHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwCreateDirectoryObject(DirectoryHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, TransactionHandle: HANDLE, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, NotificationMask: NOTIFICATION_MASK, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
+        extern fn ZwCreateEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ResourceManagerHandle: HANDLE, TransactionHandle: HANDLE, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, NotificationMask: NOTIFICATION_MASK, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[opt] AllocationSize: *const LARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[size_param(10)] #[opt] EaBuffer: *const void, EaLength: u32) -> NTSTATUS;
+        extern fn ZwCreateFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[opt] AllocationSize: *const LARGE_INTEGER, FileAttributes: u32, ShareAccess: u32, CreateDisposition: u32, CreateOptions: u32, #[size_param(10)] #[opt] EaBuffer: *const void, EaLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateIoCompletion(IoCompletionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Count: u32) -> NTSTATUS;
+        extern fn ZwCreateIoCompletion(IoCompletionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Count: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateKey(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, #[reserved] TitleIndex: u32, #[opt] Class: *const UNICODE_STRING, CreateOptions: u32, #[opt] Disposition: *mut u32) -> NTSTATUS;
+        extern fn ZwCreateKey(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, #[reserved] TitleIndex: u32, #[opt] Class: *const UNICODE_STRING, CreateOptions: u32, #[opt] Disposition: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
         extern "C" fn ZwCreateKeyTransacted(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, #[reserved] TitleIndex: u32, #[opt] Class: *const UNICODE_STRING, CreateOptions: u32, TransactionHandle: HANDLE, #[opt] Disposition: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateRegistryTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32) -> NTSTATUS;
+        extern fn ZwCreateRegistryTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, #[opt] ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwCreateResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, #[opt] ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] CreateOptions: u32, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwCreateSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] MaximumSize: *const LARGE_INTEGER, SectionPageProtection: u32, AllocationAttributes: u32, #[opt] FileHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Uow: *const GUID, #[opt] TmHandle: HANDLE, #[opt] CreateOptions: u32, #[opt] IsolationLevel: u32, #[opt] IsolationFlags: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwCreateTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] Uow: *const GUID, #[opt] TmHandle: HANDLE, #[opt] CreateOptions: u32, #[opt] IsolationLevel: u32, #[opt] IsolationFlags: u32, #[opt] Timeout: *const LARGE_INTEGER, #[opt] Description: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwCreateTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] CreateOptions: u32, #[opt] CommitStrength: u32) -> NTSTATUS;
+        extern fn ZwCreateTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] CreateOptions: u32, #[opt] CommitStrength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwDeleteKey(KeyHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwDeleteKey(KeyHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwDeleteValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwDeleteValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwEnumerateKey(KeyHandle: HANDLE, Index: u32, KeyInformationClass: KEY_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
+        extern fn ZwEnumerateKey(KeyHandle: HANDLE, Index: u32, KeyInformationClass: KEY_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwEnumerateTransactionObject(#[opt] RootObjectHandle: HANDLE, QueryType: KTMOBJECT_TYPE, #[size_param(3)] #[r#in] #[out] ObjectCursor: *mut KTMOBJECT_CURSOR, ObjectCursorLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwEnumerateTransactionObject(#[opt] RootObjectHandle: HANDLE, QueryType: KTMOBJECT_TYPE, #[size_param(3)] #[in] #[out] ObjectCursor: *mut KTMOBJECT_CURSOR, ObjectCursorLength: u32, ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwEnumerateValueKey(KeyHandle: HANDLE, Index: u32, KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyValueInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
+        extern fn ZwEnumerateValueKey(KeyHandle: HANDLE, Index: u32, KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyValueInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwFlushKey(KeyHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwFlushKey(KeyHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwGetNotificationResourceManager(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, NotificationLength: u32, Timeout: *const LARGE_INTEGER, #[opt] ReturnLength: *mut u32, Asynchronous: u32, #[opt] AsynchronousContext: usize) -> NTSTATUS;
+        extern fn ZwGetNotificationResourceManager(ResourceManagerHandle: HANDLE, TransactionNotification: *mut TRANSACTION_NOTIFICATION, NotificationLength: u32, Timeout: *const LARGE_INTEGER, #[opt] ReturnLength: *mut u32, Asynchronous: u32, #[opt] AsynchronousContext: usize) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwLoadDriver(DriverServiceName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwLoadDriver(DriverServiceName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwMakeTemporaryObject(Handle: HANDLE) -> NTSTATUS;
+        extern fn ZwMakeTemporaryObject(Handle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwMapViewOfSection(SectionHandle: HANDLE, ProcessHandle: HANDLE, BaseAddress: *mut *mut void, ZeroBits: usize, CommitSize: usize, #[r#in] #[out] #[opt] SectionOffset: *mut LARGE_INTEGER, #[r#in] #[out] ViewSize: *mut usize, InheritDisposition: SECTION_INHERIT, AllocationType: u32, Win32Protect: u32) -> NTSTATUS;
+        extern fn ZwMapViewOfSection(SectionHandle: HANDLE, ProcessHandle: HANDLE, BaseAddress: *mut *mut void, ZeroBits: usize, CommitSize: usize, #[in] #[out] #[opt] SectionOffset: *mut LARGE_INTEGER, #[in] #[out] ViewSize: *mut usize, InheritDisposition: SECTION_INHERIT, AllocationType: u32, Win32Protect: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwMapViewOfSectionEx(SectionHandle: HANDLE, ProcessHandle: HANDLE, #[r#in] #[out] BaseAddress: *mut *mut void, #[r#in] #[out] #[opt] SectionOffset: *mut LARGE_INTEGER, #[r#in] #[out] ViewSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[r#in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
+        extern fn ZwMapViewOfSectionEx(SectionHandle: HANDLE, ProcessHandle: HANDLE, #[in] #[out] BaseAddress: *mut *mut void, #[in] #[out] #[opt] SectionOffset: *mut LARGE_INTEGER, #[in] #[out] ViewSize: *mut usize, AllocationType: u32, PageProtection: u32, #[len_param(8)] #[in] #[out] #[opt] ExtendedParameters: *mut MEM_EXTENDED_PARAMETER, ExtendedParameterCount: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, RmHandle: HANDLE, EnlistmentGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenEnlistment(EnlistmentHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, RmHandle: HANDLE, EnlistmentGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenEvent(EventHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenEvent(EventHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
+        extern fn ZwOpenFile(FileHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, ShareAccess: u32, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenKey(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenKey(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenKeyEx(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, OpenOptions: u32) -> NTSTATUS;
+        extern fn ZwOpenKeyEx(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenKeyTransacted(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, TransactionHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwOpenKeyTransacted(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, TransactionHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenKeyTransactedEx(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, OpenOptions: u32, TransactionHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwOpenKeyTransactedEx(KeyHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES, OpenOptions: u32, TransactionHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenResourceManager(ResourceManagerHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, TmHandle: HANDLE, ResourceManagerGuid: *const GUID, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenSection(SectionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenSymbolicLinkObject(LinkHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
+        extern fn ZwOpenSymbolicLinkObject(LinkHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, ObjectAttributes: *const OBJECT_ATTRIBUTES) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, Uow: *const GUID, #[opt] TmHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwOpenTransaction(TransactionHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, Uow: *const GUID, #[opt] TmHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwOpenTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] TmIdentity: *const GUID, #[opt] OpenOptions: u32) -> NTSTATUS;
+        extern fn ZwOpenTransactionManager(TmHandle: *mut HANDLE, DesiredAccess: ACCESS_MASK, #[opt] ObjectAttributes: *const OBJECT_ATTRIBUTES, #[opt] LogFileName: *const UNICODE_STRING, #[opt] TmIdentity: *const GUID, #[opt] OpenOptions: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwPrePrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwPrePrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwPrePrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwPrePrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwPrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwPrepareComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwPrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwPrepareEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryFullAttributesFile(ObjectAttributes: *const OBJECT_ATTRIBUTES, FileInformation: *mut FILE_NETWORK_OPEN_INFORMATION) -> NTSTATUS;
+        extern fn ZwQueryFullAttributesFile(ObjectAttributes: *const OBJECT_ATTRIBUTES, FileInformation: *mut FILE_NETWORK_OPEN_INFORMATION) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationByName(ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwQueryInformationByName(ObjectAttributes: *const OBJECT_ATTRIBUTES, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *mut void, EnlistmentInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *mut void, EnlistmentInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwQueryInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *mut void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *mut void, ResourceManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *mut void, ResourceManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *mut void, TransactionInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, #[size_param(3)] TransactionInformation: *mut void, TransactionInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryInformationTransactionManager(TransactionManagerHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *mut void, TransactionManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryInformationTransactionManager(TransactionManagerHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, #[size_param(3)] TransactionManagerInformation: *mut void, TransactionManagerInformationLength: u32, #[opt] ReturnLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryKey(KeyHandle: HANDLE, KeyInformationClass: KEY_INFORMATION_CLASS, #[size_param(3)] #[opt] KeyInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryKey(KeyHandle: HANDLE, KeyInformationClass: KEY_INFORMATION_CLASS, #[size_param(3)] #[opt] KeyInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQuerySymbolicLinkObject(LinkHandle: HANDLE, #[r#in] #[out] LinkTarget: *mut UNICODE_STRING, #[opt] ReturnedLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQuerySymbolicLinkObject(LinkHandle: HANDLE, #[in] #[out] LinkTarget: *mut UNICODE_STRING, #[opt] ReturnedLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwQueryValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING, KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyValueInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
+        extern fn ZwQueryValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING, KeyValueInformationClass: KEY_VALUE_INFORMATION_CLASS, #[size_param(4)] #[opt] KeyValueInformation: *mut void, Length: u32, ResultLength: *mut u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwReadFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *mut void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        extern fn ZwReadFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *mut void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwReadOnlyEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwReadOnlyEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRecoverEnlistment(EnlistmentHandle: HANDLE, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
+        extern fn ZwRecoverEnlistment(EnlistmentHandle: HANDLE, #[opt] EnlistmentKey: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRecoverResourceManager(ResourceManagerHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwRecoverResourceManager(ResourceManagerHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRecoverTransactionManager(TransactionManagerHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwRecoverTransactionManager(TransactionManagerHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRenameKey(KeyHandle: HANDLE, NewName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwRenameKey(KeyHandle: HANDLE, NewName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRestoreKey(KeyHandle: HANDLE, #[opt] FileHandle: HANDLE, Flags: u32) -> NTSTATUS;
+        extern fn ZwRestoreKey(KeyHandle: HANDLE, #[opt] FileHandle: HANDLE, Flags: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRollbackComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwRollbackComplete(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRollbackEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwRollbackEnlistment(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRollbackTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
+        extern fn ZwRollbackTransaction(TransactionHandle: HANDLE, Wait: BOOLEAN) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwRollforwardTransactionManager(TransactionManagerHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwRollforwardTransactionManager(TransactionManagerHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSaveKey(KeyHandle: HANDLE, FileHandle: HANDLE) -> NTSTATUS;
+        extern fn ZwSaveKey(KeyHandle: HANDLE, FileHandle: HANDLE) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSaveKeyEx(KeyHandle: HANDLE, FileHandle: HANDLE, Format: u32) -> NTSTATUS;
+        extern fn ZwSaveKeyEx(KeyHandle: HANDLE, FileHandle: HANDLE, Format: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *const void, EnlistmentInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationEnlistment(EnlistmentHandle: HANDLE, EnlistmentInformationClass: ENLISTMENT_INFORMATION_CLASS, #[size_param(3)] EnlistmentInformation: *const void, EnlistmentInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *const void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
+        extern fn ZwSetInformationFile(FileHandle: HANDLE, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(3)] FileInformation: *const void, Length: u32, FileInformationClass: FILE_INFORMATION_CLASS) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] KeySetInformation: *const void, KeySetInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationKey(KeyHandle: HANDLE, KeySetInformationClass: KEY_SET_INFORMATION_CLASS, #[size_param(3)] KeySetInformation: *const void, KeySetInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *const void, ResourceManagerInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationResourceManager(ResourceManagerHandle: HANDLE, ResourceManagerInformationClass: RESOURCEMANAGER_INFORMATION_CLASS, #[size_param(3)] ResourceManagerInformation: *const void, ResourceManagerInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, TransactionInformation: *const void, TransactionInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationTransaction(TransactionHandle: HANDLE, TransactionInformationClass: TRANSACTION_INFORMATION_CLASS, TransactionInformation: *const void, TransactionInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetInformationTransactionManager(TmHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, TransactionManagerInformation: *const void, TransactionManagerInformationLength: u32) -> NTSTATUS;
+        extern fn ZwSetInformationTransactionManager(TmHandle: HANDLE, TransactionManagerInformationClass: TRANSACTIONMANAGER_INFORMATION_CLASS, TransactionManagerInformation: *const void, TransactionManagerInformationLength: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSetValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING, #[opt] TitleIndex: u32, Type: u32, #[size_param(5)] #[opt] Data: *const void, DataSize: u32) -> NTSTATUS;
+        extern fn ZwSetValueKey(KeyHandle: HANDLE, ValueName: *const UNICODE_STRING, #[opt] TitleIndex: u32, Type: u32, #[size_param(5)] #[opt] Data: *const void, DataSize: u32) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwSinglePhaseReject(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
+        extern fn ZwSinglePhaseReject(EnlistmentHandle: HANDLE, #[opt] TmVirtualClock: *const LARGE_INTEGER) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwUnloadDriver(DriverServiceName: *const UNICODE_STRING) -> NTSTATUS;
+        extern fn ZwUnloadDriver(DriverServiceName: *const UNICODE_STRING) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwUnmapViewOfSection(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void) -> NTSTATUS;
+        extern fn ZwUnmapViewOfSection(ProcessHandle: HANDLE, #[opt] BaseAddress: *const void) -> NTSTATUS;
         #[library("ntdll.dll")]
-        extern "system" fn ZwWriteFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *const void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
+        extern fn ZwWriteFile(FileHandle: HANDLE, #[opt] Event: HANDLE, #[opt] ApcRoutine: PIO_APC_ROUTINE, #[opt] ApcContext: *const void, IoStatusBlock: *mut IO_STATUS_BLOCK, #[size_param(6)] Buffer: *const void, Length: u32, #[opt] ByteOffset: *const LARGE_INTEGER, #[opt] Key: *const u32) -> NTSTATUS;
         struct _AFFINITY_TOKEN {}
         struct _CALLBACK_OBJECT {}
         struct _DEVICE_OBJECT_POWER_EXTENSION {}
@@ -7159,8 +8032,8 @@ mod Windows {
         type __prefast_analysis_mode_flag0 = i32;
         type __prefast_analysis_mode_flag1 = i32;
         #[library("ntdll.dll")]
-        extern "system" fn vDbgPrintEx(ComponentId: u32, Level: u32, Format: PCSTR, arglist: *const i8) -> u32;
+        extern fn vDbgPrintEx(ComponentId: u32, Level: u32, Format: PCSTR, arglist: *const i8) -> u32;
         #[library("ntdll.dll")]
-        extern "system" fn vDbgPrintExWithPrefix(Prefix: PCSTR, ComponentId: u32, Level: u32, Format: PCSTR, arglist: *const i8) -> u32;
+        extern fn vDbgPrintExWithPrefix(Prefix: PCSTR, ComponentId: u32, Level: u32, Format: PCSTR, arglist: *const i8) -> u32;
     }
 }

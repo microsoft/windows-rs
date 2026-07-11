@@ -14,13 +14,13 @@ mod Windows {
         #[library("OFFREG.dll")]
         extern "C" fn ORDeleteValue(Handle: ORHKEY, #[opt] lpValueName: PCWSTR) -> u32;
         #[library("OFFREG.dll")]
-        extern "C" fn OREnumKey(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpName: PWSTR, #[r#in] #[out] lpcName: *mut u32, #[len_param(5)] #[out] #[opt] lpClass: PWSTR, #[r#in] #[out] #[opt] lpcClass: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> u32;
+        extern "C" fn OREnumKey(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpName: PWSTR, #[in] #[out] lpcName: *mut u32, #[len_param(5)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> u32;
         #[library("OFFREG.dll")]
-        extern "C" fn OREnumValue(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpValueName: PWSTR, #[r#in] #[out] lpcValueName: *mut u32, #[opt] lpType: *mut u32, #[size_param(6)] #[opt] lpData: *mut u8, #[r#in] #[out] #[opt] lpcbData: *mut u32) -> u32;
+        extern "C" fn OREnumValue(Handle: ORHKEY, dwIndex: u32, #[len_param(3)] #[out] lpValueName: PWSTR, #[in] #[out] lpcValueName: *mut u32, #[opt] lpType: *mut u32, #[size_param(6)] #[opt] lpData: *mut u8, #[in] #[out] #[opt] lpcbData: *mut u32) -> u32;
         #[library("OFFREG.dll")]
-        extern "C" fn ORGetKeySecurity(Handle: ORHKEY, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[r#in] #[out] lpcbSecurityDescriptor: *mut u32) -> u32;
+        extern "C" fn ORGetKeySecurity(Handle: ORHKEY, SecurityInformation: SECURITY_INFORMATION, #[out] #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, #[in] #[out] lpcbSecurityDescriptor: *mut u32) -> u32;
         #[library("OFFREG.dll")]
-        extern "C" fn ORGetValue(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[r#in] #[out] #[opt] pcbData: *mut u32) -> u32;
+        extern "C" fn ORGetValue(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR, #[opt] lpValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> u32;
         #[library("OFFREG.dll")]
         extern "C" fn ORGetVersion(pdwMajorVersion: *mut u32, pdwMinorVersion: *mut u32);
         #[library("OFFREG.dll")]
@@ -35,7 +35,7 @@ mod Windows {
         #[library("OFFREG.dll")]
         extern "C" fn OROpenKey(Handle: ORHKEY, #[opt] lpSubKey: PCWSTR, phkResult: *mut ORHKEY) -> u32;
         #[library("OFFREG.dll")]
-        extern "C" fn ORQueryInfoKey(Handle: ORHKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[r#in] #[out] #[opt] lpcClass: *mut u32, #[opt] lpcSubKeys: *mut u32, #[opt] lpcMaxSubKeyLen: *mut u32, #[opt] lpcMaxClassLen: *mut u32, #[opt] lpcValues: *mut u32, #[opt] lpcMaxValueNameLen: *mut u32, #[opt] lpcMaxValueLen: *mut u32, #[opt] lpcbSecurityDescriptor: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> u32;
+        extern "C" fn ORQueryInfoKey(Handle: ORHKEY, #[len_param(2)] #[out] #[opt] lpClass: PWSTR, #[in] #[out] #[opt] lpcClass: *mut u32, #[opt] lpcSubKeys: *mut u32, #[opt] lpcMaxSubKeyLen: *mut u32, #[opt] lpcMaxClassLen: *mut u32, #[opt] lpcValues: *mut u32, #[opt] lpcMaxValueNameLen: *mut u32, #[opt] lpcMaxValueLen: *mut u32, #[opt] lpcbSecurityDescriptor: *mut u32, #[opt] lpftLastWriteTime: *mut FILETIME) -> u32;
         #[library("OFFREG.dll")]
         extern "C" fn ORRenameKey(Handle: ORHKEY, lpNewName: PCWSTR) -> u32;
         #[library("OFFREG.dll")]

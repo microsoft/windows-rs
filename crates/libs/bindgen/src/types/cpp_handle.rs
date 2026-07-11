@@ -37,18 +37,13 @@ impl Config<'_> {
         let is_enum = def.category() == windows_metadata::reader::TypeCategory::Enum;
 
         if self.bindgen.style.emit_bare_typedef() || aliases_callback || is_enum {
-            // An arch-split enum collapses to a single name-keyed entry whose underlying
-            // alias (`-> i32`) is the same on every arch — only its constants, which are
-            // separate items, are arch-specific. Emitting that lone entry's cfg would hide
-            // the type on the arches where its constants live, so drop it for enums. A plain
-            // typedef keeps the def's cfg: an arch-divergent alias (`HALF_PTR = i16` on x86,
-            // `= i32` on x64) has a distinct per-arch definition that must stay gated, and a
-            // pointer alias (`P* = *mut Struct`) may reference an arch-gated pointee.
-            let arches = if is_enum {
-                quote! {}
-            } else {
-                write_arches(def)
-            };
+            // Emit the def's arch cfg. An arch-divergent alias (`HALF_PTR = i16` on x86, `= i32`
+            // on x64) or an unscoped enum that exists only on some arches (`KSPIN_LOCK_QUEUE_NUMBER`
+            // is an enum on x86/arm64 but a pointer typedef on x64) has a distinct per-arch
+            // definition that must stay gated so the arch-specific copies don't collide. Same-name
+            // enum copies are kept distinct in the codegen set by their arch bits (see `sort_key`),
+            // so each surviving copy carries its own gate here.
+            let arches = write_arches(def);
             quote! {
                 #arches
                 #cfg
