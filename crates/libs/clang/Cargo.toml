@@ -15,6 +15,7 @@ workspace = true
 [dependencies]
 windows-rdl = { workspace = true }
 windows-metadata = { workspace = true }
+windows-threading = { workspace = true }
 syn = { workspace = true, features = ["full", "parsing", "clone-impls", "printing", "extra-traits"] }
 quote = { workspace = true }
 proc-macro2 = { workspace = true }

@@ -82,6 +82,63 @@ specific libclang release so the scrape is deterministic (see `tool_win32`).
 - `tool_webview` — scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` — golden fixtures that pin the header → RDL behavior.
 
+## Scraper layering: one crate, two levels
+
+`windows-clang` is the single crate a scraper depends on. It is *not* a thin libclang
+FFI shim — it is a scraping toolkit with a clean two-level API, layered on the metadata
+crates below it:
+
+```
+windows-metadata          base: winmd read/write
+  └─ windows-rdl          RDL text ⇄ winmd; reader(), merge_arch_rdl, ArchInput
+       └─ windows-clang   provisioning + parse (clang()) + partitioning + multi-arch run()
+            └─ tool_win32 / tool_wdk / tool_webview / <third-party scraper>
+```
+
+A consumer picks the level that fits its corpus — nothing else is needed:
+
+- **Low level — `clang()` + `reader()`.** One translation unit, one architecture,
+  one shot: `clang().args(..).input(..).output(..).write()` then `reader()`. Vendored
+  headers, no provisioning, no arch-merge. This is all `tool_webview` uses (~45 lines)
+  to turn `WebView2.h` into `WebView2.rdl` → `WebView2.winmd`.
+- **High level — `run(Config)`.** The manifest-driven, multi-architecture pipeline:
+  provision the pinned libclang, scrape each architecture into its own per-header RDL
+  partition and winmd, `merge_arch_rdl` so a symbol that only exists on (or differs
+  across) a subset of arches gains `SupportedArchitecture`, then re-derive one unified
+  winmd from the merged corpus. `tool_win32` and `tool_wdk` are both just: resolve the
+  toolchain (NuGet packages → include/lib dirs), assemble the TU source, fill a
+  [`Config`], and call `run`.
+
+### What lives where, and why
+
+Everything generic to *any* header scrape lives in `windows-clang`:
+
+- **Provisioning** — `ensure_libclang` / `assert_libclang_version` (the pinned
+  `LIBCLANG_VERSION` wheel, fetched + cached on first use), `clang_resource_dir`, and
+  `nuget_package` (restore a pinned NuGet package into the global cache).
+- **Parse + emit** — the `clang()` builder (target, args, `input`/`input_str`, `scope`,
+  `scope_headers`, `import_library`, `drop_lib_less`), header partitioning
+  (`write_by_header`), and the per-kind cursor→RDL modules.
+- **Multi-arch orchestration** — `Arch` (clang triple + `SupportedArchitecture` bits +
+  per-target defines), `Config` (a fully-resolved scrape description — all paths final),
+  `Summary`, and `run`. This is pure data-plus-driver: nothing in it is win32- or
+  wdk-specific.
+
+Only what is *genuinely per-scraper* stays in each tool: the NuGet package IDs and pinned
+versions, the SDK/WDK include+lib directory layout, the translation-unit source assembly
+(the `windows.h` prelude, the `INITGUID` satellite reset, the WDK `offreg` prelude), the
+SAL shim, and the `*.toml` manifest of headers/scope/import-libs/arches. A third-party
+scraper is a fourth peer of this exact shape: provision its own toolchain, fill a
+`Config`, call `run`.
+
+This boundary is deliberate. `windows-clang` already depends on `windows-rdl` and
+`windows-metadata` and already reuses `windows_rdl::emit`, so the multi-arch driver —
+which only coordinates `clang()`, `merge_arch_rdl`, and `reader()` — belongs here rather
+than in a separate crate that would sit on top of clang only to add a thread pool. Folding
+it in gives every consumer one dependency and one mental model: *use `windows-clang` to
+scrape*. The earlier `windows-scraper` crate was collapsed into this module for exactly
+that reason.
+
 ## Internals
 
 The scraper is organized by declaration kind: `cx` wraps `clang-sys` (the AST
@@ -281,8 +338,8 @@ becomes an optional downstream map over the flat namespace.
 `cargo run -p tool_win32` builds the in-house winmd. A small manifest
 (`crates/tools/win32/src/win32.toml`) lists the SDK headers, satellite rules, and
 import libs — deliberately **no type-level curation**. The tool resolves its pinned
-toolchain, fills a `windows_scraper::Config`, and hands it to the shared
-[`windows-scraper`](windows-scraper.md) driver, which builds one shared translation
+toolchain, fills a `windows_clang::Config`, and hands it to `windows-clang`'s shared
+[`run`](#scraper-layering-one-crate-two-levels) driver, which builds one shared translation
 unit per target arch (`windows.h` prelude + every manifest header), emits it via a
 single `write_by_header` call (parsed once, USR-deduped), reads the per-arch RDLs to
 winmd, and coalesces the arches with the multi-arch merge. New APIs are added by
@@ -310,7 +367,7 @@ leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSeal
 
 `cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the
 Win32 winmd — a whole-header scrape, not a symbol allowlist. Both tools run the *same*
-[`windows-scraper`](windows-scraper.md) driver from a declarative manifest
+[`run`](#scraper-layering-one-crate-two-levels) driver from a declarative manifest
 (`crates/tools/wdk/src/wdk.toml`); the WDK is just that driver configured for three
 things:
 
@@ -561,7 +618,7 @@ signal for *which* headers matter. Not everything is reachable from the pinned S
 
 **Done** — `tool_wdk` mirrors `tool_win32` (whole-header, flat `Windows.Win32`
 namespace, additive/exclusion-referenced, user-mode-only) and both tools now run the
-same shared [`windows-scraper`](windows-scraper.md) driver from a declarative manifest.
+same shared [`run`](#scraper-layering-one-crate-two-levels) driver from a declarative manifest.
 See [The WDK corpus: tool_wdk](#the-wdk-corpus-tool_wdk).
 
 The three discrepancies that previously made the two tools diverge are all resolved:
@@ -569,8 +626,8 @@ The three discrepancies that previously made the two tools diverge are all resol
 - **Config mechanism.** Both tools are now declarative: `tool_win32` reads `win32.toml`
   and `tool_wdk` reads `wdk.toml` (headers, scope, import libs, arches, and — for the WDK —
   the reference winmd). Each `main.rs` only resolves its own pinned toolchain, fills a
-  `windows_scraper::Config`, and calls `windows_scraper::run`; the scrape → per-arch RDL →
-  arch-merge → unified-winmd pipeline lives once in `windows-scraper`.
+  `windows_clang::Config`, and calls `windows_clang::run`; the scrape → per-arch RDL →
+  arch-merge → unified-winmd pipeline lives once in `windows-clang`.
 - **Architecture coverage.** Both scrape **three** arches (x64 + aarch64 + i686) and
   arch-merge them so subset-of-arch symbols get `SupportedArchitecture` tags. x64 is
   canonical; the function → DLL map is arch-invariant, so the x64 import libs serve every pass.

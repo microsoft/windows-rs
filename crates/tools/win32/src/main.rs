@@ -1,7 +1,5 @@
 use serde::Deserialize;
-use std::path::Path;
 use windows_clang::*;
-use windows_scraper::{Arch, Config};
 
 /// Where intermediate binary winmd artifacts (per-arch throwaways and the x64
 /// scrape that feeds arch-merge) are written. This is under `target` and not
@@ -177,7 +175,6 @@ fn main() {
         .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
         .collect();
     println!("Import libraries: {} entries", import_libs.len());
-
     // SDK include directories, passed to clang as `-isystem` so `#include <…>` resolves.
     let include_args: Vec<String> = include_dirs
         .iter()
@@ -212,12 +209,7 @@ fn main() {
 
     // x64 is always canonical (its scrape writes the committed corpus); any other arch the
     // manifest lists is folded in via arch-merge.
-    let mut archs = vec![Arch::known("x64").unwrap()];
-    for name in &manifest.archs {
-        if name != "x64" {
-            archs.push(Arch::known(name).unwrap());
-        }
-    }
+    let archs = Arch::canonical_plus(&manifest.archs, |name| Arch::known(name).unwrap());
 
     let scope_headers: Vec<String> = manifest
         .headers
@@ -246,26 +238,9 @@ fn main() {
         parallel: true,
     };
 
-    let summary = windows_scraper::run(&config);
+    let summary = run(&config);
 
-    println!("Timing:");
-    for (name, secs) in &summary.arch_timings {
-        println!("  scrape {name:<6}         {secs:>8.2}s");
-    }
-    println!("  scrape (parallel wall) {:>8.2}s", summary.scrape_wall);
-    if summary.multi_arch {
-        println!(
-            "Arch-merged: {}",
-            config
-                .archs
-                .iter()
-                .map(|a| a.name.as_str())
-                .collect::<Vec<_>>()
-                .join(" + ")
-        );
-        println!("  arch-merge             {:>8.2}s", summary.merge_wall);
-        println!("  final winmd            {:>8.2}s", summary.winmd_wall);
-    }
+    print!("{summary}");
     println!("Wrote {WINMD} ({} partition(s))", summary.partitions);
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
@@ -312,11 +287,6 @@ fn sdk_lib_dirs() -> Vec<String> {
 }
 
 fn resolve(name: &str, dirs: &[String], kind: &str, var: &str) -> String {
-    for dir in dirs {
-        let candidate = Path::new(dir).join(name);
-        if candidate.is_file() {
-            return candidate.to_string_lossy().replace('\\', "/");
-        }
-    }
-    panic!("{kind} `{name}` not found in any `{var}` directory");
+    find_in_dirs(name, dirs)
+        .unwrap_or_else(|| panic!("{kind} `{name}` not found in any `{var}` directory"))
 }

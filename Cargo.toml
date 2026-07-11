@@ -69,7 +69,6 @@ windows-reactor-setup = { version = "0.0.0", path = "crates/libs/reactor-setup",
 windows-reference = { version = "0.1.0", path = "crates/libs/reference", default-features = false }
 windows-registry = { version = "0.6.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.4.1", path = "crates/libs/result", default-features = false }
-windows-scraper = { version = "0.0.0", path = "crates/libs/scraper", default-features = false }
 windows-services = { version = "0.26.1", path = "crates/libs/services", default-features = false }
 windows-strings = { version = "0.5.1", path = "crates/libs/strings", default-features = false }
 windows-sys = { version = "0.61.2", path = "crates/libs/sys", default-features = false }

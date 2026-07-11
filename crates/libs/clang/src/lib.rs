@@ -38,6 +38,8 @@ mod interface;
 use interface::*;
 mod provision;
 pub use provision::*;
+mod scrape;
+pub use scrape::*;
 
 /// Creates a [`Clang`] that generates RDL from C/C++ headers using libclang.
 pub fn clang() -> Clang {

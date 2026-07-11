@@ -1,7 +1,6 @@
 use serde::Deserialize;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use windows_clang::*;
-use windows_scraper::{Arch, Config};
 
 /// The committed, canonical WDK winmd. Like the Win32 winmd this is checked in as
 /// `windows-bindgen`'s default WDK metadata (alongside the `metadata/wdk` RDL corpus) so
@@ -127,12 +126,7 @@ fn main() {
     // x64 is always canonical; any extra arch the manifest lists is folded in via arch-merge.
     // Each arch carries the preprocessor macros the kernel headers require in place of the
     // `windows.h` closure that would otherwise define them.
-    let mut archs = vec![arch("x64")];
-    for name in &manifest.archs {
-        if name != "x64" {
-            archs.push(arch(name));
-        }
-    }
+    let archs = Arch::canonical_plus(&manifest.archs, arch);
 
     let config = Config {
         root: manifest.root,
@@ -154,26 +148,9 @@ fn main() {
         parallel: true,
     };
 
-    let summary = windows_scraper::run(&config);
+    let summary = run(&config);
 
-    println!("Timing:");
-    for (name, secs) in &summary.arch_timings {
-        println!("  scrape {name:<6}         {secs:>8.2}s");
-    }
-    println!("  scrape (parallel wall) {:>8.2}s", summary.scrape_wall);
-    if summary.multi_arch {
-        println!(
-            "Arch-merged: {}",
-            config
-                .archs
-                .iter()
-                .map(|a| a.name.as_str())
-                .collect::<Vec<_>>()
-                .join(" + ")
-        );
-        println!("  arch-merge             {:>8.2}s", summary.merge_wall);
-        println!("  final winmd            {:>8.2}s", summary.winmd_wall);
-    }
+    print!("{summary}");
     println!(
         "generated `{RDL_DIR}` ({} partition(s)) and `{WINMD}` in {:.2}s",
         summary.partitions,
@@ -250,11 +227,7 @@ fn lib_dirs() -> Vec<String> {
 }
 
 fn resolve(name: &str, dirs: &[String]) -> String {
-    for dir in dirs {
-        let candidate = Path::new(dir).join(name);
-        if candidate.is_file() {
-            return candidate.to_string_lossy().replace('\\', "/");
-        }
-    }
-    panic!("import library `{name}` not found in any pinned SDK/WDK lib directory");
+    find_in_dirs(name, dirs).unwrap_or_else(|| {
+        panic!("import library `{name}` not found in any pinned SDK/WDK lib directory")
+    })
 }
