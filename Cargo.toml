@@ -64,12 +64,12 @@ windows-link = { version = "0.2.1", path = "crates/libs/link", default-features 
 windows-metadata = { version = "0.60.0", path = "crates/libs/metadata", default-features = false }
 windows-numerics = { version = "0.3.1", path = "crates/libs/numerics", default-features = false }
 windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }
-windows-scraper = { version = "0.0.0", path = "crates/libs/scraper", default-features = false }
 windows-reactor = { version = "0.0.0", path = "crates/libs/reactor", default-features = false }
 windows-reactor-setup = { version = "0.0.0", path = "crates/libs/reactor-setup", default-features = false }
 windows-reference = { version = "0.1.0", path = "crates/libs/reference", default-features = false }
 windows-registry = { version = "0.6.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.4.1", path = "crates/libs/result", default-features = false }
+windows-scraper = { version = "0.0.0", path = "crates/libs/scraper", default-features = false }
 windows-services = { version = "0.26.1", path = "crates/libs/services", default-features = false }
 windows-strings = { version = "0.5.1", path = "crates/libs/strings", default-features = false }
 windows-sys = { version = "0.61.2", path = "crates/libs/sys", default-features = false }
