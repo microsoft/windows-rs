@@ -841,10 +841,7 @@ impl Dependencies for Interface {
         let is_iterable = self.type_name() == TypeName::IIterable;
 
         for method in self.def.methods() {
-            for ty in method
-                .method_signature(&self.generics, reader)
-                .types()
-            {
+            for ty in method.method_signature(&self.generics, reader).types() {
                 if is_iterable || ty.is_core() {
                     ty.combine(dependencies, reader);
                 }

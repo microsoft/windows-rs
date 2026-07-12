@@ -221,11 +221,10 @@ partitioning, the editorial-deviation ledger, and the canonical type remaps — 
 documented in [`windows-clang`](windows-clang.md); this section covers the winmd
 artifact those tools produce.
 
-Every maintained crate that needs Win32 metadata now resolves against the in-house
+Every maintained crate that needs Win32 metadata resolves against the in-house
 winmd — the minimal-binding library crates and `windows-reactor` directly, and the
 monolithic `windows` / `windows-sys` crates via `tool_package`'s header-namespace
-remap of the same in-house corpus. The frozen win32metadata reference winmds have been
-retired (see below), so nothing reads them any longer.
+remap of the same in-house corpus. Nothing reads the win32metadata reference winmds.
 
 ### The winmd layout
 
@@ -269,12 +268,7 @@ committed `metadata/win32` RDL directory as the routing signal, then runs
 feature-search page reports the real header stems. The in-house WinRT `Windows.winmd`
 is projected alongside the remapped Win32/WDK partition.
 
-The frozen win32metadata reference winmds (`crates/tools/package/reference/*.winmd`) and
-the `#[ignore]`d in-house-vs-reference parity probes have been **retired** now that the
-corpus has soaked. See
-[windows-clang](windows-clang.md#deferred--upcoming-work).
-
-### Outstanding work
+### Known limitations
 
 - **Round-trip asymmetries.** A few RDL ↔ winmd forms don't round-trip
   byte-identically (raw identifiers, GUID constants, delegate ABI spelling). The

@@ -448,10 +448,7 @@ impl Dependencies for CppInterface {
         }
 
         for method in self.def.methods() {
-            for ty in method
-                .method_signature(&[], reader)
-                .types()
-            {
+            for ty in method.method_signature(&[], reader).types() {
                 if ty.is_core() {
                     ty.combine(dependencies, reader);
                 }
