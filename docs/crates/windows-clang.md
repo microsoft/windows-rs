@@ -697,9 +697,9 @@ This realises the "optional downstream map over the flat namespace" promised in
 **Problem.** The canonical Win32/WDK winmds are flat (`Windows.Win32`), which is correct
 and serves every flat/minimal consumer. But `windows-bindgen --package` derives *both* the
 file layout **and** the per-namespace Cargo features from namespaces, so a flat winmd yields
-one giant module with no feature partitioning. The published `windows`/`windows-sys` crates
-are therefore still frozen against the old win32metadata under
-`crates/tools/package/reference/*.winmd`.
+one giant module with no feature partitioning. Historically the published `windows`/`windows-sys`
+crates were frozen against the old win32metadata under `crates/tools/package/reference/*.winmd`
+(now retired — see below).
 
 **Approach (in progress).** Keep the canonical winmd flat; synthesise a header-based
 namespace partition **only** at packaging time. One namespace per defining header = per
@@ -728,10 +728,9 @@ in-house metadata has not shipped so no released consumer breaks. There is **no*
 **Remaining after the winmd remap works:** ~~migrate the in-repo consumers (samples/tests)~~ (done)
 from the old editorial feature names (`Win32_System_WinRT`, `Win32_Graphics_Direct2D`, …) to the
 header-based names (`winnt`, `d2d`, …), ~~repoint `tool_features` at the remapped metadata~~ (done —
-see "Feature-search page" below), retire `crates/tools/package/reference/*.winmd` (and the
-reference-only clang normalisations gated on it, per
-[Type remapping](#type-remapping--one-canon-surface)) — **deferred**, see
-[Deferred / upcoming work](#deferred--upcoming-work) — and ~~address the metadata-shape differences
+see "Feature-search page" below), and ~~retire `crates/tools/package/reference/*.winmd`~~ (done —
+the frozen reference winmds and the `#[ignore]`d parity probes are deleted; see
+[Deferred / upcoming work](#deferred--upcoming-work)) — and ~~address the metadata-shape differences
 the switch surfaces~~ (done, see "Metadata-shape fallout").
 
 **Feature-search page (`tool_features`) — done.** The GitHub Pages feature-search page
@@ -1223,22 +1222,22 @@ Test-specific drift beyond the sample patterns:
   resolution-time fallback is impossible.
 - **Missing WinRT `*Interop` bridge interfaces — resolved for the SDK-provided ones.** The in-house
   metadata was missing several WinRT-to-Win32 interop interfaces the editorial winmd carried.
-  `IUserConsentVerifierInterop` (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`),
-  `IDisplayPathInterop` (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`),
-  and `IGraphicsCaptureItemInterop` (`windowsgraphicscaptureinterop.rdl`, from
-  `Windows.Graphics.Capture.Interop.h`) are now scraped by adding their headers to `HEADERS`; the
+  `IUserConsentVerifierInterop` (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`)
+  and `IDisplayPathInterop` (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`)
+  are now scraped by adding their headers to `HEADERS`; the
   `spellchecker`/`consent` sample was ported back to the `windows` crate and the `test_implement`
   `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is unblocked. Interop headers that
   reference WinRT `ABI::` types are mapped to their `Windows.winmd` WinRT equivalents in `cx.rs`'s
   `to_type`.
 
-  `Windows.Graphics.Capture.Interop.h` needed a **scrape shim** (`crates/tools/win32/src/shims/`,
-  searched via `-I` ahead of the SDK `-isystem` dirs — see `SHIM_DIR` in `tool_win32`). The real SDK
-  header `#include`s the C++/WinRT projection headers `windows.ui.composition.h` /
-  `windows.graphics.capture.h`, which do not parse under the C++ definition-mode scrape (a
-  self-conflicting `MagnetometerAccuracy` typedef in `Windows.Devices.Sensors.h`). The three interop
-  interfaces depend only on `HWND`/`HMONITOR`/`REFIID`/`IUnknown` (all from `windows.h`, already in the
-  prelude), so the shim declares them without the projection includes.
+  `Windows.Graphics.Capture.Interop.h` previously needed a **scrape shim** to capture
+  `IGraphicsCaptureItemInterop`: the real SDK header `#include`s the C++/WinRT projection headers
+  `windows.ui.composition.h` / `windows.graphics.capture.h`, which do not parse under the C++
+  definition-mode scrape (a self-conflicting `MagnetometerAccuracy` typedef in
+  `Windows.Devices.Sensors.h`), so a hand-authored shim redeclared just the interop interface. That
+  shim (and its `SHIM_DIR`/`-I` plumbing) has since been **removed** — nothing in-tree consumed
+  `IGraphicsCaptureItemInterop`, so it was dropped until there is demand (see
+  [Deferred / upcoming work](#deferred--upcoming-work)).
 
   **`IWindowNative` (resolved — lives in `tool_reactor`, not the SDK scrape):** it is **not in the
   Windows SDK** (it ships in `microsoft.ui.xaml.window.h`, part of the Windows App SDK / WinUI), so it
@@ -1528,34 +1527,32 @@ The flat-metadata pipeline and the `windows-clang` design are functionally compl
 are intentionally deferred and tracked here for a future cleanup pass (post the `#1`/`#2` follow-ups
 above). None blocks CI.
 
-- **Retire `crates/tools/package/reference/*.winmd`.** The published crates and `tool_features` no
-  longer read the frozen editorial winmds, and the two **active** fixture tests
-  (`crates/tests/libs/metadata/tests/reader.rs`, `assembly_name.rs`) have now been **repointed to the
-  in-house winmds** (`crates/libs/bindgen/default/Windows.{Win32,Wdk}.winmd`) — using in-house types
+- **Retire `crates/tools/package/reference/*.winmd` — DONE.** The published crates and `tool_features`
+  had already stopped reading the frozen editorial winmds, and the two **active** fixture tests
+  (`crates/tests/libs/metadata/tests/reader.rs`, `assembly_name.rs`) were repointed to the
+  in-house winmds (`crates/libs/bindgen/default/Windows.{Win32,Wdk}.winmd`) — using in-house types
   (`SID_IDENTIFIER_AUTHORITY` for the fixed-array case, `D3D10_BUFFER_RTV` with the in-house
   `<Parent>_0`/`_1` anonymous-nested naming) and the flat `Windows.Win32`/`Windows.Wdk` namespaces.
-  The **only** remaining consumers of the frozen winmds are now the six diagnostic probe tests
+  The corpus has soaked, so the six `#[ignore]`d diagnostic probe tests
   (`parity_probe`, `coverage_probe`, `collision_probe`, `nested_probe`, `delegate_probe`,
-  `arch_probe`), which are `#[ignore]`d in-house-vs-reference comparisons run manually with
-  `--ignored` — the deliberate **parity safety net** while the in-house corpus stabilises. (A small
-  set of reference-only clang normalisations remain conceptually gated on the reference *design*, per
-  [Type remapping](#type-remapping--one-canon-surface), but no scraper code loads these frozen files —
-  `tool_wdk`'s exclusion reference is the in-house `Windows.Win32.winmd`.) Keep the frozen winmds
-  until the corpus has soaked, then drop the probes and delete the files.
-  - **Delete the now-dead reference-metadata handlers in `windows-bindgen`.** A code-coverage pass
-    (`cargo llvm-cov` across all six bindgen consumers — `tool_package`, `tool_bindings`, `tool_msvc`,
-    `tool_gnu`, `tool_reactor`, `tool_webview`) confirmed two attribute handlers whose bodies **never
-    execute** under the in-house pipeline, because no RDL/writer/clang/WinRT source emits the
-    attribute: **`AlsoUsableForAttribute`** (`crates/libs/bindgen/src/types/cpp_enum.rs` ~L95-100,
-    `cpp_struct.rs` ~L570-575, `cpp_handle.rs` ~L128-144 — the old win32metadata handle-alias /
+  `arch_probe`) and all three frozen winmds (`Windows.Win32.winmd`, `Windows.Wdk.winmd`,
+  `Windows.winmd`) are **deleted**; the `crates/tools/package/reference/` directory is gone. (The
+  reference-only clang normalisations conceptually gated on the reference *design* per
+  [Type remapping](#type-remapping--one-canon-surface) are a separate concern and unchanged —
+  `tool_wdk`'s exclusion reference is the in-house `Windows.Win32.winmd`.)
+  - **Delete the now-dead reference-metadata handlers in `windows-bindgen` — DONE (in lockstep).** A
+    code-coverage pass (`cargo llvm-cov` across the bindgen consumers) had confirmed two attribute
+    handlers whose bodies **never execute** under the in-house pipeline, because no
+    RDL/writer/clang/WinRT source emits the attribute: **`AlsoUsableForAttribute`**
+    (`cpp_enum.rs`, `cpp_struct.rs`, `cpp_handle.rs` — the old win32metadata handle-alias /
     "also usable for" mechanism that emitted `CanInto`/`From` impls, superseded by the bare-alias
-    handle modelling above) and **`AssociatedEnumAttribute`** (`tables/method_def.rs` ~L67-73, plus the
-    adjacent `ConstAttribute`-on-return-value branch ~L51-52). ~40 lines total. **Do not touch**
-    `OverloadAttribute`, `NativeArrayInfoAttribute`, or `MemorySizeAttribute` — coverage shows these are
-    **live** (WinRT `[overload]` / Win32 array+size params); a static-only read wrongly flags them.
-    Because `windows-bindgen` is a published general-purpose tool, these handlers are the only thing
-    that still lets it faithfully project *Microsoft's* external win32metadata, so delete them **in
-    lockstep** with retiring the reference winmds and probes — not before.
+    handle modelling above) and **`AssociatedEnumAttribute`** (`tables/method_def.rs`, plus the
+    adjacent dead `ConstAttribute`-on-return-value branch and its now-unconstructed
+    `Type::PrimitiveOrEnum` variant + all its match arms). All removed together with the reference
+    winmds/probes above; a full regen (`tool_package`/`tool_bindings`/`tool_reactor`/`tool_webview`)
+    produced **byte-identical** output, empirically confirming the handlers were dead. **Left intact**
+    are `OverloadAttribute`, `NativeArrayInfoAttribute`, and `MemorySizeAttribute` — coverage shows
+    these are **live** (WinRT `[overload]` / Win32 array+size params).
 - **C flags/enum idiom harmonization — DONE (see the [detailed writeup](#type-remapping--one-canon-surface)
   ~line 822).** 41 `enum _FOO` + `typedef <int> FOO` pairs that previously emitted a bare `type FOO =
   <int>` plus a stray `_FOO` enum (with `_FOO`-typed consts). `merge_enum_typedef_idiom` now renames
@@ -1580,9 +1577,10 @@ above). None blocks CI.
   `.0`-indexed or tuple-constructed), and the `windows_dcomp`/`privileges`/`thread_pool_work`/
   `delay_load` samples (`HLOCAL`/`HMODULE`/`PTP_WORK`/`REFWICPixelFormatGUID` now bare aliases: drop
   the `.0` layer, use `.is_null()` for pointer aliases instead of `.is_invalid()`).
-- **Coverage gaps.** No missing SDK interop interfaces remain: `IGraphicsCaptureItemInterop` is
-  scraped via a shim, and `IWindowNative` (WinUI/App-SDK-only) is hand-declared in `tool_reactor`'s
+- **Coverage gaps.** `IWindowNative` (WinUI/App-SDK-only) is hand-declared in `tool_reactor`'s
   `extras.rdl` — the correct home for WinUI-specific surface (see the interop-interfaces note above).
+  `IGraphicsCaptureItemInterop` was scraped via a shim but the shim has since been dropped (nothing
+  in-tree consumed it — see [Deferred / upcoming work](#deferred--upcoming-work)).
 - **Performance — assessed, near-optimal (see [Performance](#performance)).** The multi-arch scrape is
   already parallel and the per-arch clang parse dominates. Import-lib resolution is already cached
   (parsed once on the builder, cloned per arch); direct-to-winmd is declined (RDL is the committed
@@ -1622,13 +1620,17 @@ above). None blocks CI.
   guarded by the `iid_infer` fixture (`CreateFactory`/`CreateInspectable` positive, `CreateTyped`
   negative). The `windows_dcomp` sample's `DWriteCreateFactory(…, &IID)?.cast()?` collapsed to
   `DWriteCreateFactory(…)?`.
-- **Drop the `Windows.Graphics.Capture.Interop.h` shim until there's demand.**
-  `crates/tools/win32/src/shims/Windows.Graphics.Capture.Interop.h` is a hand-authored replacement
-  header that lets `tool_win32` scrape `IGraphicsCaptureItemInterop` without the C++/WinRT projection
-  includes (which trip a self-conflicting typedef in `Windows.Devices.Sensors.h`). It works, but it is
-  a regrettable per-header workaround for an unscrapeable SDK header, and nothing in-tree currently
-  consumes the interface. Consider removing the shim (and the `SHIM_DIR` plumbing if it becomes the
-  only entry) and re-adding it only when a sample/crate actually needs `IGraphicsCaptureItemInterop`.
+- **Drop the `Windows.Graphics.Capture.Interop.h` shim until there's demand — DONE.**
+  `crates/tools/win32/src/shims/Windows.Graphics.Capture.Interop.h` was a hand-authored replacement
+  header that let `tool_win32` scrape `IGraphicsCaptureItemInterop` without the C++/WinRT projection
+  includes (which trip a self-conflicting typedef in `Windows.Devices.Sensors.h`). It worked, but it
+  was a regrettable per-header workaround for an unscrapeable SDK header, and nothing in-tree consumed
+  the interface. The shim file, the `"Windows.Graphics.Capture.Interop.h"` entry in `HEADERS`, and the
+  `SHIM_DIR` const + `-I` plumbing (it was the shim dir's only entry) are all **removed**. Regenerating
+  dropped `metadata/win32/windowsgraphicscaptureinterop.rdl`, the `windowsgraphicscaptureinterop`
+  module + feature from `windows`/`windows-sys`, and the entry from the feature-search page — no other
+  surface changed. Re-add the shim (and header/`SHIM_DIR` plumbing) only when a sample/crate actually
+  needs `IGraphicsCaptureItemInterop`.
 - **Pointer-backed handle `is_invalid()` removed — DONE (breaking public-API change).**
   `windows-bindgen`'s `write_cpp_handle` (`cpp_handle.rs`) used to emit an `is_invalid()` method for
   every pointer-backed handle as a plain `self.0.is_null()`, gated only on `ty.is_pointer()`. It was

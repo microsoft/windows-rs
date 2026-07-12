@@ -38,43 +38,28 @@ impl MethodDefExt for MethodDef {
     }
 
     #[track_caller]
-    fn method_signature(&self, namespace: &str, generics: &[Type], reader: &Reader) -> Signature {
+    fn method_signature(&self, _namespace: &str, generics: &[Type], reader: &Reader) -> Signature {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
-        let mut return_type =
-            Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
+        let return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
         let mut params = vec![];
         let mut meta_types = meta_sig.types.iter();
 
         for param in self.params() {
             if param.sequence() == 0 {
-                if param.has_attribute("ConstAttribute") {
-                    return_type = return_type.to_const_type();
-                }
-            } else {
-                let meta_ty = meta_types.next().expect("param count mismatch");
-                let param_is_const = param.has_attribute("ConstAttribute");
-                let param_is_input = !param.flags().contains(ParamAttributes::Out);
-                let mut ty = Type::from_metadata_type(meta_ty, None, generics, reader);
-
-                if param_is_const || param_is_input {
-                    ty = ty.to_const_type();
-                }
-
-                if param_is_input {
-                    ty = ty.to_const_ptr();
-
-                    if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
-                        if let Some((_, Value::Utf8(name))) = attribute.value().first() {
-                            let overload = reader.unwrap_full_name(namespace, name);
-
-                            ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
-                        }
-                    }
-                }
-
-                params.push(Param { def: param, ty });
+                continue;
             }
+
+            let meta_ty = meta_types.next().expect("param count mismatch");
+            let param_is_input = !param.flags().contains(ParamAttributes::Out);
+            let mut ty = Type::from_metadata_type(meta_ty, None, generics, reader);
+
+            if param_is_input {
+                ty = ty.to_const_type();
+                ty = ty.to_const_ptr();
+            }
+
+            params.push(Param { def: param, ty });
         }
 
         Signature {

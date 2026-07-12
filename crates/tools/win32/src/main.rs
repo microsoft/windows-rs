@@ -52,16 +52,6 @@ const CLANG_ARGS: [&str; 2] = ["-x", "c++"];
 /// scraper can read. See the file header in `sal.h` for details.
 const SAL_SHIM: &str = "crates/tools/win32/src/sal.h";
 
-/// A shadow include directory searched (via `-I`) ahead of the SDK `-isystem`
-/// directories. It holds hand-authored replacements for SDK headers that cannot
-/// be parsed under this scrape's C++ definition mode because they `#include` the
-/// C++/WinRT projection headers. Each shim declares only the flat COM/C interop
-/// interfaces (which depend on `windows.h` types alone), so the interfaces are
-/// scraped without dragging in the projection. Currently:
-/// `Windows.Graphics.Capture.Interop.h` (the projection includes trip a
-/// self-conflicting typedef in `Windows.Devices.Sensors.h`).
-const SHIM_DIR: &str = "crates/tools/win32/src/shims";
-
 /// Prelude included ahead of every API header. `winsock2.h` precedes `windows.h` so
 /// its include guard suppresses the legacy `winsock.h` that `windows.h` would otherwise
 /// pull (avoiding the `sockaddr` redefinition); most SDK headers then assume the
@@ -423,7 +413,6 @@ const HEADERS: &[&str] = &[
     "cfapi.h",
     "Windows.Devices.Display.Core.Interop.h",
     "UserConsentVerifierInterop.h",
-    "Windows.Graphics.Capture.Interop.h",
     // WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     // scope_headers makes them roots). These are the flat COM/C interop headers that
     // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
@@ -750,13 +739,12 @@ fn main() {
     let scope_headers: Vec<&str> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
 
     // Configure the arch-invariant parse: C++ mode, the SAL capture shim force-included ahead of the
-    // TU, the shadow shim directory (`-I`) searched before the SDK `-isystem` dirs, the SDK include
-    // dirs, and the reachability scope. The per-arch target/defines are set by `scrape`.
+    // TU, the SDK include dirs, and the reachability scope. The per-arch target/defines are set by
+    // `scrape`.
     let mut clang = clang();
     clang
         .args(CLANG_ARGS)
         .args(["-include", SAL_SHIM])
-        .args(["-I", SHIM_DIR])
         .args(include_args)
         .drop_lib_less(true)
         .scope(SCOPE.iter().copied())

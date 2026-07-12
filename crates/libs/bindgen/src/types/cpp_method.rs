@@ -738,13 +738,7 @@ impl CppMethod {
                             }
                         }
                         ParamHint::Blittable => {
-                            if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
-                                if config.bindgen.style.is_minimal() {
-                                    quote! { #name as _, }
-                                } else {
-                                    quote! { #name.0 as _, }
-                                }
-                            } else if config.bindgen.style.is_minimal() {
+                            if config.bindgen.style.is_minimal() {
                                 // In minimal mode, blittable types ARE their ABI
                                 // representation — no transmute needed.
                                 quote! { #name, }

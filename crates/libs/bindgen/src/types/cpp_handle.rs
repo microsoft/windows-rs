@@ -103,32 +103,13 @@ impl Config<'_> {
                 quote! {}
             };
 
-            let mut result = quote! {
+            let result = quote! {
                 #arches
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
                 #default
             };
-
-            if let Some(attribute) = def.find_attribute("AlsoUsableForAttribute") {
-                if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
-                    let ty = self.reader.unwrap_full_name(def.namespace(), type_name);
-
-                    let ty = ty.write_name(self);
-
-                    result.combine(quote! {
-                        #arches
-                        impl windows_core::imp::CanInto<#ty> for #name {}
-                        #arches
-                        impl From<#name> for #ty {
-                            fn from(value: #name) -> Self {
-                                Self(value.0)
-                            }
-                        }
-                    });
-                }
-            }
 
             result
         }

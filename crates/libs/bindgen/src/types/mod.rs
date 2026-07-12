@@ -51,7 +51,6 @@ pub enum Type {
     Array(Box<Self>),
     ArrayRef(Box<Self>),
     ConstRef(Box<Self>),
-    PrimitiveOrEnum(Box<Self>, Box<Self>),
 
     Void,
     Bool,
@@ -548,13 +547,6 @@ impl Type {
                 quote! { [#name; #len] }
             }
             Self::Array(ty) | Self::ArrayRef(ty) | Self::ConstRef(ty) => ty.write_name(config),
-            Self::PrimitiveOrEnum(primitive, ty) => {
-                if config.bindgen.style.is_sys() {
-                    primitive.write_name(config)
-                } else {
-                    ty.write_name(config)
-                }
-            }
             rest => panic!("{rest:?}"),
         }
     }
@@ -635,7 +627,6 @@ impl Type {
                 let pointers = write_ptr_const(*pointers);
                 quote! { #pointers #ty }
             }
-            Self::PrimitiveOrEnum(ty, _) => ty.write_name(config),
             ty => ty.write_name(config),
         }
     }
@@ -689,8 +680,7 @@ impl Type {
             | Self::PtrConst(ty, _)
             | Self::Array(ty)
             | Self::ArrayRef(ty)
-            | Self::ConstRef(ty)
-            | Self::PrimitiveOrEnum(_, ty) => ty,
+            | Self::ConstRef(ty) => ty,
             Self::ArrayFixed(ty, _) => ty.decay(),
             _ => self,
         }
@@ -887,7 +877,6 @@ impl Type {
             Self::I64 | Self::U64 | Self::F64 => 8,
             Self::GUID => 16,
             Self::ArrayFixed(ty, len) => ty.size(reader) * len,
-            Self::PrimitiveOrEnum(ty, _) => ty.size(reader),
             Self::CppStruct(ty) => ty.size(reader),
             Self::Struct(ty) => ty.size(reader),
             Self::CppEnum(ty) => ty.size(reader),
@@ -1106,7 +1095,7 @@ impl Dependencies for Type {
             Self::CppFn(ty) => ty.combine(dependencies, reader),
             Self::CppInterface(ty) => ty.combine(dependencies, reader),
             Self::CppStruct(ty) => ty.combine(dependencies, reader),
-            Self::CppEnum(ty) => ty.combine(dependencies, reader),
+            Self::CppEnum(..) => {}
 
             Self::IUnknown => {
                 Self::GUID.combine(dependencies, reader);

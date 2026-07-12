@@ -221,10 +221,11 @@ partitioning, the editorial-deviation ledger, and the canonical type remaps — 
 documented in [`windows-clang`](windows-clang.md); this section covers the winmd
 artifact those tools produce.
 
-Every maintained crate that needs Win32 metadata — the minimal-binding library
-crates and `windows-reactor` — resolves against the in-house winmd. The only
-remaining consumers of the reference winmd are the frozen monolithic `windows` /
-`windows-sys` crates and the intentional parity probes.
+Every maintained crate that needs Win32 metadata now resolves against the in-house
+winmd — the minimal-binding library crates and `windows-reactor` directly, and the
+monolithic `windows` / `windows-sys` crates via `tool_package`'s header-namespace
+remap of the same in-house corpus. The frozen win32metadata reference winmds have been
+retired (see below), so nothing reads them any longer.
 
 ### The winmd layout
 
@@ -237,12 +238,6 @@ remaining consumers of the reference winmd are the frozen monolithic `windows` /
   bindings resolve to.
 - `crates/libs/bindgen/default/Windows.Wdk.winmd` — **in-house** WDK metadata,
   written by `tool_wdk`.
-- `crates/tools/package/reference/Windows.Win32.winmd` / `Windows.Wdk.winmd` — the
-  frozen **win32metadata reference** winmd, and `crates/tools/package/reference/Windows.winmd`
-  — a frozen snapshot of the in-house WinRT winmd. These are **no longer read by any tool**;
-  their only remaining consumers are the `#[ignore]`d parity probes
-  (`crates/tests/libs/metadata/tests/*_probe.rs`), kept as an in-house-vs-reference safety net
-  while the corpus soaks.
 
 The committed RDL snapshot (`metadata/win32/*.rdl`) is the reviewable source of
 truth — every scrape change is a readable `git diff`; the merged binary winmd is
@@ -274,9 +269,9 @@ committed `metadata/win32` RDL directory as the routing signal, then runs
 feature-search page reports the real header stems. The in-house WinRT `Windows.winmd`
 is projected alongside the remapped Win32/WDK partition.
 
-The frozen `crates/tools/package/reference/*.winmd` are retained only as the
-in-house-vs-reference parity net (the `#[ignore]`d probes); once the corpus has
-soaked they, and the probes, can be deleted. See
+The frozen win32metadata reference winmds (`crates/tools/package/reference/*.winmd`) and
+the `#[ignore]`d in-house-vs-reference parity probes have been **retired** now that the
+corpus has soaked. See
 [windows-clang](windows-clang.md#deferred--upcoming-work).
 
 ### Outstanding work

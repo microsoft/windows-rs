@@ -978,8 +978,6 @@ pub mod windns;
 pub mod windot11;
 #[cfg(feature = "windowsdevicesdisplaycoreinterop")]
 pub mod windowsdevicesdisplaycoreinterop;
-#[cfg(feature = "windowsgraphicscaptureinterop")]
-pub mod windowsgraphicscaptureinterop;
 #[cfg(feature = "windowsx")]
 pub mod windowsx;
 #[cfg(feature = "winefs")]
