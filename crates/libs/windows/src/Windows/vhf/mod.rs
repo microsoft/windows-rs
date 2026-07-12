@@ -11,11 +11,6 @@ pub type PVHF_CONFIG = *mut VHF_CONFIG;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct VHFHANDLE(pub *mut core::ffi::c_void);
-impl VHFHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for VHFHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -24,11 +19,6 @@ impl Default for VHFHANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct VHFOPERATIONHANDLE(pub *mut core::ffi::c_void);
-impl VHFOPERATIONHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for VHFOPERATIONHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

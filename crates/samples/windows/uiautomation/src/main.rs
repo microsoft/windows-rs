@@ -6,7 +6,7 @@ fn main() -> windows::core::Result<()> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
         let window = FindWindowA(None, s!("Calculator"));
-        if window.is_invalid() {
+        if window.0.is_null() {
             return Err(Error::from_thread());
         }
 

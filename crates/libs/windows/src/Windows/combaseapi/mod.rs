@@ -701,11 +701,6 @@ pub const COWAIT_WAITALL: COWAIT_FLAGS = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_DEVICE_CATALOG_COOKIE(pub *mut core::ffi::c_void);
-impl CO_DEVICE_CATALOG_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for CO_DEVICE_CATALOG_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -714,11 +709,6 @@ impl Default for CO_DEVICE_CATALOG_COOKIE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CO_MTA_USAGE_COOKIE(pub *mut core::ffi::c_void);
-impl CO_MTA_USAGE_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for CO_MTA_USAGE_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

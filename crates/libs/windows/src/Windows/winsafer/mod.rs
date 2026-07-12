@@ -184,11 +184,6 @@ pub const SAFER_LEVELID_UNTRUSTED: u32 = 4096;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SAFER_LEVEL_HANDLE(pub *mut core::ffi::c_void);
-impl SAFER_LEVEL_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SAFER_LEVEL_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

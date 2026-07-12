@@ -154,11 +154,6 @@ pub type FNCERTSRVSERVERCONTROLW = Option<unsafe extern "system" fn(pwszserverna
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCSBC(pub *mut core::ffi::c_void);
-impl HCSBC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCSBC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

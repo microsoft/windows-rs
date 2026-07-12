@@ -412,11 +412,6 @@ pub const BCRYPT_ALGORITHM_NAME: windows_core::PCWSTR = windows_core::w!("Algori
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_ALG_HANDLE(pub *mut core::ffi::c_void);
-impl BCRYPT_ALG_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for BCRYPT_ALG_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -700,11 +695,6 @@ pub const BCRYPT_GLOBAL_PARAMETERS: windows_core::PCWSTR = windows_core::w!("Sec
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HANDLE(pub *mut core::ffi::c_void);
-impl BCRYPT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for BCRYPT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -715,11 +705,6 @@ pub const BCRYPT_HASH_DONT_RESET_FLAG: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_HASH_HANDLE(pub *mut core::ffi::c_void);
-impl BCRYPT_HASH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for BCRYPT_HASH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -789,11 +774,6 @@ pub const BCRYPT_KEY_ENCAPSULATION_OPERATION: u32 = 128;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_KEY_HANDLE(pub *mut core::ffi::c_void);
-impl BCRYPT_KEY_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for BCRYPT_KEY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1008,11 +988,6 @@ pub const BCRYPT_SECRET_AGREEMENT_OPERATION: u32 = 8;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct BCRYPT_SECRET_HANDLE(pub *mut core::ffi::c_void);
-impl BCRYPT_SECRET_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for BCRYPT_SECRET_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

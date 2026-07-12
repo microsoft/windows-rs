@@ -2635,11 +2635,6 @@ pub const IDL_CS_NO_CONVERT: IDL_CS_CONVERT = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct I_RPC_HANDLE(pub *mut core::ffi::c_void);
-impl I_RPC_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for I_RPC_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2648,11 +2643,6 @@ impl Default for I_RPC_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct I_RPC_MUTEX(pub *mut core::ffi::c_void);
-impl I_RPC_MUTEX {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for I_RPC_MUTEX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2937,11 +2927,6 @@ pub const NDR_BIG_ENDIAN: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NDR_CCONTEXT(pub *mut core::ffi::c_void);
-impl NDR_CCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for NDR_CCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3074,11 +3059,6 @@ pub type PMIDL_WINRT_TYPE_SERIALIZATION_INFO = *mut MIDL_WINRT_TYPE_SERIALIZATIO
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMIDL_XMIT_TYPE(pub *mut core::ffi::c_void);
-impl PMIDL_XMIT_TYPE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PMIDL_XMIT_TYPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3121,11 +3101,6 @@ pub type PRPC_IMPORT_CONTEXT_P = *mut RPC_IMPORT_CONTEXT_P;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRPC_INTERFACE_GROUP(pub *mut *mut core::ffi::c_void);
-impl PRPC_INTERFACE_GROUP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PRPC_INTERFACE_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3267,11 +3242,6 @@ impl Default for RPC_ASYNC_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_AUTHZ_HANDLE(pub *mut core::ffi::c_void);
-impl RPC_AUTHZ_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_AUTHZ_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3280,11 +3250,6 @@ impl Default for RPC_AUTHZ_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_AUTH_IDENTITY_HANDLE(pub *mut core::ffi::c_void);
-impl RPC_AUTH_IDENTITY_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_AUTH_IDENTITY_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3992,11 +3957,6 @@ pub type RPC_IF_CALLBACK_FN = Option<unsafe extern "system" fn(interfaceuuid: RP
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_IF_HANDLE(pub *mut core::ffi::c_void);
-impl RPC_IF_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_IF_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4038,11 +3998,6 @@ impl Default for RPC_IMPORT_CONTEXT_P {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_INTERFACE_GROUP(pub *mut core::ffi::c_void);
-impl RPC_INTERFACE_GROUP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_INTERFACE_GROUP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4124,11 +4079,6 @@ pub type RPC_NOTIFICATION_TYPES = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_NS_HANDLE(pub *mut core::ffi::c_void);
-impl RPC_NS_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_NS_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4440,11 +4390,6 @@ pub type RPC_SETFILTER_FUNC = Option<unsafe extern "C" fn(pfnfilter: RPCLT_PDU_F
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct RPC_SS_THREAD_HANDLE(pub *mut core::ffi::c_void);
-impl RPC_SS_THREAD_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for RPC_SS_THREAD_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -249,11 +249,6 @@ pub const FOURCC_RIFF: u32 = 1179011410;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMMIO(pub *mut core::ffi::c_void);
-impl HMMIO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMMIO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

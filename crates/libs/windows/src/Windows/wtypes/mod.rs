@@ -131,11 +131,6 @@ impl Default for GDI_NONREMOTE_0 {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONTEXT(pub *mut core::ffi::c_void);
-impl HCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -144,11 +139,6 @@ impl Default for HCONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMETAFILEPICT(pub *mut core::ffi::c_void);
-impl HMETAFILEPICT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMETAFILEPICT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

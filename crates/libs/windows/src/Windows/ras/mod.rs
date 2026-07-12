@@ -624,11 +624,6 @@ pub const ET_RequireMax: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRASCONN(pub *mut core::ffi::c_void);
-impl HRASCONN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HRASCONN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

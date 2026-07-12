@@ -230,11 +230,6 @@ impl Default for CRYPT_XML_DATA_PROVIDER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CRYPT_XML_DIGEST(pub *mut core::ffi::c_void);
-impl CRYPT_XML_DIGEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for CRYPT_XML_DIGEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -630,11 +625,6 @@ pub type CryptXmlDllVerifySignature = Option<unsafe extern "system" fn(psignatur
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTXML(pub *mut core::ffi::c_void);
-impl HCRYPTXML {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCRYPTXML {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

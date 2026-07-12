@@ -25,11 +25,6 @@ pub const AP_SidAsLogonId: u32 = 256;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUDIT_HANDLE(pub *mut core::ffi::c_void);
-impl AUDIT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUDIT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -175,11 +170,6 @@ pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PAUDIT_HANDLE(pub *mut *mut core::ffi::c_void);
-impl PAUDIT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PAUDIT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

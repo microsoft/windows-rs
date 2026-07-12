@@ -494,11 +494,6 @@ pub const GL_LEVEL_WARNING: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMC(pub *mut core::ffi::c_void);
-impl HIMC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HIMC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -507,11 +502,6 @@ impl Default for HIMC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIMCC(pub *mut core::ffi::c_void);
-impl HIMCC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HIMCC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

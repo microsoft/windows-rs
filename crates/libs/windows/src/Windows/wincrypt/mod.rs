@@ -6332,11 +6332,6 @@ pub type HCERTCHAINENGINE = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTORE(pub *mut core::ffi::c_void);
-impl HCERTSTORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCERTSTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6345,11 +6340,6 @@ impl Default for HCERTSTORE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERTSTOREPROV(pub *mut core::ffi::c_void);
-impl HCERTSTOREPROV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCERTSTOREPROV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6358,11 +6348,6 @@ impl Default for HCERTSTOREPROV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCERT_SERVER_OCSP_RESPONSE(pub *mut core::ffi::c_void);
-impl HCERT_SERVER_OCSP_RESPONSE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCERT_SERVER_OCSP_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6373,11 +6358,6 @@ pub type HCRYPTASYNC = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTDEFAULTCONTEXT(pub *mut core::ffi::c_void);
-impl HCRYPTDEFAULTCONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCRYPTDEFAULTCONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6392,11 +6372,6 @@ pub struct HCRYPTKEY(pub usize);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTMSG(pub *mut core::ffi::c_void);
-impl HCRYPTMSG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCRYPTMSG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6405,11 +6380,6 @@ impl Default for HCRYPTMSG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTOIDFUNCADDR(pub *mut core::ffi::c_void);
-impl HCRYPTOIDFUNCADDR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCRYPTOIDFUNCADDR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6418,11 +6388,6 @@ impl Default for HCRYPTOIDFUNCADDR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCRYPTOIDFUNCSET(pub *mut core::ffi::c_void);
-impl HCRYPTOIDFUNCSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCRYPTOIDFUNCSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

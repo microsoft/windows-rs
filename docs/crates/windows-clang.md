@@ -815,7 +815,7 @@ left open as a modelling question:
    `PTRUSTEE_A = *mut TRUSTEE_A`, `PESILO = *mut _EJOB`), which `is_handle` had wrongly treated as
    handles because a pointer field counts as primitive — they are pointer *aliases*, not handles,
    and now emit bare too. Genuine base handles (`HANDLE = *mut void`, `HWND = *mut void`) keep their
-   newtype (with `is_invalid`/`Default`), so pointers *to void* are excluded. Constants of a now-bare
+   newtype (with `Default`), so pointers *to void* are excluded. Constants of a now-bare
    handle-of-handle type construct through the concrete newtype the alias resolves to
    (`HCCE_LOCAL_MACHINE: HCERTCHAINENGINE = HANDLE(1 as _)`); constants of a pointer alias cast
    (`IO_USE_AMBIENT_SILO: PESILO = 1 as _`). `write_newtype_wrap` skips bare-alias layers so
@@ -1014,7 +1014,8 @@ edits (all correct-by-design, not projection defects):
 - **No fabricated `Result` / retval ergonomics.** Win32 functions the editorial winmd hand-patched
   are faithful here: `IDXGIAdapter1::GetDesc1` takes a `*mut DXGI_ADAPTER_DESC1` out-param and
   returns `HRESULT` (call `.ok()?` on a stack `default()`), `AdjustWindowRect` returns `BOOL`
-  (`.ok()?`), `CreateEventA` returns a raw `HANDLE` (check `is_invalid()` + `Error::from_thread()`),
+  (`.ok()?`), `CreateEventA` returns a raw `HANDLE` (check `.0.is_null()` + `Error::from_thread()`;
+  handles carry no `is_invalid()` helper — see "pointer-backed handle `is_invalid()` removed"),
   and out-`IBlob` parameters are raw `*mut Option<ID3D10Blob>` (pass `&mut opt` /
   `std::ptr::null_mut()` for the unwanted error blob) rather than `Option<&mut>`.
 - **Float `#define` macros are not scraped** (a known coverage gap): `D3D12_MIN_DEPTH`/
@@ -1056,7 +1057,8 @@ editorial features are remapped (`System_Com` → `combaseapi`/`objbase`, `UI_Wi
   when `HWND` is not named directly (`MessageBoxW`, `FindWindowA`, …). Symptom is "cannot find
   function X in this scope"; add `windef` to `features` (same transitive-feature pattern as
   direct3d12's `minwinbase`).
-- **`FindWindowA` returns a raw `HWND`** (no `Result`): drop `?` and check `is_invalid()`.
+- **`FindWindowA` returns a raw `HWND`** (no `Result`): drop `?` and check `.0.is_null()` (handles no
+  longer have an `is_invalid()` helper).
 - **`UIA_HWND` is a distinct native-typedef newtype**, not `HWND`, and there is no automatic `Param`
   conversion: `automation.ElementFromHandle(UIA_HWND(window.0))`.
 
@@ -1463,9 +1465,10 @@ Test-specific drift beyond the sample patterns:
   1. **`InvalidHandleValueAttribute`** (`type_def.rs::invalid_values`, `cpp_handle.rs`,
      `cpp_method.rs::handle_last_error`). Supplied per-type invalid sentinels (e.g. `HANDLE` = `{0, -1}`,
      `MSIHANDLE` = `{0, u32::MAX}`, `HANDLE_SDP_TYPE` = `{0, u64::MAX}`) so `is_invalid()` recognised them.
-     Without it, **pointer** handles keep a null-check `is_invalid()` (`self.0.is_null()` — independent of
-     the attribute) but non-pointer handles get no `is_invalid()`, and `HANDLE(-1)` is no longer reported
-     invalid. (`test_handles`.)
+     Without it, the `is_invalid()` helper was reduced to a bare null check and later **removed entirely**
+     (see "pointer-backed handle `is_invalid()` removed" in Follow-up): no handle carries an `is_invalid()`
+     method now; callers check `.0.is_null()` (null-sentinel handles) or `== INVALID_HANDLE_VALUE`
+     (the `-1` family). (`test_handles`.)
   2. **`RAIIFreeAttribute`** (`type_def.rs::free_function`, `cpp_handle.rs`). Named the free routine for a
      handle, driving the `windows_core::Free` impl behind `Owned<T>`. Without it no `Free` impls are
      emitted, so `Owned<HANDLE>`/`Owned<HLOCAL>`/… do not compile; callers use explicit
@@ -1625,14 +1628,28 @@ above). None blocks CI.
   a regrettable per-header workaround for an unscrapeable SDK header, and nothing in-tree currently
   consumes the interface. Consider removing the shim (and the `SHIM_DIR` plumbing if it becomes the
   only entry) and re-adding it only when a sample/crate actually needs `IGraphicsCaptureItemInterop`.
-- **Reconsider the `is_invalid()` helper on pointer-backed handles.** `windows-bindgen`'s
-  `write_cpp_handle` (`cpp_handle.rs` ~L106-114) emits `is_invalid()` for every pointer-backed handle
-  as a plain `self.0.is_null()`, gated only on `ty.is_pointer()`. It used to be driven by the old
-  win32metadata invalid-value attribute (which recorded sentinels like `INVALID_HANDLE_VALUE` = -1);
-  that metadata is gone, so the helper is now *only* a null check — and therefore **wrong** for
-  `-1`-sentinel handles (`HANDLE`/`SC_HANDLE`/…). All 229 generated `is_invalid()` bodies in the
-  `windows` crate are `self.0.is_null()`; none check `-1`. Consider removing the helper (it is a
-  breaking public-API change on e.g. `HANDLE::is_invalid`) or re-deriving real sentinels.
+- **Pointer-backed handle `is_invalid()` removed — DONE (breaking public-API change).**
+  `windows-bindgen`'s `write_cpp_handle` (`cpp_handle.rs`) used to emit an `is_invalid()` method for
+  every pointer-backed handle as a plain `self.0.is_null()`, gated only on `ty.is_pointer()`. It was
+  originally driven by the old win32metadata `InvalidHandleValueAttribute`, which recorded per-type
+  sentinels (`HANDLE` = `{0, -1}` vs `HWND` = `{0}`, …) — curated knowledge **not inferable from C
+  headers**. With that attribute gone from the in-house metadata (see the curated-attribute removal
+  above) the helper had degraded to a null-only check, which is **wrong** for the `-1`/`INVALID_HANDLE_VALUE`
+  family (`HANDLE`/`SC_HANDLE`/…): e.g. `CreateFileA` returns `INVALID_HANDLE_VALUE` (`-1`) on failure,
+  which a null-only `is_invalid()` reports as *valid* (the `overlapped` sample hit this latent bug).
+  Rather than fake a universal `0 || -1` check (which would then be wrong for handles whose `-1` is a
+  real value — `HWND(-1)` is `HWND_TOPMOST`), the helper is **removed entirely**, completing the
+  curated-attribute removal (non-pointer handles already had no `is_invalid()`). Base-handle newtypes
+  keep only their `Default` (zeroed) impl. Callers now check explicitly: `.0.is_null()` for null-sentinel
+  handles, or `== INVALID_HANDLE_VALUE` for the `-1` family (`INVALID_HANDLE_VALUE` is present in the
+  in-house metadata, `handleapi`, as `HANDLE(-1 as _)`). Regenerating removed all ~229 `is_invalid()`
+  bodies from `windows` (and the sys-crate copies); hand-written consumers updated: the `handle`/
+  `handle_of_handle` `test_bindgen` goldens, and the `overlapped` (`== INVALID_HANDLE_VALUE`),
+  `kernel_event`/`privileges`/`direct3d12` (`CreateEvent*`/`LocalAlloc` → `.0.is_null()`), and
+  `uiautomation` (`FindWindowA` → `.0.is_null()`) samples. (The dead `cpp_fn.rs::handle_last_error`
+  branch that *calls* `.is_invalid()` is gated on the `SupportsLastError` PInvoke flag, which the
+  in-house metadata never emits — 0 usages in the generated crates — so it produces no broken output;
+  it is left for the general-purpose-tool dead-handler cleanup.)
 - **`tool_features` + `Windows.Wdk.winmd` — investigated, NOT a bug.** The `WINMD` array in
   `tool_features` lists only `target/features/Windows.Win32.winmd` + `Windows.winmd` and never names
   the WDK winmd directly, but `prepare_metadata()` runs `tool_package::remap::run` over
@@ -1653,10 +1670,23 @@ above). None blocks CI.
   `Manifest`, the kebab-case/`deny_unknown_fields` attributes, and the read+parse+validate boilerplate
   (`assert_no_duplicate_headers` etc.). Net simplification with no loss of capability; the long
   header list stays readable as a `const` slice.
-- **Spot-check `INTERLOCKED_RESULT` — arch-divergent enum values look fishy.** The scraped
-  `INTERLOCKED_RESULT` enum has *completely different* member values across architectures, which is
-  unusual for a plain enum and suggests either a genuine per-arch SDK definition or a scrape/merge
-  artifact (e.g. arch-conditioned `#define`s bleeding into the enum, or the arch-merge picking
-  divergent bodies). Investigate: compare the x64/x86/arm64 `.rdl` bodies against the SDK header, and
-  confirm whether the divergence is real (keep + arch-tag) or spurious (fix the scrape). Worth a spot
-  check before retiring the reference metadata.
+- **`INTERLOCKED_RESULT` arch-divergent enum values — investigated, GENUINE (not a scrape artifact).**
+  The scraped `INTERLOCKED_RESULT` (`metadata/wdk/ntddk.rdl`) has *completely different* member values
+  across architectures — `#[arch(X64 | Arm64)] {ResultNegative = 1, ResultZero = 0, ResultPositive = 2}`
+  vs `#[arch(X86)] {ResultNegative = 32768, ResultZero = 16384, ResultPositive = 0}` — which looked
+  fishy for a plain enum. Confirmed against the WDK headers: it is a **machine-specific** enum
+  (`typedef enum _INTERLOCKED_RESULT { ResultNegative = RESULT_NEGATIVE, … }`) whose members are
+  defined via the `RESULT_NEGATIVE`/`RESULT_ZERO`/`RESULT_POSITIVE` macros, and those macros are
+  **arch-conditioned in the SDK**:
+  - x64/arm64 (`km/ntddk.h`): `RESULT_ZERO 0` / `RESULT_NEGATIVE 1` / `RESULT_POSITIVE 2` — the
+    portable encoding.
+  - x86 (`km/wdm.h`, in the i386-only block): the values are the raw CPU flag bits loaded into `AH` by
+    `LAHF` — `EFLAG_SIGN 0x8000`, `EFLAG_ZERO 0x4000`, `EFLAG_SELECT (EFLAG_SIGN | EFLAG_ZERO)`, so
+    `RESULT_NEGATIVE = (EFLAG_SIGN & ~EFLAG_ZERO) & EFLAG_SELECT = 0x8000 = 32768`,
+    `RESULT_ZERO = 0x4000 = 16384`, `RESULT_POSITIVE = 0`. The i386 `ExInterlockedIncrement`/`Decrement`
+    routines return the flags register directly, so the enum is deliberately EFLAGS-shaped there.
+
+  The `windows`/`windows-sys` `ntddk` modules emit these values verbatim per arch, matching the SDK.
+  The scrape + arch-merge correctly captured a real per-arch definition — **no fix needed**, and it is a
+  positive datapoint for arch-merge correctness (it kept the divergent bodies + arch-tagged them rather
+  than collapsing to one).

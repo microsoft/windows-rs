@@ -49,11 +49,6 @@ pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPCON(pub *mut core::ffi::c_void);
-impl HPCON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPCON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

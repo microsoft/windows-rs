@@ -2335,11 +2335,6 @@ pub type JET_PCSTR = *const JET_CHAR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_PCVOID(pub *const core::ffi::c_void);
-impl JET_PCVOID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for JET_PCVOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2353,11 +2348,6 @@ pub type JET_PSTR = *mut JET_CHAR;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct JET_PVOID(pub *mut core::ffi::c_void);
-impl JET_PVOID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for JET_PVOID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

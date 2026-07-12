@@ -10,11 +10,6 @@ pub struct D3DKMDT_2DREGION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_ADAPTER(pub *mut core::ffi::c_void);
-impl D3DKMDT_ADAPTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_ADAPTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -176,11 +171,6 @@ pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HMONITORDESCRIPTORSET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HMONITORDESCRIPTORSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HMONITORDESCRIPTORSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -189,11 +179,6 @@ impl Default for D3DKMDT_HMONITORDESCRIPTORSET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HMONITORFREQUENCYRANGESET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HMONITORFREQUENCYRANGESET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HMONITORFREQUENCYRANGESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -202,11 +187,6 @@ impl Default for D3DKMDT_HMONITORFREQUENCYRANGESET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HMONITORSOURCEMODESET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HMONITORSOURCEMODESET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HMONITORSOURCEMODESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -215,11 +195,6 @@ impl Default for D3DKMDT_HMONITORSOURCEMODESET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDEOPRESENTSOURCESET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDEOPRESENTSOURCESET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDEOPRESENTSOURCESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -228,11 +203,6 @@ impl Default for D3DKMDT_HVIDEOPRESENTSOURCESET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDEOPRESENTTARGETSET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDEOPRESENTTARGETSET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDEOPRESENTTARGETSET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -241,11 +211,6 @@ impl Default for D3DKMDT_HVIDEOPRESENTTARGETSET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDPN(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDPN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDPN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -254,11 +219,6 @@ impl Default for D3DKMDT_HVIDPN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDPNSOURCEMODESET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDPNSOURCEMODESET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDPNSOURCEMODESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -267,11 +227,6 @@ impl Default for D3DKMDT_HVIDPNSOURCEMODESET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDPNTARGETMODESET(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDPNTARGETMODESET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDPNTARGETMODESET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -280,11 +235,6 @@ impl Default for D3DKMDT_HVIDPNTARGETMODESET {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct D3DKMDT_HVIDPNTOPOLOGY(pub *mut core::ffi::c_void);
-impl D3DKMDT_HVIDPNTOPOLOGY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for D3DKMDT_HVIDPNTOPOLOGY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

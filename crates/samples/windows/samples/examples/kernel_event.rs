@@ -7,7 +7,7 @@ fn main() -> windows::core::Result<()> {
 
     unsafe {
         let event = CreateEventW(None, true, false, None);
-        if event.is_invalid() {
+        if event.0.is_null() {
             return Err(Error::from_thread());
         }
 

@@ -6396,11 +6396,6 @@ pub const UCURR_VARIANT_SYMBOL_NAME: UCurrNameStyle = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UCalendar(pub *mut core::ffi::c_void);
-impl UCalendar {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UCalendar {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6540,11 +6535,6 @@ pub type UCurrNameStyle = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UCurrRegistryKey(pub *const core::ffi::c_void);
-impl UCurrRegistryKey {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UCurrRegistryKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6754,11 +6744,6 @@ pub const UDTS_WINDOWS_FILE_TIME: UDateTimeScale = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UDateFormat(pub *mut core::ffi::c_void);
-impl UDateFormat {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UDateFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6782,11 +6767,6 @@ pub type UDateTimePatternField = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UDateTimePatternGenerator(pub *mut core::ffi::c_void);
-impl UDateTimePatternGenerator {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UDateTimePatternGenerator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6834,11 +6814,6 @@ pub struct UFieldPositionIterator(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UFormattable(pub *mut core::ffi::c_void);
-impl UFormattable {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UFormattable {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7011,11 +6986,6 @@ pub type UMemReallocFn = Option<unsafe extern "C" fn(context: *const core::ffi::
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UMessageFormat(pub *mut core::ffi::c_void);
-impl UMessageFormat {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UMessageFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7212,11 +7182,6 @@ pub type UNumberDecimalSeparatorDisplay = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UNumberFormat(pub *mut core::ffi::c_void);
-impl UNumberFormat {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UNumberFormat {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7302,11 +7267,6 @@ pub type URegionType = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct URegistryKey(pub *const core::ffi::c_void);
-impl URegistryKey {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for URegistryKey {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7323,11 +7283,6 @@ pub type URelativeDateTimeUnit = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UReplaceable(pub *mut core::ffi::c_void);
-impl UReplaceable {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UReplaceable {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7788,11 +7743,6 @@ pub struct UTransPosition {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UTransliterator(pub *mut core::ffi::c_void);
-impl UTransliterator {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UTransliterator {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

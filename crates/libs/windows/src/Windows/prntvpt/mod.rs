@@ -100,11 +100,6 @@ pub const E_PRINTTICKET_FORMAT: u32 = 2147745795;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPTPROVIDER(pub *mut core::ffi::c_void);
-impl HPTPROVIDER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPTPROVIDER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

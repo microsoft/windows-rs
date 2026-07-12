@@ -1679,11 +1679,6 @@ pub const GPFIDL_UNCPRINTER: i32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPSXA(pub *mut core::ffi::c_void);
-impl HPSXA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPSXA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

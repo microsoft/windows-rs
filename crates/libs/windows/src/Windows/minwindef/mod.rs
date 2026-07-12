@@ -22,11 +22,6 @@ pub type HGLOBAL = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINSTANCE(pub *mut core::ffi::c_void);
-impl HINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HINSTANCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -35,11 +30,6 @@ impl Default for HINSTANCE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKEY(pub *mut core::ffi::c_void);
-impl HKEY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HKEY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -48,11 +38,6 @@ impl Default for HKEY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HKL(pub *mut core::ffi::c_void);
-impl HKL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HKL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -63,11 +48,6 @@ pub type HLOCAL = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HLSURF(pub *mut core::ffi::c_void);
-impl HLSURF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HLSURF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -76,11 +56,6 @@ impl Default for HLSURF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMETAFILE(pub *mut core::ffi::c_void);
-impl HMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -90,11 +65,6 @@ pub type HMODULE = HINSTANCE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRGN(pub *mut core::ffi::c_void);
-impl HRGN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HRGN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -103,11 +73,6 @@ impl Default for HRGN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRSRC(pub *mut core::ffi::c_void);
-impl HRSRC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HRSRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -116,11 +81,6 @@ impl Default for HRSRC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSPRITE(pub *mut core::ffi::c_void);
-impl HSPRITE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSPRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -129,11 +89,6 @@ impl Default for HSPRITE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTR(pub *mut core::ffi::c_void);
-impl HSTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -142,11 +97,6 @@ impl Default for HSTR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTASK(pub *mut core::ffi::c_void);
-impl HTASK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HTASK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -155,11 +105,6 @@ impl Default for HTASK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINSTA(pub *mut core::ffi::c_void);
-impl HWINSTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWINSTA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

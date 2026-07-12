@@ -154,12 +154,6 @@ pub type PCMC_EXCEPTION = *mut MCA_EXCEPTION;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCMC_EXCEPTION(pub *mut core::ffi::c_void);
 #[cfg(target_arch = "aarch64")]
-impl PCMC_EXCEPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(target_arch = "aarch64")]
 impl Default for PCMC_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -171,12 +165,6 @@ pub type PCPE_EXCEPTION = *mut MCA_EXCEPTION;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCPE_EXCEPTION(pub *mut core::ffi::c_void);
-#[cfg(target_arch = "aarch64")]
-impl PCPE_EXCEPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 #[cfg(target_arch = "aarch64")]
 impl Default for PCPE_EXCEPTION {
     fn default() -> Self {

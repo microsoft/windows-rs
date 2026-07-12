@@ -12,11 +12,6 @@ pub struct DATE_STRUCT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDBC(pub *mut core::ffi::c_void);
-impl HDBC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDBC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -25,11 +20,6 @@ impl Default for HDBC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HENV(pub *mut core::ffi::c_void);
-impl HENV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HENV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -38,11 +28,6 @@ impl Default for HENV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTMT(pub *mut core::ffi::c_void);
-impl HSTMT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSTMT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -51,11 +36,6 @@ impl Default for HSTMT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PTR(pub *mut core::ffi::c_void);
-impl PTR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PTR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -89,11 +69,6 @@ pub type SQLGUID = windows_core::GUID;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SQLHANDLE(pub *mut core::ffi::c_void);
-impl SQLHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SQLHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -119,11 +94,6 @@ pub struct SQLNUMERIC(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SQLPOINTER(pub *mut core::ffi::c_void);
-impl SQLPOINTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SQLPOINTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

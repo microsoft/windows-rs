@@ -753,11 +753,6 @@ pub const FORMATCHOOSE_MESSAGE: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVER(pub *mut core::ffi::c_void);
-impl HACMDRIVER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HACMDRIVER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -766,11 +761,6 @@ impl Default for HACMDRIVER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMDRIVERID(pub *mut core::ffi::c_void);
-impl HACMDRIVERID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HACMDRIVERID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -779,11 +769,6 @@ impl Default for HACMDRIVERID {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMOBJ(pub *mut core::ffi::c_void);
-impl HACMOBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HACMOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -792,11 +777,6 @@ impl Default for HACMOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACMSTREAM(pub *mut core::ffi::c_void);
-impl HACMSTREAM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HACMSTREAM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

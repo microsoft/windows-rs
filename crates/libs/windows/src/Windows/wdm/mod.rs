@@ -1560,11 +1560,6 @@ pub const CLFS_LOG_SIZE_MINIMUM: u32 = 0;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CLFS_MGMT_CLIENT(pub *mut core::ffi::c_void);
-impl CLFS_MGMT_CLIENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for CLFS_MGMT_CLIENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11301,11 +11296,6 @@ pub type PCLFS_CLIENT_LOG_UNPINNED_CALLBACK = Option<unsafe extern "system" fn(l
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLFS_MGMT_CLIENT(pub *mut *mut core::ffi::c_void);
-impl PCLFS_MGMT_CLIENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PCLFS_MGMT_CLIENT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -11603,11 +11593,6 @@ pub type PEXT_CALLBACK = *mut EXT_CALLBACK;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PEXT_CANCEL_PARAMETERS(pub *mut core::ffi::c_void);
-impl PEXT_CANCEL_PARAMETERS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PEXT_CANCEL_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12348,11 +12333,6 @@ pub type POB_PRE_OPERATION_PARAMETERS = *mut OB_PRE_OPERATION_PARAMETERS;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POHANDLE(pub *mut core::ffi::c_void);
-impl POHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for POHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -12535,11 +12515,6 @@ pub const PO_EFFECTIVE_POWER_MODE_VMAX: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PO_EPM_HANDLE(pub *mut core::ffi::c_void);
-impl PO_EPM_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PO_EPM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13153,11 +13128,6 @@ pub type PSE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = *mut SE_IMAGE_VERIFICATION_C
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN(pub *mut *mut core::ffi::c_void);
-impl PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PSE_IMAGE_VERIFICATION_CALLBACK_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -13174,11 +13144,6 @@ pub type PS_AVAILABLE_CPUS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(pa
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PS_AVAILABLE_CPUS_CHANGE_REGISTRATION(pub *mut core::ffi::c_void);
-impl PS_AVAILABLE_CPUS_CHANGE_REGISTRATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PS_AVAILABLE_CPUS_CHANGE_REGISTRATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -14126,11 +14091,6 @@ pub type SE_IMAGE_VERIFICATION_CALLBACK_FUNCTION = Option<unsafe extern "system"
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SE_IMAGE_VERIFICATION_CALLBACK_TOKEN(pub *mut core::ffi::c_void);
-impl SE_IMAGE_VERIFICATION_CALLBACK_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SE_IMAGE_VERIFICATION_CALLBACK_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -665,11 +665,6 @@ pub const FO_RENAME: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDROP(pub *mut core::ffi::c_void);
-impl HDROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

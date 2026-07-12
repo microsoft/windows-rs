@@ -43,11 +43,6 @@ pub struct PHYSICAL_ADDRESS(pub i64);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIRP(pub *mut core::ffi::c_void);
-impl PIRP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PIRP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -56,11 +51,6 @@ impl Default for PIRP {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PMDL(pub *mut core::ffi::c_void);
-impl PMDL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PMDL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -204,11 +194,6 @@ pub const USBDI_VERSION: u32 = 1536;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct USBD_CONFIGURATION_HANDLE(pub *mut core::ffi::c_void);
-impl USBD_CONFIGURATION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for USBD_CONFIGURATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -289,11 +274,6 @@ pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct USBD_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
-impl USBD_INTERFACE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for USBD_INTERFACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -340,11 +320,6 @@ pub const USBD_PF_VOICE_PRIORITY: u32 = 32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct USBD_PIPE_HANDLE(pub *mut core::ffi::c_void);
-impl USBD_PIPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for USBD_PIPE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

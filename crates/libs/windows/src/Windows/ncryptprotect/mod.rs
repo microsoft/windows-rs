@@ -84,11 +84,6 @@ pub const MS_KEY_PROTECTION_PROVIDER: windows_core::PCWSTR = windows_core::w!("M
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_DESCRIPTOR_HANDLE(pub *mut core::ffi::c_void);
-impl NCRYPT_DESCRIPTOR_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for NCRYPT_DESCRIPTOR_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -139,11 +134,6 @@ impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NCRYPT_STREAM_HANDLE(pub *mut core::ffi::c_void);
-impl NCRYPT_STREAM_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for NCRYPT_STREAM_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1212,11 +1212,6 @@ pub type HDRAWDIB = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HIC(pub *mut core::ffi::c_void);
-impl HIC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HIC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1225,11 +1220,6 @@ impl Default for HIC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HVIDEO(pub *mut core::ffi::c_void);
-impl HVIDEO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HVIDEO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

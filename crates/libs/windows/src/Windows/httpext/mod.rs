@@ -48,11 +48,6 @@ impl Default for EXTENSION_CONTROL_BLOCK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONN(pub *mut core::ffi::c_void);
-impl HCONN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCONN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

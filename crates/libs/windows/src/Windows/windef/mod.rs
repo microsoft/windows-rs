@@ -42,11 +42,6 @@ pub type DPI_AWARENESS = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DPI_AWARENESS_CONTEXT(pub *mut core::ffi::c_void);
-impl DPI_AWARENESS_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for DPI_AWARENESS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -68,11 +63,6 @@ pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HACCEL(pub *mut core::ffi::c_void);
-impl HACCEL {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HACCEL {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -81,11 +71,6 @@ impl Default for HACCEL {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBITMAP(pub *mut core::ffi::c_void);
-impl HBITMAP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HBITMAP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -94,11 +79,6 @@ impl Default for HBITMAP {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HBRUSH(pub *mut core::ffi::c_void);
-impl HBRUSH {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HBRUSH {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -107,11 +87,6 @@ impl Default for HBRUSH {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCOLORSPACE(pub *mut core::ffi::c_void);
-impl HCOLORSPACE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCOLORSPACE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -121,11 +96,6 @@ pub type HCURSOR = HICON;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDC(pub *mut core::ffi::c_void);
-impl HDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -134,11 +104,6 @@ impl Default for HDC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDESK(pub *mut core::ffi::c_void);
-impl HDESK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDESK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -147,11 +112,6 @@ impl Default for HDESK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HENHMETAFILE(pub *mut core::ffi::c_void);
-impl HENHMETAFILE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HENHMETAFILE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -162,11 +122,6 @@ pub const HFILE_ERROR: super::minwindef::HFILE = super::minwindef::HFILE(0xFFFFF
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HFONT(pub *mut core::ffi::c_void);
-impl HFONT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HFONT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -175,11 +130,6 @@ impl Default for HFONT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGDIOBJ(pub *mut core::ffi::c_void);
-impl HGDIOBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HGDIOBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -188,11 +138,6 @@ impl Default for HGDIOBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGLRC(pub *mut core::ffi::c_void);
-impl HGLRC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HGLRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -201,11 +146,6 @@ impl Default for HGLRC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HHOOK(pub *mut core::ffi::c_void);
-impl HHOOK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -214,11 +154,6 @@ impl Default for HHOOK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HICON(pub *mut core::ffi::c_void);
-impl HICON {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HICON {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -227,11 +162,6 @@ impl Default for HICON {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMENU(pub *mut core::ffi::c_void);
-impl HMENU {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMENU {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -240,11 +170,6 @@ impl Default for HMENU {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMONITOR(pub *mut core::ffi::c_void);
-impl HMONITOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMONITOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -253,11 +178,6 @@ impl Default for HMONITOR {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPALETTE(pub *mut core::ffi::c_void);
-impl HPALETTE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPALETTE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -266,11 +186,6 @@ impl Default for HPALETTE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPEN(pub *mut core::ffi::c_void);
-impl HPEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -279,11 +194,6 @@ impl Default for HPEN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HUMPD(pub *mut core::ffi::c_void);
-impl HUMPD {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HUMPD {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -292,11 +202,6 @@ impl Default for HUMPD {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWINEVENTHOOK(pub *mut core::ffi::c_void);
-impl HWINEVENTHOOK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWINEVENTHOOK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -305,11 +210,6 @@ impl Default for HWINEVENTHOOK {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWND(pub *mut core::ffi::c_void);
-impl HWND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

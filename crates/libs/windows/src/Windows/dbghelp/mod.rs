@@ -2481,11 +2481,6 @@ pub type PIMAGEHLP_CBA_READ_MEMORY = *mut IMAGEHLP_CBA_READ_MEMORY;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PIMAGEHLP_CONTEXT(pub *mut core::ffi::c_void);
-impl PIMAGEHLP_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PIMAGEHLP_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

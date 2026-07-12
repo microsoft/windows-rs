@@ -1480,11 +1480,6 @@ pub type PKSTOPOLOGY_CONNECTION = *mut KSTOPOLOGY_CONNECTION;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PKSWORKER(pub *mut core::ffi::c_void);
-impl PKSWORKER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PKSWORKER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

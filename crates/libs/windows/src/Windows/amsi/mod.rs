@@ -181,11 +181,6 @@ pub const CAntimalware: windows_core::GUID = windows_core::GUID::from_u128(0xfdb
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HAMSICONTEXT(pub *mut core::ffi::c_void);
-impl HAMSICONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HAMSICONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -194,11 +189,6 @@ impl Default for HAMSICONTEXT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HAMSISESSION(pub *mut core::ffi::c_void);
-impl HAMSISESSION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HAMSISESSION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

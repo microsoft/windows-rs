@@ -13,11 +13,6 @@ pub struct HALF_PTR(pub i32);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE64(pub *mut core::ffi::c_void);
-impl HANDLE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HANDLE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -108,11 +103,6 @@ pub type PHALF_PTR = *mut i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHANDLE64(pub *mut *mut core::ffi::c_void);
-impl PHANDLE64 {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PHANDLE64 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

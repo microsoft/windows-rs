@@ -279,11 +279,6 @@ pub type HREPORT = super::winnt::HANDLE;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HREPORTSTORE(pub *mut core::ffi::c_void);
-impl HREPORTSTORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HREPORTSTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -305,11 +300,6 @@ pub type PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = Option<unsafe extern "syste
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PHREPORTSTORE(pub *mut *mut core::ffi::c_void);
-impl PHREPORTSTORE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PHREPORTSTORE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

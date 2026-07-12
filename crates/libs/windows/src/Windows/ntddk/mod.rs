@@ -9150,11 +9150,6 @@ pub const WHEA_ENABLE_BATCHED_ROW_OFFLINE: u32 = 21;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHEA_ERROR_HANDLE(pub *mut core::ffi::c_void);
-impl WHEA_ERROR_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for WHEA_ERROR_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

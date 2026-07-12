@@ -507,11 +507,6 @@ pub struct FindPackageDependencyCriteria {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PACKAGEDEPENDENCY_CONTEXT(pub *mut core::ffi::c_void);
-impl PACKAGEDEPENDENCY_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PACKAGEDEPENDENCY_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -1026,11 +1026,6 @@ pub struct WTS_CLIENT_DISPLAY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WTS_CLOUD_AUTH_HANDLE(pub *mut core::ffi::c_void);
-impl WTS_CLOUD_AUTH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for WTS_CLOUD_AUTH_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -5891,11 +5891,6 @@ pub const HC_SYSMODALON: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVNOTIFY(pub *mut core::ffi::c_void);
-impl HDEVNOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDEVNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5976,11 +5971,6 @@ pub const HELP_WM_HELP: u32 = 12;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HGESTUREINFO(pub *mut core::ffi::c_void);
-impl HGESTUREINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HGESTUREINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6010,11 +6000,6 @@ pub const HOVER_DEFAULT: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HPOWERNOTIFY(pub *mut core::ffi::c_void);
-impl HPOWERNOTIFY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HPOWERNOTIFY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6023,11 +6008,6 @@ impl Default for HPOWERNOTIFY {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HRAWINPUT(pub *mut core::ffi::c_void);
-impl HRAWINPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HRAWINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6054,11 +6034,6 @@ pub const HSHELL_WINDOWREPLACING: u32 = 14;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSYNTHETICPOINTERDEVICE(pub *mut core::ffi::c_void);
-impl HSYNTHETICPOINTERDEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSYNTHETICPOINTERDEVICE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6084,11 +6059,6 @@ pub const HTOBJECT: u32 = 19;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HTOUCHINPUT(pub *mut core::ffi::c_void);
-impl HTOUCHINPUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HTOUCHINPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6591,11 +6561,6 @@ pub type LPMENUTEMPLATE = LPMENUTEMPLATEA;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMENUTEMPLATEA(pub *mut core::ffi::c_void);
-impl LPMENUTEMPLATEA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for LPMENUTEMPLATEA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6604,11 +6569,6 @@ impl Default for LPMENUTEMPLATEA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPMENUTEMPLATEW(pub *mut core::ffi::c_void);
-impl LPMENUTEMPLATEW {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for LPMENUTEMPLATEW {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

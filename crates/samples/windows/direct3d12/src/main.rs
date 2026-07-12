@@ -176,7 +176,7 @@ fn main() -> windows::core::Result<()> {
             let fence_value = 1;
 
             let fence_event = unsafe { CreateEventA(None, false, false, None) };
-            if fence_event.is_invalid() {
+            if fence_event.0.is_null() {
                 return Err(Error::from_thread());
             }
 

@@ -4540,12 +4540,6 @@ pub type LPLDT_ENTRY = super::winnt::PLDT_ENTRY;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPLDT_ENTRY(pub *mut core::ffi::c_void);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl LPLDT_ENTRY {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for LPLDT_ENTRY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5039,11 +5033,6 @@ pub const PST_X25: u32 = 259;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUMS_COMPLETION_LIST(pub *mut core::ffi::c_void);
-impl PUMS_COMPLETION_LIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PUMS_COMPLETION_LIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5052,11 +5041,6 @@ impl Default for PUMS_COMPLETION_LIST {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PUMS_CONTEXT(pub *mut core::ffi::c_void);
-impl PUMS_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PUMS_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

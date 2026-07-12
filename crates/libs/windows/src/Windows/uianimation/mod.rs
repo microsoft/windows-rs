@@ -4029,11 +4029,6 @@ pub const UI_ANIMATION_ITERATION_NONE: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub *mut core::ffi::c_void);
-impl UI_ANIMATION_KEYFRAME {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UI_ANIMATION_KEYFRAME {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -7,11 +7,6 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const super::propidl::SERIALIZE
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct NTPROP(pub *mut core::ffi::c_void);
-impl NTPROP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for NTPROP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

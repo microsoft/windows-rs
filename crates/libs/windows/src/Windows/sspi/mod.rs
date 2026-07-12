@@ -784,11 +784,6 @@ pub type PSEC_WINNT_AUTH_IDENTITY_INFO = *mut SEC_WINNT_AUTH_IDENTITY_INFO;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSEC_WINNT_AUTH_IDENTITY_OPAQUE(pub *mut core::ffi::c_void);
-impl PSEC_WINNT_AUTH_IDENTITY_OPAQUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PSEC_WINNT_AUTH_IDENTITY_OPAQUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -3676,11 +3676,6 @@ pub const OPEN_REPARSE_POINT_VERSION_EX: u32 = 2147483648;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct OPLOCK(pub *mut core::ffi::c_void);
-impl OPLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for OPLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4023,11 +4018,6 @@ pub type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct POPLOCK(pub *mut *mut core::ffi::c_void);
-impl POPLOCK {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for POPLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -3030,11 +3030,6 @@ pub const FLG_REGSVR_DLLREGISTER: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDEVINFO(pub *mut core::ffi::c_void);
-impl HDEVINFO {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDEVINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3043,11 +3038,6 @@ impl Default for HDEVINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDSKSPC(pub *mut core::ffi::c_void);
-impl HDSKSPC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDSKSPC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3056,11 +3046,6 @@ impl Default for HDSKSPC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINF(pub *mut core::ffi::c_void);
-impl HINF {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HINF {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3069,11 +3054,6 @@ impl Default for HINF {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSPFILELOG(pub *mut core::ffi::c_void);
-impl HSPFILELOG {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSPFILELOG {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -3082,11 +3062,6 @@ impl Default for HSPFILELOG {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSPFILEQ(pub *mut core::ffi::c_void);
-impl HSPFILEQ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSPFILEQ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

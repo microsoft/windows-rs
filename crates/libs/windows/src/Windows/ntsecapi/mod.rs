@@ -1692,11 +1692,6 @@ pub const LSA_FTRECORD_DISABLED_REASONS: u32 = 65535;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LSA_HANDLE(pub *mut core::ffi::c_void);
-impl LSA_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for LSA_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2357,11 +2352,6 @@ pub type PLSA_FOREST_TRUST_SCANNER_INFO = *mut LSA_FOREST_TRUST_SCANNER_INFO;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_HANDLE(pub *mut *mut core::ffi::c_void);
-impl PLSA_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PLSA_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

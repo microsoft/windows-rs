@@ -19,7 +19,7 @@ fn main() -> windows::core::Result<()> {
             FILE_FLAG_OVERLAPPED,
             None,
         );
-        if file.is_invalid() {
+        if file == INVALID_HANDLE_VALUE {
             return Err(Error::from_thread());
         }
 

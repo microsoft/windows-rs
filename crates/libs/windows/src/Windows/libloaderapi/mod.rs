@@ -260,11 +260,6 @@ pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct DLL_DIRECTORY_COOKIE(pub *mut core::ffi::c_void);
-impl DLL_DIRECTORY_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for DLL_DIRECTORY_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -322,11 +317,6 @@ pub type PCREDIRECTION_FUNCTION_DESCRIPTOR = *const REDIRECTION_FUNCTION_DESCRIP
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PDLL_DIRECTORY_COOKIE(pub *mut *mut core::ffi::c_void);
-impl PDLL_DIRECTORY_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PDLL_DIRECTORY_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -253,11 +253,6 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut core::ffi::c_void, pvrestartbu
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct CLFS_LOG_ARCHIVE_CONTEXT(pub *mut core::ffi::c_void);
-impl CLFS_LOG_ARCHIVE_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for CLFS_LOG_ARCHIVE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -269,11 +264,6 @@ pub type PCLFS_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(pvoverlappe
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLFS_LOG_ARCHIVE_CONTEXT(pub *mut *mut core::ffi::c_void);
-impl PCLFS_LOG_ARCHIVE_CONTEXT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PCLFS_LOG_ARCHIVE_CONTEXT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

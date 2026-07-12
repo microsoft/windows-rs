@@ -3065,11 +3065,6 @@ pub const GroupPark: POWER_INFORMATION_LEVEL = 48;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HANDLE(pub *mut core::ffi::c_void);
-impl HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7133,11 +7128,6 @@ pub type PACCESS_REASONS = *mut ACCESS_REASONS;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PACCESS_TOKEN(pub *mut core::ffi::c_void);
-impl PACCESS_TOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PACCESS_TOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7232,11 +7222,6 @@ pub type PCIMAGE_POLICY_METADATA = *const IMAGE_POLICY_METADATA;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PCLAIMS_BLOB(pub *mut core::ffi::c_void);
-impl PCLAIMS_BLOB {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PCLAIMS_BLOB {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9210,11 +9195,6 @@ pub type PSECURE_MEMORY_CACHE_CALLBACK = Option<unsafe extern "system" fn(addr: 
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSECURITY_ATTRIBUTES_OPAQUE(pub *mut core::ffi::c_void);
-impl PSECURITY_ATTRIBUTES_OPAQUE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PSECURITY_ATTRIBUTES_OPAQUE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9225,11 +9205,6 @@ pub type PSECURITY_CONTEXT_TRACKING_MODE = *mut bool;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSECURITY_DESCRIPTOR(pub *mut core::ffi::c_void);
-impl PSECURITY_DESCRIPTOR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PSECURITY_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -9261,11 +9236,6 @@ pub type PSHUFFLE_FILE_DATA = *mut SHUFFLE_FILE_DATA;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PSID(pub *mut core::ffi::c_void);
-impl PSID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PSID {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -78,12 +78,6 @@ pub type PVBS_BASIC_ENCLAVE_EXCEPTION = PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PVBS_BASIC_ENCLAVE_EXCEPTION(pub *mut core::ffi::c_void);
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
-impl PVBS_BASIC_ENCLAVE_EXCEPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 impl Default for PVBS_BASIC_ENCLAVE_EXCEPTION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

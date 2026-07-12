@@ -693,11 +693,6 @@ pub const AUX_MAPPER: u32 = 4294967295;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDI(pub *mut core::ffi::c_void);
-impl HMIDI {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIDI {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -706,11 +701,6 @@ impl Default for HMIDI {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIIN(pub *mut core::ffi::c_void);
-impl HMIDIIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIDIIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -719,11 +709,6 @@ impl Default for HMIDIIN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDIOUT(pub *mut core::ffi::c_void);
-impl HMIDIOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIDIOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -732,11 +717,6 @@ impl Default for HMIDIOUT {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIDISTRM(pub *mut core::ffi::c_void);
-impl HMIDISTRM {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIDISTRM {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -745,11 +725,6 @@ impl Default for HMIDISTRM {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXER(pub *mut core::ffi::c_void);
-impl HMIXER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIXER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -758,11 +733,6 @@ impl Default for HMIXER {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HMIXEROBJ(pub *mut core::ffi::c_void);
-impl HMIXEROBJ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HMIXEROBJ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -771,11 +741,6 @@ impl Default for HMIXEROBJ {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVE(pub *mut core::ffi::c_void);
-impl HWAVE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWAVE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -784,11 +749,6 @@ impl Default for HWAVE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEIN(pub *mut core::ffi::c_void);
-impl HWAVEIN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWAVEIN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -797,11 +757,6 @@ impl Default for HWAVEIN {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HWAVEOUT(pub *mut core::ffi::c_void);
-impl HWAVEOUT {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HWAVEOUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

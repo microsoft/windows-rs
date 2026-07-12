@@ -254,11 +254,6 @@ pub struct SCRIPT_ANALYSIS {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SCRIPT_CACHE(pub *mut core::ffi::c_void);
-impl SCRIPT_CACHE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SCRIPT_CACHE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -343,11 +338,6 @@ pub struct SCRIPT_STATE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SCRIPT_STRING_ANALYSIS(pub *mut core::ffi::c_void);
-impl SCRIPT_STRING_ANALYSIS {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SCRIPT_STRING_ANALYSIS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

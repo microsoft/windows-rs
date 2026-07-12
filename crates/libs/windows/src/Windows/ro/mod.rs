@@ -238,11 +238,6 @@ where
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub *mut core::ffi::c_void);
-impl APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -524,11 +519,6 @@ pub type PINSPECT_MEMORY_CALLBACK = Option<unsafe extern "system" fn(context: *c
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ROPARAMIIDHANDLE(pub *mut core::ffi::c_void);
-impl ROPARAMIIDHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for ROPARAMIIDHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

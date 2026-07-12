@@ -317,11 +317,6 @@ where
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSLC(pub *mut core::ffi::c_void);
-impl HSLC {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSLC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -330,11 +325,6 @@ impl Default for HSLC {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSLP(pub *mut core::ffi::c_void);
-impl HSLP {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSLP {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

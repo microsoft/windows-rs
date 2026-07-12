@@ -8,11 +8,6 @@ pub type DRVCALLBACK = Option<unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32,
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDRVR(pub *mut core::ffi::c_void);
-impl HDRVR {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDRVR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

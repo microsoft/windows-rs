@@ -1029,11 +1029,6 @@ pub type LPCOLOR_NAME = *mut COLOR_NAME;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LPDEVCHARACTER(pub *mut core::ffi::c_void);
-impl LPDEVCHARACTER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for LPDEVCHARACTER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

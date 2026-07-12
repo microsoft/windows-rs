@@ -405,11 +405,6 @@ pub const ERROR_WINHTTP_UNRECOGNIZED_SCHEME: u32 = 12006;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HINTERNET(pub *mut core::ffi::c_void);
-impl HINTERNET {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HINTERNET {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1135,11 +1130,6 @@ pub type WINHTTP_PROXY_CHANGE_CALLBACK = Option<unsafe extern "system" fn(ullfla
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE(pub *mut core::ffi::c_void);
-impl WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for WINHTTP_PROXY_CHANGE_REGISTRATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

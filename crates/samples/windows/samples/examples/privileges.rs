@@ -11,7 +11,7 @@ fn main() -> windows::core::Result<()> {
         _ = GetTokenInformation(token, TokenPrivileges, None, 0, &mut bytes_required);
 
         let buffer = LocalAlloc(LPTR, bytes_required as usize);
-        if buffer.is_invalid() {
+        if buffer.0.is_null() {
             return Err(Error::from_thread());
         }
 

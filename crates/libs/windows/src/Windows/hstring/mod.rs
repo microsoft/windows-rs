@@ -1,11 +1,6 @@
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSTRING_BUFFER(pub *mut core::ffi::c_void);
-impl HSTRING_BUFFER {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSTRING_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

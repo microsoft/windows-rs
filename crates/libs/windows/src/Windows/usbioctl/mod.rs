@@ -262,11 +262,6 @@ pub struct USB_BUS_NOTIFICATION {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct USB_CHANGE_REGISTRATION_HANDLE(pub *mut core::ffi::c_void);
-impl USB_CHANGE_REGISTRATION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for USB_CHANGE_REGISTRATION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

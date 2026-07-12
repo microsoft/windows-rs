@@ -15910,11 +15910,6 @@ pub const SPSSuppressWord: SpeechPartOfSpeech = 61440;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SPSTATEHANDLE(pub *mut core::ffi::c_void);
-impl SPSTATEHANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for SPSTATEHANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

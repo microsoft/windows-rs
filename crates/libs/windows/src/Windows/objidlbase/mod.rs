@@ -3569,11 +3569,6 @@ impl Default for MULTI_QI {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct MachineGlobalObjectTableRegistrationToken(pub *mut core::ffi::c_void);
-impl MachineGlobalObjectTableRegistrationToken {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for MachineGlobalObjectTableRegistrationToken {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

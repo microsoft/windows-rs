@@ -35,7 +35,7 @@ impl Config<'_> {
         // `HCURSOR = HICON`, `SQLHWND = HWND`, `HOLEMENU = HGLOBAL`) is emitted as a transparent
         // alias rather than nesting one handle newtype inside another — matching --sys/--minimal.
         // Base handles, whose underlying is a raw pointer/scalar (`HANDLE = *mut void`, `HWND`),
-        // keep the newtype (with its `is_invalid`/`Default` impls). Primitive-backed handles like
+        // keep the newtype (with its `Default` impl). Primitive-backed handles like
         // `JET_GRBIT` (underlying `u32`) are unaffected: their underlying is not a handle struct, so
         // they keep the newtype their tuple-constructed constants (`JET_GRBIT(…)`) require.
         let aliases_handle = matches!(&ty, Type::CppStruct(inner) if inner.is_handle(self.reader));
@@ -44,8 +44,8 @@ impl Config<'_> {
         // *mut COMPRESSOR_HANDLE`, `PTRUSTEE_A = *mut TRUSTEE_A`, `PACCESS_RIGHTS = *mut u32`) is a
         // pointer alias, not a handle — emit it as a transparent alias rather than wrapping the
         // pointer in a newtype, matching --sys/--minimal. Genuine base handles point to void
-        // (`HANDLE = *mut void`, `HWND = *mut void`) and keep their newtype (with its
-        // `is_invalid`/`Default` impls), so pointers to void are excluded here.
+        // (`HANDLE = *mut void`, `HWND = *mut void`) and keep their newtype (with its `Default`
+        // impl), so pointers to void are excluded here.
         let aliases_pointer = matches!(
             &ty,
             Type::PtrMut(inner, _) | Type::PtrConst(inner, _) if !matches!(inner.as_ref(), Type::Void)
@@ -103,25 +103,11 @@ impl Config<'_> {
                 quote! {}
             };
 
-            let is_invalid = if ty.is_pointer() {
-                quote! {
-                    #arches
-                    impl #name {
-                        pub fn is_invalid(&self) -> bool {
-                            self.0.is_null()
-                        }
-                    }
-                }
-            } else {
-                quote! {}
-            };
-
             let mut result = quote! {
                 #arches
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
-                #is_invalid
                 #default
             };
 

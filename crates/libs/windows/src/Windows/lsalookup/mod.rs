@@ -6,11 +6,6 @@ pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct LSA_LOOKUP_HANDLE(pub *mut core::ffi::c_void);
-impl LSA_LOOKUP_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for LSA_LOOKUP_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -83,11 +78,6 @@ pub type PLSA_LOOKUP_DOMAIN_INFO_CLASS = *mut LSA_LOOKUP_DOMAIN_INFO_CLASS;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_LOOKUP_HANDLE(pub *mut *mut core::ffi::c_void);
-impl PLSA_LOOKUP_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PLSA_LOOKUP_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

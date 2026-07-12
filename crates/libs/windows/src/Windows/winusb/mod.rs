@@ -199,11 +199,6 @@ pub const PIPE_TRANSFER_TIMEOUT: u32 = 3;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINUSB_INTERFACE_HANDLE(pub *mut *mut core::ffi::c_void);
-impl PWINUSB_INTERFACE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PWINUSB_INTERFACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -212,11 +207,6 @@ impl Default for PWINUSB_INTERFACE_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PWINUSB_ISOCH_BUFFER_HANDLE(pub *mut *mut core::ffi::c_void);
-impl PWINUSB_ISOCH_BUFFER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PWINUSB_ISOCH_BUFFER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -234,11 +224,6 @@ pub const SUSPEND_DELAY: u32 = 131;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINUSB_INTERFACE_HANDLE(pub *mut core::ffi::c_void);
-impl WINUSB_INTERFACE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for WINUSB_INTERFACE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -247,11 +232,6 @@ impl Default for WINUSB_INTERFACE_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WINUSB_ISOCH_BUFFER_HANDLE(pub *mut core::ffi::c_void);
-impl WINUSB_ISOCH_BUFFER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for WINUSB_ISOCH_BUFFER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

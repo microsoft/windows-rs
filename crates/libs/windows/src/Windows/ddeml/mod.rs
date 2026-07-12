@@ -277,11 +277,6 @@ pub type FNCALLBACK = Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hc
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONV(pub *mut core::ffi::c_void);
-impl HCONV {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCONV {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -290,11 +285,6 @@ impl Default for HCONV {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCONVLIST(pub *mut core::ffi::c_void);
-impl HCONVLIST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCONVLIST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -304,11 +294,6 @@ pub const HDATA_APPOWNED: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HDDEDATA(pub *mut core::ffi::c_void);
-impl HDDEDATA {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HDDEDATA {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -317,11 +302,6 @@ impl Default for HDDEDATA {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSZ(pub *mut core::ffi::c_void);
-impl HSZ {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSZ {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

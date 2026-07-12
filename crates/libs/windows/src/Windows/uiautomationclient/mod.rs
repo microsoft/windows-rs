@@ -12397,11 +12397,6 @@ pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct UIA_HWND(pub *mut core::ffi::c_void);
-impl UIA_HWND {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for UIA_HWND {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

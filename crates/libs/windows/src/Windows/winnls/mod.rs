@@ -1105,11 +1105,6 @@ pub const HIGH_SURROGATE_START: u32 = 55296;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HSAVEDUILANGUAGES(pub *mut core::ffi::c_void);
-impl HSAVEDUILANGUAGES {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HSAVEDUILANGUAGES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

@@ -469,11 +469,6 @@ pub type PLSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: *cons
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PLSA_CLIENT_REQUEST(pub *mut *mut core::ffi::c_void);
-impl PLSA_CLIENT_REQUEST {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PLSA_CLIENT_REQUEST {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

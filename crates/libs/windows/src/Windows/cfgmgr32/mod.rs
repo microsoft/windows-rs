@@ -2003,11 +2003,6 @@ pub const FORCED_LOG_CONF: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct HCMNOTIFICATION(pub *mut core::ffi::c_void);
-impl HCMNOTIFICATION {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for HCMNOTIFICATION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

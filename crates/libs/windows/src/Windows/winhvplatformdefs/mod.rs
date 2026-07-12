@@ -915,12 +915,6 @@ pub type WHV_NESTED_STATE_TYPE = i32;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHV_NOTIFICATION_PORT_HANDLE(pub *mut core::ffi::c_void);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_NOTIFICATION_PORT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for WHV_NOTIFICATION_PORT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -977,12 +971,6 @@ pub type WHV_PARTITION_COUNTER_SET = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHV_PARTITION_HANDLE(pub *mut core::ffi::c_void);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_PARTITION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for WHV_PARTITION_HANDLE {
     fn default() -> Self {
@@ -1668,12 +1656,6 @@ pub type WHV_TRANSLATE_GVA_RESULT_CODE = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct WHV_TRIGGER_HANDLE(pub *mut core::ffi::c_void);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-impl WHV_TRIGGER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for WHV_TRIGGER_HANDLE {
     fn default() -> Self {

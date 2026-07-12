@@ -445,11 +445,6 @@ pub struct POLICYSETTINGSTATUSINFO {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct PRSOPTOKEN(pub *mut core::ffi::c_void);
-impl PRSOPTOKEN {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for PRSOPTOKEN {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

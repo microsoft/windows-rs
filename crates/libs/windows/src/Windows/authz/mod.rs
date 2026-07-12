@@ -206,11 +206,6 @@ pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: u32 = 1;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -244,11 +239,6 @@ impl Default for AUTHZ_ACCESS_REQUEST {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_AUDIT_EVENT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_AUDIT_EVENT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -258,11 +248,6 @@ pub type AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -271,11 +256,6 @@ impl Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -284,11 +264,6 @@ impl Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE {
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_CLIENT_CONTEXT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -325,11 +300,6 @@ pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_RESOURCE_MANAGER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -449,11 +419,6 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub *mut core::ffi::c_void);
-impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
 impl Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
