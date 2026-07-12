@@ -1,4 +1,3 @@
-use serde::Deserialize;
 use std::path::PathBuf;
 use windows_clang::*;
 
@@ -52,46 +51,57 @@ const INCLUDE_DIR: &str = "10.0.28000.0";
 /// build normally sets. `NTDDI_VERSION` gates the API level.
 const CLANG_ARGS: &[&str] = &["-x", "c++", "-DNTDDI_VERSION=0x0A000010"];
 
-/// The orchestration manifest (`wdk.toml`): which kernel headers to scrape, the reachability
-/// scope, the reference winmd, the import libraries, and the architectures to arch-merge.
-#[derive(Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknown_fields)]
-struct Manifest {
-    /// Root namespace; the WDK surface is emitted into the same flat `Windows.Win32` namespace
-    /// as Win32 so a WDK entity referencing a Win32 type just names it.
-    root: String,
-    /// In-scope header directory segments (`["km"]`): a declaration defined under the WDK
-    /// kernel-mode include folder is emitted unconditionally; the SDK closure is emitted only
-    /// when a `km` declaration references it.
-    scope: Vec<String>,
-    /// Architectures to scrape and arch-merge. x64 is always canonical; extras are folded in
-    /// via `SupportedArchitecture`.
-    #[serde(default)]
-    archs: Vec<String>,
-    /// The WDK source headers, in include order (`ntifs.h` before `wdm.h`; `offreg.h` last).
-    source_headers: Vec<String>,
-    /// The Win32 winmd(s) used as the scrape-time exclusion reference (already-defined Win32
-    /// types are skipped) and the compile-time resolution reference (WDK types resolve their
-    /// Win32 dependencies by bare name).
-    reference_winmds: Vec<String>,
-    /// Import libraries (bare names, resolved against the SDK and WDK x64 lib trees) read to
-    /// recover the faithful function → DLL mapping.
-    import_libs: Vec<String>,
-}
+// The orchestration manifest, expressed as plain `const` slices (was `wdk.toml`). The WDK scrape
+// is the *additive* companion to `tool_win32`: it parses the kernel-mode WDK headers and emits
+// only the surface the WDK adds on top of Win32, into the same flat `Windows.Win32` namespace.
+// Every entity Win32 already defines is skipped (see [`REFERENCE_WINMDS`]) and resolved by bare
+// name once both winmds are loaded together. Like Win32 there is deliberately NO type-level
+// curation — the only inputs are mechanical.
+
+/// Root namespace; the WDK surface is emitted into the same flat `Windows.Win32` namespace as
+/// Win32 so a WDK entity referencing a Win32 type just names it.
+const ROOT: &str = "Windows.Win32";
+
+/// In-scope header directory segments (`["km"]`): a declaration defined under the WDK kernel-mode
+/// include folder is emitted unconditionally; the SDK `um`/`shared`/`ucrt` closure the translation
+/// unit pulls in to compile is emitted only when a `km` declaration references it (and then dropped
+/// anyway if Win32 already defines it), so the CRT/toolset noise never reaches the corpus.
+const SCOPE: &[&str] = &["km"];
+
+/// Architectures to scrape and arch-merge, mirroring `tool_win32`. x64 is always canonical; the
+/// extra arches are folded in via `SupportedArchitecture` so a kernel type present on only a subset
+/// of arches (`KUMS_CONTEXT_HEADER`, whose `PXMM_SAVE_AREA32` field is x64/arm64ec-only) is tagged
+/// instead of emitted arch-neutral and breaking the pure-arm64 build.
+const ARCHS: &[&str] = &["x64", "arm64", "x86"];
+
+/// The WDK source headers, in include order. `ntifs.h` comes *before* `wdm.h`: it defines
+/// `_NTIFS_INCLUDED_` and the `PEPROCESS`/`PETHREAD` opaque typedefs first, so including it second
+/// would collide with `wdm.h`'s own forward declarations of the same names. `offreg.h` (the
+/// offline-registry API) has no includes of its own and relies on the `DWORD`/`PCWSTR`/`HANDLE`
+/// types the earlier headers bring in, so it is included last.
+const SOURCE_HEADERS: &[&str] = &["ntifs.h", "wdm.h", "offreg.h"];
+
+/// The in-house Win32 winmd(s), used as the scrape-time *exclusion* reference (already-defined
+/// Win32 types are skipped rather than re-emitted, so this winmd holds only the WDK-net-new surface)
+/// and the compile-time *resolution* reference (WDK types resolve their Win32 dependencies —
+/// `NTSTATUS`, `IO_STATUS_BLOCK`, `GENERIC_READ`, … — by bare name once both winmds are loaded
+/// together).
+const REFERENCE_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.Win32.winmd"];
+
+/// Import libraries (bare names, resolved against the SDK and WDK x64 lib trees) read to recover
+/// the faithful function → DLL mapping the headers do not carry: `ntdll.lib` (`NtReadFile`,
+/// `RtlGetVersion`, …) from the SDK and `offreg.lib` (`ORCreateHive`, …) from the WDK. Combined with
+/// lib-less dropping, a routine that resolves to no import library (kernel-only `ntoskrnl` exports)
+/// is dropped.
+const IMPORT_LIBS: &[&str] = &["ntdll.lib", "offreg.lib"];
 
 fn main() {
     let time = std::time::Instant::now();
 
-    let manifest_path = "crates/tools/wdk/src/wdk.toml";
-    let manifest: Manifest = toml::from_str(
-        &std::fs::read_to_string(manifest_path)
-            .unwrap_or_else(|e| panic!("failed to read `{manifest_path}`: {e}")),
-    )
-    .unwrap_or_else(|e| panic!("failed to parse `{manifest_path}`: {e}"));
-    for name in &manifest.archs {
+    for name in ARCHS {
         assert!(
             Arch::known(name).is_some(),
-            "`{manifest_path}`: unknown architecture `{name}` in `archs` (known: x64, arm64, x86)"
+            "unknown architecture `{name}` in `ARCHS` (known: x64, arm64, x86)"
         );
     }
 
@@ -109,24 +119,23 @@ fn main() {
     // `offreg.lib` (`ORCreateHive`, …). Combined with `drop_lib_less`, a routine that resolves
     // to no import library (kernel-only `ntoskrnl` exports) is dropped. The mapping is
     // arch-invariant, so the x64 libs serve every arch pass.
-    let import_libs: Vec<String> = manifest
-        .import_libs
+    let import_libs: Vec<String> = IMPORT_LIBS
         .iter()
         .map(|lib| resolve(lib, &lib_dirs))
         .collect();
 
     // The single kernel-mode translation unit: the source headers in include order, with no
     // `windows.h` prelude (the kernel headers do not pull it).
-    let source: String = manifest
-        .source_headers
+    let source: String = SOURCE_HEADERS
         .iter()
         .map(|h| format!("#include <{h}>\n"))
         .collect();
 
-    // x64 is always canonical; any extra arch the manifest lists is folded in via arch-merge.
-    // Each arch carries the preprocessor macros the kernel headers require in place of the
+    // x64 is always canonical; any extra arch `ARCHS` lists is folded in via arch-merge. Each
+    // arch carries the preprocessor macros the kernel headers require in place of the
     // `windows.h` closure that would otherwise define them.
-    let archs = Arch::canonical_plus(&manifest.archs, arch);
+    let extra: Vec<String> = ARCHS.iter().map(|name| name.to_string()).collect();
+    let archs = Arch::canonical_plus(&extra, arch);
 
     // Configure the arch-invariant parse: C++ mode plus the API-level define, the shared SAL capture
     // shim and the `offreg.h` prelude force-included ahead of the TU, the WDK/SDK include dirs, and
@@ -138,8 +147,8 @@ fn main() {
         .args(["-include", OFFREG_PRELUDE])
         .args(include_args)
         .drop_lib_less(true)
-        .scope(&manifest.scope)
-        .scope_headers(manifest.source_headers.iter());
+        .scope(SCOPE.iter().copied())
+        .scope_headers(SOURCE_HEADERS.iter().copied());
     clang.input_str(&source);
     for lib in &import_libs {
         clang
@@ -148,12 +157,12 @@ fn main() {
     }
 
     let summary = clang.scrape(&ScrapePlan {
-        root: manifest.root,
+        root: ROOT.to_string(),
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
         winmd: WINMD.to_string(),
         archs,
-        reference_winmds: manifest.reference_winmds,
+        reference_winmds: REFERENCE_WINMDS.iter().map(|s| s.to_string()).collect(),
         seed: None,
         parallel: true,
     });

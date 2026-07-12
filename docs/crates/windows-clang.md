@@ -365,8 +365,9 @@ becomes an optional downstream map over the flat namespace.
                                                                                        ▼ windows-bindgen ──► Rust
 ```
 
-`cargo run -p tool_win32` builds the in-house winmd. A small manifest
-(`crates/tools/win32/src/win32.toml`) lists the SDK headers, satellite rules, and
+`cargo run -p tool_win32` builds the in-house winmd. Its configuration is a set of plain
+`const` slices at the top of `crates/tools/win32/src/main.rs` (`HEADERS`, `SATELLITE_HEADERS`,
+`SCOPE`, `IMPORT_LIBS`, …) listing the SDK headers, satellite rules, and
 import libs — deliberately **no type-level curation**. The tool resolves its pinned
 toolchain, configures a `windows_clang::clang()` builder, and drives it with
 `windows-clang`'s shared [`scrape`](#scraper-layering-one-crate-two-levels) terminal, which
@@ -384,7 +385,7 @@ an empty `#[library("")]` would otherwise force `windows-bindgen` to emit
 by `tool_win32`; unit-test fixtures that supply no import libraries leave it off so
 they still emit their functions.
 
-The import-library list in `win32.toml` is ordered by resolution priority (first-wins):
+The import-library list (`IMPORT_LIBS` in `main.rs`) is ordered by resolution priority (first-wins):
 per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrella
 (`onecore.lib`, `onecoreuap.lib`) next, and `vertdll.lib` — the VBS-enclave runtime —
 **dead last**. `vertdll.dll` also exports host-side synchronization/enclave functions
@@ -397,8 +398,8 @@ leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSeal
 
 `cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the
 Win32 winmd — a whole-header scrape, not a symbol allowlist. Both tools drive the *same*
-[`scrape`](#scraper-layering-one-crate-two-levels) terminal from a declarative manifest
-(`crates/tools/wdk/src/wdk.toml`); the WDK is just that builder configured for three
+[`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices in
+`main.rs` (`crates/tools/wdk/src/main.rs`); the WDK is just that builder configured for three
 things:
 
 - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global,
@@ -418,8 +419,8 @@ things:
   dropped. Crucially, **no fallback `library`** is set — one would make every function
   lib-ful and drag in the whole kernel export surface.
 
-New WDK APIs are added exactly like Win32 ones: list the defining header in `wdk.toml`'s
-`source-headers` and regenerate. The WDK NuGet version is pinned independently of the SDK
+New WDK APIs are added exactly like Win32 ones: list the defining header in `main.rs`'s
+`SOURCE_HEADERS` and regenerate. The WDK NuGet version is pinned independently of the SDK
 (its servicing build lags), but tracks the same marketing line.
 
 
@@ -583,9 +584,9 @@ None of these block use of the crate; they are tracked design and coverage items
 
 ### Coverage triage
 
-The in-house corpus only covers the headers listed in `win32.toml`, so an API a
-developer needs can be silently absent (the reference winmd scraped a broader
-surface). Most gaps are a **one-line `win32.toml` addition** — list the defining
+The in-house corpus only covers the headers listed in `HEADERS` (in `tool_win32`'s
+`main.rs`), so an API a developer needs can be silently absent (the reference winmd scraped
+a broader surface). Most gaps are a **one-line `HEADERS` addition** — list the defining
 header and regenerate; the reachability closure does the rest. Open issues on
 [`microsoft/windows-rs`](https://github.com/microsoft/windows-rs/issues) and
 [`microsoft/win32metadata`](https://github.com/microsoft/win32metadata/issues) are the
@@ -661,14 +662,14 @@ inherent SDK parsing, already parallelised.
 
 **Done** — `tool_wdk` mirrors `tool_win32` (whole-header, flat `Windows.Win32`
 namespace, additive/exclusion-referenced, user-mode-only) and both tools now drive the
-same shared [`scrape`](#scraper-layering-one-crate-two-levels) terminal from a declarative manifest.
+same shared [`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` config in `main.rs`.
 See [The WDK corpus: tool_wdk](#the-wdk-corpus-tool_wdk).
 
 The three discrepancies that previously made the two tools diverge are all resolved:
 
-- **Config mechanism.** Both tools are now declarative: `tool_win32` reads `win32.toml`
-  and `tool_wdk` reads `wdk.toml` (headers, scope, import libs, arches, and — for the WDK —
-  the reference winmd). Each `main.rs` only resolves its own pinned toolchain, configures a
+- **Config mechanism.** Both tools are now uniform: their configuration is plain `const` slices
+  in `main.rs` (headers, scope, import libs, arches, and — for the WDK — the reference winmd). Each
+  `main.rs` only resolves its own pinned toolchain, configures a
   `windows_clang::clang()` builder, and calls `.scrape(ScrapePlan)`; the scrape → per-arch
   RDL → arch-merge → unified-winmd pipeline lives once in `windows-clang`.
 - **Architecture coverage.** Both scrape **three** arches (x64 + aarch64 + i686) and
@@ -1225,7 +1226,7 @@ Test-specific drift beyond the sample patterns:
   `IUserConsentVerifierInterop` (`userconsentverifierinterop.rdl`, from `UserConsentVerifierInterop.h`),
   `IDisplayPathInterop` (`windowsdevicesdisplaycoreinterop.rdl`, from `Windows.Devices.Display.Core.Interop.h`),
   and `IGraphicsCaptureItemInterop` (`windowsgraphicscaptureinterop.rdl`, from
-  `Windows.Graphics.Capture.Interop.h`) are now scraped by adding their headers to `win32.toml`; the
+  `Windows.Graphics.Capture.Interop.h`) are now scraped by adding their headers to `HEADERS`; the
   `spellchecker`/`consent` sample was ported back to the `windows` crate and the `test_implement`
   `com.rs` test (which `#[implement]`s `IDisplayPathInterop`) is unblocked. Interop headers that
   reference WinRT `ABI::` types are mapped to their `Windows.winmd` WinRT equivalents in `cx.rs`'s
@@ -1294,7 +1295,7 @@ Test-specific drift beyond the sample patterns:
 - **offreg.h scraped into `tool_wdk` — done (`test_wdk` unblocked).** `test_wdk`'s `win.rs`/`sys.rs`
   use `ORCreateHive`, `ORCloseHive`, and the `ORHKEY` handle from `offreg.h`, which `tool_wdk`
   previously did not scrape (only `ntifs.h`+`wdm.h`), so the offline-registry surface was absent.
-  `offreg.h` is now listed in `wdk.toml`'s `source-headers` and `offreg.lib` (WDK `Lib/…/km/x64`) is fed to
+  `offreg.h` is now listed in `tool_wdk`'s `SOURCE_HEADERS` and `offreg.lib` (WDK `Lib/…/km/x64`) is fed to
   `import_library` so `drop_lib_less` keeps the routines (they export from `offreg.dll`). One wrinkle:
   `offreg.h` ships in the WDK `km` folder but is really a *user-mode* API and references the standard
   Win32 `um` typedefs (`DWORD`/`PDWORD`/`BYTE`/`PBYTE`/`PWSTR`/`PCWSTR`/`PFILETIME`/
@@ -1309,7 +1310,7 @@ Test-specific drift beyond the sample patterns:
   return bare `u32` (not `Result`), so the ported test constructs `ORHKEY(core::ptr::null_mut())` and
   asserts the return is `0`.
 - **`pathcch.h` + `propvarutil.h` scraped into `tool_win32` — done (`test_const_params`,
-  `test_const_ptrs` unblocked).** Both headers were simply absent from `win32.toml`'s `headers`
+  `test_const_ptrs` unblocked).** Both headers were simply absent from `tool_win32`'s `HEADERS`
   list, so their exports (`PathCchFindExtension` / `WINPATHCCHAPI`, and the `PropVariantTo*` /
   `InitPropVariantFrom*` `PSSTDAPI` inline helpers) were never emitted. Adding `pathcch.h` (after
   `shlwapi.h`) and `propvarutil.h` (after `propsys.h`) surfaced them plus a small dependency header
@@ -1410,7 +1411,7 @@ Test-specific drift beyond the sample patterns:
   Result: **251 float constants** now emit (D3D/D2D `*_DEFAULT_*`/`*_SRGB_*`/`FLOAT32_MAX`/…,
   `UIA_*` doubles, etc.), all additive, all matching the retired editorial metadata's values.
 - **`expandedresources.h` + `d3d11shadertracing.h` scraped into `tool_win32` — done.** Both were
-  simply absent from `win32.toml`. `HasExpandedResources`/`GetExpandedResourceExclusiveCpuCount`/
+  simply absent from `tool_win32`'s `HEADERS`. `HasExpandedResources`/`GetExpandedResourceExclusiveCpuCount`/
   `ReleaseExclusiveCpuSets` now emit (resolving to the `api-ms-win-gaming-expandedresources` apiset
   via the `onecoreuap.lib` umbrella); `D3DDisassemble11Trace` + `ID3D11ShaderTrace`/`ID3D10ShaderTrace`
   emit (resolving to `D3DCOMPILER_47.dll` via `d3dcompiler.lib`). Note `d3d11shadertracing.h`'s
@@ -1659,17 +1660,19 @@ above). None blocks CI.
   the generated `web/features/index.html`. The literal string `Windows.Wdk` is absent from the page
   only because WDK types remap into `Windows.<header-stem>` namespaces, not a `Windows.Wdk.*` prefix.
   No action needed.
-- **Simplify `tool_win32`/`tool_wdk` config: fold the TOML into `main.rs` consts.** Both tools split
-  their configuration arbitrarily: toolchain/build knobs are Rust `const`s at the top of `main.rs`
-  (`SDK_VERSION`, `WINMD`, `RDL_DIR`, `CLANG_ARGS`, `PRELUDE`, `GUID_RESET`, …) while the declarative
-  surface (`root`, `headers`, `scope`, `archs`, `import-libs`, `satellite-headers`,
-  `reference-winmds`) lives in `win32.toml`/`wdk.toml` behind a serde `Manifest` struct. The TOML buys
-  nothing dynamic — it is read once from a hard-coded path by a single binary, never edited by
-  non-developers — so the header/scope/arch/import-lib lists could just as well be `const … : &[&str]`
-  arrays alongside the existing consts, dropping the `serde`/`toml` deps, the `#[derive(Deserialize)]`
-  `Manifest`, the kebab-case/`deny_unknown_fields` attributes, and the read+parse+validate boilerplate
-  (`assert_no_duplicate_headers` etc.). Net simplification with no loss of capability; the long
-  header list stays readable as a `const` slice.
+- **Simplify `tool_win32`/`tool_wdk` config: fold the TOML into `main.rs` consts — DONE.** Both tools
+  previously split their configuration arbitrarily: toolchain/build knobs were Rust `const`s at the top
+  of `main.rs` (`SDK_VERSION`, `WINMD`, `RDL_DIR`, `CLANG_ARGS`, `PRELUDE`, `GUID_RESET`, …) while the
+  declarative surface (`root`, `headers`, `scope`, `archs`, `import-libs`, `satellite-headers`,
+  `reference-winmds`) lived in `win32.toml`/`wdk.toml` behind a serde `Manifest` struct. The TOML bought
+  nothing dynamic — it was read once from a hard-coded path by a single binary, never edited by
+  non-developers — so the header/scope/arch/import-lib lists are now `const … : &[&str]` arrays
+  alongside the existing consts (`ROOT`, `SCOPE`, `ARCHS`, `HEADERS`, `SATELLITE_HEADERS`, `IMPORT_LIBS`
+  for win32; plus `SOURCE_HEADERS`, `REFERENCE_WINMDS` for wdk). This dropped the `serde`/`toml` deps,
+  the `#[derive(Deserialize)]` `Manifest`, the kebab-case/`deny_unknown_fields` attributes, and the
+  read+parse boilerplate; `assert_no_duplicate_headers` now iterates the consts directly. Both `.toml`
+  files are deleted. Verified byte-identical regeneration (`metadata/win32`, `metadata/wdk`, and both
+  `default/*.winmd`).
 - **`INTERLOCKED_RESULT` arch-divergent enum values — investigated, GENUINE (not a scrape artifact).**
   The scraped `INTERLOCKED_RESULT` (`metadata/wdk/ntddk.rdl`) has *completely different* member values
   across architectures — `#[arch(X64 | Arm64)] {ResultNegative = 1, ResultZero = 0, ResultPositive = 2}`

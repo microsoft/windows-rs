@@ -6,8 +6,6 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
-serde = { workspace = true, features = ["derive"] }
-toml = "0.8"
 windows-clang = { workspace = true }
 
 [lints]

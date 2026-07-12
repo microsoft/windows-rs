@@ -1,4 +1,3 @@
-use serde::Deserialize;
 use windows_clang::*;
 
 /// Where intermediate binary winmd artifacts (per-arch throwaways and the x64
@@ -72,7 +71,7 @@ const SHIM_DIR: &str = "crates/tools/win32/src/shims";
 const PRELUDE: &str = "#define SECURITY_WIN32\n#include <winsock2.h>\n#include <windows.h>";
 
 /// Reset emitted after the prelude and after every header *in a satellite translation
-/// unit* (see [`Manifest::satellite_headers`]) to keep `DEFINE_GUID` in its declaration
+/// unit* (see [`SATELLITE_HEADERS`]) to keep `DEFINE_GUID` in its declaration
 /// form.
 ///
 /// Device-driver headers (`ntddstor.h`, `poclass.h`, …) place their `DEFINE_GUID` blocks
@@ -88,70 +87,608 @@ const PRELUDE: &str = "#define SECURITY_WIN32\n#include <winsock2.h>\n#include <
 /// `DEFINE_AVIGUID`, … — whose values live only in the expanded initializer are preserved.)
 const GUID_RESET: &str = "\n#undef INITGUID\n#include <guiddef.h>";
 
-/// The orchestration manifest: a small, mechanical description of which SDK headers
-/// to emit (partitioned by their defining header) and the import libraries that
-/// record which DLL exports each function. See `win32.toml` for the documented
-/// format.
-#[derive(Deserialize)]
-#[serde(rename_all = "kebab-case", deny_unknown_fields)]
-struct Manifest {
-    /// Root namespace; each emitted header becomes `<root>.<HeaderStem>`.
-    root: String,
-    /// API header file names (resolved against the pinned Windows SDK include tree) that
-    /// are `#include`d to bring the desired API surface into the translation unit, e.g.
-    /// `wingdi.h`. Every *defining header* reachable from these (and the `windows.h`
-    /// prelude) is emitted as its own partition — there is no separate list of
-    /// foundational headers to maintain, and no allowlist: the closure is automatic.
-    headers: Vec<String>,
-    /// Headers parsed in their own *satellite* translation unit instead of the main one.
-    /// Reserved for headers that cannot co-exist in the main TU — the device-driver
-    /// families (`ntddstor.h`, `usbiodef.h`, …) whose `DEFINE_GUID` blocks sit outside
-    /// their include guards and collide under definition mode. Parsed in isolation (with
-    /// `INITGUID` held off) they emit cleanly; every shared declaration is deduplicated
-    /// against the main TU by clang USR, so only their own device partitions are added.
-    #[serde(default)]
-    satellite_headers: Vec<String>,
-    /// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to
-    /// recover the faithful function → DLL mapping the headers do not carry. Ordered
-    /// first-wins: the per-DLL host libraries (`kernel32.lib` → `KERNEL32.dll`) that match
-    /// the classic Win32 desktop surface come first, so every classic export keeps its
-    /// host DLL; the trailing `api-ms-win-*` umbrella libraries (`onecore.lib`,
-    /// `onecoreuap.lib`) then stamp the modern apiset-only residue (`CreateFileMapping2`,
-    /// the `*FromApp` file APIs, …) with the faithful apiset contract name, matching the
-    /// reference metadata, which likewise leaves no function with an empty library.
-    import_libs: Vec<String>,
-    /// In-scope header directory segments (e.g. `["um", "shared"]`). A declaration whose
-    /// defining header lives under one of these SDK directories is emitted
-    /// unconditionally; anything else the `windows.h` prelude transitively pulls in (the
-    /// C-runtime under `ucrt`, the MSVC toolset `include`) is emitted only when an
-    /// in-scope declaration references it, and is otherwise dropped. This is
-    /// reachability-by-reference capture: it scopes the metadata to the Windows API
-    /// surface without an allowlist (the genuine cross-over types — `size_t`, `va_list`,
-    /// `EXCEPTION_DISPOSITION` — survive because in-scope APIs reference them).
-    #[serde(default)]
-    scope: Vec<String>,
-    /// Architectures to scrape and arch-merge. The committed RDL corpus is always
-    /// x64-canonical; any additional arch listed here (`arm64`, `x86`) is scraped to a
-    /// throwaway winmd and folded in via `SupportedArchitecture` so symbols that exist
-    /// on only a subset of arches are tagged. Empty/`["x64"]` = single-arch (default).
-    #[serde(default)]
-    archs: Vec<String>,
-}
+// The orchestration manifest, expressed as plain `const` slices (was `win32.toml`). This is a
+// small, mechanical description of which SDK headers to emit (partitioned by their defining
+// header) and the import libraries that record which DLL exports each function. There is
+// deliberately NO type-level curation — no per-symbol owners, no re-homing, no synthetic
+// attributes. The only inputs are mechanical; everything about the *shape* of the API comes
+// from the headers and SAL. Every declaration lands in the single flat `Windows.Win32`
+// namespace; its defining header only determines which `.rdl` file it is written to.
+
+/// Root namespace; each emitted header becomes `<root>.<HeaderStem>`.
+const ROOT: &str = "Windows.Win32";
+
+/// In-scope header directory segments. A declaration whose defining header lives under one of
+/// these SDK directories (`um/`, `shared/`) is emitted unconditionally; anything else the
+/// `windows.h` prelude transitively pulls in (the C-runtime under `ucrt`, the MSVC toolset
+/// `include`) is emitted only when an in-scope declaration references it, and is otherwise
+/// dropped. This is reachability-by-reference capture: it scopes the metadata to the Windows API
+/// surface without an allowlist (the genuine cross-over types — `size_t`, `va_list`,
+/// `EXCEPTION_DISPOSITION` — survive because in-scope APIs reference them).
+const SCOPE: &[&str] = &["um", "shared"];
+
+/// Architectures to scrape and arch-merge. The committed RDL corpus is always x64-canonical; any
+/// additional arch listed here (`arm64`, `x86`) is scraped to a throwaway winmd and folded in via
+/// `SupportedArchitecture` so symbols that exist on only a subset of arches are tagged.
+/// Empty/`["x64"]` = single-arch.
+const ARCHS: &[&str] = &["x64", "arm64", "x86"];
+
+/// API header file names (resolved against the pinned Windows SDK include tree) that are
+/// `#include`d to bring the desired API surface into the translation unit, e.g. `wingdi.h`. Every
+/// *defining header* reachable from these (and the `windows.h` prelude) is emitted as its own
+/// partition — there is no separate list of foundational headers to maintain, and no allowlist:
+/// the closure is automatic.
+const HEADERS: &[&str] = &[
+    "shellscalingapi.h",
+    "tlhelp32.h",
+    "wingdi.h",
+    "winuser.h",
+    "commctrl.h",
+    "setupapi.h",
+    "winhttp.h",
+    "wininet.h",
+    "objidl.h",
+    "oaidl.h",
+    "ocidl.h",
+    "wincrypt.h",
+    "d2d1.h",
+    "d3d11.h",
+    "d3d11shadertracing.h",
+    "dwrite.h",
+    "wincodec.h",
+    "d3d12.h",
+    "dxgi1_6.h",
+    "shobjidl.h",
+    "shlobj.h",
+    "shellapi.h",
+    "shlwapi.h",
+    "pathcch.h",
+    "mfapi.h",
+    "mfidl.h",
+    "mfreadwrite.h",
+    "mftransform.h",
+    "mmdeviceapi.h",
+    "audioclient.h",
+    "xaudio2.h",
+    "dsound.h",
+    "dshow.h",
+    "dcomp.h",
+    "dwrite_3.h",
+    "d2d1_3.h",
+    "d3d9.h",
+    "d3d10.h",
+    "cfgmgr32.h",
+    "bluetoothapis.h",
+    "hidsdi.h",
+    "wintrust.h",
+    "authz.h",
+    "http.h",
+    "wbemcli.h",
+    "wbemidl.h",
+    "netioapi.h",
+    "ifdef.h",
+    "ws2bth.h",
+    "mswsock.h",
+    "sspi.h",
+    "schannel.h",
+    "ntsecapi.h",
+    "ntsecpkg.h",
+    "propsys.h",
+    "propvarutil.h",
+    "dwmapi.h",
+    "uxtheme.h",
+    "wlanapi.h",
+    "dxva2api.h",
+    "wincodecsdk.h",
+    "d3d11_4.h",
+    "dxgidebug.h",
+    "powrprof.h",
+    "newdev.h",
+    "bthledef.h",
+    "winioctl.h",
+    "devpkey.h",
+    "knownfolders.h",
+    "propkey.h",
+    "spellcheck.h",
+    "usp10.h",
+    "dxcore.h",
+    "d3d11on12.h",
+    "d3d12video.h",
+    "netlistmgr.h",
+    "wincred.h",
+    "wtsapi32.h",
+    "evntrace.h",
+    "tdh.h",
+    "powersetting.h",
+    "ws2tcpip.h",
+    "afunix.h",
+    "userenv.h",
+    "iphlpapi.h",
+    "fileapi.h",
+    "processthreadsapi.h",
+    "sysinfoapi.h",
+    "memoryapi.h",
+    "ntenclv.h",
+    "psapi.h",
+    "winreg.h",
+    "winsvc.h",
+    "bcrypt.h",
+    "ncrypt.h",
+    "winnls.h",
+    "winspool.h",
+    "winnetwk.h",
+    "windns.h",
+    "mmsystem.h",
+    "timeapi.h",
+    "joystickapi.h",
+    "mmeapi.h",
+    "pdh.h",
+    "usbioctl.h",
+    "virtdisk.h",
+    "werapi.h",
+    "expandedresources.h",
+    "d3dcompiler.h",
+    "sensorsapi.h",
+    "rpcdce.h",
+    "avrt.h",
+    "winbio.h",
+    "cryptuiapi.h",
+    "certenroll.h",
+    "portabledeviceapi.h",
+    "taskschd.h",
+    "wuapi.h",
+    "dbghelp.h",
+    "DbgProp.h",
+    "evr.h",
+    "codecapi.h",
+    "directml.h",
+    "sapi.h",
+    "wcmapi.h",
+    "uiautomationcore.h",
+    "uiautomationclient.h",
+    "oleacc.h",
+    "msctf.h",
+    "textstor.h",
+    "tom.h",
+    "richedit.h",
+    "fwpmu.h",
+    "icmpapi.h",
+    "mstcpip.h",
+    "mfmediaengine.h",
+    "wmcodecdsp.h",
+    "exdisp.h",
+    "msi.h",
+    "msiquery.h",
+    "xmllite.h",
+    "aclapi.h",
+    "sddl.h",
+    "winsafer.h",
+    "dsgetdc.h",
+    "comcat.h",
+    "winevt.h",
+    "ktmw32.h",
+    "clusapi.h",
+    "dhcpsapi.h",
+    "ntdsapi.h",
+    "dsrole.h",
+    "magnification.h",
+    "winusb.h",
+    "directmanipulation.h",
+    "xinput.h",
+    "restartmanager.h",
+    "compressapi.h",
+    "patchapi.h",
+    "searchapi.h",
+    "structuredquery.h",
+    "fltuser.h",
+    "wsdapi.h",
+    "functiondiscoveryapi.h",
+    "wia.h",
+    "prntvpt.h",
+    "dinput.h",
+    "vss.h",
+    "vswriter.h",
+    "vsbackup.h",
+    "iads.h",
+    "adshlp.h",
+    "gpedit.h",
+    "locationapi.h",
+    "mscat.h",
+    "mssip.h",
+    "imapi2.h",
+    "wscapi.h",
+    "sensapi.h",
+    "rtworkq.h",
+    "icm.h",
+    "dmoreg.h",
+    "dmort.h",
+    "uianimation.h",
+    "urlmon.h",
+    "xpsprint.h",
+    "xpsobjectmodel.h",
+    "msinkaut.h",
+    "amsi.h",
+    "comadmin.h",
+    "comsvcs.h",
+    "cryptxml.h",
+    "winldap.h",
+    "mq.h",
+    "winhvplatform.h",
+    "websocket.h",
+    "ras.h",
+    "rasdlg.h",
+    "mprapi.h",
+    "qos2.h",
+    "d3dkmthk.h",
+    "winscard.h",
+    "dpapi.h",
+    "ncryptprotect.h",
+    "secext.h",
+    "ntddscsi.h",
+    "slpublic.h",
+    "t2embapi.h",
+    "traffic.h",
+    "wsmandisp.h",
+    "vfw.h",
+    "dbgeng.h",
+    "msxml6.h",
+    "bits.h",
+    "mlang.h",
+    "wpcapi.h",
+    "mfplay.h",
+    "wmsdk.h",
+    "ks.h",
+    "ksmedia.h",
+    "bdaiface.h",
+    "tuner.h",
+    "d3dkmdt.h",
+    "dxgicommon.h",
+    "ntddndis.h",
+    "ntddvol.h",
+    "ntddmmc.h",
+    "usbspec.h",
+    "hidpi.h",
+    "vhf.h",
+    "webauthn.h",
+    "appxpackaging.h",
+    "appmodel.h",
+    "fsrm.h",
+    "fsrmpipeline.h",
+    "pla.h",
+    "gameux.h",
+    "msdrm.h",
+    "certadm.h",
+    "certsrv.h",
+    "mfcaptureengine.h",
+    "credentialprovider.h",
+    "shdeprecated.h",
+    "shdispid.h",
+    "peninputpanel.h",
+    "sti.h",
+    "imapi2fs.h",
+    "wmiutils.h",
+    "txfw32.h",
+    "fhcfg.h",
+    "mferror.h",
+    "msctfmonitorapi.h",
+    "audioclientactivationparams.h",
+    "spatialaudiometadata.h",
+    "spatialaudioclient.h",
+    "ntstatus.h",
+    "sql.h",
+    "sqlext.h",
+    "esent.h",
+    "vds.h",
+    "regstr.h",
+    "nvme.h",
+    "ExDispid.h",
+    "msxml6did.h",
+    "wmp.h",
+    "wmpids.h",
+    "gl/gl.h",
+    "webservices.h",
+    "icu.h",
+    "lmaccess.h",
+    "lmshare.h",
+    "lmserver.h",
+    "lmwksta.h",
+    "lmuse.h",
+    "richole.h",
+    "textserv.h",
+    "commoncontrols.h",
+    "dlgs.h",
+    "mfobjects.h",
+    "ntquery.h",
+    "compstui.h",
+    "mfvirtualcamera.h",
+    "mfcontentdecryptionmodule.h",
+    "mfd3d12.h",
+    "mfspatialaudio.h",
+    "portabledevice.h",
+    "wdbgexts.h",
+    "lmat.h",
+    "lmconfig.h",
+    "lmstats.h",
+    "lmsvc.h",
+    "lmmsg.h",
+    "lmremutl.h",
+    "lmrepl.h",
+    "lmalert.h",
+    "lmjoin.h",
+    "filter.h",
+    "httpext.h",
+    "httpfilt.h",
+    "iiscnfg.h",
+    "IntShCut.h",
+    "cfapi.h",
+    "Windows.Devices.Display.Core.Interop.h",
+    "UserConsentVerifierInterop.h",
+    "Windows.Graphics.Capture.Interop.h",
+    // WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
+    // scope_headers makes them roots). These are the flat COM/C interop headers that
+    // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
+    // C++ projection (windows.*.h) nor the C++ template libraries (wrl.h / WinRTBase.h /
+    // cppwinrt\), which stay excluded.
+    "roerrorapi.h",
+    "activation.h",
+    "corewindow.h",
+    "hstring.h",
+    "inspectable.h",
+    "memorybuffer.h",
+    "roapi.h",
+    "robuffer.h",
+    "shcore.h",
+    "weakreference.h",
+    "winstring.h",
+    "rometadata.h",
+    "roparameterizediid.h",
+    // Excluded WinRT interop headers: `RoMetadataApi.h` and `rometadataresolution.h`
+    // `#include <cor.h>`, the CLR unmanaged-metadata header, which ships only in the
+    // NETFXSDK (not the pinned Windows SDK NuGet) — pulling it in would make the scrape
+    // depend on a non-pinned, system-autodetected header and break the hermetic CI build.
+    // `RoMetadataApi.h`'s `IMetaData*` reader interfaces are low-value CLR plumbing, so the
+    // header is dropped rather than dragging in the .NET metadata surface. `roregistrationapi.h`
+    // is likewise excluded (its closure references the `ABI::Windows::Foundation` projection).
+];
+
+/// Headers parsed in their own *satellite* translation unit instead of the main one. Reserved for
+/// headers that cannot co-exist in the main TU — the device-driver families (`ntddstor.h`,
+/// `usbiodef.h`, …) whose `DEFINE_GUID` blocks sit outside their include guards and collide under
+/// definition mode. Parsed in isolation (with `INITGUID` held off) they emit cleanly; every shared
+/// declaration is deduplicated against the main TU by clang USR, so only their own device
+/// partitions are added.
+const SATELLITE_HEADERS: &[&str] = &[
+    "ntddstor.h",
+    "ntddcdrm.h",
+    "ntddtape.h",
+    "ntddser.h",
+    "ntddkbd.h",
+    "ntddmou.h",
+    "usbiodef.h",
+    "poclass.h",
+    "batclass.h",
+    "hidclass.h",
+    "winternl.h",
+];
+
+/// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to recover the
+/// faithful function → DLL mapping the headers do not carry. Ordered first-wins, so position is
+/// precedence: the per-DLL host libraries (`kernel32.lib` → `KERNEL32.dll`) that match the classic
+/// Win32 desktop surface come first, so every classic export keeps its host DLL; the trailing
+/// `api-ms-win-*` umbrella libraries (`onecore.lib`, `onecoreuap.lib`) then stamp the modern
+/// apiset-only residue (`CreateFileMapping2`, the `*FromApp` file APIs, …) with the faithful apiset
+/// contract name, matching the reference metadata, which likewise leaves no function with an empty
+/// library.
+const IMPORT_LIBS: &[&str] = &[
+    "shcore.lib",
+    "kernel32.lib",
+    "gdi32.lib",
+    "user32.lib",
+    "msimg32.lib",
+    "opengl32.lib",
+    "glu32.lib",
+    "lz32.lib",
+    "advapi32.lib",
+    "ole32.lib",
+    "oleaut32.lib",
+    "runtimeobject.lib",
+    "crypt32.lib",
+    "rpcrt4.lib",
+    "winmm.lib",
+    "shell32.lib",
+    "comdlg32.lib",
+    "urlmon.lib",
+    "winspool.lib",
+    "winscard.lib",
+    "cldapi.lib",
+    "ws2_32.lib",
+    "version.lib",
+    "secur32.lib",
+    "mpr.lib",
+    "ntdll.lib",
+    "userenv.lib",
+    "imm32.lib",
+    "bcrypt.lib",
+    "ncrypt.lib",
+    "rpcns4.lib",
+    "comctl32.lib",
+    "setupapi.lib",
+    "winhttp.lib",
+    "wininet.lib",
+    "iphlpapi.lib",
+    "d3d12.lib",
+    "d3d11.lib",
+    "d2d1.lib",
+    "dwrite.lib",
+    "dxgi.lib",
+    "shlwapi.lib",
+    "mfplat.lib",
+    "mf.lib",
+    "mfreadwrite.lib",
+    "dsound.lib",
+    "dcomp.lib",
+    "d3d9.lib",
+    "d3d10.lib",
+    "cfgmgr32.lib",
+    "bthprops.lib",
+    "hid.lib",
+    "wintrust.lib",
+    "authz.lib",
+    "httpapi.lib",
+    "mswsock.lib",
+    "wlanapi.lib",
+    "dwmapi.lib",
+    "uxtheme.lib",
+    "propsys.lib",
+    "powrprof.lib",
+    "newdev.lib",
+    "dxva2.lib",
+    "dxcore.lib",
+    "wtsapi32.lib",
+    "tdh.lib",
+    "dnsapi.lib",
+    "pdh.lib",
+    "virtdisk.lib",
+    "wer.lib",
+    "d3dcompiler.lib",
+    "sensorsapi.lib",
+    "avrt.lib",
+    "winbio.lib",
+    "cryptui.lib",
+    "dbghelp.lib",
+    "mfuuid.lib",
+    "sapi.lib",
+    "portabledeviceguids.lib",
+    "uiautomationcore.lib",
+    "oleacc.lib",
+    "fwpuclnt.lib",
+    "msi.lib",
+    "netapi32.lib",
+    "xmllite.lib",
+    "wevtapi.lib",
+    "ktmw32.lib",
+    "clusapi.lib",
+    "dhcpsapi.lib",
+    "ntdsapi.lib",
+    "magnification.lib",
+    "winusb.lib",
+    "xinput.lib",
+    "rstrtmgr.lib",
+    "cabinet.lib",
+    "mspatchc.lib",
+    "fltlib.lib",
+    "prntvpt.lib",
+    "wiaguid.lib",
+    "dinput8.lib",
+    "vssapi.lib",
+    "activeds.lib",
+    "adsiid.lib",
+    "wscapi.lib",
+    "sensapi.lib",
+    "rtworkq.lib",
+    "mscms.lib",
+    "msdmo.lib",
+    "dmoguids.lib",
+    "xpsprint.lib",
+    "amsi.lib",
+    "cryptxml.lib",
+    "wldap32.lib",
+    "mqrt.lib",
+    "winhvplatform.lib",
+    "websocket.lib",
+    "rasapi32.lib",
+    "rasdlg.lib",
+    "mprapi.lib",
+    "qwave.lib",
+    "slc.lib",
+    "slwga.lib",
+    "t2embed.lib",
+    "traffic.lib",
+    "wsmsvc.lib",
+    "vfw32.lib",
+    "dbgeng.lib",
+    "msxml6.lib",
+    "bits.lib",
+    "wmvcore.lib",
+    "ksuser.lib",
+    "webauthn.lib",
+    "msdrm.lib",
+    "certadm.lib",
+    "sti.lib",
+    "txfw32.lib",
+    "mfsensorgroup.lib",
+    // Additional per-DLL host libraries recovered from the `#[library("")]` triage: these
+    // DLLs have a real SDK import library but were previously unlisted, so their functions
+    // scraped with an empty library. Appended (first-wins keeps every mapping above), so
+    // they only fill in the previously-empty `function -> DLL` mappings.
+    "icuuc.lib",
+    "icuin.lib",
+    "esent.lib",
+    "webservices.lib",
+    "odbc32.lib",
+    "icu.lib",
+    "clfsw32.lib",
+    "msacm32.lib",
+    "usp10.lib",
+    "wsdapi.lib",
+    "hlink.lib",
+    "icm32.lib",
+    "credui.lib",
+    "mspatcha.lib",
+    "schannel.lib",
+    "comsvcs.lib",
+    "gpedit.lib",
+    "scarddlg.lib",
+    "cryptnet.lib",
+    "wcmapi.lib",
+    "rpcproxy.lib",
+    "slcext.lib",
+    "compstui.lib",
+    "query.lib",
+    "msctfmonitor.lib",
+    "shdocvw.lib",
+    "icmui.lib",
+    "normaliz.lib",
+    "dflayout.lib",
+    "wlanui.lib",
+    "mmdevapi.lib",
+    // Media / DirectX per-DLL host libraries: the DirectDraw, Media Foundation (EVR,
+    // MFCore, MFPlay, source-sink), Direct3D 10.1 and DirectShow (`quartz`) DLLs ship a
+    // real SDK import library but were previously unlisted, so their functions scraped
+    // with an empty library.
+    "ddraw.lib",
+    "evr.lib",
+    "d3d10_1.lib",
+    "mfcore.lib",
+    "mfsrcsnk.lib",
+    "quartz.lib",
+    "mfplay.lib",
+    // Apiset umbrella fallback (appended last). Modern APIs that no per-DLL host library
+    // claims — `CreateFileMapping2`, the `*FromApp` file APIs, the package-dependency APIs,
+    // … — are exported only through an `api-ms-win-*` apiset contract (or a host DLL the
+    // umbrella records). Because resolution is first-wins and these come last, every
+    // classic host-DLL mapping above is untouched; only the previously-empty residue is
+    // stamped with the faithful DLL the umbrella records, matching the reference metadata,
+    // which likewise leaves no function with an empty library.
+    "onecore.lib",
+    "onecoreuap.lib",
+    // Enclave runtime, resolved dead last. `vertdll.dll` is the VBS-enclave runtime and
+    // also exports host-side synchronization/enclave functions (`WaitOnAddress`,
+    // `WakeByAddress*`, `CallEnclave`, `TerminateEnclave`); importing those from
+    // `vertdll.dll` faults a normal process at load. Placing it after the apiset umbrella
+    // lets those functions resolve to their loadable `api-ms-win-*` contract first, leaving
+    // `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+    "vertdll.lib",
+];
 
 fn main() {
     let time = std::time::Instant::now();
 
-    let manifest_path = "crates/tools/win32/src/win32.toml";
-    let manifest: Manifest = toml::from_str(
-        &std::fs::read_to_string(manifest_path)
-            .unwrap_or_else(|e| panic!("failed to read `{manifest_path}`: {e}")),
-    )
-    .unwrap_or_else(|e| panic!("failed to parse `{manifest_path}`: {e}"));
-    assert_no_duplicate_headers(&manifest, manifest_path);
-    for name in &manifest.archs {
+    assert_no_duplicate_headers();
+    for name in ARCHS {
         assert!(
             Arch::known(name).is_some(),
-            "`{manifest_path}`: unknown architecture `{name}` in `archs` (known: x64, arm64, x86)"
+            "unknown architecture `{name}` in `ARCHS` (known: x64, arm64, x86)"
         );
     }
 
@@ -169,8 +706,7 @@ fn main() {
     // The faithful function → DLL mapping the headers don't carry, resolved to absolute
     // paths against the pinned SDK import libraries (per-DLL host libs first, `api-ms-win-*`
     // umbrella last).
-    let import_libs: Vec<String> = manifest
-        .import_libs
+    let import_libs: Vec<String> = IMPORT_LIBS
         .iter()
         .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
         .collect();
@@ -186,7 +722,7 @@ fn main() {
     // `INITGUID` on), so wrapper-macro GUIDs whose values exist only in the expanded
     // initializer (`vfw.h`'s `DEFINE_AVIGUID`, …) are captured.
     let mut source = String::from(PRELUDE);
-    for header in &manifest.headers {
+    for header in HEADERS {
         source.push_str(&format!("\n#include <{header}>"));
     }
 
@@ -197,26 +733,21 @@ fn main() {
     // declaration is deduplicated against the main TU by clang USR. Omitted when no
     // satellite headers are configured.
     let mut sources = vec![source];
-    if !manifest.satellite_headers.is_empty() {
+    if !SATELLITE_HEADERS.is_empty() {
         let mut satellite = String::from(PRELUDE);
         satellite.push_str(GUID_RESET);
-        for header in &manifest.satellite_headers {
+        for header in SATELLITE_HEADERS {
             satellite.push_str(&format!("\n#include <{header}>"));
             satellite.push_str(GUID_RESET);
         }
         sources.push(satellite);
     }
 
-    // x64 is always canonical (its scrape writes the committed corpus); any other arch the
-    // manifest lists is folded in via arch-merge.
-    let archs = Arch::canonical_plus(&manifest.archs, |name| Arch::known(name).unwrap());
+    // x64 is always canonical (its scrape writes the committed corpus); any other arch
+    // `ARCHS` lists is folded in via arch-merge.
+    let archs = canonical_archs();
 
-    let scope_headers: Vec<String> = manifest
-        .headers
-        .iter()
-        .chain(&manifest.satellite_headers)
-        .cloned()
-        .collect();
+    let scope_headers: Vec<&str> = HEADERS.iter().chain(SATELLITE_HEADERS).copied().collect();
 
     // Configure the arch-invariant parse: C++ mode, the SAL capture shim force-included ahead of the
     // TU, the shadow shim directory (`-I`) searched before the SDK `-isystem` dirs, the SDK include
@@ -228,8 +759,8 @@ fn main() {
         .args(["-I", SHIM_DIR])
         .args(include_args)
         .drop_lib_less(true)
-        .scope(&manifest.scope)
-        .scope_headers(scope_headers.iter());
+        .scope(SCOPE.iter().copied())
+        .scope_headers(scope_headers.iter().copied());
     for source in &sources {
         clang.input_str(source);
     }
@@ -240,7 +771,7 @@ fn main() {
     }
 
     let summary = clang.scrape(&ScrapePlan {
-        root: manifest.root,
+        root: ROOT.to_string(),
         rdl_dir: RDL_DIR.to_string(),
         out_dir: OUT_DIR.to_string(),
         winmd: WINMD.to_string(),
@@ -255,15 +786,22 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
-/// Panics if any header name appears more than once across the manifest's `headers` and
-/// `satellite-headers` lists. Duplicates are silently absorbed by clang's USR dedup, so a
-/// stray copy would otherwise go unnoticed; failing fast keeps the header lists honest.
-fn assert_no_duplicate_headers(manifest: &Manifest, path: &str) {
+/// x64 is always canonical (its scrape writes the committed corpus); any other arch listed in
+/// [`ARCHS`] is folded in via arch-merge. Every arch name in `ARCHS` is validated in `main`.
+fn canonical_archs() -> Vec<Arch> {
+    let extra: Vec<String> = ARCHS.iter().map(|name| name.to_string()).collect();
+    Arch::canonical_plus(&extra, |name| Arch::known(name).unwrap())
+}
+
+/// Panics if any header name appears more than once across [`HEADERS`] and [`SATELLITE_HEADERS`].
+/// Duplicates are silently absorbed by clang's USR dedup, so a stray copy would otherwise go
+/// unnoticed; failing fast keeps the header lists honest.
+fn assert_no_duplicate_headers() {
     let mut seen = std::collections::BTreeSet::new();
-    for header in manifest.headers.iter().chain(&manifest.satellite_headers) {
+    for header in HEADERS.iter().chain(SATELLITE_HEADERS) {
         assert!(
-            seen.insert(header.as_str()),
-            "duplicate header `{header}` in `{path}` (listed more than once across `headers` / `satellite-headers`)"
+            seen.insert(*header),
+            "duplicate header `{header}` (listed more than once across `HEADERS` / `SATELLITE_HEADERS`)"
         );
     }
 }
