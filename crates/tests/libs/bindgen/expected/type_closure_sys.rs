@@ -9,7 +9,7 @@ pub struct GUID {
 pub type HRESULT = i32;
 #[repr(C)]
 pub struct IInner_Vtbl {
-    pub Value: unsafe extern "system" fn(*mut core::ffi::c_void) -> i32,
+    Value: usize,
 }
 #[repr(C)]
 pub struct IOuter_Vtbl {

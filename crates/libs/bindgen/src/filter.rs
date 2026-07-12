@@ -19,6 +19,20 @@ impl MethodSet {
     }
 }
 
+/// The inclusion granularity of a type, following the Rust-`use`-style
+/// specificity model: a type that was requested by name (namespace, type, or
+/// method entry) is [`TypeRole::Named`] and projects its requested surface; a
+/// type pulled in only as a dependency of something named is [`TypeRole::Shell`]
+/// and projects name-only (opaque vtable slots), so the requested API stays
+/// usable without dragging in the dependency's full surface.
+#[derive(Debug, Clone)]
+pub enum TypeRole {
+    /// Explicitly requested — project the given method set.
+    Named(MethodSet),
+    /// Reachable only as a dependency — project name-only.
+    Shell,
+}
+
 /// Returns true if `method_name` matches either the raw metadata name or the
 /// overload-disambiguated name of `m`.
 #[derive(Debug, Default)]
@@ -37,6 +51,12 @@ pub struct Filter {
     /// `true` if the filter includes broad entries (namespaces or name globs)
     /// that are not compatible with bottom-up type closure.
     pub has_broad_filter: bool,
+    /// `true` when this filter is resolved via the bottom-up type closure
+    /// (`MinimalTypeMap`) rather than the namespace scan. A closure build only
+    /// names its explicit seeds; every other type it pulls in is a dependency
+    /// shell. A scan build (broad filter or `--package`) names everything it
+    /// matches.
+    pub uses_closure: bool,
 }
 
 /// Per-type method filter. Entries are recorded as two parallel sets:
@@ -126,9 +146,46 @@ impl Filter {
         false
     }
 
+    /// Classifies a type's inclusion granularity under the specificity model.
+    ///
+    /// Filtering is a lean cherry-pick that opts into breadth by specificity:
+    ///
+    /// * naming a **namespace** (a scan build) takes every type in it, fully;
+    /// * naming a **type** (`Ns.Type`) makes that type *available* — a
+    ///   [`TypeRole::Shell`] projecting name-only vtable slots — because you have
+    ///   not yet said which of its methods you want;
+    /// * naming **`Ns.Type::*`** or **`Ns.Type::method`** promotes it to
+    ///   [`TypeRole::Named`] with all / the listed methods;
+    /// * a type reached only as a dependency of a seed is likewise a `Shell`.
+    ///
+    /// This is the Rust-`use` intuition — a bare mention makes the item usable,
+    /// and you get its members by asking for them — and it replaces the former
+    /// `--minimal` inclusion flag: the distinction is *how specifically you named
+    /// it*, not which style was passed. A scan build (broad filter / `--package`)
+    /// has no cherry-pick closure, so everything it matches is `Named`.
+    pub fn type_role(&self, type_name: TypeName) -> TypeRole {
+        let key = (
+            type_name.namespace().to_string(),
+            type_name.name().to_string(),
+        );
+
+        if let Some(set) = self.requested_interfaces.get(&key) {
+            return TypeRole::Named(set.clone());
+        }
+
+        if self.uses_closure {
+            TypeRole::Shell
+        } else {
+            TypeRole::Named(MethodSet::All)
+        }
+    }
+
     /// Returns `true` if `method` on `type_name` should be emitted as a real
     /// vtable slot (rather than demoted to an opaque `Slot: usize`).
-    /// In the absence of a method filter for this type, all methods are kept.
+    ///
+    /// With no explicit method filter for this type, inclusion follows the
+    /// type's [`Filter::type_role`]: a `Named` type keeps the methods in its
+    /// set, a `Shell` (a dependency, or a bare-type mention) keeps none.
     ///
     /// Matching considers both the raw `MethodDef` name and any
     /// overload-disambiguated Rust name produced by `[overload("…")]`, so a
@@ -139,10 +196,8 @@ impl Filter {
     /// Allow (`IFoo::Method`) and deny (`!IFoo::Method`) entries may coexist
     /// on the same type. Deny wins on overlap. When at least one allow entry
     /// exists, unlisted methods are demoted (allow-list mode); otherwise
-    /// only listed deny entries are demoted (deny-only mode).
-    /// When `minimal` is true, methods on types with no explicit method
-    /// filter are demoted (replaced with opaque vtable slots), and overload
-    /// matching uses the disambiguated name exclusively.
+    /// only listed deny entries are demoted (deny-only mode). When `minimal`
+    /// is true, overload matching uses the disambiguated name exclusively.
     pub fn includes_method(&self, type_name: TypeName, method: MethodDef, minimal: bool) -> bool {
         let key = (
             type_name.namespace().to_string(),
@@ -150,15 +205,13 @@ impl Filter {
         );
 
         let Some(filter) = self.methods.get(&key) else {
-            // No explicit method filter for this type. In minimal mode,
-            // check requested_interfaces — types registered with MethodSet::All
-            // (e.g. composable factory interfaces) should include all methods.
-            if minimal {
-                if let Some(MethodSet::All) = self.requested_interfaces.get(&key) {
-                    return true;
-                }
-            }
-            return !minimal;
+            // No explicit method filter for this type. Its inclusion is decided
+            // by its role: a Named type projects the methods in its set, a Shell
+            // (a dependency pulled in only via the closure) projects name-only.
+            return match self.type_role(type_name) {
+                TypeRole::Named(set) => set.includes(method.name()),
+                TypeRole::Shell => false,
+            };
         };
 
         let raw = method.name();
@@ -329,6 +382,7 @@ impl Filter {
             requested_interfaces,
             direct_types,
             has_broad_filter,
+            uses_closure: false,
         }
     }
 

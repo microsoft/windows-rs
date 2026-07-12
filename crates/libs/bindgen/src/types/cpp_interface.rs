@@ -29,7 +29,7 @@ impl CppInterface {
             .methods()
             .map(|def| {
                 let method = CppMethod::new(def, config.reader);
-                if method_is_skipped(def, type_name, &method.dependencies, config) {
+                if method_is_skipped(def, type_name, &method.signature, config) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -46,7 +46,7 @@ impl CppInterface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = CppMethod::new(def, config.reader);
-            method_is_skipped(def, type_name, &method.dependencies, config)
+            method_is_skipped(def, type_name, &method.signature, config)
         })
     }
 

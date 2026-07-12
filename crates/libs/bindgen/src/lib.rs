@@ -520,6 +520,7 @@ impl Bindgen {
             // types are auto-included and requested methods stay callable in
             // every style (not just `--minimal`).
             let types = if !filter.has_broad_filter && !self.layout.is_package() {
+                filter.uses_closure = true;
                 MinimalTypeMap::build(&reader, &mut filter, &references)
             } else {
                 TypeMap::filter(&reader, &filter, &references)

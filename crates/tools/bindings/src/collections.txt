@@ -2,4 +2,15 @@
 --flat
 
 --filter
-    Windows::Foundation::Collections::{CollectionChange, IIterable, IIterator, IKeyValuePair, IMap, IMapChangedEventArgs, IMapView, IObservableMap, IObservableVector, IVector, IVectorChangedEventArgs, IVectorView, MapChangedEventHandler, VectorChangedEventHandler}
+    Windows::Foundation::Collections::{CollectionChange, MapChangedEventHandler, VectorChangedEventHandler}
+    Windows::Foundation::Collections::IIterable::*
+    Windows::Foundation::Collections::IIterator::*
+    Windows::Foundation::Collections::IKeyValuePair::*
+    Windows::Foundation::Collections::IMap::*
+    Windows::Foundation::Collections::IMapChangedEventArgs::*
+    Windows::Foundation::Collections::IMapView::*
+    Windows::Foundation::Collections::IObservableMap::*
+    Windows::Foundation::Collections::IObservableVector::*
+    Windows::Foundation::Collections::IVector::*
+    Windows::Foundation::Collections::IVectorChangedEventArgs::*
+    Windows::Foundation::Collections::IVectorView::*

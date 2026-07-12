@@ -423,13 +423,99 @@ behavioral intent rather than clarify it.
   - **Package** (`tool_package`) already seeds the whole corpus, so the closure would be a
     no-op; routing it through the same path would only remove the special case.
 
-  Optional follow-up: the closure is deliberately *shallow* (matching `--minimal`). If we
-  want `--default`/`--sys` dependency interfaces to be fully callable too (every emitted
-  method resolved), a *deep* variant would recurse a pulled-in interface's own method
-  signatures — larger surface, but no name-only slots on non-requested interfaces. Left as
-  a policy choice; `method_is_skipped`'s `dependencies.included(config)` branch
-  (`types/interface.rs:31`) still guards it and could become a hard error once every path
-  runs the closure.
+  **Planned: fold the `is_minimal()` inclusion axis into a Rust-`use`-style specificity
+  model.** An earlier pass asked whether one *global* method-inclusion policy could be
+  universal and correctly answered no — a single policy either demotes the whole `windows`
+  projection to name-only slots (minimal-universal) or bloats reactor by ~6000 lines
+  (default-universal). But that is the wrong question. `--minimal` is not one concept; it
+  conflates three separable jobs, and the first two collapse into a single idea: **the
+  specificity of a filter entry decides the granularity of inclusion**, exactly like a Rust
+  `use` declaration.
+
+  - Name a **namespace** (`Windows`) → every type is *named* → full methods everywhere
+    (today's `--default`).
+  - Name a **type** (`Ns.Type`) → that type, all its methods.
+  - Name a **method** (`Ns.Type::m`) → only that method is full; sibling methods and any
+    type reached only through a signature become **shells** (present and named so the API
+    stays usable, but their own methods are name-only) — today's `--minimal`.
+
+  This makes the policy *per entry* rather than global, so `windows.txt` (namespace) and
+  `reactor/base.txt` (methods) produce today's respective outputs with **no `--minimal`
+  flag**. The three jobs `--minimal` conflates:
+
+  1. **Inclusion granularity** — `includes_method` (`filter.rs:161` returns `!minimal`)
+     plus the load-bearing `!is_minimal()` guard in `method_is_skipped`
+     (`types/interface.rs:31`). Deleting that guard and regenerating collapses reactor's
+     `bindings.rs` by ~6000 lines, because minimal builds a *shallow* map but
+     `dependencies.included(config)` evaluates the *full* transitive dependency set. The
+     redesign replaces that transitive check with a **shell-aware** one — a named method
+     survives when its direct signature deps are present as shells, and only demotes when a
+     dep was actually *excluded* (`!Ns.Type`). → *specificity.*
+  2. **"Requested vs dependency" ergonomic surface** — ergonomic class `new()`
+     (`class.rs:134`, `!is_minimal() || is_activatable`), `RuntimeType::NAME`
+     (`config.rs:64`), parameterized value `NAME` (`config.rs:73`), delegate `Invoke()`
+     (`delegate.rs:63`), and `_Impl`/suppressed caller wrappers (`cpp_interface.rs:164`,
+     the WinRT `interface.rs` path — both already also gated on `should_implement`). Each is
+     already "emit the extra surface only for a thing that was explicitly requested"; minimal
+     just uses a narrower definition of *requested*. A named type is requested (gets the
+     surface); a dependency shell is not. → *specificity.*
+  3. **Pure rendering cosmetics** — snake_case struct field names (`struct.rs:96`) and the
+     extra `Eq` derive (`struct.rs:38`). These do **not** follow from specificity; they are
+     a genuine consumer preference. → keep behind an explicit, honestly-named rendering flag,
+     not smuggled inside "minimal". (Note: reactor method names stay PascalCase — `Start`,
+     `SetAutomationId` — so casing is *not* a blanket minimal rule; the cosmetic residue is
+     small.)
+
+  The specificity model also **unifies the two type-map builders for free**:
+  `TypeMap::filter`'s namespace scan is just "how a namespace-level entry seeds the closure",
+  so `MinimalTypeMap::build` and `TypeMap::filter` become one algorithm seeded at different
+  specificities (namespace/type/glob → `Named{all methods}`, method entry →
+  `Named{method-set}`, closure-pulled type → `Shell`). `--sys` (FFI target), `--implement`
+  (`_Impl` traits), and `--package`/`--flat` (layout) remain orthogonal flags; only
+  `--minimal`'s inclusion role is removed.
+
+  **Build order (each step must clear a byte-for-byte regen of the whole `windows` corpus,
+  every `tool_bindings` crate, and `tool_reactor`; abort any step whose diff can't be
+  reconciled):**
+  1. **Done.** Introduced a per-type **role** (`TypeRole::Named(MethodSet)` vs
+     `TypeRole::Shell`) in `filter.rs` and routed `includes_method`'s no-method-filter
+     fallback through `Filter::type_role`. Byte-identical.
+  2. **Done — better than planned.** `method_is_skipped`'s load-bearing `is_minimal()`
+     guard **and** the transitive `dependencies.included()` check are gone, replaced by a
+     single universal **shell-aware direct-dependency** check: a method demotes to a
+     name-only slot only when a type appearing *directly* in its signature is absent
+     entirely (not included, not reference-provided). A dependency present as a name-only
+     shell satisfies the check, so the one predicate serves the full projection (everything
+     present) and the lean projection (deps present as shells) with no mode flag. Verified
+     byte-for-byte identical across windows, windows-sys, every `tool_bindings` crate, and
+     reactor — this is the empirical proof that the transitive check + `is_minimal()` guard
+     were together equivalent to the direct-dep check (the earlier ~6000-line reactor
+     collapse came from requiring the *transitive* closure of shells, which the direct check
+     does not).
+  3. **Done.** `type_role`'s transitional `minimal` parameter is gone. A new
+     `Filter::uses_closure` flag (set at the dispatch site when `MinimalTypeMap::build` is
+     chosen) drives the decision: a type with no explicit method filter is `Named(All)` on a
+     scan build (broad filter / `--package`) and a `Shell` on a closure build. So the
+     Named-vs-Shell split now keys on *how the build seeded the type* (closure seed vs
+     namespace scan), not on the `--minimal` style flag — `--minimal` no longer affects
+     **inclusion** at all. Consequences, all verified:
+     - reactor (method-level entries, closure build) and every other `tool_bindings` crate,
+       plus windows / windows-sys, regenerate **byte-for-byte identical**.
+     - Two filters named interfaces as **bare types** but relied on the old `--sys` /
+       `--default` "bare type ⇒ all methods" behavior: `result.txt`
+       (`IErrorInfo`, `IRestrictedErrorInfo`) and `collections.txt` (the `IVector` / `IMap`
+       family). Under the model a bare type is a *shell*, so these were migrated to `::*`
+       (name the methods you call) — output is byte-identical again and both crates compile.
+       This is the model working as intended: leanness comes from specificity, not a flag.
+     - The `class_minimal` / `event_minimal` / `interface_minimal` golden fixtures use a
+       **namespace** entry (`--filter Test --minimal`). Since a namespace is always full and
+       `--minimal` no longer gates inclusion, they now project the full interface (methods,
+       vtable, `_Impl`) rather than name-only shells. The fixtures were auto-updated; this
+       documents the new semantics (namespace ⇒ full; use method-level entries to go lean).
+  4. **Remaining.** `--minimal` is now purely cosmetic (snake_case struct fields, extra `Eq`
+     derive). Move those behind an explicit, honestly-named rendering flag and retire the
+     `--minimal` name from the inclusion vocabulary; retire `has_broad_filter` once the
+     closure is the single seeding path, and consider unifying the two type-map builders.
 - *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
   COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
   `DXGI_STATUS_OCCLUDED`, …) trades off two options: `-> Result<()>` throws the

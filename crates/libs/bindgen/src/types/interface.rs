@@ -19,17 +19,24 @@ pub enum MethodOrName<M> {
 }
 
 // A method collapses to an opaque, name-only vtable slot when it is demoted by a
-// method-level filter, or (outside minimal mode) when its dependencies are not all
-// included. Shared by both the WinRT and COM interface generators so the policy that
-// decides `Method` vs `Name` lives in one place.
+// method-level filter (`!config.includes_method`), or when a type appearing directly
+// in its signature is not present at all (not included, not reference-provided). Only
+// the *direct* signature types are required: a dependency present merely as a name-only
+// shell still lets the method be described, so this one check serves both the full
+// projection (everything present) and the lean/minimal projection (dependencies present
+// as shells) without a mode flag. Shared by the WinRT and COM interface generators so the
+// policy that decides `Method` vs `Name` lives in one place.
 pub fn method_is_skipped(
     def: MethodDef,
     type_name: TypeName,
-    dependencies: &TypeMap,
+    signature: &Signature,
     config: &Config,
 ) -> bool {
-    (!config.bindgen.style.is_minimal() && !dependencies.included(config))
-        || !config.includes_method(type_name, def)
+    let mut direct = TypeMap::new();
+    for ty in signature.types() {
+        direct.insert(ty.clone());
+    }
+    !direct.included(config) || !config.includes_method(type_name, def)
 }
 
 // The two pieces a vtable/`_Impl` writer needs from a projected method, regardless of
@@ -193,7 +200,7 @@ impl Interface {
             .methods()
             .map(|def| {
                 let method = Method::new(def, &self.generics, config.reader);
-                if method_is_skipped(def, type_name, &method.dependencies, config) {
+                if method_is_skipped(def, type_name, &method.signature, config) {
                     MethodOrName::Name(method.def)
                 } else {
                     MethodOrName::Method(method)
@@ -210,7 +217,7 @@ impl Interface {
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
             let method = Method::new(def, &self.generics, config.reader);
-            method_is_skipped(def, type_name, &method.dependencies, config)
+            method_is_skipped(def, type_name, &method.signature, config)
         })
     }
 

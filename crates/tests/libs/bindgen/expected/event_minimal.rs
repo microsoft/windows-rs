@@ -57,10 +57,118 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl Interface {
+    pub fn Method(&self) -> windows_core::Result<i32> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Method)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(i32) + 'static,
+    {
+        let handler: Delegate = {
+            let com = windows_core::imp::DelegateBox::<Delegate, F>::new(
+                &DelegateBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Changed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveChanged,
+            ))
+        }
+    }
+}
 impl windows_core::RuntimeName for Interface {
     const NAME: &'static str = "Test.Interface";
+}
+pub trait Interface_Impl: windows_core::IUnknownImpl {
+    fn Method(&self) -> windows_core::Result<i32>;
+    fn Changed(&self, handler: windows_core::Ref<Delegate>) -> windows_core::Result<i64>;
+    fn RemoveChanged(&self, token: i64) -> windows_core::Result<()>;
+}
+impl Interface_Vtbl {
+    pub const fn new<Identity: Interface_Impl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn Method<Identity: Interface_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            result__: *mut i32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match Interface_Impl::Method(this) {
+                    Ok(ok__) => {
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn Changed<Identity: Interface_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
+            result__: *mut i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                match Interface_Impl::Changed(this, core::mem::transmute_copy(&handler)) {
+                    Ok(ok__) => {
+                        result__.write(ok__);
+                        windows_core::HRESULT(0)
+                    }
+                    Err(err) => err.into(),
+                }
+            }
+        }
+        unsafe extern "system" fn RemoveChanged<Identity: Interface_Impl, const OFFSET: isize>(
+            this: *mut core::ffi::c_void,
+            token: i64,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                Interface_Impl::RemoveChanged(this, token).into()
+            }
+        }
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<Identity, Interface, OFFSET>(),
+            Method: Method::<Identity, OFFSET>,
+            Changed: Changed::<Identity, OFFSET>,
+            RemoveChanged: RemoveChanged::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<Interface as windows_core::Interface>::IID
+    }
 }
 #[repr(C)]
 pub struct Interface_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub Method:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
+    pub Changed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
