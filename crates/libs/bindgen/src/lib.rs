@@ -514,17 +514,16 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            // Use bottom-up type closure (MinimalTypeMap) when `--minimal` is
-            // set and the filter has precise entries without broad patterns.
-            // This walks only the signatures of requested methods to discover
-            // the minimal set of required types.
-            let types =
-                if self.style.is_minimal() && !filter.has_broad_filter && !self.layout.is_package()
-                {
-                    MinimalTypeMap::build(&reader, &mut filter, &references)
-                } else {
-                    TypeMap::filter(&reader, &filter, &references)
-                };
+            // Use bottom-up type closure (MinimalTypeMap) whenever the filter has
+            // precise entries without broad patterns. This walks the signatures
+            // of requested methods to discover the required types so referenced
+            // types are auto-included and requested methods stay callable in
+            // every style (not just `--minimal`).
+            let types = if !filter.has_broad_filter && !self.layout.is_package() {
+                MinimalTypeMap::build(&reader, &mut filter, &references)
+            } else {
+                TypeMap::filter(&reader, &filter, &references)
+            };
 
             (filter, types)
         };

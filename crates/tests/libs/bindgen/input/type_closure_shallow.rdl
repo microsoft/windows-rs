@@ -1,0 +1,19 @@
+//! --filter Test::IOuter::* --flat
+// Documents the shallow boundary of the closure. Only `IOuter`'s methods are
+// requested, so `IOuter::GetInner` is callable and `IInner` is pulled in — but the
+// closure does not walk a dependency interface's own signatures, so `IDeep` is not
+// pulled and `IInner::GetDeep` collapses to a name-only slot. This is the intended
+// "minimal everywhere" contract: requested methods stay callable, dependency
+// interfaces are shallow.
+#[win32]
+mod Test {
+    interface IOuter {
+        fn GetInner(&self) -> IInner;
+    }
+    interface IInner {
+        fn GetDeep(&self) -> IDeep;
+    }
+    interface IDeep {
+        fn Value(&self) -> i32;
+    }
+}

@@ -384,27 +384,40 @@ behavioral intent rather than clarify it.
 - *Finish naming the sys policies.* Extend the named-predicate treatment to the
   remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
   `link!`-vs-`extern` function emission, raw-pointer interface representation).
-- *Unify referenced-type inclusion across styles (silent method drop).* The default
-  and `--minimal` styles disagree on whether a filter must list every type a method's
-  signature *references*, and the disagreement is silent. The two paths are chosen at
-  `lib.rs:521`: `--minimal` (with a non-broad filter, non-package layout) builds the
-  type set with `MinimalTypeMap::build`, which treats the filter as a **seed** and
-  transitively pulls in every referenced param/return type (`minimal_type_map.rs:54`
-  discovers them from each method signature, `:85` back-fills the filter). The default
-  full-fidelity path uses `TypeMap::filter`, which keeps a method only when **every**
-  referenced type is *already* matched by the filter — `Interface::method_is_skipped`
-  (`types/interface.rs:25`) drops it otherwise, via `dependencies.included(config)`
-  (`type_map.rs:95`), with no warning. So a default-style filter must hand-list types it
-  never names directly — e.g. `crates/samples/reactor/direct2d/build.rs` must list
-  `IDXGIOutput` purely because `IDXGIFactory2::CreateSwapChainForComposition` takes an
-  `Option<&IDXGIOutput>`; omit it and the whole method silently vanishes from the
-  projection. `canvas.txt` (`--minimal`) never lists `IDXGIOutput` and works. This is an
-  implementation artifact ("explicit filter only" vs "seed + dependency closure"), not
-  intended policy: whether a method survives should not depend on the style, and a
-  method should never disappear without a diagnostic. Investigate either running the same
-  dependency closure on the default path, or — if callers should stay in control of the
-  emitted surface — making the drop a hard error that names the dropped method and the
-  missing type.
+- *Unify referenced-type inclusion across styles — remaining pieces.* The seed +
+  dependency-closure type selection (`MinimalTypeMap::build`) now runs for **every style**
+  on precise filters, not just `--minimal`: the dispatch at `lib.rs:521` is gated on
+  `!has_broad_filter && !is_package()` (the `is_minimal()` guard is gone). A filter no
+  longer needs to hand-list the types its methods *reference* — the closure transitively
+  pulls them in (`minimal_type_map.rs` discovers them from each method signature and
+  back-fills the filter), so a requested method stays callable in `--default`/`--sys`
+  instead of silently collapsing to a non-callable `Name` slot. This is the "err on the
+  side of minimal" behaviour: requested methods are always callable, and dependency
+  interfaces are pulled in *shallowly* (their own methods may remain name-only when they
+  reach still-further-out types — see the `type_closure*` regression fixtures). Core types
+  (`GUID`, `HRESULT`, `BOOL`, `PCWSTR`, `IUnknown`, …) are inserted into the closure even
+  though they carry an empty namespace, so a standalone `--sys` crate still emits its local
+  `write_no_deps` definitions; non-sys crates carry them harmlessly (emission is gated on
+  `uses_inline_core_types()`). Verified end-to-end: `windows`/`windows-sys` (package),
+  every `tool_bindings` crate, and `tool_reactor` regenerate byte-for-byte unchanged.
+
+  Two pieces are still on the explicit-only `TypeMap::filter` path and could be folded in
+  next:
+  - **Broad filters** (`Namespace.*`, name globs) set `has_broad_filter` and carry no
+    concrete seeds, so the closure has nothing to start from. In practice they already
+    include everything the rules match, so the silent drop does not bite them — but they
+    are not yet routed through the one closure path. Seeding the closure from the
+    namespace-scan's matched set would unify them.
+  - **Package** (`tool_package`) already seeds the whole corpus, so the closure would be a
+    no-op; routing it through the same path would only remove the special case.
+
+  Optional follow-up: the closure is deliberately *shallow* (matching `--minimal`). If we
+  want `--default`/`--sys` dependency interfaces to be fully callable too (every emitted
+  method resolved), a *deep* variant would recurse a pulled-in interface's own method
+  signatures — larger surface, but no name-only slots on non-requested interfaces. Left as
+  a policy choice; `method_is_skipped`'s `dependencies.included(config)` branch
+  (`types/interface.rs:31`) still guards it and could become a hard error once every path
+  runs the closure.
 - *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
   COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
   `DXGI_STATUS_OCCLUDED`, …) trades off two options: `-> Result<()>` throws the

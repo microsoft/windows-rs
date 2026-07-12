@@ -144,9 +144,14 @@ impl CombineMinimal for Type {
             ty_inner.clone()
         };
 
-        // Avoid infinite recursion: if already in the map, stop.
+        // Insert the type and stop on repeats to avoid infinite recursion. Core
+        // types (`GUID`, `HRESULT`, `BOOL`, `PCWSTR`, `IUnknown`, …) carry an empty
+        // namespace; they are still inserted so a standalone `--sys` crate emits
+        // their local definitions (`write_no_deps`). Non-sys crates carry them in
+        // the map harmlessly because `write_no_deps` only emits when
+        // `uses_inline_core_types()`.
         let insert_tn = insert_ty.type_name();
-        if !insert_tn.namespace().is_empty() && !types.insert(insert_ty) {
+        if (!insert_tn.namespace().is_empty() || insert_ty.is_core()) && !types.insert(insert_ty) {
             return;
         }
 

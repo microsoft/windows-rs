@@ -1,0 +1,14 @@
+//! --filter Test::IOuter::* --flat
+// A precise filter routes through the bottom-up type closure in every style, not
+// just `--minimal`. `IOuter::GetInner` returns `IInner`, which is not named in the
+// filter; the closure pulls it in so the requested method stays callable instead
+// of collapsing to an opaque `GetInner: usize` vtable slot.
+#[win32]
+mod Test {
+    interface IOuter {
+        fn GetInner(&self) -> IInner;
+    }
+    interface IInner {
+        fn Value(&self) -> i32;
+    }
+}
