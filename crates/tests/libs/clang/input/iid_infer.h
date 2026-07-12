@@ -10,7 +10,8 @@
 //
 // The gate is deliberately narrow so it is a promotion of a genuine idiom, never a lossy
 // guess: the function must return `HRESULT`, a `*const GUID` parameter must be named
-// `riid`/`iid`/`riidltf`, and the promoted parameter must be a `*mut *mut void` output.
+// `riid`/`iid`/`riidltf`, and the promoted parameter must be a caller-chosen-type output —
+// either a `*mut *mut void` or a base-interface `*mut IUnknown`/`*mut IInspectable`.
 
 typedef int HRESULT;
 typedef struct _GUID {
@@ -19,6 +20,21 @@ typedef struct _GUID {
 typedef const GUID *REFIID;
 
 #define _Out_writes_to_(c, w) __attribute__((annotate("_Out_writes_to_(" #c "," #w ")")))
+
+// Minimal base COM interfaces + a concretely-typed interface, so the base-interface arm of
+// `infer_iid_is` (a `*mut IUnknown`/`*mut IInspectable` out) can be exercised against a
+// concretely-typed out (`*mut IFoo`) that must stay faithfully typed.
+struct IUnknown {
+    virtual HRESULT QueryInterface(REFIID riid, void **ppvObject) = 0;
+    virtual unsigned long AddRef() = 0;
+    virtual unsigned long Release() = 0;
+};
+struct IInspectable : IUnknown {
+    virtual HRESULT GetIids(unsigned long *count, GUID **iids) = 0;
+};
+struct IFoo : IUnknown {
+    virtual HRESULT Bar() = 0;
+};
 
 // POSITIVE: `HRESULT` return + `REFIID` named `iid` + `void**` out -> `#[iid_is]` inferred.
 // This is the `DCompositionCreateDevice` shape.
@@ -43,6 +59,18 @@ HRESULT GetThing(const GUID *providerGuid, void **ppData);
 // drop the count parameter the projection still references. This is the `IEnumObjects::Next`
 // shape.
 HRESULT NextThings(unsigned long celt, REFIID riid, _Out_writes_to_(celt, *pFetched) void **rgelt, unsigned long *pFetched);
+
+// POSITIVE: the base-interface arm. The out-parameter is spelled as the base interface
+// `IUnknown**` (an upstream header inconsistency), but the `iid` selects its type, so it is
+// promoted to `#[iid_is]` just like the `void**` form. This is the `DWriteCreateFactory`
+// shape; `IInspectable**` is treated identically.
+HRESULT CreateFactory(REFIID iid, IUnknown **factory);
+HRESULT CreateInspectable(REFIID iid, IInspectable **inspectable);
+
+// NEGATIVE: the out-parameter is a *concretely* typed interface (`IFoo**`), so the `iid`
+// selects a different object than this fixed-type out — it stays faithfully typed and is not
+// promoted. This is the `ActivateAudioInterfaceAsync`/`RoGetAgileReference` shape.
+HRESULT CreateTyped(REFIID iid, IFoo **ppFoo);
 
 // The inference applies to COM interface methods too — the `GetService`/`Activate`/
 // `CreateInstance` families that lack `_COM_Outptr_` SAL and a `[iid_is]` comment.

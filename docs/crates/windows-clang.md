@@ -277,33 +277,43 @@ the `windows_dcomp` sample. The corpus blast radius is tiny (overloaded pure-vir
 methods are rare — DirectComposition, a few Direct2D SVG and DirectWrite interfaces).
 Covered by `crates/tests/libs/clang/input/interface_overload.h`.
 
-### Base-interface `_COM_Outptr_` creators are not auto-promoted (rejected heuristic)
+### Base-interface `_COM_Outptr_` creators: promoted by name gate (positional rule rejected)
 
 A creator like `DWriteCreateFactory(_In_ REFIID iid, _COM_Outptr_ IUnknown **factory)`
 (`um/dwrite.h`) is a caller-chosen-type factory whose out-parameter *should* have been
 declared `void**` with `[iid_is(iid)]` — the header spells the pointee as the base interface
 `IUnknown**` (and elsewhere `IInspectable**`) instead. This is a source bug in the SDK header
-that cannot be fixed upstream now, so the faithful scrape keeps `factory: *mut IUnknown` and
-bindgen projects `-> Result<IUnknown>`; the caller passes `&IDWriteFactory2::IID` and
-`.cast()`s the result. (`IWeakReference::Resolve` looks identical but the *MIDL-generated*
-`winrt/WeakReference.h` carries an explicit `[iid_is][out]` comment, so it is already promoted
-via the `[iid_is]`-comment path — the difference is the annotation, not the pointee type.)
+that cannot be fixed upstream now. (`IWeakReference::Resolve` looks identical but the
+*MIDL-generated* `winrt/WeakReference.h` carries an explicit `[iid_is][out]` comment, so it is
+already promoted via the `[iid_is]`-comment path — the difference is the annotation, not the
+pointee type.)
 
-Auto-promoting the SAL-only form (`com_out_ptr_token` on an `IUnknown**`/`IInspectable**`
-pointee with a sibling `REFIID`) was investigated and **rejected**: the signal is not
-unambiguous, and an ambiguous promotion would be a lossy transform of the metadata, which is
-not acceptable. A corpus scan of `um`/`shared` shows the base-interface `_COM_Outptr_` shape is
+Auto-promoting the base-interface form on a **positional** rule was investigated and
+**rejected**: a corpus scan of `um`/`shared` shows the base-interface `_COM_Outptr_` shape is
 dominated by genuine fixed-type returns with **no** `REFIID` sibling (`SHGetThreadRef`,
 `GetProcessReference`, `InstantiateComponentFromPackage`, the D3D11 interop
 `CreateDirect3D11Device*` accessors, `IDWriteTextLayout::GetDrawingEffect`, …) that must stay
-typed; the `REFIID`-sibling subset that *would* be promoted is a mix of last-parameter cases
-(`DWriteCreateFactory`) and mid-list cases (`DbgModel` concept accessors,
-`IDCompositionSurface::BeginDraw`) where the `REFIID`/out-pointer pair is not even adjacent to
-the end of the signature — so no positional rule cleanly separates true creators from
-coincidental `REFIID`+`IUnknown**` pairings without risking a wrong (lossy) promotion. Only a
-literal `void**` pointee (`is_void_double_ptr`) or an explicit MIDL `[iid_is]` promotes to
-`ComOutPtr`; everything else stays faithfully typed and is handled with a `.cast()` at the call
-site.
+typed; and even the `REFIID`-sibling subset mixes last-parameter cases (`DWriteCreateFactory`)
+with mid-list cases (`DbgModel` concept accessors) — no positional rule cleanly separates true
+creators from coincidental `REFIID`+`IUnknown**` pairings without risking a wrong (lossy)
+promotion.
+
+The **name gate** does separate them, so it is what `infer_iid_is` uses (see
+`annotation.rs`): the same `HRESULT`-return + a `*const GUID` parameter named
+`riid`/`iid`/`riidltf` requirement as the `void**` arm, plus the out-parameter must be the
+**bare** base spelling (`is_base_interface_out_ptr`: `*mut IUnknown`/`*mut IInspectable`,
+never a concretely typed `IFoo**`). At the ABI a COM interface pointer is itself a pointer, so
+`*mut IUnknown` is byte-identical to `*mut *mut void`; the promotion normalises to the latter
+and marks `[iid_is]`. A whole-corpus regen promotes exactly **5** methods across 4 functions —
+`DWriteCreateFactory`, `IMFCaptureSink::GetService` (×2), `IOpenRowset::OpenRowset`,
+`ITableCreationWithConstraints::CreateTableWithConstraints` — every one a genuine caller-chosen
+rowset/service/font factory whose `riid` selects the out-pointer's type, and each previously
+projected the awkward `iid: *const GUID` + `-> Result<IUnknown>` middle state that forced a
+caller `.cast()`. The bare-spelling restriction is what excludes the fixed-type creators whose
+`riid` selects a *different* object than the out-pointer (`ActivateAudioInterfaceAsync`'s
+`IActivateAudioInterfaceAsyncOperation**`, `RoGetAgileReference`'s `IAgileReference**`), which
+keep their concrete type and a call-site `.cast()`. Guarded by the `iid_infer` `test_clang`
+fixture (`CreateFactory`/`CreateInspectable` positive, `CreateTyped` → `IFoo**` negative).
 
 ### UNICODE is deliberately not defined
 
@@ -1592,16 +1602,22 @@ above). None blocks CI.
   `CreateInstance`, …) — several of which the reference winmd *missed*, so the in-house metadata is now
   **more** complete than the reference. Guarded by the `iid_infer` `test_clang` fixture (positive +
   negative cases for both free functions and methods).
-- **`DWriteCreateFactory` base-interface variant — already documented, decision was to reject.** The
+- **`DWriteCreateFactory` base-interface variant — DONE (name-gated arm implemented).** The
   `REFIID iid, _COM_Outptr_ IUnknown **factory` shape (out-param scraped as `*mut IUnknown`, not
-  `*mut *mut void`) is *not* auto-promoted; see [Base-interface `_COM_Outptr_` creators](#base-interface-_com_outptr_-creators-are-not-auto-promoted-rejected-heuristic).
-  The `void**` inference above does not catch it (its out-param is a base-interface single-indirection,
-  not `void**`). Now that the `riid`-name + HRESULT gate has proven reliable in practice (155 clean
-  additions, zero false positives), revisit whether a base-interface arm (accept a `*mut IUnknown`/
-  `*mut IInspectable` OUT param preceded by a `riid`) is now safe enough to promote — affected set
-  includes `ActivateAudioInterfaceAsync`, `RoGetAgileReference`, `RoGetMatchingRestrictedErrorInfo`,
-  `BindMoniker`. The current writeup rejected it as lossy on a *positional* rule; the name-based gate
-  was not evaluated there.
+  `*mut *mut void`) is now promoted by `infer_iid_is`'s base-interface arm
+  (`is_base_interface_out_ptr`): the same `HRESULT`-return + `riid`/`iid`/`riidltf`-name gate as the
+  `void**` arm, restricted to a **bare** `*mut IUnknown`/`*mut IInspectable` out (never a concretely
+  typed `IFoo**`). A whole-corpus regen promoted exactly **5** methods across 4 functions —
+  `DWriteCreateFactory`, `IMFCaptureSink::GetService` (×2), `IOpenRowset::OpenRowset`,
+  `ITableCreationWithConstraints::CreateTableWithConstraints` — each a genuine `riid`-selected
+  factory that previously projected the awkward `iid` + `-> Result<IUnknown>` + caller `.cast()`
+  middle state. The bare-spelling restriction excludes the fixed-type creators whose `riid` selects a
+  *different* object (`ActivateAudioInterfaceAsync`'s `IActivateAudioInterfaceAsyncOperation**`,
+  `RoGetAgileReference`'s `IAgileReference**` — their outs stay typed with a call-site `.cast()`). See
+  [Base-interface `_COM_Outptr_` creators](#base-interface-_com_outptr_-creators-promoted-by-name-gate-positional-rule-rejected);
+  guarded by the `iid_infer` fixture (`CreateFactory`/`CreateInspectable` positive, `CreateTyped`
+  negative). The `windows_dcomp` sample's `DWriteCreateFactory(…, &IID)?.cast()?` collapsed to
+  `DWriteCreateFactory(…)?`.
 - **Drop the `Windows.Graphics.Capture.Interop.h` shim until there's demand.**
   `crates/tools/win32/src/shims/Windows.Graphics.Capture.Interop.h` is a hand-authored replacement
   header that lets `tool_win32` scrape `IGraphicsCaptureItemInterop` without the C++/WinRT projection

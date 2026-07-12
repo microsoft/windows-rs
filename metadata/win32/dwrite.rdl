@@ -431,7 +431,7 @@ mod Windows {
             DWRITE_WORD_WRAPPING_CHARACTER = 4,
         }
         #[library("DWrite.dll")]
-        extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, factory: *mut IUnknown) -> HRESULT;
+        extern fn DWriteCreateFactory(factoryType: DWRITE_FACTORY_TYPE, iid: *const GUID, #[iid_is] factory: *mut *mut void) -> HRESULT;
         const FACILITY_DWRITE: u32 = 2200;
         #[guid(0x5e5a32a3_8dff_4773_9ff6_0696eab77267)]
         interface IDWriteBitmapRenderTarget: IUnknown {

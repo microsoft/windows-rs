@@ -2073,7 +2073,7 @@ mod Windows {
             fn Copy(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[opt] rgpwszSourceURLs: *const PCWSTR, #[len_param(0)] rgpwszDestURLs: *const PCWSTR, dwCopyFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut PWSTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn Move(&self, cRows: DBCOUNTITEM, #[len_param(0)] #[opt] rgpwszSourceURLs: *const PCWSTR, #[len_param(0)] rgpwszDestURLs: *const PCWSTR, dwMoveFlags: u32, #[opt] pAuthenticate: IAuthenticate, #[len_param(0)] rgdwStatus: *mut DBSTATUS, #[len_param(0)] #[opt] rgpwszNewURLs: *mut PWSTR, ppStringsBuffer: *mut *mut OLECHAR) -> HRESULT;
             fn Delete(&self, cRows: DBCOUNTITEM, #[len_param(0)] rgpwszURLs: *const PCWSTR, dwDeleteFlags: u32, #[len_param(0)] rgdwStatus: *mut DBSTATUS) -> HRESULT;
-            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[opt] pTableID: *const DBID, #[opt] pIndexID: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, #[opt] ppRowset: *mut IUnknown) -> HRESULT;
+            fn OpenRowset(&self, #[opt] pUnkOuter: IUnknown, #[opt] pTableID: *const DBID, #[opt] pIndexID: *const DBID, riid: *const GUID, cPropertySets: u32, #[len_param(4)] #[in] #[out] rgPropertySets: *mut DBPROPSET, #[iid_is] #[opt] ppRowset: *mut *mut void) -> HRESULT;
         }
         #[guid(0x0c733aa4_2a1c_11ce_ade5_00aa0044773d)]
         interface ISecurityInfo: IUnknown {
@@ -2104,7 +2104,7 @@ mod Windows {
         #[guid(0x0c733aab_2a1c_11ce_ade5_00aa0044773d)]
         interface ITableDefinitionWithConstraints: ITableCreation {
             fn AddConstraint(&self, pTableID: *const DBID, pConstraintDesc: *const DBCONSTRAINTDESC) -> HRESULT;
-            fn CreateTableWithConstraints(&self, pUnkOuter: IUnknown, pTableID: *const DBID, cColumnDescs: DBORDINAL, #[in] #[out] rgColumnDescs: *mut DBCOLUMNDESC, cConstraintDescs: u32, rgConstraintDescs: *const DBCONSTRAINTDESC, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, ppRowset: *mut IUnknown) -> HRESULT;
+            fn CreateTableWithConstraints(&self, pUnkOuter: IUnknown, pTableID: *const DBID, cColumnDescs: DBORDINAL, #[in] #[out] rgColumnDescs: *mut DBCOLUMNDESC, cConstraintDescs: u32, rgConstraintDescs: *const DBCONSTRAINTDESC, riid: *const GUID, cPropertySets: u32, #[in] #[out] rgPropertySets: *mut DBPROPSET, ppTableID: *mut *mut DBID, #[iid_is] ppRowset: *mut *mut void) -> HRESULT;
             fn DropConstraint(&self, pTableID: *const DBID, pConstraintID: *const DBID) -> HRESULT;
         }
         #[guid(0x0c733a5e_2a1c_11ce_ade5_00aa0044773d)]

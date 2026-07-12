@@ -311,6 +311,26 @@ fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
         if matches!(inner.as_ref(), metadata::Type::ValueName(tn) if tn.name == "GUID"))
 }
 
+/// Returns `true` when `ty` is a single-indirection out-pointer to a *base* COM interface —
+/// `*mut IUnknown` or `*mut IInspectable`. Some caller-chosen-type creators
+/// (`DWriteCreateFactory`, the `GetService` service-locators, OLE DB's
+/// `CreateTableWithConstraints`) spell their `[iid_is]`-selected out-parameter as the base
+/// interface `IUnknown**`/`IInspectable**` in the SDK header instead of the canonical
+/// `void**` — an upstream header inconsistency. At the ABI a COM interface pointer is itself
+/// a pointer, so `*mut IUnknown` is the same shape as `*mut *mut void`; recovering the marker
+/// here lets bindgen project the ergonomic `QueryInterface` generic rather than a manual
+/// `iid` + untyped `-> Result<IUnknown>` that forces a caller `.cast()`. A *concretely* typed
+/// out (`IDWriteFactory**`, `IActivateAudioInterfaceAsyncOperation**`) is deliberately **not**
+/// matched — there the `riid` selects a *different* object and the out must stay typed.
+fn is_base_interface_out_ptr(ty: &metadata::Type) -> bool {
+    let metadata::Type::PtrMut(inner, 1) = ty else {
+        return false;
+    };
+    matches!(inner.as_ref(),
+        metadata::Type::ClassName(tn) | metadata::Type::ValueName(tn)
+            if tn.name == "IUnknown" || tn.name == "IInspectable")
+}
+
 /// Infer a `ComOutPtr` (`#[iid_is]`) marker on an *unannotated* caller-chosen-type COM
 /// out-pointer.
 ///
@@ -326,19 +346,24 @@ fn is_const_guid_ptr(ty: &metadata::Type) -> bool {
 /// The gate is deliberately narrow, so it is a *promotion* of a genuine idiom and never a
 /// lossy guess: the function must return `HRESULT`, a `*const GUID` parameter must be named
 /// `riid`/`iid`/`riidltf` (the `REFIID` convention), and the promoted parameter must be a
-/// `*mut *mut void` output *with no array/buffer length* (`size`/`array` unset). The
-/// `HRESULT`-return + `riid`-*name* requirement is what excludes the buffer-style GUID-out
-/// functions whose GUID parameter is *data*, not a type selector (`DsReplicaGetInfoW`'s
-/// `puuidForSourceDsaObjGuid`, `RpcServerInqIf`'s `MgrTypeUuid`, `WlanQueryInterface`'s
-/// `pInterfaceGuid`, `TdhCreatePayloadFilter`'s `ProviderGuid` — all returning
-/// `u32`/`RPC_STATUS`/`TDHSTATUS`, not `HRESULT`). The array/length exclusion is what excludes
-/// the caller-chosen-type *array enumerators* (`IEnumObjects::Next(celt, riid,
-/// size_is(celt) void **rgelt, …)`) whose `void**` is a counted array, not a single-object
-/// out-pointer — promoting those to a `ComOutPtr` generic produces broken codegen (the
-/// projection would drop the array/count parameter it still references). Adjacency is *not*
-/// required — the OLE family has several parameters between the `riid` and the out-pointer.
-/// Only sets the marker (never clears one) and only on a not-already-`In` `void**`, so it
-/// composes with the SAL/MIDL promotion in [`parse_params`].
+/// caller-chosen-type output with no array/buffer length (`size`/`array` unset) — either a
+/// `*mut *mut void` ([`is_void_double_ptr`]) or a base-interface `*mut IUnknown`/
+/// `*mut IInspectable` ([`is_base_interface_out_ptr`]). The `HRESULT`-return + `riid`-*name*
+/// requirement is what excludes the buffer-style GUID-out functions whose GUID parameter is
+/// *data*, not a type selector (`DsReplicaGetInfoW`'s `puuidForSourceDsaObjGuid`,
+/// `RpcServerInqIf`'s `MgrTypeUuid`, `WlanQueryInterface`'s `pInterfaceGuid`,
+/// `TdhCreatePayloadFilter`'s `ProviderGuid` — all returning `u32`/`RPC_STATUS`/`TDHSTATUS`,
+/// not `HRESULT`). The array/length exclusion is what excludes the caller-chosen-type *array
+/// enumerators* (`IEnumObjects::Next(celt, riid, size_is(celt) void **rgelt, …)`) whose
+/// `void**` is a counted array, not a single-object out-pointer — promoting those to a
+/// `ComOutPtr` generic produces broken codegen (the projection would drop the array/count
+/// parameter it still references). Restricting the base-interface arm to the *bare* base
+/// spelling (never a concretely typed `IFoo**`) is what excludes the creators whose `riid`
+/// selects a *different* object than the fixed-type out-pointer (`ActivateAudioInterfaceAsync`'s
+/// `IActivateAudioInterfaceAsyncOperation**`, `RoGetAgileReference`'s `IAgileReference**`).
+/// Adjacency is *not* required — the OLE family has several parameters between the `riid` and
+/// the out-pointer. Only sets the marker (never clears one) and only on a not-already-`In`
+/// out-pointer, so it composes with the SAL/MIDL promotion in [`parse_params`].
 pub(crate) fn infer_iid_is(params: &mut [Param], return_type: &metadata::Type) {
     if !is_hresult(return_type) {
         return;
@@ -354,7 +379,7 @@ pub(crate) fn infer_iid_is(params: &mut [Param], return_type: &metadata::Type) {
             && !param.annotation.in_param
             && param.annotation.array.is_none()
             && param.annotation.size.is_none()
-            && is_void_double_ptr(&param.ty)
+            && (is_void_double_ptr(&param.ty) || is_base_interface_out_ptr(&param.ty))
         {
             param.annotation.com_out_ptr = true;
             // The out-pointer is an output; mark it so `param_attrs_for_annotation` renders

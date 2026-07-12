@@ -420,8 +420,7 @@ fn main() -> windows::core::Result<()> {
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let factory: IDWriteFactory2 =
-                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
+            let factory: IDWriteFactory2 = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
 
             let format = factory.CreateTextFormat(
                 w!("Candara"),

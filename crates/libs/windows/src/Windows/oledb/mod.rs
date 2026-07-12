@@ -5790,11 +5790,12 @@ impl IScopedOperations {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), crows, rgpwszurls, dwdeleteflags, rgdwstatus as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn OpenRowset<P0>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, riid: *const windows_core::GUID, rgpropertysets: &mut [DBPROPSET], pprowset: Option<*mut Option<windows_core::IUnknown>>) -> windows_core::HRESULT
+    pub unsafe fn OpenRowset<P0, T>(&self, punkouter: P0, ptableid: Option<*const DBID>, pindexid: Option<*const DBID>, rgpropertysets: &mut [DBPROPSET], result__: *mut Option<T>) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, riid, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), pprowset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), result__ as *mut _ as *mut _).ok() }
     }
 }
 #[repr(C)]
@@ -5820,7 +5821,7 @@ pub trait IScopedOperations_Impl: IBindResource_Impl {
     fn Copy(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwcopyflags: u32, pauthenticate: windows_core::Ref<super::urlmon::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::Result<()>;
     fn Move(&self, crows: DBCOUNTITEM, rgpwszsourceurls: *const windows_core::PCWSTR, rgpwszdesturls: *const windows_core::PCWSTR, dwmoveflags: u32, pauthenticate: windows_core::Ref<super::urlmon::IAuthenticate>, rgdwstatus: *mut DBSTATUS, rgpwsznewurls: *mut windows_core::PWSTR, ppstringsbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::Result<()>;
     fn Delete(&self, crows: DBCOUNTITEM, rgpwszurls: *const windows_core::PCWSTR, dwdeleteflags: u32, rgdwstatus: *mut DBSTATUS) -> windows_core::Result<()>;
-    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OpenRowset(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, pindexid: *const DBID, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "urlmon", feature = "wtypes", feature = "wtypesbase"))]
 impl IScopedOperations_Vtbl {
@@ -6217,11 +6218,13 @@ impl ITableDefinitionWithConstraints {
         unsafe { (windows_core::Interface::vtable(self).AddConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintdesc) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-    pub unsafe fn CreateTableWithConstraints<P0>(&self, punkouter: P0, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut Option<windows_core::IUnknown>) -> windows_core::HRESULT
+    pub unsafe fn CreateTableWithConstraints<P0, T>(&self, punkouter: P0, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID) -> windows_core::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
+        T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, core::mem::transmute(rgcolumndescs), cconstraintdescs, rgconstraintdescs, riid, cpropertysets, rgpropertysets as _, pptableid as _, core::mem::transmute(pprowset)) }
+        let mut result__ = core::ptr::null_mut();
+        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, core::mem::transmute(rgcolumndescs), cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintid) }
@@ -6244,7 +6247,7 @@ pub struct ITableDefinitionWithConstraints_Vtbl {
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 pub trait ITableDefinitionWithConstraints_Impl: ITableCreation_Impl {
     fn AddConstraint(&self, ptableid: *const DBID, pconstraintdesc: *const DBCONSTRAINTDESC) -> windows_core::Result<()>;
-    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateTableWithConstraints(&self, punkouter: windows_core::Ref<windows_core::IUnknown>, ptableid: *const DBID, ccolumndescs: DBORDINAL, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *const DBCONSTRAINTDESC, riid: *const windows_core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut DBID, pprowset: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]

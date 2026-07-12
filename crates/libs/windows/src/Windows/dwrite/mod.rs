@@ -1,10 +1,11 @@
 #[inline]
-pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const windows_core::GUID) -> windows_core::Result<windows_core::IUnknown> {
+pub unsafe fn DWriteCreateFactory<T>(factorytype: DWRITE_FACTORY_TYPE) -> windows_core::Result<T>
+where
+    T: windows_core::Interface,
+{
     windows_core::link!("dwrite.dll" "system" fn DWriteCreateFactory(factorytype : DWRITE_FACTORY_TYPE, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe {
-        let mut result__ = core::mem::zeroed();
-        DWriteCreateFactory(factorytype, iid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-    }
+    let mut result__ = core::ptr::null_mut();
+    unsafe { DWriteCreateFactory(factorytype, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 pub const DWRITE_ALPHA_MAX: u32 = 255;
 pub type DWRITE_AUTOMATIC_FONT_AXES = u32;

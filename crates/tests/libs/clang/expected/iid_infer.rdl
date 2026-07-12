@@ -2,17 +2,37 @@
 mod Windows {
     mod Win32 {
         #[library("")]
+        extern fn CreateFactory(iid: *const GUID, #[iid_is] factory: *mut *mut void) -> HRESULT;
+        #[library("")]
+        extern fn CreateInspectable(iid: *const GUID, #[iid_is] inspectable: *mut *mut void) -> HRESULT;
+        #[library("")]
         extern fn CreateThing(iid: *const GUID, #[iid_is] ppThing: *mut *mut void) -> HRESULT;
+        #[library("")]
+        extern fn CreateTyped(iid: *const GUID, ppFoo: *mut IFoo) -> HRESULT;
         struct GUID {
             Data1: u32,
         }
         #[library("")]
         extern fn GetThing(providerGuid: *const GUID, ppData: *mut *mut void) -> HRESULT;
         type HRESULT = i32;
+        #[no_guid]
+        interface IFoo: IUnknown {
+            fn Bar(&self,) -> HRESULT;
+        }
+        #[no_guid]
+        interface IInspectable: IUnknown {
+            fn GetIids(&self, count: *mut u32, iids: *mut *mut GUID) -> HRESULT;
+        }
         #[guid(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e)]
         interface IThingFactory {
             fn GetService(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn GetBuffer(&self, ppBuffer: *mut *mut void) -> HRESULT;
+        }
+        #[no_guid]
+        interface IUnknown {
+            fn QueryInterface(&self, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn AddRef(&self,) -> u32;
+            fn Release(&self,) -> u32;
         }
         #[library("")]
         extern fn LoadThing(flags: u32, mode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
