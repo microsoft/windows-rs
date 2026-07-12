@@ -1,7 +1,7 @@
 use super::*;
 
 // The literal-variant constants of an enum (`pub const X: Self = Self(value);`),
-// honoring the minimal-mode per-variant filter. Identical for WinRT (`Enum`) and
+// honoring any per-variant filter (`Enum::{A, B}`). Identical for WinRT (`Enum`) and
 // Win32/COM (`CppEnum`) enums; the callers differ only in how they wrap the result in an
 // `impl` block.
 pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
@@ -9,7 +9,7 @@ pub fn write_enum_constants(def: TypeDef, config: &Config) -> Vec<TokenStream> {
     def.fields()
         .filter(|field| field.flags().contains(FieldAttributes::Literal))
         .filter(|field| {
-            // In minimal mode, only emit variants explicitly listed in the filter.
+            // When the filter lists specific variants for this enum, emit only those.
             if let Some(variant_set) = config.filter.enum_variant_filter(tn.namespace(), tn.name())
             {
                 return variant_set.includes(field.name());

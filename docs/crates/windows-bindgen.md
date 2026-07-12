@@ -466,13 +466,17 @@ behavioral intent rather than clarify it.
      `SetAutomationId` — so casing is *not* a blanket minimal rule; the cosmetic residue is
      small.)
 
-  The specificity model also **unifies the two type-map builders for free**:
-  `TypeMap::filter`'s namespace scan is just "how a namespace-level entry seeds the closure",
-  so `MinimalTypeMap::build` and `TypeMap::filter` become one algorithm seeded at different
-  specificities (namespace/type/glob → `Named{all methods}`, method entry →
-  `Named{method-set}`, closure-pulled type → `Shell`). `--sys` (FFI target), `--implement`
-  (`_Impl` traits), and `--package`/`--flat` (layout) remain orthogonal flags; only
-  `--minimal`'s inclusion role is removed.
+  The two type-map builders (`TypeClosure::build`, the bottom-up closure, and
+  `TypeMap::filter`, the top-down namespace scan) were considered for unification but are
+  **kept deliberately separate**: they implement the two ends of the specificity spectrum —
+  "give me exactly these seeds, lean" (closure, used for precise filters) vs. "give me whole
+  namespaces, fully wired" (scan, used for broad filters and `--package`). Folding the scan
+  into the closure would demote cross-namespace dependencies of broad entries to shells,
+  changing the `windows` / `windows-sys` / `--package` output — so `has_broad_filter` is a
+  *meaningful* strategy selector (also consumed by event-only delegate detection in
+  `delegate.rs`), not incidental complexity. `--sys` (FFI target), `--implement` (`_Impl`
+  traits), and `--package`/`--flat` (layout) remain orthogonal flags; `--minimal`'s inclusion
+  role is removed entirely, leaving it a pure rendering style.
 
   **Build order (each step must clear a byte-for-byte regen of the whole `windows` corpus,
   every `tool_bindings` crate, and `tool_reactor`; abort any step whose diff can't be
@@ -512,10 +516,29 @@ behavioral intent rather than clarify it.
        `--minimal` no longer gates inclusion, they now project the full interface (methods,
        vtable, `_Impl`) rather than name-only shells. The fixtures were auto-updated; this
        documents the new semantics (namespace ⇒ full; use method-level entries to go lean).
-  4. **Remaining.** `--minimal` is now purely cosmetic (snake_case struct fields, extra `Eq`
-     derive). Move those behind an explicit, honestly-named rendering flag and retire the
-     `--minimal` name from the inclusion vocabulary; retire `has_broad_filter` once the
-     closure is the single seeding path, and consider unifying the two type-map builders.
+  4. **Done — `--minimal` no longer touches inclusion at all.** The last inclusion-ish use of
+     the style flag — the `minimal` parameter on `includes_method`, which switched overload
+     name matching between "disambiguated name only" and "raw or overload" — was unified to
+     the precise (overload-exact) behavior for every style and the parameter removed. Verified
+     byte-for-byte identical across the whole corpus **including `--package`**, proving no
+     filter relied on raw-name matching an overloaded method. As part of the same pass the
+     misleadingly-named `MinimalTypeMap` (now the closure builder for *every* precise filter,
+     not just `--minimal`) was renamed to **`TypeClosure`** (`type_closure.rs`), and the
+     stale "minimal mode" comments on the mode-independent method/enum-variant filtering
+     (`cli.rs`, `enum.rs`, `interface.rs`) were corrected. `--minimal` is now purely a
+     rendering style: it drops per-class wrappers / inherited forwarders / the `IIterable`
+     bridge (all reachable via `deref`/`cast`), adds `&str`/`String` sugar, snake_cases struct
+     fields, and adds an `Eq` derive.
+
+  **Remaining (optional polish, not blocking):** the three cosmetic sites that are neither
+  inclusion nor FFI-shape (snake_case struct fields `struct.rs:96`, the extra `Eq` derive
+  `struct.rs:38`, and the `&str`/`String` ergonomic sugar) could move behind an explicitly
+  named rendering flag if `--minimal` is ever split; and the CLI flag `--minimal` could be
+  renamed to advertise that it is a rendering style, not an inclusion lever (deferred: it
+  would churn ~16 `.txt` filters and the tool invocations for a naming-only gain, and no
+  clearly-better name has emerged). The three rendering styles (`default`, `--sys`,
+  `--minimal`) and the layout flag (`--package`) are otherwise a clean, orthogonal set with
+  inclusion factored out as its own specificity-driven axis.
 - *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
   COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
   `DXGI_STATUS_OCCLUDED`, …) trades off two options: `-> Result<()>` throws the

@@ -50,9 +50,9 @@ use value::*;
 use winmd::*;
 mod filter_parser;
 mod method_names;
-mod minimal_type_map;
+mod type_closure;
 use method_names::*;
-use minimal_type_map::*;
+use type_closure::*;
 
 /// Creates a new [`Bindgen`] builder for generating Windows API bindings.
 pub fn builder() -> Bindgen {
@@ -514,14 +514,15 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            // Use bottom-up type closure (MinimalTypeMap) whenever the filter has
-            // precise entries without broad patterns. This walks the signatures
-            // of requested methods to discover the required types so referenced
-            // types are auto-included and requested methods stay callable in
-            // every style (not just `--minimal`).
+            // Seed the bottom-up type closure (`TypeClosure`) whenever the filter
+            // has precise entries without broad patterns. This walks the signatures
+            // of requested methods to discover the required types, so referenced
+            // types are auto-included and requested methods stay callable in every
+            // style. A broad filter (namespace / glob) or `--package` layout instead
+            // takes the top-down namespace scan (`TypeMap::filter`).
             let types = if !filter.has_broad_filter && !self.layout.is_package() {
                 filter.uses_closure = true;
-                MinimalTypeMap::build(&reader, &mut filter, &references)
+                TypeClosure::build(&reader, &mut filter, &references)
             } else {
                 TypeMap::filter(&reader, &filter, &references)
             };

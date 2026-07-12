@@ -23,7 +23,7 @@ pub enum MethodOrName<M> {
 // in its signature is not present at all (not included, not reference-provided). Only
 // the *direct* signature types are required: a dependency present merely as a name-only
 // shell still lets the method be described, so this one check serves both the full
-// projection (everything present) and the lean/minimal projection (dependencies present
+// projection (everything present) and the lean closure projection (dependencies present
 // as shells) without a mode flag. Shared by the WinRT and COM interface generators so the
 // policy that decides `Method` vs `Name` lives in one place.
 pub fn method_is_skipped(
@@ -411,7 +411,7 @@ impl Interface {
                 }
             }
 
-            // Even in `minimal` mode (or when MinimalTypeMap is active), exclusive instance
+            // Even in `minimal` mode (or when the TypeClosure is active), exclusive instance
             // interfaces still need their own-vtable method block; otherwise WinRT class
             // default interfaces would lose their callable wrappers entirely. Exclusive
             // factory interfaces (those referenced from the class via

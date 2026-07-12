@@ -52,7 +52,7 @@ pub struct Filter {
     /// that are not compatible with bottom-up type closure.
     pub has_broad_filter: bool,
     /// `true` when this filter is resolved via the bottom-up type closure
-    /// (`MinimalTypeMap`) rather than the namespace scan. A closure build only
+    /// ([`TypeClosure`]) rather than the namespace scan. A closure build only
     /// names its explicit seeds; every other type it pulls in is a dependency
     /// shell. A scan build (broad filter or `--package`) names everything it
     /// matches.
@@ -198,7 +198,7 @@ impl Filter {
     /// exists, unlisted methods are demoted (allow-list mode); otherwise
     /// only listed deny entries are demoted (deny-only mode). When `minimal`
     /// is true, overload matching uses the disambiguated name exclusively.
-    pub fn includes_method(&self, type_name: TypeName, method: MethodDef, minimal: bool) -> bool {
+    pub fn includes_method(&self, type_name: TypeName, method: MethodDef) -> bool {
         let key = (
             type_name.namespace().to_string(),
             type_name.name().to_string(),
@@ -217,22 +217,14 @@ impl Filter {
         let raw = method.name();
         let overload = method_overload_name(method);
 
-        // In minimal mode, match by overload-disambiguated name when one
-        // exists — the raw metadata name is shared with other overloads and
-        // would include them all indiscriminately. In non-minimal mode,
-        // match either raw or overload for broader compatibility.
+        // Match by overload-disambiguated name when one exists — the raw
+        // metadata name is shared with other overloads and would include them
+        // all indiscriminately.
         let in_set = |set: &BTreeSet<String>| -> bool {
-            if minimal {
-                if let Some(ref name) = overload {
-                    set.contains(name.as_str())
-                } else {
-                    set.contains(raw)
-                }
+            if let Some(ref name) = overload {
+                set.contains(name.as_str())
             } else {
                 set.contains(raw)
-                    || overload
-                        .as_ref()
-                        .is_some_and(|name| set.contains(name.as_str()))
             }
         };
 
@@ -262,9 +254,11 @@ impl Filter {
             .contains(&(namespace.to_string(), name.to_string()))
     }
 
-    /// Create a filter for minimal/opt-in mode. Parses the same `::` syntax
-    /// as the standard filter but only explicitly-requested methods are
-    /// emitted (pass `minimal: true` to `includes_method`).
+    /// Builds a [`Filter`] from resolved filter entries, recording the seeds
+    /// (types, methods, requested interfaces) that drive both the inclusion
+    /// rules and the [`TypeClosure`] walk. Method-level specificity is preserved
+    /// so that `type_role` / `includes_method` can later decide each type's
+    /// projected surface.
     ///
     /// Supported entry syntax:
     /// - `Namespace.Type` — include a type (function, struct, enum, class)
@@ -313,7 +307,7 @@ impl Filter {
                     rules.push((full, include));
 
                     if include {
-                        // Record as a direct type for MinimalTypeMap's closure.
+                        // Record as a direct type for the [`TypeClosure`] walk.
                         // Populated regardless of mode — the type-map decision
                         // happens after filter construction.
                         let key = (namespace.clone(), name.clone());
@@ -338,7 +332,7 @@ impl Filter {
                     if members.len() == 1 && members[0] == "*" {
                         // ::* — expand all methods/members on the type
                         if include {
-                            Self::register_type_for_minimal(
+                            Self::register_type_all_members(
                                 reader,
                                 namespace,
                                 name,
@@ -386,8 +380,9 @@ impl Filter {
         }
     }
 
-    /// Register a type for minimal mode's type closure.
-    fn register_type_for_minimal(
+    /// Register a `Ns.Type::*` entry: seed the type and all its members for the
+    /// [`TypeClosure`] walk (marks the type's requested interface set as `All`).
+    fn register_type_all_members(
         reader: &Reader,
         namespace: &str,
         name: &str,
@@ -598,8 +593,8 @@ impl Filter {
                             .collect();
                         expanded.extend(remove_extras);
                     }
-                    // Register expanded names in requested_interfaces for type
-                    // closure (used by MinimalTypeMap to walk only requested
+                    // Register expanded names in requested_interfaces for the
+                    // type closure (used by [`TypeClosure`] to walk only requested
                     // method signatures).
                     let set = requested_interfaces
                         .entry(key.clone())

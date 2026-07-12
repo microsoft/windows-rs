@@ -64,10 +64,15 @@ use super::*;
 ///
 /// ## Method-level filtering
 ///
-/// In `--minimal` mode, filters can additionally target individual methods,
-/// properties, and events on an interface, class, or struct.  The syntax
-/// looks like `Namespace.Type::Member`.  You can also use `Property.Name`
+/// Filters can target individual methods, properties, and events on an
+/// interface, class, or struct — in any style.  The syntax looks like
+/// `Namespace.Type::Member`.  You can also use `Property.Name`
 /// or `Event.Name` sugar to target a getter/setter pair or an event pair.
+///
+/// The *specificity* of an entry determines how much of the type is projected:
+/// naming a bare type makes it available (a name-only shell), while
+/// `Type::Member` or `Type::*` projects the requested methods.  See the filter
+/// model discussion in `docs/crates/windows-bindgen.md`.
 ///
 /// ```text
 /// --filter Windows.UI.Xaml.Controls.Button

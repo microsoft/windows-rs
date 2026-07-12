@@ -9,14 +9,19 @@ fn method_included_by_set(method: MethodDef, method_set: &MethodSet) -> bool {
     method_set.includes(method.name())
 }
 
-/// Computes the minimal type closure for `--minimal` mode.
+/// Computes the bottom-up type closure for a precise (non-broad, non-package)
+/// filter — the projection whose seeds are the exact types and methods named in
+/// the [`Filter`].
 ///
-/// Starting from the methods and types listed in a [`Filter`], this walks
-/// method signatures recursively to discover only the types that are actually
-/// needed by the requested API surface.
-pub struct MinimalTypeMap;
+/// Starting from those seeds, this walks method signatures recursively to
+/// discover only the types actually needed by the requested API surface; types
+/// reached only as dependencies are pulled in as name-only shells. This is the
+/// seeding path for every style whose filter names things precisely (`--sys`,
+/// `--minimal`, and the default), as opposed to the top-down [`TypeMap::filter`]
+/// namespace scan used for broad filters and `--package`.
+pub struct TypeClosure;
 
-impl MinimalTypeMap {
+impl TypeClosure {
     /// Build a `TypeMap` containing only the types required by the methods and
     /// types listed in `filter`. Also adds type-level include rules to the
     /// filter for all discovered types.
@@ -36,31 +41,31 @@ impl MinimalTypeMap {
                         let req_tn = Type::Interface(required.clone()).type_name();
                         if references.contains(req_tn).is_some() {
                             for g in &required.generics {
-                                g.combine_minimal(&mut types, reader, references);
+                                g.combine_closure(&mut types, reader, references);
                             }
                             continue;
                         }
                         types.insert(Type::Interface(required.clone()));
-                        Type::Object.combine_minimal(&mut types, reader, references);
+                        Type::Object.combine_closure(&mut types, reader, references);
                     }
 
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_minimal(&mut types, reader, references);
+                                dep_ty.combine_closure(&mut types, reader, references);
                             }
                         }
                     }
                 } else if let Type::CppInterface(iface) = &ty {
                     for base in iface.base_interfaces(reader) {
-                        base.combine_minimal(&mut types, reader, references);
+                        base.combine_closure(&mut types, reader, references);
                     }
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
                             let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
-                                dep_ty.combine_minimal(&mut types, reader, references);
+                                dep_ty.combine_closure(&mut types, reader, references);
                             }
                         }
                     }
@@ -71,7 +76,7 @@ impl MinimalTypeMap {
         // 2. Process directly-included types (functions, structs, enums, etc.)
         for (namespace, name) in &filter.direct_types {
             for ty in reader.with_full_name(namespace, name) {
-                ty.combine_minimal(&mut types, reader, references);
+                ty.combine_closure(&mut types, reader, references);
                 types.insert(ty.clone());
             }
         }
@@ -99,17 +104,17 @@ impl MinimalTypeMap {
     }
 }
 
-/// Extension trait providing a minimal-mode dependency walk.
+/// Extension trait providing the bottom-up closure dependency walk.
 ///
 /// Unlike the full `Dependencies::combine`, this only pulls in types that are
 /// directly referenced (struct fields, enum bases, delegate signatures) without
 /// greedily pulling entire interface hierarchies for every interface encountered.
-trait CombineMinimal {
-    fn combine_minimal(&self, types: &mut TypeMap, reader: &Reader, references: &References);
+trait CombineClosure {
+    fn combine_closure(&self, types: &mut TypeMap, reader: &Reader, references: &References);
 }
 
-impl CombineMinimal for Type {
-    fn combine_minimal(&self, types: &mut TypeMap, reader: &Reader, references: &References) {
+impl CombineClosure for Type {
+    fn combine_closure(&self, types: &mut TypeMap, reader: &Reader, references: &References) {
         let ty = self.decay();
 
         if ty.is_intrinsic() {
@@ -123,7 +128,7 @@ impl CombineMinimal for Type {
             // Still need to process generic args (e.g., IVector<LocalType>).
             let (_ty_inner, generics) = ty.split_generic(reader);
             for g in &generics {
-                g.combine_minimal(types, reader, references);
+                g.combine_closure(types, reader, references);
             }
             return;
         }
@@ -131,7 +136,7 @@ impl CombineMinimal for Type {
         // Split off generic args and recurse into them.
         let (ty_inner, generics) = ty.split_generic(reader);
         for g in &generics {
-            g.combine_minimal(types, reader, references);
+            g.combine_closure(types, reader, references);
         }
 
         // Insert the base (non-specialized) type into the map.
@@ -181,7 +186,7 @@ impl CombineMinimal for Type {
         };
         for sibling in siblings {
             if sibling != ty_inner {
-                sibling.combine_minimal(types, reader, references);
+                sibling.combine_closure(types, reader, references);
             }
         }
 
@@ -189,13 +194,13 @@ impl CombineMinimal for Type {
             Self::Struct(s) => {
                 for field in s.def.fields() {
                     let field_ty = field.field_type(None, reader);
-                    field_ty.combine_minimal(types, reader, references);
+                    field_ty.combine_closure(types, reader, references);
                 }
             }
             Self::CppStruct(s) => {
                 for field in s.def.fields() {
                     let field_ty = field.field_type(Some(s), reader);
-                    field_ty.combine_minimal(types, reader, references);
+                    field_ty.combine_closure(types, reader, references);
                 }
             }
             Self::Enum(_) | Self::CppEnum(_) => {}
@@ -204,7 +209,7 @@ impl CombineMinimal for Type {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(&d.generics, reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_minimal(types, reader, references);
+                            dep_ty.combine_closure(types, reader, references);
                         }
                     }
                 }
@@ -214,7 +219,7 @@ impl CombineMinimal for Type {
                     if method.name() == "Invoke" {
                         let sig = method.method_signature(&[], reader);
                         for dep_ty in sig.types() {
-                            dep_ty.combine_minimal(types, reader, references);
+                            dep_ty.combine_closure(types, reader, references);
                         }
                     }
                 }
@@ -224,24 +229,24 @@ impl CombineMinimal for Type {
                 // requested), we only need the struct/IID/hierarchy — no need
                 // to recursively pull in all their method signature types.
                 // The hierarchy is handled by the caller.
-                Self::Object.combine_minimal(types, reader, references);
+                Self::Object.combine_closure(types, reader, references);
             }
             Self::CppInterface(iface) => {
                 // Pull in base interfaces so vtable/Deref/hierarchy work.
                 for base in iface.base_interfaces(reader) {
-                    base.combine_minimal(types, reader, references);
+                    base.combine_closure(types, reader, references);
                 }
-                Self::IUnknown.combine_minimal(types, reader, references);
+                Self::IUnknown.combine_closure(types, reader, references);
             }
             Self::CppFn(f) => {
                 let sig = f.method.method_signature(&[], reader);
                 for dep_ty in sig.types() {
-                    dep_ty.combine_minimal(types, reader, references);
+                    dep_ty.combine_closure(types, reader, references);
                 }
                 if let Some(dependency) = f.window_long_dependency() {
                     reader
                         .unwrap_full_name(f.namespace, dependency)
-                        .combine_minimal(types, reader, references);
+                        .combine_closure(types, reader, references);
                 }
             }
             Self::CppConst(c) => {
@@ -250,10 +255,10 @@ impl CombineMinimal for Type {
                 // enum; without this the enum's type alias (e.g. `pub type CLSCTX
                 // = u32;`) is never emitted, leaving the constant dangling.
                 let field_ty = c.field.field_type(None, reader);
-                field_ty.combine_minimal(types, reader, references);
+                field_ty.combine_closure(types, reader, references);
             }
             Self::Class(c) => {
-                // In minimal mode, only pull in the default interface (needed for
+                // In the closure, only pull in the default interface (needed for
                 // Deref and class identity). All other instance/base interfaces are
                 // only included if they appear explicitly in the filter's interfaces
                 // map (which is handled by step 1 of build()).
@@ -271,11 +276,11 @@ impl CombineMinimal for Type {
                     let iface_tn = iface_ty.type_name();
                     if references.contains(iface_tn).is_some() {
                         for g in &iface.generics {
-                            g.combine_minimal(types, reader, references);
+                            g.combine_closure(types, reader, references);
                         }
                         continue;
                     }
-                    iface_ty.combine_minimal(types, reader, references);
+                    iface_ty.combine_closure(types, reader, references);
                 }
                 // Pull in base classes for the required_hierarchy! macro.
                 let mut def = c.def;
@@ -285,7 +290,7 @@ impl CombineMinimal for Type {
                         break;
                     }
                     let base = reader.unwrap_full_name(extends.namespace(), extends.name());
-                    base.combine_minimal(types, reader, references);
+                    base.combine_closure(types, reader, references);
                     if let Self::Class(base_class) = &base {
                         def = base_class.def;
                     } else {
@@ -294,11 +299,11 @@ impl CombineMinimal for Type {
                 }
             }
             Self::IUnknown => {
-                Self::GUID.combine_minimal(types, reader, references);
-                Self::HRESULT.combine_minimal(types, reader, references);
+                Self::GUID.combine_closure(types, reader, references);
+                Self::HRESULT.combine_closure(types, reader, references);
             }
             Self::Object => {
-                Self::IUnknown.combine_minimal(types, reader, references);
+                Self::IUnknown.combine_closure(types, reader, references);
             }
             _ => {}
         }
