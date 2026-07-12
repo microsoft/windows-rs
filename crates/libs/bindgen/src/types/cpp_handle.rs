@@ -103,15 +103,13 @@ impl Config<'_> {
                 quote! {}
             };
 
-            let result = quote! {
+            quote! {
                 #arches
                 #[repr(transparent)]
                 #[derive(#derive)]
                 pub struct #name(pub #ty_name);
                 #default
-            };
-
-            result
+            }
         }
     }
 }

@@ -46,11 +46,7 @@ impl MinimalTypeMap {
 
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
-                            let sig = method.method_signature(
-                                iface.def.namespace(),
-                                &iface.generics,
-                                reader,
-                            );
+                            let sig = method.method_signature(&iface.generics, reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_minimal(&mut types, reader, references);
                             }
@@ -62,7 +58,7 @@ impl MinimalTypeMap {
                     }
                     for method in iface.def.methods() {
                         if method_included_by_set(method, method_set) {
-                            let sig = method.method_signature(iface.def.namespace(), &[], reader);
+                            let sig = method.method_signature(&[], reader);
                             for dep_ty in sig.types() {
                                 dep_ty.combine_minimal(&mut types, reader, references);
                             }
@@ -201,7 +197,7 @@ impl CombineMinimal for Type {
             Self::Delegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
-                        let sig = method.method_signature(d.def.namespace(), &d.generics, reader);
+                        let sig = method.method_signature(&d.generics, reader);
                         for dep_ty in sig.types() {
                             dep_ty.combine_minimal(types, reader, references);
                         }
@@ -211,7 +207,7 @@ impl CombineMinimal for Type {
             Self::CppDelegate(d) => {
                 for method in d.def.methods() {
                     if method.name() == "Invoke" {
-                        let sig = method.method_signature(d.def.namespace(), &[], reader);
+                        let sig = method.method_signature(&[], reader);
                         for dep_ty in sig.types() {
                             dep_ty.combine_minimal(types, reader, references);
                         }
@@ -233,7 +229,7 @@ impl CombineMinimal for Type {
                 Self::IUnknown.combine_minimal(types, reader, references);
             }
             Self::CppFn(f) => {
-                let sig = f.method.method_signature(f.namespace, &[], reader);
+                let sig = f.method.method_signature(&[], reader);
                 for dep_ty in sig.types() {
                     dep_ty.combine_minimal(types, reader, references);
                 }

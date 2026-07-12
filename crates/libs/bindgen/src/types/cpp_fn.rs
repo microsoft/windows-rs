@@ -30,7 +30,7 @@ impl CppFn {
     fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let signature = self
             .method
-            .method_signature(self.namespace, &[], config.reader);
+            .method_signature(&[], config.reader);
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
@@ -63,7 +63,7 @@ impl CppFn {
         // non-MSVC targets, so force `"C"` whenever the signature is VARARG.
         if self
             .method
-            .method_signature(self.namespace, &[], config.reader)
+            .method_signature(&[], config.reader)
             .call_flags
             .contains(MethodCallAttributes::VARARG)
         {
@@ -113,7 +113,7 @@ impl CppFn {
         let name = to_ident(self.method.name());
         let signature = self
             .method
-            .method_signature(self.namespace, &[], config.reader);
+            .method_signature(&[], config.reader);
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
@@ -148,7 +148,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, self.namespace, config.reader);
+        let method = CppMethod::new(self.method, config.reader);
         let args = method.write_args(config);
         let params = method.write_params(config);
         let generics = method.write_generics();
@@ -329,7 +329,7 @@ impl CppFn {
 impl Dependencies for CppFn {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method
-            .method_signature(self.namespace, &[], reader)
+            .method_signature(&[], reader)
             .combine(dependencies, reader);
 
         let dependency = self.window_long_dependency();

@@ -27,7 +27,7 @@ pub fn write_method_cfg(
 
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type], reader: &Reader) -> Self {
-        let signature = def.method_signature("", generics, reader);
+        let signature = def.method_signature(generics, reader);
         let dependencies = signature.dependencies(reader);
 
         Self {

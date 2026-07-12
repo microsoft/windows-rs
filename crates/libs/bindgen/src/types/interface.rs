@@ -842,7 +842,7 @@ impl Dependencies for Interface {
 
         for method in self.def.methods() {
             for ty in method
-                .method_signature(self.def.namespace(), &self.generics, reader)
+                .method_signature(&self.generics, reader)
                 .types()
             {
                 if is_iterable || ty.is_core() {

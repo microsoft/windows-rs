@@ -648,7 +648,7 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
                     && method.name().starts_with("add_");
 
-                let sig = method.method_signature("", generics, reader);
+                let sig = method.method_signature(generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
                         if is_event_add {

@@ -35,7 +35,7 @@ fn combine_libraries(
                 let arches = ty.method.arches();
                 let params = if (arches == 0) || (arches & 1 == 1) {
                     ty.method
-                        .method_signature(ty.namespace, &[], reader)
+                        .method_signature(&[], reader)
                         .size(reader)
                 } else {
                     0

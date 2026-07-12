@@ -23,13 +23,12 @@ impl CppInterface {
     }
 
     pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName<CppMethod>> {
-        let namespace = self.def.namespace();
         let type_name = self.def.type_name();
 
         self.def
             .methods()
             .map(|def| {
-                let method = CppMethod::new(def, namespace, config.reader);
+                let method = CppMethod::new(def, config.reader);
                 if method_is_skipped(def, type_name, &method.dependencies, config) {
                     MethodOrName::Name(method.def)
                 } else {
@@ -44,10 +43,9 @@ impl CppInterface {
     // whether to emit the `_Impl` trait, since a derived `_Impl` cannot reference a
     // base `_Impl` that wasn't emitted.
     pub fn has_skipped_methods(&self, config: &Config) -> bool {
-        let namespace = self.def.namespace();
         let type_name = self.def.type_name();
         self.def.methods().any(|def| {
-            let method = CppMethod::new(def, namespace, config.reader);
+            let method = CppMethod::new(def, config.reader);
             method_is_skipped(def, type_name, &method.dependencies, config)
         })
     }
@@ -451,7 +449,7 @@ impl Dependencies for CppInterface {
 
         for method in self.def.methods() {
             for ty in method
-                .method_signature(self.def.namespace(), &[], reader)
+                .method_signature(&[], reader)
                 .types()
             {
                 if ty.is_core() {

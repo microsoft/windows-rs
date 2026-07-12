@@ -3,7 +3,7 @@ use super::*;
 pub trait MethodDefExt {
     fn import_name(&self) -> Option<&'static str>;
     fn module_name(&self) -> String;
-    fn method_signature(&self, namespace: &str, generics: &[Type], reader: &Reader) -> Signature;
+    fn method_signature(&self, generics: &[Type], reader: &Reader) -> Signature;
 }
 
 impl MethodDefExt for MethodDef {
@@ -38,7 +38,7 @@ impl MethodDefExt for MethodDef {
     }
 
     #[track_caller]
-    fn method_signature(&self, _namespace: &str, generics: &[Type], reader: &Reader) -> Signature {
+    fn method_signature(&self, generics: &[Type], reader: &Reader) -> Signature {
         let meta_sig = self.signature(&Type::generic_placeholders(generics.len()));
         let call_flags = meta_sig.flags;
         let return_type = Type::from_metadata_type(&meta_sig.return_type, None, generics, reader);
