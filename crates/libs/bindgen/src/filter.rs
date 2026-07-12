@@ -569,38 +569,19 @@ impl Filter {
 
 #[track_caller]
 fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
-    // Accessor-only sugar: `get:Prop` / `set:Prop` / `add:Evt` / `remove:Evt`
-    // expand to a single accessor name, letting callers opt in to just the
-    // setter (or just the getter) without listing the raw `put_Prop` /
-    // `get_Prop` name. This is especially useful in reactive UI code where
-    // state flows one direction and most properties only need a setter.
-    if let Some((prefix, name)) = method_part.split_once(':') {
-        let accessor = match prefix {
-            "get" => format!("get_{name}"),
-            "set" => format!("put_{name}"),
-            "add" => format!("add_{name}"),
-            "remove" => format!("remove_{name}"),
-            _ => return Vec::new(),
-        };
-        if defs.iter().any(|m| m.name() == accessor) {
-            return vec![accessor];
-        }
-        return Vec::new();
-    }
-
+    // A member entry names an actual metadata method. A single metadata name
+    // may cover several overload rows; the entry applies to all of them, which
+    // preserves the behavior of `!Iface::Method`.
     if defs.iter().any(|m| m.name() == method_part) {
-        // Exact match against a metadata method name. No sugar expansion
-        // needed. Even if the same metadata name covers several overload
-        // rows, the entry intentionally applies to all of them — this
-        // preserves the historical behavior of `!Iface::Method`.
         return vec![method_part.to_string()];
     }
 
-    // Sugar expansion. Try property accessors (`get_X` / `put_X`) first;
-    // if that produces nothing, fall back to event accessors (`add_X` /
-    // `remove_X`). WinRT interfaces cannot define a property and an event
-    // under the same name (compile-time metadata restriction), so the
-    // property-then-event ordering is unambiguous in practice.
+    // Bare-name accessor sugar. A property or event is named by its logical
+    // name (e.g. `Tick`, `Interval`) and expands to its accessors. Property
+    // accessors (`get_X` / `put_X`) are tried first; if none exist, event
+    // accessors (`add_X` / `remove_X`) are used. WinRT interfaces cannot define
+    // a property and an event under the same name, so the ordering is
+    // unambiguous.
     let getter = format!("get_{method_part}");
     let setter = format!("put_{method_part}");
     let adder = format!("add_{method_part}");
@@ -625,10 +606,10 @@ fn expand_method_part(method_part: &str, defs: &[MethodDef]) -> Vec<String> {
         return expanded;
     }
 
-    // Overload-disambiguated name match. The set entry is the overload
-    // name itself — `Filter::includes_method` checks the overload name of
-    // each `MethodDef` alongside its raw name, so this addresses exactly
-    // the row whose `[overload("…")]` attribute carries this value.
+    // Overload-disambiguated name match. The set entry is the overload name
+    // itself — `Filter::includes_method` checks the overload name of each
+    // `MethodDef` alongside its raw name, so this addresses exactly the row
+    // whose `[overload("…")]` attribute carries this value.
     if defs
         .iter()
         .any(|m| method_overload_name(*m).as_deref() == Some(method_part))

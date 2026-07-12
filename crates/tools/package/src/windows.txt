@@ -4,7 +4,7 @@
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
-    Windows::**
+    Windows
 
     !Windows::AI::MachineLearning::Preview
     !Windows::ApplicationModel::SocialInfo

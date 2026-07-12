@@ -366,6 +366,18 @@ behavioral intent rather than clarify it.
 
 **Future work.**
 
+- *Filter syntax simplification (done).* The filter grammar had accumulated
+  redundant and unused syntax. Removed: the explicit-prefix accessor sugar
+  (`get:Prop` / `set:Prop` / `add:Evt` / `remove:Evt`), which only ever appeared
+  in a test; the recursive namespace glob `**`; and the namespace-level `*`
+  (`Ns::*`). A bare namespace is already recursive — `match_type_name` matches it
+  as a prefix — so `Windows`, `Windows::*`, and `Windows::**` all resolved to the
+  identical rule. `tool_package`'s `windows.txt` used `Windows::**` while `sys.txt`
+  used bare `Windows`; both are now bare `Windows`, and the corpus regenerates
+  byte-for-byte unchanged. What remains is one uniform model: bare namespaces
+  (recursive), fully-qualified types, `Type::member` / `Type::{a, b}` /  `Type::*`
+  member selection, `Prefix*` name globs, bare-name `Property`/`Event` accessor
+  sugar, and `!` exclusions.
 - *`--extern` is a deliberate escape hatch — keep it.* The `--extern`
   (`Style::Sys { extern_fns: true }`) option emits `extern` declarations instead of
   `link!` macros. It is unused in-repo because every windows-rs crate links via

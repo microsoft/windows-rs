@@ -4,9 +4,9 @@ use super::*;
 ///
 /// Grammar:
 /// ```text
-/// entry   = ["!"] ["??" | "?"] tree
+/// entry   = ["!"] tree
 /// tree    = segment { "::" segment }
-/// segment = "{" tree { "," tree } "}" | "**" | "*" | ident
+/// segment = "{" tree { "," tree } "}" | "*" | ident
 /// ident   = [A-Za-z0-9_]+
 /// ```
 ///
@@ -156,7 +156,7 @@ pub struct ResolvedFilter {
 
 #[derive(Debug, Clone)]
 pub enum ResolvedKind {
-    /// A namespace (possibly with recursive glob): include/exclude all types in it.
+    /// A namespace: include/exclude that namespace and everything nested under it.
     Namespace(String),
     /// A specific type with all members.
     Type { namespace: String, name: String },
@@ -177,10 +177,11 @@ pub enum ResolvedKind {
 /// remaining segments are members (methods/variants).
 ///
 /// Special cases:
-/// - `**` at the end means recursive namespace inclusion
-/// - `*` at the end of a namespace means all types in that namespace
 /// - `*` after a type means all members
 /// - A single bare ident (no `::`) is searched across all namespaces
+///
+/// A bare namespace (e.g. `Windows` or `Windows::Foundation`) is recursive: it
+/// matches that namespace and every namespace nested beneath it.
 pub fn resolve_entries(reader: &Reader, entries: &[FilterEntry]) -> Vec<ResolvedFilter> {
     let mut resolved = Vec::new();
 
@@ -205,13 +206,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     // Single segment: bare name (e.g. "CloseHandle") — search all namespaces
     if segments.len() == 1 {
         let name = &segments[0];
-        if name == "**" || name == "*" {
-            // Everything
-            return reader
-                .keys()
-                .map(|ns| base(ResolvedKind::Namespace(ns.to_string())))
-                .collect();
-        }
         // Search all namespaces for this name
         let mut found = false;
         let mut results = Vec::new();
@@ -239,21 +233,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return results;
     }
 
-    // Check if last segment is `**` (recursive glob)
-    if segments.last().is_some_and(|s| s == "**") {
-        let ns_prefix = segments[..segments.len() - 1].join(".");
-        // Validate namespace prefix exists
-        let any_match = reader
-            .keys()
-            .any(|ns| namespace_starts_with(ns, &ns_prefix));
-        assert!(
-            any_match,
-            "no namespaces found matching `{}`",
-            segments.join("::")
-        );
-        return vec![base(ResolvedKind::Namespace(ns_prefix))];
-    }
-
     // Try progressively longer namespace prefixes.
     // Join segments with "." and check reader.
     for split in (1..segments.len()).rev() {
@@ -266,16 +245,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
 
         // Found namespace. Next segment should be a type or glob.
         let type_seg = &rest[0];
-
-        // Namespace-level glob: `Ns::*`
-        if type_seg == "*" {
-            assert!(
-                rest.len() == 1,
-                "`*` must be the last segment in `{}`",
-                segments.join("::")
-            );
-            return vec![base(ResolvedKind::Namespace(ns_candidate))];
-        }
 
         // Name glob: `Ns::Prefix*`
         if let Some(prefix) = type_seg.strip_suffix('*') {
@@ -428,13 +397,6 @@ mod tests {
     }
 
     #[test]
-    fn recursive_glob() {
-        let entries = parse_filter_entry("Windows::**");
-        assert_eq!(entries.len(), 1);
-        assert_eq!(entries[0].segments, vec!["Windows", "**"]);
-    }
-
-    #[test]
     fn nested_groups() {
         let entries = parse_filter_entry("A::{B::{C, D}, E}");
         assert_eq!(entries.len(), 3);
@@ -503,20 +465,6 @@ mod resolution_tests {
                 assert_eq!(members, &["GetAdapter"]);
             }
             other => panic!("expected Members, got {other:?}"),
-        }
-    }
-
-    #[test]
-    fn resolve_recursive_glob() {
-        let reader = test_reader();
-        let entries = parse_filter_entry("Windows::Foundation::**");
-        let resolved = resolve_entries(reader, &entries);
-        assert_eq!(resolved.len(), 1);
-        match &resolved[0].kind {
-            ResolvedKind::Namespace(ns) => {
-                assert_eq!(ns, "Windows.Foundation");
-            }
-            other => panic!("expected Namespace, got {other:?}"),
         }
     }
 
