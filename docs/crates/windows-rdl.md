@@ -27,7 +27,7 @@ codegen tool or `build.rs`, not shipped at runtime):
 
 ```toml
 [build-dependencies]
-windows-rdl = "0.3"
+windows-rdl = "0.0.0"
 ```
 
 The crate exposes three builders, one per direction of the pipeline:

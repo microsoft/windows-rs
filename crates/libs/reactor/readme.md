@@ -22,8 +22,11 @@ fn app(cx: &mut RenderCx) -> Element {
 }
 
 fn main() -> windows_core::Result<()> {
+    bootstrap()?;
     App::new().title("My App").render(app)
 }
 ```
 
-Widget builders convert to `Element` via `.into()`, and `cx.use_state` returns the current value plus a handle whose `call` schedules a rerender. See the [reactor guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for components, hooks, layout, styling, and the full widget catalog.
+`bootstrap()` initializes the Windows App SDK runtime and is required once at
+startup for a framework-dependent app (self-contained deployments handle this
+differently — see the samples). Widget builders convert to `Element` via `.into()`, and `cx.use_state` returns the current value plus a handle whose `call` schedules a rerender. See the [reactor guide](https://github.com/microsoft/windows-rs/blob/master/docs/crates/windows-reactor.md) for components, hooks, layout, styling, and the full widget catalog.
