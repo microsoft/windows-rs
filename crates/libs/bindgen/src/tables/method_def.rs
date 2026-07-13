@@ -19,22 +19,9 @@ impl MethodDefExt for MethodDef {
     }
 
     fn module_name(&self) -> String {
-        const COMBASE_FUNCTIONS: [&str; 5] = [
-            "CoCreateFreeThreadedMarshaler",
-            "CoIncrementMTAUsage",
-            "CoTaskMemAlloc",
-            "CoTaskMemFree",
-            "RoGetAgileReference",
-        ];
-
-        // Workaround for https://github.com/microsoft/windows-rs/pull/3743
-        if COMBASE_FUNCTIONS.contains(&self.name()) {
-            "combase.dll".to_string()
-        } else {
-            self.impl_map()
-                .map_or("", |map| map.import_scope().name())
-                .to_lowercase()
-        }
+        self.impl_map()
+            .map_or("", |map| map.import_scope().name())
+            .to_lowercase()
     }
 
     #[track_caller]

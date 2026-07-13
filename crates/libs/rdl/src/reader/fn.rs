@@ -85,36 +85,28 @@ impl Encoder<'_> {
             return self.err(&item.sig, "`library` attribute not found");
         };
 
-        let (library, last_error, import) = attribute
+        let (library, import) = attribute
             .parse_args_with(
-                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool, Option<String>)> {
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, Option<String>)> {
                     let library: syn::LitStr = input.parse()?;
-                    let mut last_error = false;
                     let mut import = None;
                     while input.peek(syn::Token![,]) {
                         input.parse::<syn::Token![,]>()?;
                         let ident: syn::Ident = input.parse()?;
                         input.parse::<syn::Token![=]>()?;
-                        if ident == "last_error" {
-                            let value: syn::LitBool = input.parse()?;
-                            last_error = value.value();
-                        } else if ident == "import" {
+                        if ident == "import" {
                             let value: syn::LitStr = input.parse()?;
                             import = Some(value.value());
                         } else {
                             return Err(syn::Error::new(ident.span(), "unknown library option"));
                         }
                     }
-                    Ok((library, last_error, import))
+                    Ok((library, import))
                 },
             )
             .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
 
         let mut flags = metadata::PInvokeAttributes::NoMangle;
-
-        if last_error {
-            flags |= metadata::PInvokeAttributes::SupportsLastError;
-        }
 
         if let Some(abi) = &item.abi {
             match abi.value().as_str() {

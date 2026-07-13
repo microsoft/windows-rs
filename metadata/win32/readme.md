@@ -22,8 +22,9 @@ These files are produced by `tool_win32`:
 cargo run -p tool_win32
 ```
 
-Re-run the tool after changing the manifest (`crates/tools/win32/src/win32.toml`),
-the hand-authored vocabulary seed (`metadata/win32/metadata.rdl`), or the scraper,
+Re-run the tool after changing the manifest (the `const` slices in
+`crates/tools/win32/src/main.rs`), the hand-authored vocabulary seed
+(`metadata/win32/metadata.rdl`), or the scraper,
 and commit the resulting diff. Hand edits will be overwritten on the next run — the
 tool clears the generated partitions (preserving only the seed) and re-emits the
 whole closure.

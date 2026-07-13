@@ -44,9 +44,6 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
     )?;
 
     let mut library_opts = TokenStream::new();
-    if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
-        library_opts.extend(quote! { , last_error = true });
-    }
     let import = impl_map.import_name();
     if import != item.name() {
         library_opts.extend(quote! { , import = #import });
