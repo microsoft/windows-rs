@@ -461,6 +461,13 @@ behavioral intent rather than clarify it.
      the `::*` member-glob and `Prefix*` name-glob (parser rejects `*` with a migration
      hint); migrated the corpus off globs and pinned reactor/animation dependency interfaces
      to `::{}` to stay lean. The `type_closure*` / `filter_shell` fixtures cover both ends.
+  6. Re-keyed the last inclusion-pruning guards on the build strategy, not the style flag.
+     The `required_hierarchy!` / `interface_hierarchy!` emitters in `class.rs` / `interface.rs`
+     prune references to types the closure dropped; they gated on `style.is_minimal()` but the
+     concept is *closure build*, so they now gate on `filter.uses_closure`. This also covers
+     the non-minimal closure builds (`collections`, `future` are `--flat` default style with
+     precise filters), closing a latent trap where a pruned reference would only have been
+     caught by a compile error. Whole corpus regenerates byte-for-byte identical.
 
   **Remaining (optional polish, not blocking):** route broad filters and `--package` through
   the same closure path (currently on `TypeMap::filter`; a no-op unification); move the three

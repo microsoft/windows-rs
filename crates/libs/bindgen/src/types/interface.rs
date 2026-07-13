@@ -381,7 +381,7 @@ impl Interface {
                     let interfaces: Vec<_> = required_interfaces
                         .iter()
                         .filter(|ty| {
-                            if config.bindgen.style.is_minimal() {
+                            if config.filter.uses_closure {
                                 let tn = Type::Interface((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {
