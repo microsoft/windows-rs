@@ -86,7 +86,7 @@
     WebView2.ICoreWebView2Environment::CreateWebResourceResponse
     WebView2.ICoreWebView2WebResourceRequestedEventArgs::{get_Request, put_Response}
     WebView2.ICoreWebView2WebResourceRequest::{get_Uri, get_Method, get_Headers}
-    WebView2.ICoreWebView2WebResourceResponse
+    WebView2.ICoreWebView2WebResourceResponse::{}
     WebView2.ICoreWebView2HttpRequestHeaders::{GetIterator}
     WebView2.ICoreWebView2HttpHeadersCollectionIterator::{GetCurrentHeader, get_HasCurrentHeader, MoveNext}
     WebView2.COREWEBVIEW2_WEB_RESOURCE_CONTEXT
