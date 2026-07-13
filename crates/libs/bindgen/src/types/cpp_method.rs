@@ -15,7 +15,6 @@ pub enum ReturnHint {
     Query(usize, usize),
     QueryOptional(usize, usize),
     ResultValue,
-    ResultVoid,
     HResult,
     ReturnStruct,
     ReturnValue,
@@ -159,12 +158,6 @@ impl CppMethod {
         let is_retval = signature.is_retval(reader);
         let mut return_hint = ReturnHint::None;
 
-        let last_error = if let Some(map) = def.impl_map() {
-            map.flags().contains(PInvokeAttributes::SupportsLastError)
-        } else {
-            false
-        };
-
         match &signature.return_type {
             Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
             Type::HRESULT => {
@@ -189,7 +182,6 @@ impl CppMethod {
                     }
                 }
             }
-            Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
             Type::GUID => return_hint = ReturnHint::ReturnStruct,
             Type::CppStruct(ty) if !ty.is_handle(reader) => {
                 return_hint = ReturnHint::ReturnStruct;
@@ -296,15 +288,6 @@ impl CppMethod {
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
                         }
-                    }
-                }
-            }
-            ReturnHint::ResultVoid => {
-                let where_clause = self.write_where(config, false);
-
-                quote! {
-                    #vis unsafe fn #name<#generics>(&self, #params) -> #result Result<()> #where_clause {
-                        unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
             }
@@ -415,10 +398,7 @@ impl CppMethod {
                     }
                 }
             }
-            ReturnHint::Query(..)
-            | ReturnHint::QueryOptional(..)
-            | ReturnHint::ResultVoid
-            | ReturnHint::HResult => {
+            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::HResult => {
                 let invoke_args = self
                     .signature
                     .params
@@ -487,10 +467,7 @@ impl CppMethod {
         let result = config.write_core();
 
         let return_type = match self.return_hint {
-            ReturnHint::Query(..)
-            | ReturnHint::QueryOptional(..)
-            | ReturnHint::ResultVoid
-            | ReturnHint::HResult => {
+            ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::HResult => {
                 quote! { -> #result Result<()> }
             }
             ReturnHint::ResultValue => {
@@ -767,25 +744,6 @@ impl CppMethod {
                 quote! { -> #ty }
             }
         }
-    }
-
-    pub fn handle_last_error(&self, reader: &Reader) -> bool {
-        if let Some(map) = self.def.impl_map() {
-            if map.flags().contains(PInvokeAttributes::SupportsLastError) {
-                if let Type::CppStruct(ty) = &self.signature.return_type {
-                    if ty.is_handle(reader) {
-                        // https://github.com/microsoft/windows-rs/issues/2392#issuecomment-1477765781
-                        if self.def.name() == "LocalFree" {
-                            return false;
-                        }
-                        if ty.def.underlying_type_ext(reader).is_pointer() {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        false
     }
 }
 

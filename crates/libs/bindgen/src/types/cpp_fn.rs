@@ -195,18 +195,6 @@ impl CppFn {
                     }
                 }
             }
-            ReturnHint::ResultVoid => {
-                let where_clause = method.write_where(config, false);
-
-                quote! {
-                    #cfg
-                    #[inline]
-                    pub unsafe fn #name<#generics>(#params) -> #result Result<()> #where_clause {
-                        #link
-                        unsafe { #name(#args).ok() }
-                    }
-                }
-            }
             ReturnHint::ReturnValue => {
                 let where_clause = method.write_where(config, false);
 
@@ -255,26 +243,12 @@ impl CppFn {
             ReturnHint::ReturnStruct | ReturnHint::None | ReturnHint::HResult => {
                 let where_clause = method.write_where(config, false);
 
-                if method.handle_last_error(config.reader) {
-                    let return_type = signature.return_type.write_name(config);
-
-                    quote! {
-                        #cfg
-                        #[inline]
-                        pub unsafe fn #name<#generics>(#params) -> #result Result<#return_type> #where_clause {
-                            #link
-                            let result__ = unsafe { #name(#args) };
-                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
-                        }
-                    }
-                } else {
-                    quote! {
-                        #cfg
-                        #[inline]
-                        pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
-                            #link
-                            unsafe { #name(#args) }
-                        }
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
+                        #link
+                        unsafe { #name(#args) }
                     }
                 }
             }
