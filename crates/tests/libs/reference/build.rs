@@ -14,7 +14,7 @@ fn main() {
         "src/bindings.rs",
         "--filter",
         "Windows.Foundation.DateTime",
-        "Windows.Foundation.IPropertyValue::*",
+        "Windows.Foundation.IPropertyValue",
         "Windows.Foundation.Point",
         "Windows.Foundation.PropertyType",
         "Windows.Foundation.Rect",

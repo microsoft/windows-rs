@@ -1,8 +1,9 @@
     Microsoft::UI::Dispatching::IDispatcherQueue::TryEnqueue
-    Microsoft::UI::Xaml::Automation::Peers::ButtonAutomationPeer::*
-    Microsoft::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer::*
+    Microsoft::UI::Xaml::Automation::Peers::ButtonAutomationPeer::CreateInstanceWithOwner
+    Microsoft::UI::Xaml::Automation::Peers::FrameworkElementAutomationPeer::{FromElement, CreatePeerForElement}
+    Microsoft::UI::Xaml::Automation::Peers::IAutomationPeer::GetPattern
     Microsoft::UI::Xaml::Automation::Peers::PatternInterface
-    Microsoft::UI::Xaml::Automation::Provider::IInvokeProvider::*
+    Microsoft::UI::Xaml::Automation::Provider::IInvokeProvider
     Microsoft::UI::Xaml::Controls::Canvas::{GetLeft, GetTop}
     Microsoft::UI::Xaml::Controls::Grid::GetRow
     Microsoft::UI::Xaml::Controls::IBorder::get_Child
@@ -14,10 +15,10 @@
     Microsoft::UI::Xaml::Controls::ToolTipService::{GetPlacement, GetToolTip}
     Microsoft::UI::Xaml::IUIElement::{get_AllowDrop, put_IsHitTestVisible, UpdateLayout}
     Microsoft::UI::Xaml::IWindow::get_Content
-    Microsoft::UI::Xaml::Media::VisualTreeHelper::*
-    Windows::UI::Input::Preview::Injection::InjectedInputMouseInfo::*
+    Microsoft::UI::Xaml::Media::VisualTreeHelper::{GetChildrenCount, GetChild}
+    Windows::UI::Input::Preview::Injection::InjectedInputMouseInfo::{CreateInstance, put_DeltaX, put_DeltaY, put_MouseOptions}
     Windows::UI::Input::Preview::Injection::InjectedInputMouseOptions
-    Windows::UI::Input::Preview::Injection::InputInjector::*
+    Windows::UI::Input::Preview::Injection::InputInjector::{TryCreate, InjectMouseInput}
     Windows::Win32::POINT
     Windows::Win32::RECT
     Windows::Win32::ClientToScreen

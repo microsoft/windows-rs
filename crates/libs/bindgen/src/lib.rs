@@ -414,7 +414,20 @@ impl Bindgen {
                 (
                     "Windows.Foundation",
                     "windows_future",
-                    &["Windows.Foundation.Async*", "Windows.Foundation.IAsync*"][..],
+                    &[
+                        "Windows.Foundation.AsyncActionCompletedHandler",
+                        "Windows.Foundation.AsyncActionProgressHandler",
+                        "Windows.Foundation.AsyncActionWithProgressCompletedHandler",
+                        "Windows.Foundation.AsyncOperationCompletedHandler",
+                        "Windows.Foundation.AsyncOperationProgressHandler",
+                        "Windows.Foundation.AsyncOperationWithProgressCompletedHandler",
+                        "Windows.Foundation.AsyncStatus",
+                        "Windows.Foundation.IAsyncAction",
+                        "Windows.Foundation.IAsyncActionWithProgress",
+                        "Windows.Foundation.IAsyncInfo",
+                        "Windows.Foundation.IAsyncOperation",
+                        "Windows.Foundation.IAsyncOperationWithProgress",
+                    ][..],
                 ),
                 (
                     "Windows.Foundation.Collections",
@@ -474,9 +487,6 @@ impl Bindgen {
                         .filter(|path| {
                             if let Some((namespace, name)) = path.rsplit_once('.') {
                                 if let Some(ns_map) = reader.get(namespace) {
-                                    if let Some(prefix) = name.strip_suffix('*') {
-                                        return ns_map.keys().any(|k| k.starts_with(prefix));
-                                    }
                                     return ns_map.contains_key(name);
                                 }
                             }

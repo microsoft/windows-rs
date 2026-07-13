@@ -69,10 +69,11 @@ use super::*;
 /// `Namespace.Type::Member`.  You can also use `Property.Name`
 /// or `Event.Name` sugar to target a getter/setter pair or an event pair.
 ///
-/// The *specificity* of an entry determines how much of the type is projected:
-/// naming a bare type makes it available (a name-only shell), while
-/// `Type::Member` or `Type::*` projects the requested methods.  See the filter
-/// model discussion in `docs/crates/windows-bindgen.md`.
+/// The *specificity* of an entry determines how much of the type is projected,
+/// like a Rust `use` declaration: naming a bare type projects it in full (a bare
+/// interface gets all its methods), `Type::{}` makes it available as a name-only
+/// shell, and `Type::Member` / `Type::{a, b}` projects only the named methods.
+/// See the filter model discussion in `docs/crates/windows-bindgen.md`.
 ///
 /// ```text
 /// --filter Windows.UI.Xaml.Controls.Button

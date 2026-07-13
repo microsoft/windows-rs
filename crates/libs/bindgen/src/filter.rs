@@ -48,7 +48,7 @@ pub struct Filter {
     pub requested_interfaces: HashMap<(String, String), MethodSet>,
     /// Types directly included without `::` (for type closure).
     pub direct_types: Vec<(String, String)>,
-    /// `true` if the filter includes broad entries (namespaces or name globs)
+    /// `true` if the filter includes broad entries (a whole namespace)
     /// that are not compatible with bottom-up type closure.
     pub has_broad_filter: bool,
     /// `true` when this filter is resolved via the bottom-up type closure
@@ -148,21 +148,20 @@ impl Filter {
 
     /// Classifies a type's inclusion granularity under the specificity model.
     ///
-    /// Filtering is a lean cherry-pick that opts into breadth by specificity:
+    /// Filtering reads like a Rust `use` declaration — a bare mention gives you
+    /// the whole thing; braces narrow it:
     ///
     /// * naming a **namespace** (a scan build) takes every type in it, fully;
-    /// * naming a **type** (`Ns.Type`) makes that type *available* — a
-    ///   [`TypeRole::Shell`] projecting name-only vtable slots — because you have
-    ///   not yet said which of its methods you want;
-    /// * naming **`Ns.Type::*`** or **`Ns.Type::method`** promotes it to
-    ///   [`TypeRole::Named`] with all / the listed methods;
-    /// * a type reached only as a dependency of a seed is likewise a `Shell`.
+    /// * naming a **type** (`Ns.Type`) projects it in full — a bare interface
+    ///   seeds all its methods, so it resolves to [`TypeRole::Named`]`(All)`;
+    /// * naming specific **methods** (`Ns.Type::{a, b}`) resolves to
+    ///   [`TypeRole::Named`] with just the listed methods;
+    /// * an explicit name-only shell (`Ns.Type::{}`), and any type reached only
+    ///   as a dependency of a seed, resolve to [`TypeRole::Shell`].
     ///
-    /// This is the Rust-`use` intuition — a bare mention makes the item usable,
-    /// and you get its members by asking for them — and it replaces the former
-    /// `--minimal` inclusion flag: the distinction is *how specifically you named
-    /// it*, not which style was passed. A scan build (broad filter / `--package`)
-    /// has no cherry-pick closure, so everything it matches is `Named`.
+    /// A scan build (broad filter / `--package`) has no cherry-pick closure, so
+    /// everything it matches is `Named`; the Shell role only arises on a closure
+    /// build (a precise filter), for `::{}` shells and dependency types.
     pub fn type_role(&self, type_name: TypeName) -> TypeRole {
         let key = (
             type_name.namespace().to_string(),
@@ -185,7 +184,7 @@ impl Filter {
     ///
     /// With no explicit method filter for this type, inclusion follows the
     /// type's [`Filter::type_role`]: a `Named` type keeps the methods in its
-    /// set, a `Shell` (a dependency, or a bare-type mention) keeps none.
+    /// set, a `Shell` (a dependency, or an explicit `::{}` mention) keeps none.
     ///
     /// Matching considers both the raw `MethodDef` name and any
     /// overload-disambiguated Rust name produced by `[overload("…")]`, so a
@@ -260,11 +259,17 @@ impl Filter {
     /// so that `type_role` / `includes_method` can later decide each type's
     /// projected surface.
     ///
-    /// Supported entry syntax:
-    /// - `Namespace.Type` — include a type (function, struct, enum, class)
-    /// - `Namespace.Type::method` — include a specific method
-    /// - `Namespace.Type::*` — include all methods on a type
-    /// - `Namespace.Type::{a, b}` — include multiple methods
+    /// Supported entry syntax (specificity drives granularity, inspired by
+    /// Rust's `use` declarations — a bare mention gives you the whole thing,
+    /// braces narrow it):
+    /// - `Namespace` — include everything in the namespace
+    /// - `Namespace.Type` — include a type in full (an interface projects all
+    ///   its methods; a struct all its fields; an enum all its variants; a
+    ///   class its default interface)
+    /// - `Namespace.Type::{}` — include a name-only shell (the type is usable
+    ///   in signatures but projects none of its own methods)
+    /// - `Namespace.Type::{a, b}` — include only the named methods; the rest
+    ///   become name-only
     /// - `Namespace.Class::CreateInstance` — mark class as activatable
     #[track_caller]
     pub fn from_resolved(reader: &Reader, entries: &[filter_parser::ResolvedFilter]) -> Self {
@@ -288,30 +293,23 @@ impl Filter {
                         has_broad_filter = true;
                     }
                 }
-                ResolvedKind::NameGlob { namespace, prefix } => {
-                    if include {
-                        has_broad_filter = true;
-                    }
-                    // Expand glob to concrete types
-                    if let Some(ns_map) = reader.get(namespace.as_str()) {
-                        for name in ns_map.keys() {
-                            if name.starts_with(prefix.as_str()) {
-                                let full = format!("{namespace}.{name}");
-                                rules.push((full, include));
-                            }
-                        }
-                    }
-                }
                 ResolvedKind::Type { namespace, name } => {
                     let full = format!("{namespace}.{name}");
                     rules.push((full, include));
 
                     if include {
-                        // Record as a direct type for the [`TypeClosure`] walk.
-                        // Populated regardless of mode — the type-map decision
-                        // happens after filter construction.
+                        // A bare type mention is "full". An interface seeds its
+                        // whole method set into the [`TypeClosure`] walk; every
+                        // other kind keeps its natural full surface (all struct
+                        // fields, all enum variants, a class's default
+                        // interface) via `direct_types`. Class activation and an
+                        // interface's method subset stay explicit
+                        // (`::CreateInstance`, `::{a, b}`); a name-only shell is
+                        // the explicit `::{}`.
                         let key = (namespace.clone(), name.clone());
-                        if !direct_types.contains(&key) {
+                        if Self::is_interface(reader, namespace, name) {
+                            requested_interfaces.entry(key).or_insert(MethodSet::All);
+                        } else if !direct_types.contains(&key) {
                             direct_types.push(key);
                         }
                     }
@@ -328,19 +326,16 @@ impl Filter {
                         rules.push((full, true));
                     }
 
-                    // Register each member
-                    if members.len() == 1 && members[0] == "*" {
-                        // ::* — expand all methods/members on the type
+                    if members.is_empty() {
+                        // `Ns.Type::{}` — an explicit name-only shell: make the
+                        // type available without projecting any of its methods.
+                        // Recorded as a direct type so `type_role` resolves it
+                        // to `Shell` on a closure build.
                         if include {
-                            Self::register_type_all_members(
-                                reader,
-                                namespace,
-                                name,
-                                &mut requested_interfaces,
-                                &mut direct_types,
-                                &mut activatable,
-                                &mut enum_variants,
-                            );
+                            let key = (namespace.clone(), name.clone());
+                            if !direct_types.contains(&key) {
+                                direct_types.push(key);
+                            }
                         }
                     } else {
                         for member in members {
@@ -380,50 +375,13 @@ impl Filter {
         }
     }
 
-    /// Register a `Ns.Type::*` entry: seed the type and all its members for the
-    /// [`TypeClosure`] walk (marks the type's requested interface set as `All`).
-    fn register_type_all_members(
-        reader: &Reader,
-        namespace: &str,
-        name: &str,
-        requested_interfaces: &mut HashMap<(String, String), MethodSet>,
-        direct_types: &mut Vec<(String, String)>,
-        activatable: &mut HashSet<(String, String)>,
-        enum_variants: &mut HashMap<(String, String), MethodSet>,
-    ) {
-        let key = (namespace.to_string(), name.to_string());
-
-        if let Some(ty) = reader.with_full_name(namespace, name).next() {
-            match &ty {
-                Type::Class(c) => {
-                    if !direct_types.contains(&key) {
-                        direct_types.push(key.clone());
-                    }
-                    activatable.insert(key);
-                    for iface in c.required_interfaces(reader) {
-                        let iface_ns = iface.def.namespace().to_string();
-                        let iface_name = iface.def.name().to_string();
-                        requested_interfaces
-                            .entry((iface_ns, iface_name))
-                            .or_insert(MethodSet::All);
-                    }
-                }
-                Type::Enum(_) | Type::CppEnum(_) => {
-                    enum_variants.insert(key.clone(), MethodSet::All);
-                    if !direct_types.contains(&key) {
-                        direct_types.push(key);
-                    }
-                }
-                Type::Interface(_) | Type::CppInterface(_) => {
-                    requested_interfaces.insert(key, MethodSet::All);
-                }
-                _ => {
-                    if !direct_types.contains(&key) {
-                        direct_types.push(key);
-                    }
-                }
-            }
-        }
+    /// Whether the named type resolves to an interface (WinRT or COM), which a
+    /// bare mention seeds into the [`TypeClosure`] walk as `All` methods.
+    fn is_interface(reader: &Reader, namespace: &str, name: &str) -> bool {
+        matches!(
+            reader.with_full_name(namespace, name).next(),
+            Some(Type::Interface(_) | Type::CppInterface(_))
+        )
     }
 
     /// Register a specific member (method/variant) on a type.

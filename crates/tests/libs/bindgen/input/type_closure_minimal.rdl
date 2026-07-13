@@ -1,4 +1,4 @@
-//! --filter Test::IOuter::* --minimal --flat
+//! --filter Test::IOuter --minimal --flat
 // The same filter under `--minimal`. `IOuter::GetInner` is callable and `IInner`
 // is pulled in, but `IInner`'s own `Value` collapses to a name-only slot because
 // minimal demotes methods on types that are only pulled in as dependencies.

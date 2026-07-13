@@ -8,7 +8,7 @@ fn main() {
             "CreateVssBackupComponentsInternal",
             "CoIncrementMTAUsage",
             "VSS_BT_FULL",
-            "IVssBackupComponents::*",
+            "IVssBackupComponents",
         ])
         .flat()
         .write();

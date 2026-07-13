@@ -1,4 +1,4 @@
-//! --filter Test.IFoo::* --flat --minimal
+//! --filter Test.IFoo --flat --minimal
 #[winrt]
 mod Test {
     interface IFoo {

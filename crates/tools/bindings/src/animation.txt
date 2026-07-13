@@ -7,7 +7,7 @@
     CLSCTX_INPROC_SERVER
     IUIAnimationManager2::{CreateAnimationVariable, CreateStoryboard, Update, ScheduleTransition}
     IUIAnimationStoryboard2::{AddTransition, AddKeyframeAfterTransition, AddTransitionAtKeyframe, Schedule}
-    IUIAnimationTransition2
+    IUIAnimationTransition2::{}
     IUIAnimationTransitionLibrary2::{CreateAccelerateDecelerateTransition, CreateLinearTransition, CreateInstantaneousTransition}
     IUIAnimationVariable2::{GetValue, GetCurve}
     UI_ANIMATION_KEYFRAME

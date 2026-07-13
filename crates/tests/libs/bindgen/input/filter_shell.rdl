@@ -1,0 +1,10 @@
+//! --flat --filter Test::IThing::{}
+// `Ns::Type::{}` is an explicit name-only shell: the interface is projected so
+// it can be named, but its own methods collapse to opaque vtable slots. Compare
+// with a bare `Test::IThing`, which would project `Value` in full.
+#[win32]
+mod Test {
+    interface IThing {
+        fn Value(&self) -> i32;
+    }
+}

@@ -1,4 +1,4 @@
-//! --filter Test::IOuter::* --sys --flat
+//! --filter Test::IOuter --sys --flat
 // Same referenced-type closure as `type_closure`, exercised in `--sys` style to
 // confirm the behaviour is style-independent (sys is not `--minimal`).
 #[win32]

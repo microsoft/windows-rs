@@ -15,8 +15,8 @@
     GetLastError
     GetProcessHeap
     HeapFree
-    IErrorInfo::*
-    IRestrictedErrorInfo::*
+    IErrorInfo
+    IRestrictedErrorInfo
     LOAD_LIBRARY_SEARCH_DEFAULT_DIRS
     LoadLibraryExA
     RoOriginateErrorW
