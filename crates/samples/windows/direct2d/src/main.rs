@@ -332,7 +332,7 @@ fn main() -> windows::core::Result<()> {
             Ok(())
         }
 
-        fn message_handler(&mut self, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
+        fn message_handler(&mut self, message: u32, wparam: WPARAM) -> bool {
             unsafe {
                 match message {
                     WM_PAINT => {
@@ -340,17 +340,14 @@ fn main() -> windows::core::Result<()> {
                         BeginPaint(self.handle, &mut ps);
                         self.render().unwrap();
                         _ = EndPaint(self.handle, &ps);
-                        LRESULT(0)
                     }
                     WM_SIZE => {
                         if wparam.0 != SIZE_MINIMIZED as usize {
                             self.resize_swapchain_bitmap().unwrap();
                         }
-                        LRESULT(0)
                     }
                     WM_DISPLAYCHANGE => {
                         self.render().unwrap();
-                        LRESULT(0)
                     }
                     WM_USER => {
                         if self.present(0, DXGI_PRESENT_TEST).is_ok() {
@@ -358,20 +355,22 @@ fn main() -> windows::core::Result<()> {
                             self.occlusion = 0;
                             self.visible = true;
                         }
-                        LRESULT(0)
                     }
                     WM_ACTIVATE => {
                         // HIWORD(wparam) is non-zero when the window is minimized; only
                         // render when the window is not minimized.
                         self.visible = (wparam.0 >> 16) as u16 == 0;
-                        LRESULT(0)
                     }
                     WM_DESTROY => {
                         PostQuitMessage(0);
-                        LRESULT(0)
                     }
-                    _ => DefWindowProcA(self.handle, message, wparam, lparam),
+                    // Returning `false` lets `windows-window` call `DefWindowProc` after it
+                    // restores the message handler, so messages that pump a nested modal loop
+                    // (e.g. dragging the window border to resize) still deliver `WM_SIZE`.
+                    _ => return false,
                 }
+
+                true
             }
         }
     }
@@ -545,13 +544,11 @@ fn main() -> windows::core::Result<()> {
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .on_message(move |_, message, wparam, lparam| {
-            Some(
-                handler
-                    .borrow_mut()
-                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
-                    .0,
-            )
+        .on_message(move |_, message, wparam, _| {
+            handler
+                .borrow_mut()
+                .message_handler(message, WPARAM(wparam))
+                .then_some(0)
         })
         .create()?;
 
