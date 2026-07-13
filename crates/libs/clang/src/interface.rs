@@ -33,6 +33,10 @@ impl Interface {
     /// - An optional UUID from any `__declspec(uuid("..."))` attribute (`CXCursor_UnexposedAttr`).
     /// - An optional single base interface from the first `CXCursor_CXXBaseSpecifier` child.
     /// - All pure-virtual `CXCursor_CXXMethod` children as interface methods.
+    ///
+    /// Overloaded (same-name) methods are reordered to match MSVC's vtable layout:
+    /// a run of consecutive same-name virtual functions is emitted in reverse
+    /// declaration order (see the reversal note near the end of this function).
     pub fn parse(cursor: Cursor, parser: &mut Parser<'_>) -> Result<Self, Error> {
         let tag_name = cursor.name();
         // Use the public typedef alias if one exists (e.g. `_IFoo` → `IFoo`).
@@ -75,6 +79,15 @@ impl Interface {
                 continue;
             }
 
+            // Old-style `DECLARE_INTERFACE_` headers redeclare the entire inherited method
+            // chain in each derived interface. Those redeclarations override base-class
+            // virtuals and reuse their vtable slots, so skip them — the emitted `base__`
+            // vtable already reconstructs the full inherited chain. Emitting them again
+            // would double the inherited slots and corrupt the vtable layout.
+            if child.overrides_base_method() {
+                continue;
+            }
+
             let method_name = demacro_member_name(child.name(), parser);
             let tokens = parser
                 .tu
@@ -86,7 +99,12 @@ impl Interface {
             let midl_param_annotations = scan_method_param_annotations(&tokens, &method_name);
             let return_type = child.result_type().to_type(parser);
 
-            let params = parse_params(&child, &midl_param_annotations, parser);
+            let mut params = parse_params(&child, &midl_param_annotations, parser);
+
+            // Recover the `ComOutPtr` (`#[iid_is]`) marker on caller-chosen-type COM methods
+            // (`GetService`, `Activate`, `CreateInstance`, …) that the SDK headers leave
+            // unannotated, from the signature shape. See [`infer_iid_is`] for the gate.
+            infer_iid_is(&mut params, &return_type);
 
             methods.push(InterfaceMethod {
                 name: method_name,
@@ -95,6 +113,20 @@ impl Interface {
                 is_propget: method_annotation.is_propget,
                 is_propput: method_annotation.is_propput,
             });
+        }
+
+        // MSVC lays out a run of overloaded (same-name) virtual functions into the
+        // vtable in reverse declaration order. libclang yields cursors in source
+        // order, so reverse each maximal run of consecutive same-name methods to
+        // match the real COM vtable ABI. Runs of length one are unaffected.
+        let mut start = 0;
+        while start < methods.len() {
+            let mut end = start + 1;
+            while end < methods.len() && methods[end].name == methods[start].name {
+                end += 1;
+            }
+            methods[start..end].reverse();
+            start = end;
         }
 
         Ok(Self {

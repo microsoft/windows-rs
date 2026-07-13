@@ -3,8 +3,8 @@ mod Windows {
     mod Win32 {
         #[guid(0xe7fe2e12_661c_40da_92f9_4f002ab67627)]
         interface IMFReadWriteClassFactory: IUnknown {
-            fn CreateInstanceFromURL(&self, clsid: *const GUID, pwszURL: PCWSTR, #[opt] pAttributes: IMFAttributes, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
-            fn CreateInstanceFromObject(&self, clsid: *const GUID, punkObject: IUnknown, #[opt] pAttributes: IMFAttributes, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceFromURL(&self, clsid: *const GUID, pwszURL: PCWSTR, #[opt] pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceFromObject(&self, clsid: *const GUID, punkObject: IUnknown, #[opt] pAttributes: IMFAttributes, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x3137f1cd_fe5e_4805_a5d8_fb477448cb3d)]
         interface IMFSinkWriter: IUnknown {
@@ -17,7 +17,7 @@ mod Windows {
             fn NotifyEndOfSegment(&self, dwStreamIndex: u32) -> HRESULT;
             fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
             fn Finalize(&self) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
             fn GetStatistics(&self, dwStreamIndex: u32, pStats: *mut MF_SINK_WRITER_STATISTICS) -> HRESULT;
         }
         #[guid(0x666f76de_33d2_41b9_a458_29ed0a972c58)]
@@ -49,7 +49,7 @@ mod Windows {
             fn SetCurrentPosition(&self, guidTimeFormat: *const GUID, varPosition: *const PROPVARIANT) -> HRESULT;
             fn ReadSample(&self, dwStreamIndex: u32, dwControlFlags: u32, #[opt] pdwActualStreamIndex: *mut u32, #[opt] pdwStreamFlags: *mut u32, #[opt] pllTimestamp: *mut i64, #[opt] ppSample: *mut IMFSample) -> HRESULT;
             fn Flush(&self, dwStreamIndex: u32) -> HRESULT;
-            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn GetServiceForStream(&self, dwStreamIndex: u32, guidService: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
             fn GetPresentationAttribute(&self, dwStreamIndex: u32, guidAttribute: *const GUID, pvarAttribute: *mut PROPVARIANT) -> HRESULT;
         }
         #[guid(0xdeec8d99_fa1d_4d82_84c2_2c8969944867)]

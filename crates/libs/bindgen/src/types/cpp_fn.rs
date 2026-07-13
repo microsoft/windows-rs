@@ -28,9 +28,7 @@ impl CppFn {
     }
 
     fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
-        let signature = self
-            .method
-            .method_signature(self.namespace, &[], config.reader);
+        let signature = self.method.method_signature(&[], config.reader);
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
@@ -57,10 +55,26 @@ impl CppFn {
         }
     }
 
+    fn abi(&self, config: &Config<'_>) -> &'static str {
+        // A variadic function is always `__cdecl` on Windows regardless of the
+        // stated convention, and rustc rejects `extern "system"` C-variadics on
+        // non-MSVC targets, so force `"C"` whenever the signature is VARARG.
+        if self
+            .method
+            .method_signature(&[], config.reader)
+            .call_flags
+            .contains(MethodCallAttributes::VARARG)
+        {
+            "C"
+        } else {
+            self.method.calling_convention()
+        }
+    }
+
     pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let ptr_name = self.method.name().to_string();
         let name = to_ident(&ptr_name);
-        let abi = self.method.calling_convention();
+        let abi = self.abi(config);
         let signature = self.write_extern_signature(config, underlying_types);
 
         quote! {
@@ -72,7 +86,7 @@ impl CppFn {
         let library = self.method.module_name();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
-        let abi = self.method.calling_convention();
+        let abi = self.abi(config);
         let signature = self.write_extern_signature(config, underlying_types);
         let link = to_ident(config.link);
 
@@ -95,9 +109,7 @@ impl CppFn {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
-        let signature = self
-            .method
-            .method_signature(self.namespace, &[], config.reader);
+        let signature = self.method.method_signature(&[], config.reader);
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
@@ -132,7 +144,7 @@ impl CppFn {
             };
         }
 
-        let method = CppMethod::new(self.method, self.namespace, config.reader);
+        let method = CppMethod::new(self.method, config.reader);
         let args = method.write_args(config);
         let params = method.write_params(config);
         let generics = method.write_generics();
@@ -313,7 +325,7 @@ impl CppFn {
 impl Dependencies for CppFn {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         self.method
-            .method_signature(self.namespace, &[], reader)
+            .method_signature(&[], reader)
             .combine(dependencies, reader);
 
         let dependency = self.window_long_dependency();

@@ -1,6 +1,22 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_BackgroundAccess: DEVPROPKEY = 8;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_IsReadOnly: DEVPROPKEY = 4;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_ProductId: DEVPROPKEY = 6;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_UsageId: DEVPROPKEY = 3;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_UsagePage: DEVPROPKEY = 2;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_VendorId: DEVPROPKEY = 5;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_VersionNumber: DEVPROPKEY = 7;
+        #[guid(0xcbf38310_4a17_4310_a1eb_247f0b67593b)]
+        const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: DEVPROPKEY = 9;
         const GUID_DEVINTERFACE_HID: GUID = 0x4d1e55b2_f16f_11cf_88cb_001111000030;
         const GUID_HID_INTERFACE_HIDPARSE: GUID = 0xf5c315a5_69ac_4bc2_9279_d0b64576f44b;
         const GUID_HID_INTERFACE_NOTIFY: GUID = 0x2c4e2e88_25e6_4c33_882f_3d82e6073681;

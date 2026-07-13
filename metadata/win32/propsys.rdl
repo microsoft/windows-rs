@@ -185,7 +185,12 @@ mod Windows {
         const InMemoryPropertyStore: GUID = 0x9a02e012_6303_4e1e_b9a1_630f802592c5;
         const InMemoryPropertyStoreMarshalByValue: GUID = 0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc;
         type PCUSERIALIZEDPROPSTORAGE = *const SERIALIZEDPROPSTORAGE;
-        type PERSIST_SPROPSTORE_FLAGS = i32;
+        #[repr(i32)]
+        enum PERSIST_SPROPSTORE_FLAGS {
+            FPSPS_DEFAULT = 0,
+            FPSPS_READONLY = 1,
+            FPSPS_TREAT_NEW_VALUES_AS_DIRTY = 2,
+        }
         #[repr(i32)]
         enum PKA_FLAGS {
             PKA_SET = 0,
@@ -357,23 +362,23 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PSCoerceToCanonicalValue(key: *const PROPERTYKEY, #[in] #[out] ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreateAdapterFromPropertyStore(pps: IPropertyStore, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreateAdapterFromPropertyStore(pps: IPropertyStore, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: IDelayedPropertyStoreFactory, #[len_param(3)] rgStoreIds: *const u32, cStores: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreateDelayedMultiplexPropertyStore(flags: GETPROPERTYSTOREFLAGS, pdpsf: IDelayedPropertyStoreFactory, #[len_param(3)] rgStoreIds: *const u32, cStores: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreateMemoryPropertyStore(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreateMemoryPropertyStore(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreateMultiplexPropertyStore(#[len_param(1)] prgpunkStores: *const IUnknown, cStores: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreateMultiplexPropertyStore(#[len_param(1)] prgpunkStores: *const IUnknown, cStores: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreatePropertyChangeArray(#[len_param(3)] #[opt] rgpropkey: *const PROPERTYKEY, #[len_param(3)] #[opt] rgflags: *const PKA_FLAGS, #[len_param(3)] #[opt] rgpropvar: *const PROPVARIANT, cChanges: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreatePropertyChangeArray(#[len_param(3)] #[opt] rgpropkey: *const PROPERTYKEY, #[len_param(3)] #[opt] rgflags: *const PKA_FLAGS, #[len_param(3)] #[opt] rgpropvar: *const PROPVARIANT, cChanges: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreatePropertyStoreFromObject(punk: IUnknown, grfMode: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreatePropertyStoreFromObject(punk: IUnknown, grfMode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreatePropertyStoreFromPropertySetStorage(ppss: IPropertySetStorage, grfMode: u32, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreatePropertyStoreFromPropertySetStorage(ppss: IPropertySetStorage, grfMode: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const PROPVARIANT, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: *const PROPERTYKEY, propvar: *const PROPVARIANT, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSEnumeratePropertyDescriptions(filterOn: PROPDESC_ENUMFILTER, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSEnumeratePropertyDescriptions(filterOn: PROPDESC_ENUMFILTER, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSFormatForDisplay(propkey: *const PROPERTYKEY, propvar: *const PROPVARIANT, pdfFlags: PROPDESC_FORMAT_FLAGS, #[len_param(4)] #[out] pwszText: PWSTR, cchText: u32) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -383,25 +388,25 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PSGetImageReferenceForValue(propkey: *const PROPERTYKEY, propvar: *const PROPVARIANT, ppszImageRes: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetItemPropertyHandler(punkItem: IUnknown, fReadWrite: BOOL, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetItemPropertyHandler(punkItem: IUnknown, fReadWrite: BOOL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetItemPropertyHandlerWithCreateObject(punkItem: IUnknown, fReadWrite: BOOL, punkCreateObject: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetItemPropertyHandlerWithCreateObject(punkItem: IUnknown, fReadWrite: BOOL, punkCreateObject: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSGetNameFromPropertyKey(propkey: *const PROPERTYKEY, ppszCanonicalName: *mut PWSTR) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSGetNamedPropertyFromPropertyStorage(#[size_param(1)] psps: *const SERIALIZEDPROPSTORAGE, cb: u32, pszName: PCWSTR, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetPropertyDescription(propkey: *const PROPERTYKEY, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetPropertyDescriptionByName(pszCanonicalName: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetPropertyDescriptionByName(pszCanonicalName: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetPropertyDescriptionListFromString(pszPropList: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetPropertyDescriptionListFromString(pszPropList: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSGetPropertyFromPropertyStorage(#[size_param(1)] psps: *const SERIALIZEDPROPSTORAGE, cb: u32, rpkey: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSGetPropertyKeyFromName(pszName: PCWSTR, ppropkey: *mut PROPERTYKEY) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSGetPropertySystem(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSGetPropertySystem(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSGetPropertyValue(pps: IPropertyStore, ppd: IPropertyDescription, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -441,7 +446,7 @@ mod Windows {
         #[library("PROPSYS.dll")]
         extern fn PSPropertyBag_ReadULONGLONG(propBag: IPropertyBag, propName: PCWSTR, value: *mut u64) -> HRESULT;
         #[library("PROPSYS.dll")]
-        extern fn PSPropertyBag_ReadUnknown(propBag: IPropertyBag, propName: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn PSPropertyBag_ReadUnknown(propBag: IPropertyBag, propName: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("PROPSYS.dll")]
         extern fn PSPropertyBag_WriteBOOL(propBag: IPropertyBag, propName: PCWSTR, value: BOOL) -> HRESULT;
         #[library("PROPSYS.dll")]
@@ -491,11 +496,5 @@ mod Windows {
         struct SERIALIZEDPROPSTORAGE {}
         #[library("PROPSYS.dll")]
         extern fn WinRTPropertyValueToPropVariant(#[opt] punkPropertyValue: IUnknown, ppropvar: *mut PROPVARIANT) -> HRESULT;
-        #[repr(i32)]
-        enum _PERSIST_SPROPSTORE_FLAGS {
-            FPSPS_DEFAULT = 0,
-            FPSPS_READONLY = 1,
-            FPSPS_TREAT_NEW_VALUES_AS_DIRTY = 2,
-        }
     }
 }

@@ -12,10 +12,12 @@ doctest = false
 workspace = true
 default-features = true
 features = [
-    "Win32_System_WinRT",
-    "Win32_System_Ole",
-    "Win32_System_Com",
-    "Win32_Media_Audio",
+    "audioclient",
+    "errhandlingapi",
+    "oaidl",
+    "oleauto",
+    "ro",
+    "winerror",
 ]
 
 [dependencies.windows-core]

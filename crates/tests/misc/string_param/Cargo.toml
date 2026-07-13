@@ -11,7 +11,7 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_UI_Shell",
+    "shlwapi",
 ]
 
 [lints]

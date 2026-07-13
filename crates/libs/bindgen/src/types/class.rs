@@ -213,11 +213,12 @@ impl Class {
                     .iter()
                     .filter(|ty| !ty.is_exclusive() && ty.kind != InterfaceKind::Default)
                     .filter(|ty| {
-                        // In minimal mode, only include interfaces that are actually
-                        // in the type map (i.e., have requested methods or were pulled
-                        // in by other means). This avoids referencing interfaces that
-                        // were pruned from the closure.
-                        if config.bindgen.style.is_minimal() {
+                        // On a closure build the referenced type is only emitted if it
+                        // survived the closure (i.e. it has requested methods or was
+                        // pulled in by other means). This avoids referencing interfaces
+                        // that were pruned. A broad / package build includes everything,
+                        // so nothing is pruned.
+                        if config.filter.uses_closure {
                             let tn = Type::Interface((*ty).clone()).type_name();
                             config.types.contains_key(&tn)
                         } else {
@@ -231,7 +232,7 @@ impl Class {
                     self.bases(config.reader)
                         .iter()
                         .filter(|ty| {
-                            if config.bindgen.style.is_minimal() {
+                            if config.filter.uses_closure {
                                 let tn = Type::Class((*ty).clone()).type_name();
                                 config.types.contains_key(&tn)
                             } else {

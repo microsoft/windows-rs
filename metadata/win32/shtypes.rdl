@@ -33,7 +33,6 @@ mod Windows {
         type ITEMIDLIST_ABSOLUTE = ITEMIDLIST;
         type ITEMIDLIST_RELATIVE = ITEMIDLIST;
         type ITEMID_CHILD = ITEMIDLIST;
-        type KF_REDIRECT_FLAGS = u32;
         type KNOWNFOLDERID = GUID;
         type LPCITEMIDLIST = *const ITEMIDLIST;
         type LPCSHCOLUMNID = *const SHCOLUMNID;

@@ -12,18 +12,16 @@ Start by adding the following to your Cargo.toml file:
 [dependencies.windows-sys]
 version = "0.61"
 features = [
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_UI_WindowsAndMessaging",
+    "handleapi",
+    "synchapi",
+    "winuser",
 ]
 ```
 
 Make use of any Windows APIs as needed:
 
 ```rust,no_run
-use windows_sys::{
-    core::*, Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
-};
+use windows_sys::{core::*, handleapi::*, synchapi::*, winuser::*};
 
 unsafe {
     let event = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());

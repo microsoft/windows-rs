@@ -48,6 +48,31 @@ impl Const {
         Ok(Some(Self { name, value }))
     }
 
+    /// Try to parse a file-scope floating-point `const` variable declaration
+    /// (e.g. `const double UIA_ScrollPatternNoScroll = -1;`) as a typed
+    /// constant. Win32 headers use this pattern for a handful of floating-point
+    /// API constants that have no other representation in the flat metadata, so
+    /// they would otherwise be dropped entirely. Only const-qualified scalar
+    /// `float`/`double` variables with an evaluable constant initializer are
+    /// accepted; pointers, aggregates, integers, non-const variables, and
+    /// anything that fails constant evaluation return `None`.
+    pub fn parse_var_decl(cursor: &Cursor) -> Option<Self> {
+        let name = cursor.name();
+        if name.is_empty() || name.starts_with('_') {
+            return None;
+        }
+        let ty = cursor.ty();
+        if !ty.is_const() {
+            return None;
+        }
+        let value = match ty.canonical_type().kind() {
+            CXType_Float => metadata::Value::F32(cursor.evaluate_double()? as f32),
+            CXType_Double | CXType_LongDouble => metadata::Value::F64(cursor.evaluate_double()?),
+            _ => return None,
+        };
+        Some(Self { name, value })
+    }
+
     pub fn write(&self, namespace: &str) -> Result<TokenStream, Error> {
         let name = write_ident(&self.name);
         let ty = write_type(namespace, &self.value.ty());
@@ -93,6 +118,35 @@ impl GuidConst {
         let lit_str = uuid_to_u128_literal(&self.uuid);
         let lit = syn::LitInt::new(&lit_str, Span::call_site());
         Ok(quote! { const #name: GUID = #lit; })
+    }
+}
+
+/// A `PROPERTYKEY`/`DEVPROPKEY` constant produced from a `DEFINE_PROPERTYKEY` or
+/// `DEFINE_DEVPROPKEY` macro invocation. Both expand to `{ { fmtid }, pid }`, so the value
+/// is a GUID plus a `u32`. The `fmtid` rides on a `#[guid]` attribute (the same faithful
+/// encoding `DEFINE_GUID` uses) and the `pid` is an ordinary integer constant — no bespoke
+/// struct-initializer string is needed.
+#[derive(Debug)]
+pub struct PropertyKeyConst {
+    pub name: String,
+    /// The struct type name, `PROPERTYKEY` or `DEVPROPKEY`.
+    pub ty: String,
+    /// The `fmtid` UUID without braces, e.g. `540b947e-8b40-45bc-a8a2-6a0b894cbda2`.
+    pub uuid: String,
+    /// The `pid` field value.
+    pub pid: u32,
+}
+
+impl PropertyKeyConst {
+    pub fn write(&self) -> Result<TokenStream, Error> {
+        let name = write_ident(&self.name);
+        let ty = write_ident(&self.ty);
+        let guid = syn::LitInt::new(&uuid_to_u128_literal(&self.uuid), Span::call_site());
+        let pid = syn::LitInt::new(&format!("{}u32", self.pid), Span::call_site());
+        Ok(quote! {
+            #[guid(#guid)]
+            const #name: #ty = #pid;
+        })
     }
 }
 
@@ -606,6 +660,62 @@ fn parse_body(
                 Box::new(metadata::Value::I32(raw as i32)),
             ))
         }
+        // MAKEINTRESOURCE(-ORDINAL) — a resource named by *negative* integer ordinal,
+        // e.g. `#define TD_ERROR_ICON MAKEINTRESOURCEW(-2)`. The macro truncates via
+        // `(WORD)(i)` *before* widening to the pointer (`((LPWSTR)((ULONG_PTR)((WORD)(i))))`),
+        // so a negative arg is a *zero-extended 16-bit* ordinal (`(WORD)-2 == 0xFFFE`), NOT a
+        // sign-extended pointer. Emitting the sign-extended value would give a non-zero high
+        // word and make `LoadIcon`/`FindResource` dereference it as a string pointer. Stored
+        // as the truncated ordinal (`TD_ERROR_ICON: PWSTR = 65534`, projected
+        // `PCWSTR(65534 as _)`, so `.0 as i16 == -2` while the high word stays zero).
+        [
+            (CXToken_Identifier, w),
+            (CXToken_Punctuation, lp),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp),
+        ] if lp == "(" && rp == ")" && minus == "-" && makeintresource_macro(w).is_some() => {
+            let (digits, _suffix) = split_int_suffix(lit);
+            let raw: u64 = parse_int_digits(digits)?;
+            Some(metadata::Value::EnumValue(
+                metadata::TypeName::named(namespace, makeintresource_macro(w)?),
+                Box::new(metadata::Value::I32((raw as u16).wrapping_neg() as i32)),
+            ))
+        }
+        // ((TYPE *)(SCALAR)-VALUE) — an inline char-pointer sentinel, e.g.
+        // `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`. The outer cast is an
+        // inline pointer-to-char rather than a named alias, so `parse_nested_cast` rejects
+        // it at the `*`. Emitted as the canonical `PWSTR`/`PSTR` carrying the sign-extended
+        // sentinel value (see [`char_pointer_target`]).
+        [
+            (CXToken_Punctuation, lp1),
+            (CXToken_Punctuation, lp2),
+            (CXToken_Identifier, ptr_ty),
+            (CXToken_Punctuation, star),
+            (CXToken_Punctuation, rp1),
+            (CXToken_Punctuation, lp3),
+            (CXToken_Identifier, inner),
+            (CXToken_Punctuation, rp2),
+            (CXToken_Punctuation, minus),
+            (CXToken_Literal, lit),
+            (CXToken_Punctuation, rp3),
+        ] if lp1 == "("
+            && lp2 == "("
+            && star == "*"
+            && rp1 == ")"
+            && lp3 == "("
+            && rp2 == ")"
+            && minus == "-"
+            && rp3 == ")"
+            && char_pointer_target(ptr_ty).is_some() =>
+        {
+            let (digits, _suffix) = split_int_suffix(lit);
+            let raw: u64 = parse_int_digits(digits)?;
+            Some(metadata::Value::EnumValue(
+                metadata::TypeName::named(namespace, char_pointer_target(ptr_ty)?),
+                Box::new(inner_scalar_value(inner, raw, true)),
+            ))
+        }
         _ => parse_nested_cast(body, namespace, ref_map, header_names),
     }
 }
@@ -643,9 +753,48 @@ fn parse_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
 
     // Integer literal — strip suffix to isolate the digits.
     let (digits, suffix) = split_int_suffix(lit);
-    let raw: u64 = parse_int_digits(digits)?;
+    let Some(raw) = parse_int_digits(digits) else {
+        // Not an integer — try a floating-point literal (e.g. `1.0f`, `.5`, `1e3`).
+        return parse_float_literal(lit, negate);
+    };
 
     integer_value(raw, suffix, negate)
+}
+
+/// Parse a C floating-point literal (`1.0f`, `0.5`, `.5f`, `1e-3`, `3.14`) into a
+/// [`metadata::Value::F32`] (an `f`/`F` suffix) or [`metadata::Value::F64`] (no
+/// suffix, or an `l`/`L` long-double suffix which projects to `f64`).
+///
+/// A literal qualifies as floating-point only when it carries a decimal point or
+/// a decimal exponent (`e`/`E`), which is what distinguishes it from an integer:
+/// this keeps hex integers such as `0xF` (whose trailing `F` is a hex digit, not a
+/// float suffix) on the integer path. Hex float literals (`0x1.8p3`) are not
+/// represented and return `None`.
+fn parse_float_literal(lit: &str, negate: bool) -> Option<metadata::Value> {
+    let lower = lit.to_ascii_lowercase();
+    if lower.starts_with("0x") {
+        return None;
+    }
+
+    let (body, is_f32) = if let Some(body) = lower.strip_suffix('f') {
+        (body, true)
+    } else if let Some(body) = lower.strip_suffix('l') {
+        (body, false)
+    } else {
+        (lower.as_str(), false)
+    };
+
+    if !body.contains('.') && !body.contains('e') {
+        return None;
+    }
+
+    if is_f32 {
+        let value = body.parse::<f32>().ok()?;
+        Some(metadata::Value::F32(if negate { -value } else { value }))
+    } else {
+        let value = body.parse::<f64>().ok()?;
+        Some(metadata::Value::F64(if negate { -value } else { value }))
+    }
 }
 
 /// Decode a C narrow-string literal body (the text between the quotes) into its
@@ -869,6 +1018,23 @@ fn makeintresource_macro(name: &str) -> Option<&'static str> {
     })
 }
 
+/// Maps an inline *char-pointer* cast type (`OLECHAR`/`WCHAR` → wide, `CHAR` → narrow)
+/// to the canonical string-pointer spelling its sentinel value is carried as.
+///
+/// String-pointer *sentinel* constants are spelled with an inline pointer-to-char cast
+/// rather than a named alias — `#define COLE_DEFAULT_PRINCIPAL ((OLECHAR*)(INT_PTR)-1)`.
+/// `parse_nested_cast` rejects them at the `*` (its cast chain only accepts bare typedef
+/// names), so they are matched by their fixed token shape in [`parse_body`] and emitted as
+/// a `PWSTR`/`PSTR` const carrying the (sign-extended) sentinel — matching the reference
+/// metadata, which projects them as `PCWSTR(-1 as _)`.
+fn char_pointer_target(name: &str) -> Option<&'static str> {
+    Some(match name {
+        "OLECHAR" | "WCHAR" | "wchar_t" => "PWSTR",
+        "CHAR" | "char" => "PSTR",
+        _ => return None,
+    })
+}
+
 /// Maps a single C builtin integer *keyword* to its primitive [`metadata::Type`]
 /// under LLP64 (`long` = 32-bit). Multi-token spellings (`unsigned int`,
 /// `long long`) are not handled here and fall through to the evaluation path.
@@ -978,7 +1144,7 @@ fn parse_nested_cast(
     let mut negate = false;
     let mut literal: Option<&str> = None;
 
-    for (kind, tok) in body {
+    for (i, (kind, tok)) in body.iter().enumerate() {
         match *kind {
             CXToken_Punctuation => match tok.as_str() {
                 "(" | ")" => {}
@@ -988,6 +1154,14 @@ fn parse_nested_cast(
             CXToken_Identifier => {
                 // An identifier after the literal is not part of a cast chain.
                 if literal.is_some() {
+                    return None;
+                }
+                // A cast identifier is `(TYPE)` — always immediately closed by `)`.
+                // An identifier followed by `(` is a function-like macro invocation
+                // (e.g. `ARRAYSIZE(VOLUME_PREFIX)`), not a cast; bail so the batch
+                // evaluator can compute the real value instead of misreading the macro
+                // name as a bogus target type.
+                if !matches!(body.get(i + 1), Some((CXToken_Punctuation, p)) if p == ")") {
                     return None;
                 }
                 casts.push(tok);

@@ -1,22 +1,8 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::{
-            Foundation::*,
-            Graphics::{
-                Direct2D::{Common::*, *},
-                Direct3D::*,
-                Direct3D11::*,
-                DirectComposition::*,
-                DirectWrite::*,
-                Dxgi::{Common::*, *},
-                Gdi::*,
-                Imaging::{D2D::*, *},
-            },
-            Security::Cryptography::{BCRYPT_USE_SYSTEM_PREFERRED_RNG, BCryptGenRandom},
-            System::Com::*,
-            UI::{Animation::*, HiDpi::*, Shell::*, WindowsAndMessaging::*},
-        },
-        core::*,
+        bcrypt::*, combaseapi::*, core::*, d2d::*, d3d11::*, d3dcommon::*, dcommon::*, dcomp::*,
+        dwrite::*, dxgi::*, minwindef::*, objbase::*, shellscalingapi::*, shlwapi::*,
+        uianimation::*, wincodec::*, windef::*, winnt::*, winuser::*, wtypesbase::*,
     };
 
     use std::cell::RefCell;
@@ -70,7 +56,10 @@ fn main() -> windows::core::Result<()> {
                 let mut values = [b'?'; CARD_ROWS * CARD_COLUMNS];
                 let mut random_bytes = vec![0u8; values.len()];
 
-                BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
+                assert!(
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
+                );
 
                 for i in 0..values.len() / 2 {
                     let value = b'A' + (random_bytes[i] % 26);
@@ -78,7 +67,10 @@ fn main() -> windows::core::Result<()> {
                     values[i * 2 + 1] = value + b'a' - b'A';
                 }
 
-                BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
+                assert!(
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
+                );
 
                 (0..values.len()).for_each(|i| {
                     let j = (random_bytes[i] as usize) % values.len();
@@ -148,7 +140,7 @@ fn main() -> windows::core::Result<()> {
                 let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
                 let brush = dc.CreateSolidColorBrush(
-                    &D2D1_COLOR_F {
+                    &D2D_COLOR_F {
                         r: 0.0,
                         g: 0.0,
                         b: 0.0,
@@ -235,9 +227,10 @@ fn main() -> windows::core::Result<()> {
 
                 AdjustWindowRect(
                     &mut rect,
-                    WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as u32),
+                    GetWindowLongW(self.handle, GWL_STYLE) as u32,
                     false,
-                )?;
+                )
+                .ok()?;
 
                 Ok((rect.right - rect.left, rect.bottom - rect.top))
             }
@@ -279,7 +272,8 @@ fn main() -> windows::core::Result<()> {
                     }
 
                     let desktop = self.desktop.as_ref().expect("IDCompositionDesktopDevice");
-                    let stats = desktop.GetFrameStatistics()?;
+                    let mut stats = DCOMPOSITION_FRAME_STATISTICS::default();
+                    desktop.GetFrameStatistics(&mut stats).ok()?;
 
                     let next_frame: f64 =
                         stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
@@ -373,14 +367,15 @@ fn main() -> windows::core::Result<()> {
                     size.0,
                     size.1,
                     SWP_NOACTIVATE | SWP_NOZORDER,
-                )?;
+                )
+                .ok()?;
 
                 self.device = None;
                 Ok(())
             }
         }
 
-        fn create_handler(&mut self) -> Result<()> {
+        fn create_handler(&mut self) -> Result<(i32, i32)> {
             unsafe {
                 let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
                 let mut dpi = (0, 0);
@@ -391,17 +386,7 @@ fn main() -> windows::core::Result<()> {
                     println!("initial dpi: {:?}", self.dpi);
                 }
 
-                let size = self.effective_window_size()?;
-
-                SetWindowPos(
-                    self.handle,
-                    None,
-                    0,
-                    0,
-                    size.0,
-                    size.1,
-                    SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
-                )
+                self.effective_window_size()
             }
         }
 
@@ -461,7 +446,7 @@ fn main() -> windows::core::Result<()> {
                 CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
             // Just a little hack to make it simpler to run the sample from the root of the workspace.
-            let path = if PathFileExistsW(w!("image.jpg")).is_ok() {
+            let path = if PathFileExistsW(w!("image.jpg")).as_bool() {
                 w!("image.jpg")
             } else {
                 w!("crates/samples/windows/dcomp/image.jpg")
@@ -469,7 +454,7 @@ fn main() -> windows::core::Result<()> {
 
             let decoder = factory.CreateDecoderFromFilename(
                 path,
-                None,
+                core::ptr::null(),
                 GENERIC_READ,
                 WICDecodeMetadataCacheOnDemand,
             )?;
@@ -499,8 +484,8 @@ fn main() -> windows::core::Result<()> {
             D3D11CreateDevice(
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
-                None,
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+                HMODULE::default(),
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 None,
                 D3D11_SDK_VERSION,
                 Some(&mut device),
@@ -631,7 +616,7 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
     ) -> Result<()> {
         unsafe {
-            let mut offset = Default::default();
+            let mut offset = POINT::default();
             let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
@@ -640,7 +625,7 @@ fn main() -> windows::core::Result<()> {
                 physical_to_logical(offset.y as f32, dpi.1),
             ));
 
-            dc.Clear(Some(&D2D1_COLOR_F {
+            dc.Clear(Some(&D2D_COLOR_F {
                 r: 1.0,
                 g: 1.0,
                 b: 1.0,
@@ -672,7 +657,7 @@ fn main() -> windows::core::Result<()> {
         dpi: (f32, f32),
     ) -> Result<()> {
         unsafe {
-            let mut dc_offset = Default::default();
+            let mut dc_offset = POINT::default();
             let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
@@ -711,16 +696,16 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
-        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX).0)
-        .ex_style(WS_EX_NOREDIRECTIONBITMAP.0)
+        .style(WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX)
+        .ex_style(WS_EX_NOREDIRECTIONBITMAP)
         .on_message(move |_, message, wparam, lparam| {
             Some(
                 handler
@@ -732,7 +717,22 @@ fn main() -> windows::core::Result<()> {
         .create()?;
 
     app.borrow_mut().handle = HWND(window.hwnd());
-    app.borrow_mut().create_handler()?;
+    let size = app.borrow_mut().create_handler()?;
+
+    // Resize the window outside of any `RefCell` borrow: `SetWindowPos` dispatches
+    // messages synchronously, which reenter the message handler and borrow the app.
+    unsafe {
+        SetWindowPos(
+            HWND(window.hwnd()),
+            None,
+            0,
+            0,
+            size.0,
+            size.1,
+            SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
+        )
+        .ok()?;
+    }
 
     run();
     Ok(())

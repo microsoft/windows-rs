@@ -502,6 +502,20 @@ pub struct IQueryOptions_Vtbl {
     #[cfg(not(feature = "Storage_FileProperties"))]
     SetPropertyPrefetch: usize,
 }
+windows_core::imp::define_interface!(IQueryOptionsAdditionalSearchSources, IQueryOptionsAdditionalSearchSources_Vtbl, 0x8d342d6b_8800_426e_b5cf_4b328f824e7e);
+impl windows_core::RuntimeType for IQueryOptionsAdditionalSearchSources {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Storage.Search.IQueryOptionsAdditionalSearchSources");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IQueryOptionsAdditionalSearchSources_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IncludeLocalSemanticIndex: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIncludeLocalSemanticIndex: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub IncludeCloudProviders: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIncludeCloudProviders: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IQueryOptionsFactory, IQueryOptionsFactory_Vtbl, 0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3);
 impl windows_core::RuntimeType for IQueryOptionsFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1446,6 +1460,28 @@ impl QueryOptions {
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyPrefetch)(windows_core::Interface::as_raw(self), options, propertiestoretrieve.param().abi()).ok() }
+    }
+    pub fn IncludeLocalSemanticIndex(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IQueryOptionsAdditionalSearchSources>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IncludeLocalSemanticIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIncludeLocalSemanticIndex(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IQueryOptionsAdditionalSearchSources>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetIncludeLocalSemanticIndex)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn IncludeCloudProviders(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IQueryOptionsAdditionalSearchSources>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IncludeCloudProviders)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIncludeCloudProviders(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IQueryOptionsAdditionalSearchSources>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetIncludeCloudProviders)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn CreateCommonFileQuery<P1>(query: CommonFileQuery, filetypefilter: P1) -> windows_core::Result<Self>
     where

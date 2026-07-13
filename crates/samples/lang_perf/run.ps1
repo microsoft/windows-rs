@@ -26,8 +26,10 @@ Write-Host 'Building Rust and C++ consumers (release)...' -ForegroundColor Cyan
 # Build the component that generates lang.winmd first, on its own, so its build script
 # (the winmd writer) never runs in parallel with the C++ component/consumer build scripts
 # that read the same winmd -- otherwise a clean build can fail with a file-locking error.
+# The C++ component (lang_perf_component_cpp -> langperf_cpp.dll) is named explicitly so
+# cargo places its cdylib in target/release; built only transitively it lands in deps/.
 cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_component | Out-Null
-cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_rust -p lang_perf_cpp | Out-Null
+cargo build --release --manifest-path "$root/Cargo.toml" -p lang_perf_component_cpp -p lang_perf_rust -p lang_perf_cpp | Out-Null
 
 # Stage each component as LangPerf.dll in its own directory so the C# consumer (which
 # resolves the native DLL from PATH) can be pointed at either implementation per run.

@@ -126,6 +126,17 @@ pub fn reader() -> Reader {
     Reader::new()
 }
 
+/// Parses a single `.rdl` file and returns the names of every type, function, and constant
+/// it defines under `namespace`. This is a pure syntactic walk — cross-file references are
+/// not resolved — so it succeeds even on a partition that references types defined elsewhere.
+///
+/// This is the routing signal for the downstream namespace map: each canonical `.rdl` file
+/// corresponds to one defining header, so its item names identify which types/functions/
+/// constants a header-based namespace should own.
+pub fn item_names(path: &str, namespace: &str) -> Result<Vec<String>, Error> {
+    reader::item_names(path, namespace)
+}
+
 /// Creates a [`Writer`] that converts `.winmd` metadata into RDL.
 pub fn writer() -> Writer {
     Writer::new()
@@ -154,7 +165,11 @@ pub struct ArchInput {
 /// vocabulary `.rdl` (attribute definitions); it is preserved verbatim in `output_dir` and
 /// is needed to compile each partition. The heavy lifting is done by [`Reader`], [`Writer`]
 /// and [`metadata::merge()`]; the per-partition name discovery runs in parallel.
-pub fn merge_arch_rdl(inputs: &[ArchInput], seed: &str, output_dir: &str) -> Result<(), Error> {
+pub fn merge_arch_rdl(
+    inputs: &[ArchInput],
+    seed: Option<&str>,
+    output_dir: &str,
+) -> Result<(), Error> {
     if inputs.is_empty() {
         return Err(writer_err!(
             "merge_arch_rdl requires at least one arch input"
@@ -163,13 +178,20 @@ pub fn merge_arch_rdl(inputs: &[ArchInput], seed: &str, output_dir: &str) -> Res
 
     // Preserve the hand-authored seed: the Writer clears `*.rdl` from the output directory
     // (which is typically the committed corpus that already holds the seed) before writing.
-    let seed_name = std::path::Path::new(seed)
-        .file_name()
-        .and_then(|n| n.to_str())
-        .ok_or_else(|| writer_err!("invalid seed path `{seed}`"))?
-        .to_string();
-    let seed_text =
-        std::fs::read(seed).map_err(|e| writer_err!("failed to read seed `{seed}`: {e}"))?;
+    // A corpus whose metadata attributes are resolved from an external reference winmd
+    // (the WDK, which references the Win32 winmd) carries no seed of its own.
+    let seed = seed
+        .map(|seed| {
+            let name = std::path::Path::new(seed)
+                .file_name()
+                .and_then(|n| n.to_str())
+                .ok_or_else(|| writer_err!("invalid seed path `{seed}`"))?
+                .to_string();
+            let text = std::fs::read(seed)
+                .map_err(|e| writer_err!("failed to read seed `{seed}`: {e}"))?;
+            Ok::<_, Error>((name, text))
+        })
+        .transpose()?;
 
     // 1. Arch-merge the per-arch winmds into one merged winmd with SupportedArchitecture.
     //    The scratch dir is uniquely named (pid + nanos) so concurrent merges never share it,
@@ -210,7 +232,8 @@ pub fn merge_arch_rdl(inputs: &[ArchInput], seed: &str, output_dir: &str) -> Res
         {
             let path = entry.path();
             if !path.extension().is_some_and(|x| x == "rdl")
-                || path.file_name().and_then(|n| n.to_str()) == Some(seed_name.as_str())
+                || path.file_name().and_then(|n| n.to_str())
+                    == seed.as_ref().map(|(name, _)| name.as_str())
             {
                 continue;
             }
@@ -231,14 +254,16 @@ pub fn merge_arch_rdl(inputs: &[ArchInput], seed: &str, output_dir: &str) -> Res
         .output(output_dir)
         .write()?;
 
-    // 4. Restore the hand-authored seed verbatim.
-    write_to_file(
-        std::path::Path::new(output_dir)
-            .join(&seed_name)
-            .to_str()
-            .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?,
-        seed_text,
-    )?;
+    // 4. Restore the hand-authored seed verbatim (corpora without a seed skip this).
+    if let Some((seed_name, seed_text)) = seed {
+        write_to_file(
+            std::path::Path::new(output_dir)
+                .join(&seed_name)
+                .to_str()
+                .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?,
+            seed_text,
+        )?;
+    }
 
     Ok(())
 }

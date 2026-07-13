@@ -4,11 +4,15 @@ use super::*;
 ///
 /// Grammar:
 /// ```text
-/// entry   = ["!"] ["??" | "?"] tree
+/// entry   = ["!"] tree
 /// tree    = segment { "::" segment }
-/// segment = "{" tree { "," tree } "}" | "**" | "*" | ident
+/// segment = "{" [ tree { "," tree } ] "}" | ident
 /// ident   = [A-Za-z0-9_]+
 /// ```
+///
+/// Specificity drives granularity (inspired by Rust's `use`): a bare mention
+/// (`Ns::Type`) includes the whole type; `Ns::Type::{}` is a name-only shell;
+/// `Ns::Type::{a, b}` includes only the named methods.
 ///
 /// Flattens grouped paths into a list of fully-qualified entries:
 ///   `A::B::{C, D::E}` → `["A::B::C", "A::B::D::E"]`
@@ -156,18 +160,17 @@ pub struct ResolvedFilter {
 
 #[derive(Debug, Clone)]
 pub enum ResolvedKind {
-    /// A namespace (possibly with recursive glob): include/exclude all types in it.
+    /// A namespace: include/exclude that namespace and everything nested under it.
     Namespace(String),
     /// A specific type with all members.
     Type { namespace: String, name: String },
-    /// A specific type with specific member(s).
+    /// A specific type with specific member(s). An empty `members` list is an
+    /// explicit name-only shell (`Ns::Type::{}`).
     Members {
         namespace: String,
         name: String,
         members: Vec<String>,
     },
-    /// A glob within a namespace: `Ns::Prefix*`
-    NameGlob { namespace: String, prefix: String },
 }
 
 /// Resolve parsed filter entries against the metadata reader.
@@ -177,10 +180,11 @@ pub enum ResolvedKind {
 /// remaining segments are members (methods/variants).
 ///
 /// Special cases:
-/// - `**` at the end means recursive namespace inclusion
-/// - `*` at the end of a namespace means all types in that namespace
-/// - `*` after a type means all members
+/// - `Ns::Type::{}` (empty group) means a name-only shell (no members)
 /// - A single bare ident (no `::`) is searched across all namespaces
+///
+/// A bare namespace (e.g. `Windows` or `Windows::Foundation`) is recursive: it
+/// matches that namespace and every namespace nested beneath it.
 pub fn resolve_entries(reader: &Reader, entries: &[FilterEntry]) -> Vec<ResolvedFilter> {
     let mut resolved = Vec::new();
 
@@ -205,13 +209,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     // Single segment: bare name (e.g. "CloseHandle") — search all namespaces
     if segments.len() == 1 {
         let name = &segments[0];
-        if name == "**" || name == "*" {
-            // Everything
-            return reader
-                .keys()
-                .map(|ns| base(ResolvedKind::Namespace(ns.to_string())))
-                .collect();
-        }
         // Search all namespaces for this name
         let mut found = false;
         let mut results = Vec::new();
@@ -239,21 +236,6 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
         return results;
     }
 
-    // Check if last segment is `**` (recursive glob)
-    if segments.last().is_some_and(|s| s == "**") {
-        let ns_prefix = segments[..segments.len() - 1].join(".");
-        // Validate namespace prefix exists
-        let any_match = reader
-            .keys()
-            .any(|ns| namespace_starts_with(ns, &ns_prefix));
-        assert!(
-            any_match,
-            "no namespaces found matching `{}`",
-            segments.join("::")
-        );
-        return vec![base(ResolvedKind::Namespace(ns_prefix))];
-    }
-
     // Try progressively longer namespace prefixes.
     // Join segments with "." and check reader.
     for split in (1..segments.len()).rev() {
@@ -264,31 +246,15 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             continue;
         }
 
-        // Found namespace. Next segment should be a type or glob.
+        // Found namespace. Next segment should be a type.
         let type_seg = &rest[0];
 
-        // Namespace-level glob: `Ns::*`
-        if type_seg == "*" {
-            assert!(
-                rest.len() == 1,
-                "`*` must be the last segment in `{}`",
-                segments.join("::")
-            );
-            return vec![base(ResolvedKind::Namespace(ns_candidate))];
-        }
-
-        // Name glob: `Ns::Prefix*`
-        if let Some(prefix) = type_seg.strip_suffix('*') {
-            assert!(
-                rest.len() == 1,
-                "glob must be the last segment in `{}`",
-                segments.join("::")
-            );
-            return vec![base(ResolvedKind::NameGlob {
-                namespace: ns_candidate,
-                prefix: prefix.to_string(),
-            })];
-        }
+        assert!(
+            !type_seg.contains('*'),
+            "`*` globs are no longer supported; use a bare type for the full \
+             surface or `Type::{{}}` for a name-only shell (in `{}`)",
+            segments.join("::")
+        );
 
         // Look up the type
         let ns_map = reader.get(ns_candidate.as_str());
@@ -305,19 +271,9 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
             return vec![base(ResolvedKind::Type { namespace, name })];
         }
 
-        // Remaining segments are members
-        let member_segments = &rest[1..];
-        if member_segments.len() == 1 && member_segments[0] == "*" {
-            // Type::* — all members (classes get expanded, interfaces get MethodSet::All)
-            return vec![base(ResolvedKind::Members {
-                namespace,
-                name,
-                members: vec!["*".to_string()],
-            })];
-        }
-
-        // Specific members
-        let members: Vec<String> = member_segments.to_vec();
+        // Remaining segments are members; an empty group (`::{}`) leaves a lone
+        // empty segment and means a name-only shell.
+        let members = collect_members(&rest[1..], segments);
         return vec![base(ResolvedKind::Members {
             namespace,
             name,
@@ -345,19 +301,14 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     // instead of `Windows::Win32::System::WinRT::IAgileReference::Resolve`), resolving
     // identically against both namespaced and flat metadata.
     let type_name = &segments[0];
-    let member_segments = &segments[1..];
+    let members = collect_members(&segments[1..], segments);
     let mut results = Vec::new();
     for (namespace, types) in reader.iter() {
         if types.get(type_name.as_str()).is_some() {
-            let members = if member_segments == ["*"] {
-                vec!["*".to_string()]
-            } else {
-                member_segments.to_vec()
-            };
             results.push(base(ResolvedKind::Members {
                 namespace: namespace.to_string(),
                 name: type_name.clone(),
-                members,
+                members: members.clone(),
             }));
         }
     }
@@ -366,6 +317,23 @@ fn resolve_one(reader: &Reader, entry: &FilterEntry) -> Vec<ResolvedFilter> {
     }
 
     panic!("could not resolve filter entry `{}`", segments.join("::"));
+}
+
+/// Collect member segments, dropping the lone empty segment produced by an
+/// empty group (`::{}`) so it resolves to a name-only shell (empty list).
+#[track_caller]
+fn collect_members(member_segments: &[String], segments: &[String]) -> Vec<String> {
+    assert!(
+        !member_segments.iter().any(|m| m.contains('*')),
+        "`*` globs are no longer supported; use a bare type for the full \
+         surface or `Type::{{}}` for a name-only shell (in `{}`)",
+        segments.join("::")
+    );
+    member_segments
+        .iter()
+        .filter(|m| !m.is_empty())
+        .cloned()
+        .collect()
 }
 
 #[cfg(test)]
@@ -421,17 +389,13 @@ mod tests {
     }
 
     #[test]
-    fn glob() {
-        let entries = parse_filter_entry("Windows::Foundation::*");
+    fn empty_group_shell() {
+        let entries = parse_filter_entry("Windows::Foundation::IStringable::{}");
         assert_eq!(entries.len(), 1);
-        assert_eq!(entries[0].segments, vec!["Windows", "Foundation", "*"]);
-    }
-
-    #[test]
-    fn recursive_glob() {
-        let entries = parse_filter_entry("Windows::**");
-        assert_eq!(entries.len(), 1);
-        assert_eq!(entries[0].segments, vec!["Windows", "**"]);
+        assert_eq!(
+            entries[0].segments,
+            vec!["Windows", "Foundation", "IStringable", ""]
+        );
     }
 
     #[test]
@@ -449,16 +413,6 @@ mod tests {
         assert_eq!(entries.len(), 1);
         assert_eq!(entries[0].segments, vec!["CloseHandle"]);
     }
-
-    #[test]
-    fn star_methods() {
-        let entries = parse_filter_entry("Windows::Win32::Dxgi::IDXGIDevice::*");
-        assert_eq!(entries.len(), 1);
-        assert_eq!(
-            entries[0].segments,
-            vec!["Windows", "Win32", "Dxgi", "IDXGIDevice", "*"]
-        );
-    }
 }
 
 #[cfg(test)]
@@ -468,7 +422,7 @@ mod resolution_tests {
     fn test_reader() -> &'static Reader {
         use std::sync::OnceLock;
         static READER: OnceLock<Reader> = OnceLock::new();
-        READER.get_or_init(|| Reader::new(expand_input(&["default"])))
+        READER.get_or_init(|| Reader::new(expand_input(&["default"]), false))
     }
 
     #[test]
@@ -503,20 +457,6 @@ mod resolution_tests {
                 assert_eq!(members, &["GetAdapter"]);
             }
             other => panic!("expected Members, got {other:?}"),
-        }
-    }
-
-    #[test]
-    fn resolve_recursive_glob() {
-        let reader = test_reader();
-        let entries = parse_filter_entry("Windows::Foundation::**");
-        let resolved = resolve_entries(reader, &entries);
-        assert_eq!(resolved.len(), 1);
-        match &resolved[0].kind {
-            ResolvedKind::Namespace(ns) => {
-                assert_eq!(ns, "Windows.Foundation");
-            }
-            other => panic!("expected Namespace, got {other:?}"),
         }
     }
 
@@ -558,9 +498,9 @@ mod resolution_tests {
     }
 
     #[test]
-    fn resolve_type_star() {
+    fn resolve_empty_group_shell() {
         let reader = test_reader();
-        let entries = parse_filter_entry("IDXGIDevice::*");
+        let entries = parse_filter_entry("IDXGIDevice::{}");
         let resolved = resolve_entries(reader, &entries);
         assert_eq!(resolved.len(), 1);
         match &resolved[0].kind {
@@ -571,9 +511,9 @@ mod resolution_tests {
             } => {
                 assert_eq!(namespace, "Windows.Win32");
                 assert_eq!(name, "IDXGIDevice");
-                assert_eq!(members, &["*"]);
+                assert!(members.is_empty());
             }
-            other => panic!("expected Members with wildcard, got {other:?}"),
+            other => panic!("expected empty Members (shell), got {other:?}"),
         }
     }
 
@@ -593,17 +533,10 @@ mod resolution_tests {
     }
 
     #[test]
-    fn resolve_name_glob() {
+    fn resolve_star_panics() {
         let reader = test_reader();
-        let entries = parse_filter_entry("Windows::Foundation::Async*");
-        let resolved = resolve_entries(reader, &entries);
-        assert_eq!(resolved.len(), 1);
-        match &resolved[0].kind {
-            ResolvedKind::NameGlob { namespace, prefix } => {
-                assert_eq!(namespace, "Windows.Foundation");
-                assert_eq!(prefix, "Async");
-            }
-            other => panic!("expected NameGlob, got {other:?}"),
-        }
+        let entries = parse_filter_entry("IDXGIDevice::*");
+        let result = std::panic::catch_unwind(|| resolve_entries(reader, &entries));
+        assert!(result.is_err(), "`::*` should no longer resolve");
     }
 }

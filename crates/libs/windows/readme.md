@@ -13,19 +13,16 @@ Start by adding the following to your Cargo.toml file:
 version = "0.62"
 features = [
     "Data_Xml_Dom",
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_UI_WindowsAndMessaging",
+    "handleapi",
+    "synchapi",
+    "winuser",
 ]
 ```
 
 Make use of any Windows APIs as needed:
 
 ```rust,no_run
-use windows::{
-    core::*, Data::Xml::Dom::*, Win32::Foundation::*, Win32::System::Threading::*,
-    Win32::UI::WindowsAndMessaging::*,
-};
+use windows::{core::*, Data::Xml::Dom::*, handleapi::*, synchapi::*, winuser::*};
 
 fn main() -> Result<()> {
     let doc = XmlDocument::new()?;
@@ -36,10 +33,10 @@ fn main() -> Result<()> {
     assert!(root.InnerText()? == "hello world");
 
     unsafe {
-        let event = CreateEventW(None, true, false, None)?;
-        SetEvent(event)?;
+        let event = CreateEventW(None, true, false, None);
+        SetEvent(event).ok()?;
         WaitForSingleObject(event, 0);
-        CloseHandle(event)?;
+        CloseHandle(event).ok()?;
 
         MessageBoxA(None, s!("Ansi"), s!("Caption"), MB_OK);
         MessageBoxW(None, w!("Wide"), w!("Caption"), MB_OK);

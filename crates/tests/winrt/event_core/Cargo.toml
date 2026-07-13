@@ -11,9 +11,9 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "std",
+    "activation",
     "Foundation",
-    "Win32_System_WinRT",
+    "std",
 ]
 
 [lints]

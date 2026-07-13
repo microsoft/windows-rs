@@ -1,0 +1,19 @@
+pub const NDIS_OBJECT_TYPE_OID_REQUEST: u32 = 150;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct NDIS_OID(pub u32);
+pub type NDIS_REQUEST_TYPE = i32;
+pub const NdisRequestClose: NDIS_REQUEST_TYPE = 4;
+pub const NdisRequestGeneric1: NDIS_REQUEST_TYPE = 8;
+pub const NdisRequestGeneric2: NDIS_REQUEST_TYPE = 9;
+pub const NdisRequestGeneric3: NDIS_REQUEST_TYPE = 10;
+pub const NdisRequestGeneric4: NDIS_REQUEST_TYPE = 11;
+pub const NdisRequestOpen: NDIS_REQUEST_TYPE = 3;
+pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = 0;
+pub const NdisRequestQueryStatistics: NDIS_REQUEST_TYPE = 2;
+pub const NdisRequestReset: NDIS_REQUEST_TYPE = 7;
+pub const NdisRequestSend: NDIS_REQUEST_TYPE = 5;
+pub const NdisRequestSetInformation: NDIS_REQUEST_TYPE = 1;
+pub const NdisRequestTransferData: NDIS_REQUEST_TYPE = 6;
+pub type PNDIS_OID = *mut u32;
+pub type PNDIS_REQUEST_TYPE = *mut NDIS_REQUEST_TYPE;

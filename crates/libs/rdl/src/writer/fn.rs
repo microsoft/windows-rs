@@ -43,11 +43,15 @@ pub fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> Result<T
         &["SupportedArchitectureAttribute"],
     )?;
 
-    let library_attr = if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
-        quote! { #[library(#library, last_error = true)] }
-    } else {
-        quote! { #[library(#library)] }
-    };
+    let mut library_opts = TokenStream::new();
+    if flags.contains(metadata::PInvokeAttributes::SupportsLastError) {
+        library_opts.extend(quote! { , last_error = true });
+    }
+    let import = impl_map.import_name();
+    if import != item.name() {
+        library_opts.extend(quote! { , import = #import });
+    }
+    let library_attr = quote! { #[library(#library #library_opts)] };
 
     Ok(quote! {
         #arch_attr

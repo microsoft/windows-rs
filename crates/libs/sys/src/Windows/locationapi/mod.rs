@@ -1,0 +1,15 @@
+pub const CivicAddressReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
+pub const CivicAddressReportFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
+pub const DefaultLocation: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
+pub const DispCivicAddressReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
+pub const DispLatLongReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
+pub const LOCATION_API_VERSION: u32 = 1;
+pub type LOCATION_REPORT_STATUS = i32;
+pub const LatLongReport: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
+pub const LatLongReportFactory: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
+pub const Location: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
+pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = 2;
+pub const REPORT_ERROR: LOCATION_REPORT_STATUS = 1;
+pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = 3;
+pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = 0;
+pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = 4;

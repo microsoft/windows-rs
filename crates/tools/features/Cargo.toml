@@ -6,6 +6,7 @@ publish = false
 
 [dependencies]
 windows-metadata = { workspace = true }
+tool_package = { path = "../package" }
 
 [lints]
 workspace = true

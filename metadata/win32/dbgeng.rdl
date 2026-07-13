@@ -1035,17 +1035,11 @@ mod Windows {
         const ERROR_DBG_TIMEOUT: u32 = 3221226932;
         #[guid(0xf2df5f53_071f_47bd_9de6_5734c3fed689)]
         interface IDebugAdvanced: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetThreadContext(&self, #[size_param(1)] Context: *mut void, ContextSize: u32) -> HRESULT;
             fn SetThreadContext(&self, #[size_param(1)] Context: *const void, ContextSize: u32) -> HRESULT;
         }
         #[guid(0x716d14c9_119b_4ba5_af1f_0890e672416a)]
         interface IDebugAdvanced2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetThreadContext(&self, #[size_param(1)] Context: *mut void, ContextSize: u32) -> HRESULT;
             fn SetThreadContext(&self, #[size_param(1)] Context: *const void, ContextSize: u32) -> HRESULT;
             fn Request(&self, Request: u32, #[size_param(2)] #[opt] InBuffer: *const void, InBufferSize: u32, #[size_param(4)] #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[opt] OutSize: *mut u32) -> HRESULT;
@@ -1056,9 +1050,6 @@ mod Windows {
         }
         #[guid(0xcba4abb4_84c4_444d_87ca_a04e13286739)]
         interface IDebugAdvanced3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetThreadContext(&self, #[size_param(1)] Context: *mut void, ContextSize: u32) -> HRESULT;
             fn SetThreadContext(&self, #[size_param(1)] Context: *const void, ContextSize: u32) -> HRESULT;
             fn Request(&self, Request: u32, #[size_param(2)] #[opt] InBuffer: *const void, InBufferSize: u32, #[size_param(4)] #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[opt] OutSize: *mut u32) -> HRESULT;
@@ -1072,9 +1063,6 @@ mod Windows {
         }
         #[guid(0xd1069067_2a65_4bf0_ae97_76184b67856b)]
         interface IDebugAdvanced4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetThreadContext(&self, #[size_param(1)] Context: *mut void, ContextSize: u32) -> HRESULT;
             fn SetThreadContext(&self, #[size_param(1)] Context: *const void, ContextSize: u32) -> HRESULT;
             fn Request(&self, Request: u32, #[size_param(2)] #[opt] InBuffer: *const void, InBufferSize: u32, #[size_param(4)] #[opt] OutBuffer: *mut void, OutBufferSize: u32, #[opt] OutSize: *mut u32) -> HRESULT;
@@ -1089,9 +1077,6 @@ mod Windows {
         }
         #[guid(0x5bd9d474_5975_423a_b88b_65a8e7110e65)]
         interface IDebugBreakpoint: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetId(&self, Id: *mut u32) -> HRESULT;
             fn GetType(&self, BreakType: *mut u32, ProcType: *mut u32) -> HRESULT;
             fn GetAdder(&self, Adder: *mut IDebugClient) -> HRESULT;
@@ -1116,9 +1101,6 @@ mod Windows {
         }
         #[guid(0x1b278d20_79f2_426e_a3f9_c1ddf375d48e)]
         interface IDebugBreakpoint2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetId(&self, Id: *mut u32) -> HRESULT;
             fn GetType(&self, BreakType: *mut u32, ProcType: *mut u32) -> HRESULT;
             fn GetAdder(&self, Adder: *mut IDebugClient) -> HRESULT;
@@ -1147,9 +1129,6 @@ mod Windows {
         }
         #[guid(0x38f5c249_b448_43bb_9835_579d4ec02249)]
         interface IDebugBreakpoint3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetId(&self, Id: *mut u32) -> HRESULT;
             fn GetType(&self, BreakType: *mut u32, ProcType: *mut u32) -> HRESULT;
             fn GetAdder(&self, Adder: *mut IDebugClient) -> HRESULT;
@@ -1179,9 +1158,6 @@ mod Windows {
         }
         #[guid(0x27fe5639_8407_4f47_8364_ee118fb08ac8)]
         interface IDebugClient: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1230,9 +1206,6 @@ mod Windows {
         }
         #[guid(0xedbed635_372e_4dab_bbfe_ed0d2f63be81)]
         interface IDebugClient2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1289,9 +1262,6 @@ mod Windows {
         }
         #[guid(0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91)]
         interface IDebugClient3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1352,9 +1322,6 @@ mod Windows {
         }
         #[guid(0xca83c3de_5089_4cf8_93c8_d892387f2a5e)]
         interface IDebugClient4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1421,9 +1388,6 @@ mod Windows {
         }
         #[guid(0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628)]
         interface IDebugClient5: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1519,9 +1483,6 @@ mod Windows {
         }
         #[guid(0xfd28b4c5_c498_4686_a28e_62cad2154eb3)]
         interface IDebugClient6: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1618,9 +1579,6 @@ mod Windows {
         }
         #[guid(0x13586be3_542e_481e_b1f2_8497ba74f9a9)]
         interface IDebugClient7: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1718,9 +1676,6 @@ mod Windows {
         }
         #[guid(0xcec43add_6375_469e_83d5_414e4033c19a)]
         interface IDebugClient8: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1819,9 +1774,6 @@ mod Windows {
         }
         #[guid(0x2c24cd5b_4d9e_4df4_8a70_3d37440d119f)]
         interface IDebugClient9: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn AttachKernel(&self, Flags: u32, #[opt] ConnectOptions: PCSTR) -> HRESULT;
             fn GetKernelConnectionOptions(&self, #[len_param(1)] #[out] #[opt] Buffer: PSTR, BufferSize: u32, #[opt] OptionsSize: *mut u32) -> HRESULT;
             fn SetKernelConnectionOptions(&self, Options: PCSTR) -> HRESULT;
@@ -1923,9 +1875,6 @@ mod Windows {
         #[guid(0x5182e668_105e_416e_ad92_24ef800424ba)]
         #[arch(X64)]
         interface IDebugControl: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2022,9 +1971,6 @@ mod Windows {
         #[guid(0x5182e668_105e_416e_ad92_24ef800424ba)]
         #[arch(X86 | Arm64)]
         interface IDebugControl: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2121,9 +2067,6 @@ mod Windows {
         #[guid(0xd4366723_44df_4bed_8c7e_4c05424f4588)]
         #[arch(X64)]
         interface IDebugControl2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2228,9 +2171,6 @@ mod Windows {
         #[guid(0xd4366723_44df_4bed_8c7e_4c05424f4588)]
         #[arch(X86 | Arm64)]
         interface IDebugControl2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2335,9 +2275,6 @@ mod Windows {
         #[guid(0x7df74a86_b03f_407f_90ab_a20dadcead08)]
         #[arch(X64)]
         interface IDebugControl3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2455,9 +2392,6 @@ mod Windows {
         #[guid(0x7df74a86_b03f_407f_90ab_a20dadcead08)]
         #[arch(X86 | Arm64)]
         interface IDebugControl3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2575,9 +2509,6 @@ mod Windows {
         #[guid(0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3)]
         #[arch(X64)]
         interface IDebugControl4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2748,9 +2679,6 @@ mod Windows {
         #[guid(0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3)]
         #[arch(X86 | Arm64)]
         interface IDebugControl4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -2921,9 +2849,6 @@ mod Windows {
         #[guid(0xb2ffe162_2412_429f_8d1d_5bf6dd824696)]
         #[arch(X64)]
         interface IDebugControl5: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3099,9 +3024,6 @@ mod Windows {
         #[guid(0xb2ffe162_2412_429f_8d1d_5bf6dd824696)]
         #[arch(X86 | Arm64)]
         interface IDebugControl5: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3277,9 +3199,6 @@ mod Windows {
         #[guid(0xbc0d583f_126d_43a1_9cc4_a860ab1d537b)]
         #[arch(X64)]
         interface IDebugControl6: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3457,9 +3376,6 @@ mod Windows {
         #[guid(0xbc0d583f_126d_43a1_9cc4_a860ab1d537b)]
         #[arch(X86 | Arm64)]
         interface IDebugControl6: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3637,9 +3553,6 @@ mod Windows {
         #[guid(0xb86fb3b1_80d4_475b_aea3_cf06539cf63a)]
         #[arch(X64)]
         interface IDebugControl7: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3818,9 +3731,6 @@ mod Windows {
         #[guid(0xb86fb3b1_80d4_475b_aea3_cf06539cf63a)]
         #[arch(X86 | Arm64)]
         interface IDebugControl7: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterrupt(&self) -> HRESULT;
             fn SetInterrupt(&self, Flags: u32) -> HRESULT;
             fn GetInterruptTimeout(&self, Seconds: *mut u32) -> HRESULT;
@@ -3998,9 +3908,6 @@ mod Windows {
         }
         #[guid(0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa)]
         interface IDebugDataSpaces: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ReadVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *mut void, BufferSize: u32, #[opt] BytesRead: *mut u32) -> HRESULT;
             fn WriteVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *const void, BufferSize: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
             fn SearchVirtual(&self, Offset: u64, Length: u64, #[size_param(3)] Pattern: *const void, PatternSize: u32, PatternGranularity: u32, MatchOffset: *mut u64) -> HRESULT;
@@ -4024,9 +3931,6 @@ mod Windows {
         }
         #[guid(0x7a5e852f_96e9_468f_ac1b_0b3addc4a049)]
         interface IDebugDataSpaces2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ReadVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *mut void, BufferSize: u32, #[opt] BytesRead: *mut u32) -> HRESULT;
             fn WriteVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *const void, BufferSize: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
             fn SearchVirtual(&self, Offset: u64, Length: u64, #[size_param(3)] Pattern: *const void, PatternSize: u32, PatternGranularity: u32, MatchOffset: *mut u64) -> HRESULT;
@@ -4056,9 +3960,6 @@ mod Windows {
         }
         #[guid(0x23f79d6c_8aaf_4f7c_a607_9995f5407e63)]
         interface IDebugDataSpaces3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ReadVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *mut void, BufferSize: u32, #[opt] BytesRead: *mut u32) -> HRESULT;
             fn WriteVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *const void, BufferSize: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
             fn SearchVirtual(&self, Offset: u64, Length: u64, #[size_param(3)] Pattern: *const void, PatternSize: u32, PatternGranularity: u32, MatchOffset: *mut u64) -> HRESULT;
@@ -4093,9 +3994,6 @@ mod Windows {
         }
         #[guid(0xd98ada1f_29e9_4ef5_a6c0_e53349883212)]
         interface IDebugDataSpaces4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn ReadVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *mut void, BufferSize: u32, #[opt] BytesRead: *mut u32) -> HRESULT;
             fn WriteVirtual(&self, Offset: u64, #[size_param(2)] Buffer: *const void, BufferSize: u32, #[opt] BytesWritten: *mut u32) -> HRESULT;
             fn SearchVirtual(&self, Offset: u64, Length: u64, #[size_param(3)] Pattern: *const void, PatternSize: u32, PatternGranularity: u32, MatchOffset: *mut u64) -> HRESULT;
@@ -4140,9 +4038,6 @@ mod Windows {
         }
         #[guid(0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa)]
         interface IDebugEventCallbacks: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterestMask(&self, Mask: *mut u32) -> HRESULT;
             fn Breakpoint(&self, Bp: IDebugBreakpoint) -> HRESULT;
             fn Exception(&self, Exception: *const EXCEPTION_RECORD64, FirstChance: u32) -> HRESULT;
@@ -4160,9 +4055,6 @@ mod Windows {
         }
         #[guid(0x0690e046_9c23_45ac_a04f_987ac29ad0d3)]
         interface IDebugEventCallbacksWide: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterestMask(&self, Mask: *mut u32) -> HRESULT;
             fn Breakpoint(&self, Bp: IDebugBreakpoint2) -> HRESULT;
             fn Exception(&self, Exception: *const EXCEPTION_RECORD64, FirstChance: u32) -> HRESULT;
@@ -4180,9 +4072,6 @@ mod Windows {
         }
         #[guid(0x61a4905b_23f9_4247_b3c5_53d087529ab7)]
         interface IDebugEventContextCallbacks: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetInterestMask(&self, Mask: *mut u32) -> HRESULT;
             fn Breakpoint(&self, Bp: IDebugBreakpoint2, #[size_param(2)] Context: *const void, ContextSize: u32) -> HRESULT;
             fn Exception(&self, Exception: *const EXCEPTION_RECORD64, FirstChance: u32, #[size_param(3)] Context: *const void, ContextSize: u32) -> HRESULT;
@@ -4200,62 +4089,38 @@ mod Windows {
         }
         #[guid(0x9f50e42c_f136_499e_9a97_73036c94ed2d)]
         interface IDebugInputCallbacks: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn StartInput(&self, BufferSize: u32) -> HRESULT;
             fn EndInput(&self) -> HRESULT;
         }
         #[guid(0x4bf58045_d654_4c40_b0af_683090f356dc)]
         interface IDebugOutputCallbacks: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Output(&self, Mask: u32, Text: PCSTR) -> HRESULT;
         }
         #[guid(0x67721fe9_56d2_4a44_a325_2b65513ce6eb)]
         interface IDebugOutputCallbacks2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Output(&self, Mask: u32, Text: PCSTR) -> HRESULT;
             fn GetInterestMask(&self, Mask: *mut u32) -> HRESULT;
             fn Output2(&self, Which: u32, Flags: u32, Arg: u64, #[opt] Text: PCWSTR) -> HRESULT;
         }
         #[guid(0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c)]
         interface IDebugOutputCallbacksWide: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Output(&self, Mask: u32, Text: PCWSTR) -> HRESULT;
         }
         #[guid(0x7782d8f2_2b85_4059_ab88_28ceddca1c80)]
         interface IDebugOutputStream: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Write(&self, psz: PCWSTR) -> HRESULT;
         }
         #[guid(0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29)]
         interface IDebugPlmClient: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn LaunchPlmPackageForDebugWide(&self, Server: u64, Timeout: u32, PackageFullName: PCWSTR, AppName: PCWSTR, #[opt] Arguments: PCWSTR, ProcessId: *mut u32, ThreadId: *mut u32) -> HRESULT;
         }
         #[guid(0x597c980d_e7bd_4309_962c_9d9b69a7372c)]
         interface IDebugPlmClient2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn LaunchPlmPackageForDebugWide(&self, Server: u64, Timeout: u32, PackageFullName: PCWSTR, AppName: PCWSTR, #[opt] Arguments: PCWSTR, ProcessId: *mut u32, ThreadId: *mut u32) -> HRESULT;
             fn LaunchPlmBgTaskForDebugWide(&self, Server: u64, Timeout: u32, PackageFullName: PCWSTR, BackgroundTaskId: PCWSTR, ProcessId: *mut u32, ThreadId: *mut u32) -> HRESULT;
         }
         #[guid(0xd4a5dbd1_ca02_4d90_856a_2a92bfd0f20f)]
         interface IDebugPlmClient3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn LaunchPlmPackageForDebugWide(&self, Server: u64, Timeout: u32, PackageFullName: PCWSTR, AppName: PCWSTR, #[opt] Arguments: PCWSTR, ProcessId: *mut u32, ThreadId: *mut u32) -> HRESULT;
             fn LaunchPlmBgTaskForDebugWide(&self, Server: u64, Timeout: u32, PackageFullName: PCWSTR, BackgroundTaskId: PCWSTR, ProcessId: *mut u32, ThreadId: *mut u32) -> HRESULT;
             fn QueryPlmPackageWide(&self, Server: u64, PackageFullName: PCWSTR, Stream: IDebugOutputStream) -> HRESULT;
@@ -4270,9 +4135,6 @@ mod Windows {
         }
         #[guid(0xce289126_9e84_45a7_937e_67bb18691493)]
         interface IDebugRegisters: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNumberRegisters(&self, Number: *mut u32) -> HRESULT;
             fn GetDescription(&self, Register: u32, #[len_param(2)] #[out] #[opt] NameBuffer: PSTR, NameBufferSize: u32, #[opt] NameSize: *mut u32, #[opt] Desc: *mut DEBUG_REGISTER_DESCRIPTION) -> HRESULT;
             fn GetIndexByName(&self, Name: PCSTR, Index: *mut u32) -> HRESULT;
@@ -4287,9 +4149,6 @@ mod Windows {
         }
         #[guid(0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4)]
         interface IDebugRegisters2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNumberRegisters(&self, Number: *mut u32) -> HRESULT;
             fn GetDescription(&self, Register: u32, #[len_param(2)] #[out] #[opt] NameBuffer: PSTR, NameBufferSize: u32, #[opt] NameSize: *mut u32, #[opt] Desc: *mut DEBUG_REGISTER_DESCRIPTION) -> HRESULT;
             fn GetIndexByName(&self, Name: PCSTR, Index: *mut u32) -> HRESULT;
@@ -4319,9 +4178,6 @@ mod Windows {
         }
         #[guid(0xf2528316_0f1a_4431_aeed_11d096e1e2ab)]
         interface IDebugSymbolGroup: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNumberSymbols(&self, Number: *mut u32) -> HRESULT;
             fn AddSymbol(&self, Name: PCSTR, #[in] #[out] Index: *mut u32) -> HRESULT;
             fn RemoveSymbolByName(&self, Name: PCSTR) -> HRESULT;
@@ -4335,9 +4191,6 @@ mod Windows {
         }
         #[guid(0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7)]
         interface IDebugSymbolGroup2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNumberSymbols(&self, Number: *mut u32) -> HRESULT;
             fn AddSymbol(&self, Name: PCSTR, #[in] #[out] Index: *mut u32) -> HRESULT;
             fn RemoveSymbolByName(&self, Name: PCSTR) -> HRESULT;
@@ -4364,9 +4217,6 @@ mod Windows {
         }
         #[guid(0x8c31e98c_983a_48a5_9016_6fe5d667a950)]
         interface IDebugSymbols: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSymbolOptions(&self, Options: *mut u32) -> HRESULT;
             fn AddSymbolOptions(&self, Options: u32) -> HRESULT;
             fn RemoveSymbolOptions(&self, Options: u32) -> HRESULT;
@@ -4419,9 +4269,6 @@ mod Windows {
         }
         #[guid(0x3a707211_afdd_4495_ad4f_56fecdf8163f)]
         interface IDebugSymbols2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSymbolOptions(&self, Options: *mut u32) -> HRESULT;
             fn AddSymbolOptions(&self, Options: u32) -> HRESULT;
             fn RemoveSymbolOptions(&self, Options: u32) -> HRESULT;
@@ -4482,9 +4329,6 @@ mod Windows {
         }
         #[guid(0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8)]
         interface IDebugSymbols3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSymbolOptions(&self, Options: *mut u32) -> HRESULT;
             fn AddSymbolOptions(&self, Options: u32) -> HRESULT;
             fn RemoveSymbolOptions(&self, Options: u32) -> HRESULT;
@@ -4611,9 +4455,6 @@ mod Windows {
         }
         #[guid(0xe391bbd8_9d8c_4418_840b_c006592a1752)]
         interface IDebugSymbols4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSymbolOptions(&self, Options: *mut u32) -> HRESULT;
             fn AddSymbolOptions(&self, Options: u32) -> HRESULT;
             fn RemoveSymbolOptions(&self, Options: u32) -> HRESULT;
@@ -4747,9 +4588,6 @@ mod Windows {
         }
         #[guid(0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e)]
         interface IDebugSymbols5: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetSymbolOptions(&self, Options: *mut u32) -> HRESULT;
             fn AddSymbolOptions(&self, Options: u32) -> HRESULT;
             fn RemoveSymbolOptions(&self, Options: u32) -> HRESULT;
@@ -4885,9 +4723,6 @@ mod Windows {
         }
         #[guid(0x6b86fe2c_2c4f_4f0c_9da2_174311acc327)]
         interface IDebugSystemObjects: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetEventThread(&self, Id: *mut u32) -> HRESULT;
             fn GetEventProcess(&self, Id: *mut u32) -> HRESULT;
             fn GetCurrentThreadId(&self, Id: *mut u32) -> HRESULT;
@@ -4920,9 +4755,6 @@ mod Windows {
         }
         #[guid(0x0ae9f5ff_1852_4679_b055_494bee6407ee)]
         interface IDebugSystemObjects2: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetEventThread(&self, Id: *mut u32) -> HRESULT;
             fn GetEventProcess(&self, Id: *mut u32) -> HRESULT;
             fn GetCurrentThreadId(&self, Id: *mut u32) -> HRESULT;
@@ -4960,9 +4792,6 @@ mod Windows {
         }
         #[guid(0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e)]
         interface IDebugSystemObjects3: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetEventThread(&self, Id: *mut u32) -> HRESULT;
             fn GetEventProcess(&self, Id: *mut u32) -> HRESULT;
             fn GetCurrentThreadId(&self, Id: *mut u32) -> HRESULT;
@@ -5009,9 +4838,6 @@ mod Windows {
         }
         #[guid(0x489468e6_7d0f_4af5_87ab_25207454d553)]
         interface IDebugSystemObjects4: IUnknown {
-            fn QueryInterface(&self, InterfaceId: *const GUID, Interface: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetEventThread(&self, Id: *mut u32) -> HRESULT;
             fn GetEventProcess(&self, Id: *mut u32) -> HRESULT;
             fn GetCurrentThreadId(&self, Id: *mut u32) -> HRESULT;

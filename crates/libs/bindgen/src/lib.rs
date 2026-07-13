@@ -50,9 +50,9 @@ use value::*;
 use winmd::*;
 mod filter_parser;
 mod method_names;
-mod minimal_type_map;
+mod type_closure;
 use method_names::*;
-use minimal_type_map::*;
+use type_closure::*;
 
 /// Creates a new [`Bindgen`] builder for generating Windows API bindings.
 pub fn builder() -> Bindgen {
@@ -184,10 +184,11 @@ impl Style {
         !self.is_sys()
     }
 
-    /// Whether handle structs and unscoped (non-`ScopedEnumAttribute`) enums are
-    /// emitted as a bare `pub type X = <underlying>` alias rather than a newtype
-    /// wrapper. Both sys and minimal bindings collapse them; this is why their
-    /// constants also drop the `Self(value)` constructor (see `cpp_const`).
+    /// Whether **handle** structs are emitted as a bare `pub type X = <underlying>` alias rather
+    /// than a newtype wrapper. Both sys and minimal bindings collapse them; this is why their
+    /// handle constants also drop the `Self(value)` constructor (see `cpp_const`). (Unscoped enums
+    /// are collapsed to bare aliases in *every* style — that decision lives in `cpp_enum`, not
+    /// here.)
     fn emit_bare_typedef(self) -> bool {
         self.is_sys() || self.is_minimal()
     }
@@ -402,7 +403,7 @@ impl Bindgen {
             self.input.iter().map(|s| s.as_str()).collect()
         };
 
-        let reader = Reader::new(expand_input(&input));
+        let reader = Reader::new(expand_input(&input), sys);
 
         let mut references: Vec<ReferenceStage> = Vec::new();
 
@@ -413,7 +414,20 @@ impl Bindgen {
                 (
                     "Windows.Foundation",
                     "windows_future",
-                    &["Windows.Foundation.Async*", "Windows.Foundation.IAsync*"][..],
+                    &[
+                        "Windows.Foundation.AsyncActionCompletedHandler",
+                        "Windows.Foundation.AsyncActionProgressHandler",
+                        "Windows.Foundation.AsyncActionWithProgressCompletedHandler",
+                        "Windows.Foundation.AsyncOperationCompletedHandler",
+                        "Windows.Foundation.AsyncOperationProgressHandler",
+                        "Windows.Foundation.AsyncOperationWithProgressCompletedHandler",
+                        "Windows.Foundation.AsyncStatus",
+                        "Windows.Foundation.IAsyncAction",
+                        "Windows.Foundation.IAsyncActionWithProgress",
+                        "Windows.Foundation.IAsyncInfo",
+                        "Windows.Foundation.IAsyncOperation",
+                        "Windows.Foundation.IAsyncOperationWithProgress",
+                    ][..],
                 ),
                 (
                     "Windows.Foundation.Collections",
@@ -473,9 +487,6 @@ impl Bindgen {
                         .filter(|path| {
                             if let Some((namespace, name)) = path.rsplit_once('.') {
                                 if let Some(ns_map) = reader.get(namespace) {
-                                    if let Some(prefix) = name.strip_suffix('*') {
-                                        return ns_map.keys().any(|k| k.starts_with(prefix));
-                                    }
                                     return ns_map.contains_key(name);
                                 }
                             }
@@ -513,17 +524,18 @@ impl Bindgen {
 
             let mut filter = Filter::from_resolved(&reader, &resolved);
 
-            // Use bottom-up type closure (MinimalTypeMap) when `--minimal` is
-            // set and the filter has precise entries without broad patterns.
-            // This walks only the signatures of requested methods to discover
-            // the minimal set of required types.
-            let types =
-                if self.style.is_minimal() && !filter.has_broad_filter && !self.layout.is_package()
-                {
-                    MinimalTypeMap::build(&reader, &mut filter, &references)
-                } else {
-                    TypeMap::filter(&reader, &filter, &references)
-                };
+            // Seed the bottom-up type closure (`TypeClosure`) whenever the filter
+            // has precise entries without broad patterns. This walks the signatures
+            // of requested methods to discover the required types, so referenced
+            // types are auto-included and requested methods stay callable in every
+            // style. A broad filter (namespace / glob) or `--package` layout instead
+            // takes the top-down namespace scan (`TypeMap::filter`).
+            let types = if !filter.has_broad_filter && !self.layout.is_package() {
+                filter.uses_closure = true;
+                TypeClosure::build(&reader, &mut filter, &references)
+            } else {
+                TypeMap::filter(&reader, &filter, &references)
+            };
 
             (filter, types)
         };
@@ -647,7 +659,7 @@ fn compute_event_only_delegates(types: &TypeMap, reader: &Reader) -> HashSet<Typ
                 let is_event_add = method.flags().contains(MethodAttributes::SpecialName)
                     && method.name().starts_with("add_");
 
-                let sig = method.method_signature("", generics, reader);
+                let sig = method.method_signature(generics, reader);
                 for param in &sig.params {
                     if let Type::Delegate(d) = &param.ty {
                         if is_event_add {
@@ -671,6 +683,25 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
     namespace.starts_with(starts_with)
         && (namespace.len() == starts_with.len()
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
+}
+
+/// Derives the cargo-feature name for a `--package` namespace.
+///
+/// Win32/WDK namespaces are flat (`Windows.Win32.<header>`) with globally unique
+/// header stems, so the feature is just the stem — the `Win32_`/`Wdk_` prefix
+/// would be redundant. The `Win32`/`Wdk` umbrella modules and the hierarchical
+/// WinRT namespaces keep their full path (after `Windows.`) joined with `_`.
+fn namespace_feature(namespace: &str) -> String {
+    if let Some(stem) = namespace
+        .strip_prefix("Windows.Win32.")
+        .or_else(|| namespace.strip_prefix("Windows.Wdk."))
+    {
+        stem.replace('.', "_")
+    } else if let Some((_, rest)) = namespace.split_once('.') {
+        rest.replace('.', "_")
+    } else {
+        namespace.to_string()
+    }
 }
 
 /// Prepend reference entries so they take precedence.

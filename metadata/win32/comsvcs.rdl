@@ -190,7 +190,7 @@ mod Windows {
         const CServiceConfig: GUID = 0xecabb0c8_7f19_11d2_978e_0000f8757e2a;
         const ClrAssemblyLocator: GUID = 0x458aa3b5_265a_4b75_bc05_9bea4630cf18;
         #[library("comsvcs.dll")]
-        extern fn CoCreateActivity(pIUnknown: IUnknown, riid: *const GUID, ppObj: *mut *mut void) -> HRESULT;
+        extern fn CoCreateActivity(pIUnknown: IUnknown, riid: *const GUID, #[iid_is] ppObj: *mut *mut void) -> HRESULT;
         #[library("comsvcs.dll")]
         extern fn CoEnterServiceDomain(pConfigObject: IUnknown) -> HRESULT;
         #[library("comsvcs.dll")]
@@ -1132,7 +1132,7 @@ mod Windows {
             LockMethod = 1,
         }
         #[library("comsvcs.dll")]
-        extern fn MTSCreateActivity(riid: *const GUID, ppobj: *mut *mut void) -> HRESULT;
+        extern fn MTSCreateActivity(riid: *const GUID, #[iid_is] ppobj: *mut *mut void) -> HRESULT;
         type MTS_OBJID = u64;
         type MTS_RESID = u64;
         const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392;

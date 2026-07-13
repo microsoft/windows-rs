@@ -30,8 +30,15 @@ impl CppEnum {
         let tn = self.def.type_name();
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        if !is_scoped && config.bindgen.style.emit_bare_typedef() {
-            return config.write_cpp_handle(self.def);
+        // An unscoped (C-style) enum is logically just a set of global integer constants, not a
+        // distinct type — the original C API takes the underlying integer (e.g. `D3D11CreateDevice`
+        // takes a `u32`, not a `D3D11_CREATE_DEVICE_FLAG`). So in every style it is projected as a
+        // bare `pub type X = <underlying>` alias with plain integer constants (see `cpp_const`),
+        // rather than a newtype wrapper. Scoped enums (`ScopedEnumAttribute`, e.g. WinRT enums and
+        // C++ `enum class`) are genuine types and keep the newtype projection below.
+        if !is_scoped {
+            let cfg = write_simple_cfg(self, config);
+            return config.write_cpp_handle(self.def, &cfg);
         }
 
         let name = to_ident(tn.name());
@@ -84,13 +91,5 @@ impl CppEnum {
 }
 
 impl Dependencies for CppEnum {
-    fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
-        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
-            if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
-                reader
-                    .unwrap_full_name(self.def.namespace(), type_name)
-                    .combine(dependencies, reader);
-            }
-        }
-    }
+    fn combine(&self, _dependencies: &mut TypeMap, _reader: &Reader) {}
 }

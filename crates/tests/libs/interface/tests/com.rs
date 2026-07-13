@@ -2,7 +2,7 @@
 #![expect(non_snake_case)]
 
 use std::sync::RwLock;
-use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
+use windows::{core::*, ocidl::*, urlmon::*, winerror::*};
 
 /// A custom declaration of implementation of `IUri`
 #[interface("a39ee748-6a27-4817-a6f2-13914bef5890")]
@@ -124,7 +124,7 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 fn test_custom_interface() -> Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
-        let a: IUri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
+        let a: IUri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;
@@ -148,10 +148,11 @@ fn test_custom_interface() -> Result<()> {
         );
         assert_eq!(p.GetSizeMax()?, 10);
         assert_eq!(p.IsDirty(), S_FALSE);
-        p.Load(&[0xAAu8, 0xBB, 0xCC]).ok()?;
+        p.Load([0xAAu8, 0xBB, 0xCC].as_ptr() as _, 3).ok()?;
         assert_eq!(p.IsDirty(), S_OK);
         let mut memory = [0x00u8, 0x00, 0x00, 0x00];
-        p.Save(&mut memory, true).ok()?;
+        p.Save(memory.as_mut_ptr() as _, true, memory.len() as u32)
+            .ok()?;
         assert_eq!(memory, [0xAAu8, 0xBB, 0xCC, 0x00]);
         assert_eq!(p.IsDirty(), S_FALSE);
 

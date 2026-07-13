@@ -13,7 +13,7 @@ Start by adding the following to your Cargo.toml file:
 version = "0.2"
 
 [build-dependencies.windows-bindgen]
-version = "0.63"
+version = "0.66"
 ```
 
 Generate Rust bindings in a build script as follows:

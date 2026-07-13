@@ -1,11 +1,11 @@
 #![cfg(windows)]
-use windows::Win32::Graphics::Printing::*;
+use windows::{winnt::HANDLE, winspool::*};
 
 // Validates that the target libs resolve this function to "winspool.drv"
 
 #[test]
 fn test() {
     unsafe {
-        _ = GetSpoolFileHandle(PRINTER_HANDLE::default());
+        _ = GetSpoolFileHandle(HANDLE::default());
     }
 }

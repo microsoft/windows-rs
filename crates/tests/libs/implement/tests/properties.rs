@@ -1,15 +1,27 @@
 #![cfg(windows)]
-use windows::{
-    Win32::{
-        Foundation::*,
-        System::Com::{StructuredStorage::*, *},
-        UI::Shell::PropertiesSystem::*,
-    },
-    core::*,
-};
+use std::mem::ManuallyDrop;
+use windows::{core::*, objidlbase::*, propidlbase::*, propsys::*, wtypes::*};
 
 #[implement(IInitializeWithStream, IPropertyStore, IPropertyStoreCapabilities)]
 struct Object(std::sync::RwLock<PROPVARIANT>);
+
+fn propvariant(value: i32) -> PROPVARIANT {
+    PROPVARIANT {
+        Anonymous: PROPVARIANT_0 {
+            Anonymous: ManuallyDrop::new(PROPVARIANT_0_0 {
+                vt: VARTYPE(VT_I4 as u16),
+                wReserved1: PROPVAR_PAD1(0),
+                wReserved2: PROPVAR_PAD2(0),
+                wReserved3: PROPVAR_PAD3(0),
+                Anonymous: PROPVARIANT_0_0_0 { lVal: value },
+            }),
+        },
+    }
+}
+
+fn propvariant_value(value: &PROPVARIANT) -> i32 {
+    unsafe { value.Anonymous.Anonymous.Anonymous.lVal }
+}
 
 impl IInitializeWithStream_Impl for Object_Impl {
     fn Initialize(&self, _: Ref<IStream>, _: u32) -> Result<()> {
@@ -39,8 +51,8 @@ impl IPropertyStore_Impl for Object_Impl {
 }
 
 impl IPropertyStoreCapabilities_Impl for Object_Impl {
-    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> HRESULT {
-        S_OK
+    fn IsPropertyWritable(&self, _: *const PROPERTYKEY) -> Result<()> {
+        Ok(())
     }
 }
 
@@ -53,8 +65,8 @@ fn test() -> Result<()> {
         let b: IPropertyStore = a.cast()?;
         assert!(b.GetCount()? == 123);
 
-        b.SetValue(std::ptr::null(), &PROPVARIANT::from(123)).ok()?;
-        assert_eq!(PROPVARIANT::from(123), b.GetValue(std::ptr::null())?);
+        b.SetValue(std::ptr::null(), &propvariant(123)).ok()?;
+        assert_eq!(123, propvariant_value(&b.GetValue(std::ptr::null())?));
 
         let c: IPropertyStoreCapabilities = b.cast()?;
         c.IsPropertyWritable(&PROPERTYKEY::default()).ok()?;

@@ -1,13 +1,19 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
-        core::Owned,
+        core::*,
+        handleapi::CloseHandle,
+        synchapi::{CreateEventW, SetEvent, WaitForSingleObject},
     };
 
     unsafe {
-        let event = Owned::new(CreateEventW(None, true, false, None)?);
-        SetEvent(*event)?;
-        WaitForSingleObject(*event, 0);
+        let event = CreateEventW(None, true, false, None);
+        if event.0.is_null() {
+            return Err(Error::from_thread());
+        }
+
+        SetEvent(event).ok()?;
+        WaitForSingleObject(event, 0);
+        CloseHandle(event).ok()?;
     }
     Ok(())
 }

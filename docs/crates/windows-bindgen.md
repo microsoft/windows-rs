@@ -66,17 +66,30 @@ unsafe { println!("{}", bindings::GetTickCount()); }
 
 ## Filters
 
-A filter selects which APIs end up in the output. Each rule may be:
+A filter selects which APIs end up in the output. The **specificity** of a rule
+decides how much of a type you get, inspired by Rust's `use` declarations — name
+something bare to get the whole thing; add braces to narrow it:
 
-- a function or type name (`GetTickCount`, `OSVERSIONINFOEXW`),
-- a namespace prefix (`Windows.Win32.System.Com`) that pulls in everything under it,
-- a fully-qualified name (`Windows.Win32.Foundation.HWND`), or
-- a method-level entry of the form `Namespace.Type::Method` — with `Property` /
-  `Event` sugar for accessor pairs.
+- a **namespace** (`Windows.Win32.System.Com`) — pulls in every type under it,
+  each with its full surface,
+- a **type**, by bare or fully-qualified name (`HWND`, `OSVERSIONINFOEXW`,
+  `Windows.Win32.Foundation.HWND`) — the whole type: an interface projects all
+  its methods, a struct all its fields, an enum all its variants, a class its
+  default interface,
+- a **name-only shell** (`Namespace.Type::{}`) — the type is projected so it can
+  be named in signatures, but none of its own methods are (their vtable slots
+  stay opaque). Use this for a dependency you only need to pass through,
+- **specific methods** (`Namespace.Type::{Method1, Method2}`, or a single
+  `Namespace.Type::Method`) — only the named methods are full; the rest of the
+  type's methods become name-only. `Property` / `Event` names are sugar that
+  expand to their accessor pairs (`get_`/`put_`, `add_`/`remove_`),
+- a **class activation** (`Namespace.Class::CreateInstance`) — mark a class as
+  activatable so its `new()` constructor is emitted. Activation is always
+  explicit: a bare class projects its default interface but no constructor.
 
 Prefix any rule with `!` to **exclude** rather than include. Pulling in a type
-automatically pulls in everything it transitively requires, so you list only the
-entry points you call.
+automatically pulls in everything it transitively requires — those dependency
+types come in as shells — so you list only the entry points you call.
 
 For anything beyond a handful of names, keep the arguments in a response file and
 pass it with `--etc`. Lines starting with `//` are comments:
@@ -366,6 +379,20 @@ behavioral intent rather than clarify it.
 
 **Future work.**
 
+- *Filter syntax simplification (done).* The filter grammar had accumulated
+  redundant and unused syntax. Removed: the explicit-prefix accessor sugar
+  (`get:Prop` / `set:Prop` / `add:Evt` / `remove:Evt`), which only ever appeared
+  in a test; the recursive namespace glob `**`; and the namespace-level `*`
+  (`Ns::*`). A bare namespace is already recursive — `match_type_name` matches it
+  as a prefix — so `Windows`, `Windows::*`, and `Windows::**` all resolved to the
+  identical rule. `tool_package`'s `windows.txt` used `Windows::**` while `sys.txt`
+  used bare `Windows`; both are now bare `Windows`, and the corpus regenerates
+  byte-for-byte unchanged. A later pass (below) removed the remaining
+  member-glob (`Type::*`) and name-glob (`Prefix*`) syntax as well. What remains
+  is one uniform, specificity-driven model: bare namespaces (recursive),
+  fully-qualified types (bare = full), `Type::{}` name-only shells,
+  `Type::member` / `Type::{a, b}` method selection, bare-name `Property`/`Event`
+  accessor sugar, `Class::CreateInstance` activation, and `!` exclusions.
 - *`--extern` is a deliberate escape hatch — keep it.* The `--extern`
   (`Style::Sys { extern_fns: true }`) option emits `extern` declarations instead of
   `link!` macros. It is unused in-repo because every windows-rs crate links via
@@ -384,27 +411,71 @@ behavioral intent rather than clarify it.
 - *Finish naming the sys policies.* Extend the named-predicate treatment to the
   remaining compound `cpp_*` `is_sys()` sites (struct copyability/`Drop`, flag ops,
   `link!`-vs-`extern` function emission, raw-pointer interface representation).
-- *Unify referenced-type inclusion across styles (silent method drop).* The default
-  and `--minimal` styles disagree on whether a filter must list every type a method's
-  signature *references*, and the disagreement is silent. The two paths are chosen at
-  `lib.rs:521`: `--minimal` (with a non-broad filter, non-package layout) builds the
-  type set with `MinimalTypeMap::build`, which treats the filter as a **seed** and
-  transitively pulls in every referenced param/return type (`minimal_type_map.rs:54`
-  discovers them from each method signature, `:85` back-fills the filter). The default
-  full-fidelity path uses `TypeMap::filter`, which keeps a method only when **every**
-  referenced type is *already* matched by the filter — `Interface::method_is_skipped`
-  (`types/interface.rs:25`) drops it otherwise, via `dependencies.included(config)`
-  (`type_map.rs:95`), with no warning. So a default-style filter must hand-list types it
-  never names directly — e.g. `crates/samples/reactor/direct2d/build.rs` must list
-  `IDXGIOutput` purely because `IDXGIFactory2::CreateSwapChainForComposition` takes an
-  `Option<&IDXGIOutput>`; omit it and the whole method silently vanishes from the
-  projection. `canvas.txt` (`--minimal`) never lists `IDXGIOutput` and works. This is an
-  implementation artifact ("explicit filter only" vs "seed + dependency closure"), not
-  intended policy: whether a method survives should not depend on the style, and a
-  method should never disappear without a diagnostic. Investigate either running the same
-  dependency closure on the default path, or — if callers should stay in control of the
-  emitted surface — making the drop a hard error that names the dropped method and the
-  missing type.
+- *Referenced-type inclusion is unified across styles (done).* The seed +
+  dependency-closure type selection (`TypeClosure::build`, formerly `MinimalTypeMap`)
+  runs for **every style** on precise filters — the dispatch at `lib.rs` is gated on
+  `!has_broad_filter && !is_package()`. A filter no longer hand-lists the types its
+  methods *reference*: the closure pulls them in transitively and back-fills the filter,
+  so a requested method stays callable in every style instead of collapsing to a
+  non-callable name-only slot. Dependency interfaces are pulled in *shallowly* (their own
+  methods may stay name-only when they reach still-further-out types — see the
+  `type_closure*` fixtures). Core types (`GUID`, `HRESULT`, `BOOL`, `PCWSTR`, `IUnknown`,
+  …) are seeded even with an empty namespace, so a standalone `--sys` crate still emits its
+  local definitions (gated on `uses_inline_core_types()`). `--minimal` no longer affects
+  inclusion at all — it is a pure rendering style.
+
+  Inclusion granularity is now **specificity-driven, like a Rust `use` declaration** — a
+  bare mention gives you the whole thing; braces narrow it:
+
+  - a **namespace** (`Windows`) → every type, full;
+  - a **bare type** (`Ns.Type`) → full (a bare interface projects all its methods, seeded
+    as `MethodSet::All`);
+  - **`Ns.Type::{}`** → a name-only shell;
+  - **`Ns.Type::m`** / **`Ns.Type::{a, b}`** → only the named methods;
+  - a type reached only as a **dependency** of a seed → a shell (present and named so the
+    API stays usable, own methods name-only);
+  - **`Ns.Class::CreateInstance`** (or a composable factory method) → activation; a bare
+    class projects its default interface but no constructor.
+
+  The two type-map builders stay **deliberately separate** — `TypeClosure` (bottom-up
+  closure, precise filters) and `TypeMap::filter` (top-down namespace scan, broad filters /
+  `--package`) — the two ends of the specificity spectrum; `has_broad_filter` is a
+  meaningful strategy selector (also consumed by event-only delegate detection). `--sys`,
+  `--implement`, and `--package`/`--flat` remain orthogonal flags. Verified byte-for-byte
+  across `windows`, `windows-sys`, every `tool_bindings` crate, and `tool_reactor`.
+
+  Changelog (each step cleared a whole-corpus byte-for-byte regen):
+
+  1. Introduced a per-type **role** (`TypeRole::Named(MethodSet)` vs `Shell`); routed
+     `includes_method`'s no-method-filter fallback through `Filter::type_role`.
+  2. Replaced `method_is_skipped`'s `is_minimal()` guard **and** the transitive
+     `dependencies.included()` check with one universal **shell-aware direct-dependency**
+     check (demote only when a *direct* signature type is absent entirely; a name-only shell
+     satisfies it).
+  3. Dropped `type_role`'s transitional `minimal` parameter for a `Filter::uses_closure`
+     flag (a type with no method filter is `Named(All)` on a scan build, `Shell` on a
+     closure build); `--minimal` stops affecting inclusion.
+  4. Removed the last inclusion use of `minimal` (overload-name matching, unified to
+     overload-exact for every style); renamed `MinimalTypeMap` → **`TypeClosure`**.
+  5. Made the grammar read like Rust `use`: **bare = full, `Ns.Type::{}` = shell**. Removed
+     the `::*` member-glob and `Prefix*` name-glob (parser rejects `*` with a migration
+     hint); migrated the corpus off globs and pinned reactor/animation dependency interfaces
+     to `::{}` to stay lean. The `type_closure*` / `filter_shell` fixtures cover both ends.
+  6. Re-keyed the last inclusion-pruning guards on the build strategy, not the style flag.
+     The `required_hierarchy!` / `interface_hierarchy!` emitters in `class.rs` / `interface.rs`
+     prune references to types the closure dropped; they gated on `style.is_minimal()` but the
+     concept is *closure build*, so they now gate on `filter.uses_closure`. This also covers
+     the non-minimal closure builds (`collections`, `future` are `--flat` default style with
+     precise filters), closing a latent trap where a pruned reference would only have been
+     caught by a compile error. Whole corpus regenerates byte-for-byte identical.
+
+  **Remaining (optional polish, not blocking):** route broad filters and `--package` through
+  the same closure path (currently on `TypeMap::filter`; a no-op unification); move the three
+  rendering cosmetics that are neither inclusion nor FFI-shape (snake_case struct fields
+  `struct.rs`, the extra `Eq` derive, and the `&str`/`String` sugar) behind an explicitly
+  named rendering flag if `--minimal` is ever split; and possibly rename the `--minimal` CLI
+  flag to advertise that it is a rendering style, not an inclusion lever (deferred: it would
+  churn ~16 `.txt` filters for a naming-only gain).
 - *Preserve success `HRESULT` codes without the `-> HRESULT` ergonomic tax.* A void
   COM/Win32 method whose `HRESULT` can be a non-`S_OK` success (`S_FALSE`,
   `DXGI_STATUS_OCCLUDED`, …) trades off two options: `-> Result<()>` throws the

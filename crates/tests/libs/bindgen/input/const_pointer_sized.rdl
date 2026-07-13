@@ -1,0 +1,8 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    const PTR_SENTINEL: usize = 18446744073709551615;
+    const SIGNED_SENTINEL: isize = -1;
+    const SMALL_USIZE: usize = 4096;
+    const SMALL_ISIZE: isize = -4096;
+}

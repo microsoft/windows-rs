@@ -14,7 +14,6 @@ default-features = true
 features = [
     "Storage_Streams",
     "System_Threading",
-    "Win32_Foundation",
 ]
 
 [dependencies.windows-future]

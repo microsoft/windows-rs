@@ -12,7 +12,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-rdl]
-version = "0.3"
+version = "0.0.0"
 ```
 
 Use the `reader` to compile `.rdl` source into a `.winmd`, and the `writer` to

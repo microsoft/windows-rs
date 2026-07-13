@@ -1,9 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::Graphics::Direct3D10::*, Win32::Graphics::Direct3D12::*,
-    Win32::Media::Audio::XAudio2::*, Win32::System::Com::*, Win32::System::SystemInformation::*,
-    core::*,
-};
+use windows::{combaseapi::*, core::*, d3d10::*, d3d12::*, objbase::*, sdkddkver::*, xaudio2::*};
 
 struct Reflection;
 
@@ -142,7 +138,7 @@ impl IXAudio2VoiceCallback_Impl for Callback {
 #[test]
 fn test() -> Result<()> {
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         let reflection = ID3D12FunctionParameterReflection::new(&Reflection);
         let mut desc = Default::default();
@@ -158,8 +154,13 @@ fn test() -> Result<()> {
         assert_eq!(interface_variable.IsValid(), true);
 
         let mut audio = None;
-        XAudio2CreateWithVersionInfo(&mut audio, 0, XAUDIO2_DEFAULT_PROCESSOR, NTDDI_VERSION)
-            .ok()?;
+        XAudio2CreateWithVersionInfo(
+            &mut audio,
+            0,
+            XAUDIO2_PROCESSOR(XAUDIO2_DEFAULT_PROCESSOR),
+            NTDDI_VERSION,
+        )
+        .ok()?;
         let audio = audio.unwrap();
 
         // Call the callback interface directly...

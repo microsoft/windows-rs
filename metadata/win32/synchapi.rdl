@@ -140,13 +140,13 @@ mod Windows {
         extern fn WaitForSingleObject(hHandle: HANDLE, dwMilliseconds: u32) -> u32;
         #[library("KERNEL32.dll")]
         extern fn WaitForSingleObjectEx(hHandle: HANDLE, dwMilliseconds: u32, bAlertable: BOOL) -> u32;
-        #[library("vertdll.dll")]
+        #[library("api-ms-win-core-synch-l1-2-0.dll")]
         extern fn WaitOnAddress(#[size_param(2)] Address: *const void, #[size_param(2)] CompareAddress: *const void, AddressSize: usize, #[opt] dwMilliseconds: u32) -> BOOL;
         #[library("KERNEL32.dll")]
         extern fn WakeAllConditionVariable(#[in] #[out] ConditionVariable: *mut RTL_CONDITION_VARIABLE);
-        #[library("vertdll.dll")]
+        #[library("api-ms-win-core-synch-l1-2-0.dll")]
         extern fn WakeByAddressAll(Address: *const void);
-        #[library("vertdll.dll")]
+        #[library("api-ms-win-core-synch-l1-2-0.dll")]
         extern fn WakeByAddressSingle(Address: *const void);
         #[library("KERNEL32.dll")]
         extern fn WakeConditionVariable(#[in] #[out] ConditionVariable: *mut RTL_CONDITION_VARIABLE);

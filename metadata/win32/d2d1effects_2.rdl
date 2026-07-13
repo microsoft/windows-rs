@@ -137,6 +137,7 @@ mod Windows {
             D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE = 0,
             D2D1_RGBTOHUE_PROP_FORCE_DWORD = -1,
         }
+        const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80.0;
         #[repr(i32)]
         enum D2D1_SEPIA_PROP {
             D2D1_SEPIA_PROP_INTENSITY = 0,

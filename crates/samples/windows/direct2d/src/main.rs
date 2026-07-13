@@ -1,12 +1,19 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        Win32::Foundation::*, Win32::Graphics::Direct2D::Common::*, Win32::Graphics::Direct2D::*,
-        Win32::Graphics::Direct3D::*, Win32::Graphics::Direct3D11::*,
-        Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*, Win32::Graphics::Gdi::*,
-        Win32::System::Com::*, Win32::System::Performance::*,
-        Win32::System::SystemInformation::GetLocalTime, Win32::UI::Animation::*,
-        Win32::UI::WindowsAndMessaging::*, core::*,
-    };
+    use windows::combaseapi::*;
+    use windows::core::*;
+    use windows::d2d::*;
+    use windows::d3d11::*;
+    use windows::d3dcommon::*;
+    use windows::dcommon::*;
+    use windows::dxgi::*;
+    use windows::minwindef::*;
+    use windows::objbase::*;
+    use windows::profileapi::*;
+    use windows::sysinfoapi::*;
+    use windows::uianimation::*;
+    use windows::windef::*;
+    use windows::winerror::*;
+    use windows::winuser::*;
 
     use std::cell::RefCell;
     use std::rc::Rc;
@@ -70,7 +77,7 @@ fn main() -> windows::core::Result<()> {
             unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
             let mut frequency = 0;
-            unsafe { QueryPerformanceFrequency(&mut frequency)? };
+            unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
 
             let variable = unsafe {
                 let variable = manager.CreateAnimationVariable(0.0)?;
@@ -125,7 +132,7 @@ fn main() -> windows::core::Result<()> {
                 target.EndDraw(None, None).ok()?;
             }
 
-            if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
+            if let Err(error) = self.present(1, 0) {
                 if error.code() == DXGI_STATUS_OCCLUDED {
                     self.occlusion = unsafe {
                         self.dxfactory
@@ -152,7 +159,7 @@ fn main() -> windows::core::Result<()> {
             self.shadow = None;
         }
 
-        fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<()> {
+        fn present(&self, sync: u32, flags: u32) -> Result<()> {
             unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
         }
 
@@ -163,7 +170,7 @@ fn main() -> windows::core::Result<()> {
             unsafe {
                 self.manager.Update(get_time(self.frequency)?, None).ok()?;
 
-                target.Clear(Some(&D2D1_COLOR_F {
+                target.Clear(Some(&D2D_COLOR_F {
                     r: 1.0,
                     g: 1.0,
                     b: 1.0,
@@ -310,7 +317,7 @@ fn main() -> windows::core::Result<()> {
 
                 if unsafe {
                     swapchain
-                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, DXGI_SWAP_CHAIN_FLAG(0))
+                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
                         .is_ok()
                 } {
                     create_swapchain_bitmap(swapchain, target)?;
@@ -325,7 +332,7 @@ fn main() -> windows::core::Result<()> {
             Ok(())
         }
 
-        fn message_handler(&mut self, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
+        fn message_handler(&mut self, message: u32, wparam: WPARAM) -> bool {
             unsafe {
                 match message {
                     WM_PAINT => {
@@ -333,17 +340,14 @@ fn main() -> windows::core::Result<()> {
                         BeginPaint(self.handle, &mut ps);
                         self.render().unwrap();
                         _ = EndPaint(self.handle, &ps);
-                        LRESULT(0)
                     }
                     WM_SIZE => {
                         if wparam.0 != SIZE_MINIMIZED as usize {
                             self.resize_swapchain_bitmap().unwrap();
                         }
-                        LRESULT(0)
                     }
                     WM_DISPLAYCHANGE => {
                         self.render().unwrap();
-                        LRESULT(0)
                     }
                     WM_USER => {
                         if self.present(0, DXGI_PRESENT_TEST).is_ok() {
@@ -351,20 +355,22 @@ fn main() -> windows::core::Result<()> {
                             self.occlusion = 0;
                             self.visible = true;
                         }
-                        LRESULT(0)
                     }
                     WM_ACTIVATE => {
                         // HIWORD(wparam) is non-zero when the window is minimized; only
                         // render when the window is not minimized.
                         self.visible = (wparam.0 >> 16) as u16 == 0;
-                        LRESULT(0)
                     }
                     WM_DESTROY => {
                         PostQuitMessage(0);
-                        LRESULT(0)
                     }
-                    _ => DefWindowProcA(self.handle, message, wparam, lparam),
+                    // Returning `false` lets `windows-window` call `DefWindowProc` after it
+                    // restores the message handler, so messages that pump a nested modal loop
+                    // (e.g. dragging the window border to resize) still deliver `WM_SIZE`.
+                    _ => return false,
                 }
+
+                true
             }
         }
     }
@@ -372,13 +378,13 @@ fn main() -> windows::core::Result<()> {
     fn get_time(frequency: i64) -> Result<f64> {
         unsafe {
             let mut time = 0;
-            QueryPerformanceCounter(&mut time)?;
+            QueryPerformanceCounter(&mut time).ok()?;
             Ok(time as f64 / frequency as f64)
         }
     }
 
     fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-        let color = D2D1_COLOR_F {
+        let color = D2D_COLOR_F {
             r: 0.92,
             g: 0.38,
             b: 0.208,
@@ -431,10 +437,10 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
-        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
+        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32;
 
         if cfg!(debug_assertions) {
-            flags |= D3D11_CREATE_DEVICE_DEBUG;
+            flags |= D3D11_CREATE_DEVICE_DEBUG as u32;
         }
 
         let mut device = None;
@@ -443,7 +449,7 @@ fn main() -> windows::core::Result<()> {
             D3D11CreateDevice(
                 None,
                 drive_type,
-                None,
+                HMODULE::default(),
                 flags,
                 None,
                 D3D11_SDK_VERSION,
@@ -521,7 +527,7 @@ fn main() -> windows::core::Result<()> {
                 Count: 1,
                 Quality: 0,
             },
-            BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+            BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
             BufferCount: 2,
             SwapEffect: DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
             ..Default::default()
@@ -531,20 +537,18 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .on_message(move |_, message, wparam, lparam| {
-            Some(
-                handler
-                    .borrow_mut()
-                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
-                    .0,
-            )
+        .on_message(move |_, message, wparam, _| {
+            handler
+                .borrow_mut()
+                .message_handler(message, WPARAM(wparam))
+                .then_some(0)
         })
         .create()?;
 

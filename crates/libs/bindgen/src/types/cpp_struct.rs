@@ -130,9 +130,36 @@ impl CppStruct {
         }
     }
 
+    // A native typedef whose underlying type is (possibly through a chain of further
+    // native typedefs) a pointer — e.g. `LPCTSTR = PCSTR = *const u8`. Such an alias
+    // has no `Default` impl, so a struct field of this type cannot derive it.
+    fn resolves_to_pointer(&self, reader: &Reader) -> bool {
+        if !self.is_native_typedef(reader) {
+            return false;
+        }
+
+        match self
+            .def
+            .fields()
+            .next()
+            .unwrap()
+            .field_type(Some(self), reader)
+        {
+            Type::PtrConst(..)
+            | Type::PtrMut(..)
+            | Type::PCSTR
+            | Type::PCWSTR
+            | Type::PSTR
+            | Type::PWSTR => true,
+            Type::CppStruct(inner) => inner.resolves_to_pointer(reader),
+            _ => false,
+        }
+    }
+
     pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle(config.reader) {
-            return config.write_cpp_handle(self.def);
+            let cfg = self.write_cfg(config);
+            return config.write_cpp_handle(self.def, &cfg);
         }
 
         if self.is_void_typedef(config.reader) {
@@ -366,6 +393,9 @@ impl CppStruct {
                     if inner.resolves_to_fixed_array(config.reader) {
                         return true;
                     }
+                    if config.bindgen.style.is_sys() && inner.resolves_to_pointer(config.reader) {
+                        return true;
+                    }
                 }
 
                 if config.bindgen.style.is_sys() {
@@ -535,14 +565,6 @@ impl Dependencies for CppStruct {
             field
                 .field_type(Some(self), reader)
                 .combine(dependencies, reader);
-        }
-
-        if let Some(attribute) = self.def.find_attribute("AlsoUsableForAttribute") {
-            if let Some((_, Value::Utf8(type_name))) = attribute.value().first() {
-                reader
-                    .unwrap_full_name(self.def.namespace(), type_name)
-                    .combine(dependencies, reader);
-            }
         }
     }
 }

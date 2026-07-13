@@ -151,7 +151,29 @@ mod Windows {
             BNE_Button2Clicked = 5,
         }
         const BIND_INTERRUPTABLE: u32 = 4294967295;
-        type BROWSERFRAMEOPTIONS = u32;
+        #[repr(u32)]
+        enum BROWSERFRAMEOPTIONS {
+            BFO_NONE = 0,
+            BFO_BROWSER_PERSIST_SETTINGS = 1,
+            BFO_RENAME_FOLDER_OPTIONS_TOINTERNET = 2,
+            BFO_BOTH_OPTIONS = 4,
+            BIF_PREFER_INTERNET_SHORTCUT = 8,
+            BFO_BROWSE_NO_IN_NEW_PROCESS = 16,
+            BFO_ENABLE_HYPERLINK_TRACKING = 32,
+            BFO_USE_IE_OFFLINE_SUPPORT = 64,
+            BFO_SUBSTITUE_INTERNET_START_PAGE = 128,
+            BFO_USE_IE_LOGOBANDING = 256,
+            BFO_ADD_IE_TOCAPTIONBAR = 512,
+            BFO_USE_DIALUP_REF = 1024,
+            BFO_USE_IE_TOOLBAR = 2048,
+            BFO_NO_PARENT_FOLDER_SUPPORT = 4096,
+            BFO_NO_REOPEN_NEXT_RESTART = 8192,
+            BFO_GO_HOME_PAGE = 16384,
+            BFO_PREFER_IEPROCESS = 32768,
+            BFO_SHOW_NAVIGATION_CANCELLED = 65536,
+            BFO_USE_IE_STATUSBAR = 131072,
+            BFO_QUERY_ALL = 4294967295,
+        }
         const BSIM_STATE: u32 = 1;
         const BSIM_STYLE: u32 = 2;
         const BSIS_ALWAYSGRIPPER: u32 = 2;
@@ -471,10 +493,39 @@ mod Windows {
             EGK_KEYBOARD = 1,
             EGK_MOUSE = 2,
         }
-        type EXPCMDFLAGS = u32;
-        type EXPCMDSTATE = u32;
+        #[repr(u32)]
+        enum EXPCMDFLAGS {
+            ECF_DEFAULT = 0,
+            ECF_HASSUBCOMMANDS = 1,
+            ECF_HASSPLITBUTTON = 2,
+            ECF_HIDELABEL = 4,
+            ECF_ISSEPARATOR = 8,
+            ECF_HASLUASHIELD = 16,
+            ECF_SEPARATORBEFORE = 32,
+            ECF_SEPARATORAFTER = 64,
+            ECF_ISDROPDOWN = 128,
+            ECF_TOGGLEABLE = 256,
+            ECF_AUTOMENUICONS = 512,
+        }
+        #[repr(u32)]
+        enum EXPCMDSTATE {
+            ECS_ENABLED = 0,
+            ECS_DISABLED = 1,
+            ECS_HIDDEN = 2,
+            ECS_CHECKBOX = 4,
+            ECS_CHECKED = 8,
+            ECS_RADIOCHECK = 16,
+        }
         type EXPLORERPANE = GUID;
-        type EXPLORERPANESTATE = u32;
+        #[repr(u32)]
+        enum EXPLORERPANESTATE {
+            EPS_DONTCARE = 0,
+            EPS_DEFAULT_ON = 1,
+            EPS_DEFAULT_OFF = 2,
+            EPS_STATEMASK = 65535,
+            EPS_INITIALSTATE = 65536,
+            EPS_FORCE = 131072,
+        }
         #[repr(u32)]
         #[flags]
         enum EXPLORER_BROWSER_FILL_FLAGS {
@@ -495,7 +546,10 @@ mod Windows {
             EBO_NOBORDER = 64,
             EBO_NOPERSISTVIEWSTATE = 128,
         }
-        type EXPPS = u32;
+        #[repr(u32)]
+        enum EXPPS {
+            EXPPS_FILETYPES = 1,
+        }
         struct EXTRASEARCH {
             guidSearch: GUID,
             wszFriendlyName: [u16; 80],
@@ -537,7 +591,32 @@ mod Windows {
             FFFP_EXACTMATCH = 0,
             FFFP_NEARESTPARENTMATCH = 1,
         }
-        type FILEOPENDIALOGOPTIONS = u32;
+        #[repr(u32)]
+        enum FILEOPENDIALOGOPTIONS {
+            FOS_OVERWRITEPROMPT = 2,
+            FOS_STRICTFILETYPES = 4,
+            FOS_NOCHANGEDIR = 8,
+            FOS_PICKFOLDERS = 32,
+            FOS_FORCEFILESYSTEM = 64,
+            FOS_ALLNONSTORAGEITEMS = 128,
+            FOS_NOVALIDATE = 256,
+            FOS_ALLOWMULTISELECT = 512,
+            FOS_PATHMUSTEXIST = 2048,
+            FOS_FILEMUSTEXIST = 4096,
+            FOS_CREATEPROMPT = 8192,
+            FOS_SHAREAWARE = 16384,
+            FOS_NOREADONLYRETURN = 32768,
+            FOS_NOTESTFILECREATE = 65536,
+            FOS_HIDEMRUPLACES = 131072,
+            FOS_HIDEPINNEDPLACES = 262144,
+            FOS_NODEREFERENCELINKS = 1048576,
+            FOS_OKBUTTONNEEDSINTERACTION = 2097152,
+            FOS_DONTADDTORECENT = 33554432,
+            FOS_FORCESHOWHIDDEN = 268435456,
+            FOS_DEFAULTNOMINIMODE = 536870912,
+            FOS_FORCEPREVIEWPANEON = 1073741824,
+            FOS_SUPPORTSTREAMABLEITEMS = 2147483648,
+        }
         #[repr(u32)]
         #[flags]
         enum FILE_OPERATION_FLAGS2 {
@@ -2136,8 +2215,38 @@ mod Windows {
             KF_CATEGORY_COMMON = 3,
             KF_CATEGORY_PERUSER = 4,
         }
-        type KF_DEFINITION_FLAGS = u32;
-        type KF_REDIRECTION_CAPABILITIES = u32;
+        #[repr(u32)]
+        enum KF_DEFINITION_FLAGS {
+            KFDF_LOCAL_REDIRECT_ONLY = 2,
+            KFDF_ROAMABLE = 4,
+            KFDF_PRECREATE = 8,
+            KFDF_STREAM = 16,
+            KFDF_PUBLISHEXPANDEDPATH = 32,
+            KFDF_NO_REDIRECT_UI = 64,
+        }
+        #[repr(u32)]
+        enum KF_REDIRECTION_CAPABILITIES {
+            KF_REDIRECTION_CAPABILITIES_ALLOW_ALL = 255,
+            KF_REDIRECTION_CAPABILITIES_REDIRECTABLE = 1,
+            KF_REDIRECTION_CAPABILITIES_DENY_ALL = 1048320,
+            KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED = 256,
+            KF_REDIRECTION_CAPABILITIES_DENY_POLICY = 512,
+            KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS = 1024,
+        }
+        #[repr(u32)]
+        enum KF_REDIRECT_FLAGS {
+            KF_REDIRECT_USER_EXCLUSIVE = 1,
+            KF_REDIRECT_COPY_SOURCE_DACL = 2,
+            KF_REDIRECT_OWNER_USER = 4,
+            KF_REDIRECT_SET_OWNER_EXPLICIT = 8,
+            KF_REDIRECT_CHECK_ONLY = 16,
+            KF_REDIRECT_WITH_UI = 32,
+            KF_REDIRECT_UNPIN = 64,
+            KF_REDIRECT_PIN = 128,
+            KF_REDIRECT_COPY_CONTENTS = 512,
+            KF_REDIRECT_DEL_SOURCE_CONTENTS = 1024,
+            KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS = 2048,
+        }
         #[repr(i32)]
         enum KNOWNDESTCATEGORY {
             KDC_FREQUENT = 1,
@@ -2237,8 +2346,17 @@ mod Windows {
             NDO_LANDSCAPE = 0,
             NDO_PORTRAIT = 1,
         }
-        type NMCII_FLAGS = i32;
-        type NMCSAEI_FLAGS = i32;
+        #[repr(i32)]
+        enum NMCII_FLAGS {
+            NMCII_NONE = 0,
+            NMCII_ITEMS = 1,
+            NMCII_FOLDERS = 2,
+        }
+        #[repr(i32)]
+        enum NMCSAEI_FLAGS {
+            NMCSAEI_SELECT = 0,
+            NMCSAEI_EDIT = 1,
+        }
         #[repr(u32)]
         #[flags]
         enum NSTCFOLDERCAPABILITIES {
@@ -2257,9 +2375,54 @@ mod Windows {
             NSTCGNI_FIRSTVISIBLE = 6,
             NSTCGNI_LASTVISIBLE = 7,
         }
-        type NSTCITEMSTATE = u32;
-        type NSTCROOTSTYLE = u32;
-        type NSTCSTYLE = u32;
+        #[repr(u32)]
+        enum NSTCITEMSTATE {
+            NSTCIS_NONE = 0,
+            NSTCIS_SELECTED = 1,
+            NSTCIS_EXPANDED = 2,
+            NSTCIS_BOLD = 4,
+            NSTCIS_DISABLED = 8,
+            NSTCIS_SELECTEDNOEXPAND = 16,
+        }
+        #[repr(u32)]
+        enum NSTCROOTSTYLE {
+            NSTCRS_VISIBLE = 0,
+            NSTCRS_HIDDEN = 1,
+            NSTCRS_EXPANDED = 2,
+        }
+        #[repr(u32)]
+        enum NSTCSTYLE {
+            NSTCS_HASEXPANDOS = 1,
+            NSTCS_HASLINES = 2,
+            NSTCS_SINGLECLICKEXPAND = 4,
+            NSTCS_FULLROWSELECT = 8,
+            NSTCS_SPRINGEXPAND = 16,
+            NSTCS_HORIZONTALSCROLL = 32,
+            NSTCS_ROOTHASEXPANDO = 64,
+            NSTCS_SHOWSELECTIONALWAYS = 128,
+            NSTCS_NOINFOTIP = 512,
+            NSTCS_EVENHEIGHT = 1024,
+            NSTCS_NOREPLACEOPEN = 2048,
+            NSTCS_DISABLEDRAGDROP = 4096,
+            NSTCS_NOORDERSTREAM = 8192,
+            NSTCS_RICHTOOLTIP = 16384,
+            NSTCS_BORDER = 32768,
+            NSTCS_NOEDITLABELS = 65536,
+            NSTCS_TABSTOP = 131072,
+            NSTCS_FAVORITESMODE = 524288,
+            NSTCS_AUTOHSCROLL = 1048576,
+            NSTCS_FADEINOUTEXPANDOS = 2097152,
+            NSTCS_EMPTYTEXT = 4194304,
+            NSTCS_CHECKBOXES = 8388608,
+            NSTCS_PARTIALCHECKBOXES = 16777216,
+            NSTCS_EXCLUSIONCHECKBOXES = 33554432,
+            NSTCS_DIMMEDCHECKBOXES = 67108864,
+            NSTCS_NOINDENTCHECKS = 134217728,
+            NSTCS_ALLOWJUNCTIONS = 268435456,
+            NSTCS_SHOWTABSBUTTON = 536870912,
+            NSTCS_SHOWDELETEBUTTON = 1073741824,
+            NSTCS_SHOWREFRESHBUTTON = 2147483648,
+        }
         #[repr(u32)]
         #[flags]
         enum NWMF {
@@ -2284,7 +2447,16 @@ mod Windows {
         const NetworkPlaces: GUID = 0x208d2c60_3aea_1069_a2d7_08002b30309d;
         const OF_CAP_CANCLOSE: u32 = 2;
         const OF_CAP_CANSWITCHTO: u32 = 1;
-        type OPPROGDLGF = u32;
+        #[repr(u32)]
+        enum OPPROGDLGF {
+            OPPROGDLG_DEFAULT = 0,
+            OPPROGDLG_ENABLEPAUSE = 128,
+            OPPROGDLG_ALLOWUNDO = 256,
+            OPPROGDLG_DONTDISPLAYSOURCEPATH = 512,
+            OPPROGDLG_DONTDISPLAYDESTPATH = 1024,
+            OPPROGDLG_NOMULTIDAYESTIMATES = 2048,
+            OPPROGDLG_DONTDISPLAYLOCATIONS = 4096,
+        }
         const OpenControlPanel: GUID = 0x06622d85_6856_4460_8de1_a81921b41c4b;
         #[repr(i32)]
         enum PACKAGE_EXECUTION_STATE {
@@ -2298,7 +2470,15 @@ mod Windows {
         type PCCMINVOKECOMMANDINFOEX = *const CMINVOKECOMMANDINFOEX;
         type PCDELEGATEITEMID = *const DELEGATEITEMID;
         type PDELEGATEITEMID = *mut DELEGATEITEMID;
-        type PDMODE = u32;
+        #[repr(u32)]
+        enum PDMODE {
+            PDM_DEFAULT = 0,
+            PDM_RUN = 1,
+            PDM_PREFLIGHT = 2,
+            PDM_UNDOING = 4,
+            PDM_ERRORSBLOCKING = 8,
+            PDM_INDETERMINATE = 16,
+        }
         #[repr(i32)]
         enum PDOPSTATUS {
             PDOPS_RUNNING = 1,
@@ -2330,9 +2510,25 @@ mod Windows {
             haccel: HACCEL,
             cAccelEntries: u32,
         }
-        type PROPERTYUI_FLAGS = u32;
-        type PROPERTYUI_FORMAT_FLAGS = u32;
-        type PROPERTYUI_NAME_FLAGS = u32;
+        #[repr(u32)]
+        enum PROPERTYUI_FLAGS {
+            PUIF_DEFAULT = 0,
+            PUIF_RIGHTALIGN = 1,
+            PUIF_NOLABELININFOTIP = 2,
+        }
+        #[repr(u32)]
+        enum PROPERTYUI_FORMAT_FLAGS {
+            PUIFFDF_DEFAULT = 0,
+            PUIFFDF_RIGHTTOLEFT = 1,
+            PUIFFDF_SHORTFORMAT = 2,
+            PUIFFDF_NOTIME = 4,
+            PUIFFDF_FRIENDLYDATE = 8,
+        }
+        #[repr(u32)]
+        enum PROPERTYUI_NAME_FLAGS {
+            PUIFNF_DEFAULT = 0,
+            PUIFNF_MNEMONIC = 1,
+        }
         #[encoding("utf-16")]
         const PROP_CONTRACT_DELEGATE: String = "ContractDelegate";
         type PSMCSHCHANGENOTIFYSTRUCT = *mut SMCSHCHANGENOTIFYSTRUCT;
@@ -2417,34 +2613,49 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHAssocEnumHandlers(pszExtra: PCWSTR, afFilter: ASSOC_FILTER, ppEnumHandler: *mut IEnumAssocHandlers) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, enumHandlers: *mut *mut void) -> HRESULT;
+        extern fn SHAssocEnumHandlersForProtocolByApplication(protocol: PCWSTR, riid: *const GUID, #[iid_is] enumHandlers: *mut *mut void) -> HRESULT;
         const SHCIDS_ALLFIELDS: u32 = 2147483648;
         const SHCIDS_BITMASK: u32 = 4294901760;
         const SHCIDS_CANONICALONLY: u32 = 268435456;
         const SHCIDS_COLUMNMASK: u32 = 65535;
-        type SHCONTF = u32;
+        #[repr(u32)]
+        enum SHCONTF {
+            SHCONTF_CHECKING_FOR_CHILDREN = 16,
+            SHCONTF_FOLDERS = 32,
+            SHCONTF_NONFOLDERS = 64,
+            SHCONTF_INCLUDEHIDDEN = 128,
+            SHCONTF_INIT_ON_FIRST_NEXT = 256,
+            SHCONTF_NETPRINTERSRCH = 512,
+            SHCONTF_SHAREABLE = 1024,
+            SHCONTF_STORAGE = 2048,
+            SHCONTF_NAVIGATION_ENUM = 4096,
+            SHCONTF_FASTITEMS = 8192,
+            SHCONTF_FLATLIST = 16384,
+            SHCONTF_ENABLE_ASYNC = 32768,
+            SHCONTF_INCLUDESUPERHIDDEN = 65536,
+        }
         #[library("SHELL32.dll")]
-        extern fn SHCreateAssociationRegistration(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateAssociationRegistration(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateDefaultExtractIcon(riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateDefaultExtractIcon(riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemFromRelativeName(psiParent: IShellItem, pszName: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemFromRelativeName(psiParent: IShellItem, pszName: PCWSTR, #[opt] pbc: IBindCtx, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemInKnownFolder(kfid: *const KNOWNFOLDERID, dwKFFlags: u32, #[opt] pszItem: PCWSTR, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemInKnownFolder(kfid: *const KNOWNFOLDERID, dwKFFlags: u32, #[opt] pszItem: PCWSTR, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateItemWithParent(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, ppvItem: *mut *mut void) -> HRESULT;
+        extern fn SHCreateItemWithParent(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psfParent: IShellFolder, pidl: *const ITEMIDLIST, riid: *const GUID, #[iid_is] ppvItem: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateShellItemArray(#[opt] pidlParent: *const ITEMIDLIST, #[opt] psf: IShellFolder, cidl: u32, #[len_param(2)] #[opt] ppidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItemArrayFromDataObject(pdo: IDataObject, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateShellItemArrayFromDataObject(pdo: IDataObject, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHCreateShellItemArrayFromIDLists(cidl: u32, #[len_param(0)] rgpidl: *const LPCITEMIDLIST, ppsiItemArray: *mut IShellItemArray) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHCreateShellItemArrayFromShellItem(psi: IShellItem, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         struct SHDRAGIMAGE {
             sizeDragImage: SIZE,
             ptOffset: POINT,
@@ -2456,19 +2667,26 @@ mod Windows {
             guidType: GUID,
             szName: [u16; 260],
         }
-        type SHGDNF = u32;
+        #[repr(u32)]
+        enum SHGDNF {
+            SHGDN_NORMAL = 0,
+            SHGDN_INFOLDER = 1,
+            SHGDN_FOREDITING = 4096,
+            SHGDN_FORADDRESSBAR = 16384,
+            SHGDN_FORPARSING = 32768,
+        }
         #[library("SHELL32.dll")]
         extern fn SHGetIDListFromObject(punk: IUnknown, ppidl: *mut LPITEMIDLIST) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetItemFromDataObject(pdtobj: IDataObject, dwFlags: DATAOBJ_GET_ITEM_FLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetItemFromDataObject(pdtobj: IDataObject, dwFlags: DATAOBJ_GET_ITEM_FLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetItemFromObject(punk: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetItemFromObject(punk: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetNameFromIDList(pidl: *const ITEMIDLIST, sigdnName: SIGDN, ppszName: *mut PWSTR) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreFromIDList(pidl: *const ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreFromIDList(pidl: *const ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreFromParsingName(pszPath: PCWSTR, #[opt] pbc: IBindCtx, flags: GETPROPERTYSTOREFLAGS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetTemporaryPropertyForItem(psi: IShellItem, propkey: *const PROPERTYKEY, ppropvar: *mut PROPVARIANT) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -2488,7 +2706,13 @@ mod Windows {
             SIATTRIBFLAGS_MASK = 3,
             SIATTRIBFLAGS_ALLITEMS = 16384,
         }
-        type SICHINTF = u32;
+        #[repr(u32)]
+        enum SICHINTF {
+            SICHINT_DISPLAY = 0,
+            SICHINT_ALLFIELDS = 2147483648,
+            SICHINT_CANONICAL = 268435456,
+            SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 536870912,
+        }
         const SID_LaunchSourceAppUserModelId: GUID = 0x2ce78010_74db_48bc_9c6a_10f372495723;
         const SID_LaunchSourceViewSizePreference: GUID = 0x80605492_67d9_414f_af89_a1cdf1242bc1;
         const SID_LaunchTargetViewSizePreference: GUID = 0x26db2472_b7b7_406b_9702_730a4e20d3bf;
@@ -2507,7 +2731,19 @@ mod Windows {
             SIGDN_PARENTRELATIVE = -2146959359,
             SIGDN_PARENTRELATIVEFORUI = -2146877439,
         }
-        type SIIGBF = i32;
+        #[repr(i32)]
+        enum SIIGBF {
+            SIIGBF_RESIZETOFIT = 0,
+            SIIGBF_BIGGERSIZEOK = 1,
+            SIIGBF_MEMORYONLY = 2,
+            SIIGBF_ICONONLY = 4,
+            SIIGBF_THUMBNAILONLY = 8,
+            SIIGBF_INCACHEONLY = 16,
+            SIIGBF_CROPTOSQUARE = 32,
+            SIIGBF_WIDETHUMBNAILS = 64,
+            SIIGBF_ICONBACKGROUND = 128,
+            SIIGBF_SCALEUP = 256,
+        }
         #[repr(u32)]
         #[flags]
         enum SLGP_FLAGS {
@@ -2634,8 +2870,20 @@ mod Windows {
             SPACTION_FORMATTING = 12,
             SPACTION_COPY_MOVING = 13,
         }
-        type SPBEGINF = u32;
-        type SPINITF = u32;
+        #[repr(u32)]
+        enum SPBEGINF {
+            SPBEGINF_NORMAL = 0,
+            SPBEGINF_AUTOTIME = 2,
+            SPBEGINF_NOPROGRESSBAR = 16,
+            SPBEGINF_MARQUEEPROGRESS = 32,
+            SPBEGINF_NOCANCELBUTTON = 64,
+        }
+        #[repr(u32)]
+        enum SPINITF {
+            SPINITF_NORMAL = 0,
+            SPINITF_MODAL = 1,
+            SPINITF_NOMINIMIZE = 8,
+        }
         #[repr(i32)]
         enum SPTEXT {
             SPTEXT_ACTIONDESCRIPTION = 1,
@@ -2759,8 +3007,32 @@ mod Windows {
         }
         const SV2GV_CURRENTVIEW: u32 = 4294967295;
         const SV2GV_DEFAULTVIEW: u32 = 4294967294;
-        type SVGIO = i32;
-        type SVSIF = u32;
+        #[repr(u32)]
+        #[flags]
+        enum SVGIO {
+            SVGIO_BACKGROUND = 0,
+            SVGIO_SELECTION = 1,
+            SVGIO_ALLVIEW = 2,
+            SVGIO_CHECKED = 3,
+            SVGIO_TYPE_MASK = 15,
+            SVGIO_FLAG_VIEWORDER = 2147483648,
+        }
+        #[repr(u32)]
+        enum SVSIF {
+            SVSI_DESELECT = 0,
+            SVSI_SELECT = 1,
+            SVSI_EDIT = 3,
+            SVSI_DESELECTOTHERS = 4,
+            SVSI_ENSUREVISIBLE = 8,
+            SVSI_FOCUSED = 16,
+            SVSI_TRANSLATEPT = 32,
+            SVSI_SELECTIONMARK = 64,
+            SVSI_POSITIONITEM = 128,
+            SVSI_CHECK = 256,
+            SVSI_CHECK2 = 512,
+            SVSI_KEYBOARDSELECT = 1025,
+            SVSI_NOTAKEFOCUS = 1073741824,
+        }
         const SVSI_NOSTATECHANGE: u32 = 2147483648;
         #[repr(i32)]
         enum SVUIA_STATUS {
@@ -2833,317 +3105,15 @@ mod Windows {
             THB_TOOLTIP = 4,
             THB_FLAGS = 8,
         }
-        type TRANSFER_ADVISE_STATE = u32;
-        type TRANSFER_SOURCE_FLAGS = u32;
-        const TaskbarList: GUID = 0x56fdf344_fd6d_11d0_958a_006097c9a090;
-        const UserNotification: GUID = 0x0010890e_8789_413c_adbc_48f5b511b3af;
-        #[repr(i32)]
-        enum _BROWSERFRAMEOPTIONS {
-            BFO_NONE = 0,
-            BFO_BROWSER_PERSIST_SETTINGS = 1,
-            BFO_RENAME_FOLDER_OPTIONS_TOINTERNET = 2,
-            BFO_BOTH_OPTIONS = 4,
-            BIF_PREFER_INTERNET_SHORTCUT = 8,
-            BFO_BROWSE_NO_IN_NEW_PROCESS = 16,
-            BFO_ENABLE_HYPERLINK_TRACKING = 32,
-            BFO_USE_IE_OFFLINE_SUPPORT = 64,
-            BFO_SUBSTITUE_INTERNET_START_PAGE = 128,
-            BFO_USE_IE_LOGOBANDING = 256,
-            BFO_ADD_IE_TOCAPTIONBAR = 512,
-            BFO_USE_DIALUP_REF = 1024,
-            BFO_USE_IE_TOOLBAR = 2048,
-            BFO_NO_PARENT_FOLDER_SUPPORT = 4096,
-            BFO_NO_REOPEN_NEXT_RESTART = 8192,
-            BFO_GO_HOME_PAGE = 16384,
-            BFO_PREFER_IEPROCESS = 32768,
-            BFO_SHOW_NAVIGATION_CANCELLED = 65536,
-            BFO_USE_IE_STATUSBAR = 131072,
-            BFO_QUERY_ALL = -1,
-        }
-        #[repr(i32)]
-        enum _EXPCMDFLAGS {
-            ECF_DEFAULT = 0,
-            ECF_HASSUBCOMMANDS = 1,
-            ECF_HASSPLITBUTTON = 2,
-            ECF_HIDELABEL = 4,
-            ECF_ISSEPARATOR = 8,
-            ECF_HASLUASHIELD = 16,
-            ECF_SEPARATORBEFORE = 32,
-            ECF_SEPARATORAFTER = 64,
-            ECF_ISDROPDOWN = 128,
-            ECF_TOGGLEABLE = 256,
-            ECF_AUTOMENUICONS = 512,
-        }
-        #[repr(i32)]
-        enum _EXPCMDSTATE {
-            ECS_ENABLED = 0,
-            ECS_DISABLED = 1,
-            ECS_HIDDEN = 2,
-            ECS_CHECKBOX = 4,
-            ECS_CHECKED = 8,
-            ECS_RADIOCHECK = 16,
-        }
-        #[repr(i32)]
-        enum _EXPLORERPANESTATE {
-            EPS_DONTCARE = 0,
-            EPS_DEFAULT_ON = 1,
-            EPS_DEFAULT_OFF = 2,
-            EPS_STATEMASK = 65535,
-            EPS_INITIALSTATE = 65536,
-            EPS_FORCE = 131072,
-        }
-        #[repr(i32)]
-        enum _EXPPS {
-            EXPPS_FILETYPES = 1,
-        }
-        #[repr(i32)]
-        enum _FILEOPENDIALOGOPTIONS {
-            FOS_OVERWRITEPROMPT = 2,
-            FOS_STRICTFILETYPES = 4,
-            FOS_NOCHANGEDIR = 8,
-            FOS_PICKFOLDERS = 32,
-            FOS_FORCEFILESYSTEM = 64,
-            FOS_ALLNONSTORAGEITEMS = 128,
-            FOS_NOVALIDATE = 256,
-            FOS_ALLOWMULTISELECT = 512,
-            FOS_PATHMUSTEXIST = 2048,
-            FOS_FILEMUSTEXIST = 4096,
-            FOS_CREATEPROMPT = 8192,
-            FOS_SHAREAWARE = 16384,
-            FOS_NOREADONLYRETURN = 32768,
-            FOS_NOTESTFILECREATE = 65536,
-            FOS_HIDEMRUPLACES = 131072,
-            FOS_HIDEPINNEDPLACES = 262144,
-            FOS_NODEREFERENCELINKS = 1048576,
-            FOS_OKBUTTONNEEDSINTERACTION = 2097152,
-            FOS_DONTADDTORECENT = 33554432,
-            FOS_FORCESHOWHIDDEN = 268435456,
-            FOS_DEFAULTNOMINIMODE = 536870912,
-            FOS_FORCEPREVIEWPANEON = 1073741824,
-            FOS_SUPPORTSTREAMABLEITEMS = -2147483648,
-        }
-        #[repr(i32)]
-        enum _KF_DEFINITION_FLAGS {
-            KFDF_LOCAL_REDIRECT_ONLY = 2,
-            KFDF_ROAMABLE = 4,
-            KFDF_PRECREATE = 8,
-            KFDF_STREAM = 16,
-            KFDF_PUBLISHEXPANDEDPATH = 32,
-            KFDF_NO_REDIRECT_UI = 64,
-        }
-        #[repr(i32)]
-        enum _KF_REDIRECTION_CAPABILITIES {
-            KF_REDIRECTION_CAPABILITIES_ALLOW_ALL = 255,
-            KF_REDIRECTION_CAPABILITIES_REDIRECTABLE = 1,
-            KF_REDIRECTION_CAPABILITIES_DENY_ALL = 1048320,
-            KF_REDIRECTION_CAPABILITIES_DENY_POLICY_REDIRECTED = 256,
-            KF_REDIRECTION_CAPABILITIES_DENY_POLICY = 512,
-            KF_REDIRECTION_CAPABILITIES_DENY_PERMISSIONS = 1024,
-        }
-        #[repr(i32)]
-        enum _KF_REDIRECT_FLAGS {
-            KF_REDIRECT_USER_EXCLUSIVE = 1,
-            KF_REDIRECT_COPY_SOURCE_DACL = 2,
-            KF_REDIRECT_OWNER_USER = 4,
-            KF_REDIRECT_SET_OWNER_EXPLICIT = 8,
-            KF_REDIRECT_CHECK_ONLY = 16,
-            KF_REDIRECT_WITH_UI = 32,
-            KF_REDIRECT_UNPIN = 64,
-            KF_REDIRECT_PIN = 128,
-            KF_REDIRECT_COPY_CONTENTS = 512,
-            KF_REDIRECT_DEL_SOURCE_CONTENTS = 1024,
-            KF_REDIRECT_EXCLUDE_ALL_KNOWN_SUBFOLDERS = 2048,
-        }
-        #[repr(i32)]
-        enum _NMCII_FLAGS {
-            NMCII_NONE = 0,
-            NMCII_ITEMS = 1,
-            NMCII_FOLDERS = 2,
-        }
-        #[repr(i32)]
-        enum _NMCSAEI_FLAGS {
-            NMCSAEI_SELECT = 0,
-            NMCSAEI_EDIT = 1,
-        }
-        #[repr(i32)]
-        enum _NSTCITEMSTATE {
-            NSTCIS_NONE = 0,
-            NSTCIS_SELECTED = 1,
-            NSTCIS_EXPANDED = 2,
-            NSTCIS_BOLD = 4,
-            NSTCIS_DISABLED = 8,
-            NSTCIS_SELECTEDNOEXPAND = 16,
-        }
-        #[repr(i32)]
-        enum _NSTCROOTSTYLE {
-            NSTCRS_VISIBLE = 0,
-            NSTCRS_HIDDEN = 1,
-            NSTCRS_EXPANDED = 2,
-        }
-        #[repr(i32)]
-        enum _NSTCSTYLE {
-            NSTCS_HASEXPANDOS = 1,
-            NSTCS_HASLINES = 2,
-            NSTCS_SINGLECLICKEXPAND = 4,
-            NSTCS_FULLROWSELECT = 8,
-            NSTCS_SPRINGEXPAND = 16,
-            NSTCS_HORIZONTALSCROLL = 32,
-            NSTCS_ROOTHASEXPANDO = 64,
-            NSTCS_SHOWSELECTIONALWAYS = 128,
-            NSTCS_NOINFOTIP = 512,
-            NSTCS_EVENHEIGHT = 1024,
-            NSTCS_NOREPLACEOPEN = 2048,
-            NSTCS_DISABLEDRAGDROP = 4096,
-            NSTCS_NOORDERSTREAM = 8192,
-            NSTCS_RICHTOOLTIP = 16384,
-            NSTCS_BORDER = 32768,
-            NSTCS_NOEDITLABELS = 65536,
-            NSTCS_TABSTOP = 131072,
-            NSTCS_FAVORITESMODE = 524288,
-            NSTCS_AUTOHSCROLL = 1048576,
-            NSTCS_FADEINOUTEXPANDOS = 2097152,
-            NSTCS_EMPTYTEXT = 4194304,
-            NSTCS_CHECKBOXES = 8388608,
-            NSTCS_PARTIALCHECKBOXES = 16777216,
-            NSTCS_EXCLUSIONCHECKBOXES = 33554432,
-            NSTCS_DIMMEDCHECKBOXES = 67108864,
-            NSTCS_NOINDENTCHECKS = 134217728,
-            NSTCS_ALLOWJUNCTIONS = 268435456,
-            NSTCS_SHOWTABSBUTTON = 536870912,
-            NSTCS_SHOWDELETEBUTTON = 1073741824,
-            NSTCS_SHOWREFRESHBUTTON = -2147483648,
-        }
-        #[repr(i32)]
-        enum _OPPROGDLGF {
-            OPPROGDLG_DEFAULT = 0,
-            OPPROGDLG_ENABLEPAUSE = 128,
-            OPPROGDLG_ALLOWUNDO = 256,
-            OPPROGDLG_DONTDISPLAYSOURCEPATH = 512,
-            OPPROGDLG_DONTDISPLAYDESTPATH = 1024,
-            OPPROGDLG_NOMULTIDAYESTIMATES = 2048,
-            OPPROGDLG_DONTDISPLAYLOCATIONS = 4096,
-        }
-        #[repr(i32)]
-        enum _PDMODE {
-            PDM_DEFAULT = 0,
-            PDM_RUN = 1,
-            PDM_PREFLIGHT = 2,
-            PDM_UNDOING = 4,
-            PDM_ERRORSBLOCKING = 8,
-            PDM_INDETERMINATE = 16,
-        }
-        #[repr(i32)]
-        enum _PROPERTYUI_FLAGS {
-            PUIF_DEFAULT = 0,
-            PUIF_RIGHTALIGN = 1,
-            PUIF_NOLABELININFOTIP = 2,
-        }
-        #[repr(i32)]
-        enum _PROPERTYUI_FORMAT_FLAGS {
-            PUIFFDF_DEFAULT = 0,
-            PUIFFDF_RIGHTTOLEFT = 1,
-            PUIFFDF_SHORTFORMAT = 2,
-            PUIFFDF_NOTIME = 4,
-            PUIFFDF_FRIENDLYDATE = 8,
-        }
-        #[repr(i32)]
-        enum _PROPERTYUI_NAME_FLAGS {
-            PUIFNF_DEFAULT = 0,
-            PUIFNF_MNEMONIC = 1,
-        }
-        #[repr(i32)]
-        enum _SHCONTF {
-            SHCONTF_CHECKING_FOR_CHILDREN = 16,
-            SHCONTF_FOLDERS = 32,
-            SHCONTF_NONFOLDERS = 64,
-            SHCONTF_INCLUDEHIDDEN = 128,
-            SHCONTF_INIT_ON_FIRST_NEXT = 256,
-            SHCONTF_NETPRINTERSRCH = 512,
-            SHCONTF_SHAREABLE = 1024,
-            SHCONTF_STORAGE = 2048,
-            SHCONTF_NAVIGATION_ENUM = 4096,
-            SHCONTF_FASTITEMS = 8192,
-            SHCONTF_FLATLIST = 16384,
-            SHCONTF_ENABLE_ASYNC = 32768,
-            SHCONTF_INCLUDESUPERHIDDEN = 65536,
-        }
-        #[repr(i32)]
-        enum _SHGDNF {
-            SHGDN_NORMAL = 0,
-            SHGDN_INFOLDER = 1,
-            SHGDN_FOREDITING = 4096,
-            SHGDN_FORADDRESSBAR = 16384,
-            SHGDN_FORPARSING = 32768,
-        }
-        #[repr(i32)]
-        enum _SICHINTF {
-            SICHINT_DISPLAY = 0,
-            SICHINT_ALLFIELDS = -2147483648,
-            SICHINT_CANONICAL = 268435456,
-            SICHINT_TEST_FILESYSPATH_IF_NOT_EQUAL = 536870912,
-        }
-        #[repr(i32)]
-        enum _SIIGBF {
-            SIIGBF_RESIZETOFIT = 0,
-            SIIGBF_BIGGERSIZEOK = 1,
-            SIIGBF_MEMORYONLY = 2,
-            SIIGBF_ICONONLY = 4,
-            SIIGBF_THUMBNAILONLY = 8,
-            SIIGBF_INCACHEONLY = 16,
-            SIIGBF_CROPTOSQUARE = 32,
-            SIIGBF_WIDETHUMBNAILS = 64,
-            SIIGBF_ICONBACKGROUND = 128,
-            SIIGBF_SCALEUP = 256,
-        }
-        #[repr(i32)]
-        enum _SPBEGINF {
-            SPBEGINF_NORMAL = 0,
-            SPBEGINF_AUTOTIME = 2,
-            SPBEGINF_NOPROGRESSBAR = 16,
-            SPBEGINF_MARQUEEPROGRESS = 32,
-            SPBEGINF_NOCANCELBUTTON = 64,
-        }
-        #[repr(i32)]
-        enum _SPINITF {
-            SPINITF_NORMAL = 0,
-            SPINITF_MODAL = 1,
-            SPINITF_NOMINIMIZE = 8,
-        }
         #[repr(u32)]
-        #[flags]
-        enum _SVGIO {
-            SVGIO_BACKGROUND = 0,
-            SVGIO_SELECTION = 1,
-            SVGIO_ALLVIEW = 2,
-            SVGIO_CHECKED = 3,
-            SVGIO_TYPE_MASK = 15,
-            SVGIO_FLAG_VIEWORDER = 2147483648,
-        }
-        #[repr(i32)]
-        enum _SVSIF {
-            SVSI_DESELECT = 0,
-            SVSI_SELECT = 1,
-            SVSI_EDIT = 3,
-            SVSI_DESELECTOTHERS = 4,
-            SVSI_ENSUREVISIBLE = 8,
-            SVSI_FOCUSED = 16,
-            SVSI_TRANSLATEPT = 32,
-            SVSI_SELECTIONMARK = 64,
-            SVSI_POSITIONITEM = 128,
-            SVSI_CHECK = 256,
-            SVSI_CHECK2 = 512,
-            SVSI_KEYBOARDSELECT = 1025,
-            SVSI_NOTAKEFOCUS = 1073741824,
-        }
-        #[repr(i32)]
-        enum _TRANSFER_ADVISE_STATE {
+        enum TRANSFER_ADVISE_STATE {
             TS_NONE = 0,
             TS_PERFORMING = 1,
             TS_PREPARING = 2,
             TS_INDETERMINATE = 4,
         }
-        #[repr(i32)]
-        enum _TRANSFER_SOURCE_FLAGS {
+        #[repr(u32)]
+        enum TRANSFER_SOURCE_FLAGS {
             TSF_NORMAL = 0,
             TSF_FAIL_EXIST = 0,
             TSF_RENAME_EXIST = 1,
@@ -3159,6 +3129,8 @@ mod Windows {
             TSF_MOVE_AS_COPY_DELETE = 1024,
             TSF_SUSPEND_SHELLEVENTS = 2048,
         }
+        const TaskbarList: GUID = 0x56fdf344_fd6d_11d0_958a_006097c9a090;
+        const UserNotification: GUID = 0x0010890e_8789_413c_adbc_48f5b511b3af;
         #[repr(i32)]
         enum tagBANDSITECID {
             BSID_BANDADDED = 0,

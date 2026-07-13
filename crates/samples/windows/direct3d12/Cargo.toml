@@ -10,14 +10,16 @@ array-init = "2.0.0"
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Graphics_Direct3D_Fxc",
-    "Win32_Graphics_Direct3D12",
-    "Win32_Graphics_Dxgi_Common",
-    "Win32_Graphics_Gdi",
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_System_WindowsProgramming",
-    "Win32_UI_WindowsAndMessaging",
+    "d3d12",
+    "d3dcommon",
+    "d3dcompiler",
+    "dxgi",
+    "minwinbase",
+    "synchapi",
+    "winbase",
+    "windef",
+    "winnt",
+    "winuser",
 ]
 
 [dependencies.windows-window]

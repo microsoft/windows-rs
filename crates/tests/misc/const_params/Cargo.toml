@@ -11,15 +11,16 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_UI_Shell",
-    "Win32_System_WinRT",
-    "Win32_System_Com",
+    "pathcch",
+    "urlmon",
+    "winstring",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_UI_Shell",
+    "pathcch",
+    "winerror",
 ]
 
 [lints]

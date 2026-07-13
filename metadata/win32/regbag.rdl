@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x8a674b48_1f63_11d3_b64c_00c04f79498e)]
         interface ICreatePropBagOnRegKey: IUnknown {
-            fn Create(&self, hkey: HKEY, subkey: PCWSTR, ulOptions: u32, samDesired: u32, iid: *const GUID, ppBag: *mut *mut void) -> HRESULT;
+            fn Create(&self, hkey: HKEY, subkey: PCWSTR, ulOptions: u32, samDesired: u32, iid: *const GUID, #[iid_is] ppBag: *mut *mut void) -> HRESULT;
         }
     }
 }

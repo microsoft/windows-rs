@@ -1,0 +1,172 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const DBGPROP_ATTRIB_ACCESS_FINAL: i32 = 32768;
+        const DBGPROP_ATTRIB_ACCESS_PRIVATE: i32 = 8192;
+        const DBGPROP_ATTRIB_ACCESS_PROTECTED: i32 = 16384;
+        const DBGPROP_ATTRIB_ACCESS_PUBLIC: i32 = 4096;
+        type DBGPROP_ATTRIB_FLAGS = u32;
+        const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: i32 = 33554432;
+        const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: i32 = 67108864;
+        const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: i32 = 16777216;
+        const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: i32 = 8388608;
+        const DBGPROP_ATTRIB_NO_ATTRIB: i32 = 0;
+        const DBGPROP_ATTRIB_STORAGE_FIELD: i32 = 262144;
+        const DBGPROP_ATTRIB_STORAGE_GLOBAL: i32 = 65536;
+        const DBGPROP_ATTRIB_STORAGE_STATIC: i32 = 131072;
+        const DBGPROP_ATTRIB_STORAGE_VIRTUAL: i32 = 524288;
+        const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: i32 = 1048576;
+        const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: i32 = 2097152;
+        const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: i32 = 4194304;
+        const DBGPROP_ATTRIB_VALUE_IS_EVENT: i32 = 512;
+        const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: i32 = 16;
+        const DBGPROP_ATTRIB_VALUE_IS_FAKE: i32 = 32;
+        const DBGPROP_ATTRIB_VALUE_IS_INVALID: i32 = 8;
+        const DBGPROP_ATTRIB_VALUE_IS_METHOD: i32 = 256;
+        const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: i32 = 1024;
+        const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: i32 = 134217728;
+        const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: i32 = 268435456;
+        const DBGPROP_ATTRIB_VALUE_READONLY: i32 = 2048;
+        const DBGPROP_INFO_ALL: u32 = 63;
+        const DBGPROP_INFO_ATTRIBUTES: i32 = 8;
+        const DBGPROP_INFO_AUTOEXPAND: i32 = 134217728;
+        const DBGPROP_INFO_BEAUTIFY: i32 = 33554432;
+        const DBGPROP_INFO_CALLTOSTRING: i32 = 67108864;
+        const DBGPROP_INFO_DEBUGPROP: i32 = 16;
+        type DBGPROP_INFO_FLAGS = u32;
+        const DBGPROP_INFO_FULLNAME: i32 = 32;
+        const DBGPROP_INFO_NAME: i32 = 1;
+        const DBGPROP_INFO_STANDARD: u32 = 15;
+        const DBGPROP_INFO_TYPE: i32 = 2;
+        const DBGPROP_INFO_VALUE: i32 = 4;
+        struct DebugPropertyInfo {
+            m_dwValidFields: u32,
+            m_bstrName: BSTR,
+            m_bstrType: BSTR,
+            m_bstrValue: BSTR,
+            m_bstrFullName: BSTR,
+            m_dwAttrib: u32,
+            m_pDebugProp: IDebugProperty,
+        }
+        #[repr(i32)]
+        enum EX_PROP_INFO_FLAGS {
+            EX_PROP_INFO_ID = 256,
+            EX_PROP_INFO_NTYPE = 512,
+            EX_PROP_INFO_NVALUE = 1024,
+            EX_PROP_INFO_LOCKBYTES = 2048,
+            EX_PROP_INFO_DEBUGEXTPROP = 4096,
+        }
+        struct ExtendedDebugPropertyInfo {
+            dwValidFields: u32,
+            pszName: PWSTR,
+            pszType: PWSTR,
+            pszValue: PWSTR,
+            pszFullName: PWSTR,
+            dwAttrib: u32,
+            pDebugProp: IDebugProperty,
+            nDISPID: u32,
+            nType: u32,
+            varValue: VARIANT,
+            plbValue: ILockBytes,
+            pDebugExtProp: IDebugExtendedProperty,
+        }
+        #[guid(0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugExtendedProperty: IDebugProperty {
+            fn GetExtendedPropertyInfo(&self, dwFieldSpec: u32, nRadix: u32, pExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo) -> HRESULT;
+            fn EnumExtendedMembers(&self, dwFieldSpec: u32, nRadix: u32, ppeepi: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
+        }
+        #[guid(0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugProperty: IUnknown {
+            fn GetPropertyInfo(&self, dwFieldSpec: u32, nRadix: u32, pPropertyInfo: *mut DebugPropertyInfo) -> HRESULT;
+            fn GetExtendedInfo(&self, cInfos: u32, rgguidExtendedInfo: *const GUID, rgvar: *mut VARIANT) -> HRESULT;
+            fn SetValueAsString(&self, pszValue: PCWSTR, nRadix: u32) -> HRESULT;
+            fn EnumMembers(&self, dwFieldSpec: u32, nRadix: u32, refiid: *const GUID, ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
+            fn GetParent(&self, ppDebugProp: *mut IDebugProperty) -> HRESULT;
+        }
+        #[guid(0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugPropertyEnumType_All: IUnknown {
+            fn GetName(&self, param0: *mut BSTR) -> HRESULT;
+        }
+        #[guid(0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugPropertyEnumType_Arguments: IDebugPropertyEnumType_All {}
+        #[guid(0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugPropertyEnumType_Locals: IDebugPropertyEnumType_All {}
+        #[guid(0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugPropertyEnumType_LocalsPlusArgs: IDebugPropertyEnumType_All {}
+        #[guid(0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IDebugPropertyEnumType_Registers: IDebugPropertyEnumType_All {}
+        #[guid(0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IEnumDebugExtendedPropertyInfo: IUnknown {
+            fn Next(&self, celt: u32, rgExtendedPropertyInfo: *mut ExtendedDebugPropertyInfo, pceltFetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, pedpe: *mut IEnumDebugExtendedPropertyInfo) -> HRESULT;
+            fn GetCount(&self, pcelt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IEnumDebugPropertyInfo: IUnknown {
+            fn Next(&self, celt: u32, pi: *mut DebugPropertyInfo, pcEltsfetched: *mut u32) -> HRESULT;
+            fn Skip(&self, celt: u32) -> HRESULT;
+            fn Reset(&self) -> HRESULT;
+            fn Clone(&self, ppepi: *mut IEnumDebugPropertyInfo) -> HRESULT;
+            fn GetCount(&self, pcelt: *mut u32) -> HRESULT;
+        }
+        #[guid(0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a)]
+        interface IPerPropertyBrowsing2: IUnknown {
+            fn GetDisplayString(&self, dispid: DISPID, pBstr: *mut BSTR) -> HRESULT;
+            fn MapPropertyToPage(&self, dispid: DISPID, pClsidPropPage: *mut GUID) -> HRESULT;
+            fn GetPredefinedStrings(&self, dispid: DISPID, pCaStrings: *mut CALPOLESTR, pCaCookies: *mut CADWORD) -> HRESULT;
+            fn SetPredefinedValue(&self, dispid: DISPID, dwCookie: u32) -> HRESULT;
+        }
+        #[repr(i32)]
+        enum OBJECT_ATTRIB_FLAGS {
+            OBJECT_ATTRIB_NO_ATTRIB = 0,
+            OBJECT_ATTRIB_NO_NAME = 1,
+            OBJECT_ATTRIB_NO_TYPE = 2,
+            OBJECT_ATTRIB_NO_VALUE = 4,
+            OBJECT_ATTRIB_VALUE_IS_INVALID = 8,
+            OBJECT_ATTRIB_VALUE_IS_OBJECT = 16,
+            OBJECT_ATTRIB_VALUE_IS_ENUM = 32,
+            OBJECT_ATTRIB_VALUE_IS_CUSTOM = 64,
+            OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE = 112,
+            OBJECT_ATTRIB_VALUE_HAS_CODE = 128,
+            OBJECT_ATTRIB_TYPE_IS_OBJECT = 256,
+            OBJECT_ATTRIB_TYPE_HAS_CODE = 512,
+            OBJECT_ATTRIB_TYPE_IS_EXPANDABLE = 256,
+            OBJECT_ATTRIB_SLOT_IS_CATEGORY = 1024,
+            OBJECT_ATTRIB_VALUE_READONLY = 2048,
+            OBJECT_ATTRIB_ACCESS_PUBLIC = 4096,
+            OBJECT_ATTRIB_ACCESS_PRIVATE = 8192,
+            OBJECT_ATTRIB_ACCESS_PROTECTED = 16384,
+            OBJECT_ATTRIB_ACCESS_FINAL = 32768,
+            OBJECT_ATTRIB_STORAGE_GLOBAL = 65536,
+            OBJECT_ATTRIB_STORAGE_STATIC = 131072,
+            OBJECT_ATTRIB_STORAGE_FIELD = 262144,
+            OBJECT_ATTRIB_STORAGE_VIRTUAL = 524288,
+            OBJECT_ATTRIB_TYPE_IS_CONSTANT = 1048576,
+            OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED = 2097152,
+            OBJECT_ATTRIB_TYPE_IS_VOLATILE = 4194304,
+            OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS = 8388608,
+            OBJECT_ATTRIB_IS_CLASS = 16777216,
+            OBJECT_ATTRIB_IS_FUNCTION = 33554432,
+            OBJECT_ATTRIB_IS_VARIABLE = 67108864,
+            OBJECT_ATTRIB_IS_PROPERTY = 134217728,
+            OBJECT_ATTRIB_IS_MACRO = 268435456,
+            OBJECT_ATTRIB_IS_TYPE = 536870912,
+            OBJECT_ATTRIB_IS_INHERITED = 1073741824,
+            OBJECT_ATTRIB_IS_INTERFACE = -2147483648,
+        }
+        const PROP_INFO_ALL: u32 = 63;
+        #[repr(i32)]
+        enum PROP_INFO_FLAGS {
+            PROP_INFO_NAME = 1,
+            PROP_INFO_TYPE = 2,
+            PROP_INFO_VALUE = 4,
+            PROP_INFO_FULLNAME = 32,
+            PROP_INFO_ATTRIBUTES = 8,
+            PROP_INFO_DEBUGPROP = 16,
+            PROP_INFO_AUTOEXPAND = 134217728,
+        }
+        const PROP_INFO_STANDARD: u32 = 15;
+    }
+}

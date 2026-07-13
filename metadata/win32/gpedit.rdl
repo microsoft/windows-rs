@@ -59,9 +59,6 @@ mod Windows {
         }
         #[guid(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3)]
         interface IGPEInformation: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
             fn GetDisplayName(&self, #[len_param(1)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
             fn GetRegistryKey(&self, dwSection: u32, hKey: *mut HKEY) -> HRESULT;
@@ -74,9 +71,6 @@ mod Windows {
         }
         #[guid(0xea502723_a23d_11d1_a7d3_0000f87571e3)]
         interface IGroupPolicyObject: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn New(&self, pszDomainName: PCWSTR, #[opt] pszDisplayName: PCWSTR, dwFlags: u32) -> HRESULT;
             fn OpenDSGPO(&self, pszPath: PCWSTR, dwFlags: u32) -> HRESULT;
             fn OpenLocalMachineGPO(&self, dwFlags: u32) -> HRESULT;
@@ -98,9 +92,6 @@ mod Windows {
         }
         #[guid(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d)]
         interface IRSOPInformation: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetNamespace(&self, dwSection: u32, #[len_param(2)] #[out] pszName: PWSTR, cchMaxLength: i32) -> HRESULT;
             fn GetFlags(&self, pdwFlags: *mut u32) -> HRESULT;
             fn GetEventLogEntryText(&self, pszEventSource: PCWSTR, pszEventLogName: PCWSTR, pszEventTime: PCWSTR, dwEventID: u32, ppszText: *mut PWSTR) -> HRESULT;

@@ -14,7 +14,7 @@ mod Windows {
             fn EnqueueResourceRelease(&self, pConsumerCommandQueue: ID3D12CommandQueue) -> HRESULT;
         }
         #[library("MFPlat.DLL")]
-        extern "C" fn MFCreateD3D12SynchronizationObject(pDevice: ID3D12Device, riid: *const GUID, ppvSyncObject: *mut *mut void) -> HRESULT;
+        extern "C" fn MFCreateD3D12SynchronizationObject(pDevice: ID3D12Device, riid: *const GUID, #[iid_is] ppvSyncObject: *mut *mut void) -> HRESULT;
         #[repr(i32)]
         enum MF_MT_D3D_RESOURCE_VERSION_ENUM {
             MF_D3D11_RESOURCE = 0,

@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
+use windows::{core::*, objidl::*, winerror::*};
 
 // The `interface` macro defines a new local interface (based on IPersistMemory) that derives from an existing interface defined by the `windows` crate.
 #[interface("BD1AE5E0-A6AE-11CE-BD37-504200C10000")]

@@ -40,7 +40,7 @@ impl<'a> MethodDef<'a> {
             .next()
     }
 
-    pub fn calling_convention(&self) -> &str {
+    pub fn calling_convention(&self) -> &'static str {
         self.impl_map().map_or("", |map| {
             let flags = map.flags();
 

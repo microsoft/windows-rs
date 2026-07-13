@@ -4,7 +4,7 @@ mod Windows {
         #[library("dxva2.dll")]
         extern fn DXVA2CreateDirect3DDeviceManager9(pResetToken: *mut u32, ppDeviceManager: *mut IDirect3DDeviceManager9) -> HRESULT;
         #[library("dxva2.dll")]
-        extern fn DXVA2CreateVideoService(pDD: IDirect3DDevice9, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
+        extern fn DXVA2CreateVideoService(pDD: IDirect3DDevice9, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
         struct DXVA2_AES_CTR_IV {
             IV: u64,
             Count: u64,
@@ -371,7 +371,7 @@ mod Windows {
             fn TestDevice(&self, hDevice: HANDLE) -> HRESULT;
             fn LockDevice(&self, hDevice: HANDLE, ppDevice: *mut IDirect3DDevice9, fBlock: BOOL) -> HRESULT;
             fn UnlockDevice(&self, hDevice: HANDLE, fSaveState: BOOL) -> HRESULT;
-            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, ppService: *mut *mut void) -> HRESULT;
+            fn GetVideoService(&self, hDevice: HANDLE, riid: *const GUID, #[iid_is] ppService: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfc51a550_d5e7_11d9_af55_00054e43ff02)]
         interface IDirectXVideoAccelerationService: IUnknown {

@@ -4,11 +4,10 @@ fn main() -> windows::core::Result<()> {
     use windows::{
         ApplicationModel::{Core::*, Package},
         UI::Core::*,
-        Win32::{
-            System::Com::*,
-            UI::WindowsAndMessaging::{MB_ICONSTOP, MB_OK, MessageBoxW},
-        },
+        combaseapi::*,
         core::*,
+        objbase::*,
+        winuser::*,
     };
 
     #[implement(IFrameworkViewSource)]
@@ -52,7 +51,7 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
 
         if let Err(result) = Package::Current() {
             MessageBoxW(

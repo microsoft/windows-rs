@@ -800,6 +800,22 @@ mod Windows {
             Size: u32,
             BenefitsFromWriteAggregation: BOOLEAN,
         }
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Disk_Number: DEVPROPKEY = 5;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Gpt_Name: DEVPROPKEY = 9;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Gpt_Type: DEVPROPKEY = 8;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Mbr_Type: DEVPROPKEY = 7;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Partition_Number: DEVPROPKEY = 6;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Portable: DEVPROPKEY = 2;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_Removable_Media: DEVPROPKEY = 3;
+        #[guid(0x4d1ebee8_0803_4774_9842_b77db50265e9)]
+        const DEVPKEY_Storage_System_Critical: DEVPROPKEY = 4;
         const DISABLE_SMART: u32 = 217;
         const DISK_ATTRIBUTE_OFFLINE: u32 = 1;
         const DISK_ATTRIBUTE_READ_ONLY: u32 = 2;

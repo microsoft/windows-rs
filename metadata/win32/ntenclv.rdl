@@ -1,0 +1,174 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4;
+        const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2;
+        const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1;
+        #[packed(1)]
+        struct ENCLAVE_IDENTITY {
+            OwnerId: [u8; 32],
+            UniqueId: [u8; 32],
+            AuthorId: [u8; 32],
+            FamilyId: [u8; 16],
+            ImageId: [u8; 16],
+            EnclaveSvn: u32,
+            SecureKernelSvn: u32,
+            PlatformSvn: u32,
+            Flags: u32,
+            SigningLevel: u32,
+            EnclaveType: u32,
+        }
+        struct ENCLAVE_INFORMATION {
+            EnclaveType: u32,
+            Reserved: u32,
+            BaseAddress: *mut void,
+            Size: usize,
+            Identity: ENCLAVE_IDENTITY,
+        }
+        #[packed(1)]
+        struct ENCLAVE_PACKAGE_IDENTITY {
+            PackageId: [u8; 32],
+            PackageSvn: u64,
+        }
+        const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64;
+        const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2;
+        const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1;
+        #[repr(i32)]
+        enum ENCLAVE_SEALING_IDENTITY_POLICY {
+            ENCLAVE_IDENTITY_POLICY_SEAL_INVALID = 0,
+            ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE = 1,
+            ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE = 2,
+            ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE = 3,
+            ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY = 4,
+            ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR = 5,
+        }
+        const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1;
+        const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8;
+        const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2;
+        const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4;
+        const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1;
+        struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
+            RequestSize: u32,
+            Flags: u32,
+            EnclaveSVN: u32,
+            SystemKeyID: u32,
+            CurrentSystemKeyID: u32,
+        }
+        type PENCLAVE_VBS_BASIC_KEY_REQUEST = *mut ENCLAVE_VBS_BASIC_KEY_REQUEST;
+        #[arch(X64)]
+        type PVBS_BASIC_ENCLAVE_EXCEPTION = PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
+        #[arch(X86 | Arm64)]
+        type PVBS_BASIC_ENCLAVE_EXCEPTION = *mut void;
+        type PVBS_BASIC_ENCLAVE_EXCEPTION_AMD64 = *mut VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
+        type PVBS_BASIC_ENCLAVE_SYSCALL_PAGE = *mut VBS_BASIC_ENCLAVE_SYSCALL_PAGE;
+        #[arch(X64 | Arm64)]
+        type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
+        #[arch(X86)]
+        type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
+        type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
+        type PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 = *mut VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES(EnclaveAddress: *const void, NumberOfBytes: usize, #[opt] SourceAddress: *const void, PageProtection: u32) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES(EnclaveAddress: *const void, NumberOfBytes: usize) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY(#[in] #[out] KeyRequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, RequestedKeySize: u32, #[len_param(1)] ReturnedKey: *mut u8) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA(#[size_param(1)] Buffer: *mut u8, NumberOfBytes: u32, Generation: *mut u64) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT(#[len_const(64)] #[opt] EnclaveData: *const u8, #[size_param(2)] #[opt] Report: *mut void, BufferSize: u32, OutputSize: *mut u32) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION(EnclaveInfo: *mut ENCLAVE_INFORMATION) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES(EnclaveAddress: *const void, NumberOfytes: usize, PageProtection: u32) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE(ReturnValue: usize);
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION(ExceptionRecord: PVBS_BASIC_ENCLAVE_EXCEPTION) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD(ThreadDescriptor: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32;
+        extern fn VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT(#[size_param(1)] Report: *const void, ReportSize: u32) -> i32;
+        #[arch(X64)]
+        type VBS_BASIC_ENCLAVE_EXCEPTION = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
+        #[arch(X86 | Arm64)]
+        type VBS_BASIC_ENCLAVE_EXCEPTION = void;
+        struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
+            ExceptionCode: u32,
+            NumberParameters: u32,
+            ExceptionInformation: [usize; 3],
+            ExceptionRAX: usize,
+            ExceptionRCX: usize,
+            ExceptionRIP: usize,
+            ExceptionRFLAGS: usize,
+            ExceptionRSP: usize,
+        }
+        struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
+            ReturnFromEnclave: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
+            ReturnFromException: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
+            TerminateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD,
+            InterruptThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD,
+            CommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES,
+            DecommitPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES,
+            ProtectPages: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES,
+            CreateThread: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
+            GetEnclaveInformation: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION,
+            GenerateKey: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY,
+            GenerateReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT,
+            VerifyReport: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT,
+            GenerateRandomData: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA,
+        }
+        #[arch(X64 | Arm64)]
+        type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
+        #[arch(X86)]
+        type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32;
+        struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
+            ThreadContext: [u32; 4],
+            EntryPoint: u32,
+            StackPointer: u32,
+            ExceptionEntryPoint: u32,
+            ExceptionStack: u32,
+            ExceptionActive: u32,
+        }
+        struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
+            ThreadContext: [u64; 4],
+            EntryPoint: u64,
+            StackPointer: u64,
+            ExceptionEntryPoint: u64,
+            ExceptionStack: u64,
+            ExceptionActive: u32,
+        }
+        #[packed(1)]
+        struct VBS_ENCLAVE_REPORT {
+            ReportSize: u32,
+            ReportVersion: u32,
+            EnclaveData: [u8; 64],
+            EnclaveIdentity: ENCLAVE_IDENTITY,
+        }
+        #[packed(1)]
+        struct VBS_ENCLAVE_REPORT_MODULE {
+            Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
+            UniqueId: [u8; 32],
+            AuthorId: [u8; 32],
+            FamilyId: [u8; 16],
+            ImageId: [u8; 16],
+            Svn: u32,
+            ModuleName: [u16; 1],
+        }
+        struct VBS_ENCLAVE_REPORT_PACKAGE_ID {
+            Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
+            PackageIdentity: ENCLAVE_PACKAGE_IDENTITY,
+        }
+        #[packed(1)]
+        struct VBS_ENCLAVE_REPORT_PKG_HEADER {
+            PackageSize: u32,
+            Version: u32,
+            SignatureScheme: u32,
+            SignedStatementSize: u32,
+            SignatureSize: u32,
+            Reserved: u32,
+        }
+        const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1;
+        const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1;
+        #[packed(1)]
+        struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
+            DataType: u32,
+            Size: u32,
+        }
+        const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1;
+        const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0;
+        const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1;
+        const VBS_ENCLAVE_VARDATA_PACKAGE: u32 = 2;
+    }
+}

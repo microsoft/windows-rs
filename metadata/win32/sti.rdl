@@ -12,9 +12,6 @@ mod Windows {
         const GUID_ScanPrintImage: GUID = 0xb441f425_8c6e_11d2_977a_0000f87a926f;
         #[guid(0x6cfa5a80_2dc8_11d0_90ea_00aa0060f86c)]
         interface IStiDevice: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Initialize(&self, hinst: HINSTANCE, pwszDeviceName: PCWSTR, dwVersion: u32, dwMode: u32) -> HRESULT;
             fn GetCapabilities(&self, #[in] #[out] pDevCaps: *mut STI_DEV_CAPS) -> HRESULT;
             fn GetStatus(&self, #[in] #[out] pDevStatus: *mut STI_DEVICE_STATUS) -> HRESULT;
@@ -36,9 +33,6 @@ mod Windows {
         struct IStiDeviceW {}
         #[guid(0x641bd880_2dc8_11d0_90ea_00aa0060f86c)]
         interface IStillImageW: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Initialize(&self, hinst: HINSTANCE, dwVersion: u32) -> HRESULT;
             fn GetDeviceList(&self, dwType: u32, dwFlags: u32, pdwItemsReturned: *mut u32, ppBuffer: *mut *mut void) -> HRESULT;
             fn GetDeviceInfo(&self, pwszDeviceName: PCWSTR, ppBuffer: *mut *mut void) -> HRESULT;

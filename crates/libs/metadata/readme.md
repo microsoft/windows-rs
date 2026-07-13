@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-metadata]
-version = "0.59"
+version = "0.60"
 ```
 
 Use the Windows metadata support as needed. Here is how you might use the reader to query type information:

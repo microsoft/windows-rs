@@ -1,10 +1,10 @@
 --out crates/libs/windows
---in crates/tools/package/reference
+--in target/package
 --package
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
-    Windows::**
+    Windows
 
     !Windows::AI::MachineLearning::Preview
     !Windows::ApplicationModel::SocialInfo
@@ -15,8 +15,4 @@
     !Windows::System::Power::Diagnostics
     !Windows::System::Preview
     !Windows::UI::Xaml
-    !Windows::Win32::Foundation::Metadata
-    !Windows::Win32::System::Diagnostics::Debug::WebApp
-    !Windows::Win32::System::WinRT::Xaml
-    !Windows::Win32::UI::Xaml
-    !Windows::Win32::Web::MsHtml
+    !Windows::Win32::Metadata

@@ -1,39 +1,24 @@
 #![cfg(windows)]
 use windows::{
-    Win32::Foundation::{CloseHandle, HANDLE, HWND, RECT},
-    Win32::Gaming::HasExpandedResources,
-    Win32::Graphics::Direct3D::Fxc::*,
-    Win32::Graphics::{
-        Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
-        Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*,
-    },
-    Win32::Networking::Ldap::PLDAPSearch,
-    Win32::Security::Authorization::*,
-    Win32::System::Com::StructuredStorage::*,
-    Win32::System::Com::*,
-    Win32::System::{Diagnostics::Debug::*, Threading::*},
-    Win32::UI::{
-        Accessibility::UIA_ScrollPatternNoScroll,
-        Animation::UIAnimationManager,
-        Controls::Dialogs::CHOOSECOLORW,
-        WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
-    },
-    core::*,
+    accctrl::*, combaseapi::*, commdlg::*, core::*, d2d::*, d3d11::*, d3d12::*, d3dcompiler::*,
+    dxgi::*, expandedresources::*, handleapi::*, minidumpapiset::*, objidlbase::*, synchapi::*,
+    uianimation::*, uiautomationcore::*, urlmon::*, windef::*, winerror::*, winldap::*, winnt::*,
+    winuser::*,
 };
 
 #[test]
 fn signed_enum32() {
-    assert!(ACCESS_MODE::default().0 == 0);
+    assert!(ACCESS_MODE::default() == 0);
     let e: ACCESS_MODE = REVOKE_ACCESS;
     assert!(e == REVOKE_ACCESS);
 }
 
 #[test]
 fn unsigned_enum32() {
-    assert!(DXGI_ADAPTER_FLAG::default().0 == 0);
+    assert!(DXGI_ADAPTER_FLAG::default() == 0);
 
     let both = DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
-    assert!(both.0 == 3);
+    assert!(both == 3);
 }
 
 #[test]
@@ -120,12 +105,12 @@ fn constant() {
 #[test]
 fn function() -> Result<()> {
     unsafe {
-        let event = CreateEventW(None, true, false, None)?;
-        SetEvent(event)?;
+        let event = CreateEventW(None, true, false, None);
+        SetEvent(event).ok()?;
 
         WaitForSingleObject(event, 0);
 
-        CloseHandle(event)?;
+        CloseHandle(event).ok()?;
         Ok(())
     }
 }
@@ -134,7 +119,7 @@ fn function() -> Result<()> {
 fn bool_as_error() {
     unsafe {
         helpers::set_thread_ui_language();
-        let error = SetEvent(HANDLE(0 as _)).unwrap_err();
+        let error = SetEvent(HANDLE(0 as _)).ok().unwrap_err();
 
         assert_eq!(error.code(), HRESULT(-2147024890));
         let message: String = error.message();
@@ -155,7 +140,9 @@ fn com() -> Result<()> {
         assert!(copied == 4);
 
         let mut position = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut position)).ok()?;
+        stream
+            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut position))
+            .ok()?;
         assert!(position == 0);
 
         let mut values = vec![0, 0, 0, 0];
@@ -180,11 +167,7 @@ fn com_inheritance() {
         let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
-        assert!(
-            factory
-                .MakeWindowAssociation(HWND::default(), DXGI_MWA_FLAGS::default())
-                .is_ok()
-        );
+        assert!(factory.MakeWindowAssociation(HWND::default(), 0).is_ok());
 
         // IDXGIFactory1
         assert!(factory.IsCurrent().as_bool());
@@ -193,7 +176,7 @@ fn com_inheritance() {
         _ = factory.IsWindowedStereoEnabled();
 
         // IDXGIFactory3
-        assert!(factory.GetCreationFlags() == DXGI_CREATE_FACTORY_FLAGS(0));
+        assert!(factory.GetCreationFlags() == 0);
 
         // IDXGIFactory7 (default)
         assert!(
@@ -212,7 +195,7 @@ fn onecore_imports() -> Result<()> {
     unsafe {
         _ = HasExpandedResources()?;
 
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
 
         let port = uri.GetPort()?;
         assert!(port == 80);
@@ -226,6 +209,7 @@ fn onecore_imports() -> Result<()> {
             None,
             None,
         )
+        .ok()
         .unwrap_err();
 
         assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
@@ -237,7 +221,7 @@ fn onecore_imports() -> Result<()> {
 #[test]
 fn interface() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
 
         let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
@@ -276,8 +260,8 @@ extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> B
 
 #[test]
 fn empty_struct() {
-    let ldap = PLDAPSearch(123);
-    assert!(ldap.0 == 123);
+    let ldap: PLDAPSearch = 123 as _;
+    assert!(ldap == 123 as _);
     assert!(size_of::<PLDAPSearch>() == size_of::<usize>());
 
     assert!(UIAnimationManager == GUID::try_from("4C1FC63A-695C-47E8-A339-1A194BE3D0B8").unwrap());

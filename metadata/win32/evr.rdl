@@ -87,15 +87,15 @@ mod Windows {
             fn InitializeRenderer(&self, #[opt] pVideoMixer: IMFTransform, #[opt] pVideoPresenter: IMFVideoPresenter) -> HRESULT;
         }
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern "C" fn MFCreateVideoMixer(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern "C" fn MFCreateVideoMixerAndPresenter(#[opt] pMixerOwner: IUnknown, #[opt] pPresenterOwner: IUnknown, riidMixer: *const GUID, ppvVideoMixer: *mut *mut void, riidPresenter: *const GUID, ppvVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, ppVideoPresenter: *mut *mut void) -> HRESULT;
+        extern "C" fn MFCreateVideoPresenter(#[opt] pOwner: IUnknown, riidDevice: *const GUID, riid: *const GUID, #[iid_is] ppVideoPresenter: *mut *mut void) -> HRESULT;
         #[library("MF.dll")]
         extern "C" fn MFCreateVideoRenderer(riidRenderer: *const GUID, ppVideoRenderer: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
-        extern "C" fn MFCreateVideoSampleAllocator(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern "C" fn MFCreateVideoSampleAllocator(riid: *const GUID, #[iid_is] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("EVR.dll")]
         extern "C" fn MFCreateVideoSampleFromSurface(pUnkSurface: IUnknown, ppSample: *mut IMFSample) -> HRESULT;
         const MFEVRDLL: u32 = 0;

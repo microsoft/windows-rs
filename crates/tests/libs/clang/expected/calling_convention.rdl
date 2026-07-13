@@ -8,6 +8,8 @@ mod Test {
     extern "fastcall" fn FastcallFunc(a: i32) -> i32;
     type HRESULT = i32;
     #[library("user32.dll")]
+    extern "system" fn LegacyDeclspecFunc(a: i32) -> i32;
+    #[library("user32.dll")]
     extern "C" fn PlainFunc(a: i32) -> i32;
     #[library("user32.dll")]
     extern "system" fn StdapiFunc(a: i32) -> i32;
@@ -15,6 +17,8 @@ mod Test {
     extern "system" fn StdapiTypedFunc(a: i32) -> i32;
     #[library("user32.dll")]
     extern "system" fn StdcallFunc(a: i32) -> i32;
+    #[library("user32.dll")]
+    extern "C" fn VariadicFunc(count: i32, ...) -> i32;
     #[library("user32.dll")]
     extern "system" fn WithCallback(callback: *mut u8);
 }

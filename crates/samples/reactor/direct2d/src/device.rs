@@ -43,7 +43,7 @@ impl SharedDevice {
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
                 HMODULE::default(),
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT.0 as u32,
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
                 Some(&[D3D_FEATURE_LEVEL_11_0]),
                 D3D11_SDK_VERSION,
                 Some(&mut d3d_device),
@@ -54,20 +54,9 @@ impl SharedDevice {
         }
         let d3d_device = d3d_device.unwrap();
 
-        // MULTI_THREADED so the one D2D device works from both the UI and render
-        // threads. The header links `riid`/`ppIFactory` with no SAL, so the faithful
-        // binding is the raw `REFIID`/`void**` form rather than a generic `Result<T>`.
-        let mut d2d_factory: Option<ID2D1Factory1> = None;
-        unsafe {
-            D2D1CreateFactory(
-                D2D1_FACTORY_TYPE_MULTI_THREADED,
-                &ID2D1Factory1::IID,
-                None,
-                &mut d2d_factory as *mut _ as *mut *mut core::ffi::c_void,
-            )
-            .ok()?;
-        }
-        let d2d_factory = d2d_factory.unwrap();
+        // MULTI_THREADED so the one D2D device works from both the UI and render threads.
+        let d2d_factory: ID2D1Factory1 =
+            unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_MULTI_THREADED, None)? };
 
         let dxgi_device: IDXGIDevice = d3d_device.cast()?;
         let d2d_device = unsafe { d2d_factory.CreateDevice(&dxgi_device)? };

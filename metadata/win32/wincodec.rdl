@@ -312,8 +312,8 @@ mod Windows {
         }
         #[guid(0xcaf65cc4_8ebe_4718_a21f_8dbf40bb7e25)]
         interface IWICD3DTextureSource: IUnknown {
-            fn GetTexture(&self, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
-            fn GetTransformedTexture(&self, #[opt] prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, ppTexture: *mut *mut void) -> HRESULT;
+            fn GetTexture(&self, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, #[iid_is] ppTexture: *mut *mut void) -> HRESULT;
+            fn GetTransformedTexture(&self, #[opt] prc: *const WICRect, uiWidth: u32, uiHeight: u32, #[opt] pguidDstFormat: *const WICPixelFormatGUID, dstTransform: WICBitmapTransformOptions, pD3DDevice: IUnknown, #[opt] pID3DTextureOptions: IPropertyBag2, riid: *const GUID, #[iid_is] ppTexture: *mut *mut void) -> HRESULT;
             fn DoesSupportD3DDeviceType(&self, riid: *const GUID, pfIsSupported: *mut BOOL) -> HRESULT;
             fn GetD3DTextureOptions(&self, ppID3DTextureOptions: *mut IPropertyBag2) -> HRESULT;
         }

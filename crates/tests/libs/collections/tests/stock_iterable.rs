@@ -5,7 +5,7 @@ const E_BOUNDS: HRESULT = HRESULT(0x8000000B_u32 as _);
 
 // `E_FAIL` is a generic Win32 HRESULT used here as a stand-in error code in
 // the failing-iterator tests below. Define it locally so this test file does
-// not need to depend on `windows::Win32::Foundation`.
+// not need to depend on the `windows` crate's Win32 error constants.
 const E_FAIL: HRESULT = HRESULT(0x80004005_u32 as _);
 
 // `Calendar` is a runtime-activated WinRT class that requires the WinRT

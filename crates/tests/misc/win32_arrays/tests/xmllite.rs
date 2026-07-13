@@ -1,17 +1,12 @@
 #![cfg(windows)]
-use windows::{
-    Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*,
-    core::*,
-};
+use windows::{combaseapi::*, core::*, objidlbase::*, xmllite::*};
 
 #[test]
 fn test() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let mut writer: Option<IXmlWriter> = None;
-        CreateXmlWriter(&IXmlWriter::IID, &mut writer as *mut _ as _, None).ok()?;
-        let writer = writer.unwrap();
+        let writer: IXmlWriter = CreateXmlWriter(None)?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartDocument(XmlStandalone_Omit).ok()?;
@@ -31,12 +26,12 @@ fn test() -> Result<()> {
         writer.Flush().ok()?;
 
         let mut pos = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos)).ok()?;
+        stream
+            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .ok()?;
         assert_eq!(pos, 0);
 
-        let mut reader: Option<IXmlReader> = None;
-        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None).ok()?;
-        let reader = reader.unwrap();
+        let reader: IXmlReader = CreateXmlReader(None)?;
         reader.SetInput(&stream).ok()?;
 
         let mut node_type = XmlNodeType_None;
@@ -115,9 +110,7 @@ fn lite() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let mut writer: Option<IXmlWriterLite> = None;
-        CreateXmlWriter(&IXmlWriterLite::IID, &mut writer as *mut _ as _, None).ok()?;
-        let writer = writer.unwrap();
+        let writer: IXmlWriterLite = CreateXmlWriter(None)?;
         writer.SetOutput(&stream).ok()?;
 
         writer.WriteStartElement(&HSTRING::from("html")).ok()?;
@@ -131,12 +124,12 @@ fn lite() -> Result<()> {
         writer.Flush().ok()?;
 
         let mut pos = 0;
-        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos)).ok()?;
+        stream
+            .Seek(0, STREAM_SEEK_SET as u32, Some(&mut pos))
+            .ok()?;
         assert_eq!(pos, 0);
 
-        let mut reader: Option<IXmlReader> = None;
-        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None).ok()?;
-        let reader = reader.unwrap();
+        let reader: IXmlReader = CreateXmlReader(None)?;
         reader.SetInput(&stream).ok()?;
 
         let mut name = PCWSTR::null();

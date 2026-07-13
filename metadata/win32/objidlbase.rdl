@@ -56,6 +56,7 @@ mod Windows {
             fn Begin_Push(&self, buf: *const i32, cSent: u32) -> HRESULT;
             fn Finish_Push(&self) -> HRESULT;
         }
+        const COLE_DEFAULT_PRINCIPAL: PWSTR = -1;
         struct COSERVERINFO {
             dwReserved1: u32,
             pwszName: PWSTR,
@@ -181,7 +182,7 @@ mod Windows {
         #[guid(0x0000002a_0000_0000_c000_000000000046)]
         interface IAsyncManager: IUnknown {
             fn CompleteCall(&self, Result: HRESULT) -> HRESULT;
-            fn GetCallContext(&self, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
+            fn GetCallContext(&self, riid: *const GUID, #[iid_is] pInterface: *mut *mut void) -> HRESULT;
             fn GetState(&self, pulStateFlags: *mut u32) -> HRESULT;
         }
         #[guid(0xa5029fb6_3c34_11d1_9c99_00c04fb998aa)]
@@ -257,7 +258,7 @@ mod Windows {
         }
         #[guid(0x00000021_0000_0000_c000_000000000046)]
         interface IInternalUnknown: IUnknown {
-            fn QueryInternalInterface(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn QueryInternalInterface(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x26d709ac_f70b_4421_a96f_d2878fafb00d)]
         interface IMachineGlobalObjectTable: IUnknown {
@@ -279,7 +280,7 @@ mod Windows {
             fn GetUnmarshalClass(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pCid: *mut GUID) -> HRESULT;
             fn GetMarshalSizeMax(&self, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32, pSize: *mut u32) -> HRESULT;
             fn MarshalInterface(&self, pStm: IStream, riid: *const GUID, #[opt] pv: *const void, dwDestContext: u32, #[reserved] pvDestContext: *const void, mshlflags: u32) -> HRESULT;
-            fn UnmarshalInterface(&self, pStm: IStream, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn UnmarshalInterface(&self, pStm: IStream, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn ReleaseMarshalData(&self, pStm: IStream) -> HRESULT;
             fn DisconnectObject(&self, dwReserved: u32) -> HRESULT;
         }
@@ -298,7 +299,7 @@ mod Windows {
         struct IObjContext {}
         #[guid(0xd5f569d0_593b_101a_b569_08002b2dbf7a)]
         interface IPSFactoryBuffer: IUnknown {
-            fn CreateProxy(&self, pUnkOuter: IUnknown, riid: *const GUID, ppProxy: *mut IRpcProxyBuffer, ppv: *mut *mut void) -> HRESULT;
+            fn CreateProxy(&self, pUnkOuter: IUnknown, riid: *const GUID, ppProxy: *mut IRpcProxyBuffer, #[iid_is] ppv: *mut *mut void) -> HRESULT;
             fn CreateStub(&self, riid: *const GUID, #[opt] pUnkServer: IUnknown, ppStub: *mut IRpcStubBuffer) -> HRESULT;
         }
         #[guid(0x8f146474_b228_48fb_a58c_105ebb273abc)]
@@ -345,7 +346,7 @@ mod Windows {
             fn Send(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pulStatus: *mut u32) -> HRESULT;
             fn Receive(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, ulSize: u32, pulStatus: *mut u32) -> HRESULT;
             fn Cancel(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE) -> HRESULT;
-            fn GetCallContext(&self, pMsg: *const RPCOLEMESSAGE, riid: *const GUID, pInterface: *mut *mut void) -> HRESULT;
+            fn GetCallContext(&self, pMsg: *const RPCOLEMESSAGE, riid: *const GUID, #[iid_is] pInterface: *mut *mut void) -> HRESULT;
             fn GetDestCtxEx(&self, pMsg: *const RPCOLEMESSAGE, pdwDestContext: *mut u32, ppvDestContext: *mut *mut void) -> HRESULT;
             fn GetState(&self, pMsg: *const RPCOLEMESSAGE, pState: *mut u32) -> HRESULT;
             fn RegisterAsync(&self, #[in] #[out] pMsg: *mut RPCOLEMESSAGE, pAsyncMgr: IAsyncManager) -> HRESULT;

@@ -245,7 +245,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaEvent(met: MediaEventType, guidExtendedType: *const GUID, hrStatus: HRESULT, #[opt] pvValue: *const PROPVARIANT, ppEvent: *mut IMFMediaEvent) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+        extern fn MFCreateMediaExtensionActivate(szActivatableClassId: PCWSTR, #[opt] pConfiguration: IUnknown, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateMediaType(ppMFType: *mut IMFMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
@@ -271,7 +271,7 @@ mod Windows {
         #[library("MFPlat.DLL")]
         extern fn MFCreateVideoMediaTypeFromSubtype(pAMSubtype: *const GUID, ppIVideoMediaType: *mut IMFVideoMediaType) -> HRESULT;
         #[library("MFPlat.DLL")]
-        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, ppSampleAllocator: *mut *mut void) -> HRESULT;
+        extern fn MFCreateVideoSampleAllocatorEx(riid: *const GUID, #[iid_is] ppSampleAllocator: *mut *mut void) -> HRESULT;
         #[library("MFPlat.DLL")]
         extern fn MFCreateWICBitmapBuffer(riid: *const GUID, punkSurface: IUnknown, ppBuffer: *mut IMFMediaBuffer) -> HRESULT;
         #[library("MFPlat.DLL")]

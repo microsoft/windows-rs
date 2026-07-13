@@ -1,6 +1,12 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(0x6edc630d_c2e3_43b7_b2d1_20525a1af120)]
+        const DEVPKEY_DeviceInterface_IsVirtualCamera: DEVPROPKEY = 3;
+        #[guid(0x6edc630d_c2e3_43b7_b2d1_20525a1af120)]
+        const DEVPKEY_DeviceInterface_IsWindowsCameraEffectAvailable: DEVPROPKEY = 4;
+        #[guid(0x6edc630d_c2e3_43b7_b2d1_20525a1af120)]
+        const DEVPKEY_DeviceInterface_VirtualCameraAssociatedCameras: DEVPROPKEY = 5;
         #[guid(0x6338b23a_3042_49d2_a3ea_ec0fed815407)]
         interface IMFCameraSyncObject: IUnknown {
             fn WaitOnSignal(&self, timeOutInMs: u32) -> HRESULT;

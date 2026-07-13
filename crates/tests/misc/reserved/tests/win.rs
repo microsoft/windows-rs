@@ -1,7 +1,11 @@
 #![cfg(windows)]
 use windows::{
-    Win32::Foundation::*, Win32::System::Registry::*, Win32::System::Threading::*,
-    Win32::UI::WindowsAndMessaging::*, core::*,
+    core::*,
+    minwindef::HKEY,
+    threadpoolapiset::CreateThreadpool,
+    winnt::{ACCESS_MASK, KEY_QUERY_VALUE},
+    winreg::{HKEY_CLASSES_ROOT, RegOpenKeyExA, RegQueryValueExA},
+    winuser::*,
 };
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
@@ -9,7 +13,7 @@ use windows::{
 fn test() -> Result<()> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
-        assert!(CreateThreadpool(None).is_ok());
+        assert!(!CreateThreadpool(None).is_null());
 
         assert_eq!(
             TrackPopupMenu(
@@ -21,28 +25,35 @@ fn test() -> Result<()> {
                 Default::default(),
                 Default::default(),
             ),
-            FALSE
+            BOOL(0)
         );
 
         let mut key = HKEY::default();
-        RegOpenKeyExA(
-            HKEY_CLASSES_ROOT,
-            s!(r".txt"),
-            None,
-            KEY_QUERY_VALUE,
-            &mut key,
+        WIN32_ERROR(
+            RegOpenKeyExA(
+                HKEY_CLASSES_ROOT,
+                s!(r".txt"),
+                None,
+                ACCESS_MASK(KEY_QUERY_VALUE),
+                &mut key,
+            )
+            .0,
         )
         .ok()?;
         let mut len = 0;
-        RegQueryValueExA(key, s!("Content Type"), None, None, None, Some(&mut len)).ok()?;
+        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len).0)
+            .ok()?;
         let mut buffer = vec![0u8; (len) as usize];
-        RegQueryValueExA(
-            key,
-            s!("Content Type"),
-            None,
-            None,
-            Some(buffer.as_mut_ptr() as _),
-            Some(&mut len),
+        WIN32_ERROR(
+            RegQueryValueExA(
+                key,
+                s!("Content Type"),
+                None,
+                None,
+                Some(buffer.as_mut_ptr() as _),
+                &mut len,
+            )
+            .0,
         )
         .ok()?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");

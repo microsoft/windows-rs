@@ -222,10 +222,10 @@ mod Windows {
         #[guid(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9)]
         interface ID2D1SvgStrokeDashArray: ID2D1SvgAttribute {
             fn RemoveDashesAtEnd(&self, dashesCount: u32) -> HRESULT;
-            fn UpdateDashes(&self, #[len_param(1)] dashes: *const f32, dashesCount: u32, startIndex: u32) -> HRESULT;
             fn UpdateDashes(&self, #[len_param(1)] dashes: *const D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
-            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn UpdateDashes(&self, #[len_param(1)] dashes: *const f32, dashesCount: u32, startIndex: u32) -> HRESULT;
             fn GetDashes(&self, #[len_param(1)] dashes: *mut D2D1_SVG_LENGTH, dashesCount: u32, startIndex: u32) -> HRESULT;
+            fn GetDashes(&self, #[len_param(1)] dashes: *mut f32, dashesCount: u32, startIndex: u32) -> HRESULT;
             fn GetDashesCount(&self) -> u32;
         }
     }

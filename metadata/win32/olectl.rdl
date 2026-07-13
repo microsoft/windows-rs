@@ -258,9 +258,9 @@ mod Windows {
         type OLE_YPOS_PIXELS = i32;
         type OLE_YSIZE_PIXELS = i32;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreateFontIndirect(lpFontDesc: *mut FONTDESC, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreateFontIndirect(lpFontDesc: *mut FONTDESC, riid: *const GUID, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleCreatePictureIndirect(lpPictDesc: *mut PICTDESC, riid: *const GUID, fOwn: BOOL, lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleCreatePictureIndirect(lpPictDesc: *mut PICTDESC, riid: *const GUID, fOwn: BOOL, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleCreatePropertyFrame(hwndOwner: HWND, x: u32, y: u32, lpszCaption: PCWSTR, cObjects: u32, ppUnk: *mut IUnknown, cPages: u32, pPageClsID: *mut GUID, lcid: LCID, dwReserved: u32, pvReserved: *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
@@ -268,15 +268,15 @@ mod Windows {
         #[library("OLEAUT32.dll")]
         extern fn OleIconToCursor(hinstExe: HINSTANCE, hIcon: HICON) -> HCURSOR;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPicture(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPicture(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPictureEx(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpvObj: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPictureEx(lpstream: IStream, lSize: i32, fRunmode: BOOL, riid: *const GUID, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, #[iid_is] lplpvObj: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleLoadPictureFile(varFileName: VARIANT, lplpdispPicture: *mut IDispatch) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleLoadPictureFileEx(varFileName: VARIANT, xSizeDesired: u32, ySizeDesired: u32, dwFlags: u32, lplpdispPicture: *mut IDispatch) -> HRESULT;
         #[library("OLEAUT32.dll")]
-        extern fn OleLoadPicturePath(szURLorPath: PCWSTR, punkCaller: IUnknown, dwReserved: u32, clrReserved: OLE_COLOR, riid: *const GUID, ppvRet: *mut *mut void) -> HRESULT;
+        extern fn OleLoadPicturePath(szURLorPath: PCWSTR, punkCaller: IUnknown, dwReserved: u32, clrReserved: OLE_COLOR, riid: *const GUID, #[iid_is] ppvRet: *mut *mut void) -> HRESULT;
         #[library("OLEAUT32.dll")]
         extern fn OleSavePictureFile(lpdispPicture: IDispatch, bstrFileName: BSTR) -> HRESULT;
         #[library("OLEAUT32.dll")]

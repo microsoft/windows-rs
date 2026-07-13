@@ -58,7 +58,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn StgCreatePropStg(pUnk: IUnknown, fmtid: *const GUID, pclsid: *const GUID, grfFlags: u32, #[reserved] dwReserved: u32, ppPropStg: *mut IPropertyStorage) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn StgCreateStorageEx(#[opt] pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, ppObjectOpen: *mut *mut void) -> HRESULT;
+        extern fn StgCreateStorageEx(#[opt] pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, #[iid_is] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn StgIsStorageFile(pwcsName: *const u16) -> HRESULT;
         #[library("ole32.dll")]
@@ -68,7 +68,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn StgOpenStorage(#[opt] pwcsName: *const u16, #[opt] pstgPriority: IStorage, grfMode: u32, #[opt] snbExclude: *const PWSTR, reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn StgOpenStorageEx(pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, ppObjectOpen: *mut *mut void) -> HRESULT;
+        extern fn StgOpenStorageEx(pwcsName: *const u16, grfMode: u32, stgfmt: u32, grfAttrs: u32, #[in] #[out] #[opt] pStgOptions: *mut STGOPTIONS, #[opt] pSecurityDescriptor: PSECURITY_DESCRIPTOR, riid: *const GUID, #[iid_is] ppObjectOpen: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, #[opt] pstgPriority: IStorage, grfMode: u32, #[opt] snbExclude: *const PWSTR, #[reserved] reserved: u32, ppstgOpen: *mut IStorage) -> HRESULT;
         #[library("ole32.dll")]

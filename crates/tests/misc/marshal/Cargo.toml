@@ -15,8 +15,11 @@ workspace = true
 workspace = true
 default-features = true
 features = [
+    "combaseapi",
     "Foundation",
-    "Win32_System_Com_Marshal",
+    "objidlbase",
+    "unknwnbase",
+    "wtypesbase",
 ]
 
 [lints]

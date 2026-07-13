@@ -1,3 +1,5 @@
+#[cfg(feature = "Management_Update_Cluster")]
+pub mod Cluster;
 windows_core::imp::define_interface!(IPreviewBuildsManager, IPreviewBuildsManager_Vtbl, 0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
 impl windows_core::RuntimeType for IPreviewBuildsManager {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();

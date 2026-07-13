@@ -1,0 +1,48 @@
+pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096;
+pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0;
+pub const L2_NOTIFICATION_CODE_V2_BEGIN: u32 = 4096;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct L2_NOTIFICATION_DATA {
+    pub NotificationSource: u32,
+    pub NotificationCode: u32,
+    pub InterfaceGuid: windows_core::GUID,
+    pub dwDataSize: u32,
+    pub pData: *mut core::ffi::c_void,
+}
+impl Default for L2_NOTIFICATION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const L2_NOTIFICATION_SOURCE_ALL: u32 = 65535;
+pub const L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG: u32 = 1;
+pub const L2_NOTIFICATION_SOURCE_NONE: u32 = 0;
+pub const L2_NOTIFICATION_SOURCE_ONEX: u32 = 4;
+pub const L2_NOTIFICATION_SOURCE_SECURITY: u32 = 2;
+pub const L2_NOTIFICATION_SOURCE_WCM: u32 = 256;
+pub const L2_NOTIFICATION_SOURCE_WCM_CSP: u32 = 512;
+pub const L2_NOTIFICATION_SOURCE_WFD: u32 = 1024;
+pub const L2_NOTIFICATION_SOURCE_WLAN_ACM: u32 = 8;
+pub const L2_NOTIFICATION_SOURCE_WLAN_DEVICE_SERVICE: u32 = 2048;
+pub const L2_NOTIFICATION_SOURCE_WLAN_HNWK: u32 = 128;
+pub const L2_NOTIFICATION_SOURCE_WLAN_IHV: u32 = 64;
+pub const L2_NOTIFICATION_SOURCE_WLAN_MSM: u32 = 16;
+pub const L2_NOTIFICATION_SOURCE_WLAN_SECURITY: u32 = 32;
+pub const L2_PROFILE_MAX_NAME_LENGTH: u32 = 256;
+pub const L2_REASON_CODE_DOT11_AC_BASE: u32 = 131072;
+pub const L2_REASON_CODE_DOT11_MSM_BASE: u32 = 196608;
+pub const L2_REASON_CODE_DOT11_SECURITY_BASE: u32 = 262144;
+pub const L2_REASON_CODE_DOT3_AC_BASE: u32 = 393216;
+pub const L2_REASON_CODE_DOT3_MSM_BASE: u32 = 458752;
+pub const L2_REASON_CODE_GEN_BASE: u32 = 65536;
+pub const L2_REASON_CODE_GROUP_SIZE: u32 = 65536;
+pub const L2_REASON_CODE_IHV_BASE: u32 = 589824;
+pub const L2_REASON_CODE_ONEX_BASE: u32 = 327680;
+pub const L2_REASON_CODE_PROFILE_BASE: u32 = 524288;
+pub const L2_REASON_CODE_PROFILE_MISSING: u32 = 1;
+pub const L2_REASON_CODE_RESERVED_BASE: u32 = 720896;
+pub const L2_REASON_CODE_SUCCESS: u32 = 0;
+pub const L2_REASON_CODE_UNKNOWN: u32 = 65537;
+pub const L2_REASON_CODE_WIMAX_BASE: u32 = 655360;
+pub type PL2_NOTIFICATION_DATA = *mut L2_NOTIFICATION_DATA;

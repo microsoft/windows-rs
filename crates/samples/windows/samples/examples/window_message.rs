@@ -1,7 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::Foundation::*;
-    use windows::Win32::Graphics::Gdi::ValidateRect;
-    use windows::Win32::UI::WindowsAndMessaging::*;
+    use windows::{windef::*, winuser::*};
     use windows_window::{Window, run};
 
     // `on_message` exposes every message with the raw `wparam`/`lparam` for apps

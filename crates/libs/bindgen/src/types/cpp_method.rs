@@ -75,8 +75,8 @@ impl ParamHint {
 }
 
 impl CppMethod {
-    pub fn new(def: MethodDef, namespace: &'static str, reader: &Reader) -> Self {
-        let signature = def.method_signature(namespace, &[], reader);
+    pub fn new(def: MethodDef, reader: &Reader) -> Self {
+        let signature = def.method_signature(&[], reader);
         let dependencies = signature.dependencies(reader);
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 
@@ -165,39 +165,37 @@ impl CppMethod {
             false
         };
 
-        if !def.has_attribute("CanReturnMultipleSuccessValuesAttribute") {
-            match &signature.return_type {
-                Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
-                Type::HRESULT => {
-                    if is_retval {
-                        return_hint = ReturnHint::ResultValue;
-                    } else {
-                        // A non-retval HRESULT method returns raw `-> HRESULT` on the
-                        // consumer side so success codes other than S_OK (S_FALSE,
-                        // DXGI_STATUS_OCCLUDED, …) survive; callers append `.ok()` for a
-                        // `Result`. The `_Impl` producer side still uses `Result<()>` so
-                        // implementers keep `?` (the upcall converts it back to HRESULT).
-                        return_hint = ReturnHint::HResult;
-                    }
+        match &signature.return_type {
+            Type::Void if is_retval => return_hint = ReturnHint::ReturnValue,
+            Type::HRESULT => {
+                if is_retval {
+                    return_hint = ReturnHint::ResultValue;
+                } else {
+                    // A non-retval HRESULT method returns raw `-> HRESULT` on the
+                    // consumer side so success codes other than S_OK (S_FALSE,
+                    // DXGI_STATUS_OCCLUDED, …) survive; callers append `.ok()` for a
+                    // `Result`. The `_Impl` producer side still uses `Result<()>` so
+                    // implementers keep `?` (the upcall converts it back to HRESULT).
+                    return_hint = ReturnHint::HResult;
+                }
 
-                    if signature.params.len() >= 2 {
-                        if let Some((guid, object)) = signature_param_is_query(&signature.params) {
-                            if signature.params[object].is_optional() {
-                                return_hint = ReturnHint::QueryOptional(object, guid);
-                            } else {
-                                return_hint = ReturnHint::Query(object, guid);
-                            }
+                if signature.params.len() >= 2 {
+                    if let Some((guid, object)) = signature_param_is_query(&signature.params) {
+                        if signature.params[object].is_optional() {
+                            return_hint = ReturnHint::QueryOptional(object, guid);
+                        } else {
+                            return_hint = ReturnHint::Query(object, guid);
                         }
                     }
                 }
-                Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
-                Type::GUID => return_hint = ReturnHint::ReturnStruct,
-                Type::CppStruct(ty) if !ty.is_handle(reader) => {
-                    return_hint = ReturnHint::ReturnStruct;
-                }
-                _ => {}
-            };
-        }
+            }
+            Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
+            Type::GUID => return_hint = ReturnHint::ReturnStruct,
+            Type::CppStruct(ty) if !ty.is_handle(reader) => {
+                return_hint = ReturnHint::ReturnStruct;
+            }
+            _ => {}
+        };
 
         Self {
             def,
@@ -740,13 +738,7 @@ impl CppMethod {
                             }
                         }
                         ParamHint::Blittable => {
-                            if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
-                                if config.bindgen.style.is_minimal() {
-                                    quote! { #name as _, }
-                                } else {
-                                    quote! { #name.0 as _, }
-                                }
-                            } else if config.bindgen.style.is_minimal() {
+                            if config.bindgen.style.is_minimal() {
                                 // In minimal mode, blittable types ARE their ABI
                                 // representation — no transmute needed.
                                 quote! { #name, }
@@ -787,9 +779,6 @@ impl CppMethod {
                             return false;
                         }
                         if ty.def.underlying_type_ext(reader).is_pointer() {
-                            return true;
-                        }
-                        if !ty.def.invalid_values().is_empty() {
                             return true;
                         }
                     }

@@ -192,9 +192,9 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzInitializeContextFromToken(Flags: u32, TokenHandle: HANDLE, hAuthzResourceManager: AUTHZ_RESOURCE_MANAGER_HANDLE, #[opt] pExpirationTime: *const LARGE_INTEGER, Identifier: LUID, #[opt] DynamicGroupArgs: *const void, phAuthzClientContext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeObjectAccessAuditEvent(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzInitializeObjectAccessAuditEvent(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzInitializeObjectAccessAuditEvent2(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, szAdditionalInfo2: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzInitializeObjectAccessAuditEvent2(Flags: u32, hAuditEventType: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szOperationType: PCWSTR, szObjectType: PCWSTR, szObjectName: PCWSTR, szAdditionalInfo: PCWSTR, szAdditionalInfo2: PCWSTR, phAuditEvent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwAdditionalParameterCount: u32, ...) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzInitializeRemoteResourceManager(pRpcInitInfo: *const AUTHZ_RPC_INIT_INFO_CLIENT, phAuthzResourceManager: *mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
@@ -216,7 +216,7 @@ mod Windows {
         #[library("AUTHZ.dll")]
         extern fn AuthzRegisterSecurityEventSource(dwFlags: u32, szEventSourceName: PCWSTR, phEventProvider: *mut AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE) -> BOOL;
         #[library("AUTHZ.dll")]
-        extern fn AuthzReportSecurityEvent(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, dwCount: u32, ...) -> BOOL;
+        extern "C" fn AuthzReportSecurityEvent(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, dwCount: u32, ...) -> BOOL;
         #[library("AUTHZ.dll")]
         extern fn AuthzReportSecurityEventFromParams(dwFlags: u32, #[in] #[out] hEventProvider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwAuditId: u32, #[opt] pUserSid: PSID, pParams: *const AUDIT_PARAMS) -> BOOL;
         #[library("AUTHZ.dll")]

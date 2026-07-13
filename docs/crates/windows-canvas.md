@@ -37,7 +37,7 @@ let panel = animated_canvas(|ctx| {
     ctx.clear(ColorF::CORNFLOWER_BLUE);
 
     let center = Vector2::new(ctx.width / 2.0, ctx.height / 2.0);
-    let brush = ctx.create_solid_brush(ColorF::WHITE);
+    let Ok(brush) = ctx.create_solid_brush(ColorF::WHITE) else { return };
     ctx.fill_ellipse(&Ellipse::circle(center, 80.0), &brush);
 });
 ```
@@ -61,7 +61,7 @@ let chain = unsafe { device.create_swap_chain_for_hwnd(hwnd, width, height)? };
 let session = chain.begin_draw()?;
 session.clear(ColorF::DARK_SLATE_BLUE);
 
-let brush = session.create_solid_brush(ColorF::CORNFLOWER_BLUE);
+let brush = session.create_solid_brush(ColorF::CORNFLOWER_BLUE)?;
 session.fill_ellipse(&Ellipse::circle(Vector2::new(200.0, 150.0), 100.0), &brush);
 
 drop(session);                                  // Drop ends the draw

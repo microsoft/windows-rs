@@ -134,3 +134,86 @@ fn scope_sweeps_unreferenced_out_of_scope() {
     assert!(!crt.contains("CRTNOISE"), "crt.rdl:\n{crt}");
     assert!(!crt.contains("CrtOnly"), "crt.rdl:\n{crt}");
 }
+
+// A dotted header file name (the WinRT interop headers, e.g.
+// `Windows.Devices.Display.Core.Interop.h`) must collapse to a single flat partition
+// leaf, not a nested namespace/module tree under the root. The leftover dots in the
+// stem are stripped so `Dotted.Name.Interop.h` → `dottednameinterop.rdl` in the flat
+// root namespace.
+#[test]
+fn dotted_header_flattens_to_single_partition() {
+    let scratch = format!("{}/header_dotted", env!("OUT_DIR"));
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .library("test.dll")
+        .input("partition_input/Dotted.Name.Interop.h");
+
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    // The partition leaf has its dots stripped to a single flat segment; no nested
+    // `dotted.name.interop.rdl` or `Dotted/Name/Interop` tree is produced.
+    let dotted = read(&scratch, "dottednameinterop");
+    assert!(
+        !std::path::Path::new(&format!("{scratch}/dotted.name.interop.rdl")).exists(),
+        "a dotted-leaf rdl must not be produced"
+    );
+
+    // It emits the single flat root namespace and owns its function directly.
+    assert!(dotted.contains("mod Test {"), "dotted.rdl:\n{dotted}");
+    assert!(dotted.contains("fn DottedThing"), "dotted.rdl:\n{dotted}");
+}
+
+// A WinRT C++ projection header (`winrt/asyncinfo.h` in the real corpus) declares a type
+// inside the `ABI::Windows::*` namespace, re-exports it to global scope with `using`, and a
+// global-scope declaration references it through that alias. An in-scope interop header
+// (`UserConsentVerifierInterop.h`) `#include`s that projection header, so emission resolves the
+// projected field type before the reachability sweep drops the out-of-scope declaration. That
+// projected type must map to its `Windows.winmd` reference (`Windows.Foundation.ProjStatus`)
+// keyed on the *canonical* spelling (the `using` alias reports the bare name), instead of
+// panicking on the unexposed `ABI::Windows::Foundation::ProjStatus` type.
+#[test]
+fn abi_projection_type_maps_and_sweeps() {
+    let scratch = format!("{}/header_abi", env!("OUT_DIR"));
+    std::fs::create_dir_all(&scratch).unwrap();
+
+    let mut clang = windows_clang::clang();
+    clang
+        .args([
+            "-x",
+            "c++",
+            "--target=x86_64-pc-windows-msvc",
+            "-fms-extensions",
+        ])
+        .library("test.dll")
+        .scope(["abi_interop"])
+        .input("partition_input/abi_interop/interop.h");
+
+    // Completing without panicking is the core assertion: emission maps the ABI-projected
+    // type instead of failing on the unexposed projection spelling.
+    clang.write_by_header("Test", &[], &scratch).unwrap();
+
+    // The in-scope interop API is emitted and carries no leaked projection type.
+    let interop = read(&scratch, "interop");
+    assert!(
+        interop.contains("fn InteropCall"),
+        "interop.rdl:\n{interop}"
+    );
+    assert!(
+        !interop.contains("ProjStatus"),
+        "the ABI projection type must not leak into the in-scope partition:\n{interop}"
+    );
+
+    // The out-of-scope, unreferenced projection declaration is swept.
+    let proj_path = format!("{scratch}/proj.rdl");
+    if let Ok(proj) = std::fs::read_to_string(&proj_path) {
+        assert!(!proj.contains("ProjThing"), "proj.rdl:\n{proj}");
+    }
+}

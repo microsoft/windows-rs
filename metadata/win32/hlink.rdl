@@ -95,17 +95,17 @@ mod Windows {
             HLTRANSLATEF_DONTAPPLYDEFAULTPREFIX = 1,
         }
         #[library("hlink.dll")]
-        extern fn HlinkClone(pihl: IHlink, riid: *const GUID, pihlsiteForClone: IHlinkSite, dwSiteData: u32, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkClone(pihl: IHlink, riid: *const GUID, pihlsiteForClone: IHlinkSite, dwSiteData: u32, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateBrowseContext(piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateBrowseContext(piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateExtensionServices(pwzAdditionalHeaders: PCWSTR, phwnd: HWND, pszUsername: PCWSTR, pszPassword: PCWSTR, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateExtensionServices(pwzAdditionalHeaders: PCWSTR, phwnd: HWND, pszUsername: PCWSTR, pszPassword: PCWSTR, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromData(piDataObj: IDataObject, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromData(piDataObj: IDataObject, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromMoniker(pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromMoniker(pimkTrgt: IMoniker, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkCreateFromString(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkCreateFromString(pwzTarget: PCWSTR, pwzLocation: PCWSTR, pwzFriendlyName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
         extern fn HlinkCreateShortcut(grfHLSHORTCUTF: u32, pihl: IHlink, pwzDir: PCWSTR, pwzFileName: PCWSTR, ppwzShortcutFile: *mut PWSTR, dwReserved: u32) -> HRESULT;
         #[library("hlink.dll")]
@@ -135,7 +135,7 @@ mod Windows {
         #[library("hlink.dll")]
         extern fn HlinkResolveMonikerForData(pimkReference: IMoniker, reserved: u32, pibc: IBindCtx, cFmtetc: u32, rgFmtetc: *mut FORMATETC, pibsc: IBindStatusCallback, pimkBase: IMoniker) -> HRESULT;
         #[library("hlink.dll")]
-        extern fn HlinkResolveShortcut(pwzShortcutFileName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn HlinkResolveShortcut(pwzShortcutFileName: PCWSTR, pihlsite: IHlinkSite, dwSiteData: u32, piunkOuter: IUnknown, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("hlink.dll")]
         extern fn HlinkResolveShortcutToMoniker(pwzShortcutFileName: PCWSTR, ppimkTarget: *mut IMoniker, ppwzLocation: *mut PWSTR) -> HRESULT;
         #[library("hlink.dll")]

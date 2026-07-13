@@ -1,7 +1,7 @@
 fn main() -> std::io::Result<()> {
     use windows::{
         Security::Cryptography::DataProtection::*, Security::Cryptography::*, Storage::Streams::*,
-        Win32::System::WinRT::*, core::*,
+        core::*, ro::*,
     };
 
     #[expect(clippy::mut_from_ref)]
@@ -11,7 +11,7 @@ fn main() -> std::io::Result<()> {
         unsafe {
             let data = interop.Buffer()?;
             Ok(std::slice::from_raw_parts_mut(
-                data,
+                data as *mut u8,
                 buffer.Length()? as usize,
             ))
         }

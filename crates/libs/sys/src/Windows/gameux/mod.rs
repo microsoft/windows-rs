@@ -1,0 +1,14 @@
+pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = 0;
+pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = 1;
+pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = 1;
+pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = 0;
+pub type GAMESTATS_OPEN_RESULT = i32;
+pub type GAMESTATS_OPEN_TYPE = i32;
+pub type GAME_INSTALL_SCOPE = i32;
+pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = 3;
+pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = 2;
+pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = 1;
+pub const GameExplorer: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
+pub const GameStatistics: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
+pub const ID_GDF_THUMBNAIL_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("__GDF_THUMBNAIL");
+pub const ID_GDF_XML_STR: windows_sys::core::PCWSTR = windows_sys::core::w!("__GDF_XML");

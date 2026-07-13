@@ -38,6 +38,16 @@ mod interface;
 use interface::*;
 mod provision;
 pub use provision::*;
+mod scrape;
+pub use scrape::*;
+mod guid;
+use guid::*;
+mod scope;
+use scope::*;
+mod naming;
+use naming::*;
+mod macros;
+use macros::*;
 
 /// Creates a [`Clang`] that generates RDL from C/C++ headers using libclang.
 pub fn clang() -> Clang {
@@ -79,6 +89,12 @@ pub(crate) struct Parser<'a> {
     /// legacy mode (const casts then resolve via [`ref_map`](Self::ref_map)).
     pub header_names: Option<&'a HashMap<String, String>>,
     pub tag_rename: &'a HashMap<String, String>,
+    /// Public integer typedef names (`SHCONTF`, `TASKDIALOG_FLAGS`, ...) that absorbed a
+    /// sibling `enum _FOO` via the C flags/enum idiom, mapped to the enum `repr` the
+    /// typedef's storage type dictates. Populated by [`naming::merge_enum_typedef_idiom`];
+    /// the redundant typedef is dropped in [`Typedef::parse`] and the renamed enum adopts
+    /// this repr at emission.
+    pub enum_merge: &'a HashMap<String, &'static str>,
     pub tu: &'a TranslationUnit,
     pub pending_typedefs: Vec<Cursor>,
     pub pending_macros: Vec<String>,
@@ -97,6 +113,20 @@ pub(crate) struct Parser<'a> {
     /// (e.g. `WINAPI` → `__stdcall`) back to the underlying compiler keyword,
     /// transitively, regardless of which header defined them.
     pub macro_defs: &'a HashMap<String, Vec<String>>,
+    /// Reverse map from a function's macro-expanded export symbol to the source
+    /// (pre-expansion) spelling it is declared under, derived from object-like alias
+    /// macros (`#define RtlGenRandom SystemFunction036`,
+    /// `#define EnumProcesses K32EnumProcesses`). clang reports the expanded export name
+    /// for such a declaration, losing both the documented name and — because the
+    /// convention keyword no longer anchors on the name token — the calling convention;
+    /// [`Fn::parse`] consults this map to recover both, emitting the function under its
+    /// documented name with the raw export recorded as the P/Invoke import name.
+    ///
+    /// ANSI/Unicode charset-selection macros (`#define GetWindowText GetWindowTextA`) are
+    /// deliberately excluded: those select a `-A`/`-W` variant rather than forwarding to a
+    /// differently-named export, and the reference metadata emits only the explicit
+    /// `…A`/`…W` functions, never the bare name.
+    pub alias_map: HashMap<String, String>,
     /// Symbol allowlist. When non-empty, only functions whose name is listed are
     /// emitted as roots and every other root (types, consts, macros, GUIDs) is
     /// suppressed; the allowlisted functions' transitive type/const closure still
@@ -132,6 +162,7 @@ impl<'a> Parser<'a> {
         libraries: &'a HashMap<String, String>,
         ref_map: &'a HashMap<String, String>,
         tag_rename: &'a HashMap<String, String>,
+        enum_merge: &'a HashMap<String, &'static str>,
         macro_defs: &'a HashMap<String, Vec<String>>,
         tu: &'a TranslationUnit,
         symbols: &'a HashSet<String>,
@@ -144,12 +175,14 @@ impl<'a> Parser<'a> {
             ref_map,
             header_names: None,
             tag_rename,
+            enum_merge,
             tu,
             pending_typedefs: vec![],
             pending_macros: vec![],
             pending_opaque: vec![],
             flag_enums: HashSet::new(),
             iid_vars: HashMap::new(),
+            alias_map: build_alias_map(macro_defs),
             macro_defs,
             symbols,
             drop_lib_less: false,
@@ -321,6 +354,7 @@ impl<'a> Parser<'a> {
             }
             CXCursor_EnumDecl if child.is_definition() => {
                 let mut e = Enum::parse(child)?;
+                let tag = e.name.clone();
                 // Use the public typedef alias if one exists (e.g. `_EXCEPTION_DISPOSITION`
                 // → `EXCEPTION_DISPOSITION`), matching how references and structs resolve
                 // the name. Without this the enum definition would keep its internal tag
@@ -343,9 +377,17 @@ impl<'a> Parser<'a> {
                     }
                 } else if !self.ref_map.contains_key(&e.name) {
                     // If DEFINE_ENUM_FLAG_OPERATORS was seen before the enum
-                    // definition (unusual but possible), mark it now.
-                    if self.flag_enums.contains(&e.name) {
+                    // definition (unusual but possible), mark it now. The macro may key
+                    // on either the internal tag or the renamed public name, so check
+                    // both — the flags/enum merge renames `_FOO` to `FOO` before this.
+                    if self.flag_enums.contains(&e.name) || self.flag_enums.contains(&tag) {
                         e.flags = true;
+                    }
+                    // The C flags/enum idiom renamed `_FOO` to the public integer
+                    // typedef `FOO`; adopt that typedef's storage type over the enum's
+                    // accidental `int`. See `merge_enum_typedef_idiom`.
+                    if let Some(&repr) = self.enum_merge.get(&e.name) {
+                        e.repr = repr;
                     }
                     collector.insert(Item::Enum(e));
                 }
@@ -443,6 +485,15 @@ impl<'a> Parser<'a> {
                     && lp == "("
                 {
                     let enum_name = enum_name.clone();
+                    // The flags/enum merge (and the inline tag→typedef idiom) may rename
+                    // the enum before it is inserted, while `DEFINE_ENUM_FLAG_OPERATORS`
+                    // can key on the internal tag (`_SVGIO`); resolve the argument to the
+                    // enum's emitted public name so the mark lands on the right type.
+                    let enum_name = self
+                        .tag_rename
+                        .get(&enum_name)
+                        .cloned()
+                        .unwrap_or(enum_name);
                     // Mark the enum in the collector if already inserted.
                     collector.mark_flags(&enum_name);
                     // Also record for the case where the enum definition
@@ -477,6 +528,36 @@ impl<'a> Parser<'a> {
                     }
                 }
             }
+            // Detect `DEFINE_PROPERTYKEY(name, ...)` / `DEFINE_DEVPROPKEY(name, ...)` macro
+            // invocations. Both expand to a `{ { fmtid }, pid }` initializer for a
+            // `PROPERTYKEY`/`DEVPROPKEY` (a GUID plus a `u32`), so the faithful value lives in
+            // the macro arguments parsed here. The `fmtid` is emitted as a `#[guid]` attribute
+            // and the `pid` as an ordinary integer constant.
+            CXCursor_MacroExpansion
+                if matches!(
+                    child.name().as_str(),
+                    "DEFINE_PROPERTYKEY" | "DEFINE_DEVPROPKEY"
+                ) =>
+            {
+                let ty = if child.name() == "DEFINE_DEVPROPKEY" {
+                    "DEVPROPKEY"
+                } else {
+                    "PROPERTYKEY"
+                };
+                let tokens = self.tu.tokenize(child.extent());
+                if let Some((name, uuid, pid)) = parse_define_property_key_tokens(&tokens)
+                    && !name.is_empty()
+                    && !self.ref_map.contains_key(&name)
+                    && !collector.contains_key(&name)
+                {
+                    collector.insert(Item::PropertyKeyConst(PropertyKeyConst {
+                        name,
+                        ty: ty.to_string(),
+                        uuid,
+                        pid,
+                    }));
+                }
+            }
             // Detect `extern "C" const GUID IID_XXX = { ... };` variable declarations.
             // These associate a GUID with an interface whose C++ declaration does not
             // carry `__declspec(uuid("..."))` (e.g. the 7zip SDK pattern).
@@ -495,6 +576,11 @@ impl<'a> Parser<'a> {
                             self.iid_vars.insert(iface_name.to_string(), uuid);
                         }
                     }
+                } else if let Some(c) = Const::parse_var_decl(&child)
+                    && !self.ref_map.contains_key(&c.name)
+                    && !collector.contains_key(&c.name)
+                {
+                    collector.insert(Item::Const(c));
                 }
             }
             _ => {}
@@ -551,7 +637,7 @@ impl<'a> Parser<'a> {
     }
 }
 
-#[derive(Default)]
+#[derive(Default, Clone)]
 /// Builder that generates RDL from C/C++ headers using libclang.
 pub struct Clang {
     input: Vec<String>,
@@ -859,6 +945,52 @@ impl Clang {
         Ok(())
     }
 
+    /// Loads libclang and parses every configured header and in-memory source once
+    /// into translation units, shared by both emit paths. The returned struct owns the
+    /// libclang `Library` guard and `Index`, keeping the translation units valid for its
+    /// whole lifetime; its field order is the drop order, so the units and index are
+    /// disposed before the `Library` guard unloads libclang.
+    fn parse_inputs(&self) -> Result<ParsedInputs, Error> {
+        let (h_paths, _) = expand_input_paths(&self.input, "h", "winmd")?;
+        let library = Library::new()?;
+        let index = Index::new()?;
+
+        // The effective args list: optional `--target=` first, then user args.
+        let args: Vec<String> = self
+            .target
+            .as_ref()
+            .map(|t| format!("--target={t}"))
+            .into_iter()
+            .chain(self.args.iter().cloned())
+            .collect();
+        let arg_refs: Vec<&str> = args.iter().map(String::as_str).collect();
+
+        let mut h_tus = vec![];
+        for input in &h_paths {
+            h_tus.push((input.clone(), index.parse(input, &arg_refs)?));
+        }
+        let mut str_tus = vec![];
+        for content in &self.input_str {
+            str_tus.push((
+                content.clone(),
+                index.parse_unsaved(
+                    ".h",
+                    content,
+                    &arg_refs,
+                    CXTranslationUnit_DetailedPreprocessingRecord,
+                )?,
+            ));
+        }
+
+        Ok(ParsedInputs {
+            args,
+            h_tus,
+            str_tus,
+            index,
+            _library: library,
+        })
+    }
+
     /// Parses the configured headers once and emits one RDL string per emitted
     /// defining-header file, keyed by the header stem (e.g. `Windef`). Every string
     /// is the flat root namespace (`Windows.Win32`); the stem only names the file.
@@ -867,8 +999,6 @@ impl Clang {
         root: &str,
         allow: &HashSet<&str>,
     ) -> Result<BTreeMap<String, String>, Error> {
-        let (h_paths, _) = expand_input_paths(&self.input, "h", "winmd")?;
-
         // Optional reference winmd: an *additive* scrape (e.g. `tool_wdk` layering the WDK
         // surface onto Win32) supplies the base winmd here so every entity it already
         // defines is skipped rather than re-emitted, which would collide with the base at
@@ -891,39 +1021,15 @@ impl Clang {
             };
         }
 
-        let _library = Library::new()?;
-        let index = Index::new()?;
-
-        let target_arg: Option<String> = self.target.as_ref().map(|t| format!("--target={t}"));
-        let args: Vec<&str> = target_arg
-            .iter()
-            .map(String::as_str)
-            .chain(self.args.iter().map(String::as_str))
-            .collect();
-
-        let mut h_tus = vec![];
-        for input in &h_paths {
-            h_tus.push((input.as_str(), index.parse(input, &args)?));
-        }
-        let mut str_tus = vec![];
-        for content in &self.input_str {
-            str_tus.push((
-                content.as_str(),
-                index.parse_unsaved(
-                    ".h",
-                    content,
-                    &args,
-                    CXTranslationUnit_DetailedPreprocessingRecord,
-                )?,
-            ));
-        }
+        let parsed = self.parse_inputs()?;
+        let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
 
         let mut collectors: BTreeMap<String, Collector> = BTreeMap::new();
         // Per-partition scope flag (defining-header stem → in-scope), accumulated while
         // bucketing so the reachability sweep below knows which partitions are roots.
         let mut scope_in: BTreeMap<String, bool> = BTreeMap::new();
 
-        for (input, tu) in &h_tus {
+        for (input, tu) in &parsed.h_tus {
             self.process_tu_by_header(
                 tu,
                 root,
@@ -932,11 +1038,11 @@ impl Clang {
                 &mut scope_in,
                 MacroEval {
                     source: MacroSource::File(input),
-                    args: &args,
+                    args: &arg_refs,
                 },
             )?;
         }
-        for (content, tu) in &str_tus {
+        for (content, tu) in &parsed.str_tus {
             self.process_tu_by_header(
                 tu,
                 root,
@@ -945,7 +1051,7 @@ impl Clang {
                 &mut scope_in,
                 MacroEval {
                     source: MacroSource::Str(content),
-                    args: &args,
+                    args: &arg_refs,
                 },
             )?;
         }
@@ -1069,6 +1175,7 @@ impl Clang {
 
         let mut tag_rename = build_tag_rename_map(tu);
         assign_nested_names(tu, &mut tag_rename);
+        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         // `macro_defs` depends only on the TU, so compute it once and share it across every
         // per-header bucket below (each `Parser` borrows it) instead of re-scanning the whole
         // TU per bucket.
@@ -1172,6 +1279,7 @@ impl Clang {
                 &self.libraries,
                 &empty_ref,
                 &tag_rename,
+                &enum_merge,
                 &macro_defs,
                 tu,
                 &empty_symbols,
@@ -1195,10 +1303,21 @@ impl Clang {
         }
 
         // The set of every entity name now emitted across all files — the canonical owners
-        // that follow-up consts and opaque placeholders must defer to.
+        // that follow-up consts and opaque placeholders must defer to. A flat-layout enum
+        // contributes both its type name and every member name, since its members are
+        // emitted as top-level constants: a macro sharing a member's name would collide
+        // (the WDK ARM64 `#define NonPagedPool NonPagedPoolNx` shadowing the
+        // `POOL_TYPE::NonPagedPool` enumerator).
         let mut global_names: HashSet<String> = collectors
             .values()
-            .flat_map(|c| c.keys().cloned())
+            .flat_map(|c| c.values())
+            .flat_map(|item| {
+                let mut names = vec![item.to_string()];
+                if let Item::Enum(e) = item {
+                    names.extend(e.variants.iter().map(|(name, _)| name.clone()));
+                }
+                names
+            })
             .collect();
 
         // Emit macro constants, skipping any name already owned by a real entity or an
@@ -1256,36 +1375,9 @@ impl Clang {
         reference: &metadata::reader::Index,
         specs: &[NamespaceSpec<'_>],
     ) -> Result<Vec<String>, Error> {
-        let (h_paths, _) = expand_input_paths(&self.input, "h", "winmd")?;
-
-        let _library = Library::new()?;
-        let index = Index::new()?;
-
-        // Build the effective args list: optional --target= first, then user args.
-        let target_arg: Option<String> = self.target.as_ref().map(|t| format!("--target={t}"));
-        let args: Vec<&str> = target_arg
-            .iter()
-            .map(String::as_str)
-            .chain(self.args.iter().map(String::as_str))
-            .collect();
-
         // Parse every input once; the resulting translation units are reused for all specs.
-        let mut h_tus = vec![];
-        for input in &h_paths {
-            h_tus.push((input.as_str(), index.parse(input, &args)?));
-        }
-        let mut str_tus = vec![];
-        for content in &self.input_str {
-            str_tus.push((
-                content.as_str(),
-                index.parse_unsaved(
-                    ".h",
-                    content,
-                    &args,
-                    CXTranslationUnit_DetailedPreprocessingRecord,
-                )?,
-            ));
-        }
+        let parsed = self.parse_inputs()?;
+        let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
 
         // Pass 1 — discover ownership. Walk the cached TUs once per spec with the
         // upstream-only reference to learn which *type* names each namespace emits,
@@ -1302,10 +1394,10 @@ impl Clang {
         for spec in specs {
             let ref_map = build_ref_map(reference, spec.namespace);
             let mut collector = Collector::new();
-            for (_, tu) in &h_tus {
+            for (_, tu) in &parsed.h_tus {
                 self.process_tu(tu, &mut collector, &ref_map, spec)?;
             }
-            for (_, tu) in &str_tus {
+            for (_, tu) in &parsed.str_tus {
                 self.process_tu(tu, &mut collector, &ref_map, spec)?;
             }
             for name in collector.keys() {
@@ -1334,16 +1426,16 @@ impl Clang {
             let ref_map = build_resolution_map(reference, &in_house, spec.namespace);
             let mut collector = Collector::new();
 
-            for (input, tu) in &h_tus {
+            for (input, tu) in &parsed.h_tus {
                 let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros(input, &pending, &index, &args)? {
+                for c in Const::evaluate_macros(input, &pending, &parsed.index, &arg_refs)? {
                     collector.insert(Item::Const(c));
                 }
             }
 
-            for (content, tu) in &str_tus {
+            for (content, tu) in &parsed.str_tus {
                 let pending = self.process_tu(tu, &mut collector, &ref_map, spec)?;
-                for c in Const::evaluate_macros_str(content, &pending, &index, &args)? {
+                for c in Const::evaluate_macros_str(content, &pending, &parsed.index, &arg_refs)? {
                     collector.insert(Item::Const(c));
                 }
             }
@@ -1389,6 +1481,7 @@ impl Clang {
         // definition among all struct/union definitions in the parent.  All nested
         // types use synthetic names regardless of their C name to avoid collisions.
         assign_nested_names(tu, &mut tag_rename);
+        let enum_merge = merge_enum_typedef_idiom(tu, &mut tag_rename);
         let macro_defs = collect_macro_defs(tu);
 
         let mut parser = Parser::new(
@@ -1397,6 +1490,7 @@ impl Clang {
             spec.libraries,
             ref_map,
             &tag_rename,
+            &enum_merge,
             &macro_defs,
             tu,
             spec.symbols,
@@ -1464,268 +1558,16 @@ impl Clang {
     }
 }
 
-/// Reads an import library and extends `map` with its symbol → DLL entries without
-/// overwriting existing mappings.
-fn extend_libraries(map: &mut HashMap<String, String>, path: &str) -> Result<(), Error> {
-    let bytes = std::fs::read(path).map_err(|_| Error::new("invalid input", path, 0, 0))?;
-    for import in implib::read(&bytes)? {
-        map.entry(import.symbol).or_insert(import.dll);
-    }
-    Ok(())
-}
-
-/// Builds the name → namespace resolution map from the reference metadata, excluding
-/// the namespace under construction so its own types are re-emitted from source rather
-/// than resolving to the (possibly stale or upstream) reference copy. Types from other
-/// namespaces stay in the map so cross-namespace dependencies (`Foundation::HRESULT`,
-/// `Gdi::HMONITOR`, …) resolve as qualified references.
-fn build_ref_map(reference: &metadata::reader::Index, exclude: &str) -> HashMap<String, String> {
-    let mut ref_map = HashMap::new();
-    for (namespace, name, _) in reference.iter() {
-        if namespace == exclude {
-            continue;
-        }
-        ref_map.insert(name.to_string(), namespace.to_string());
-    }
-    ref_map
-}
-
-/// Overlays the in-house `name → namespace` table (built from what each partition
-/// emits) onto the upstream reference map so cross-namespace references resolve
-/// against types we build ourselves, falling back to the upstream `reference` only
-/// for names not yet built in-house. In-house entries win, and the namespace under
-/// construction is excluded from both so its own types re-emit from source. This is
-/// the resolution half of becoming self-sustaining: as in-house coverage grows the
-/// upstream fallback shrinks toward zero, the prerequisite for dropping `--reference`.
-fn build_resolution_map(
-    reference: &metadata::reader::Index,
-    in_house: &HashMap<String, String>,
-    exclude: &str,
-) -> HashMap<String, String> {
-    let mut map = build_ref_map(reference, exclude);
-    for (name, namespace) in in_house {
-        if namespace == exclude {
-            continue;
-        }
-        map.insert(name.clone(), namespace.clone());
-    }
-    map
-}
-
-/// Maps a clang declaration cursor to the namespace of its **defining header**,
-/// e.g. a typedef declared in `wingdi.h` with `root = "Windows.Win32"` becomes
-/// `Windows.Win32.Wingdi`. This is the per-header partition key: intrinsic to the
-/// source (clang's cursor location), total over all declarations, and stable across
-/// SDK versions — unlike the editorial namespaces of `win32metadata`.
-///
-/// Returns the defining-header partition leaf (file stem) for `cursor`, e.g.
-/// `Windef` for a declaration written in `windef.h`. Used to route each emitted
-/// declaration to its per-header output file in the flat `Windows.Win32` namespace.
-///
-/// `CXCursor_LinkageSpec` cursors produced by linkage macros (`STDAPI`/`WINAPI`)
-/// report their spelling location at the macro definition site (an unfiltered
-/// header such as `winnt.h`); the *expansion* location — where the macro was
-/// invoked — is the real API header, so it is preferred when present.
-///
-/// Returns `None` for cursors with no associated file (builtins, the predefined
-/// translation-unit buffer).
-fn header_stem_of(cursor: &Cursor) -> Option<String> {
-    let file = header_path_of(cursor)?;
-    let stem = header_stem_to_namespace(&file);
-    if stem.is_empty() {
-        // The synthetic top-level translation-unit buffer is parsed as `.h` (an empty
-        // stem); anything clang attributes to it (predefined/builtin artifacts) is not
-        // a real header declaration and must not create an empty partition.
-        return None;
-    }
-    Some(stem)
-}
-
-/// Returns the full defining-header path for `cursor` (the spelling location, falling
-/// back to the macro expansion location), or `None` for cursors with no associated file.
-/// Unlike [`header_stem_of`] this keeps the directory, so the scope predicate can tell an
-/// SDK `um`/`shared` header from a C-runtime (`ucrt`) or MSVC-toolset (`include`) one.
-fn header_path_of(cursor: &Cursor) -> Option<String> {
-    let file = cursor.file_name();
-    let file = if file.is_empty() {
-        cursor.expansion_file_name()
-    } else {
-        file
-    };
-    if file.is_empty() { None } else { Some(file) }
-}
-
-/// Whether a defining-header `path` is in scope: one of its directory components (after
-/// collapsing `.`/`..`) equals a `scope` segment, e.g. `um`/`shared` matches
-/// `…/Include/10.0.26100.0/um/winuser.h` (and the nested `…/um/gl/gl.h`) but not a
-/// C-runtime header under `…/ucrt/`. Matching is case-insensitive, separator-agnostic,
-/// and component-based so a sibling directory reached via `..` cannot match by substring.
-fn header_in_scope(path: &str, scope: &[String]) -> bool {
-    let norm = path.replace('\\', "/").to_lowercase();
-    let mut components: Vec<&str> = vec![];
-    for part in norm.split('/') {
-        match part {
-            "" | "." => {}
-            ".." => {
-                components.pop();
-            }
-            other => components.push(other),
-        }
-    }
-    // The final component is the file name itself; only the directory components define
-    // scope.
-    let dirs = components.split_last().map_or(&[][..], |(_, dirs)| dirs);
-    let want: HashSet<String> = scope.iter().map(|s| s.to_lowercase()).collect();
-    dirs.iter().any(|dir| want.contains(*dir))
-}
-
-/// Collects the bare names of every nominal type (`ClassName`/`ValueName`, including
-/// generic arguments) referenced by `ty`, descending through pointer/array/reference
-/// wrappers. Primitive and built-in types contribute no name.
-fn collect_type_refs(ty: &metadata::Type, out: &mut HashSet<String>) {
-    match ty {
-        metadata::Type::ClassName(name) | metadata::Type::ValueName(name) => {
-            out.insert(name.name.clone());
-            for generic in &name.generics {
-                collect_type_refs(generic, out);
-            }
-        }
-        metadata::Type::Array(inner)
-        | metadata::Type::RefMut(inner)
-        | metadata::Type::RefConst(inner)
-        | metadata::Type::PtrMut(inner, _)
-        | metadata::Type::PtrConst(inner, _)
-        | metadata::Type::ArrayFixed(inner, _) => collect_type_refs(inner, out),
-        _ => {}
-    }
-}
-
-/// Collects the bare names of every nominal type a constant's value references: a
-/// `TypeName` value names a type directly, and an `EnumValue` names its enum type (and,
-/// recursively, its inner value). Scalar/string values contribute no name.
-fn collect_value_refs(value: &metadata::Value, out: &mut HashSet<String>) {
-    match value {
-        metadata::Value::TypeName(tn) => {
-            out.insert(tn.name.clone());
-        }
-        metadata::Value::EnumValue(tn, inner) => {
-            out.insert(tn.name.clone());
-            collect_value_refs(inner, out);
-        }
-        _ => {}
-    }
-}
-
-/// Collects the type references of a record's fields, descending into anonymous nested
-/// records (`Field::nested`). A nested anonymous member carries its real content in
-/// `nested` with a `Void` `ty`, so walking only `field.ty` would miss every type the
-/// nested record references.
-fn collect_field_refs(fields: &[Field], out: &mut HashSet<String>) {
-    for field in fields {
-        collect_type_refs(&field.ty, out);
-        if let Some(nested) = &field.nested {
-            collect_field_refs(&nested.fields, out);
-        }
-    }
-}
-
-/// Collects the bare names of every type `item` references through its signature: function
-/// and callback parameters/returns, interface base and method signatures, struct/union
-/// field types (including anonymous nested records), typedef targets, and typed-constant
-/// values. Enums and GUID constants reference only primitives (or the always-in-scope
-/// `GUID`), so they contribute no edges.
-fn item_refs(item: &Item, out: &mut HashSet<String>) {
-    match item {
-        Item::Fn(item) => {
-            for param in &item.params {
-                collect_type_refs(&param.ty, out);
-            }
-            collect_type_refs(&item.return_type, out);
-        }
-        Item::Callback(item) => {
-            for param in &item.params {
-                collect_type_refs(&param.ty, out);
-            }
-            collect_type_refs(&item.return_type, out);
-        }
-        Item::Interface(item) => {
-            if let Some(base) = &item.base {
-                collect_type_refs(base, out);
-            }
-            for method in &item.methods {
-                for param in &method.params {
-                    collect_type_refs(&param.ty, out);
-                }
-                collect_type_refs(&method.return_type, out);
-            }
-        }
-        Item::Struct(item) => collect_field_refs(&item.fields, out),
-        Item::Typedef(item) => collect_type_refs(&item.ty, out),
-        Item::Const(item) => collect_value_refs(&item.value, out),
-        Item::Enum(_) | Item::GuidConst(_) => {}
-    }
-}
-
-/// Reachability-by-reference sweep. Roots are every declaration in an in-scope partition;
-/// the type-reference graph is then walked to mark every transitively referenced name.
-/// Each out-of-scope partition keeps only its marked declarations, so the C-runtime and
-/// compiler-toolset closure that no in-scope API references falls away while genuine
-/// cross-over types (referenced from in-scope code) survive without any allowlist.
-fn sweep_unreferenced(
-    collectors: &mut BTreeMap<String, Collector>,
-    scope_in: &BTreeMap<String, bool>,
-) {
-    // A partition with no recorded scope (e.g. the hand-authored seed, or a stem the
-    // bucketing never classified) is treated as in-scope so the sweep can only ever
-    // *remove* known out-of-scope noise, never in-scope surface.
-    let in_scope = |stem: &str| scope_in.get(stem).copied().unwrap_or(true);
-
-    let mut edges: HashMap<String, HashSet<String>> = HashMap::new();
-    let mut known: HashSet<String> = HashSet::new();
-    let mut seen: HashSet<String> = HashSet::new();
-    let mut stack: Vec<String> = vec![];
-    for (stem, collector) in collectors.iter() {
-        let roots = in_scope(stem);
-        for (name, item) in collector.iter() {
-            known.insert(name.clone());
-            let mut refs = HashSet::new();
-            item_refs(item, &mut refs);
-            edges.insert(name.clone(), refs);
-            if roots && seen.insert(name.clone()) {
-                stack.push(name.clone());
-            }
-        }
-    }
-
-    while let Some(name) = stack.pop() {
-        if let Some(refs) = edges.get(&name) {
-            for r in refs {
-                if known.contains(r) && seen.insert(r.clone()) {
-                    stack.push(r.clone());
-                }
-            }
-        }
-    }
-
-    for (stem, collector) in collectors.iter_mut() {
-        if in_scope(stem) {
-            continue;
-        }
-        collector.retain(|name| seen.contains(name));
-    }
-}
-
-/// Reduces a header path to its partition leaf name: the file stem (basename minus
-/// the final extension) with its first character upper-cased, e.g.
-/// `C:\sdk\um\wingdi.h` → `Wingdi`, `shared.inl` → `Shared`.
-fn header_stem_to_namespace(file: &str) -> String {
-    let base = file.rsplit(['/', '\\']).next().unwrap_or(file);
-    let stem = base.rsplit_once('.').map_or(base, |(s, _)| s);
-    let mut chars = stem.chars();
-    match chars.next() {
-        Some(first) => first.to_uppercase().collect::<String>() + chars.as_str(),
-        None => String::new(),
-    }
+/// Owns the libclang state and parsed translation units produced by
+/// [`Clang::parse_inputs`], shared by both the namespaced and per-header emit paths.
+/// The field declaration order is the drop order: the translation units and index are
+/// disposed before the `Library` guard unloads libclang.
+struct ParsedInputs {
+    args: Vec<String>,
+    h_tus: Vec<(String, TranslationUnit)>,
+    str_tus: Vec<(String, TranslationUnit)>,
+    index: Index,
+    _library: Library,
 }
 
 /// Flatten the direct children of `parent` into a list of `(declaration, extern_c)`
@@ -1844,132 +1686,6 @@ fn is_midl_user_marshal_stub(cursor: &Cursor) -> bool {
         })
 }
 
-/// Source of a translation unit for the macro second-pass evaluator: either a header
-/// file path or an in-memory header string.
-#[derive(Clone, Copy)]
-enum MacroSource<'a> {
-    File(&'a str),
-    Str(&'a str),
-}
-
-/// Evaluate every stem's pending macro names concurrently, returning one result vector
-/// per input entry in the original order.
-///
-/// Evaluate the macro second pass for every partition, but parse the header closure as
-/// few times as possible.
-///
-/// A macro's *value* does not depend on which partition referenced it: every synthetic
-/// evaluation TU `#include`s the **whole** closure, so a given `#define` resolves to one
-/// translation-unit-wide value regardless of the file it is attributed to. The
-/// per-partition split only decides *which file owns* the emitted const (first-owner-wins).
-/// So instead of re-parsing the full closure once per macro-bearing partition (the dominant
-/// cost of the scrape — hundreds of redundant full-closure parses), the deduplicated
-/// **union** of all pending macro names is evaluated in a handful of synthetic TUs — one
-/// per worker thread — and the results are routed back to the first partition that
-/// requested each name, leaving the deterministic first-owner-wins merge byte-for-byte
-/// identical to a per-partition pass.
-///
-/// A libclang `CXIndex` must not be shared across threads, but independent indexes parse
-/// concurrently safely, so every worker owns its own [`Index`].
-fn evaluate_macros_parallel(
-    all_consts: &[(String, Vec<String>)],
-    source: MacroSource<'_>,
-    args: &[&str],
-) -> Result<Vec<Vec<Const>>, Error> {
-    let n = all_consts.len();
-    if n == 0 {
-        return Ok(vec![]);
-    }
-
-    // The deduplicated union of every partition's pending macro names, in first-seen order.
-    // Evaluating each name once (rather than once per partition that references it) is what
-    // collapses the redundant full-closure re-parses.
-    let mut seen = HashSet::new();
-    let mut union: Vec<String> = vec![];
-    for (_, names) in all_consts {
-        for name in names {
-            if seen.insert(name.as_str()) {
-                union.push(name.clone());
-            }
-        }
-    }
-
-    // Evaluate the union, split into one contiguous chunk per worker. Each chunk is a single
-    // synthetic TU (the closure plus that chunk's evaluation enums), so the closure is parsed
-    // `workers` times total instead of once per partition.
-    let evaluated_union: Vec<Const> = if union.is_empty() {
-        vec![]
-    } else {
-        let workers = std::thread::available_parallelism()
-            .map_or(1, |p| p.get())
-            .min(union.len());
-        let chunk_size = union.len().div_ceil(workers);
-
-        std::thread::scope(|scope| -> Result<Vec<Const>, Error> {
-            let handles: Vec<_> = union
-                .chunks(chunk_size)
-                .map(|chunk| {
-                    scope.spawn(move || -> Result<Vec<Const>, Error> {
-                        // clang-sys loads `libclang` into thread-local storage, so each
-                        // worker must load it before use; the guard unloads it at thread end.
-                        let _library = Library::new()?;
-                        // One index per worker: created and dropped on this thread, never shared.
-                        let index = Index::new()?;
-                        match source {
-                            MacroSource::File(input) => {
-                                Const::evaluate_macros(input, chunk, &index, args)
-                            }
-                            MacroSource::Str(content) => {
-                                Const::evaluate_macros_str(content, chunk, &index, args)
-                            }
-                        }
-                    })
-                })
-                .collect();
-
-            let mut all = vec![];
-            for handle in handles {
-                all.extend(
-                    handle
-                        .join()
-                        .map_err(|_| Error::new("macro evaluation worker panicked", "", 0, 0))??,
-                );
-            }
-            Ok(all)
-        })?
-    };
-
-    // Route each evaluated const back to the *first* partition (in `all_consts` order) whose
-    // pending list requested it: `remove` hands the value to that partition and leaves later
-    // partitions with `None`, exactly reproducing the first-owner-wins selection a
-    // per-partition pass would make. Names that failed to evaluate are absent from the map
-    // and dropped everywhere, as before.
-    let mut map: HashMap<String, Const> = evaluated_union
-        .into_iter()
-        .map(|c| (c.name.clone(), c))
-        .collect();
-    let mut out: Vec<Vec<Const>> = Vec::with_capacity(n);
-    for (_, names) in all_consts {
-        let mut consts = vec![];
-        for name in names {
-            if let Some(c) = map.remove(name) {
-                consts.push(c);
-            }
-        }
-        out.push(consts);
-    }
-    Ok(out)
-}
-
-/// The context the per-header walk needs to run the macro second-pass evaluator: the
-/// translation-unit source and argument list. Each evaluation creates its own libclang
-/// index so the per-stem passes can run concurrently (see [`evaluate_macros_parallel`]).
-#[derive(Clone, Copy)]
-struct MacroEval<'a> {
-    source: MacroSource<'a>,
-    args: &'a [&'a str],
-}
-
 /// Wraps a collector's items in the nested `mod` path for `namespace`, producing the
 /// RDL source for a single namespace (e.g. `#[win32] mod Windows { mod Win32 { … } }`).
 fn emit_module(namespace: &str, collector: &Collector) -> Result<String, Error> {
@@ -2003,525 +1719,6 @@ fn enum_variant_value(repr: &str, value: i64) -> metadata::Value {
         "u64" => metadata::Value::U64(value as u64),
         "i64" => metadata::Value::I64(value),
         _ => metadata::Value::I32(value as i32),
-    }
-}
-
-/// Build a map from C struct/enum tag names to their public typedef aliases.
-///
-/// Scans all top-level `CXCursor_TypedefDecl` cursors in the translation unit
-/// (including those inside `extern "C"` / `extern "C++"` linkage-spec blocks)
-/// and records the first typedef that directly aliases each tagged struct or
-/// enum as `tag_name → typedef_name`.
-///
-/// This handles the common C idiom:
-/// ```c
-/// typedef struct _TEST { int value; } TEST, *PTEST;
-/// ```
-/// Here `_TEST` is the internal struct tag and `TEST` is the intended public
-/// name.  The map entry `"_TEST" → "TEST"` is used by the code generator to
-/// replace every occurrence of `_TEST` with `TEST` in the emitted RDL.
-fn build_tag_rename_map(tu: &TranslationUnit) -> HashMap<String, String> {
-    let mut map = HashMap::new();
-    for child in tu.cursor().children() {
-        collect_typedef_renames(child, &mut map);
-    }
-    map
-}
-
-/// Inspect a single cursor for tag→typedef rename candidates and recurse
-/// into `CXCursor_LinkageSpec` blocks.
-fn collect_typedef_renames(cursor: Cursor, map: &mut HashMap<String, String>) {
-    if cursor.kind() == CXCursor_LinkageSpec {
-        for inner in cursor.children() {
-            collect_typedef_renames(inner, map);
-        }
-        return;
-    }
-    if cursor.kind() != CXCursor_TypedefDecl {
-        return;
-    }
-    let underlying = cursor.typedef_underlying_type();
-    // Unwrap a single elaborated wrapper if present.
-    let inner = if underlying.kind() == CXType_Elaborated {
-        underlying.underlying_type()
-    } else {
-        underlying
-    };
-    if inner.kind() == CXType_Record || inner.kind() == CXType_Enum {
-        let tag_name = inner.ty().name();
-        let typedef_name = cursor.name();
-        // Collapse the tag→typedef idiom when this typedef defines the record/enum inline
-        // (`typedef struct _T {...} T;`) or aliases a private tag named with the `_`/`tag`
-        // prefix idiom (`struct tagVARIANT {...}; typedef struct tagVARIANT VARIANT;`). A
-        // typedef aliasing an already-public tag from elsewhere (e.g. dwrite's `typedef
-        // interface ID2D1SimplifiedGeometrySink IDWriteGeometrySink;`) is a distinct alias,
-        // not a rename: hijacking it would orphan every reference to that interface.
-        let defines_inline = cursor.children().iter().any(|c| {
-            matches!(
-                c.kind(),
-                CXCursor_StructDecl | CXCursor_UnionDecl | CXCursor_EnumDecl
-            ) && c.is_definition()
-        });
-        if !tag_name.is_empty()
-            && typedef_name != tag_name
-            && (defines_inline || tag_name.starts_with('_') || tag_name.starts_with("tag"))
-        {
-            // First typedef wins (for `typedef struct _T {} T, *PT;`, `T` is
-            // registered because it appears before the pointer typedef `PT`).
-            map.entry(tag_name).or_insert(typedef_name);
-        }
-    }
-}
-
-/// Walk the translation unit and insert `key → synthetic_name` entries into
-/// `tag_rename` for every nested struct/union type — whether named or anonymous.
-///
-/// For named types the tag name is used as the key (since `to_type()` resolves
-/// `CXType_Record` by the declaration's spelling).  For anonymous types the
-/// source location (`"file:line:col"`) is used as the key because their spelling
-/// is always empty.
-///
-/// All nested types receive a synthetic name regardless of their C name to
-/// avoid collisions (two different structs could each have an inner struct
-/// called `Inner`).  Names follow the same scheme as the windows-rdl writer:
-/// `{OuterName}_{index}` where `index` is the 0-based position of the nested
-/// definition among **all** struct/union definitions in the parent body.
-///
-/// Recursion handles arbitrary nesting depth.
-fn assign_nested_names(tu: &TranslationUnit, tag_rename: &mut HashMap<String, String>) {
-    fn walk(cursor: Cursor, tag_rename: &mut HashMap<String, String>) {
-        for child in cursor.children() {
-            if child.kind() == CXCursor_LinkageSpec {
-                walk(child, tag_rename);
-            } else {
-                visit_for_nested_names(child, tag_rename);
-            }
-        }
-    }
-    walk(tu.cursor(), tag_rename);
-}
-
-/// Visit a single top-level cursor; if it is a named struct/union definition,
-/// assign synthetic names to all its nested type children.
-fn visit_for_nested_names(cursor: Cursor, tag_rename: &mut HashMap<String, String>) {
-    let kind = cursor.kind();
-    if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && cursor.is_definition() {
-        let tag_name = cursor.name();
-        // Skip anonymous top-level types – they have no outer name to derive from.
-        if is_anonymous_name(&tag_name) {
-            return;
-        }
-        let outer_name = tag_rename.get(&tag_name).cloned().unwrap_or(tag_name);
-        assign_nested_child_names(&outer_name, cursor, tag_rename);
-    }
-}
-
-/// For each struct/union definition that is a direct child of `parent`,
-/// assign it a synthetic flat name `{outer_name}_{index}` and recurse to
-/// handle deeper nesting.
-///
-/// `index` counts **all** nested struct/union definitions in order, matching
-/// the writer's convention so that a type round-tripped through
-/// clang → RDL → winmd → RDL produces names consistent with what the
-/// writer would have generated.
-fn assign_nested_child_names(
-    outer_name: &str,
-    parent: Cursor,
-    tag_rename: &mut HashMap<String, String>,
-) {
-    let mut index = 0usize;
-    for child in parent.children() {
-        let kind = child.kind();
-        if (kind == CXCursor_StructDecl || kind == CXCursor_UnionDecl) && child.is_definition() {
-            let synthetic = format!("{outer_name}_{index}");
-            let child_name = child.name();
-            if is_anonymous_name(&child_name) {
-                // Anonymous type: key by source location (unique per declaration site).
-                tag_rename.insert(child.location_id(), synthetic.clone());
-            } else {
-                // Named type: key by the tag name so that to_type() can look it up,
-                // overriding any pre-existing typedef alias with the synthetic name.
-                tag_rename.insert(child_name, synthetic.clone());
-            }
-            // Recurse so that nested-nested types are also handled.
-            assign_nested_child_names(&synthetic, child, tag_rename);
-            index += 1;
-        }
-    }
-}
-
-/// Returns `true` if `file` ends with `filter` and the match falls on a
-/// clean path-segment boundary.
-///
-/// Both paths are normalized to forward slashes before comparison, so this
-/// works on both Windows and POSIX.  `filter("api1.h")` matches
-/// `/path/to/api1.h` but not `/path/to/myapi1.h`.
-/// Collect every object-like macro definition in the translation unit, mapping
-/// each macro name to the spellings of its replacement-list tokens.
-///
-/// Used to resolve calling-convention macros (`WINAPI`, `CALLBACK`,
-/// `STDMETHODCALLTYPE`, ...) back to the underlying `__stdcall` / `__cdecl` /
-/// `__fastcall` keyword, transitively and regardless of which (possibly system)
-/// header defined them. Only short replacement lists are retained, since
-/// convention macros expand to a single token; this keeps the map small.
-/// Returns `true` for C/C++ builtin arithmetic-type and signedness keywords that
-/// may legitimately appear inside an integer-constant cast (e.g. `(int)`,
-/// `(unsigned long)`, `(__int64)`). Such casts — used by `#define`s like
-/// `CW_USEDEFAULT ((int)0x80000000)` — are valid constant expressions and must
-/// not be filtered out along with genuinely non-constant keyword macros
-/// (`extern "C"`, `static`, ...).
-fn is_type_keyword(spelling: &str) -> bool {
-    matches!(
-        spelling,
-        "int"
-            | "long"
-            | "short"
-            | "char"
-            | "unsigned"
-            | "signed"
-            | "bool"
-            | "wchar_t"
-            | "__int8"
-            | "__int16"
-            | "__int32"
-            | "__int64"
-    )
-}
-
-/// Returns `true` if the delimiters `()`, `[]`, `{}` in the token stream are
-/// balanced and correctly nested. Used to reject object-like macros whose
-/// replacement list has unbalanced delimiters before they reach the batch macro
-/// evaluator, where an unbalanced `{` or `(` would swallow the enum declarations
-/// of every following candidate in the same synthetic translation unit.
-///
-/// Delimiter *characters* are counted (skipping string/character literals and
-/// comments, whose contents may contain unmatched `(`/`{`), so a delimiter glued
-/// to a line-continuation by the tokenizer (e.g. `"\\\r\n}"`) is still counted
-/// correctly and a valid multi-line scalar macro is never mis-rejected.
-fn tokens_balanced<'a>(tokens: impl Iterator<Item = &'a (CXTokenKind, String)>) -> bool {
-    let mut stack: Vec<char> = vec![];
-    for (kind, spelling) in tokens {
-        if *kind == CXToken_Literal || *kind == CXToken_Comment {
-            continue;
-        }
-        for ch in spelling.chars() {
-            match ch {
-                '(' => stack.push(')'),
-                '[' => stack.push(']'),
-                '{' => stack.push('}'),
-                ')' | ']' | '}' if stack.pop() != Some(ch) => return false,
-                _ => {}
-            }
-        }
-    }
-    stack.is_empty()
-}
-
-fn collect_macro_defs(tu: &TranslationUnit) -> HashMap<String, Vec<String>> {
-    let mut defs = HashMap::new();
-
-    for child in tu.cursor().children() {
-        if child.kind() != CXCursor_MacroDefinition || child.is_macro_builtin() {
-            continue;
-        }
-
-        let name = child.name();
-        if name.is_empty() {
-            continue;
-        }
-
-        let tokens = tu.tokenize(child.extent());
-        // The first token is the macro name; the rest is the replacement list.
-        let mut body: Vec<String> = tokens.into_iter().skip(1).map(|(_, s)| s).collect();
-
-        // A function-like macro (`STDAPI_(type) ...`) carries its parameter list
-        // between the name and the replacement list; strip `( ... )` so the body
-        // holds only replacement tokens (e.g. `EXTERN_C type STDAPICALLTYPE`).
-        if child.is_macro_function_like() && body.first().map(String::as_str) == Some("(") {
-            let mut depth = 0usize;
-            let mut end = None;
-            for (idx, token) in body.iter().enumerate() {
-                match token.as_str() {
-                    "(" => depth += 1,
-                    ")" => {
-                        depth -= 1;
-                        if depth == 0 {
-                            end = Some(idx);
-                            break;
-                        }
-                    }
-                    _ => {}
-                }
-            }
-            if let Some(end) = end {
-                body.drain(0..=end);
-            }
-        }
-
-        // A storage-class specifier such as `__declspec(dllimport)` may prefix an
-        // export macro's replacement list (e.g. DWrite's
-        // `#define DWRITE_EXPORT __declspec(dllimport) WINAPI`). It is irrelevant to
-        // the calling convention but would otherwise push the body past the
-        // small-macro length gate below, dropping the macro — and with it the
-        // `WINAPI` token — from the table, so `DWriteCreateFactory` would fall back
-        // to its `EXTERN_C` linkage and be mis-typed `extern "C"` instead of the
-        // `extern "system"` (`__stdcall`) it really is. That mismatch corrupts the
-        // stack on the x86 `__stdcall`/`__cdecl` ABI split.
-        strip_declspec(&mut body);
-
-        if !body.is_empty() && body.len() <= 4 {
-            defs.insert(name, body);
-        }
-    }
-
-    defs
-}
-
-/// Remove `__declspec( ... )` runs from a macro replacement list, leaving only the
-/// tokens that matter for calling-convention detection.
-fn strip_declspec(body: &mut Vec<String>) {
-    let mut i = 0;
-    while i < body.len() {
-        if body[i] == "__declspec" && body.get(i + 1).map(String::as_str) == Some("(") {
-            let mut depth = 0usize;
-            let mut end = None;
-            for (idx, token) in body.iter().enumerate().skip(i + 1) {
-                match token.as_str() {
-                    "(" => depth += 1,
-                    ")" => {
-                        depth -= 1;
-                        if depth == 0 {
-                            end = Some(idx);
-                            break;
-                        }
-                    }
-                    _ => {}
-                }
-            }
-            if let Some(end) = end {
-                body.drain(i..=end);
-                continue;
-            }
-        }
-        i += 1;
-    }
-}
-
-fn matches_filter(file: &str, filter: &str) -> bool {
-    if filter.is_empty() {
-        return false;
-    }
-    let file = file.replace('\\', "/");
-    let filter = filter.replace('\\', "/");
-    file.ends_with(filter.as_str())
-        && (file.len() == filter.len() || file.as_bytes()[file.len() - filter.len() - 1] == b'/')
-}
-
-/// Returns `true` if the clang `Type` refers to a GUID struct.
-///
-/// Handles `const GUID`, `const IID`, `const struct _GUID`, elaborated types,
-/// and typedef aliases for `GUID`/`IID`.
-fn is_guid_type(ty: &Type) -> bool {
-    // Peel off any top-level const qualifier by looking at the canonical type.
-    let name = match ty.kind() {
-        CXType_Elaborated => ty.underlying_type().ty().name(),
-        CXType_Record => ty.ty().name(),
-        CXType_Typedef => ty.ty().name(),
-        _ => return false,
-    };
-    matches!(name.as_str(), "GUID" | "_GUID" | "IID")
-}
-
-/// Parse a GUID struct initializer from the AST using `clang_Cursor_Evaluate`.
-///
-/// This handles cases where macro constants or expressions are used in the
-/// GUID initializer (e.g. 7zip's `Z7_DEFINE_GUID` pattern) — the compiler
-/// evaluates the expressions after macro expansion so the values are always
-/// available regardless of how the initializer was spelled in source.
-///
-/// The VarDecl cursor for a GUID variable has the shape:
-/// - `CXCursor_InitListExpr` (top-level, containing 4 children):
-///   - `CXCursor_IntegerLiteral` × 3 (data1, data2, data3)
-///   - `CXCursor_InitListExpr` (data4, containing 8 children):
-///     - `CXCursor_IntegerLiteral` × 8
-fn parse_guid_initializer_ast(cursor: &Cursor) -> Option<String> {
-    // Find the top-level InitListExpr child of the VarDecl.
-    let init_list = cursor
-        .children()
-        .into_iter()
-        .find(|c| c.kind() == CXCursor_InitListExpr)?;
-
-    let children = init_list.children();
-    if children.len() != 4 {
-        return None;
-    }
-
-    // Evaluate data1, data2, data3.
-    let data1 = children[0].evaluate_unsigned()?;
-    let data2 = children[1].evaluate_unsigned()?;
-    let data3 = children[2].evaluate_unsigned()?;
-
-    // Range-check: data1 ≤ u32, data2/data3 ≤ u16.
-    if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
-        return None;
-    }
-
-    // The 4th child should be an InitListExpr for data4[8].
-    let data4_cursor = &children[3];
-    if data4_cursor.kind() != CXCursor_InitListExpr {
-        return None;
-    }
-
-    let data4_children = data4_cursor.children();
-    if data4_children.len() != 8 {
-        return None;
-    }
-
-    let mut data4 = [0u8; 8];
-    for (i, child) in data4_children.iter().enumerate() {
-        let v = child.evaluate_unsigned()?;
-        if v > u8::MAX as u64 {
-            return None;
-        }
-        data4[i] = v as u8;
-    }
-
-    Some(format!(
-        "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
-        data1,
-        data2,
-        data3,
-        data4[0],
-        data4[1],
-        data4[2],
-        data4[3],
-        data4[4],
-        data4[5],
-        data4[6],
-        data4[7],
-    ))
-}
-
-/// Parse a GUID struct initializer from a token stream.
-///
-/// Expects the token stream for a variable declaration like:
-/// ```c
-/// const GUID IID_IFoo = { 0x23170F69, 0x40C1, 0x278A, { 0, 0, 0, 3, 0, 1, 0, 0 } };
-/// ```
-///
-/// Scans past the `=` token, then collects exactly 11 integer literals from
-/// the balanced `{ ... { ... } }` initializer: `data1` (u32), `data2` (u16),
-/// `data3` (u16), and `data4[0..8]` (8 × u8).
-///
-/// Returns the UUID in standard `"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` format,
-/// or `None` if the token sequence does not match the expected shape.
-fn parse_guid_initializer_tokens(tokens: &[(CXTokenKind, String)]) -> Option<String> {
-    // Find the `=` that starts the initializer.
-    let eq_pos = tokens
-        .iter()
-        .position(|(k, s)| *k == CXToken_Punctuation && s == "=")?;
-
-    // Collect all integer literals after the `=`.
-    let mut values = Vec::with_capacity(11);
-    for (kind, spelling) in &tokens[eq_pos + 1..] {
-        if *kind == CXToken_Literal {
-            let v = parse_c_int_literal(spelling)?;
-            values.push(v);
-        }
-    }
-
-    format_guid_from_values(&values)
-}
-
-/// Parse a `DEFINE_GUID(name, l, w1, w2, b1, …, b8)` (or the
-/// `DEFINE_OLEGUID(name, l, w1, w2)` shorthand) macro-expansion token stream into
-/// the GUID constant's name and its standard hyphenated UUID string.
-///
-/// The first identifier after the opening `(` is the constant's name; the
-/// remaining integer literals are the GUID field values. The OLE shorthand omits
-/// the trailing eight bytes, which are the fixed `{ 0xC0, 0, 0, 0, 0, 0, 0, 0x46 }`
-/// sequence shared by every OLE-defined GUID.
-fn parse_define_guid_tokens(
-    tokens: &[(CXTokenKind, String)],
-    ole: bool,
-) -> Option<(String, String)> {
-    let lparen = tokens
-        .iter()
-        .position(|(k, s)| *k == CXToken_Punctuation && s == "(")?;
-
-    let name = tokens[lparen + 1..]
-        .iter()
-        .find(|(k, _)| *k == CXToken_Identifier)
-        .map(|(_, s)| s.clone())?;
-
-    let mut values: Vec<u64> = tokens[lparen + 1..]
-        .iter()
-        .filter(|(k, _)| *k == CXToken_Literal)
-        .map(|(_, s)| parse_c_int_literal(s))
-        .collect::<Option<_>>()?;
-
-    if ole {
-        if values.len() != 3 {
-            return None;
-        }
-        values.extend_from_slice(&[0xC0, 0, 0, 0, 0, 0, 0, 0x46]);
-    }
-
-    let uuid = format_guid_from_values(&values)?;
-    Some((name, uuid))
-}
-
-/// Format the eleven GUID field values (`data1`, `data2`, `data3`, `data4[0..8]`)
-/// as a standard hyphenated UUID string, range-checking each field.
-fn format_guid_from_values(values: &[u64]) -> Option<String> {
-    // Must have exactly 11 values: data1, data2, data3, data4[0..8].
-    if values.len() != 11 {
-        return None;
-    }
-
-    let data1 = values[0];
-    let data2 = values[1];
-    let data3 = values[2];
-
-    // Range-check: data1 ≤ u32, data2/data3 ≤ u16, data4 bytes ≤ u8.
-    if data1 > u32::MAX as u64 || data2 > u16::MAX as u64 || data3 > u16::MAX as u64 {
-        return None;
-    }
-    for &b in &values[3..11] {
-        if b > u8::MAX as u64 {
-            return None;
-        }
-    }
-
-    // Format as standard UUID: "data1-data2-data3-d4[0]d4[1]-d4[2]..d4[7]"
-    Some(format!(
-        "{:08x}-{:04x}-{:04x}-{:02x}{:02x}-{:02x}{:02x}{:02x}{:02x}{:02x}{:02x}",
-        data1,
-        data2,
-        data3,
-        values[3],
-        values[4],
-        values[5],
-        values[6],
-        values[7],
-        values[8],
-        values[9],
-        values[10],
-    ))
-}
-
-/// Parse a C integer literal into a `u64`, stripping any type suffix
-/// (`U`, `L`, `UL`, `LL`, `ULL`, etc.) and handling hex (`0x`) and decimal.
-fn parse_c_int_literal(lit: &str) -> Option<u64> {
-    // Strip trailing suffixes (L, U, LL, ULL, etc.).
-    let digits = lit.trim_end_matches(['u', 'U', 'l', 'L']);
-    if let Some(hex) = digits
-        .strip_prefix("0x")
-        .or_else(|| digits.strip_prefix("0X"))
-    {
-        u64::from_str_radix(hex, 16).ok()
-    } else {
-        digits.parse::<u64>().ok()
     }
 }
 

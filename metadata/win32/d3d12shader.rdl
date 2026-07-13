@@ -211,17 +211,11 @@ mod Windows {
         }
         #[guid(0x8e349d19_54db_4a56_9dc9_119d87bdb804)]
         interface ID3D12LibraryReflection: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDesc(&self, pDesc: *mut D3D12_LIBRARY_DESC) -> HRESULT;
             fn GetFunctionByIndex(&self, FunctionIndex: i32) -> ID3D12FunctionReflection;
         }
         #[guid(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e)]
         interface ID3D12ShaderReflection: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDesc(&self, pDesc: *mut D3D12_SHADER_DESC) -> HRESULT;
             fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D12ShaderReflectionConstantBuffer;
             fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D12ShaderReflectionConstantBuffer;

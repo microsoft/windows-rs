@@ -30,6 +30,266 @@ mod Windows {
         const FMTID_PNPXDynamicProperty: GUID = 0x4fc5077e_b686_44be_93e3_86cafe368ccd;
         const FMTID_Pairing: GUID = 0x8807cae6_7db6_4f10_8ee4_435eaa1392bc;
         const FMTID_WSD: GUID = 0x92506491_ff95_4724_a05a_5b81885a7c92;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Address: PROPERTYKEY = 51;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_AlwaysShowDeviceAsConnected: PROPERTYKEY = 101;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_AssociationArray: PROPERTYKEY = 80;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_BaselineExperienceId: PROPERTYKEY = 78;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Category: PROPERTYKEY = 90;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_CategoryGroup_Desc: PROPERTYKEY = 94;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_CategoryGroup_Icon: PROPERTYKEY = 95;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Category_Desc_Plural: PROPERTYKEY = 92;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Category_Desc_Singular: PROPERTYKEY = 91;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Category_Icon: PROPERTYKEY = 93;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_DeviceDescription1: PROPERTYKEY = 81;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_DeviceDescription2: PROPERTYKEY = 82;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_DeviceFunctionSubRank: PROPERTYKEY = 100;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_DiscoveryMethod: PROPERTYKEY = 52;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_ExperienceId: PROPERTYKEY = 89;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_DeviceDisplay_FriendlyName: PROPERTYKEY = 12288;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Icon: PROPERTYKEY = 57;
+        #[guid(0x83da6326_97a6_4088_9453_a1923f573b29)]
+        const PKEY_DeviceDisplay_InstallInProgress: PROPERTYKEY = 9;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsAuthenticated: PROPERTYKEY = 54;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsConnected: PROPERTYKEY = 55;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsDefaultDevice: PROPERTYKEY = 86;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsDeviceUniquelyIdentifiable: PROPERTYKEY = 79;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsEncrypted: PROPERTYKEY = 53;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsLocalMachine: PROPERTYKEY = 70;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsMetadataSearchInProgress: PROPERTYKEY = 72;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsNetworkDevice: PROPERTYKEY = 85;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsNotInterestingForDisplay: PROPERTYKEY = 74;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsNotWorkingProperly: PROPERTYKEY = 83;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsPaired: PROPERTYKEY = 56;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsSharedDevice: PROPERTYKEY = 84;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_IsShowInDisconnectedState: PROPERTYKEY = 68;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Last_Connected: PROPERTYKEY = 67;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Last_Seen: PROPERTYKEY = 66;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_LaunchDeviceStageFromExplorer: PROPERTYKEY = 77;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_LaunchDeviceStageOnDeviceConnect: PROPERTYKEY = 76;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_DeviceDisplay_Manufacturer: PROPERTYKEY = 8192;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_MetadataCabinet: PROPERTYKEY = 87;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_MetadataChecksum: PROPERTYKEY = 73;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_MetadataPath: PROPERTYKEY = 71;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_DeviceDisplay_ModelName: PROPERTYKEY = 8194;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_DeviceDisplay_ModelNumber: PROPERTYKEY = 8195;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_PrimaryCategory: PROPERTYKEY = 97;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_RequiresPairingElevation: PROPERTYKEY = 88;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_RequiresUninstallElevation: PROPERTYKEY = 99;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_UnpairUninstall: PROPERTYKEY = 98;
+        #[guid(0x78c34fc8_104a_4aca_9ea4_524d52996e57)]
+        const PKEY_DeviceDisplay_Version: PROPERTYKEY = 65;
+        #[guid(0xeaee7f1d_6a33_44d1_9441_5f46def23198)]
+        const PKEY_Device_BIOSVersion: PROPERTYKEY = 9;
+        #[guid(0x08c0c253_a154_4746_9005_82de5317148b)]
+        const PKEY_FunctionInstance: PROPERTYKEY = 1;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Devinst: PROPERTYKEY = 4097;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_DisplayAttribute: PROPERTYKEY = 5;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_DriverDate: PROPERTYKEY = 11;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_DriverProvider: PROPERTYKEY = 10;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_DriverVersion: PROPERTYKEY = 9;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Function: PROPERTYKEY = 4099;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Icon: PROPERTYKEY = 3;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Image: PROPERTYKEY = 4098;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Manufacturer: PROPERTYKEY = 6;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Model: PROPERTYKEY = 7;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Name: PROPERTYKEY = 2;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_SerialNumber: PROPERTYKEY = 8;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_ShellAttributes: PROPERTYKEY = 4100;
+        #[guid(0x5eaf3ef2_e0ca_4598_bf06_71ed1d9dd953)]
+        const PKEY_Hardware_Status: PROPERTYKEY = 4096;
+        #[guid(0x4fc5077e_b686_44be_93e3_86cafe368ccd)]
+        const PKEY_PNPX_Associated: PROPERTYKEY = 2;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_Category_Desc_NonPlural: PROPERTYKEY = 12304;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_CompactSignature: PROPERTYKEY = 28674;
+        #[guid(0x4fc5077e_b686_44be_93e3_86cafe368ccd)]
+        const PKEY_PNPX_CompatibleTypes: PROPERTYKEY = 3;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_DeviceCategory: PROPERTYKEY = 12292;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_DeviceCategory_Desc: PROPERTYKEY = 12293;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_DeviceCertHash: PROPERTYKEY = 28675;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_DomainName: PROPERTYKEY = 20480;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_FirmwareVersion: PROPERTYKEY = 12289;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_GlobalIdentity: PROPERTYKEY = 4096;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ID: PROPERTYKEY = 4101;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_IPBusEnumerated: PROPERTYKEY = 28688;
+        #[guid(0x4fc5077e_b686_44be_93e3_86cafe368ccd)]
+        const PKEY_PNPX_InstallState: PROPERTYKEY = 4;
+        #[guid(0x4fc5077e_b686_44be_93e3_86cafe368ccd)]
+        const PKEY_PNPX_Installable: PROPERTYKEY = 1;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_IpAddress: PROPERTYKEY = 12297;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ManufacturerUrl: PROPERTYKEY = 8193;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_MetadataVersion: PROPERTYKEY = 4100;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ModelUrl: PROPERTYKEY = 8196;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_NetworkInterfaceGuid: PROPERTYKEY = 12296;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_NetworkInterfaceLuid: PROPERTYKEY = 12295;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_PhysicalAddress: PROPERTYKEY = 12294;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_PresentationUrl: PROPERTYKEY = 8198;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_RemoteAddress: PROPERTYKEY = 4102;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_Removable: PROPERTYKEY = 28672;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_RootProxy: PROPERTYKEY = 4103;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_Scopes: PROPERTYKEY = 4098;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_SecureChannel: PROPERTYKEY = 28673;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_SerialNumber: PROPERTYKEY = 12290;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceAddress: PROPERTYKEY = 16384;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceControlUrl: PROPERTYKEY = 16388;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceDescUrl: PROPERTYKEY = 16389;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceEventSubUrl: PROPERTYKEY = 16390;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceId: PROPERTYKEY = 16385;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ServiceTypes: PROPERTYKEY = 16386;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_ShareName: PROPERTYKEY = 20482;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_Types: PROPERTYKEY = 4097;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_Upc: PROPERTYKEY = 8197;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_PNPX_XAddrs: PROPERTYKEY = 4099;
+        #[guid(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc)]
+        const PKEY_Pairing_IsWifiOnlyDevice: PROPERTYKEY = 16;
+        #[guid(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc)]
+        const PKEY_Pairing_ListItemDefault: PROPERTYKEY = 4;
+        #[guid(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc)]
+        const PKEY_Pairing_ListItemDescription: PROPERTYKEY = 2;
+        #[guid(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc)]
+        const PKEY_Pairing_ListItemIcon: PROPERTYKEY = 3;
+        #[guid(0x8807cae6_7db6_4f10_8ee4_435eaa1392bc)]
+        const PKEY_Pairing_ListItemText: PROPERTYKEY = 1;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_SSDP_AltLocationInfo: PROPERTYKEY = 24576;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_SSDP_DevLifeTime: PROPERTYKEY = 24577;
+        #[guid(0x656a3bb3_ecc0_43fd_8477_4ae0404a96cd)]
+        const PKEY_SSDP_NetworkInterface: PROPERTYKEY = 24578;
+        #[guid(0x88190b88_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_AssocState: PROPERTYKEY = 9;
+        #[guid(0x88190b82_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_AuthType: PROPERTYKEY = 3;
+        #[guid(0x88190b89_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_ConfigError: PROPERTYKEY = 10;
+        #[guid(0x88190b85_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_ConfigMethods: PROPERTYKEY = 6;
+        #[guid(0x88190b89_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_ConfigState: PROPERTYKEY = 11;
+        #[guid(0x88190b84_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_ConnType: PROPERTYKEY = 5;
+        #[guid(0x88190b89_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_DevicePasswordId: PROPERTYKEY = 12;
+        #[guid(0x88190b83_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_EncryptType: PROPERTYKEY = 4;
+        #[guid(0x88190b89_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_OSVersion: PROPERTYKEY = 13;
+        #[guid(0x88190b8b_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_RegistrarType: PROPERTYKEY = 15;
+        #[guid(0x88190b81_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_RequestType: PROPERTYKEY = 2;
+        #[guid(0x88190b87_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_RfBand: PROPERTYKEY = 8;
+        #[guid(0x88190b8a_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_VendorExtension: PROPERTYKEY = 14;
+        #[guid(0x88190b80_4684_11da_a26a_0002b3988e81)]
+        const PKEY_WCN_Version: PROPERTYKEY = 1;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_Comment: PROPERTYKEY = 7;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_DisplayType: PROPERTYKEY = 3;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_LocalName: PROPERTYKEY = 5;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_Provider: PROPERTYKEY = 8;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_RemoteName: PROPERTYKEY = 6;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_Scope: PROPERTYKEY = 1;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_Type: PROPERTYKEY = 2;
+        #[guid(0xdebda43a_37b3_4383_91e7_4498da2995ab)]
+        const PKEY_WNET_Usage: PROPERTYKEY = 4;
         #[encoding("utf-16")]
         const PNPX_DEVICECATEGORY_CAMERA: String = "Cameras";
         #[encoding("utf-16")]

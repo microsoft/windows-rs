@@ -226,6 +226,17 @@ pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub MxdcImageQualityConfiguration: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5, IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5_Vtbl, 0xbc72f631_8177_5ef0_94c1_929080525b5a);
+impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetPdlPassthroughWithJobAttributesSupported: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicy_Vtbl, 0x5f5fc025_8c35_5529_8038_8cdc3634bbcd);
 impl windows_core::RuntimeType for IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -562,11 +573,45 @@ impl windows_core::RuntimeName for PrintSupportCommunicationErrorDetectedEventAr
 }
 unsafe impl Send for PrintSupportCommunicationErrorDetectedEventArgs {}
 unsafe impl Sync for PrintSupportCommunicationErrorDetectedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportEnterpriseManagementUIEventArgs(windows_core::IUnknown);
+#[cfg(feature = "ApplicationModel_Activation")]
 windows_core::imp::interface_hierarchy!(PrintSupportEnterpriseManagementUIEventArgs, windows_core::IUnknown, windows_core::IInspectable);
+#[cfg(feature = "ApplicationModel_Activation")]
+windows_core::imp::required_hierarchy!(PrintSupportEnterpriseManagementUIEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
+#[cfg(feature = "ApplicationModel_Activation")]
 impl PrintSupportEnterpriseManagementUIEventArgs {
+    pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
+        let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+        let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
+        let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SplashScreen)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
+        let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         unsafe {
@@ -575,17 +620,22 @@ impl PrintSupportEnterpriseManagementUIEventArgs {
         }
     }
 }
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeType for PrintSupportEnterpriseManagementUIEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportEnterpriseManagementUIEventArgs>();
 }
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl windows_core::Interface for PrintSupportEnterpriseManagementUIEventArgs {
     type Vtable = <IPrintSupportEnterpriseManagementUIEventArgs as windows_core::Interface>::Vtable;
     const IID: windows_core::GUID = <IPrintSupportEnterpriseManagementUIEventArgs as windows_core::Interface>::IID;
 }
+#[cfg(feature = "ApplicationModel_Activation")]
 impl windows_core::RuntimeName for PrintSupportEnterpriseManagementUIEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportEnterpriseManagementUIEventArgs";
 }
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Send for PrintSupportEnterpriseManagementUIEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl Sync for PrintSupportEnterpriseManagementUIEventArgs {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -940,6 +990,10 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MxdcImageQualityConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+    pub fn SetPdlPassthroughWithJobAttributesSupported(&self, supported: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetPdlPassthroughWithJobAttributesSupported)(windows_core::Interface::as_raw(this), supported).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {

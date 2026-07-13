@@ -1,6 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::Foundation::*, core::Result};
-use windows_strings::*;
+use windows::{core::*, oleauto::*};
 
 #[test]
 fn test() {

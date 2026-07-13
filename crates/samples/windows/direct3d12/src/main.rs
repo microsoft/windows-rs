@@ -1,8 +1,7 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Win32::Foundation::*, Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Direct3D::*,
-        Win32::Graphics::Direct3D12::*, Win32::Graphics::Dxgi::Common::*, Win32::Graphics::Dxgi::*,
-        Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*, core::*,
+        core::*, d3d12::*, d3dcommon::*, d3dcompiler::*, dxgi::*, synchapi::*, winbase::*,
+        windef::*, winnt::*, winuser::*,
     };
 
     use std::cell::RefCell;
@@ -73,7 +72,7 @@ fn main() -> windows::core::Result<()> {
                 Width: WIDTH as u32,
                 Height: HEIGHT as u32,
                 Format: DXGI_FORMAT_R8G8B8A8_UNORM,
-                BufferUsage: DXGI_USAGE_RENDER_TARGET_OUTPUT,
+                BufferUsage: DXGI_USAGE(DXGI_USAGE_RENDER_TARGET_OUTPUT),
                 SwapEffect: DXGI_SWAP_EFFECT_FLIP_DISCARD,
                 SampleDesc: DXGI_SAMPLE_DESC {
                     Count: 1,
@@ -137,8 +136,8 @@ fn main() -> windows::core::Result<()> {
                 TopLeftY: 0.0,
                 Width: WIDTH as f32,
                 Height: HEIGHT as f32,
-                MinDepth: D3D12_MIN_DEPTH,
-                MaxDepth: D3D12_MAX_DEPTH,
+                MinDepth: 0.0,
+                MaxDepth: 1.0,
             };
 
             let scissor_rect = RECT {
@@ -176,7 +175,10 @@ fn main() -> windows::core::Result<()> {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(None, false, false, None)? };
+            let fence_event = unsafe { CreateEventA(None, false, false, None) };
+            if fence_event.0.is_null() {
+                return Err(Error::from_thread());
+            }
 
             self.resources = Some(Resources {
                 command_queue,
@@ -210,9 +212,7 @@ fn main() -> windows::core::Result<()> {
                 unsafe { resources.command_queue.ExecuteCommandLists(&[command_list]) };
 
                 // Present the frame.
-                unsafe { resources.swap_chain.Present(1, DXGI_PRESENT(0)) }
-                    .ok()
-                    .unwrap();
+                unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
 
                 wait_for_previous_frame(resources);
             }
@@ -222,11 +222,10 @@ fn main() -> windows::core::Result<()> {
     fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
         for i in 0.. {
             let adapter = unsafe { factory.EnumAdapters1(i)? };
-            let desc = unsafe { adapter.GetDesc1()? };
+            let mut desc = DXGI_ADAPTER_DESC1::default();
+            unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
 
-            if (DXGI_ADAPTER_FLAG(desc.Flags as _) & DXGI_ADAPTER_FLAG_SOFTWARE)
-                != DXGI_ADAPTER_FLAG_NONE
-            {
+            if (desc.Flags as i32 & DXGI_ADAPTER_FLAG_SOFTWARE) != DXGI_ADAPTER_FLAG_NONE {
                 // Don't select the Basic Render Driver adapter. If you want a
                 // software adapter, pass in "/warp" on the command line.
                 continue;
@@ -263,7 +262,7 @@ fn main() -> windows::core::Result<()> {
         let dxgi_factory_flags = if cfg!(debug_assertions) {
             DXGI_CREATE_FACTORY_DEBUG
         } else {
-            DXGI_CREATE_FACTORY_FLAGS(0)
+            0
         };
 
         let dxgi_factory: IDXGIFactory4 = unsafe { CreateDXGIFactory2(dxgi_factory_flags) }?;
@@ -288,7 +287,12 @@ fn main() -> windows::core::Result<()> {
         let mut signature = None;
 
         let signature = unsafe {
-            D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &mut signature, None)
+            D3D12SerializeRootSignature(
+                &desc,
+                D3D_ROOT_SIGNATURE_VERSION_1,
+                &mut signature,
+                std::ptr::null_mut(),
+            )
         }
         .map(|| signature.unwrap())?;
 
@@ -330,7 +334,7 @@ fn main() -> windows::core::Result<()> {
                 compile_flags,
                 0,
                 &mut vertex_shader,
-                None,
+                std::ptr::null_mut(),
             )
         }
         .map(|| vertex_shader.unwrap())?;
@@ -346,7 +350,7 @@ fn main() -> windows::core::Result<()> {
                 compile_flags,
                 0,
                 &mut pixel_shader,
-                None,
+                std::ptr::null_mut(),
             )
         }
         .map(|| pixel_shader.unwrap())?;
@@ -405,7 +409,7 @@ fn main() -> windows::core::Result<()> {
                         DestBlendAlpha: D3D12_BLEND_ZERO,
                         BlendOpAlpha: D3D12_BLEND_OP_ADD,
                         LogicOp: D3D12_LOGIC_OP_NOOP,
-                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8,
+                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL as u8,
                     },
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),
@@ -486,7 +490,7 @@ fn main() -> windows::core::Result<()> {
         // Copy the triangle data to the vertex buffer.
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, None, Some(&mut data)).ok()?;
+            vertex_buffer.Map(0, None, &mut data).ok()?;
             std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, vertices.len());
             vertex_buffer.Unmap(0, None);
         }
@@ -546,9 +550,11 @@ fn main() -> windows::core::Result<()> {
             command_list.ClearRenderTargetView(
                 rtv_handle,
                 &[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32],
-                None,
+                &[],
             );
-            command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+            command_list.IASetPrimitiveTopology(D3D12_PRIMITIVE_TOPOLOGY(
+                D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST,
+            ));
             command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
             command_list.DrawInstanced(3, 1, 0, 0);
 
@@ -628,7 +634,7 @@ fn main() -> windows::core::Result<()> {
         right: WIDTH,
         bottom: HEIGHT,
     };
-    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false)? };
+    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false).ok()? };
 
     let sample = Rc::new(RefCell::new(Sample::new(use_warp)?));
 

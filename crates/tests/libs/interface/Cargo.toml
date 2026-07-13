@@ -12,12 +12,18 @@ doctest = false
 workspace = true
 default-features = true
 features = [
-    "Win32_Graphics_Direct3D",
-    "Win32_Graphics_Direct3D10",
-    "Win32_Graphics_Direct3D12",
-    "Win32_Media_Audio_XAudio2",
-    "Win32_System_Com",
-    "Win32_System_SystemInformation",
+    "combaseapi",
+    "d3d10",
+    "d3d12",
+    "d3dcommon",
+    "mmeapi",
+    "objbase",
+    "objidl",
+    "ocidl",
+    "sdkddkver",
+    "urlmon",
+    "winerror",
+    "xaudio2",
 ]
 
 [dependencies.windows-core]

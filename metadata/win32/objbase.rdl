@@ -36,7 +36,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CoGetInstanceFromIStorage(#[opt] pServerInfo: *const COSERVERINFO, #[opt] pClsid: *const GUID, #[opt] punkOuter: IUnknown, dwClsCtx: u32, pstg: IStorage, dwCount: u32, #[len_param(5)] #[in] #[out] pResults: *mut MULTI_QI) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CoGetObject(pszName: PCWSTR, #[opt] pBindOptions: *const BIND_OPTS, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CoGetObject(pszName: PCWSTR, #[opt] pBindOptions: *const BIND_OPTS, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CoGetSystemSecurityPermissions(comSDType: COMSD, ppSD: *mut PSECURITY_DESCRIPTOR) -> HRESULT;
         #[library("ole32.dll")]
@@ -70,7 +70,7 @@ mod Windows {
         #[library("ole32.dll")]
         extern fn CreateDataAdviseHolder(ppDAHolder: *mut IDataAdviseHolder) -> HRESULT;
         #[library("ole32.dll")]
-        extern fn CreateDataCache(#[opt] pUnkOuter: IUnknown, rclsid: *const GUID, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn CreateDataCache(#[opt] pUnkOuter: IUnknown, rclsid: *const GUID, iid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("ole32.dll")]
         extern fn CreateFileMoniker(lpszPathName: PCWSTR, ppmk: *mut IMoniker) -> HRESULT;
         #[library("ole32.dll")]

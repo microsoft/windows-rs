@@ -1,9 +1,13 @@
 #![cfg(windows)]
-use windows::Win32::System::Diagnostics::Debug::Extensions::*;
+use windows::{core::Interface, dbgeng::*};
 
 #[test]
 fn test() {
     unsafe {
-        let _debug: IDebugClient = DebugCreateEx(0).unwrap();
+        let mut debug = None;
+        DebugCreateEx(&IDebugClient::IID, 0, &mut debug as *mut _ as _)
+            .ok()
+            .unwrap();
+        let _debug: IDebugClient = debug.unwrap();
     }
 }

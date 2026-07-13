@@ -1,0 +1,8 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        type NTPROP = *mut void;
+        #[library("ole32.dll")]
+        extern fn StgPropertyLengthAsVariant(#[size_param(1)] pProp: *const SERIALIZEDPROPERTYVALUE, cbProp: u32, CodePage: u16, #[reserved] bReserved: u8) -> u32;
+    }
+}

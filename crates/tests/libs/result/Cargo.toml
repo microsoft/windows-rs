@@ -11,7 +11,9 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Foundation",
+    "bcrypt",
+    "ntstatus",
+    "winerror",
 ]
 
 [dependencies.windows-result]

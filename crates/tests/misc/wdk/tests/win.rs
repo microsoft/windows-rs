@@ -1,12 +1,11 @@
 #![cfg(windows)]
-use windows::{Wdk::System::OfflineRegistry::*, core::*};
+use windows::offreg::*;
 
 #[test]
-fn test() -> Result<()> {
+fn test() {
     unsafe {
-        let mut hive = ORHKEY::default();
-        ORCreateHive(&mut hive).ok()?;
-        ORCloseHive(hive).ok()?;
-        Ok(())
+        let mut hive = ORHKEY(core::ptr::null_mut());
+        assert_eq!(ORCreateHive(&mut hive), 0);
+        assert_eq!(ORCloseHive(hive), 0);
     }
 }

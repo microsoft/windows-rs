@@ -82,6 +82,70 @@ specific libclang release so the scrape is deterministic (see `tool_win32`).
 - `tool_webview` — scrapes the WebView2 headers into `WebView2.rdl`.
 - `test_clang` — golden fixtures that pin the header → RDL behavior.
 
+## Scraper layering: one crate, two levels
+
+`windows-clang` is the single crate a scraper depends on. It is *not* a thin libclang
+FFI shim — it is a scraping toolkit with a clean two-level API, layered on the metadata
+crates below it:
+
+```
+windows-metadata          base: winmd read/write
+  └─ windows-rdl          RDL text ⇄ winmd; reader(), merge_arch_rdl, ArchInput
+       └─ windows-clang   provisioning + parse (clang()) + partitioning + multi-arch scrape()
+            └─ tool_win32 / tool_wdk / tool_webview / <third-party scraper>
+```
+
+It is *one* builder — `clang()` — with *two* terminals. A consumer configures the builder
+the same way for either and picks the terminal that fits its corpus:
+
+- **`.write()` — one shot.** One translation unit, one architecture, one file:
+  `clang().args(..).input(..).output(..).write()` then `reader()`. Vendored headers, no
+  provisioning, no arch-merge. This is all `tool_webview` uses (~45 lines) to turn
+  `WebView2.h` into `WebView2.rdl` → `WebView2.winmd`.
+- **`.scrape(ScrapePlan)` — the multi-architecture corpus.** The same configured builder,
+  replayed once per architecture (swapping the target triple + per-arch defines): scrape
+  each arch into its own per-header RDL partition and winmd, `merge_arch_rdl` so a symbol
+  that only exists on (or differs across) a subset of arches gains `SupportedArchitecture`,
+  then re-derive one unified winmd from the merged corpus. `tool_win32` and `tool_wdk` are
+  both just: resolve the toolchain (NuGet packages → include/lib dirs), configure a
+  `clang()` builder (TU sources, include args, scope, import libraries), and call `.scrape`
+  with a small [`ScrapePlan`].
+
+The two terminals share the builder because the corpus scrape *is* a single-arch scrape
+replayed — so every parse knob (headers, args, scope, import libraries, `drop_lib_less`) is
+set once, on the builder that owns it, and `scrape` only layers on the per-arch target,
+defines, and (for a multi-arch run) the builtin `-resource-dir`.
+
+### What lives where, and why
+
+Everything generic to *any* header scrape lives in `windows-clang`:
+
+- **Provisioning** — `ensure_libclang` / `assert_libclang_version` (the pinned
+  `LIBCLANG_VERSION` wheel, fetched + cached on first use), `clang_resource_dir`, and
+  `nuget_package` (restore a pinned NuGet package into the global cache).
+- **Parse + emit** — the `clang()` builder (target, args, `input`/`input_str`, `scope`,
+  `scope_headers`, `import_library`, `drop_lib_less`), header partitioning
+  (`write_by_header`), and the per-kind cursor→RDL modules.
+- **Multi-arch orchestration** — the `Clang::scrape` terminal, `Arch` (clang triple +
+  `SupportedArchitecture` bits + per-target defines), `ScrapePlan` (the orchestration-only
+  state: output paths, arches, reference winmds, seed — *not* a mirror of the builder), and
+  `Summary`. This is pure driver: nothing in it is win32- or wdk-specific.
+
+Only what is *genuinely per-scraper* stays in each tool: the NuGet package IDs and pinned
+versions, the SDK/WDK include+lib directory layout, the translation-unit source assembly
+(the `windows.h` prelude, the `INITGUID` satellite reset, the WDK `offreg` prelude), the
+SAL shim, and the `*.toml` manifest of headers/scope/import-libs/arches. A third-party
+scraper is a fourth peer of this exact shape: provision its own toolchain, configure a
+`clang()` builder, call `.scrape`.
+
+This boundary is deliberate. `windows-clang` already depends on `windows-rdl` and
+`windows-metadata` and already reuses `windows_rdl::emit`, so the multi-arch driver —
+which only coordinates `clang()`, `merge_arch_rdl`, and `reader()` — belongs here rather
+than in a separate crate that would sit on top of clang only to add a thread pool. Making
+it a terminal on the same builder gives every consumer one dependency and one mental model:
+*use `windows-clang` to scrape*. The earlier `windows-scraper` crate was collapsed into
+this module for exactly that reason.
+
 ## Internals
 
 The scraper is organized by declaration kind: `cx` wraps `clang-sys` (the AST
@@ -91,6 +155,19 @@ remaps, and per-kind modules (`r#enum`, `r#struct`, `r#const`, `r#fn`, `callback
 `collector` accumulates items per namespace; `item` dispatches emission. Header
 partitioning routes each declaration back to its defining header so the output is a
 per-header `<stem>.rdl` file set.
+
+`lib.rs` holds the `clang()`/`Clang` builder, the `Parser` cursor walker, and the two
+emit terminals; its cross-cutting free helpers are grouped into focused sibling modules:
+`guid` (GUID-initializer parsing), `scope` (the reachability sweep, reference/resolution
+maps, and header-in-scope tests), `naming` (tag-rename and nested-type synthetic naming),
+and `macros` (the object-like-macro evaluation pass). Both emit paths — `parse_and_emit`
+(the namespaced `write` path used by `tool_webview`) and `parse_and_emit_by_header` (the
+flat per-header `write_by_header` path used by `tool_win32`/`tool_wdk`) — share one
+`parse_inputs` helper that loads libclang and parses every header and in-memory source into
+translation units once. Its `ParsedInputs` return owns the libclang `Library` guard and
+`Index` so the translation units stay valid for its whole lifetime; the paths bind it whole
+(never destructure it) so its field declaration order governs drop, disposing the units and
+index before the guard unloads libclang.
 
 Because `windows-clang` reuses `windows_rdl::emit`, the RDL it produces is spelled
 identically to the RDL the winmd → RDL writer produces — the round-trip
@@ -167,6 +244,77 @@ losing its `[Optional]` flag (the `specstrings_strict.h` shim clobber) — was f
 covered by `crates/tests/libs/clang/input/interface_outptr_opt.h`; contrast that with the
 four above, which are faithful by design.
 
+### Overloaded virtual methods are emitted in reverse (MSVC vtable order)
+
+A COM/C++ interface method's position in the metadata **is** its vtable slot — bindgen
+lays the generated function pointers out in emission order, so the order the scraper
+records must match the order MSVC lays the virtual functions into the vtable. For most
+interfaces declaration order and vtable order are identical, but there is one exception:
+**MSVC emits a run of consecutive same-name (overloaded) virtual functions into the
+vtable in *reverse* declaration order.** A header that declares
+
+```cpp
+STDMETHOD(SetOffsetX)(IDCompositionAnimation *animation) PURE;  // declared 1st
+STDMETHOD(SetOffsetX)(float offsetX) PURE;                      // declared 2nd
+```
+
+places the `float` overload in the *earlier* vtable slot and the animation overload in
+the *later* one. Non-overloaded methods, and singleton "runs" of one, keep their order;
+only the overloaded group is flipped. A three-overload run `A, B, C` becomes `C, B, A`.
+
+`Interface::parse` (`interface.rs`) collects the pure-virtual methods in declaration
+order, then walks the list and reverses each maximal run of consecutive methods sharing
+a name — reproducing the MSVC layout so slot *N* in the metadata is slot *N* in the real
+vtable. Downstream, `windows-bindgen` disambiguates the overloads by emission order, so
+after the reversal the animation overload keeps the base name `SetOffsetX` and the scalar
+overload becomes `SetOffsetX2` — matching both the true ABI and the pre-in-house
+`windows` crate.
+
+This is ABI-critical, not cosmetic: before the fix the `SetOffsetX`/`SetOffsetX2` slots
+were swapped, so calling the scalar setter dispatched through the animation slot and
+tripped `/GS` stack-cookie fail-fast (`0xC0000409`, `STATUS_STACK_BUFFER_OVERRUN`) — see
+the `windows_dcomp` sample. The corpus blast radius is tiny (overloaded pure-virtual COM
+methods are rare — DirectComposition, a few Direct2D SVG and DirectWrite interfaces).
+Covered by `crates/tests/libs/clang/input/interface_overload.h`.
+
+### Base-interface `_COM_Outptr_` creators: promoted by name gate (positional rule rejected)
+
+A creator like `DWriteCreateFactory(_In_ REFIID iid, _COM_Outptr_ IUnknown **factory)`
+(`um/dwrite.h`) is a caller-chosen-type factory whose out-parameter *should* have been
+declared `void**` with `[iid_is(iid)]` — the header spells the pointee as the base interface
+`IUnknown**` (and elsewhere `IInspectable**`) instead. This is a source bug in the SDK header
+that cannot be fixed upstream now. (`IWeakReference::Resolve` looks identical but the
+*MIDL-generated* `winrt/WeakReference.h` carries an explicit `[iid_is][out]` comment, so it is
+already promoted via the `[iid_is]`-comment path — the difference is the annotation, not the
+pointee type.)
+
+Auto-promoting the base-interface form on a **positional** rule was investigated and
+**rejected**: a corpus scan of `um`/`shared` shows the base-interface `_COM_Outptr_` shape is
+dominated by genuine fixed-type returns with **no** `REFIID` sibling (`SHGetThreadRef`,
+`GetProcessReference`, `InstantiateComponentFromPackage`, the D3D11 interop
+`CreateDirect3D11Device*` accessors, `IDWriteTextLayout::GetDrawingEffect`, …) that must stay
+typed; and even the `REFIID`-sibling subset mixes last-parameter cases (`DWriteCreateFactory`)
+with mid-list cases (`DbgModel` concept accessors) — no positional rule cleanly separates true
+creators from coincidental `REFIID`+`IUnknown**` pairings without risking a wrong (lossy)
+promotion.
+
+The **name gate** does separate them, so it is what `infer_iid_is` uses (see
+`annotation.rs`): the same `HRESULT`-return + a `*const GUID` parameter named
+`riid`/`iid`/`riidltf` requirement as the `void**` arm, plus the out-parameter must be the
+**bare** base spelling (`is_base_interface_out_ptr`: `*mut IUnknown`/`*mut IInspectable`,
+never a concretely typed `IFoo**`). At the ABI a COM interface pointer is itself a pointer, so
+`*mut IUnknown` is byte-identical to `*mut *mut void`; the promotion normalises to the latter
+and marks `[iid_is]`. A whole-corpus regen promotes exactly **5** methods across 4 functions —
+`DWriteCreateFactory`, `IMFCaptureSink::GetService` (×2), `IOpenRowset::OpenRowset`,
+`ITableCreationWithConstraints::CreateTableWithConstraints` — every one a genuine caller-chosen
+rowset/service/font factory whose `riid` selects the out-pointer's type, and each previously
+projected the awkward `iid: *const GUID` + `-> Result<IUnknown>` middle state that forced a
+caller `.cast()`. The bare-spelling restriction is what excludes the fixed-type creators whose
+`riid` selects a *different* object than the out-pointer (`ActivateAudioInterfaceAsync`'s
+`IActivateAudioInterfaceAsyncOperation**`, `RoGetAgileReference`'s `IAgileReference**`), which
+keep their concrete type and a call-site `.cast()`. Guarded by the `iid_infer` `test_clang`
+fixture (`CreateFactory`/`CreateInspectable` positive, `CreateTyped` → `IFoo**` negative).
+
 ### UNICODE is deliberately not defined
 
 The translation unit is built *without* `UNICODE`/`_UNICODE` (only `SECURITY_WIN32`
@@ -217,13 +365,16 @@ becomes an optional downstream map over the flat namespace.
                                                                                        ▼ windows-bindgen ──► Rust
 ```
 
-`cargo run -p tool_win32` builds the in-house winmd. A small manifest
-(`crates/tools/win32/src/win32.toml`) lists the SDK headers, satellite rules, and
-import libs — deliberately **no type-level curation**. The driver builds one shared
-translation unit per target arch (`windows.h` prelude + every manifest header), emits
-it via a single `write_by_header` call (parsed once, USR-deduped), reads the per-arch
-RDLs to winmd, and coalesces the arches with the multi-arch merge. New APIs are added
-by **listing the defining header** in the manifest and regenerating — the reachability
+`cargo run -p tool_win32` builds the in-house winmd. Its configuration is a set of plain
+`const` slices at the top of `crates/tools/win32/src/main.rs` (`HEADERS`, `SATELLITE_HEADERS`,
+`SCOPE`, `IMPORT_LIBS`, …) listing the SDK headers, satellite rules, and
+import libs — deliberately **no type-level curation**. The tool resolves its pinned
+toolchain, configures a `windows_clang::clang()` builder, and drives it with
+`windows-clang`'s shared [`scrape`](#scraper-layering-one-crate-two-levels) terminal, which
+builds one shared translation unit per target arch (`windows.h` prelude + every manifest
+header), emits it via a single `write_by_header` call (parsed once, USR-deduped), reads the
+per-arch RDLs to winmd, and coalesces the arches with the multi-arch merge. New APIs are added by
+**listing the defining header** in the manifest and regenerating — the reachability
 closure is automatic. A full generational SDK bump (e.g. 24H2 → 25H2) is absorbed the
 same way, with no scraper changes.
 
@@ -234,11 +385,22 @@ an empty `#[library("")]` would otherwise force `windows-bindgen` to emit
 by `tool_win32`; unit-test fixtures that supply no import libraries leave it off so
 they still emit their functions.
 
+The import-library list (`IMPORT_LIBS` in `main.rs`) is ordered by resolution priority (first-wins):
+per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrella
+(`onecore.lib`, `onecoreuap.lib`) next, and `vertdll.lib` — the VBS-enclave runtime —
+**dead last**. `vertdll.dll` also exports host-side synchronization/enclave functions
+(`WaitOnAddress`, `WakeByAddress*`, `CallEnclave`, `TerminateEnclave`), and importing
+those from `vertdll.dll` faults a normal process at load; ordering it after the apiset
+umbrella lets them resolve to their loadable `api-ms-win-core-synch`/`-enclave` contract,
+leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+
 ## The WDK corpus: tool_wdk
 
 `cargo run -p tool_wdk` builds `Windows.Wdk.winmd` the same way `tool_win32` builds the
-Win32 winmd — a whole-header scrape, not a symbol allowlist. It mirrors that driver with
-three deliberate simplifications:
+Win32 winmd — a whole-header scrape, not a symbol allowlist. Both tools drive the *same*
+[`scrape`](#scraper-layering-one-crate-two-levels) terminal from plain `const` slices in
+`main.rs` (`crates/tools/wdk/src/main.rs`); the WDK is just that builder configured for three
+things:
 
 - **Same flat `Windows.Win32` namespace.** The WDK surface is emitted into the *global,
   not-WinRT* namespace shared with Win32, so a WDK entity referencing a Win32 type
@@ -257,9 +419,9 @@ three deliberate simplifications:
   dropped. Crucially, **no fallback `library`** is set — one would make every function
   lib-ful and drag in the whole kernel export surface.
 
-New WDK APIs are added exactly like Win32 ones: list the defining header in `SOURCE_HEADERS`
-and regenerate. The WDK NuGet version is pinned independently of the SDK (its servicing build
-lags), but tracks the same marketing line.
+New WDK APIs are added exactly like Win32 ones: list the defining header in `main.rs`'s
+`SOURCE_HEADERS` and regenerate. The WDK NuGet version is pinned independently of the SDK
+(its servicing build lags), but tracks the same marketing line.
 
 
 
@@ -416,76 +578,69 @@ than duplicated per tool:
 The download cache is keyed by version under `target/windows-clang/`, so all tools
 share one libclang wheel and one resource-header extract.
 
-## Outstanding work
+## Differences from the win32metadata reference
 
-None of these block use of the crate; they are tracked design and coverage items.
+The in-house metadata is faithful to the SDK headers, so it differs from Microsoft's
+editorial [win32metadata](https://github.com/microsoft/win32metadata) winmd in several
+deliberate, consumer-visible ways. These are correct-by-design, not projection defects;
+they are the practical consequence of the faithfulness philosophy above.
 
-### Coverage triage
+- **Flat module/feature layout.** Each source-header stem is its own top-level module and
+  same-named leaf feature (`windows::winnt`, feature `winnt`) — there is no nested
+  `Win32_UI_Shell` editorial feature tree. Each leaf feature's dependency list is *computed*
+  from the type graph, and Win32/WDK feature names carry no `Win32_`/`Wdk_` prefix (the
+  globally-unique header stem is already unambiguous). WinRT keeps its dotted path joined
+  with `_` (`Foundation_Collections`).
+- **Unscoped C enums are bare integer aliases** in every style (`pub type X = i32;` plus
+  bare `pub const` members); scoped enums (WinRT enums, C++ `enum class`) stay newtypes.
+  Flag enums rely on the underlying integer's native `|`/`&`/`!`, so no `BitOr`/`BitAnd`
+  impls are emitted. Call sites drop `.0` and tuple construction.
+- **Handles carry no `is_invalid()`, no `Owned<T>`/`Free`.** Those came from curated
+  win32metadata attributes that cannot be inferred from headers. Check `.0.is_null()` for
+  null-sentinel handles or `== INVALID_HANDLE_VALUE` for the `-1` family, and free with an
+  explicit `CloseHandle`/`LocalFree`.
+- **No fabricated `Result`/retval ergonomics.** Out-params and `BOOL`/`HRESULT` returns are
+  faithful to the header — call `.ok()` on a `default()`, pass raw `*mut` out-params. A
+  function the reference hand-patched via `SupportsLastError` returns a bare handle/`BOOL`
+  here.
+- **Un-inferable curated attributes are not emitted:** `InvalidHandleValue`, `RAIIFree`,
+  `AgileAttribute`, `CanReturnMultipleSuccessValues`, and the `SupportsLastError` PInvoke
+  flag. `MarshalingBehaviorAttribute` (agility) *does* survive the WinRT SDK-contract merge,
+  so WinRT types (`Uri`, …) stay `Send`/`Sync`; Win32-scraped COM interfaces do not.
+- **Error ergonomics come from `windows::core`, not a metadata stem.** `WIN32_ERROR` with
+  `to_hresult()`/`From` is the `windows-result` type re-exported through `windows::core`; the
+  bare `winreg::WIN32_ERROR(u32)` newtype the flat metadata emits has none. `GetLastError`/
+  `SetLastError` and `ERROR_*`/`*_E_*` constants are bare integers — wrap them for
+  `Error::from`.
+- **Hand-authored `windows`-crate extensions are dropped:** the std ↔ WinSock net
+  conversions, the `VARIANT`/`PROPVARIANT`/`VARIANT_BOOL` helpers, and the WinRT
+  `DateTime` ↔ `FILETIME` bridge. Callers construct/convert the raw types directly.
+- **`windows-sys`** is generated by the same pipeline into the identical header-stem layout;
+  its projection is simpler (raw pointers, no COM ergonomics) but follows the same
+  flat-feature and bare-alias rules.
 
-The in-house corpus only covers the headers listed in `win32.toml`, so an API a
-developer needs can be silently absent (the reference winmd scraped a broader
-surface). Most gaps are a **one-line `win32.toml` addition** — list the defining
-header and regenerate; the reachability closure does the rest. Open issues on
-[`microsoft/windows-rs`](https://github.com/microsoft/windows-rs/issues) and
-[`microsoft/win32metadata`](https://github.com/microsoft/win32metadata/issues) are the
-signal for *which* headers matter. Not everything is reachable from the pinned SDK:
+## Known limitations and future work
 
-- **Feature, not a header add:** `PROPERTYKEY`/`DEVPROPKEY` struct constants (`PKEY_*`,
-  `DEVPKEY_*`, ~1300 of them — win32metadata#2090/#2100/#1773) are struct-*valued*
-  constants (`DEFINE_PROPERTYKEY` / `DEFINE_DEVPROPKEY`). The scraper only special-cases
-  `DEFINE_GUID` today, so closing this is a 3-crate feature: detect the macro expansions
-  (`windows-clang`), add an RDL surface for a struct-typed constant field
-  (`windows-rdl`), and encode the constant blob (`windows-metadata`).
-- **WinRT interop headers** (`windows.ui.interop.h`, … — win32metadata#2186):
-  `GetWindowFromWindowId` takes a WinRT *projection* type (`ABI::Windows::UI::WindowId`),
-  which cannot be scraped without dragging in the `ABI::Windows::*` surface the manifest
-  deliberately excludes. A scope decision, not a bug.
-- **Toolchain/out-of-SDK blocks:** X3DAudio (`x3daudio.h`, win32metadata#2045) pulls in
-  `DirectXMath.h` → `cpuid.h`, a compiler-intrinsic header not on the scrape include
-  path (same class blocks any DirectXMath-dependent header). DISM (`dismapi.h`) and
-  WIMGAPI (`wimgapi.h`) ship in the Windows ADK, not the pinned SDK NuGet packages, so
-  they are out of scope for an SDK-based scrape.
-- **Flat-namespace collisions are lossy.** The single flat `Windows.Win32` namespace
-  (USR-deduped) cannot hold two genuinely distinct entities that share a name. The
-  reference winmd disambiguates such pairs by editorial sub-namespace; here, dedup keeps
-  exactly one. Examples: `PID_SECURITY` (`MsiDefs.h` summary property `19` vs.
-  `PropIdl.h` reserved PID `0x80000002` — dedup currently keeps the latter) and the
-  `E_NOTFOUND` class of duplicated `HRESULT`/`#define` names. Inherent to the flat
-  namespace, not a scraper bug; a fix would need a name-disambiguation policy.
+None of these block use of the crate.
 
-### Parsing fidelity
-
-- **Remaining SAL bypasses (low priority).** Two surfaces bypass the shared
-  `parse_params`: struct fields (`_Field_size_` is not mapped to
-  `NativeArrayInfo`/`MemorySize` — parity-only, bindgen never consumes field
-  array-sizing) and callback return attributes (no `retval` detection on callbacks,
-  moot since a callback's caller owns any return contract).
-- **`fastcall` projection is lossy.** The winmd can faithfully record a
-  `__fastcall` callback, but `windows-bindgen` silently downgrades it to
-  `extern "system"` because Rust's `extern "fastcall"` fn-pointer ABI is nightly-only.
-  Moot for the current corpus (zero fastcall callbacks); if one ever appears it needs a
-  policy decision.
-
-### Performance
-
-- **Direct-to-winmd in-memory scrape** — build the winmd without the intermediate
-  per-header `.rdl` write, keeping RDL as the committed source-of-truth / regeneration
-  path.
-- **Cache import-lib resolution** — each of the three arch workers re-runs the
-  import-lib filesystem scan; resolve once and cache.
-- **PCH / preamble caching** for the shared translation unit.
-
-### tool_wdk: whole-header model
-
-**Done** — `tool_wdk` now mirrors `tool_win32` (whole-header, flat `Windows.Win32`
-namespace, additive/exclusion-referenced, user-mode-only). See
-[The WDK corpus: tool_wdk](#the-wdk-corpus-tool_wdk). Remaining follow-ups: a shared
-manifest (`wdk.toml`) so both tools run the same driver from a declarative config, and
-per-arch WDK package wiring (the function → DLL map is arch-invariant, so the corpus is
-currently x64-derived).
-
-### IDL as the COM source of truth
-
-Parse `.idl` (or `midl` output) directly for COM to recover the pointer-shape
-attributes the headers don't express as SAL (`[unique]`/`[length_is]`/`[iid_is]`),
-keeping the header path for flat C APIs.
+- **Coverage is the `HEADERS` list.** The corpus covers exactly the headers listed in
+  `tool_win32`/`tool_wdk`'s `HEADERS`/`SOURCE_HEADERS` consts; a missing API is usually a
+  one-line header addition (the reachability closure does the rest). Some surface is
+  structurally out of reach: interop headers that take WinRT projection types
+  (`ABI::Windows::*`), headers needing compiler-intrinsic or out-of-SDK toolchains
+  (DirectXMath → `cpuid.h`; DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK). And the
+  single flat `Windows.Win32` namespace is **lossy for genuine name collisions** — where the
+  reference disambiguated two distinct entities by editorial sub-namespace, dedup keeps one
+  (e.g. `PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class).
+- **Parsing fidelity.** Two SAL surfaces bypass the shared `parse_params`: struct fields
+  (`_Field_size_` is not mapped to array-size metadata, which bindgen never consumes) and
+  callback return attributes. A `__fastcall` callback is recorded faithfully in the winmd but
+  `windows-bindgen` downgrades it to `extern "system"` (Rust's `extern "fastcall"` fn-pointer
+  ABI is nightly-only); moot for the current corpus.
+- **Performance is near-optimal.** The multi-arch scrape is parallel (one worker per arch)
+  and the per-arch clang parse of the SDK translation unit dominates wall time; import-lib
+  resolution is parsed once on the builder and cloned per arch. No cheap, low-risk speedup
+  remains.
+- **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
+  directly would recover the pointer-shape attributes headers don't express as SAL
+  (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.

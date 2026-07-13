@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![allow(non_camel_case_types)]
 
-use windows::Win32::Foundation::E_POINTER;
+use windows::winerror::E_POINTER;
 use windows_core::*;
 
 #[interface("6120f260-090f-4b55-a09f-3cce3ffb35a4")]

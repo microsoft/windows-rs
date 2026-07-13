@@ -1,14 +1,14 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::Foundation::*, Win32::UI::Controls::*, core::*};
+    use windows::{commctrl::*, core::*, minwindef::*, windef::*};
 
     extern "system" fn callback(
         _: HWND,
-        notification: TASKDIALOG_NOTIFICATIONS,
+        notification: u32,
         _: WPARAM,
         _: LPARAM,
         _: isize,
     ) -> HRESULT {
-        if notification == TDN_BUTTON_CLICKED {
+        if notification == TDN_BUTTON_CLICKED as u32 {
             println!("button clicked");
         }
 
@@ -33,8 +33,7 @@ fn main() -> windows::core::Result<()> {
         config.cButtons = buttons.len() as _;
         config.pfCallback = Some(callback);
 
-        config.dwFlags =
-            TASKDIALOG_FLAGS(TDF_USE_COMMAND_LINKS.0 | TDF_ALLOW_DIALOG_CANCELLATION.0);
+        config.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION;
 
         let mut selection = 0;
 

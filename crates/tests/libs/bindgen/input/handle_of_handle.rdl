@@ -1,0 +1,11 @@
+//! --filter Test --flat
+#[win32]
+mod Test {
+    type Handle = *mut void;
+    type AliasHandle = Handle;
+    type PHandle = *mut Handle;
+    type Grbit = u32;
+    type PGrbit = *mut Grbit;
+    const FLAG: Grbit = 1;
+    const INVALID: Handle = -1;
+}

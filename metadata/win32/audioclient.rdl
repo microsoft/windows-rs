@@ -132,7 +132,7 @@ mod Windows {
             fn Stop(&self) -> HRESULT;
             fn Reset(&self) -> HRESULT;
             fn SetEventHandle(&self, eventHandle: HANDLE) -> HRESULT;
-            fn GetService(&self, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+            fn GetService(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         }
         #[guid(0x726778cd_f60a_4eda_82de_e47610cd78aa)]
         interface IAudioClient2: IAudioClient {

@@ -722,6 +722,7 @@ mod Windows {
             ToggleState_On = 1,
             ToggleState_Indeterminate = 2,
         }
+        const UIA_ScrollPatternNoScroll: f64 = -1.0;
         struct UIAutomationEventInfo {
             guid: GUID,
             pProgrammaticName: PCWSTR,

@@ -448,6 +448,25 @@ impl Cursor {
         unsafe { clang_CXXMethod_isPureVirtual(self.0) != 0 }
     }
 
+    /// Returns `true` if this method overrides a virtual method from a base class.
+    ///
+    /// Old-style COM headers (`DECLARE_INTERFACE_`) redeclare every inherited method
+    /// (`QueryInterface`/`AddRef`/`Release` and the whole ancestor chain) in each derived
+    /// interface. Those redeclarations override the base virtuals — they occupy existing
+    /// vtable slots rather than adding new ones — so they must not be re-emitted on top of
+    /// the inherited base vtable.
+    pub fn overrides_base_method(&self) -> bool {
+        let mut cursors = std::ptr::null_mut();
+        let mut count = 0;
+        unsafe {
+            clang_getOverriddenCursors(self.0, &mut cursors, &mut count);
+            if !cursors.is_null() {
+                clang_disposeOverriddenCursors(cursors);
+            }
+        }
+        count > 0
+    }
+
     /// Returns `true` if a definition for this cursor's class/struct exists in the
     /// translation unit.
     ///
@@ -635,6 +654,30 @@ impl Cursor {
                 Some(clang_EvalResult_getAsUnsigned(result))
             } else {
                 None
+            };
+            clang_EvalResult_dispose(result);
+            value
+        }
+    }
+
+    /// Evaluate this cursor as a compile-time constant expression and return the
+    /// floating-point result, or `None` if evaluation fails or the result is not a
+    /// float. Integer results are *not* coerced — callers that want an integer use
+    /// [`evaluate_unsigned`](Self::evaluate_unsigned).
+    pub fn evaluate_double(&self) -> Option<f64> {
+        unsafe {
+            let result = clang_Cursor_Evaluate(self.0);
+            if result.is_null() {
+                return None;
+            }
+            let kind = clang_EvalResult_getKind(result);
+            let value = match kind {
+                CXEval_Float => Some(clang_EvalResult_getAsDouble(result)),
+                // A floating-point constant may have an integer initializer
+                // (e.g. `const double UIA_ScrollPatternNoScroll = -1;`), which
+                // libclang evaluates as an integer; coerce it to the float type.
+                CXEval_Int => Some(clang_EvalResult_getAsLongLong(result) as f64),
+                _ => None,
             };
             clang_EvalResult_dispose(result);
             value
@@ -1034,12 +1077,35 @@ impl Type {
             CXType_FunctionProto | CXType_FunctionNoProto => {
                 metadata::Type::PtrMut(Box::new(metadata::Type::Void), 1)
             }
-            rest => panic!(
-                "unhandled type kind {rest:?}: spelling={:?} canonical={:?} decl_at={}",
-                self.spelling(),
-                self.canonical_type().spelling(),
-                self.ty().location_id()
-            ),
+            rest => {
+                // The `ABI::Windows::*` C++/WinRT projection mirrors a type that already
+                // exists in `Windows.winmd`, so map it to that reference rather than
+                // failing. Such types only reach here through declarations pulled in by an
+                // incidentally-included `winrt/` projection header (e.g. `asyncinfo.h`'s
+                // out-of-scope `IAsyncInfo::get_Status(AsyncStatus*)`, dragged in by
+                // `UserConsentVerifierInterop.h`); the header sweep drops the referencing
+                // declaration afterwards, but emission still has to resolve the type first.
+                // `ABI::Windows::Foundation::AsyncStatus` -> `Windows.Foundation.AsyncStatus`.
+                let spelling = self.spelling();
+                // Match on the canonical spelling: a `using`-aliased reference (as in
+                // `asyncinfo.h`) reports the bare name as its spelling but the fully
+                // qualified `ABI::Windows::…` path as its canonical type.
+                let canonical = self.canonical_type().spelling();
+                if let Some(projected) = canonical.strip_prefix("ABI::") {
+                    // Drop any generic arguments (`IReference<T>` -> `IReference`); these only
+                    // occur on the dropped projection declarations, never on a kept interop API.
+                    let projected = projected.split('<').next().unwrap_or(projected);
+                    if let Some((namespace, name)) = projected.rsplit_once("::") {
+                        return metadata::Type::value_named(&namespace.replace("::", "."), name);
+                    }
+                }
+                panic!(
+                    "unhandled type kind {rest:?}: spelling={:?} canonical={:?} decl_at={}",
+                    spelling,
+                    canonical,
+                    self.ty().location_id()
+                )
+            }
         }
     }
 }

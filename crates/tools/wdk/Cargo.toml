@@ -7,7 +7,6 @@ publish = false
 
 [dependencies]
 windows-clang = { workspace = true }
-windows-rdl = { workspace = true }
 
 [lints]
 workspace = true

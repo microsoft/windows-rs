@@ -101,8 +101,7 @@ impl Config<'_> {
                 return true;
             }
         }
-        self.filter
-            .includes_method(type_name, method, self.bindgen.style.is_minimal())
+        self.filter.includes_method(type_name, method)
     }
 }
 

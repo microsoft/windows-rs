@@ -17,7 +17,6 @@ workspace = true
 features = [
     "Foundation_Collections",
     "Globalization",
-    "Win32_Foundation",
 ]
 
 [dependencies.windows-core]

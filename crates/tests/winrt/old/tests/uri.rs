@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::Foundation::{IStringable, IUriRuntimeClass, Uri};
-use windows::Win32::System::Com::IAgileObject;
 use windows::core::{Interface, RuntimeName};
+use windows::objidlbase::IAgileObject;
 
 #[test]
 fn uri() -> windows::core::Result<()> {

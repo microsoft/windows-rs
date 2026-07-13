@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{Win32::Foundation::*, Win32::System::Com::*, core::*};
+use windows::{core::*, objidl::*, winerror::*};
 
 #[derive(Default)]
 struct TestData {
@@ -35,17 +35,17 @@ impl IDataObject_Impl for Test_Impl {
         }
     }
 
-    fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
+    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
         unsafe {
             (*self.0.get()).QueryGetData = true;
-            S_OK
+            Ok(())
         }
     }
 
-    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
+    fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> Result<()> {
         unsafe {
             (*self.0.get()).GetCanonicalFormatEtc = true;
-            S_OK
+            Ok(())
         }
     }
 

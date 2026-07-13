@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{Win32::Foundation::*, Win32::Security::Cryptography::*};
+use windows_sys::{bcrypt::*, ntstatus::*};
 
 #[test]
 fn test() {

@@ -6,6 +6,8 @@ mod Windows {
         #[library("d3d10_1.dll")]
         extern fn D3D10CreateDeviceAndSwapChain1(#[opt] pAdapter: IDXGIAdapter, DriverType: D3D10_DRIVER_TYPE, Software: HMODULE, Flags: u32, HardwareLevel: D3D10_FEATURE_LEVEL1, SDKVersion: u32, #[opt] pSwapChainDesc: *const DXGI_SWAP_CHAIN_DESC, #[opt] ppSwapChain: *mut IDXGISwapChain, #[opt] ppDevice: *mut ID3D10Device1) -> HRESULT;
         const D3D10_1_DEFAULT_SAMPLE_MASK: u32 = 4294967295;
+        const D3D10_1_FLOAT16_FUSED_TOLERANCE_IN_ULP: f64 = 0.6;
+        const D3D10_1_FLOAT32_TO_INTEGER_TOLERANCE_IN_ULP: f32 = 0.6;
         const D3D10_1_GS_INPUT_REGISTER_COUNT: u32 = 32;
         const D3D10_1_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32;
         const D3D10_1_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128;

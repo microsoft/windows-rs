@@ -1,5 +1,27 @@
 #[cfg(feature = "Devices_Printers_Extensions")]
 pub mod Extensions;
+windows_core::imp::define_interface!(IIppAttributeConverterStatics, IIppAttributeConverterStatics_Vtbl, 0x91e368df_bfa4_5ca1_a92d_0793f988e82d);
+impl windows_core::RuntimeType for IIppAttributeConverterStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IIppAttributeConverterStatics");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppAttributeConverterStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub ConvertPrintTicketToIppAttributesForPrinter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    ConvertPrintTicketToIppAttributesForPrinter: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ConvertBufferToIppAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ConvertBufferToIppAttributes: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub ConvertIppAttributesToBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, IppAttributeGroupKind, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    ConvertIppAttributesToBuffer: usize,
+}
 windows_core::imp::define_interface!(IIppAttributeError, IIppAttributeError_Vtbl, 0x750feda1_9eef_5c39_93e4_46149bbcef27);
 impl windows_core::RuntimeType for IIppAttributeError {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -338,6 +360,21 @@ pub struct IPdlPassthroughProvider_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     StartPrintJobWithPrintTicket: usize,
 }
+windows_core::imp::define_interface!(IPdlPassthroughProvider2, IPdlPassthroughProvider2_Vtbl, 0x7330305c_a17d_52ec_a129_9a4ff9c8f655);
+impl windows_core::RuntimeType for IPdlPassthroughProvider2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IPdlPassthroughProvider2");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPdlPassthroughProvider2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsPassthroughWithJobAttributesSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub StartPrintJobWithIppJobAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    StartPrintJobWithIppJobAttributes: usize,
+}
 windows_core::imp::define_interface!(IPdlPassthroughTarget, IPdlPassthroughTarget_Vtbl, 0x9840be79_67f8_5385_a5b9_e8c96e0fca76);
 impl windows_core::RuntimeType for IPdlPassthroughTarget {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -490,6 +527,46 @@ pub struct IVirtualPrinterSupportedFormatFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+pub struct IppAttributeConverter;
+impl IppAttributeConverter {
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub fn ConvertPrintTicketToIppAttributesForPrinter<P1>(printername: &windows_core::HSTRING, printticket: P1, targetpdlformat: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IMap<IppAttributeGroupKind, windows_collections::IMap<windows_core::HSTRING, IppAttributeValue>>>
+    where
+        P1: windows_core::Param<super::super::Graphics::Printing::PrintTicket::WorkflowPrintTicket>,
+    {
+        Self::IIppAttributeConverterStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConvertPrintTicketToIppAttributesForPrinter)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), core::mem::transmute_copy(targetpdlformat), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ConvertBufferToIppAttributes<P0>(attributesbuffer: P0) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, IppAttributeValue>>
+    where
+        P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+    {
+        Self::IIppAttributeConverterStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConvertBufferToIppAttributes)(windows_core::Interface::as_raw(this), attributesbuffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ConvertIppAttributesToBuffer<P0>(attributes: P0, attributegroupkind: IppAttributeGroupKind) -> windows_core::Result<super::super::Storage::Streams::IBuffer>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, IppAttributeValue>>>,
+    {
+        Self::IIppAttributeConverterStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ConvertIppAttributesToBuffer)(windows_core::Interface::as_raw(this), attributes.param().abi(), attributegroupkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IIppAttributeConverterStatics<R, F: FnOnce(&IIppAttributeConverterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IppAttributeConverter, IIppAttributeConverterStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for IppAttributeConverter {
+    const NAME: &'static str = "Windows.Devices.Printers.IppAttributeConverter";
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IppAttributeError(windows_core::IUnknown);
@@ -542,6 +619,21 @@ impl windows_core::TypeKind for IppAttributeErrorReason {
 impl windows_core::RuntimeType for IppAttributeErrorReason {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IppAttributeErrorReason");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppAttributeGroupKind(pub i32);
+impl IppAttributeGroupKind {
+    pub const Printer: Self = Self(0);
+    pub const Job: Self = Self(1);
+    pub const Operation: Self = Self(2);
+}
+impl windows_core::TypeKind for IppAttributeGroupKind {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppAttributeGroupKind {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeGroupKind;i4)");
+    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Printers.IppAttributeGroupKind");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1564,6 +1656,25 @@ impl PdlPassthroughProvider {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartPrintJobWithPrintTicket)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(jobname), core::mem::transmute_copy(pdlcontenttype), printticket.param().abi(), pageconfigurationsettings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsPassthroughWithJobAttributesSupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IPdlPassthroughProvider2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsPassthroughWithJobAttributesSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Storage_Streams")]
+    pub fn StartPrintJobWithIppJobAttributes<P2, P3>(&self, jobname: &windows_core::HSTRING, pdlcontenttype: &windows_core::HSTRING, jobattributes: P2, operationattributes: P3) -> windows_core::Result<PdlPassthroughTarget>
+    where
+        P2: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P3: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+    {
+        let this = &windows_core::Interface::cast::<IPdlPassthroughProvider2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).StartPrintJobWithIppJobAttributes)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(jobname), core::mem::transmute_copy(pdlcontenttype), jobattributes.param().abi(), operationattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

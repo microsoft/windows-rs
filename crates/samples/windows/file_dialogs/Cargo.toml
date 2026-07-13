@@ -7,8 +7,10 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_UI_Shell_Common",
-    "Win32_System_Com",
+    "combaseapi",
+    "shobjidl_core",
+    "shtypes",
+    "windef",
 ]
 
 [lints]

@@ -91,7 +91,7 @@ mod Windows {
         #[library("D3DCOMPILER_47.dll")]
         extern fn D3DReflect(#[size_param(1)] pSrcData: *const void, SrcDataSize: usize, pInterface: *const GUID, ppReflector: *mut *mut void) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
-        extern fn D3DReflectLibrary(pSrcData: *const void, SrcDataSize: usize, riid: *const GUID, ppReflector: *mut *mut void) -> HRESULT;
+        extern fn D3DReflectLibrary(pSrcData: *const void, SrcDataSize: usize, riid: *const GUID, #[iid_is] ppReflector: *mut *mut void) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]
         extern fn D3DSetBlobPart(#[size_param(1)] pSrcData: *const void, SrcDataSize: usize, Part: D3D_BLOB_PART, Flags: u32, #[size_param(5)] pPart: *const void, PartSize: usize, ppNewShader: *mut ID3D10Blob) -> HRESULT;
         #[library("D3DCOMPILER_47.dll")]

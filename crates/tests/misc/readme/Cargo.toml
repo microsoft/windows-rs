@@ -8,17 +8,29 @@ publish = false
 workspace = true
 features = [
     "Data_Xml_Dom",
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_UI_WindowsAndMessaging",
+    "handleapi",
+    "minwinbase",
+    "processthreadsapi",
+    "securitybaseapi",
+    "synchapi",
+    "windef",
+    "winerror",
+    "winnt",
+    "winuser",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_UI_WindowsAndMessaging",
+    "handleapi",
+    "minwinbase",
+    "processthreadsapi",
+    "securitybaseapi",
+    "synchapi",
+    "windef",
+    "winerror",
+    "winnt",
+    "winuser",
 ]
 
 [dev-dependencies.windows-bindgen]

@@ -2,5 +2,5 @@
 --flat
 
 --filter
-    Windows::Foundation::Async*
-    Windows::Foundation::IAsync*
+    Windows::Foundation::{AsyncActionCompletedHandler, AsyncActionProgressHandler, AsyncActionWithProgressCompletedHandler, AsyncOperationCompletedHandler, AsyncOperationProgressHandler, AsyncOperationWithProgressCompletedHandler, AsyncStatus}
+    Windows::Foundation::{IAsyncAction, IAsyncActionWithProgress, IAsyncInfo, IAsyncOperation, IAsyncOperationWithProgress}

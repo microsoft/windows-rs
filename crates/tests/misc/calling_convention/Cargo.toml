@@ -14,16 +14,19 @@ workspace = true
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Networking_Ldap",
-    "Win32_System_SystemInformation",
+    "sysinfoapi",
+    "winerror",
+    "winldap",
+    "winuser",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Networking_Ldap",
-    "Win32_System_SystemInformation",
-    "Win32_UI_WindowsAndMessaging",
+    "sysinfoapi",
+    "winerror",
+    "winldap",
+    "winuser",
 ]
 
 [dependencies.windows-link]

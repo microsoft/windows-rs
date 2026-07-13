@@ -85,22 +85,27 @@ impl Encoder<'_> {
             return self.err(&item.sig, "`library` attribute not found");
         };
 
-        let (library, last_error) = attribute
+        let (library, last_error, import) = attribute
             .parse_args_with(
-                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool)> {
+                |input: syn::parse::ParseStream| -> syn::Result<(syn::LitStr, bool, Option<String>)> {
                     let library: syn::LitStr = input.parse()?;
                     let mut last_error = false;
-                    if input.peek(syn::Token![,]) {
+                    let mut import = None;
+                    while input.peek(syn::Token![,]) {
                         input.parse::<syn::Token![,]>()?;
                         let ident: syn::Ident = input.parse()?;
-                        if ident != "last_error" {
+                        input.parse::<syn::Token![=]>()?;
+                        if ident == "last_error" {
+                            let value: syn::LitBool = input.parse()?;
+                            last_error = value.value();
+                        } else if ident == "import" {
+                            let value: syn::LitStr = input.parse()?;
+                            import = Some(value.value());
+                        } else {
                             return Err(syn::Error::new(ident.span(), "unknown library option"));
                         }
-                        input.parse::<syn::Token![=]>()?;
-                        let value: syn::LitBool = input.parse()?;
-                        last_error = value.value();
                     }
-                    Ok((library, last_error))
+                    Ok((library, last_error, import))
                 },
             )
             .or_else(|_| self.err(attribute.span(), "`library` name missing"))?;
@@ -122,8 +127,9 @@ impl Encoder<'_> {
             flags |= metadata::PInvokeAttributes::CallConvPlatformapi;
         }
 
+        let import_name = import.as_deref().unwrap_or(&name);
         self.output
-            .ImplMap(method_def, flags, &name, library.value().as_str());
+            .ImplMap(method_def, flags, import_name, library.value().as_str());
 
         if let Some(arch_bits) = self.read_arch(&item.attrs)? {
             self.emit_arch_attribute(

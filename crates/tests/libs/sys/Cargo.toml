@@ -11,10 +11,16 @@ doctest = false
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Graphics_Gdi",
-    "Win32_Security",
-    "Win32_System_Threading",
-    "Win32_UI_WindowsAndMessaging",
+    "bcrypt",
+    "handleapi",
+    "minwinbase",
+    "minwindef",
+    "ntstatus",
+    "synchapi",
+    "windef",
+    "winerror",
+    "winnt",
+    "winuser",
 ]
 
 [lints]

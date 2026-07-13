@@ -286,8 +286,8 @@ mod Windows {
         interface IDWriteFactory3: IDWriteFactory2 {
             fn CreateGlyphRunAnalysis(&self, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] transform: *const DWRITE_MATRIX, renderingMode: DWRITE_RENDERING_MODE1, measuringMode: DWRITE_MEASURING_MODE, gridFitMode: DWRITE_GRID_FIT_MODE, antialiasMode: DWRITE_TEXT_ANTIALIAS_MODE, baselineOriginX: f32, baselineOriginY: f32, glyphRunAnalysis: *mut IDWriteGlyphRunAnalysis) -> HRESULT;
             fn CreateCustomRenderingParams(&self, gamma: f32, enhancedContrast: f32, grayscaleEnhancedContrast: f32, clearTypeLevel: f32, pixelGeometry: DWRITE_PIXEL_GEOMETRY, renderingMode: DWRITE_RENDERING_MODE1, gridFitMode: DWRITE_GRID_FIT_MODE, renderingParams: *mut IDWriteRenderingParams3) -> HRESULT;
-            fn CreateFontFaceReference(&self, filePath: PCWSTR, #[opt] lastWriteTime: *const FILETIME, faceIndex: u32, fontSimulations: DWRITE_FONT_SIMULATIONS, fontFaceReference: *mut IDWriteFontFaceReference) -> HRESULT;
             fn CreateFontFaceReference(&self, fontFile: IDWriteFontFile, faceIndex: u32, fontSimulations: DWRITE_FONT_SIMULATIONS, fontFaceReference: *mut IDWriteFontFaceReference) -> HRESULT;
+            fn CreateFontFaceReference(&self, filePath: PCWSTR, #[opt] lastWriteTime: *const FILETIME, faceIndex: u32, fontSimulations: DWRITE_FONT_SIMULATIONS, fontFaceReference: *mut IDWriteFontFaceReference) -> HRESULT;
             fn GetSystemFontSet(&self, fontSet: *mut IDWriteFontSet) -> HRESULT;
             fn CreateFontSetBuilder(&self, fontSetBuilder: *mut IDWriteFontSetBuilder) -> HRESULT;
             fn CreateFontCollectionFromFontSet(&self, fontSet: IDWriteFontSet, fontCollection: *mut IDWriteFontCollection1) -> HRESULT;
@@ -297,8 +297,8 @@ mod Windows {
         #[guid(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856)]
         interface IDWriteFactory4: IDWriteFactory3 {
             fn TranslateColorGlyphRun(&self, baselineOrigin: D2D_POINT_2F, glyphRun: *const DWRITE_GLYPH_RUN, #[opt] glyphRunDescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, desiredGlyphImageFormats: DWRITE_GLYPH_IMAGE_FORMATS, measuringMode: DWRITE_MEASURING_MODE, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, colorPaletteIndex: u32, colorLayers: *mut IDWriteColorGlyphRunEnumerator1) -> HRESULT;
-            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: D2D_POINT_2F, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, glyphOrigins: *mut D2D_POINT_2F) -> HRESULT;
             fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, baselineOrigin: D2D_POINT_2F, glyphOrigins: *mut D2D_POINT_2F) -> HRESULT;
+            fn ComputeGlyphOrigins(&self, glyphRun: *const DWRITE_GLYPH_RUN, measuringMode: DWRITE_MEASURING_MODE, baselineOrigin: D2D_POINT_2F, #[opt] worldAndDpiTransform: *const DWRITE_MATRIX, glyphOrigins: *mut D2D_POINT_2F) -> HRESULT;
         }
         #[guid(0x958db99a_be2a_4f09_af7d_65189803d1d3)]
         interface IDWriteFactory5: IDWriteFactory4 {
@@ -383,8 +383,8 @@ mod Windows {
         }
         #[guid(0x27f2a904_4eb8_441d_9678_0563f53e3e2f)]
         interface IDWriteFontFace4: IDWriteFontFace3 {
-            fn GetGlyphImageFormats(&self) -> DWRITE_GLYPH_IMAGE_FORMATS;
             fn GetGlyphImageFormats(&self, glyphId: u16, pixelsPerEmFirst: u32, pixelsPerEmLast: u32, glyphImageFormats: *mut DWRITE_GLYPH_IMAGE_FORMATS) -> HRESULT;
+            fn GetGlyphImageFormats(&self) -> DWRITE_GLYPH_IMAGE_FORMATS;
             fn GetGlyphImageData(&self, glyphId: u16, pixelsPerEm: u32, glyphImageFormat: DWRITE_GLYPH_IMAGE_FORMATS, glyphData: *mut DWRITE_GLYPH_IMAGE_DATA, glyphDataContext: *mut *mut void) -> HRESULT;
             fn ReleaseGlyphImageData(&self, glyphDataContext: *mut void);
         }
@@ -475,24 +475,24 @@ mod Windows {
             fn GetFontFaceReference(&self, listIndex: u32, fontFaceReference: *mut IDWriteFontFaceReference) -> HRESULT;
             fn FindFontFaceReference(&self, fontFaceReference: IDWriteFontFaceReference, listIndex: *mut u32, exists: *mut BOOL) -> HRESULT;
             fn FindFontFace(&self, fontFace: IDWriteFontFace, listIndex: *mut u32, exists: *mut BOOL) -> HRESULT;
-            fn GetPropertyValues(&self, listIndex: u32, propertyId: DWRITE_FONT_PROPERTY_ID, exists: *mut BOOL, values: *mut IDWriteLocalizedStrings) -> HRESULT;
-            fn GetPropertyValues(&self, propertyID: DWRITE_FONT_PROPERTY_ID, preferredLocaleNames: PCWSTR, values: *mut IDWriteStringList) -> HRESULT;
             fn GetPropertyValues(&self, propertyID: DWRITE_FONT_PROPERTY_ID, values: *mut IDWriteStringList) -> HRESULT;
+            fn GetPropertyValues(&self, propertyID: DWRITE_FONT_PROPERTY_ID, preferredLocaleNames: PCWSTR, values: *mut IDWriteStringList) -> HRESULT;
+            fn GetPropertyValues(&self, listIndex: u32, propertyId: DWRITE_FONT_PROPERTY_ID, exists: *mut BOOL, values: *mut IDWriteLocalizedStrings) -> HRESULT;
             fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY, propertyOccurrenceCount: *mut u32) -> HRESULT;
-            fn GetMatchingFonts(&self, #[len_param(1)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, filteredSet: *mut IDWriteFontSet) -> HRESULT;
             fn GetMatchingFonts(&self, familyName: PCWSTR, fontWeight: DWRITE_FONT_WEIGHT, fontStretch: DWRITE_FONT_STRETCH, fontStyle: DWRITE_FONT_STYLE, filteredSet: *mut IDWriteFontSet) -> HRESULT;
+            fn GetMatchingFonts(&self, #[len_param(1)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, filteredSet: *mut IDWriteFontSet) -> HRESULT;
         }
         #[guid(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3)]
         interface IDWriteFontSet1: IDWriteFontSet {
             fn GetMatchingFonts(&self, #[opt] fontProperty: *const DWRITE_FONT_PROPERTY, #[len_param(2)] fontAxisValues: *const DWRITE_FONT_AXIS_VALUE, fontAxisValueCount: u32, matchingFonts: *mut IDWriteFontSet1) -> HRESULT;
             fn GetFirstFontResources(&self, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
-            fn GetFilteredFonts(&self, #[len_param(1)] #[opt] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, selectAnyProperty: BOOL, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
-            fn GetFilteredFonts(&self, #[len_param(1)] fontAxisRanges: *const DWRITE_FONT_AXIS_RANGE, fontAxisRangeCount: u32, selectAnyRange: BOOL, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
             fn GetFilteredFonts(&self, #[len_param(1)] indices: *const u32, indexCount: u32, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
-            fn GetFilteredFontIndices(&self, #[len_param(1)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, selectAnyProperty: BOOL, #[len_param(4)] indices: *mut u32, maxIndexCount: u32, actualIndexCount: *mut u32) -> HRESULT;
+            fn GetFilteredFonts(&self, #[len_param(1)] fontAxisRanges: *const DWRITE_FONT_AXIS_RANGE, fontAxisRangeCount: u32, selectAnyRange: BOOL, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
+            fn GetFilteredFonts(&self, #[len_param(1)] #[opt] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, selectAnyProperty: BOOL, filteredFontSet: *mut IDWriteFontSet1) -> HRESULT;
             fn GetFilteredFontIndices(&self, #[len_param(1)] fontAxisRanges: *const DWRITE_FONT_AXIS_RANGE, fontAxisRangeCount: u32, selectAnyRange: BOOL, #[len_param(4)] indices: *mut u32, maxIndexCount: u32, actualIndexCount: *mut u32) -> HRESULT;
-            fn GetFontAxisRanges(&self, #[len_param(1)] fontAxisRanges: *mut DWRITE_FONT_AXIS_RANGE, maxFontAxisRangeCount: u32, actualFontAxisRangeCount: *mut u32) -> HRESULT;
+            fn GetFilteredFontIndices(&self, #[len_param(1)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32, selectAnyProperty: BOOL, #[len_param(4)] indices: *mut u32, maxIndexCount: u32, actualIndexCount: *mut u32) -> HRESULT;
             fn GetFontAxisRanges(&self, listIndex: u32, #[len_param(2)] fontAxisRanges: *mut DWRITE_FONT_AXIS_RANGE, maxFontAxisRangeCount: u32, actualFontAxisRangeCount: *mut u32) -> HRESULT;
+            fn GetFontAxisRanges(&self, #[len_param(1)] fontAxisRanges: *mut DWRITE_FONT_AXIS_RANGE, maxFontAxisRangeCount: u32, actualFontAxisRangeCount: *mut u32) -> HRESULT;
             fn GetFontFaceReference(&self, listIndex: u32, fontFaceReference: *mut IDWriteFontFaceReference1) -> HRESULT;
             fn CreateFontResource(&self, listIndex: u32, fontResource: *mut IDWriteFontResource) -> HRESULT;
             fn CreateFontFace(&self, listIndex: u32, fontFace: *mut IDWriteFontFace5) -> HRESULT;
@@ -515,8 +515,8 @@ mod Windows {
         }
         #[guid(0x2f642afe_9c68_4f40_b8be_457401afcb3d)]
         interface IDWriteFontSetBuilder: IUnknown {
-            fn AddFontFaceReference(&self, fontFaceReference: IDWriteFontFaceReference) -> HRESULT;
             fn AddFontFaceReference(&self, fontFaceReference: IDWriteFontFaceReference, #[len_param(2)] properties: *const DWRITE_FONT_PROPERTY, propertyCount: u32) -> HRESULT;
+            fn AddFontFaceReference(&self, fontFaceReference: IDWriteFontFaceReference) -> HRESULT;
             fn AddFontSet(&self, fontSet: IDWriteFontSet) -> HRESULT;
             fn CreateFontSet(&self, fontSet: *mut IDWriteFontSet) -> HRESULT;
         }
@@ -532,8 +532,8 @@ mod Windows {
         #[guid(0x4556be70_3abd_4f70_90be_421780a6f515)]
         interface IDWriteGdiInterop1: IDWriteGdiInterop {
             fn CreateFontFromLOGFONT(&self, logFont: *const LOGFONTW, #[opt] fontCollection: IDWriteFontCollection, font: *mut IDWriteFont) -> HRESULT;
-            fn GetFontSignature(&self, font: IDWriteFont, fontSignature: *mut FONTSIGNATURE) -> HRESULT;
             fn GetFontSignature(&self, fontFace: IDWriteFontFace, fontSignature: *mut FONTSIGNATURE) -> HRESULT;
+            fn GetFontSignature(&self, font: IDWriteFont, fontSignature: *mut FONTSIGNATURE) -> HRESULT;
             fn GetMatchingFontsByLOGFONT(&self, logFont: *const LOGFONT, fontSet: IDWriteFontSet, filteredSet: *mut IDWriteFontSet) -> HRESULT;
         }
         #[guid(0xdc102f47_a12d_4b1c_822d_9e117e33043f)]

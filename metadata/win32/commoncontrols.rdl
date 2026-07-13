@@ -77,6 +77,6 @@ mod Windows {
         }
         const ImageList: GUID = 0x7c476ba2_02b1_48f4_8048_b24619ddc058;
         #[library("COMCTL32.dll")]
-        extern fn ImageList_CoCreateInstance(rclsid: *const GUID, #[opt] punkOuter: IUnknown, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn ImageList_CoCreateInstance(rclsid: *const GUID, #[opt] punkOuter: IUnknown, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
     }
 }

@@ -1,0 +1,15 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x64338358_366a_471b_bd56_dd8ef48e439b)]
+        interface IDisplayDeviceInterop: IUnknown {
+            fn CreateSharedHandle(&self, pObject: IInspectable, pSecurityAttributes: *const SECURITY_ATTRIBUTES, Access: u32, Name: HSTRING, #[retval] pHandle: *mut HANDLE) -> HRESULT;
+            fn OpenSharedHandle(&self, NTHandle: HANDLE, riid: GUID, #[retval] ppvObj: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d)]
+        interface IDisplayPathInterop: IUnknown {
+            fn CreateSourcePresentationHandle(&self, #[retval] pValue: *mut HANDLE) -> HRESULT;
+            fn GetSourceId(&self, #[retval] pSourceId: *mut u32) -> HRESULT;
+        }
+    }
+}

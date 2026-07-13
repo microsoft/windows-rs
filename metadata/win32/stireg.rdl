@@ -1,6 +1,10 @@
 #[win32]
 mod Windows {
     mod Win32 {
+        #[guid(0x6bdd1fc6_810f_11d0_bec7_08002be2092f)]
+        const DEVPKEY_WIA_DeviceType: DEVPROPKEY = 2;
+        #[guid(0x6bdd1fc6_810f_11d0_bec7_08002be2092f)]
+        const DEVPKEY_WIA_USDClassId: DEVPROPKEY = 3;
         #[encoding("utf-16")]
         const IS_DIGITAL_CAMERA_STR: String = "IsDigitalCamera";
         const IS_DIGITAL_CAMERA_VAL: u32 = 1;

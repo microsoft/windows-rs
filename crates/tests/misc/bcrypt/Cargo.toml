@@ -11,13 +11,15 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Security_Cryptography",
+    "bcrypt",
+    "ntstatus",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Security_Cryptography",
+    "bcrypt",
+    "ntstatus",
 ]
 
 [lints]

@@ -1,0 +1,27 @@
+#[win32]
+mod Test {
+    struct DIALOG_CONFIG {
+        flags: SHCONTF,
+        dialog: TASKDIALOG_FLAGS,
+        view: SVGIO,
+    }
+    #[repr(u32)]
+    enum SHCONTF {
+        SHCONTF_FOLDERS = 32,
+        SHCONTF_NONFOLDERS = 64,
+        SHCONTF_INIT_ON_FIRST_NEXT = 256,
+    }
+    #[repr(u32)]
+    #[flags]
+    enum SVGIO {
+        SVGIO_BACKGROUND = 0,
+        SVGIO_TYPE_MASK = 15,
+        SVGIO_FLAG_VIEWORDER = 2147483648,
+    }
+    #[repr(i32)]
+    enum TASKDIALOG_FLAGS {
+        TDF_ENABLE_HYPERLINKS = 1,
+        TDF_USE_HICON_MAIN = 2,
+        TDF_ALL = -2147483648,
+    }
+}

@@ -1,15 +1,12 @@
 #![cfg(windows)]
-use windows_sys::{
-    Win32::System::Registry::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*,
-    core::*,
-};
+use windows_sys::{core::*, threadpoolapiset::*, winnt::*, winreg::*, winuser::*};
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]
 fn test() {
     unsafe {
         assert_eq!(InSendMessageEx(std::ptr::null_mut()), ISMEX_NOSEND);
-        assert!(CreateThreadpool(std::ptr::null_mut()) != 0);
+        assert!(!CreateThreadpool(std::ptr::null_mut()).is_null());
         assert_eq!(
             TrackPopupMenu(
                 core::ptr::null_mut(),

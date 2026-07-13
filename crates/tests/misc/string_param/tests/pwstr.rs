@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Win32::UI::Shell::*, core::*};
+use windows::{core::*, shlwapi::*};
 
 #[test]
 fn convert() {

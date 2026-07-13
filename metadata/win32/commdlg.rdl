@@ -340,18 +340,12 @@ mod Windows {
         const HELPMSGSTRINGW: String = "commdlg_help";
         #[guid(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9)]
         interface IPrintDialogCallback: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn InitDone(&self) -> HRESULT;
             fn SelectionChange(&self) -> HRESULT;
             fn HandleMessage(&self, hDlg: HWND, uMsg: u32, wParam: WPARAM, lParam: LPARAM, pResult: *mut LRESULT) -> HRESULT;
         }
         #[guid(0x509aaeda_5639_11d1_b6a1_0000f8757bf9)]
         interface IPrintDialogServices: IUnknown {
-            fn QueryInterface(&self, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetCurrentDevMode(&self, #[in] #[out] pDevMode: LPDEVMODE, #[in] #[out] pcbSize: *mut u32) -> HRESULT;
             fn GetCurrentPrinterName(&self, #[len_param(1)] #[out] #[opt] pPrinterName: PWSTR, #[in] #[out] pcchSize: *mut u32) -> HRESULT;
             fn GetCurrentPortName(&self, #[len_param(1)] #[out] #[opt] pPortName: PWSTR, #[in] #[out] pcchSize: *mut u32) -> HRESULT;

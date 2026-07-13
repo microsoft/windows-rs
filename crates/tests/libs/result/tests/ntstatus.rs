@@ -1,7 +1,10 @@
 #![cfg(windows)]
-use windows::Win32::Foundation::{S_OK, STATUS_INVALID_ACL, STATUS_SUCCESS};
+use windows::{ntstatus as metadata_ntstatus, winerror::S_OK};
 use windows_result::Result as WindowsResult;
 use windows_result::{HRESULT, NTSTATUS};
+
+const STATUS_INVALID_ACL: NTSTATUS = NTSTATUS(metadata_ntstatus::STATUS_INVALID_ACL.0);
+const STATUS_SUCCESS: NTSTATUS = NTSTATUS(metadata_ntstatus::STATUS_SUCCESS.0);
 
 #[test]
 fn test() {

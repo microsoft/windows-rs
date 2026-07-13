@@ -152,6 +152,12 @@ mod Windows {
             SeekType: i32,
             SimulatedHardware: i32,
         }
+        #[guid(0x13e004d6_b066_43bd_913b_a415cd13da87)]
+        const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: DEVPROPKEY = 3;
+        #[guid(0x13e004d6_b066_43bd_913b_a415cd13da87)]
+        const DEVPKEY_KsAudio_PacketSize_Constraints: DEVPROPKEY = 2;
+        #[guid(0x9404f781_7191_409b_8b0b_80bf6ec229ae)]
+        const DEVPKEY_KsAudio_PacketSize_Constraints2: DEVPROPKEY = 2;
         struct DS3DVECTOR {
             Anonymous: union {
                 x: f32,

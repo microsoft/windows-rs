@@ -14,7 +14,7 @@ mod Windows {
         }
         #[guid(0x8f02d140_56fc_4302_a705_3a97c78be779)]
         interface IMFCaptureEngineClassFactory: IUnknown {
-            fn CreateInstance(&self, clsid: *const GUID, riid: *const GUID, ppvObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, clsid: *const GUID, riid: *const GUID, #[iid_is] ppvObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xaeda51c0_9025_4983_9012_de597b88b089)]
         interface IMFCaptureEngineOnEventCallback: IUnknown {
@@ -58,7 +58,7 @@ mod Windows {
         #[guid(0x72d6135b_35e9_412c_b926_fd5265f2a885)]
         interface IMFCaptureSink: IUnknown {
             fn GetOutputMediaType(&self, dwSinkStreamIndex: u32, #[opt] ppMediaType: *mut IMFMediaType) -> HRESULT;
-            fn GetService(&self, dwSinkStreamIndex: u32, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn GetService(&self, dwSinkStreamIndex: u32, rguidService: *const GUID, riid: *const GUID, #[iid_is] #[opt] ppUnknown: *mut *mut void) -> HRESULT;
             fn AddStream(&self, dwSourceStreamIndex: u32, pMediaType: IMFMediaType, #[opt] pAttributes: IMFAttributes, #[opt] pdwSinkStreamIndex: *mut u32) -> HRESULT;
             fn Prepare(&self) -> HRESULT;
             fn RemoveAllStreams(&self) -> HRESULT;
@@ -71,7 +71,7 @@ mod Windows {
         interface IMFCaptureSource: IUnknown {
             fn GetCaptureDeviceSource(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppMediaSource: *mut IMFMediaSource) -> HRESULT;
             fn GetCaptureDeviceActivate(&self, mfCaptureEngineDeviceType: MF_CAPTURE_ENGINE_DEVICE_TYPE, #[opt] ppActivate: *mut IMFActivate) -> HRESULT;
-            fn GetService(&self, rguidService: *const GUID, riid: *const GUID, #[opt] ppUnknown: *mut IUnknown) -> HRESULT;
+            fn GetService(&self, rguidService: *const GUID, riid: *const GUID, #[iid_is] #[opt] ppUnknown: *mut *mut void) -> HRESULT;
             fn AddEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
             fn RemoveEffect(&self, dwSourceStreamIndex: u32, pUnknown: IUnknown) -> HRESULT;
             fn RemoveAllEffects(&self, dwSourceStreamIndex: u32) -> HRESULT;

@@ -1,9 +1,10 @@
 #![cfg(windows)]
 use windows::{
     Foundation::Collections::StringMap,
-    Win32::System::Com::{COINIT_MULTITHREADED, CoInitializeEx},
-    Win32::System::WinRT::RoActivateInstance,
+    combaseapi::CoInitializeEx,
     core::{HSTRING, Interface, Result},
+    objbase::COINIT_MULTITHREADED,
+    ro::RoActivateInstance,
 };
 
 // Calling RoActivateInstance is a useful interop test because it is a function defined by Win32 metadata
@@ -12,7 +13,7 @@ use windows::{
 // activate WinRT types directly as it can do so far more efficiently.
 #[test]
 fn test() -> Result<()> {
-    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED).ok()? };
+    unsafe { CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()? };
 
     let instance: HSTRING = "Windows.Foundation.Collections.StringMap".into();
     let instance = unsafe { RoActivateInstance(&instance)? };

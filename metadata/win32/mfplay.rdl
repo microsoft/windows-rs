@@ -81,8 +81,22 @@ mod Windows {
             flags: MFP_CREDENTIAL_FLAGS,
             pCredential: IMFNetCredential,
         }
-        type MFP_CREATION_OPTIONS = u32;
-        type MFP_CREDENTIAL_FLAGS = u32;
+        #[repr(u32)]
+        enum MFP_CREATION_OPTIONS {
+            MFP_OPTION_NONE = 0,
+            MFP_OPTION_FREE_THREADED_CALLBACK = 1,
+            MFP_OPTION_NO_MMCSS = 2,
+            MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION = 4,
+        }
+        #[repr(u32)]
+        enum MFP_CREDENTIAL_FLAGS {
+            MFP_CREDENTIAL_PROMPT = 1,
+            MFP_CREDENTIAL_SAVE = 2,
+            MFP_CREDENTIAL_DO_NOT_CACHE = 4,
+            MFP_CREDENTIAL_CLEAR_TEXT = 8,
+            MFP_CREDENTIAL_PROXY = 16,
+            MFP_CREDENTIAL_LOGGED_ON_USER = 32,
+        }
         struct MFP_ERROR_EVENT {
             header: MFP_EVENT_HEADER,
         }
@@ -113,7 +127,13 @@ mod Windows {
             header: MFP_EVENT_HEADER,
             pMediaItem: IMFPMediaItem,
         }
-        type MFP_MEDIAITEM_CHARACTERISTICS = u32;
+        #[repr(u32)]
+        enum MFP_MEDIAITEM_CHARACTERISTICS {
+            MFP_MEDIAITEM_IS_LIVE = 1,
+            MFP_MEDIAITEM_CAN_SEEK = 2,
+            MFP_MEDIAITEM_CAN_PAUSE = 4,
+            MFP_MEDIAITEM_HAS_SLOW_SEEK = 8,
+        }
         struct MFP_MEDIAITEM_CLEARED_EVENT {
             header: MFP_EVENT_HEADER,
             pMediaItem: IMFPMediaItem,
@@ -165,29 +185,6 @@ mod Windows {
         struct MFP_STOP_EVENT {
             header: MFP_EVENT_HEADER,
             pMediaItem: IMFPMediaItem,
-        }
-        #[repr(i32)]
-        enum _MFP_CREATION_OPTIONS {
-            MFP_OPTION_NONE = 0,
-            MFP_OPTION_FREE_THREADED_CALLBACK = 1,
-            MFP_OPTION_NO_MMCSS = 2,
-            MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION = 4,
-        }
-        #[repr(i32)]
-        enum _MFP_CREDENTIAL_FLAGS {
-            MFP_CREDENTIAL_PROMPT = 1,
-            MFP_CREDENTIAL_SAVE = 2,
-            MFP_CREDENTIAL_DO_NOT_CACHE = 4,
-            MFP_CREDENTIAL_CLEAR_TEXT = 8,
-            MFP_CREDENTIAL_PROXY = 16,
-            MFP_CREDENTIAL_LOGGED_ON_USER = 32,
-        }
-        #[repr(i32)]
-        enum _MFP_MEDIAITEM_CHARACTERISTICS {
-            MFP_MEDIAITEM_IS_LIVE = 1,
-            MFP_MEDIAITEM_CAN_SEEK = 2,
-            MFP_MEDIAITEM_CAN_PAUSE = 4,
-            MFP_MEDIAITEM_HAS_SLOW_SEEK = 8,
         }
     }
 }

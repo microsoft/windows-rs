@@ -171,9 +171,6 @@ mod Windows {
         const D3D_SHADER_REQUIRES_UAVS_AT_EVERY_STAGE: u32 = 4;
         #[guid(0x54133220_1ce8_43d3_8236_9855c5ceecff)]
         interface ID3D11FunctionLinkingGraph: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CreateModuleInstance(&self, ppModuleInstance: *mut ID3D11ModuleInstance, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
             fn SetInputSignature(&self, pInputParameters: *const D3D11_PARAMETER_DESC, cInputParameters: u32, ppInputNode: *mut ID3D11LinkingNode) -> HRESULT;
             fn SetOutputSignature(&self, pOutputParameters: *const D3D11_PARAMETER_DESC, cOutputParameters: u32, ppOutputNode: *mut ID3D11LinkingNode) -> HRESULT;
@@ -199,39 +196,23 @@ mod Windows {
         }
         #[guid(0x54384f1b_5b3e_4bb7_ae01_60ba3097cbb6)]
         interface ID3D11LibraryReflection: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDesc(&self, pDesc: *mut D3D11_LIBRARY_DESC) -> HRESULT;
             fn GetFunctionByIndex(&self, FunctionIndex: i32) -> ID3D11FunctionReflection;
         }
         #[guid(0x59a6cd0e_e10d_4c1f_88c0_63aba1daf30e)]
         interface ID3D11Linker: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn Link(&self, pEntry: ID3D11ModuleInstance, pEntryName: PCSTR, pTargetName: PCSTR, uFlags: u32, ppShaderBlob: *mut ID3D10Blob, ppErrorBuffer: *mut ID3D10Blob) -> HRESULT;
             fn UseLibrary(&self, pLibraryMI: ID3D11ModuleInstance) -> HRESULT;
             fn AddClipPlaneFromCBuffer(&self, uCBufferSlot: u32, uCBufferEntry: u32) -> HRESULT;
         }
         #[guid(0xd80dd70c_8d2f_4751_94a1_03c79b3556db)]
-        interface ID3D11LinkingNode: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
-        }
+        interface ID3D11LinkingNode: IUnknown {}
         #[guid(0xcac701ee_80fc_4122_8242_10b39c8cec34)]
         interface ID3D11Module: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn CreateInstance(&self, #[opt] pNamespace: PCSTR, ppModuleInstance: *mut ID3D11ModuleInstance) -> HRESULT;
         }
         #[guid(0x469e07f7_045a_48d5_aa12_68a478cdf75d)]
         interface ID3D11ModuleInstance: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn BindConstantBuffer(&self, uSrcSlot: u32, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
             fn BindConstantBufferByName(&self, pName: PCSTR, uDstSlot: u32, cbDstOffset: u32) -> HRESULT;
             fn BindResource(&self, uSrcSlot: u32, uDstSlot: u32, uCount: u32) -> HRESULT;
@@ -245,9 +226,6 @@ mod Windows {
         }
         #[guid(0x8d536ca1_0cca_4956_a837_786963755584)]
         interface ID3D11ShaderReflection: IUnknown {
-            fn QueryInterface(&self, iid: *const GUID, ppv: *mut *mut void) -> HRESULT;
-            fn AddRef(&self) -> u32;
-            fn Release(&self) -> u32;
             fn GetDesc(&self, pDesc: *mut D3D11_SHADER_DESC) -> HRESULT;
             fn GetConstantBufferByIndex(&self, Index: u32) -> ID3D11ShaderReflectionConstantBuffer;
             fn GetConstantBufferByName(&self, Name: PCSTR) -> ID3D11ShaderReflectionConstantBuffer;

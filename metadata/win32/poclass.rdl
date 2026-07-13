@@ -262,6 +262,8 @@ mod Windows {
         type PPOWER_ADAPTER_STATUS = *mut POWER_ADAPTER_STATUS;
         type PPROCESSOR_OBJECT_INFO = *mut PROCESSOR_OBJECT_INFO;
         type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
+        #[guid(0x5724c81d_d5af_4c1f_a103_a06e28f204c6)]
+        const PROCESSOR_NUMBER_PKEY: DEVPROPKEY = 1;
         struct PROCESSOR_OBJECT_INFO {
             PhysicalID: u32,
             PBlkAddress: u32,

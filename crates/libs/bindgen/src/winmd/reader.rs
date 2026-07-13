@@ -6,6 +6,9 @@ fn insert(types: &mut HashMap<&'static str, Vec<Type>>, name: &'static str, ty: 
 
 pub struct Reader {
     map: HashMap<&'static str, HashMap<&'static str, Vec<Type>>>,
+    /// Whether this reader feeds a sys-style (`windows-sys`) generation. Gates the
+    /// `Windows.Foundation.Numerics` projection off (sys keeps raw D2D/D3D structs).
+    pub sys: bool,
 }
 
 impl std::ops::Deref for Reader {
@@ -17,7 +20,7 @@ impl std::ops::Deref for Reader {
 }
 
 impl Reader {
-    pub fn new(files: Vec<File>) -> Self {
+    pub fn new(files: Vec<File>, sys: bool) -> Self {
         // Build a `'static` metadata index that owns the parsed winmd files for the lifetime
         // of the process. This is the single sanctioned leak point — all subsequent
         // `TypeDef<'static>`, `Field<'static>`, etc. values reference data owned by it.
@@ -26,12 +29,13 @@ impl Reader {
 
         let mut reader = Self {
             map: HashMap::new(),
+            sys,
         };
 
         for (namespace, name, item) in index.iter_items() {
             match item {
                 windows_metadata::reader::Item::Type(def) => {
-                    if Type::remap(namespace, name) != Remap::None {
+                    if Type::remap(namespace, name, sys) != Remap::None {
                         continue;
                     }
 
@@ -83,13 +87,19 @@ impl Reader {
                                 insert(types, name, Type::CppEnum(CppEnum { def }));
 
                                 if !def.has_attribute("ScopedEnumAttribute") {
+                                    let enum_arches = def.arches();
                                     for field in def.fields() {
                                         if field.flags().contains(FieldAttributes::Literal) {
                                             let field_name = field.name();
                                             insert(
                                                 types,
                                                 field_name,
-                                                Type::CppConst(CppConst { namespace, field }),
+                                                Type::CppConst(CppConst {
+                                                    namespace,
+                                                    field,
+                                                    enum_arches,
+                                                    is_enum_member: true,
+                                                }),
                                             );
                                         }
                                     }
@@ -147,7 +157,16 @@ impl Reader {
                 }
                 windows_metadata::reader::Item::Const(field) => {
                     let types = reader.map.entry(namespace).or_default();
-                    insert(types, name, Type::CppConst(CppConst { namespace, field }));
+                    insert(
+                        types,
+                        name,
+                        Type::CppConst(CppConst {
+                            namespace,
+                            field,
+                            enum_arches: 0,
+                            is_enum_member: false,
+                        }),
+                    );
                 }
             }
         }

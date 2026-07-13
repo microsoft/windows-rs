@@ -1,8 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::Graphics::Direct3D::Fxc::*, Win32::Graphics::Gdi::*, Win32::System::ClrHosting::*,
-    Win32::System::Threading::*, core::*,
-};
+use windows::{core::*, d3dcompiler::*, synchapi::*, windef::*, wingdi::*};
 
 #[test]
 fn linker() -> Result<()> {
@@ -34,23 +31,8 @@ fn gdi() {
 #[test]
 fn wait_on_address() {
     unsafe {
-        WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, None).unwrap_err();
-    }
-}
-
-#[test]
-fn clr() -> Result<()> {
-    unsafe {
-        let mut version = vec![0; 20];
-        let mut len = 0;
-        GetFileVersion(
-            w!("../../../libs/bindgen/default/Windows.winmd"),
-            Some(&mut version),
-            &mut len,
-        )
-        .ok()?;
-        let version = String::from_utf16_lossy(&version[..len as usize - 1]);
-        assert_eq!(version, "WindowsRuntime 1.4");
-        Ok(())
+        WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, None)
+            .ok()
+            .unwrap_err();
     }
 }

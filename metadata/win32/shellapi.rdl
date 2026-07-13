@@ -744,7 +744,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetFileInfoW(pszPath: PCWSTR, dwFileAttributes: u32, #[size_param(3)] #[in] #[out] #[opt] psfi: *mut SHFILEINFOW, cbFileInfo: u32, uFlags: u32) -> usize;
         #[library("SHELL32.dll")]
-        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, ppvObj: *mut *mut void) -> HRESULT;
+        extern fn SHGetImageList(iImageList: i32, riid: *const GUID, #[iid_is] ppvObj: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetLocalizedName(pszPath: PCWSTR, #[len_param(2)] #[out] pszResModule: PWSTR, cch: u32, pidsRes: *mut i32) -> HRESULT;
         #[library("SHELL32.dll")]
@@ -752,7 +752,7 @@ mod Windows {
         #[library("SHELL32.dll")]
         extern fn SHGetNewLinkInfoW(pszLinkTo: PCWSTR, pszDir: PCWSTR, #[out] pszName: PWSTR, pfMustCopy: *mut BOOL, uFlags: u32) -> BOOL;
         #[library("SHELL32.dll")]
-        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, ppv: *mut *mut void) -> HRESULT;
+        extern fn SHGetPropertyStoreForWindow(hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHELL32.dll")]
         extern fn SHGetStockIconInfo(siid: SHSTOCKICONID, uFlags: u32, #[in] #[out] psii: *mut SHSTOCKICONINFO) -> HRESULT;
         #[library("SHELL32.dll")]
