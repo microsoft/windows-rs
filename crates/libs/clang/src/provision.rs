@@ -228,9 +228,10 @@ fn nuget_root() -> PathBuf {
 /// layout so the same pinned corpus regenerates from a global-cache restore
 /// (`<root>/<id>/<version>/`, what `dotnet`/PackageReference and a local cache produce) or a
 /// flat restore (`<root>/<Id>.<Version>/`, what `nuget restore -PackagesDirectory` produces). The
-/// content under each (`c/Include/...`, `c/um/...`) is
-/// identical. When neither is present the pinned nupkg is fetched from nuget.org into the
-/// global-cache layout on demand, so a fresh checkout needs no prior `nuget restore`.
+/// extracted content under each is identical (the SDK header packages carry a `c/Include/...`
+/// tree, the WinUI / WebView2 metadata packages a `metadata/` or `lib/` tree). When neither is
+/// present the pinned nupkg is fetched from nuget.org into the global-cache layout on demand, so
+/// a fresh checkout needs no prior `nuget restore`.
 pub fn nuget_package(id: &str, version: &str) -> PathBuf {
     let root = nuget_root();
     let global = root.join(id).join(version);
@@ -247,7 +248,7 @@ pub fn nuget_package(id: &str, version: &str) -> PathBuf {
 
 /// Downloads the pinned nupkg from nuget.org and extracts it into `dest`
 /// (`<nuget-root>/<id>/<version>/`). A nupkg is a zip; `tar` (ships with Windows) extracts it,
-/// preserving the `c/...` trees [`nuget_package`] reads. Pure tooling glue around `curl` +
+/// preserving the package tree [`nuget_package`] reads. Pure tooling glue around `curl` +
 /// `tar`; any failure panics with the command that failed and a pointer at the manual
 /// `nuget restore` step so a developer can run it by hand.
 fn fetch_nuget_package(id: &str, version: &str, dest: &Path) {
@@ -271,7 +272,7 @@ fn fetch_nuget_package(id: &str, version: &str, dest: &Path) {
         .status()
         .unwrap_or_else(|e| panic!("failed to run `tar` to extract `{id}` {version}: {e}"));
     assert!(
-        status.success() && dest.join("c").is_dir(),
+        status.success() && dest.join("[Content_Types].xml").is_file(),
         "tar failed to extract the pinned NuGet package `{id}` {version} into `{}`.\n\
          Restore it manually into the NuGet global cache:\n  \
          nuget install {id} -Version {version} -OutputDirectory \"{}\"",

@@ -6,6 +6,7 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
+tool_reactor = { path = "../reactor" }
 windows-bindgen = { workspace = true }
 windows-clang = { workspace = true }
 windows-rdl = { workspace = true }

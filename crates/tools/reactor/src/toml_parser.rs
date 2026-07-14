@@ -408,10 +408,9 @@ impl LineIndex {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::path::Path;
 
     fn resolver() -> MetadataResolver {
-        MetadataResolver::load(Path::new("winmd"))
+        MetadataResolver::load(tool_reactor::stage::winmd_dir())
     }
 
     // ── Valid TOML parsing ─────────────────────────────────────────

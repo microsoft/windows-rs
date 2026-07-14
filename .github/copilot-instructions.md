@@ -111,8 +111,10 @@ The core `windows` / `windows-sys` crates are generated from Windows metadata
 canvas / webview pipelines layer on top:
 
 1. **`tool_reactor`** — reads `crates/tools/reactor/src/winui.toml` + WinUI `.winmd`
-   metadata → generates `generated.rs`, `generated_set_prop.rs`,
-   `generated_attach_event.rs`, and `generated.txt` filter entries.
+   metadata (downloaded from NuGet by pinned version constant in
+   `crates/tools/reactor/src/stage.rs`, staged under `target/reactor/winmd/`) →
+   generates `generated.rs`, `generated_set_prop.rs`, `generated_attach_event.rs`,
+   and `generated.txt` filter entries.
 
 2. **`tool_bindings`** — reads filter `.txt` files from `crates/tools/bindings/src/`
    → runs `windows-bindgen` → generates `bindings.rs` in each crate:

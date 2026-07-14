@@ -1,4 +1,3 @@
---in crates/tools/reactor/winmd default
 --out crates/libs/webview/src/reactor_bindings.rs
 --flat --minimal
 --implement

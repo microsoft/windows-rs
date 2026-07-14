@@ -39,10 +39,20 @@ fn main() {
 
     // Feature-gated WinRT bindings for the `reactor` integration: the WinUI XAML
     // `WebView2` control (Microsoft.UI.Xaml.winmd) and the WinRT `CoreWebView2`
-    // (Microsoft.Web.WebView2.Core.winmd), generated straight from the vendored
-    // winmd metadata. The control's `CoreWebView2` is bridged to the COM
-    // `ICoreWebView2` above via `ICoreWebView2Interop2::GetComICoreWebView2`.
-    windows_bindgen::bindgen(["--etc", "crates/tools/webview/src/reactor.txt"]);
+    // (Microsoft.Web.WebView2.Core.winmd), generated from the same WinUI metadata
+    // `tool_reactor` fetches on demand (staged under `target/reactor/winmd`). The
+    // control's `CoreWebView2` is bridged to the COM `ICoreWebView2` above via
+    // `ICoreWebView2Interop2::GetComICoreWebView2`.
+    let winmd_dir = tool_reactor::stage::winmd_dir()
+        .to_str()
+        .expect("winmd dir path is valid UTF-8");
+    windows_bindgen::bindgen([
+        "--in",
+        winmd_dir,
+        "default",
+        "--etc",
+        "crates/tools/webview/src/reactor.txt",
+    ]);
 
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }

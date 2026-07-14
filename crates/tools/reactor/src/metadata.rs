@@ -580,14 +580,14 @@ mod tests {
 
     #[test]
     fn resolve_textblock_put_text() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         let iface = resolver.resolve("TextBlock", "put_Text");
         assert_eq!(iface.map(|r| r.short_name()), Some("ITextBlock"));
     }
 
     #[test]
     fn resolve_button_put_is_enabled() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         // Button extends Control, so put_IsEnabled should resolve to IControl.
         let iface = resolver.resolve("Button", "put_IsEnabled");
         assert_eq!(iface.map(|r| r.short_name()), Some("IControl"));
@@ -595,7 +595,7 @@ mod tests {
 
     #[test]
     fn resolve_slider_put_value() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         let iface = resolver.resolve("Slider", "put_Value");
         // Slider.put_Value is on IRangeBase (from RangeBase base class).
         assert!(iface.is_some(), "Slider.put_Value should resolve");
@@ -607,7 +607,7 @@ mod tests {
 
     #[test]
     fn infer_single_field_wrapper_types() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         // FontWeight is a struct with one field (Weight: u16) → unwraps to U16, Copy
         assert_eq!(
             resolver.infer_value_type("TextBlock", "put_FontWeight"),
@@ -642,7 +642,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_numberbox() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         let result = resolver.infer_event_args_type("NumberBox", "add_ValueChanged", "NewValue");
         assert_eq!(
             result.as_deref(),
@@ -653,7 +653,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_slider() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         let result = resolver.infer_event_args_type("Slider", "add_ValueChanged", "NewValue");
         assert_eq!(
             result.as_deref(),
@@ -664,7 +664,7 @@ mod tests {
 
     #[test]
     fn infer_event_args_type_breadcrumbbar() {
-        let resolver = MetadataResolver::load(Path::new("winmd"));
+        let resolver = MetadataResolver::load(tool_reactor::stage::winmd_dir());
         let result = resolver.infer_event_args_type("BreadcrumbBar", "add_ItemClicked", "Index");
         assert_eq!(
             result.as_deref(),

@@ -5,6 +5,7 @@ the job; each crate's own documentation then covers how to use it, with examples
 
 - 📁 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples)
 - 🚀 [Releases](https://github.com/microsoft/windows-rs/releases)
+- 📦 [Dependencies](dependencies.md) — external SDKs, headers, metadata, and runtimes, and how they are updated.
 
 ## A family of crates
 

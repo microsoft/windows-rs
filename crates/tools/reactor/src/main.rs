@@ -9,11 +9,12 @@ mod toml_parser;
 
 use metadata::MetadataResolver;
 use std::path::PathBuf;
+use tool_reactor::stage;
 
 fn main() {
     let time = std::time::Instant::now();
 
-    let resolver = MetadataResolver::load(&PathBuf::from("crates/tools/reactor/winmd"));
+    let resolver = MetadataResolver::load(stage::winmd_dir());
 
     let toml_path = PathBuf::from("crates/tools/reactor/src/winui.toml");
     let toml_content = std::fs::read_to_string(&toml_path)
@@ -74,16 +75,13 @@ fn main() {
 
 /// Generate the reactor's `bindings.rs` and test bindings from winmd + filter files.
 fn generate_reactor_bindings() {
-    windows_rdl::Reader::new()
-        .input("crates/tools/reactor/src/extras.rdl")
-        .input("crates/libs/bindgen/default/Windows.Win32.winmd")
-        .output("crates/tools/reactor/winmd/extras.winmd")
-        .write()
-        .unwrap();
+    let winmd_dir = stage::winmd_dir()
+        .to_str()
+        .expect("winmd dir path is valid UTF-8");
 
     let reactor_args = [
         "--in",
-        "crates/tools/reactor/winmd",
+        winmd_dir,
         "crates/libs/bindgen/default/Windows.winmd",
         "crates/libs/bindgen/default/Windows.Win32.winmd",
         "--out",
@@ -103,7 +101,7 @@ fn generate_reactor_bindings() {
 
     let test_args = [
         "--in",
-        "crates/tools/reactor/winmd",
+        winmd_dir,
         "crates/libs/bindgen/default/Windows.winmd",
         "crates/libs/bindgen/default/Windows.Win32.winmd",
         "--out",
