@@ -7,7 +7,7 @@ pub const IP_MARGIN: u32 = 4;
 pub const MAX_PACKET_BUTTON_COUNT: u32 = 32;
 pub const MAX_PACKET_PROPERTY_COUNT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
@@ -57,7 +57,7 @@ pub const PROPERTY_UNITS_SILINEAR: PROPERTY_UNITS = 8;
 pub const PROPERTY_UNITS_SIROTATION: PROPERTY_UNITS = 9;
 pub const PROPERTY_UNITS_SLUGS: PROPERTY_UNITS = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
@@ -66,7 +66,7 @@ pub struct STROKE_RANGE {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SYSTEM_EVENT(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,

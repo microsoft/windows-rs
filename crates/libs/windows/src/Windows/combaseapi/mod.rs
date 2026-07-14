@@ -733,7 +733,7 @@ pub const SMEXF_HANDLER: STDMSHLFLAGS = 2;
 pub const SMEXF_SERVER: STDMSHLFLAGS = 1;
 pub type STDMSHLFLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ServerInformation {
     pub dwServerPid: u32,
     pub dwServerTid: u32,

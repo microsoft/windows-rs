@@ -343,7 +343,7 @@ impl IFunctionDiscoveryNotification_Vtbl {
 #[cfg(all(feature = "servprov", feature = "winnt"))]
 impl windows_core::RuntimeName for IFunctionDiscoveryNotification {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFunctionDiscoveryProviderRefresh(pub u8);
 #[cfg(feature = "servprov")]
 windows_core::imp::define_interface!(IFunctionInstance, IFunctionInstance_Vtbl, 0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
@@ -699,10 +699,10 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFunctionInstanceCollectionQuery {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFunctionInstanceCollectionQuery2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFunctionInstanceCollectionQueryCollection(pub u8);
 windows_core::imp::define_interface!(IFunctionInstanceQuery, IFunctionInstanceQuery_Vtbl, 0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
 windows_core::imp::interface_hierarchy!(IFunctionInstanceQuery, windows_core::IUnknown);
@@ -752,7 +752,7 @@ impl IFunctionInstanceQuery_Vtbl {
 #[cfg(feature = "servprov")]
 impl windows_core::RuntimeName for IFunctionInstanceQuery {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IFunctionInstanceQuery2(pub u8);
 windows_core::imp::define_interface!(IPropertyStoreCollection, IPropertyStoreCollection_Vtbl, 0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
 windows_core::imp::interface_hierarchy!(IPropertyStoreCollection, windows_core::IUnknown);

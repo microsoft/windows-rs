@@ -106,14 +106,14 @@ impl Default for WEB_SOCKET_BUFFER {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: super::minwindef::PBYTE,
     pub ulBufferLength: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: super::minwindef::PBYTE,
     pub ulReasonLength: u32,
@@ -136,7 +136,7 @@ impl Default for WEB_SOCKET_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: super::winnt::PCHAR,
     pub ulNameLength: u32,
@@ -154,7 +154,7 @@ pub const WEB_SOCKET_NO_ACTION: WEB_SOCKET_ACTION = 0;
 pub const WEB_SOCKET_PING_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483643;
 pub const WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1008;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,

@@ -2719,7 +2719,7 @@ pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
 #[cfg(feature = "wtypes")]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: windows_core::GUID,
@@ -2727,7 +2727,7 @@ pub struct WIA_DATA_CALLBACK_HEADER {
     pub lPageCount: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
@@ -2738,7 +2738,7 @@ pub struct WIA_DATA_TRANSFER_INFO {
     pub ulReserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_core::GUID,
     pub ulFlags: u32,
@@ -2748,7 +2748,7 @@ pub struct WIA_DEV_CAP {
     pub bstrCommandline: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -2764,7 +2764,7 @@ impl Default for WIA_DITHER_PATTERN_DATA {
 }
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -2773,14 +2773,14 @@ pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulNumBuffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: windows_core::GUID,
     pub lTymed: i32,
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::wtypes::PROPID,
     pub pszName: windows_core::PWSTR,
@@ -2789,7 +2789,7 @@ pub const WiaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa1f4e7
 pub const WiaDevMgr2: windows_core::GUID = windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaLog: windows_core::GUID = windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,

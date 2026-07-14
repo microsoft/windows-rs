@@ -2552,7 +2552,7 @@ pub type LPOLEVERB = *mut OLEVERB;
 pub const MK_ALT: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTDESCRIPTOR {
     pub cbSize: u32,
     pub clsid: windows_core::GUID,
@@ -2580,7 +2580,7 @@ pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = 4;
 pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = 3;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEINPLACEFRAMEINFO {
     pub cb: u32,
     pub fMDIApp: windows_core::BOOL,
@@ -2591,7 +2591,7 @@ pub struct OLEINPLACEFRAMEINFO {
 pub type OLELINKBIND = i32;
 pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLEMENUGROUPWIDTHS {
     pub width: [i32; 6],
 }
@@ -2632,7 +2632,7 @@ pub type OLEUPDATE = i32;
 pub const OLEUPDATE_ALWAYS: OLEUPDATE = 1;
 pub const OLEUPDATE_ONCALL: OLEUPDATE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLEVERB {
     pub lVerb: i32,
     pub lpszVerbName: windows_core::PWSTR,

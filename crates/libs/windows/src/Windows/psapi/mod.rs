@@ -158,7 +158,7 @@ pub unsafe fn QueryWorkingSetEx(hprocess: super::winnt::HANDLE, pv: *mut core::f
     unsafe { QueryWorkingSetEx(hprocess, pv as _, cb) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -172,7 +172,7 @@ pub const LIST_MODULES_ALL: u32 = 3;
 pub const LIST_MODULES_DEFAULT: u32 = 0;
 pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
     pub SizeOfImage: u32,
@@ -188,7 +188,7 @@ pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: 
 pub type PENUM_PAGE_FILE_INFORMATION = *mut ENUM_PAGE_FILE_INFORMATION;
 pub type PERFORMACE_INFORMATION = PERFORMANCE_INFORMATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -217,7 +217,7 @@ pub type PPSAPI_WORKING_SET_INFORMATION = *mut PSAPI_WORKING_SET_INFORMATION;
 pub type PPSAPI_WS_WATCH_INFORMATION = *mut PSAPI_WS_WATCH_INFORMATION;
 pub type PPSAPI_WS_WATCH_INFORMATION_EX = *mut PSAPI_WS_WATCH_INFORMATION_EX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -231,7 +231,7 @@ pub struct PROCESS_MEMORY_COUNTERS {
     pub PeakPagefileUsage: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -246,7 +246,7 @@ pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub PrivateUsage: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -275,7 +275,7 @@ impl Default for PSAPI_WORKING_SET_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
 }
@@ -302,12 +302,12 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
 }
@@ -334,7 +334,7 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
@@ -345,7 +345,7 @@ impl Default for PSAPI_WS_WATCH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,

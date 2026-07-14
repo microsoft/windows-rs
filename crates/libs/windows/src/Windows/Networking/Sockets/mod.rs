@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BandwidthStatistics {
     pub OutboundBitsPerSecond: u64,
     pub InboundBitsPerSecond: u64,
@@ -2597,7 +2597,7 @@ impl windows_core::RuntimeType for MessageWebSocketReceiveMode {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Sockets.MessageWebSocketReceiveMode");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
     pub Max: u32,

@@ -78,7 +78,7 @@ impl Default for WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -139,7 +139,7 @@ pub type WHV_ARM64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
 pub type WHV_ARM64_IC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_IC_GIC_V3_PARAMETERS {
     pub GicdBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
     pub GitsTranslaterBaseAddress: WHV_GUEST_PHYSICAL_ADDRESS,
@@ -185,7 +185,7 @@ impl Default for WHV_ARM64_IC_PARAMETERS_0 {
 pub const WHV_ARM64_INTERRUPT_CONTROLLER_STATE_VERSION_CURRENT: u32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_INTERRUPT_STATE {
     pub Anonymous: WHV_ARM64_INTERRUPT_STATE_0,
     pub GicrIpriorityrConfigured: u8,
@@ -194,7 +194,7 @@ pub struct WHV_ARM64_INTERRUPT_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_INTERRUPT_STATE_0 {
     pub _bitfield: u8,
 }
@@ -204,7 +204,7 @@ pub struct WHV_ARM64_INTERRUPT_STATE_0 {
 pub struct WHV_ARM64_INTERRUPT_VECTOR(pub u32);
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_LOCAL_INTERRUPT_CONTROLLER_STATE {
     pub Version: u8,
     pub GicVersion: u8,
@@ -254,7 +254,7 @@ impl Default for WHV_ARM64_PENDING_EVENT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_EVENT_1 {
     pub _bitfield: u8,
     pub EventData: [u8; 15],
@@ -282,7 +282,7 @@ impl Default for WHV_ARM64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
     pub Reserved1: u8,
@@ -306,7 +306,7 @@ impl Default for WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
     pub _bitfield: u8,
     pub Reserved1: u8,
@@ -338,7 +338,7 @@ pub type WHV_ARM64_RESET_TYPE = i32;
 pub type WHV_ARM64_SYNTHETIC_EXCEPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_VP_STATE_SME {
     pub Version: u16,
     pub RegisterDataOffset: u16,
@@ -347,7 +347,7 @@ pub struct WHV_ARM64_VP_STATE_SME {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ARM64_VP_STATE_SVE {
     pub Version: u16,
     pub RegisterDataOffset: u16,
@@ -435,13 +435,13 @@ impl Default for WHV_CAPABILITY_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub _bitfield: u32,
     pub HighestFrequencyMhz: u32,
@@ -451,7 +451,7 @@ pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_CPUID_OUTPUT {
     pub Eax: u32,
     pub Ebx: u32,
@@ -477,7 +477,7 @@ impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -496,13 +496,13 @@ impl Default for WHV_DISABLE_VP_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DISABLE_VP_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_DOORBELL_MATCH_DATA {
     pub GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS,
     pub Value: u64,
@@ -524,7 +524,7 @@ impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -545,7 +545,7 @@ impl Default for WHV_EXTENDED_VM_EXITS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
 }
@@ -629,7 +629,7 @@ impl Default for WHV_INITIAL_VP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INITIAL_VP_CONTEXT {
     pub Pc: u64,
     pub Sp_ELh: u64,
@@ -656,7 +656,7 @@ impl Default for WHV_INPUT_VTL {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INPUT_VTL_0 {
     pub _bitfield: u8,
 }
@@ -692,13 +692,13 @@ impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
     pub Destination: u32,
@@ -737,7 +737,7 @@ impl Default for WHV_INTERRUPT_CONTROL2 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INTERRUPT_CONTROL2_0 {
     pub InterruptType: WHV_INTERRUPT_TYPE,
     pub _bitfield: u32,
@@ -752,7 +752,7 @@ pub type WHV_INTERRUPT_TYPE = i32;
 pub type WHV_INTERRUPT_TYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_INVALID_VP_REGISTER_CONTEXT {
     pub VpIndex: u32,
     pub Reserved: u32,
@@ -814,7 +814,7 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -833,7 +833,7 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u8,
 }
@@ -841,7 +841,7 @@ pub struct WHV_MEMORY_ACCESS_INFO_0 {
 pub type WHV_MEMORY_ACCESS_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_RANGE_ENTRY {
     pub GuestAddress: u64,
     pub SizeInBytes: u64,
@@ -850,7 +850,7 @@ pub struct WHV_MEMORY_RANGE_ENTRY {
 pub type WHV_MSR_ACTION = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MSR_ACTION_ENTRY {
     pub Index: u32,
     pub ReadAction: u8,
@@ -885,7 +885,7 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
     pub _bitfield: u32,
 }
@@ -904,7 +904,7 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
     pub _bitfield: u32,
 }
@@ -951,7 +951,7 @@ impl Default for WHV_NOTIFICATION_PORT_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NOTIFICATION_PORT_PARAMETERS_0_0 {
     pub ConnectionId: u32,
 }
@@ -979,7 +979,7 @@ impl Default for WHV_PARTITION_HANDLE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PARTITION_MEMORY_COUNTERS {
     pub Mapped4KPageCount: u64,
     pub Mapped2MPageCount: u64,
@@ -1064,7 +1064,7 @@ pub type WHV_PARTITION_PROPERTY_CODE = i32;
 pub type WHV_PARTITION_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub PageInvalidations: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub ControlRegisterAccesses: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1083,7 +1083,7 @@ pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_ACTIVITY_COUNTERS {
     pub OtherIntercepts: WHV_PROCESSOR_INTERCEPT_COUNTER,
     pub PendingInterrupts: WHV_PROCESSOR_INTERCEPT_COUNTER,
@@ -1099,7 +1099,7 @@ impl Default for WHV_PROCESSOR_ACTIVITY_COUNTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_APIC_COUNTERS {
     pub MmioAccessCount: u64,
     pub EoiAccessCount: u64,
@@ -1126,7 +1126,7 @@ impl Default for WHV_PROCESSOR_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -1145,7 +1145,7 @@ impl Default for WHV_PROCESSOR_FEATURES1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
     pub _bitfield: u64,
 }
@@ -1193,7 +1193,7 @@ impl Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_GUEST_EVENT_COUNTERS {
     pub PageFaultCount: u64,
     pub ExceptionCount: u64,
@@ -1201,7 +1201,7 @@ pub struct WHV_PROCESSOR_GUEST_EVENT_COUNTERS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_INTERCEPT_COUNTER {
     pub Count: u64,
     pub Time100ns: u64,
@@ -1221,20 +1221,20 @@ impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_RUNTIME_COUNTERS {
     pub TotalRuntime100ns: u64,
     pub HypervisorRuntime100ns: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS {
     pub SyntheticInterruptsCount: u64,
     pub LongSpinWaitHypercallsCount: u64,
@@ -1260,7 +1260,7 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -1298,7 +1298,7 @@ impl Default for WHV_REGISTER_CONTEXT {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_REGISTER_CONTEXT_0 {
     pub _bitfield: u8,
 }
@@ -1365,7 +1365,7 @@ impl Default for WHV_REGISTER_VALUE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_RUN_VP_CANCELED_CONTEXT {
     pub CancelReason: WHV_RUN_VP_CANCEL_REASON,
 }
@@ -1467,14 +1467,14 @@ impl Default for WHV_SCHEDULER_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
     pub VirtualFunctionId: super::winnt::LUID,
@@ -1526,7 +1526,7 @@ pub struct WHV_SVM_VMCB_SELECTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNIC_EVENT_PARAMETERS {
     pub VpIndex: u32,
     pub TargetSint: u8,
@@ -1537,7 +1537,7 @@ pub struct WHV_SYNIC_EVENT_PARAMETERS {
 pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT {
     pub DeliverableSints: u16,
     pub Reserved1: u16,
@@ -1573,7 +1573,7 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
@@ -1635,7 +1635,7 @@ impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
     pub _bitfield: u64,
 }
@@ -1645,7 +1645,7 @@ pub type WHV_TRANSLATE_GVA_FLAGS = u32;
 pub type WHV_TRANSLATE_GVA_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_RESULT {
     pub ResultCode: WHV_TRANSLATE_GVA_RESULT_CODE,
     pub Reserved: u32,
@@ -1692,7 +1692,7 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
     pub LogicalDeviceId: u64,
     pub MsiAddress: u64,
@@ -1728,7 +1728,7 @@ impl Default for WHV_TRIGGER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRIGGER_PARAMETERS_0_0 {
     pub LogicalDeviceId: u64,
     pub MsiAddress: u64,
@@ -1754,7 +1754,7 @@ impl Default for WHV_UINT128 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_UINT128_0 {
     pub Low64: u64,
     pub High64: u64,
@@ -1840,7 +1840,7 @@ pub type WHV_VPCI_DEVICE_NOTIFICATION_TYPE = i32;
 pub type WHV_VPCI_DEVICE_PROPERTY_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_DEVICE_REGISTER {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub SizeInBytes: u32,
@@ -1850,7 +1850,7 @@ pub struct WHV_VPCI_DEVICE_REGISTER {
 pub type WHV_VPCI_DEVICE_REGISTER_SPACE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VPCI_HARDWARE_IDS {
     pub VendorID: u16,
     pub DeviceID: u16,
@@ -1863,7 +1863,7 @@ pub struct WHV_VPCI_HARDWARE_IDS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET {
     pub Vector: u32,
     pub Flags: WHV_VPCI_INTERRUPT_TARGET_FLAGS,
@@ -1880,7 +1880,7 @@ impl Default for WHV_VPCI_INTERRUPT_TARGET {
 pub type WHV_VPCI_INTERRUPT_TARGET_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_MMIO_MAPPING {
     pub Location: WHV_VPCI_DEVICE_REGISTER_SPACE,
     pub Flags: WHV_VPCI_MMIO_RANGE_FLAGS,
@@ -1898,7 +1898,7 @@ impl Default for WHV_VPCI_MMIO_MAPPING {
 pub type WHV_VPCI_MMIO_RANGE_FLAGS = u32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VPCI_PROBED_BARS {
     pub Value: [u32; 6],
 }
@@ -1944,7 +1944,7 @@ impl Default for WHV_VP_EXCEPTION_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
@@ -1963,7 +1963,7 @@ impl Default for WHV_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
@@ -2006,7 +2006,7 @@ impl Default for WHV_VTL_PERMISSION_SET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_VTL_PERMISSION_SET_0 {
     pub VtlPermissionFrom1: [u16; 2],
 }
@@ -2018,25 +2018,25 @@ impl Default for WHV_VTL_PERMISSION_SET_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_EOI_CONTEXT {
     pub InterruptVector: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_INIT_SIPI_CONTEXT {
     pub ApicIcr: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_SMI_CONTEXT {
     pub ApicIcr: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_APIC_WRITE_CONTEXT {
     pub Type: WHV_X64_APIC_WRITE_TYPE,
     pub Reserved: u32,
@@ -2046,7 +2046,7 @@ pub struct WHV_X64_APIC_WRITE_CONTEXT {
 pub type WHV_X64_APIC_WRITE_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
     pub Rax: u64,
     pub Rcx: u64,
@@ -2059,7 +2059,7 @@ pub struct WHV_X64_CPUID_ACCESS_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT {
     pub Function: u32,
     pub Reserved: [u32; 3],
@@ -2076,7 +2076,7 @@ impl Default for WHV_X64_CPUID_RESULT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_CPUID_RESULT2 {
     pub Function: u32,
     pub Index: u32,
@@ -2102,7 +2102,7 @@ impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -2151,7 +2151,7 @@ impl Default for WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_FP_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpEip: u32,
     pub LastFpCs: u16,
@@ -2172,7 +2172,7 @@ impl Default for WHV_X64_FP_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_FP_REGISTER_0 {
     pub Mantissa: u64,
     pub _bitfield: u64,
@@ -2181,7 +2181,7 @@ pub struct WHV_X64_FP_REGISTER_0 {
 pub type WHV_X64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT {
     pub DeliverableType: WHV_X64_PENDING_INTERRUPTION_TYPE,
 }
@@ -2200,7 +2200,7 @@ impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
 }
@@ -2242,7 +2242,7 @@ impl Default for WHV_X64_IO_PORT_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -2278,7 +2278,7 @@ impl Default for WHV_X64_MSR_ACCESS_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
@@ -2297,7 +2297,7 @@ impl Default for WHV_X64_MSR_EXIT_BITMAP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
 }
@@ -2316,7 +2316,7 @@ impl Default for WHV_X64_NESTED_GUEST_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_GUEST_STATE_0 {
     pub _bitfield: u64,
     pub Reserved1: u64,
@@ -2336,7 +2336,7 @@ impl Default for WHV_X64_NESTED_INVEPT_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_INVEPT_REGISTER_0 {
     pub Type: u8,
     pub Reserved: [u8; 7],
@@ -2363,7 +2363,7 @@ impl Default for WHV_X64_NESTED_INVVPID_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_NESTED_INVVPID_REGISTER_0 {
     pub Type: u8,
     pub Reserved: [u8; 3],
@@ -2404,7 +2404,7 @@ impl Default for WHV_X64_PENDING_DEBUG_EXCEPTION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
 }
@@ -2425,7 +2425,7 @@ impl Default for WHV_X64_PENDING_EXCEPTION_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -2446,7 +2446,7 @@ impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
     pub Reserved2: u64,
@@ -2466,7 +2466,7 @@ impl Default for WHV_X64_PENDING_INTERRUPTION_REGISTER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub _bitfield: u32,
     pub ErrorCode: u32,
@@ -2488,7 +2488,7 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u64,
     pub ExitCode: u64,
@@ -2508,7 +2508,7 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT1_0 {
     pub ExitInfo1: u64,
     pub ExitInfo2: u64,
@@ -2528,7 +2528,7 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT2_0 {
     pub NextRip: u64,
     pub InstructionBytesFetchedCount: u8,
@@ -2555,7 +2555,7 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT3_0 {
     pub InstructionBytes: [u8; 8],
     pub Reserved2: u64,
@@ -2581,7 +2581,7 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u32,
     pub ExitReason: u32,
@@ -2602,7 +2602,7 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT1_0 {
     pub InstructionLength: u32,
     pub InstructionInfo: u32,
@@ -2624,7 +2624,7 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT2_0 {
     pub GuestLinearAddress: u64,
     pub GuestPhysicalAddress: u64,
@@ -2644,7 +2644,7 @@ impl Default for WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT3_0 {
     pub MsrData: u64,
 }
@@ -2683,7 +2683,7 @@ impl Default for WHV_X64_RDTSC_INFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
@@ -2717,7 +2717,7 @@ impl Default for WHV_X64_SEGMENT_REGISTER_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
@@ -2744,13 +2744,13 @@ impl Default for WHV_X64_SVM_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_SVM_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_TABLE_REGISTER {
     pub Pad: [u16; 3],
     pub Limit: u16,
@@ -2766,7 +2766,7 @@ impl Default for WHV_X64_TABLE_REGISTER {
 pub type WHV_X64_UNSUPPORTED_FEATURE_CODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT {
     pub FeatureCode: WHV_X64_UNSUPPORTED_FEATURE_CODE,
     pub Reserved: u32,
@@ -2795,13 +2795,13 @@ impl Default for WHV_X64_VMX_NESTED_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_VMX_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WHV_X64_VMX_NESTED_STATE_1 {
     pub Tpr: u32,
     pub Ppr: u32,
@@ -2831,7 +2831,7 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
@@ -2879,7 +2879,7 @@ impl Default for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     pub LastFpDp: u32,
     pub LastFpDs: u16,

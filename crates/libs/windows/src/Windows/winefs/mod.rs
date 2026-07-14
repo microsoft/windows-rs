@@ -95,21 +95,21 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: Option<*const E
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
     pub pbData: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5;
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
@@ -117,21 +117,21 @@ pub struct EFS_DECRYPTION_STATUS_INFO {
 }
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: windows_core::BOOL,
     pub dwEncryptionError: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: super::minwindef::PBYTE,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
@@ -146,7 +146,7 @@ pub const EFS_PFILE_SUBVER_APPX: u32 = 3;
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
@@ -154,21 +154,21 @@ pub struct EFS_PIN_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: super::minwindef::PBYTE,
 }
 pub const EFS_SUBVER_UNKNOWN: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
     pub pCertificatesAdded: PENCRYPTION_CERTIFICATE_HASH_LIST,
@@ -177,7 +177,7 @@ pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::winnt::SID,
@@ -191,7 +191,7 @@ impl Default for ENCRYPTION_CERTIFICATE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::winnt::SID,
@@ -206,7 +206,7 @@ impl Default for ENCRYPTION_CERTIFICATE_HASH {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE_HASH,
@@ -219,7 +219,7 @@ impl Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
     pub pUsers: *mut PENCRYPTION_CERTIFICATE,
@@ -232,7 +232,7 @@ impl Default for ENCRYPTION_CERTIFICATE_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
     pub pUserSid: *mut super::winnt::SID,
@@ -246,7 +246,7 @@ impl Default for ENCRYPTION_PROTECTOR {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
     pub pProtectors: *mut PENCRYPTION_PROTECTOR,

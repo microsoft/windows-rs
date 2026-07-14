@@ -5,7 +5,7 @@ pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1;
 pub type IF_ADMINISTRATIVE_STATE = i32;
 pub type IF_COUNTED_STRING = IF_COUNTED_STRING_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IF_COUNTED_STRING_LH {
     pub Length: u16,
     pub String: [u16; 257],
@@ -22,7 +22,7 @@ pub const IF_MAX_STRING_SIZE: u32 = 256;
 pub type IF_OPER_STATUS = i32;
 pub type IF_PHYSICAL_ADDRESS = IF_PHYSICAL_ADDRESS_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IF_PHYSICAL_ADDRESS_LH {
     pub Length: u16,
     pub Address: [u8; 32],
@@ -46,7 +46,7 @@ pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2;
 pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1;
 pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_INTERFACE_INFORMATION {
     pub ifOperStatus: NET_IF_OPER_STATUS,
     pub ifOperStatusFlags: u32,
@@ -101,7 +101,7 @@ pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = 3;
 pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = 1;
 pub type NET_IF_ALIAS = NET_IF_ALIAS_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_ALIAS_LH {
     pub ifAliasLength: u16,
     pub ifAliasOffset: u16,
@@ -151,7 +151,7 @@ pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = 4;
 pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = 1;
 pub type NET_IF_RCV_ADDRESS = NET_IF_RCV_ADDRESS_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_IF_RCV_ADDRESS_LH {
     pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
     pub ifRcvAddressLength: u16,
@@ -174,13 +174,13 @@ impl Default for NET_LUID_LH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_LUID_LH_0 {
     pub _bitfield: u64,
 }
 pub type NET_PHYSICAL_LOCATION = NET_PHYSICAL_LOCATION_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_PHYSICAL_LOCATION_LH {
     pub BusNumber: u32,
     pub SlotNumber: u32,

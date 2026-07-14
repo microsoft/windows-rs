@@ -736,7 +736,7 @@ pub const DS_DEFAULT_LOCALE_COMPARE_FLAGS: u32 = 200707;
 pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = 3;
 pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -747,7 +747,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
     pub fDsEnabled: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -758,7 +758,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
     pub fDsEnabled: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -776,7 +776,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
     pub NtdsDsaObjectGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -794,7 +794,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
     pub NtdsDsaObjectGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NetbiosName: windows_core::PSTR,
     pub DnsHostName: windows_core::PSTR,
@@ -813,7 +813,7 @@ pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
     pub NtdsDsaObjectGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
     pub NetbiosName: windows_core::PWSTR,
     pub DnsHostName: windows_core::PWSTR,
@@ -864,26 +864,26 @@ pub const DS_NAME_LEGAL_FLAGS: u32 = 1;
 pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = 0;
 pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_RESULTA {
     pub cItems: u32,
     pub rItems: PDS_NAME_RESULT_ITEMA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_RESULTW {
     pub cItems: u32,
     pub rItems: PDS_NAME_RESULT_ITEMW,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMA {
     pub status: u32,
     pub pDomain: windows_core::PSTR,
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_NAME_RESULT_ITEMW {
     pub status: u32,
     pub pDomain: windows_core::PWSTR,
@@ -913,7 +913,7 @@ pub const DS_REPDEL_REF_OK: u32 = 64;
 pub const DS_REPDEL_WRITEABLE: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA {
     pub pszAttributeName: windows_core::PWSTR,
     pub dwVersion: u32,
@@ -924,7 +924,7 @@ pub struct DS_REPL_ATTR_META_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_2 {
     pub pszAttributeName: windows_core::PWSTR,
     pub dwVersion: u32,
@@ -936,7 +936,7 @@ pub struct DS_REPL_ATTR_META_DATA_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub dwVersion: u32,
@@ -948,7 +948,7 @@ pub struct DS_REPL_ATTR_META_DATA_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -962,7 +962,7 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -976,7 +976,7 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
     pub cNumEntries: u32,
     pub dwEnumerationContext: u32,
@@ -990,14 +990,14 @@ impl Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_CURSOR {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: super::winnt::USN,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_CURSORS {
     pub cNumCursors: u32,
     pub dwReserved: u32,
@@ -1011,7 +1011,7 @@ impl Default for DS_REPL_CURSORS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_CURSORS_2 {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -1025,7 +1025,7 @@ impl Default for DS_REPL_CURSORS_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_CURSORS_3W {
     pub cNumCursors: u32,
     pub dwEnumerationContext: u32,
@@ -1039,7 +1039,7 @@ impl Default for DS_REPL_CURSORS_3W {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_CURSOR_2 {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: super::winnt::USN,
@@ -1047,7 +1047,7 @@ pub struct DS_REPL_CURSOR_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_CURSOR_3W {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: super::winnt::USN,
@@ -1056,7 +1056,7 @@ pub struct DS_REPL_CURSOR_3W {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_CURSOR_BLOB {
     pub uuidSourceDsaInvocationID: windows_core::GUID,
     pub usnAttributeFilter: super::winnt::USN,
@@ -1080,7 +1080,7 @@ pub type DS_REPL_INFO_TYPE = i32;
 pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = 12;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILURESW {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -1094,7 +1094,7 @@ impl Default for DS_REPL_KCC_DSA_FAILURESW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW {
     pub pszDsaDN: windows_core::PWSTR,
     pub uuidDsaObjGuid: windows_core::GUID,
@@ -1104,7 +1104,7 @@ pub struct DS_REPL_KCC_DSA_FAILUREW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
     pub oszDsaDN: u32,
     pub uuidDsaObjGuid: windows_core::GUID,
@@ -1133,7 +1133,7 @@ pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128;
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_NEIGHBORSW {
     pub cNumNeighbors: u32,
     pub dwReserved: u32,
@@ -1147,7 +1147,7 @@ impl Default for DS_REPL_NEIGHBORSW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_NEIGHBORW {
     pub pszNamingContext: windows_core::PWSTR,
     pub pszSourceDsaDN: windows_core::PWSTR,
@@ -1168,7 +1168,7 @@ pub struct DS_REPL_NEIGHBORW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_NEIGHBORW_BLOB {
     pub oszNamingContext: u32,
     pub oszSourceDsaDN: u32,
@@ -1189,7 +1189,7 @@ pub struct DS_REPL_NEIGHBORW_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -1203,7 +1203,7 @@ impl Default for DS_REPL_OBJ_META_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_OBJ_META_DATA_2 {
     pub cNumEntries: u32,
     pub dwReserved: u32,
@@ -1217,7 +1217,7 @@ impl Default for DS_REPL_OBJ_META_DATA_2 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_OPW {
     pub ftimeEnqueued: super::minwindef::FILETIME,
     pub ulSerialNumber: u32,
@@ -1232,7 +1232,7 @@ pub struct DS_REPL_OPW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_OPW_BLOB {
     pub ftimeEnqueued: super::minwindef::FILETIME,
     pub ulSerialNumber: u32,
@@ -1253,7 +1253,7 @@ pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = 0;
 pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_PENDING_OPSW {
     pub ftimeCurrentOpStarted: super::minwindef::FILETIME,
     pub cNumPendingOps: u32,
@@ -1267,7 +1267,7 @@ impl Default for DS_REPL_PENDING_OPSW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_QUEUE_STATISTICSW {
     pub ftimeCurrentOpStarted: super::minwindef::FILETIME,
     pub cNumPendingOps: u32,
@@ -1281,7 +1281,7 @@ pub struct DS_REPL_QUEUE_STATISTICSW {
 pub type DS_REPL_QUEUE_STATISTICSW_BLOB = DS_REPL_QUEUE_STATISTICSW;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1303,7 +1303,7 @@ impl Default for DS_REPL_VALUE_META_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_2 {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1326,7 +1326,7 @@ impl Default for DS_REPL_VALUE_META_DATA_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -1343,7 +1343,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
     pub oszAttributeName: u32,
     pub oszObjectDn: u32,
@@ -1363,7 +1363,7 @@ pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPL_VALUE_META_DATA_EXT {
     pub pszAttributeName: windows_core::PWSTR,
     pub pszObjectDn: windows_core::PWSTR,
@@ -1399,7 +1399,7 @@ pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1;
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64;
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSvrId: windows_core::PSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -1407,7 +1407,7 @@ pub struct DS_REPSYNCALL_ERRINFOA {
     pub pszSrcId: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_ERRINFOW {
     pub pszSvrId: windows_core::PWSTR,
     pub error: DS_REPSYNCALL_ERROR,
@@ -1426,7 +1426,7 @@ pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32;
 pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = 2;
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCA {
     pub pszSrcId: windows_core::PSTR,
     pub pszDstId: windows_core::PSTR,
@@ -1440,7 +1440,7 @@ impl Default for DS_REPSYNCALL_SYNCA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_SYNCW {
     pub pszSrcId: windows_core::PWSTR,
     pub pszDstId: windows_core::PWSTR,
@@ -1455,7 +1455,7 @@ impl Default for DS_REPSYNCALL_SYNCW {
 }
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEA {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
@@ -1467,7 +1467,7 @@ impl Default for DS_REPSYNCALL_UPDATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DS_REPSYNCALL_UPDATEW {
     pub event: DS_REPSYNCALL_EVENT,
     pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
@@ -1520,14 +1520,14 @@ pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2;
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3;
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPA {
     pub guid: windows_core::GUID,
     pub guidType: u32,
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_SCHEMA_GUID_MAPW {
     pub guid: windows_core::GUID,
     pub guidType: u32,
@@ -1537,7 +1537,7 @@ pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0;
 pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = 10;
 pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_SITE_COST_INFO {
     pub errorCode: u32,
     pub cost: u32,

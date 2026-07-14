@@ -382,7 +382,7 @@ pub struct DEVNAMES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
@@ -728,7 +728,7 @@ pub struct OFNOTIFYA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFNOTIFYA {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
@@ -756,7 +756,7 @@ impl Default for OFNOTIFYEXA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
@@ -790,7 +790,7 @@ impl Default for OFNOTIFYEXW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
@@ -816,7 +816,7 @@ pub struct OFNOTIFYW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFNOTIFYW {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
@@ -1328,7 +1328,7 @@ impl Default for PRINTDLGEXA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -1395,7 +1395,7 @@ impl Default for PRINTDLGEXW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -1486,7 +1486,7 @@ pub struct PRINTPAGERANGE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,

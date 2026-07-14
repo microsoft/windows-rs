@@ -76,7 +76,7 @@ pub type PSAFER_URLZONE_IDENTIFICATION = *mut SAFER_URLZONE_IDENTIFICATION;
 pub type SAFER_CODE_PROPERTIES = SAFER_CODE_PROPERTIES_V2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V1 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -99,7 +99,7 @@ impl Default for SAFER_CODE_PROPERTIES_V1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_CODE_PROPERTIES_V2 {
     pub cbSize: u32,
     pub dwCheckFlags: u32,
@@ -134,7 +134,7 @@ pub const SAFER_CRITERIA_NOSIGNEDHASH: u32 = 2;
 pub const SAFER_CRITERIA_URLZONE: u32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -153,7 +153,7 @@ impl Default for SAFER_HASH_IDENTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_HASH_IDENTIFICATION2 {
     pub hashIdentification: SAFER_HASH_IDENTIFICATION,
     pub HashSize: u32,
@@ -168,7 +168,7 @@ impl Default for SAFER_HASH_IDENTIFICATION2 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_IDENTIFICATION_HEADER {
     pub dwIdentificationType: SAFER_IDENTIFICATION_TYPES,
     pub cbStructSize: u32,
@@ -196,7 +196,7 @@ pub const SAFER_MAX_HASH_SIZE: u32 = 64;
 pub type SAFER_OBJECT_INFO_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFER_PATHNAME_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub Description: [u16; 256],
@@ -230,7 +230,7 @@ pub const SAFER_TOKEN_NULL_IF_EQUAL: u32 = 1;
 pub const SAFER_TOKEN_WANT_FLAGS: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFER_URLZONE_IDENTIFICATION {
     pub header: SAFER_IDENTIFICATION_HEADER,
     pub UrlZoneId: u32,

@@ -1323,13 +1323,13 @@ where
 }
 pub type ADDJOB_INFO_1 = ADDJOB_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDJOB_INFO_1A {
     pub Path: windows_core::PSTR,
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_core::PWSTR,
     pub JobId: u32,
@@ -1445,7 +1445,7 @@ pub const BIDI_TEXT: BIDI_TYPE = 5;
 pub type BIDI_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: u32,
     pub pData: super::minwindef::LPBYTE,
@@ -1454,7 +1454,7 @@ pub struct BINARY_CONTAINER {
 pub type CORE_PRINTER_DRIVER = CORE_PRINTER_DRIVERA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORE_PRINTER_DRIVERA {
     pub CoreDriverGUID: windows_core::GUID,
     pub ftDriverDate: super::minwindef::FILETIME,
@@ -1469,7 +1469,7 @@ impl Default for CORE_PRINTER_DRIVERA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORE_PRINTER_DRIVERW {
     pub CoreDriverGUID: windows_core::GUID,
     pub ftDriverDate: super::minwindef::FILETIME,
@@ -1484,12 +1484,12 @@ impl Default for CORE_PRINTER_DRIVERW {
 }
 pub type DATATYPES_INFO_1 = DATATYPES_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_core::PWSTR,
 }
@@ -1499,14 +1499,14 @@ pub const DI_MEMORYMAP_WRITE: u32 = 1;
 pub const DI_READ_SPOOL_JOB: u32 = 3;
 pub type DOC_INFO_1 = DOC_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_1A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
     pub pDatatype: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
@@ -1514,7 +1514,7 @@ pub struct DOC_INFO_1W {
 }
 pub type DOC_INFO_2 = DOC_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_2A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
@@ -1523,7 +1523,7 @@ pub struct DOC_INFO_2A {
     pub JobId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_2W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
@@ -1533,7 +1533,7 @@ pub struct DOC_INFO_2W {
 }
 pub type DOC_INFO_3 = DOC_INFO_3A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_3A {
     pub pDocName: windows_core::PSTR,
     pub pOutputFile: windows_core::PSTR,
@@ -1541,7 +1541,7 @@ pub struct DOC_INFO_3A {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOC_INFO_3W {
     pub pDocName: windows_core::PWSTR,
     pub pOutputFile: windows_core::PWSTR,
@@ -1553,18 +1553,18 @@ pub const DPD_DELETE_SPECIFIC_VERSION: u32 = 2;
 pub const DPD_DELETE_UNUSED_FILES: u32 = 1;
 pub type DRIVER_INFO_1 = DRIVER_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_1A {
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_core::PWSTR,
 }
 pub type DRIVER_INFO_2 = DRIVER_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_2A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1574,7 +1574,7 @@ pub struct DRIVER_INFO_2A {
     pub pConfigFile: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_2W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1585,7 +1585,7 @@ pub struct DRIVER_INFO_2W {
 }
 pub type DRIVER_INFO_3 = DRIVER_INFO_3A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_3A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1599,7 +1599,7 @@ pub struct DRIVER_INFO_3A {
     pub pDefaultDataType: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_3W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1614,7 +1614,7 @@ pub struct DRIVER_INFO_3W {
 }
 pub type DRIVER_INFO_4 = DRIVER_INFO_4A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_4A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1629,7 +1629,7 @@ pub struct DRIVER_INFO_4A {
     pub pszzPreviousNames: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_4W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1645,7 +1645,7 @@ pub struct DRIVER_INFO_4W {
 }
 pub type DRIVER_INFO_5 = DRIVER_INFO_5A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_5A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1658,7 +1658,7 @@ pub struct DRIVER_INFO_5A {
     pub dwDriverVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_5W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1674,7 +1674,7 @@ pub struct DRIVER_INFO_5W {
 pub type DRIVER_INFO_6 = DRIVER_INFO_6A;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_6A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1696,7 +1696,7 @@ pub struct DRIVER_INFO_6A {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_6W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1720,7 +1720,7 @@ pub struct DRIVER_INFO_6W {
 pub type DRIVER_INFO_8 = DRIVER_INFO_8A;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_8A {
     pub cVersion: u32,
     pub pName: windows_core::PSTR,
@@ -1750,7 +1750,7 @@ pub struct DRIVER_INFO_8A {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_8W {
     pub cVersion: u32,
     pub pName: windows_core::PWSTR,
@@ -1814,7 +1814,7 @@ pub const FORM_BUILTIN: u32 = 1;
 pub type FORM_INFO_1 = FORM_INFO_1A;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORM_INFO_1A {
     pub Flags: u32,
     pub pName: windows_core::PSTR,
@@ -1823,7 +1823,7 @@ pub struct FORM_INFO_1A {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORM_INFO_1W {
     pub Flags: u32,
     pub pName: windows_core::PWSTR,
@@ -1834,7 +1834,7 @@ pub struct FORM_INFO_1W {
 pub type FORM_INFO_2 = FORM_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORM_INFO_2A {
     pub Flags: u32,
     pub pName: windows_core::PCSTR,
@@ -1849,7 +1849,7 @@ pub struct FORM_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORM_INFO_2W {
     pub Flags: u32,
     pub pName: windows_core::PCWSTR,
@@ -1884,7 +1884,7 @@ pub const JOB_EXECUTE: u32 = 131088;
 pub type JOB_INFO_1 = JOB_INFO_1A;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_1A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -1902,7 +1902,7 @@ pub struct JOB_INFO_1A {
 }
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_1W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -1922,7 +1922,7 @@ pub struct JOB_INFO_1W {
 pub type JOB_INFO_2 = JOB_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_2A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -1950,7 +1950,7 @@ pub struct JOB_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_2W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -1977,7 +1977,7 @@ pub struct JOB_INFO_2W {
     pub PagesPrinted: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_3 {
     pub JobId: u32,
     pub NextJobId: u32,
@@ -1987,7 +1987,7 @@ pub struct JOB_INFO_3 {
 pub type JOB_INFO_4 = JOB_INFO_4A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_4A {
     pub JobId: u32,
     pub pPrinterName: windows_core::PSTR,
@@ -2016,7 +2016,7 @@ pub struct JOB_INFO_4A {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_INFO_4W {
     pub JobId: u32,
     pub pPrinterName: windows_core::PWSTR,
@@ -2253,25 +2253,25 @@ pub const MAX_PRIORITY: u32 = 99;
 pub const MIN_PRIORITY: u32 = 1;
 pub type MONITOR_INFO_1 = MONITOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_INFO_1A {
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_core::PWSTR,
 }
 pub type MONITOR_INFO_2 = MONITOR_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_INFO_2A {
     pub pName: windows_core::PSTR,
     pub pEnvironment: windows_core::PSTR,
     pub pDLLName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_core::PWSTR,
     pub pEnvironment: windows_core::PWSTR,
@@ -2379,18 +2379,18 @@ pub type PMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
 pub type PMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
 pub type PORT_INFO_1 = PORT_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_1A {
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_1W {
     pub pName: windows_core::PWSTR,
 }
 pub type PORT_INFO_2 = PORT_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_2A {
     pub pPortName: windows_core::PSTR,
     pub pMonitorName: windows_core::PSTR,
@@ -2399,7 +2399,7 @@ pub struct PORT_INFO_2A {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_2W {
     pub pPortName: windows_core::PWSTR,
     pub pMonitorName: windows_core::PWSTR,
@@ -2409,14 +2409,14 @@ pub struct PORT_INFO_2W {
 }
 pub type PORT_INFO_3 = PORT_INFO_3A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_3A {
     pub dwStatus: u32,
     pub pszStatus: windows_core::PSTR,
     pub dwSeverity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PORT_INFO_3W {
     pub dwStatus: u32,
     pub pszStatus: windows_core::PWSTR,
@@ -2584,13 +2584,13 @@ pub const PRINTER_CHANGE_TIMEOUT: u32 = 2147483648;
 pub const PRINTER_CHANGE_WRITE_JOB: u32 = 2048;
 pub type PRINTER_CONNECTION_INFO_1 = PRINTER_CONNECTION_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: u32,
     pub pszDriverName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: u32,
     pub pszDriverName: windows_core::PWSTR,
@@ -2605,7 +2605,7 @@ pub const PRINTER_CONTROL_SET_STATUS: u32 = 4;
 pub type PRINTER_DEFAULTS = PRINTER_DEFAULTSA;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_core::PSTR,
     pub pDevMode: super::wingdi::LPDEVMODEA,
@@ -2613,7 +2613,7 @@ pub struct PRINTER_DEFAULTSA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_core::PWSTR,
     pub pDevMode: super::wingdi::LPDEVMODEW,
@@ -2659,7 +2659,7 @@ pub const PRINTER_ENUM_SHARED: u32 = 32;
 pub type PRINTER_ENUM_VALUES = PRINTER_ENUM_VALUESA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_core::PSTR,
     pub cbValueName: u32,
@@ -2669,7 +2669,7 @@ pub struct PRINTER_ENUM_VALUESA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_core::PWSTR,
     pub cbValueName: u32,
@@ -2686,7 +2686,7 @@ pub const PRINTER_ERROR_WARNING: u32 = 1073741824;
 pub const PRINTER_EXECUTE: u32 = 131080;
 pub type PRINTER_INFO_1 = PRINTER_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_1A {
     pub Flags: u32,
     pub pDescription: windows_core::PSTR,
@@ -2694,7 +2694,7 @@ pub struct PRINTER_INFO_1A {
     pub pComment: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_1W {
     pub Flags: u32,
     pub pDescription: windows_core::PWSTR,
@@ -2705,7 +2705,7 @@ pub struct PRINTER_INFO_1W {
 pub type PRINTER_INFO_2 = PRINTER_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_core::PSTR,
     pub pPrinterName: windows_core::PSTR,
@@ -2731,7 +2731,7 @@ pub struct PRINTER_INFO_2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_core::PWSTR,
     pub pPrinterName: windows_core::PWSTR,
@@ -2757,20 +2757,20 @@ pub struct PRINTER_INFO_2W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
 pub type PRINTER_INFO_4 = PRINTER_INFO_4A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_4A {
     pub pPrinterName: windows_core::PSTR,
     pub pServerName: windows_core::PSTR,
     pub Attributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_core::PWSTR,
     pub pServerName: windows_core::PWSTR,
@@ -2778,7 +2778,7 @@ pub struct PRINTER_INFO_4W {
 }
 pub type PRINTER_INFO_5 = PRINTER_INFO_5A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_5A {
     pub pPrinterName: windows_core::PSTR,
     pub pPortName: windows_core::PSTR,
@@ -2787,7 +2787,7 @@ pub struct PRINTER_INFO_5A {
     pub TransmissionRetryTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_5W {
     pub pPrinterName: windows_core::PWSTR,
     pub pPortName: windows_core::PWSTR,
@@ -2796,19 +2796,19 @@ pub struct PRINTER_INFO_5W {
     pub TransmissionRetryTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_6 {
     pub dwStatus: u32,
 }
 pub type PRINTER_INFO_7 = PRINTER_INFO_7A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_core::PSTR,
     pub dwAction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_core::PWSTR,
     pub dwAction: u32,
@@ -2817,13 +2817,13 @@ pub struct PRINTER_INFO_7W {
 pub type PRINTER_INFO_8 = PRINTER_INFO_8A;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: super::wingdi::LPDEVMODEA,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: super::wingdi::LPDEVMODEW,
 }
@@ -2831,13 +2831,13 @@ pub struct PRINTER_INFO_8W {
 pub type PRINTER_INFO_9 = PRINTER_INFO_9A;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: super::wingdi::LPDEVMODEA,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: super::wingdi::LPDEVMODEW,
 }
@@ -2911,7 +2911,7 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,
@@ -2924,7 +2924,7 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
 pub const PRINTER_NOTIFY_INFO_DISCARDED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: u32,
     pub Flags: u32,
@@ -2934,7 +2934,7 @@ pub struct PRINTER_NOTIFY_OPTIONS {
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: u16,
     pub Reserved0: u16,
@@ -2946,13 +2946,13 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
 pub const PRINTER_NOTIFY_TYPE: u32 = 0;
 pub type PRINTER_OPTIONS = PRINTER_OPTIONSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2992,7 +2992,7 @@ pub const PRINTER_STATUS_WAITING: u32 = 8192;
 pub const PRINTER_STATUS_WARMING_UP: u32 = 65536;
 pub const PRINTER_WRITE: u32 = 131080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3000,7 +3000,7 @@ pub struct PRINTPROCESSOR_CAPS_1 {
     pub dwNumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_CAPS_2 {
     pub dwLevel: u32,
     pub dwNupOptions: u32,
@@ -3014,12 +3014,12 @@ pub struct PRINTPROCESSOR_CAPS_2 {
 }
 pub type PRINTPROCESSOR_INFO_1 = PRINTPROCESSOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_core::PWSTR,
 }
@@ -3030,21 +3030,21 @@ pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEX
 pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1;
 pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINT_EXECUTION_DATA {
     pub context: PRINT_EXECUTION_CONTEXT,
     pub clientAppPID: u32,
 }
 pub type PROVIDOR_INFO_1 = PROVIDOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_1A {
     pub pName: windows_core::PSTR,
     pub pEnvironment: windows_core::PSTR,
     pub pDLLName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_1W {
     pub pName: windows_core::PWSTR,
     pub pEnvironment: windows_core::PWSTR,
@@ -3052,12 +3052,12 @@ pub struct PROVIDOR_INFO_1W {
 }
 pub type PROVIDOR_INFO_2 = PROVIDOR_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_core::PWSTR,
 }
@@ -3073,7 +3073,7 @@ impl Default for PrintNamedProperty {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: u32,
     pub propertiesCollection: *mut PrintNamedProperty,
@@ -3109,7 +3109,7 @@ impl Default for PrintPropertyValue_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut core::ffi::c_void,

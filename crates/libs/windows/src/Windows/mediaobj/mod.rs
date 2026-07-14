@@ -10,7 +10,7 @@ pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = 8;
 pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = 2;
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -28,7 +28,7 @@ impl Default for DMO_MEDIA_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<IMediaBuffer>>,
     pub dwStatus: u32,

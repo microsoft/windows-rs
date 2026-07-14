@@ -157,7 +157,7 @@ where
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
     pub pJoinCertificate: super::wincrypt::PCCERT_CONTEXT,
@@ -181,7 +181,7 @@ impl Default for DSREG_JOIN_INFO {
 pub type DSREG_JOIN_TYPE = i32;
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSREG_USER_INFO {
     pub pszUserEmail: windows_core::PWSTR,
     pub pszUserKeyId: windows_core::PWSTR,
@@ -211,7 +211,7 @@ pub const NETSETUP_NO_ACCT_REUSE: u32 = 131072;
 pub const NETSETUP_NO_NETLOGON_CACHE: u32 = 8192;
 pub const NETSETUP_PROCESS_OFFLINE_FLAGS: u32 = 17569;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
     pub dwVersion: u32,
     pub lpDomain: windows_core::PCWSTR,

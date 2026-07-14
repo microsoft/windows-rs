@@ -203,7 +203,7 @@ pub const URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1;
 pub type URLASSOCIATIONDIALOG_IN_FLAGS = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLINVOKECOMMANDINFOA {
     pub dwcbSize: u32,
     pub dwFlags: u32,
@@ -212,7 +212,7 @@ pub struct URLINVOKECOMMANDINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URLINVOKECOMMANDINFOW {
     pub dwcbSize: u32,
     pub dwFlags: u32,

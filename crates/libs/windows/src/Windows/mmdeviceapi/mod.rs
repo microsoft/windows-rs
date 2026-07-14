@@ -18,7 +18,7 @@ pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPE
 pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct AudioExtensionParams {
     pub AddPageParam: super::minwindef::LPARAM,
     pub pEndpoint: core::mem::ManuallyDrop<Option<IMMDevice>>,
@@ -35,7 +35,7 @@ pub const DEVINTERFACE_AUDIO_RENDER: windows_core::GUID = windows_core::GUID::fr
 pub const DEVINTERFACE_MIDI_INPUT: windows_core::GUID = windows_core::GUID::from_u128(0x504be32c_ccf6_4d2c_b73f_6f8b3747e22b);
 pub const DEVINTERFACE_MIDI_OUTPUT: windows_core::GUID = windows_core::GUID::from_u128(0x6dc23320_ab33_4ce4_80d4_bbb3ebbf2814);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRECTX_AUDIO_ACTIVATION_PARAMS {
     pub cbDirectXAudioActivationParams: u32,
     pub guidAudioSession: windows_core::GUID,

@@ -338,7 +338,7 @@ pub type SLIDTYPE = i32;
 pub type SLLICENSINGSTATUS = i32;
 pub type SLREFERRALTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
     pub r#type: SL_ACTIVATION_TYPE,
@@ -347,7 +347,7 @@ pub type SL_ACTIVATION_TYPE = i32;
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1;
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
     pub pwszProductKey: windows_core::PCWSTR,
@@ -414,7 +414,7 @@ pub const SL_INFO_KEY_SYSTEM_STATE: windows_core::PCWSTR = windows_core::w!("Sys
 pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: windows_core::PCWSTR = windows_core::w!("EULURL");
 pub const SL_INFO_KEY_VERSION: windows_core::PCWSTR = windows_core::w!("Version");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: SLID,
     pub eStatus: SLLICENSINGSTATUS,
@@ -429,7 +429,7 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1;
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
     pub pComponentId: *const SLID,
@@ -461,7 +461,7 @@ pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3;
 pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2;
 pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SL_SYSTEM_POLICY_INFORMATION {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub Reserved2: [u32; 3],

@@ -537,7 +537,7 @@ pub const BPPF_ERASE: u32 = 1;
 pub const BPPF_NOCLIP: u32 = 2;
 pub const BPPF_NONCLIENT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -548,7 +548,7 @@ pub type BP_ANIMATIONSTYLE = i32;
 pub type BP_BUFFERFORMAT = i32;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -563,7 +563,7 @@ impl Default for BP_PAINTPARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -644,7 +644,7 @@ pub const HTTB_RESIZINGBORDER_TOP: u32 = 32;
 pub const HTTB_SIZINGTEMPLATE: u32 = 256;
 pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
@@ -655,7 +655,7 @@ impl Default for INTLIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
@@ -730,13 +730,13 @@ pub struct TA_CUBIC_BEZIER {
 pub type TA_PROPERTY = i32;
 pub type TA_PROPERTY_FLAG = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
 pub type TA_TIMINGFUNCTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -786,7 +786,7 @@ pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = 0;
 pub type WINDOWTHEMEATTRIBUTETYPE = i32;
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,

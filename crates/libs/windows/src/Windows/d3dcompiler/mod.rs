@@ -305,7 +305,7 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *const core::ffi::c_void,
     pub BytecodeLength: usize,

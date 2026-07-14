@@ -2528,7 +2528,7 @@ pub type WBEM_COMPARISON_FLAG = i32;
 pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = 0;
 pub type WBEM_COMPILER_OPTIONS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WBEM_COMPILE_STATUS_INFO {
     pub lPhaseError: i32,
     pub hRes: windows_core::HRESULT,

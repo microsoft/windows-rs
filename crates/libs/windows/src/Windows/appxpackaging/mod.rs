@@ -34,7 +34,7 @@ pub const APPX_COMPRESSION_OPTION_NONE: APPX_COMPRESSION_OPTION = 0;
 pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: u32,
     pub plainTextFiles: *mut windows_core::PCWSTR,
@@ -50,7 +50,7 @@ pub const APPX_ENCRYPTED_PACKAGE_OPTION_NONE: APPX_ENCRYPTED_PACKAGE_OPTIONS = 0
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_PAGE_HASHING: APPX_ENCRYPTED_PACKAGE_OPTIONS = 2;
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -59,7 +59,7 @@ pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS {
 }
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
     pub keyLength: u32,
     pub encryptionAlgorithm: windows_core::PCWSTR,
@@ -73,7 +73,7 @@ pub const APPX_FOOTPRINT_FILE_TYPE_CONTENTGROUPMAP: APPX_FOOTPRINT_FILE_TYPE = 4
 pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_KEY_INFO {
     pub keyLength: u32,
     pub keyIdLength: u32,
@@ -107,14 +107,14 @@ pub type APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = i32;
 pub const APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION_APPEND_DELTA: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION = 0;
 #[repr(C)]
 #[cfg(feature = "urlmon")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_SETTINGS {
     pub forceZip32: windows_core::BOOL,
     pub hashMethod: core::mem::ManuallyDrop<Option<super::urlmon::IUri>>,
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
     pub inputStream: core::mem::ManuallyDrop<Option<super::objidlbase::IStream>>,
     pub fileName: windows_core::PCWSTR,

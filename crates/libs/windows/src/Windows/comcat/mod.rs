@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(all(feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATEGORYINFO {
     pub catid: CATID,
     pub lcid: super::winnt::LCID,

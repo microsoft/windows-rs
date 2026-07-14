@@ -823,7 +823,7 @@ pub type PVALENTA = *mut VALENTA;
 pub type PVALENTW = *mut VALENTW;
 pub type PVALUE = PVALUEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEA {
     pub pv_valuename: windows_core::PSTR,
     pub pv_valuelen: i32,
@@ -836,7 +836,7 @@ impl Default for PVALUEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PVALUEW {
     pub pv_valuename: windows_core::PWSTR,
     pub pv_valuelen: i32,
@@ -916,7 +916,7 @@ pub const SHUTDOWN_UPDATE_POWEROFF: u32 = 131072;
 pub const SHUTDOWN_VAIL_CONTAINER: u32 = 32768;
 pub type VALENT = VALENTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALENTA {
     pub ve_valuename: windows_core::PSTR,
     pub ve_valuelen: u32,
@@ -924,7 +924,7 @@ pub struct VALENTA {
     pub ve_type: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VALENTW {
     pub ve_valuename: windows_core::PWSTR,
     pub ve_valuelen: u32,
@@ -936,7 +936,7 @@ pub const WIN31_CLASS: u32 = 0;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WIN32_ERROR(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct val_context {
     pub valuelen: i32,
     pub value_context: *mut core::ffi::c_void,

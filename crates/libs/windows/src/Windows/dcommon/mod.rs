@@ -6,7 +6,7 @@ pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = 2;
 pub const D2D1_ALPHA_MODE_UNKNOWN: D2D1_ALPHA_MODE = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: super::dxgi::DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
@@ -96,7 +96,7 @@ pub struct D2D_MATRIX_5X4_F_0_0 {
 #[cfg(feature = "windef")]
 pub type D2D_POINT_2L = super::windef::POINT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D_POINT_2U {
     pub x: u32,
     pub y: u32,
@@ -112,7 +112,7 @@ pub struct D2D_RECT_F {
 #[cfg(feature = "windef")]
 pub type D2D_RECT_L = super::windef::RECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D_RECT_U {
     pub left: u32,
     pub top: u32,
@@ -126,7 +126,7 @@ pub struct D2D_SIZE_F {
     pub height: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,

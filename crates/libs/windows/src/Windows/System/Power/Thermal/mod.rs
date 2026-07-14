@@ -166,7 +166,7 @@ impl windows_core::RuntimeName for PowerThermalChannelConfiguration {
 unsafe impl Send for PowerThermalChannelConfiguration {}
 unsafe impl Sync for PowerThermalChannelConfiguration {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PowerThermalChannelData {
     pub Id: PowerThermalChannelId,
     pub Value: i32,
@@ -415,7 +415,7 @@ impl windows_core::RuntimeName for PowerThermalChannelFinder {
     const NAME: &'static str = "Windows.System.Power.Thermal.PowerThermalChannelFinder";
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PowerThermalChannelId {
     pub InterfaceType: windows_core::GUID,
     pub InstanceId: u16,

@@ -148,7 +148,7 @@ pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_
 pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = 4;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY {
     pub Command: super::wtypes::PROPERTYKEY,
     pub AccessType: u32,

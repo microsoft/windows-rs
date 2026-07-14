@@ -5698,7 +5698,7 @@ pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3;
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7;
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPattern {
     pub Position: u64,
     pub Length: u32,
@@ -5712,7 +5712,7 @@ impl Default for WICBitmapPattern {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPlane {
     pub Format: WICPixelFormatGUID,
     pub pbBuffer: *mut u8,
@@ -5725,7 +5725,7 @@ impl Default for WICBitmapPlane {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICBitmapPlaneDescription {
     pub Format: WICPixelFormatGUID,
     pub Width: u32,
@@ -5778,7 +5778,7 @@ pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub BytesPerBlock: u32,
@@ -5787,7 +5787,7 @@ pub struct WICDdsFormatInfo {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICDdsParameters {
     pub Width: u32,
     pub Height: u32,
@@ -5887,7 +5887,7 @@ pub type WICJpegCommentProperties = i32;
 pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647;
 pub const WICJpegCommentText: WICJpegCommentProperties = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICJpegFrameHeader {
     pub Width: u32,
     pub Height: u32,
@@ -5906,7 +5906,7 @@ pub type WICJpegLuminanceProperties = i32;
 pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647;
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICJpegScanHeader {
     pub cComponents: u32,
     pub RestartInterval: u32,
@@ -6028,7 +6028,7 @@ pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647;
 pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647;
 pub type WICRawCapabilities = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICRawCapabilitiesInfo {
     pub cbSize: u32,
     pub CodecMajorVersion: u32,
@@ -6094,7 +6094,7 @@ pub struct WICRawToneCurvePoint {
     pub Output: f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICRect {
     pub X: i32,
     pub Y: i32,

@@ -569,7 +569,7 @@ impl windows_core::RuntimeType for ESimProfileClass {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.ESimProfileClass");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
@@ -6138,7 +6138,7 @@ impl windows_core::RuntimeType for ProfileMediaType {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.NetworkOperators.ProfileMediaType");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: windows_time::DateTime,

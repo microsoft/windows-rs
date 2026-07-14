@@ -3412,7 +3412,7 @@ pub const MF2DBuffer_LockFlags_Read: MF2DBuffer_LockFlags = 1;
 pub const MF2DBuffer_LockFlags_ReadWrite: MF2DBuffer_LockFlags = 3;
 pub const MF2DBuffer_LockFlags_Write: MF2DBuffer_LockFlags = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -3434,7 +3434,7 @@ pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16;
 pub const MFASYNC_REPLY_CALLBACK: u32 = 8;
 pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -3463,7 +3463,7 @@ pub const MFNominalRange_Normal: MFNominalRange = 1;
 pub const MFNominalRange_Unknown: MFNominalRange = 0;
 pub const MFNominalRange_Wide: MFNominalRange = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
@@ -3480,7 +3480,7 @@ impl Default for MFPaletteEntry {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -3497,7 +3497,7 @@ pub const MFStdVideoFormat_NTSC: MFStandardVideoFormat = 1;
 pub const MFStdVideoFormat_PAL: MFStandardVideoFormat = 2;
 pub const MFStdVideoFormat_reserved: MFStandardVideoFormat = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub guidSubtype: windows_core::GUID,
@@ -3520,7 +3520,7 @@ impl Default for MFVIDEOFORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
     pub OffsetY: MFOffset,
@@ -3539,7 +3539,7 @@ pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = 0;
 pub const MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes: MFVideoChromaSubsampling = 1;
 pub const MFVideoChromaSubsampling_Vertically_Cosited: MFVideoChromaSubsampling = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
@@ -3568,7 +3568,7 @@ pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647;
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
     pub dwHeight: u32,

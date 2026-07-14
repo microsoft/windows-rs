@@ -616,7 +616,7 @@ impl windows_core::RuntimeName for CoreTextLayoutRequestedEventArgs {
 unsafe impl Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl Sync for CoreTextLayoutRequestedEventArgs {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,

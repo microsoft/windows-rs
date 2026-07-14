@@ -486,7 +486,7 @@ pub const DEVPKEY_WiFiDirect_TransientAssociation: super::devpropdef::DEVPROPKEY
 #[cfg(feature = "devpropdef")]
 pub const DEVPKEY_WiFi_InterfaceGuid: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0xef1167eb_cbfc_4341_a568_a7c91a68982c), pid: super::devpropdef::DEVPROPID(2) };
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub AccessNetworkType: u8,
     pub Internet: u8,
@@ -522,7 +522,7 @@ pub const DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9;
 pub const DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = 5;
 pub const DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR {
     pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
     pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
@@ -547,13 +547,13 @@ pub const DOT11_CIPHER_ALGO_WEP104: DOT11_CIPHER_ALGORITHM = 5;
 pub const DOT11_CIPHER_ALGO_WEP40: DOT11_CIPHER_ALGORITHM = 1;
 pub const DOT11_CIPHER_ALGO_WPA_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -565,7 +565,7 @@ impl Default for DOT11_NETWORK_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OI {
     pub OILength: u16,
     pub OI: [u8; 5],
@@ -581,7 +581,7 @@ pub const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240;
 pub const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5;
 pub type DOT11_RADIO_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SSID {
     pub uSSIDLength: u32,
     pub ucSSID: [u8; 32],
@@ -593,7 +593,7 @@ impl Default for DOT11_SSID {
 }
 pub const DOT11_SSID_MAX_LENGTH: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
     pub VenueType: u8,
@@ -703,7 +703,7 @@ pub const WFD_API_VERSION: u32 = 1;
 pub const WFD_API_VERSION_1_0: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WFD_GROUP_ID {
     pub DeviceAddress: super::windot11::DOT11_MAC_ADDRESS,
     pub GroupSSID: DOT11_SSID,
@@ -728,7 +728,7 @@ pub const WLAN_API_VERSION_1_0: u32 = 1;
 pub const WLAN_API_VERSION_2_0: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
@@ -746,7 +746,7 @@ impl Default for WLAN_ASSOCIATION_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
     pub dwNumberOfItems: u32,
     pub pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
@@ -759,7 +759,7 @@ impl Default for WLAN_AUTH_CIPHER_PAIR_LIST {
 pub type WLAN_AUTOCONF_OPCODE = i32;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK {
     pub strProfileName: [u16; 256],
     pub dot11Ssid: DOT11_SSID,
@@ -796,7 +796,7 @@ pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: u32 = 2;
 pub const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -810,7 +810,7 @@ impl Default for WLAN_AVAILABLE_NETWORK_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -824,7 +824,7 @@ impl Default for WLAN_AVAILABLE_NETWORK_LIST_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub strProfileName: [u16; 256],
     pub dot11Ssid: DOT11_SSID,
@@ -853,7 +853,7 @@ impl Default for WLAN_AVAILABLE_NETWORK_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
     pub uPhyId: u32,
@@ -880,7 +880,7 @@ impl Default for WLAN_BSS_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
@@ -895,7 +895,7 @@ impl Default for WLAN_BSS_LIST {
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub isState: WLAN_INTERFACE_STATE,
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -916,7 +916,7 @@ pub type WLAN_CONNECTION_MODE = i32;
 pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: u32 = 1;
 pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfileName: [u16; 256],
@@ -934,7 +934,7 @@ impl Default for WLAN_CONNECTION_NOTIFICATION_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "windot11"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_core::PCWSTR,
@@ -945,7 +945,7 @@ pub struct WLAN_CONNECTION_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "windot11"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfile: windows_core::PCWSTR,
@@ -960,7 +960,7 @@ pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_CONNECTION_QOS_INFO {
     pub peerCapabilities: WLAN_QOS_CAPABILITIES,
     pub bMSCSConfigured: windows_core::BOOL,
@@ -970,7 +970,7 @@ pub struct WLAN_CONNECTION_QOS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
     pub pCountryOrRegionStringList: [super::windot11::DOT11_COUNTRY_OR_REGION_STRING; 1],
@@ -982,7 +982,7 @@ impl Default for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -994,7 +994,7 @@ impl Default for WLAN_DEVICE_SERVICE_GUID_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     pub DeviceService: windows_core::GUID,
     pub dwOpCode: u32,
@@ -1009,14 +1009,14 @@ impl Default for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
 pub const WLAN_EXECUTE_ACCESS: u32 = 131105;
 pub type WLAN_FILTER_LIST_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
     pub dwMaxNumberOfPeers: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
@@ -1027,7 +1027,7 @@ pub type WLAN_HOSTED_NETWORK_OPCODE = i32;
 pub type WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = i32;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: super::windot11::DOT11_MAC_ADDRESS,
     pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
@@ -1039,21 +1039,21 @@ impl Default for WLAN_HOSTED_NETWORK_PEER_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
 }
 pub type WLAN_HOSTED_NETWORK_REASON = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
 }
 pub type WLAN_HOSTED_NETWORK_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_STATE,
@@ -1061,7 +1061,7 @@ pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
 }
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
     pub IPDeviceID: windows_core::GUID,
@@ -1080,7 +1080,7 @@ impl Default for WLAN_HOSTED_NETWORK_STATUS {
 pub type WLAN_IHV_CONTROL_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
     pub bDot11DSupported: windows_core::BOOL,
@@ -1096,7 +1096,7 @@ impl Default for WLAN_INTERFACE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_INFO {
     pub InterfaceGuid: windows_core::GUID,
     pub strInterfaceDescription: [u16; 256],
@@ -1108,7 +1108,7 @@ impl Default for WLAN_INTERFACE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_INTERFACE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -1123,7 +1123,7 @@ pub type WLAN_INTERFACE_STATE = i32;
 pub type WLAN_INTERFACE_TYPE = i32;
 pub type WLAN_INTF_OPCODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -1143,7 +1143,7 @@ pub const WLAN_MAX_PHY_INDEX: u32 = 64;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
     pub strProfileName: [u16; 256],
@@ -1180,7 +1180,7 @@ pub const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32;
 pub type WLAN_OPCODE_VALUE_TYPE = i32;
 pub type WLAN_OPERATIONAL_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -1202,7 +1202,7 @@ pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullFCSErrorCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_PHY_RADIO_STATE {
     pub dwPhyIndex: u32,
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
@@ -1214,7 +1214,7 @@ pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4;
 pub const WLAN_PROFILE_GROUP_POLICY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub dwFlags: u32,
@@ -1225,7 +1225,7 @@ impl Default for WLAN_PROFILE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -1238,7 +1238,7 @@ impl Default for WLAN_PROFILE_INFO_LIST {
 }
 pub const WLAN_PROFILE_USER: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_QOS_CAPABILITIES {
     pub bMSCSSupported: windows_core::BOOL,
     pub bDSCPToUPMappingSupported: windows_core::BOOL,
@@ -1246,14 +1246,14 @@ pub struct WLAN_QOS_CAPABILITIES {
     pub bDSCPPolicySupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_QOS_INFO {
     pub interfaceCapabilities: WLAN_QOS_CAPABILITIES,
     pub bConnected: windows_core::BOOL,
     pub connectionQoSInfo: WLAN_CONNECTION_QOS_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RADIO_STATE {
     pub dwNumberOfPhys: u32,
     pub PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
@@ -1264,7 +1264,7 @@ impl Default for WLAN_RADIO_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RATE_SET {
     pub uRateSetLength: u32,
     pub usRateSet: [u16; 126],
@@ -1275,7 +1275,7 @@ impl Default for WLAN_RATE_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA {
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
@@ -1286,7 +1286,7 @@ impl Default for WLAN_RAW_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
@@ -1298,7 +1298,7 @@ impl Default for WLAN_RAW_DATA_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
@@ -1306,7 +1306,7 @@ pub struct WLAN_RAW_DATA_LIST_0 {
 pub const WLAN_READ_ACCESS: u32 = 131073;
 #[repr(C)]
 #[cfg(feature = "windot11")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_REALTIME_CONNECTION_QUALITY {
     pub dot11PhyType: super::windot11::DOT11_PHY_TYPE,
     pub ulLinkQuality: u32,
@@ -1323,7 +1323,7 @@ impl Default for WLAN_REALTIME_CONNECTION_QUALITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_REALTIME_CONNECTION_QUALITY_LINK_INFO {
     pub ucLinkID: u8,
     pub ulChannelCenterFrequencyMhz: u32,
@@ -1492,7 +1492,7 @@ pub const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854;
 pub type WLAN_SECURABLE_OBJECT = i32;
 pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WLAN_SECURITY_ATTRIBUTES {
     pub bSecurityEnabled: windows_core::BOOL,
     pub bOneXEnabled: windows_core::BOOL,
@@ -1504,7 +1504,7 @@ pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: u32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WLAN_SIGNAL_QUALITY(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WLAN_STATISTICS {
     pub ullFourWayHandshakeFailures: u64,
     pub ullTKIPCounterMeasuresInvoked: u64,

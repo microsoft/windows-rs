@@ -23,7 +23,7 @@ pub const CardInserted: SmartCardStatusType = 0;
 pub const CardRemoved: SmartCardStatusType = 1;
 pub const DeviceClosed: UICloseReasonType = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EALocationCodeType {
     pub LocationCodeScheme: LocationCodeSchemeType,
     pub state_code: u8,
@@ -4257,7 +4257,7 @@ pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1;
 pub const SCTE_18: LocationCodeSchemeType = 0;
 #[repr(C)]
 #[cfg(feature = "bdatypes")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SmartCardApplication {
     pub ApplicationType: super::bdatypes::ApplicationTypeType,
     pub ApplicationVersion: u16,

@@ -765,7 +765,7 @@ pub const CMS_USEAPPLYCALLBACK: u32 = 256;
 pub const CMS_USEDESCRIPTION: u32 = 512;
 pub const CMS_USEHOOK: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMYKCOLOR {
     pub cyan: u16,
     pub magenta: u16,
@@ -792,7 +792,7 @@ impl Default for COLOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLOR_0 {
     pub reserved1: u32,
     pub reserved2: *mut core::ffi::c_void,
@@ -899,7 +899,7 @@ pub const CSA_RGB: u32 = 6;
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: u32 = 1;
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMTYPEA {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -928,7 +928,7 @@ impl Default for ENUMTYPEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMTYPEW {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -981,14 +981,14 @@ pub const FLAG_DEPENDENTONDATA: u32 = 2;
 pub const FLAG_EMBEDDEDPROFILE: u32 = 1;
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GENERIC3CHANNEL {
     pub ch1: u16,
     pub ch2: u16,
     pub ch3: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRAYCOLOR {
     pub gray: u16,
 }
@@ -999,7 +999,7 @@ pub type HPROFILE = super::winnt::HANDLE;
 #[cfg(feature = "winnt")]
 pub type HTRANSFORM = super::winnt::HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HiFiCOLOR {
     pub channel: [u8; 8],
 }
@@ -1042,7 +1042,7 @@ pub type LPPROFILE = *mut PROFILE;
 pub type LPPROFILEHEADER = *mut PROFILEHEADER;
 pub type LPTAGTYPE = *mut TAGTYPE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LabCOLOR {
     pub L: u16,
     pub a: u16,
@@ -1051,12 +1051,12 @@ pub struct LabCOLOR {
 pub const MAX_COLOR_CHANNELS: u32 = 8;
 pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMEDCOLOR {
     pub dwIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NAMED_PROFILE_INFO {
     pub dwFlags: u32,
     pub dwCount: u32,
@@ -1097,7 +1097,7 @@ pub type PPROFILE = *mut PROFILE;
 pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILE {
     pub dwType: u32,
     pub pProfileData: *mut core::ffi::c_void,
@@ -1110,7 +1110,7 @@ impl Default for PROFILE {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILEHEADER {
     pub phSize: u32,
     pub phCMMType: u32,
@@ -1144,7 +1144,7 @@ pub const PROOF_MODE: u32 = 1;
 pub type PTAGTYPE = *mut TAGTYPE;
 pub const RESERVED: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RGBCOLOR {
     pub red: u16,
     pub green: u16,
@@ -1178,7 +1178,7 @@ pub const WCS_ALWAYS: u32 = 2097152;
 pub const WCS_DEFAULT: u32 = 0;
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub Size: u32,
     pub SupportsMhc2: windows_core::BOOL,
@@ -1187,7 +1187,7 @@ pub struct WCS_DEVICE_MHC2_CAPABILITIES {
     pub CscXyzMatrixColumns: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCS_DEVICE_VCGT_CAPABILITIES {
     pub Size: u32,
     pub SupportsVcgt: windows_core::BOOL,
@@ -1199,14 +1199,14 @@ pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = 1;
 pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XYZCOLOR {
     pub X: u16,
     pub Y: u16,
     pub Z: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct YxyCOLOR {
     pub Y: u16,
     pub x: u16,

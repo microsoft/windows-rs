@@ -208,7 +208,7 @@ impl Default for APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
     pub LeafSnapshotId: windows_core::GUID,
@@ -252,12 +252,12 @@ impl Default for ATTACH_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub RestrictedOffset: u64,
     pub RestrictedLength: u64,
@@ -292,7 +292,7 @@ impl Default for COMPACT_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub Reserved: u32,
 }
@@ -343,7 +343,7 @@ impl Default for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -354,7 +354,7 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -370,7 +370,7 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -388,7 +388,7 @@ pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -439,7 +439,7 @@ impl Default for DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
 }
@@ -489,7 +489,7 @@ impl Default for EXPAND_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -521,7 +521,7 @@ impl Default for FORK_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: windows_core::PCWSTR,
 }
@@ -574,7 +574,7 @@ impl Default for GET_VIRTUAL_DISK_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
@@ -583,7 +583,7 @@ pub struct GET_VIRTUAL_DISK_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: windows_core::BOOL,
     pub ParentLocationBuffer: [u16; 1],
@@ -596,7 +596,7 @@ impl Default for GET_VIRTUAL_DISK_INFO_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
@@ -604,7 +604,7 @@ pub struct GET_VIRTUAL_DISK_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub Enabled: windows_core::BOOL,
     pub NewerChanges: windows_core::BOOL,
@@ -659,12 +659,12 @@ impl Default for MERGE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MergeDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MERGE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub MergeSourceDepth: u32,
     pub MergeTargetDepth: u32,
@@ -701,7 +701,7 @@ impl Default for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: windows_core::PCWSTR,
 }
@@ -736,7 +736,7 @@ impl Default for MODIFY_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
     pub SnapshotFilePath: windows_core::PCWSTR,
@@ -783,19 +783,19 @@ impl Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: windows_core::BOOL,
     pub ReadOnly: windows_core::BOOL,
     pub ResiliencyGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: windows_core::BOOL,
     pub ReadOnly: windows_core::BOOL,
@@ -844,7 +844,7 @@ pub type PVIRTUAL_DISK_PROGRESS = *mut VIRTUAL_DISK_PROGRESS;
 pub type QUERY_CHANGES_VIRTUAL_DISK_FLAG = u32;
 pub const QUERY_CHANGES_VIRTUAL_DISK_FLAG_NONE: QUERY_CHANGES_VIRTUAL_DISK_FLAG = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     pub ByteOffset: u64,
     pub ByteLength: u64,
@@ -874,7 +874,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: windows_core::BOOL,
     pub DataIn: u8,
@@ -913,7 +913,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 {
     pub ScsiStatus: u8,
     pub SenseInfoLength: u8,
@@ -948,7 +948,7 @@ impl Default for RESIZE_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub NewSize: u64,
 }
@@ -983,13 +983,13 @@ impl Default for SET_VIRTUAL_DISK_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub ChildDepth: u32,
     pub ParentFilePath: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub LinkageId: windows_core::GUID,
     pub ParentFilePath: windows_core::PCWSTR,
@@ -1032,7 +1032,7 @@ impl Default for STORAGE_DEPENDENCY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -1040,7 +1040,7 @@ pub struct STORAGE_DEPENDENCY_INFO_TYPE_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DEPENDENCY_INFO_TYPE_2 {
     pub DependencyTypeFlags: DEPENDENT_DISK_FLAG,
     pub ProviderSpecificFlags: u32,
@@ -1089,7 +1089,7 @@ impl Default for TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: windows_core::GUID,
 }
@@ -1113,7 +1113,7 @@ pub const VIRTUAL_DISK_ACCESS_UNSURFACE: u32 = 262144;
 pub const VIRTUAL_DISK_ACCESS_WRITABLE: VIRTUAL_DISK_ACCESS_MASK = 3276800;
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_DISK_PROGRESS {
     pub OperationStatus: u32,
     pub CurrentValue: u64,

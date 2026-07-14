@@ -12594,7 +12594,7 @@ pub const MFCLOCK_JITTER_DPC: u32 = 4000;
 pub const MFCLOCK_JITTER_ISR: u32 = 1000;
 pub const MFCLOCK_JITTER_PASSIVE: u32 = 10000;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFCLOCK_PROPERTIES {
     pub qwCorrelationRate: u64,
     pub guidClockId: windows_core::GUID,
@@ -12613,7 +12613,7 @@ pub const MFCLOCK_STATE_STOPPED: MFCLOCK_STATE = 2;
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000;
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     pub HWProtectionFunctionID: u32,
     pub PrivateDataByteCount: u32,
@@ -12627,7 +12627,7 @@ impl Default for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     pub PrivateDataByteCount: u32,
     pub MaxHWProtectionDataByteCount: u32,
@@ -12643,7 +12643,7 @@ impl Default for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     pub TaskIndex: u32,
     pub ClassName: [u16; 260],
@@ -12700,7 +12700,7 @@ pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub CameraModel: MFCameraIntrinsic_CameraModel,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
@@ -12712,7 +12712,7 @@ impl Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     pub dwSize: u32,
     pub dwVer: u32,
@@ -12738,7 +12738,7 @@ pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTIC
 pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 8;
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
@@ -12806,7 +12806,7 @@ pub const MFNET_PROXYSETTING_MANUAL: MFNET_PROXYSETTINGS = 1;
 pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = 0;
 pub type MFNetAuthenticationFlags = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: windows_core::HRESULT,
     pub fAllowLoggedOnUser: windows_core::BOOL,
@@ -12834,14 +12834,14 @@ pub type MFRATE_DIRECTION = i32;
 pub const MFRATE_FORWARD: MFRATE_DIRECTION = 0;
 pub const MFRATE_REVERSE: MFRATE_DIRECTION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: u32,
     pub dwRRComponents: u32,
     pub pRRComponents: PMFRR_COMPONENT_HASH_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFRR_COMPONENT_HASH_INFO {
     pub ulReason: u32,
     pub rgHeaderHash: [u16; 43],
@@ -12936,7 +12936,7 @@ impl Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: windows_core::GUID,
     pub guidCategory: windows_core::GUID,
@@ -12976,7 +12976,7 @@ pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2;
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
@@ -12985,7 +12985,7 @@ pub type MF_CAMERA_CONTROL_CONFIGURATION_TYPE = i32;
 pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_POSTSTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = 1;
 pub const MF_CAMERA_CONTROL_CONFIGURATION_TYPE_PRESTART: MF_CAMERA_CONTROL_CONFIGURATION_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_CAMERA_CONTROL_RANGE_INFO {
     pub minValue: i32,
     pub maxValue: i32,
@@ -13020,7 +13020,7 @@ pub const MF_GRL_LOAD_FAILED: u32 = 16;
 pub const MF_INVALID_GRL_SIGNATURE: u32 = 32;
 pub const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -13117,7 +13117,7 @@ pub type MF_TRANSCODE_ADJUST_PROFILE_FLAGS = i32;
 pub const MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: core::mem::ManuallyDrop<Option<super::mfobjects::IMFMediaType>>,
@@ -13140,7 +13140,7 @@ pub type MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = i32;
 pub type MF_VIDEO_PROCESSOR_MIRROR = i32;
 pub type MF_VIDEO_PROCESSOR_ROTATION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     pub iHeading: i32,
     pub iPitch: i32,
@@ -13178,7 +13178,7 @@ pub const SAMPLE_PROTECTION_VERSION_NO: SAMPLE_PROTECTION_VERSION = 0;
 pub const SAMPLE_PROTECTION_VERSION_RC4: SAMPLE_PROTECTION_VERSION = 3;
 pub const SAMPLE_PROTECTION_VERSION_SCATTER: SAMPLE_PROTECTION_VERSION = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SENSORPROFILEID {
     pub Type: windows_core::GUID,
     pub Index: u32,

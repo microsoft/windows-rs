@@ -43,7 +43,7 @@ impl Default for MIB_UDP6ROW2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
 }
@@ -75,12 +75,12 @@ impl Default for MIB_UDP6ROW_OWNER_MODULE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -128,7 +128,7 @@ impl Default for MIB_UDP6TABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDP6ROW_OWNER_PID; 1],
@@ -139,7 +139,7 @@ impl Default for MIB_UDP6TABLE_OWNER_PID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPROW {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
@@ -173,7 +173,7 @@ impl Default for MIB_UDPROW2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
 }
@@ -204,19 +204,19 @@ impl Default for MIB_UDPROW_OWNER_MODULE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_PID {
     pub dwLocalAddr: u32,
     pub dwLocalPort: u32,
     pub dwOwningPid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPSTATS {
     pub dwInDatagrams: u32,
     pub dwNoPorts: u32,
@@ -225,7 +225,7 @@ pub struct MIB_UDPSTATS {
     pub dwNumAddrs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPSTATS2 {
     pub dw64InDatagrams: u64,
     pub dwNoPorts: u32,
@@ -234,7 +234,7 @@ pub struct MIB_UDPSTATS2 {
     pub dwNumAddrs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW; 1],
@@ -267,7 +267,7 @@ impl Default for MIB_UDPTABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_UDPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_UDPROW_OWNER_PID; 1],

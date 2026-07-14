@@ -357,7 +357,7 @@ pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> windows_
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: super::minwindef::LPBYTE,
@@ -365,7 +365,7 @@ pub struct BINARY_BLOB_CREDENTIAL_INFO {
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
@@ -380,7 +380,7 @@ pub const CERT_HASH_LENGTH: u32 = 20;
 pub type CREDENTIAL = CREDENTIALA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIALA {
     pub Flags: u32,
     pub Type: u32,
@@ -397,7 +397,7 @@ pub struct CREDENTIALA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIALW {
     pub Flags: u32,
     pub Type: u32,
@@ -416,7 +416,7 @@ pub struct CREDENTIALW {
 pub type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_core::PSTR,
     pub Flags: u32,
@@ -425,7 +425,7 @@ pub struct CREDENTIAL_ATTRIBUTEA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_core::PWSTR,
     pub Flags: u32,
@@ -436,7 +436,7 @@ pub struct CREDENTIAL_ATTRIBUTEW {
 pub type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_core::PSTR,
     pub NetbiosServerName: windows_core::PSTR,
@@ -451,7 +451,7 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_core::PWSTR,
     pub NetbiosServerName: windows_core::PWSTR,
@@ -500,7 +500,7 @@ pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322;
 pub type CREDUI_INFO = CREDUI_INFOA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::windef::HWND,
@@ -510,7 +510,7 @@ pub struct CREDUI_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::windef::HWND,
@@ -679,7 +679,7 @@ pub const STATUS_PASSWORD_MUST_CHANGE: super::bcrypt::NTSTATUS = super::bcrypt::
 #[cfg(feature = "bcrypt")]
 pub const STATUS_WRONG_PASSWORD: super::bcrypt::NTSTATUS = super::bcrypt::NTSTATUS(0xC000006A_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_core::PWSTR,
 }

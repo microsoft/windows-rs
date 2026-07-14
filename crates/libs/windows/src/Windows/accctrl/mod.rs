@@ -8,14 +8,14 @@ pub struct ACCESS_RIGHTS(pub u32);
 pub type ACTRL_ACCESS = ACTRL_ACCESSA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESSA {
     pub cEntries: u32,
     pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYA,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESSW {
     pub cEntries: u32,
     pub pPropertyAccessList: PACTRL_PROPERTY_ENTRYW,
@@ -26,7 +26,7 @@ pub const ACTRL_ACCESS_DENIED: u32 = 2;
 pub type ACTRL_ACCESS_ENTRY = ACTRL_ACCESS_ENTRYA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRYA {
     pub Trustee: TRUSTEE_A,
     pub fAccessFlags: u32,
@@ -37,7 +37,7 @@ pub struct ACTRL_ACCESS_ENTRYA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRYW {
     pub Trustee: TRUSTEE_W,
     pub fAccessFlags: u32,
@@ -50,7 +50,7 @@ pub struct ACTRL_ACCESS_ENTRYW {
 pub type ACTRL_ACCESS_ENTRY_LIST = ACTRL_ACCESS_ENTRY_LISTA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTA {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
@@ -63,7 +63,7 @@ impl Default for ACTRL_ACCESS_ENTRY_LISTA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_ENTRY_LISTW {
     pub cEntries: u32,
     pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
@@ -76,13 +76,13 @@ impl Default for ACTRL_ACCESS_ENTRY_LISTW {
 }
 pub type ACTRL_ACCESS_INFO = ACTRL_ACCESS_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_INFOA {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_ACCESS_INFOW {
     pub fAccessPermission: u32,
     pub lpAccessPermissionName: windows_core::PWSTR,
@@ -102,13 +102,13 @@ pub const ACTRL_CHANGE_ACCESS: u32 = 536870912;
 pub const ACTRL_CHANGE_OWNER: u32 = 1073741824;
 pub type ACTRL_CONTROL_INFO = ACTRL_CONTROL_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_CONTROL_INFOA {
     pub lpControlId: windows_core::PSTR,
     pub lpControlName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_CONTROL_INFOW {
     pub lpControlId: windows_core::PWSTR,
     pub lpControlName: windows_core::PWSTR,
@@ -210,7 +210,7 @@ pub const ACTRL_PRINT_SLIST: u32 = 2;
 pub type ACTRL_PROPERTY_ENTRY = ACTRL_PROPERTY_ENTRYA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYA {
     pub lpProperty: windows_core::PSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTA,
@@ -218,7 +218,7 @@ pub struct ACTRL_PROPERTY_ENTRYA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTRL_PROPERTY_ENTRYW {
     pub lpProperty: windows_core::PWSTR,
     pub pAccessEntryList: PACTRL_ACCESS_ENTRY_LISTW,
@@ -265,7 +265,7 @@ pub type EXPLICIT_ACCESSW = EXPLICIT_ACCESS_W;
 pub type EXPLICIT_ACCESS_ = EXPLICIT_ACCESS_A;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPLICIT_ACCESS_A {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
@@ -274,7 +274,7 @@ pub struct EXPLICIT_ACCESS_A {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXPLICIT_ACCESS_W {
     pub grfAccessPermissions: u32,
     pub grfAccessMode: ACCESS_MODE,
@@ -282,7 +282,7 @@ pub struct EXPLICIT_ACCESS_W {
     pub Trustee: TRUSTEE_W,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FN_OBJECT_MGR_FUNCTS {
     pub Placeholder: u32,
 }
@@ -290,13 +290,13 @@ pub const GRANT_ACCESS: ACCESS_MODE = 1;
 pub const INHERITED_ACCESS_ENTRY: u32 = 16;
 pub type INHERITED_FROM = INHERITED_FROMA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INHERITED_FROMA {
     pub GenerationGap: i32,
     pub AncestorName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INHERITED_FROMW {
     pub GenerationGap: i32,
     pub AncestorName: windows_core::PWSTR,
@@ -314,7 +314,7 @@ pub const NO_INHERITANCE: u32 = 0;
 pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = 0;
 pub type OBJECTS_AND_NAME_ = OBJECTS_AND_NAME_A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTS_AND_NAME_A {
     pub ObjectsPresent: u32,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -323,7 +323,7 @@ pub struct OBJECTS_AND_NAME_A {
     pub ptstrName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTS_AND_NAME_W {
     pub ObjectsPresent: u32,
     pub ObjectType: SE_OBJECT_TYPE,
@@ -333,7 +333,7 @@ pub struct OBJECTS_AND_NAME_W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECTS_AND_SID {
     pub ObjectsPresent: u32,
     pub ObjectTypeGuid: windows_core::GUID,
@@ -465,7 +465,7 @@ pub type TRUSTEEW = TRUSTEE_W;
 pub type TRUSTEE_ = TRUSTEE_A;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_A {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,
@@ -481,7 +481,7 @@ impl Default for TRUSTEE_A {
 }
 pub type TRUSTEE_ACCESS = TRUSTEE_ACCESSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_ACCESSA {
     pub lpProperty: windows_core::PSTR,
     pub Access: ACCESS_RIGHTS,
@@ -489,7 +489,7 @@ pub struct TRUSTEE_ACCESSA {
     pub fReturnedAccess: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTEE_ACCESSW {
     pub lpProperty: windows_core::PWSTR,
     pub Access: ACCESS_RIGHTS,
@@ -521,7 +521,7 @@ pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = 5;
 pub type TRUSTEE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUSTEE_W {
     pub pMultipleTrustee: *mut Self,
     pub MultipleTrusteeOperation: MULTIPLE_TRUSTEE_OPERATION,

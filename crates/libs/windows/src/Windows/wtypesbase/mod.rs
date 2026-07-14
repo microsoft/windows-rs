@@ -15,7 +15,7 @@ pub const APPIDREGFLAGS_RESERVED8: u32 = 8192;
 pub const APPIDREGFLAGS_RESERVED9: u32 = 16384;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLOB {
     pub cbSize: u32,
     pub pBlobData: *mut u8,
@@ -27,7 +27,7 @@ impl Default for BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BYTE_BLOB {
     pub clSize: u32,
     pub abData: [super::rpc::byte; 1],
@@ -40,7 +40,7 @@ impl Default for BYTE_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BYTE_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut super::rpc::byte,
@@ -84,7 +84,7 @@ pub const CLSCTX_RESERVED6: CLSCTX = 16777216;
 pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
 pub const CLSCTX_VALID_MASK: i32 = -1612712929;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COAUTHIDENTITY {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -100,7 +100,7 @@ impl Default for COAUTHIDENTITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -122,7 +122,7 @@ pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16;
 pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8;
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWORD_BLOB {
     pub clSize: u32,
     pub alData: [u32; 1],
@@ -133,7 +133,7 @@ impl Default for DWORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u32,
@@ -145,7 +145,7 @@ impl Default for DWORD_SIZEDARR {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLAGGED_BYTE_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
@@ -158,7 +158,7 @@ impl Default for FLAGGED_BYTE_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLAGGED_WORD_BLOB {
     pub fFlags: u32,
     pub clSize: u32,
@@ -170,7 +170,7 @@ impl Default for FLAGGED_WORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYPER_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut i64,
@@ -219,7 +219,7 @@ pub type UP_FLAGGED_BYTE_BLOB = *mut FLAGGED_BYTE_BLOB;
 pub type UP_FLAGGED_WORD_BLOB = *mut FLAGGED_WORD_BLOB;
 pub type UP_WORD_BLOB = *mut WORD_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WORD_BLOB {
     pub clSize: u32,
     pub asData: [u16; 1],
@@ -230,7 +230,7 @@ impl Default for WORD_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WORD_SIZEDARR {
     pub clSize: u32,
     pub pData: *mut u16,

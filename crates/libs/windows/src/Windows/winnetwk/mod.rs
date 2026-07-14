@@ -322,7 +322,7 @@ pub const CONNDLG_USE_MRU: u32 = 4;
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -332,7 +332,7 @@ pub struct CONNECTDLGSTRUCTA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -363,7 +363,7 @@ pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536;
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -373,7 +373,7 @@ pub struct DISCDLGSTRUCTA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -407,7 +407,7 @@ pub type LPUNIVERSAL_NAME_INFO = LPUNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOA = *mut UNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOW = *mut UNIVERSAL_NAME_INFOW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -416,7 +416,7 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwOptDataSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -433,7 +433,7 @@ pub const NETINFO_PRINTERRED: u32 = 8;
 pub const NETPROPERTY_PERSISTENT: u32 = 1;
 pub type NETRESOURCE = NETRESOURCEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: u32,
     pub dwType: u32,
@@ -445,7 +445,7 @@ pub struct NETRESOURCEA {
     pub lpProvider: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: u32,
     pub dwType: u32,
@@ -458,14 +458,14 @@ pub struct NETRESOURCEW {
 }
 pub type REMOTE_NAME_INFO = REMOTE_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
     pub lpRemainingPath: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
@@ -503,12 +503,12 @@ pub const RESOURCE_RECENT: u32 = 4;
 pub const RESOURCE_REMEMBERED: u32 = 3;
 pub type UNIVERSAL_NAME_INFO = UNIVERSAL_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
 }

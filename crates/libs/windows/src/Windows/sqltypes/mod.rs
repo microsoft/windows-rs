@@ -3,7 +3,7 @@ pub type BOOKMARK = SQLUINTEGER;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type BOOKMARK = SQLULEN;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATE_STRUCT {
     pub year: SQLSMALLINT,
     pub month: SQLUSMALLINT,
@@ -154,7 +154,7 @@ pub struct SQLVARCHAR(pub u8);
 pub struct SQLWCHAR(pub u16);
 pub type SQL_DATE_STRUCT = DATE_STRUCT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SQL_DAY_SECOND_STRUCT {
     pub day: SQLUINTEGER,
     pub hour: SQLUINTEGER,
@@ -200,7 +200,7 @@ pub const SQL_IS_YEAR: SQLINTERVAL = 1;
 pub const SQL_IS_YEAR_TO_MONTH: SQLINTERVAL = 7;
 pub const SQL_MAX_NUMERIC_LEN: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SQL_NUMERIC_STRUCT {
     pub precision: SQLCHAR,
     pub scale: SQLSCHAR,
@@ -215,7 +215,7 @@ impl Default for SQL_NUMERIC_STRUCT {
 pub type SQL_TIMESTAMP_STRUCT = TIMESTAMP_STRUCT;
 pub type SQL_TIME_STRUCT = TIME_STRUCT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SQL_YEAR_MONTH_STRUCT {
     pub year: SQLUINTEGER,
     pub month: SQLUINTEGER,
@@ -227,7 +227,7 @@ pub struct SSHORT(pub i16);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SWORD(pub i16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMESTAMP_STRUCT {
     pub year: SQLSMALLINT,
     pub month: SQLUSMALLINT,
@@ -238,7 +238,7 @@ pub struct TIMESTAMP_STRUCT {
     pub fraction: SQLUINTEGER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIME_STRUCT {
     pub hour: SQLUSMALLINT,
     pub minute: SQLUSMALLINT,

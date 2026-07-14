@@ -16,7 +16,7 @@ where
     unsafe { NetAlertRaiseEx(alerttype.param().abi(), variableinfo, variableinfosize, servicename.param().abi()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADMIN_OTHER_INFO {
     pub alrtad_errcode: u32,
     pub alrtad_numstrings: u32,
@@ -28,7 +28,7 @@ pub const ALERT_MESSAGE_EVENT: windows_core::PCWSTR = windows_core::w!("MESSAGE"
 pub const ALERT_PRINT_EVENT: windows_core::PCWSTR = windows_core::w!("PRINTING");
 pub const ALERT_USER_EVENT: windows_core::PCWSTR = windows_core::w!("USER");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERRLOG_OTHER_INFO {
     pub alrter_errcode: u32,
     pub alrter_offset: u32,
@@ -42,7 +42,7 @@ pub type PADMIN_OTHER_INFO = *mut ADMIN_OTHER_INFO;
 pub type PERRLOG_OTHER_INFO = *mut ERRLOG_OTHER_INFO;
 pub type PPRINT_OTHER_INFO = *mut PRINT_OTHER_INFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINT_OTHER_INFO {
     pub alrtpr_jobid: u32,
     pub alrtpr_status: u32,
@@ -66,7 +66,7 @@ pub const PRJOB_QS_SPOOLING: u32 = 2;
 pub type PSTD_ALERT = *mut STD_ALERT;
 pub type PUSER_OTHER_INFO = *mut USER_OTHER_INFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STD_ALERT {
     pub alrt_timestamp: u32,
     pub alrt_eventname: [u16; 17],
@@ -78,7 +78,7 @@ impl Default for STD_ALERT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_OTHER_INFO {
     pub alrtus_errcode: u32,
     pub alrtus_numstrings: u32,

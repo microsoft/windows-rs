@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_ADDRESS_INFO0 {
     pub numV4Addresses: u32,
     pub v4Addresses: *mut u32,
@@ -14,7 +14,7 @@ impl Default for IPSEC_ADDRESS_INFO0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -27,7 +27,7 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0 {
     pub secureReceivesNotMatchingFilters: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -41,7 +41,7 @@ pub struct IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1 {
     pub totalDropPacketsInbound: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub activeSas: u32,
     pub pendingSaNegotiations: u32,
@@ -52,7 +52,7 @@ pub struct IPSEC_AGGREGATE_SA_STATISTICS0 {
     pub offloadedSas: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AH_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub authenticationFailuresOnInbound: u32,
@@ -63,7 +63,7 @@ pub const IPSEC_AUTH_AES_128: IPSEC_AUTH_TYPE = 3;
 pub const IPSEC_AUTH_AES_192: IPSEC_AUTH_TYPE = 4;
 pub const IPSEC_AUTH_AES_256: IPSEC_AUTH_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AUTH_AND_CIPHER_TRANSFORM0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
@@ -83,7 +83,7 @@ pub const IPSEC_AUTH_MD5: IPSEC_AUTH_TYPE = 0;
 pub const IPSEC_AUTH_SHA_1: IPSEC_AUTH_TYPE = 1;
 pub const IPSEC_AUTH_SHA_256: IPSEC_AUTH_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_AUTH_TRANSFORM0 {
     pub authTransformId: IPSEC_AUTH_TRANSFORM_ID0,
     pub cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
@@ -94,7 +94,7 @@ impl Default for IPSEC_AUTH_TRANSFORM0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_AUTH_TRANSFORM_ID0 {
     pub authType: IPSEC_AUTH_TYPE,
     pub authConfig: IPSEC_AUTH_CONFIG,
@@ -113,7 +113,7 @@ pub const IPSEC_CIPHER_CONFIG_GCM_AES_192: u32 = 7;
 pub const IPSEC_CIPHER_CONFIG_GCM_AES_256: u32 = 8;
 pub const IPSEC_CIPHER_CONFIG_MAX: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_CIPHER_TRANSFORM0 {
     pub cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0,
     pub cryptoModuleId: *mut IPSEC_CRYPTO_MODULE_ID,
@@ -124,7 +124,7 @@ impl Default for IPSEC_CIPHER_TRANSFORM0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_CIPHER_TRANSFORM_ID0 {
     pub cipherType: IPSEC_CIPHER_TYPE,
     pub cipherConfig: IPSEC_CIPHER_CONFIG,
@@ -146,7 +146,7 @@ pub const IPSEC_DOSP_FLAG_FILTER_BLOCK: u32 = 16;
 pub const IPSEC_DOSP_FLAG_FILTER_EXEMPT: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_DOSP_OPTIONS0 {
     pub stateIdleTimeoutSeconds: u32,
     pub perIPRateLimitQueueIdleTimeoutSeconds: u32,
@@ -179,7 +179,7 @@ impl Default for IPSEC_DOSP_OPTIONS0 {
 }
 pub const IPSEC_DOSP_RATE_LIMIT_DISABLE_VALUE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_DOSP_STATE0 {
     pub publicHostV6Addr: [u8; 16],
     pub internalHostV6Addr: [u8; 16],
@@ -194,13 +194,13 @@ impl Default for IPSEC_DOSP_STATE0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_DOSP_STATE_ENUM_TEMPLATE0 {
     pub publicV6AddrMask: super::fwptypes::FWP_V6_ADDR_AND_MASK,
     pub internalV6AddrMask: super::fwptypes::FWP_V6_ADDR_AND_MASK,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_DOSP_STATISTICS0 {
     pub totalStateEntriesCreated: u64,
     pub currentStateEntries: u64,
@@ -222,7 +222,7 @@ pub struct IPSEC_DOSP_STATISTICS0 {
     pub currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_ESP_DROP_PACKET_STATISTICS0 {
     pub invalidSpisOnInbound: u32,
     pub decryptionFailuresOnInbound: u32,
@@ -290,7 +290,7 @@ impl Default for IPSEC_GETSPI1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_ID0 {
     pub mmTargetName: *mut u16,
     pub emTargetName: *mut u16,
@@ -305,7 +305,7 @@ impl Default for IPSEC_ID0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_KEYING_POLICY0 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut windows_core::GUID,
@@ -316,7 +316,7 @@ impl Default for IPSEC_KEYING_POLICY0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_KEYING_POLICY1 {
     pub numKeyMods: u32,
     pub keyModKeys: *mut windows_core::GUID,
@@ -330,14 +330,14 @@ impl Default for IPSEC_KEYING_POLICY1 {
 pub const IPSEC_KEYING_POLICY_FLAG_TERMINATING_MATCH: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_KEYMODULE_STATE0 {
     pub keyModuleKey: windows_core::GUID,
     pub stateBlob: super::fwptypes::FWP_BYTE_BLOB,
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_KEY_MANAGER0 {
     pub keyManagerKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -378,7 +378,7 @@ pub const IPSEC_POLICY_FLAG_TUNNEL_ALLOW_OUTBOUND_CLEAR_CONNECTION: u32 = 1024;
 pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ALREADY_SECURE_CONNECTION: u32 = 2048;
 pub const IPSEC_POLICY_FLAG_TUNNEL_BYPASS_ICMPV6: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_PROPOSAL0 {
     pub lifetime: IPSEC_SA_LIFETIME0,
     pub numSaTransforms: u32,
@@ -422,14 +422,14 @@ impl Default for IPSEC_SA0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0 {
     pub saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0,
     pub saAuthInformation: IPSEC_SA_AUTH_INFORMATION0,
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_AUTH_INFORMATION0 {
     pub authTransform: IPSEC_AUTH_TRANSFORM0,
     pub authKey: super::fwptypes::FWP_BYTE_BLOB,
@@ -539,14 +539,14 @@ pub const IPSEC_SA_BUNDLE_FLAG_TUNNEL_BANDWIDTH4: u32 = 2147483648;
 pub const IPSEC_SA_BUNDLE_FLAG_USING_DICTATED_KEYS: u32 = 524288;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_CIPHER_INFORMATION0 {
     pub cipherTransform: IPSEC_CIPHER_TRANSFORM0,
     pub cipherKey: super::fwptypes::FWP_BYTE_BLOB,
 }
 #[repr(C)]
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT0 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS0,
@@ -560,7 +560,7 @@ impl Default for IPSEC_SA_CONTEXT0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT1 {
     pub saContextId: u64,
     pub inboundSa: *mut IPSEC_SA_DETAILS1,
@@ -573,7 +573,7 @@ impl Default for IPSEC_SA_CONTEXT1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT_CHANGE0 {
     pub changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0,
     pub saContextId: u64,
@@ -597,7 +597,7 @@ pub const IPSEC_SA_CONTEXT_EVENT_MAX: IPSEC_SA_CONTEXT_EVENT_TYPE0 = 3;
 pub type IPSEC_SA_CONTEXT_EVENT_TYPE0 = i32;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_SA_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut IPSEC_SA_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -670,18 +670,18 @@ impl Default for IPSEC_SA_DETAILS1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_ENUM_TEMPLATE0 {
     pub saDirection: super::fwptypes::FWP_DIRECTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_IDLE_TIMEOUT0 {
     pub idleTimeoutSeconds: u32,
     pub idleTimeoutSecondsFailOver: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_SA_LIFETIME0 {
     pub lifetimeSeconds: u32,
     pub lifetimeKilobytes: u32,
@@ -716,7 +716,7 @@ impl Default for IPSEC_SA_TRANSFORM0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_STATISTICS0 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -726,7 +726,7 @@ pub struct IPSEC_STATISTICS0 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_STATISTICS1 {
     pub aggregateSaStatistics: IPSEC_AGGREGATE_SA_STATISTICS0,
     pub espDropPacketStatistics: IPSEC_ESP_DROP_PACKET_STATISTICS0,
@@ -736,7 +736,7 @@ pub struct IPSEC_STATISTICS1 {
     pub outboundTrafficStatistics: IPSEC_TRAFFIC_STATISTICS1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TOKEN0 {
     pub r#type: IPSEC_TOKEN_TYPE,
     pub principal: IPSEC_TOKEN_PRINCIPAL,
@@ -919,7 +919,7 @@ impl Default for IPSEC_TRAFFIC_SELECTOR0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     pub flags: u32,
     pub numLocalTrafficSelectors: u32,
@@ -934,7 +934,7 @@ impl Default for IPSEC_TRAFFIC_SELECTOR_POLICY0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -944,7 +944,7 @@ pub struct IPSEC_TRAFFIC_STATISTICS0 {
     pub offloadByteCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_TRAFFIC_STATISTICS1 {
     pub encryptedByteCount: u64,
     pub authenticatedAHByteCount: u64,
@@ -967,7 +967,7 @@ pub type IPSEC_TRANSFORM_TYPE = i32;
 pub const IPSEC_TRANSFORM_TYPE_MAX: IPSEC_TRANSFORM_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY0 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -984,7 +984,7 @@ impl Default for IPSEC_TRANSPORT_POLICY0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY1 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -1001,7 +1001,7 @@ impl Default for IPSEC_TRANSPORT_POLICY1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "iketypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPSEC_TRANSPORT_POLICY2 {
     pub numIpsecProposals: u32,
     pub ipsecProposals: *mut IPSEC_PROPOSAL0,
@@ -1241,7 +1241,7 @@ impl Default for IPSEC_TUNNEL_POLICY3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_V4_UDP_ENCAPSULATION0 {
     pub localUdpEncapPort: u16,
     pub remoteUdpEncapPort: u16,

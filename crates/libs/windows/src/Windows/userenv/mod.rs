@@ -366,7 +366,7 @@ pub const GPO_LIST_FLAG_SITEONLY: u32 = 2;
 pub type GROUP_POLICY_OBJECT = GROUP_POLICY_OBJECTA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -390,7 +390,7 @@ impl Default for GROUP_POLICY_OBJECTA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
     pub dwVersion: u32,
@@ -432,7 +432,7 @@ pub const PI_APPLYPOLICY: u32 = 2;
 pub const PI_NOUI: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_core::PWSTR,
     pub szEventSource: windows_core::PWSTR,
@@ -467,7 +467,7 @@ pub const RSOPUnspecified: SETTINGSTATUS = 0;
 pub const RSOP_COMPUTER_ACCESS_DENIED: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "wbemcli"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: *mut u16,
     pub pwszNewSOM: *mut u16,

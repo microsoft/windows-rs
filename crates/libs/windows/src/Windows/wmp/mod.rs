@@ -9080,14 +9080,14 @@ pub type WMPBurnState = i32;
 pub type WMPDeviceStatus = i32;
 pub type WMPFolderScanState = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMPLib(pub u8);
 pub type WMPLibraryType = i32;
 pub type WMPOpenState = i32;
 pub type WMPPlayState = i32;
 pub type WMPPlaylistChangeEventType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMPRemoteMediaServices(pub u8);
 pub type WMPRipState = i32;
 pub type WMPStringCollectionChangeEventType = i32;

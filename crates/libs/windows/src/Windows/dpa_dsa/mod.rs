@@ -189,7 +189,7 @@ pub const DPAM_NORMAL: u32 = 2;
 pub const DPAM_SORTED: u32 = 1;
 pub const DPAM_UNION: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut core::ffi::c_void,
@@ -221,8 +221,8 @@ pub type PFNDPAMERGECONST = Option<unsafe extern "system" fn(umsg: u32, pvdest: 
 #[cfg(feature = "objidlbase")]
 pub type PFNDPASTREAM = Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: windows_core::Ref<super::objidlbase::IStream>, pvinstdata: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DPA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DSA(pub u8);

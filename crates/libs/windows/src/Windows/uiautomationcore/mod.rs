@@ -5375,13 +5375,13 @@ pub const ToggleState_Off: ToggleState = 0;
 pub const ToggleState_On: ToggleState = 1;
 pub const UIA_ScrollPatternNoScroll: f64 = -1.0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIAutomationEventInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationMethodInfo {
     pub pProgrammaticName: windows_core::PCWSTR,
     pub doSetFocus: windows_core::BOOL,
@@ -5396,7 +5396,7 @@ impl Default for UIAutomationMethodInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UIAutomationParameter {
     pub r#type: UIAutomationType,
     pub pData: *mut core::ffi::c_void,
@@ -5407,7 +5407,7 @@ impl Default for UIAutomationParameter {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct UIAutomationPatternInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,
@@ -5427,7 +5427,7 @@ impl Default for UIAutomationPatternInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIAutomationPropertyInfo {
     pub guid: windows_core::GUID,
     pub pProgrammaticName: windows_core::PCWSTR,

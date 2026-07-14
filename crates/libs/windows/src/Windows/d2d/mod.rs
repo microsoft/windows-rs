@@ -253,14 +253,14 @@ pub const D2D1_BITMAPSOURCE_PROP_ORIENTATION: D2D1_BITMAPSOURCE_PROP = 5;
 pub const D2D1_BITMAPSOURCE_PROP_SCALE: D2D1_BITMAPSOURCE_PROP = 1;
 pub const D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE: D2D1_BITMAPSOURCE_PROP = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
     pub interpolationMode: D2D1_BITMAP_INTERPOLATION_MODE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
@@ -479,7 +479,7 @@ pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE 
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 3;
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_CREATION_PROPERTIES {
     pub threadingMode: D2D1_THREADING_MODE,
     pub debugLevel: D2D1_DEBUG_LEVEL,
@@ -656,7 +656,7 @@ pub const D2D1_EXTEND_MODE_FORCE_DWORD: D2D1_EXTEND_MODE = -1;
 pub const D2D1_EXTEND_MODE_MIRROR: D2D1_EXTEND_MODE = 2;
 pub const D2D1_EXTEND_MODE_WRAP: D2D1_EXTEND_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FACTORY_OPTIONS {
     pub debugLevel: D2D1_DEBUG_LEVEL,
 }
@@ -806,7 +806,7 @@ pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = -1;
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = 0;
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
     pub hwnd: super::windef::HWND,
     pub pixelSize: super::dcommon::D2D_SIZE_U,
@@ -937,7 +937,7 @@ pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = 1;
 pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = -1;
 pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D2D1_MAPPED_RECT {
     pub pitch: u32,
     pub bits: *mut u8,
@@ -1067,7 +1067,7 @@ pub const D2D1_PRINT_FONT_SUBSET_MODE_NONE: D2D1_PRINT_FONT_SUBSET_MODE = 2;
 pub type D2D1_PROPERTY = i32;
 pub const D2D1_PROPERTY_AUTHOR: D2D1_PROPERTY = -2147483646;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PROPERTY_BINDING(pub u8);
 pub const D2D1_PROPERTY_CACHED: D2D1_PROPERTY = -2147483642;
 pub const D2D1_PROPERTY_CATEGORY: D2D1_PROPERTY = -2147483645;
@@ -1116,7 +1116,7 @@ pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_RENDERING_CONTROLS {
     pub bufferPrecision: D2D1_BUFFER_PRECISION,
     pub tileSize: super::dcommon::D2D_SIZE_U,
@@ -1394,7 +1394,7 @@ pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND
 pub const D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 13;
 pub const D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE: D2D1_SVG_PATH_COMMAND = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
     pub defer: windows_core::BOOL,
     pub align: D2D1_SVG_ASPECT_ALIGN,
@@ -12110,6 +12110,6 @@ impl ID2D1TransformedImageSource_Vtbl {
 }
 impl windows_core::RuntimeName for ID2D1TransformedImageSource {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPrintDocumentPackageTarget(pub u8);
 pub type PD2D1_EFFECT_FACTORY = Option<unsafe extern "system" fn(effectimpl: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::HRESULT>;

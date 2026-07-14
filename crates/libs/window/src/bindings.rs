@@ -47,7 +47,7 @@ pub const IDC_ARROW: windows_core::PCWSTR = windows_core::PCWSTR(32512 as _);
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG {
     pub hwnd: HWND,
     pub message: u32,
@@ -58,13 +58,13 @@ pub struct MSG {
 }
 pub const PM_REMOVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,

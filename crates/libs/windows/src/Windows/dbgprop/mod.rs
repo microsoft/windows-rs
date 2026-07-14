@@ -41,7 +41,7 @@ pub const DBGPROP_INFO_STANDARD: u32 = 15;
 pub const DBGPROP_INFO_TYPE: i32 = 2;
 pub const DBGPROP_INFO_VALUE: i32 = 4;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
     pub m_bstrName: core::mem::ManuallyDrop<windows_core::BSTR>,

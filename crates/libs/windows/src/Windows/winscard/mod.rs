@@ -785,7 +785,7 @@ impl Default for READER_SEL_REQUEST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READER_SEL_REQUEST_0_0 {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -795,7 +795,7 @@ pub struct READER_SEL_REQUEST_0_0 {
     pub dwCspFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READER_SEL_REQUEST_0_1 {
     pub cbSerialNumberOffset: u32,
     pub cbSerialNumberLength: u32,
@@ -803,7 +803,7 @@ pub struct READER_SEL_REQUEST_0_1 {
 }
 pub type READER_SEL_REQUEST_MATCH_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READER_SEL_RESPONSE {
     pub cbReaderNameOffset: u32,
     pub cchReaderNameLength: u32,
@@ -820,7 +820,7 @@ pub struct SCARDCONTEXT(pub usize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCARDHANDLE(pub usize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_ATRMASK {
     pub cbAtr: u32,
     pub rgbAtr: [u8; 36],
@@ -841,7 +841,7 @@ pub const SCARD_PROVIDER_KSP: u32 = 3;
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1;
 pub type SCARD_READERSTATE = SCARD_READERSTATEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_READERSTATEA {
     pub szReader: windows_core::PCSTR,
     pub pvUserData: *mut core::ffi::c_void,
@@ -856,7 +856,7 @@ impl Default for SCARD_READERSTATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCARD_READERSTATEW {
     pub szReader: windows_core::PCWSTR,
     pub pvUserData: *mut core::ffi::c_void,

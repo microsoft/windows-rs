@@ -1108,7 +1108,7 @@ pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERT
     unsafe { D3DKMTWaitForVerticalBlankEvent2(param0) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_DISPLAYMODE_FLAGS {
     pub _bitfield1: u32,
     pub _bitfield2: D3DKMDT_MODE_PRUNING_REASON,
@@ -1127,7 +1127,7 @@ pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REA
 pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = 0;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX {
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
     pub Key: u64,
@@ -1136,7 +1136,7 @@ pub struct D3DKMT_ACQUIREKEYEDMUTEX {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ACQUIREKEYEDMUTEX2 {
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
     pub Key: u64,
@@ -1152,7 +1152,7 @@ impl Default for D3DKMT_ACQUIREKEYEDMUTEX2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_ESCAPE {
     pub Type: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE,
     pub Activate: windows_core::BOOL,
@@ -1161,7 +1161,7 @@ pub type D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = i32;
 pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = 0;
 pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERADDRESS {
     pub BusNumber: u32,
     pub DeviceNumber: u32,
@@ -1169,7 +1169,7 @@ pub struct D3DKMT_ADAPTERADDRESS {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERINFO {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub AdapterLuid: super::winnt::LUID,
@@ -1177,7 +1177,7 @@ pub struct D3DKMT_ADAPTERINFO {
     pub bPrecisePresentRegionsPreferred: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERREGISTRYINFO {
     pub AdapterString: [u16; 260],
     pub BiosString: [u16; 260],
@@ -1211,12 +1211,12 @@ impl Default for D3DKMT_ADAPTERTYPE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTERTYPE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_PERFDATA {
     pub PhysicalAdapterIndex: u32,
     pub MemoryFrequency: u64,
@@ -1230,7 +1230,7 @@ pub struct D3DKMT_ADAPTER_PERFDATA {
     pub PowerStateOverride: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_PERFDATACAPS {
     pub PhysicalAdapterIndex: u32,
     pub MaxMemoryBandwidth: u64,
@@ -1279,18 +1279,18 @@ impl Default for D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_PAGING_INFO {
     pub FillPattern: u32,
     pub MaxTransferChunkSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_VIDMM_TRIM_INTERVAL {
     pub MinimumTrimInterval: u64,
     pub MaximumTrimInterval: u64,
@@ -1313,7 +1313,7 @@ pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDEN
 pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = 1;
 pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO {
     pub size: u32,
     pub r#type: D3DKMT_AUXILIARYPRESENTINFO_TYPE,
@@ -1326,12 +1326,12 @@ pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATI
 pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 0;
 pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_BDDFALLBACK_CTL {
     pub ForceBddHeadlessNextFallback: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BLOCKLIST_INFO {
     pub Size: u32,
     pub BlockList: [u16; 1],
@@ -1343,7 +1343,7 @@ impl Default for D3DKMT_BLOCKLIST_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_BLTMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -1405,7 +1405,7 @@ pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_2: D3DKMT_BRIGHTNESS_INTERFACE_VER
 pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_3: D3DKMT_BRIGHTNESS_INTERFACE_VERSION = 3;
 pub const D3DKMT_BRIGHTNESS_INTERFACE_VERSION_UNINITIALIZED: D3DKMT_BRIGHTNESS_INTERFACE_VERSION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     pub LevelCount: u8,
     pub BrightnessLevels: [u8; 256],
@@ -1416,7 +1416,7 @@ impl Default for D3DKMT_BRIGHTNESS_POSSIBLE_LEVELS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_BUDGETCHANGENOTIFICATION {
     pub Context: *mut core::ffi::c_void,
     pub Budget: u64,
@@ -1467,7 +1467,7 @@ impl Default for D3DKMT_CANCEL_PRESENTS_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CANCEL_PRESENTS_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1477,7 +1477,7 @@ pub const D3DKMT_CANCEL_PRESENTS_OPERATION_FLUSH_COMPLETED_PRESENTS: D3DKMT_CANC
 pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHANGESURFACEPOINTER {
     pub hDC: super::windef::HDC,
     pub hBitmap: super::winnt::HANDLE,
@@ -1494,7 +1494,7 @@ impl Default for D3DKMT_CHANGESURFACEPOINTER {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
     pub hProcess: super::winnt::HANDLE,
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -1504,7 +1504,7 @@ pub struct D3DKMT_CHANGEVIDEOMEMORYRESERVATION {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECKMONITORPOWERSTATE {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -1563,27 +1563,27 @@ impl Default for D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECKOCCLUSION {
     pub hWindow: super::windef::HWND,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECKSHAREDRESOURCEACCESS {
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
     pub ClientPid: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
     pub CompSurfaceLuid: super::winnt::LUID,
@@ -1592,7 +1592,7 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
     pub LayerIndex: u32,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -1602,7 +1602,7 @@ pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_PLANE3 {
     pub LayerIndex: u32,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -1638,7 +1638,7 @@ impl Default for D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -1675,19 +1675,19 @@ pub const D3DKMT_CLIENTHINT_VKON12: D3DKMT_CLIENTHINT = 21;
 pub const D3DKMT_CLIENTHINT_VULKAN: D3DKMT_CLIENTHINT = 4;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CLOSEADAPTER {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
 }
 pub const D3DKMT_COMPONENTIZED_INDICATOR: u32 = 35;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_COMPOSITION_PRESENTHISTORYTOKEN {
     pub hPrivateData: u64,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CONFIGURESHAREDRESOURCE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -1732,12 +1732,12 @@ impl Default for D3DKMT_CONNECT_DOORBELL_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CONNECT_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CPDRIVERNAME {
     pub ContentProtectionFileName: [u16; 260],
 }
@@ -1795,7 +1795,7 @@ impl Default for D3DKMT_CREATEALLOCATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATEALLOCATIONFLAGS {
     pub _bitfield: u32,
 }
@@ -1846,7 +1846,7 @@ impl Default for D3DKMT_CREATECONTEXTVIRTUAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEDCFROMMEMORY {
     pub pMemory: *mut core::ffi::c_void,
     pub Format: super::d3dukmdt::D3DDDIFORMAT,
@@ -1898,7 +1898,7 @@ impl Default for D3DKMT_CREATEDEVICE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATEDEVICEFLAGS {
     pub _bitfield: u32,
 }
@@ -1964,7 +1964,7 @@ impl Default for D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATEKEYEDMUTEX {
     pub InitialValue: u64,
     pub hSharedHandle: super::d3dukmdt::D3DKMT_HANDLE,
@@ -2009,7 +2009,7 @@ impl Default for D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -2052,13 +2052,13 @@ impl Default for D3DKMT_CREATENATIVEFENCE_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATENATIVEFENCE_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATEOVERLAY {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -2067,7 +2067,7 @@ pub struct D3DKMT_CREATEOVERLAY {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEPAGINGQUEUE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub Priority: super::d3dukmdt::D3DDDI_PAGINGQUEUE_PRIORITY,
@@ -2084,7 +2084,7 @@ impl Default for D3DKMT_CREATEPAGINGQUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_CREATEPROTECTEDSESSION {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hSyncObject: super::d3dukmdt::D3DKMT_HANDLE,
@@ -2148,13 +2148,13 @@ impl Default for D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATESYNCFILE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hMonitoredFence: super::d3dukmdt::D3DKMT_HANDLE,
@@ -2233,7 +2233,7 @@ impl Default for D3DKMT_CREATE_DOORBELL_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CREATE_DOORBELL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -2255,7 +2255,7 @@ impl Default for D3DKMT_CREATE_OUTPUTDUPL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT {
     pub SupportTier: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER,
 }
@@ -2266,7 +2266,7 @@ pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERR
 pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = 2;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_CURRENTDISPLAYMODE {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub DisplayMode: D3DKMT_DISPLAYMODE,
@@ -2274,7 +2274,7 @@ pub struct D3DKMT_CURRENTDISPLAYMODE {
 pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 1;
 pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DEBUG_SNAPSHOT_ESCAPE {
     pub Length: u32,
     pub Buffer: [u8; 1],
@@ -2292,7 +2292,7 @@ pub type D3DKMT_DEFRAG_ESCAPE_OPERATION = i32;
 pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = 4;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYALLOCATION {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -2323,69 +2323,69 @@ impl Default for D3DKMT_DESTROYALLOCATION2 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYCONTEXT {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYDCFROMMEMORY {
     pub hDc: super::windef::HDC,
     pub hBitmap: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYDEVICE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYHWCONTEXT {
     pub hHwContext: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYHWQUEUE {
     pub hHwQueue: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYKEYEDMUTEX {
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYOVERLAY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hOverlay: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYPROTECTEDSESSION {
     pub hHandle: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROYSYNCHRONIZATIONOBJECT {
     pub hSyncObject: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROY_DOORBELL {
     pub hDoorbell: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DESTROY_OUTPUTDUPL {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -2421,21 +2421,21 @@ impl Default for D3DKMT_DEVICEPAGEFAULT_STATE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_QUEUE_STATE {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub bQueuedPresentLimitReached: bool,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_STATE {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PresentStats: D3DKMT_PRESENT_STATS,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICEPRESENT_STATE_DWM {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub PresentStatsDWM: D3DKMT_PRESENT_STATS_DWM,
@@ -2462,7 +2462,7 @@ impl Default for D3DKMT_DEVICERESET_STATE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICERESET_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -2503,13 +2503,13 @@ impl Default for D3DKMT_DEVICE_ESCAPE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_ESCAPE_0_0 {
     pub hPrimaryAllocation: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_IDS {
     pub VendorID: u32,
     pub DeviceID: u32,
@@ -2542,7 +2542,7 @@ pub const D3DKMT_DEVICE_MARKED_AS_ERROR_HARDWARE_PAGE_FAULT: D3DKMT_DEVICE_MARKE
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_HISTORY_BUFFER_NOT_RESIDENT: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 17;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DEVICE_MARKED_AS_ERROR_INFO {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub DumpAssociationGUID: windows_core::GUID,
@@ -2558,13 +2558,13 @@ pub const D3DKMT_DEVICE_MARKED_AS_ERROR_PROCESS_DEFERRED_COMMAND: D3DKMT_DEVICE_
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_SOFTWARE_PAGE_FAULT: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 10;
 pub const D3DKMT_DEVICE_MARKED_AS_ERROR_SUBMITTING_RENDER_FOR_NON_RESIDENT_ALLOCATION: D3DKMT_DEVICE_MARKED_AS_ERROR_FAILURE_CODE = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DIRECTFLIP_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DIRTYREGIONS {
     pub NumRects: u32,
     pub Rects: [super::windef::RECT; 16],
@@ -2577,7 +2577,7 @@ impl Default for D3DKMT_DIRTYREGIONS {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -2591,7 +2591,7 @@ pub struct D3DKMT_DISPLAYMODE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAYMODELIST {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub ModeCount: u32,
@@ -2604,7 +2604,7 @@ impl Default for D3DKMT_DISPLAYMODELIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     pub Version: KMT_DISPLAY_UMD_VERSION,
     pub UmdFileName: [u16; 260],
@@ -2615,7 +2615,7 @@ impl Default for D3DKMT_DISPLAY_UMD_FILENAMEINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DLIST_DRIVER_NAME {
     pub DListFileName: [u16; 260],
 }
@@ -2642,7 +2642,7 @@ pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = 0;
 pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = 14;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DMM_ESCAPE {
     pub Type: D3DKMT_DMMESCAPETYPE,
     pub ProvidedBufferSize: super::d3dukmdt::D3DKMT_SIZE_T,
@@ -2656,13 +2656,13 @@ impl Default for D3DKMT_DMM_ESCAPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_DOD_SET_DIRTYRECT_MODE {
     pub bForceFullScreenDirty: windows_core::BOOL,
 }
 pub type D3DKMT_DRIVERVERSION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_DRIVER_DESCRIPTION {
     pub DriverDescription: [u16; 4096],
 }
@@ -2676,7 +2676,7 @@ pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE =
 pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = 4;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS {
     pub NumAdapters: u32,
     pub Adapters: [D3DKMT_ADAPTERINFO; 16],
@@ -2689,7 +2689,7 @@ impl Default for D3DKMT_ENUMADAPTERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS2 {
     pub NumAdapters: u32,
     pub pAdapters: *mut D3DKMT_ADAPTERINFO,
@@ -2726,7 +2726,7 @@ impl Default for D3DKMT_ENUMADAPTERS_FILTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ENUMADAPTERS_FILTER_0 {
     pub _bitfield: u64,
 }
@@ -2792,7 +2792,7 @@ pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = 2;
 pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = 1;
 pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE {
     pub Type: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE,
     pub VidPnSourceId: u32,
@@ -2874,23 +2874,23 @@ impl Default for D3DKMT_EVICTION_CRITERIA_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_EVICTION_CRITERIA_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FENCE_PRESENTHISTORYTOKEN {
     pub Key: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLIPINFOFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
     pub auxiliaryPresentInfo: D3DKMT_AUXILIARYPRESENTINFO,
     pub flipManagerTracingId: u32,
@@ -2934,7 +2934,7 @@ impl Default for D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMANAGER_PRESENTHISTORYTOKEN_0_0 {
     pub _bitfield: u32,
 }
@@ -3043,13 +3043,13 @@ impl Default for D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_FLIPOVERLAY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hOverlay: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3064,7 +3064,7 @@ impl Default for D3DKMT_FLIPOVERLAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLIPQUEUEINFO {
     pub MaxHardwareFlipQueueLength: u32,
     pub MaxSoftwareFlipQueueLength: u32,
@@ -3072,13 +3072,13 @@ pub struct D3DKMT_FLIPQUEUEINFO {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FLUSHHEAPTRANSITIONS {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub BaseAddress: super::d3dukmdt::D3DGPU_VIRTUAL_ADDRESS,
@@ -3086,7 +3086,7 @@ pub struct D3DKMT_FREEGPUVIRTUALADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
     pub hPhysicalSurface: u64,
@@ -3095,7 +3095,7 @@ pub struct D3DKMT_GDIMODEL_PRESENTHISTORYTOKEN {
     pub DirtyRegions: D3DKMT_DIRTYREGIONS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
     pub hlsurf: u64,
     pub dwDirtyFlags: u32,
@@ -3104,7 +3104,7 @@ pub struct D3DKMT_GDIMODEL_SYSMEM_PRESENTHISTORYTOKEN {
 pub const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETALLOCATIONPRIORITY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3120,14 +3120,14 @@ impl Default for D3DKMT_GETALLOCATIONPRIORITY {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub Priority: i32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub Priority: i32,
@@ -3165,7 +3165,7 @@ impl Default for D3DKMT_GETDEVICESTATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETDISPLAYMODELIST {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -3180,7 +3180,7 @@ impl Default for D3DKMT_GETDISPLAYMODELIST {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETMULTISAMPLEMETHODLIST {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -3236,13 +3236,13 @@ impl Default for D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETOVERLAYSTATE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hOverlay: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3250,7 +3250,7 @@ pub struct D3DKMT_GETOVERLAYSTATE {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETPRESENTHISTORY {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub ProvidedSize: u32,
@@ -3267,7 +3267,7 @@ impl Default for D3DKMT_GETPRESENTHISTORY {
 pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
     pub hProcess: super::winnt::HANDLE,
     pub AdapterLuid: super::winnt::LUID,
@@ -3275,7 +3275,7 @@ pub struct D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETRUNTIMEDATA {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub hGlobalShare: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3290,7 +3290,7 @@ impl Default for D3DKMT_GETRUNTIMEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETSCANLINE {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -3299,7 +3299,7 @@ pub struct D3DKMT_GETSCANLINE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -3307,7 +3307,7 @@ pub struct D3DKMT_GETSHAREDPRIMARYHANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
     pub hGlobalShare: super::d3dukmdt::D3DKMT_HANDLE,
     pub hNtHandle: super::winnt::HANDLE,
@@ -3315,7 +3315,7 @@ pub struct D3DKMT_GETSHAREDRESOURCEADAPTERLUID {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GETVERTICALBLANKEVENT {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3330,13 +3330,13 @@ impl Default for D3DKMT_GETVERTICALBLANKEVENT {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GET_DEVICE_VIDPN_OWNERSHIP_INFO {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub bFailedDwmAcquireVidPn: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GET_GPUMMU_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub GpuMmuCaps: DXGK_ESCAPE_GPUMMUCAPS,
@@ -3388,7 +3388,7 @@ impl Default for D3DKMT_GET_PTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GET_PTE_EXT {
     pub DriverProtection: [u64; 64],
     pub AllocationData: [u64; 64],
@@ -3401,7 +3401,7 @@ impl Default for D3DKMT_GET_PTE_EXT {
 pub const D3DKMT_GET_PTE_MAX: u32 = 64;
 pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GET_SEGMENT_CAPS {
     pub PhysicalAdapterIndex: u32,
     pub NumSegments: u32,
@@ -3435,12 +3435,12 @@ impl Default for D3DKMT_GPUMMU_CAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_GPUMMU_CAPS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_GPUVERSION {
     pub PhysicalAdapterIndex: u32,
     pub BiosVersion: [u16; 32],
@@ -3463,29 +3463,29 @@ pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TY
 pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = 0;
 pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_HISTORY_BUFFER_STATUS {
     pub Enabled: bool,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_HWDRM_SUPPORT {
     pub Supported: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_HYBRID_DLIST_DLL_MUX_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_HYBRID_DLIST_DLL_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_HYBRID_LIST {
     pub State: D3DKMT_GPU_PREFERENCE_QUERY_STATE,
     pub AdapterLuid: super::winnt::LUID,
@@ -3493,18 +3493,18 @@ pub struct D3DKMT_HYBRID_LIST {
     pub QueryType: D3DKMT_GPU_PREFERENCE_QUERY_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_INDEPENDENTFLIP_SECONDARY_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_INDEPENDENTFLIP_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_INVALIDATEACTIVEVIDPN {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub pPrivateDriverData: *mut core::ffi::c_void,
@@ -3518,7 +3518,7 @@ impl Default for D3DKMT_INVALIDATEACTIVEVIDPN {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_INVALIDATECACHE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hAllocation: super::d3dukmdt::D3DKMT_HANDLE,
@@ -3526,7 +3526,7 @@ pub struct D3DKMT_INVALIDATECACHE {
     pub Length: super::d3dukmdt::D3DKMT_SIZE_T,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_ISBADDRIVERFORHWPROTECTIONDISABLED {
     pub Disabled: windows_core::BOOL,
 }
@@ -3545,7 +3545,7 @@ impl Default for D3DKMT_ISFEATUREENABLED {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_KMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
@@ -3620,13 +3620,13 @@ impl Default for D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MARKDEVICEASERROR {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub Reason: D3DKMT_DEVICE_ERROR_REASON,
@@ -3644,7 +3644,7 @@ pub type D3DKMT_MEMORY_SEGMENT_GROUP = i32;
 pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = 0;
 pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MIRACASTCOMPANIONDRIVERNAME {
     pub MiracastCompanionDriverName: [u16; 260],
 }
@@ -3683,7 +3683,7 @@ pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVI
 pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = -2147483647;
 pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = -2147483644;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
     pub HdcpSupported: bool,
     pub DefaultControlPort: u32,
@@ -3691,13 +3691,13 @@ pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_CAPS {
 }
 pub type D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATUS {
     pub State: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_STOP_SESSIONS {
     pub AdapterLuid: super::winnt::LUID,
     pub TargetId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -3708,23 +3708,23 @@ pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = 2;
 pub const D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED: D3DKMT_MIRACAST_DRIVER_TYPE = 0;
 pub type D3DKMT_MIRACAST_DRIVER_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MPO3DDI_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MPOKERNELCAPS_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_DECODE_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: windows_core::BOOL,
@@ -3732,25 +3732,25 @@ pub struct D3DKMT_MULTIPLANEOVERLAY_HUD_SUPPORT {
     pub HudSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SECONDARY_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_STRETCH_SUPPORT {
     pub VidPnSourceId: u32,
     pub Update: windows_core::BOOL,
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANEOVERLAY_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY {
     pub LayerIndex: u32,
     pub Enabled: windows_core::BOOL,
@@ -3759,7 +3759,7 @@ pub struct D3DKMT_MULTIPLANE_OVERLAY {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY2 {
     pub LayerIndex: u32,
     pub Enabled: windows_core::BOOL,
@@ -3792,7 +3792,7 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
     pub Flags: u32,
     pub SrcRect: super::windef::RECT,
@@ -3818,7 +3818,7 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
     pub Flags: u32,
     pub SrcRect: super::windef::RECT,
@@ -3845,7 +3845,7 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_ATTRIBUTES3 {
     pub Flags: u32,
     pub SrcRect: super::windef::RECT,
@@ -3890,7 +3890,7 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_CAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -3935,7 +3935,7 @@ impl Default for D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -3963,7 +3963,7 @@ pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_
 pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 1;
 pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MULTISAMPLEMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
@@ -3972,7 +3972,7 @@ pub struct D3DKMT_MULTISAMPLEMETHOD {
 pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = 5;
 pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_NODE_PERFDATA {
     pub NodeOrdinal: u32,
     pub PhysicalAdapterIndex: u32,
@@ -4020,7 +4020,7 @@ impl Default for D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4063,7 +4063,7 @@ impl Default for D3DKMT_OFFER_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4074,7 +4074,7 @@ pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = 1;
 pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = 2;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
     pub pDeviceName: windows_core::PCWSTR,
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4082,7 +4082,7 @@ pub struct D3DKMT_OPENADAPTERFROMDEVICENAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4097,7 +4097,7 @@ impl Default for D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMHDC {
     pub hDc: super::windef::HDC,
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4106,13 +4106,13 @@ pub struct D3DKMT_OPENADAPTERFROMHDC {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENADAPTERFROMLUID {
     pub AdapterLuid: super::winnt::LUID,
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENGLINFO {
     pub UmdOpenGlIcdFileName: [u16; 260],
     pub Version: u32,
@@ -4125,14 +4125,14 @@ impl Default for D3DKMT_OPENGLINFO {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEX {
     pub hSharedHandle: super::d3dukmdt::D3DKMT_HANDLE,
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEX2 {
     pub hSharedHandle: super::d3dukmdt::D3DKMT_HANDLE,
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4147,7 +4147,7 @@ impl Default for D3DKMT_OPENKEYEDMUTEX2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE {
     pub hNtHandle: super::winnt::HANDLE,
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4181,7 +4181,7 @@ impl Default for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
@@ -4195,7 +4195,7 @@ impl Default for D3DKMT_OPENNTHANDLEFROMNAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE {
     pub hNtHandle: super::winnt::HANDLE,
     pub hHandle: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4237,7 +4237,7 @@ impl Default for D3DKMT_OPENRESOURCE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENRESOURCEFROMNTHANDLE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hNtHandle: super::winnt::HANDLE,
@@ -4263,7 +4263,7 @@ impl Default for D3DKMT_OPENRESOURCEFROMNTHANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCHRONIZATIONOBJECT {
     pub hSharedHandle: super::d3dukmdt::D3DKMT_HANDLE,
     pub hSyncObject: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4277,7 +4277,7 @@ impl Default for D3DKMT_OPENSYNCHRONIZATIONOBJECT {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE {
     pub hNtHandle: super::winnt::HANDLE,
     pub hSyncObject: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4313,7 +4313,7 @@ impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
     pub FenceValueGPUVirtualAddress: super::d3dukmdt::D3DGPU_VIRTUAL_ADDRESS,
@@ -4327,7 +4327,7 @@ impl Default for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTFROMSYNCFILE {
     pub hSyncFile: u64,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -4344,7 +4344,7 @@ impl Default for D3DKMT_OPENSYNCOBJECTFROMSYNCFILE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
     pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
@@ -4358,7 +4358,7 @@ impl Default for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE,
     pub Width: u32,
@@ -4372,7 +4372,7 @@ pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER
 pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLCONTEXTSCOUNT {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub OutputDuplicationCount: u32,
@@ -4399,7 +4399,7 @@ impl Default for D3DKMT_OUTPUTDUPLCREATIONFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLCREATIONFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4444,7 +4444,7 @@ impl Default for D3DKMT_OUTPUTDUPLPRESENTFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPLPRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4468,7 +4468,7 @@ impl Default for D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -4481,7 +4481,7 @@ pub struct D3DKMT_OUTPUTDUPL_FRAMEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -4489,7 +4489,7 @@ pub struct D3DKMT_OUTPUTDUPL_GET_FRAMEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -4506,13 +4506,13 @@ impl Default for D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_KEYEDMUTEX {
     pub hSharedSurfaceNt: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_METADATA {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -4532,14 +4532,14 @@ pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATA
 pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_POINTER_POSITION {
     pub Position: super::windef::POINT,
     pub Visible: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -4547,7 +4547,7 @@ pub struct D3DKMT_OUTPUTDUPL_RELEASE_FRAME {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_OUTPUTDUPL_SNAPSHOT {
     pub Size: u32,
     pub SessionProcessCount: u32,
@@ -4564,7 +4564,7 @@ impl Default for D3DKMT_OUTPUTDUPL_SNAPSHOT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub IndexBitCount: u32,
     pub IndexMask: u64,
@@ -4573,23 +4573,23 @@ pub struct D3DKMT_PAGE_TABLE_LEVEL_DESC {
     pub EntryCoverageInPages: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PANELFITTER_SUPPORT {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PARAVIRTUALIZATION {
     pub SecureContainer: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PHYSICAL_ADAPTER_COUNT {
     pub Count: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PINDIRECTFLIPRESOURCES {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub ResourceCount: u32,
@@ -4623,7 +4623,7 @@ impl Default for D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4649,7 +4649,7 @@ impl Default for D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4668,7 +4668,7 @@ pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = 2;
 pub type D3DKMT_PNP_KEY_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_POLLDISPLAYCHILDREN {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub _bitfield: u32,
@@ -4757,7 +4757,7 @@ impl Default for D3DKMT_PRESENTFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENTFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4915,7 +4915,7 @@ impl Default for D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -4960,13 +4960,13 @@ impl Default for D3DKMT_PRESENT_REDIRECTED_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_REDIRECTED_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dkmdt", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_RGNS {
     pub DirtyRectCount: u32,
     pub pDirtyRects: *const super::windef::RECT,
@@ -4980,7 +4980,7 @@ impl Default for D3DKMT_PRESENT_RGNS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -4989,7 +4989,7 @@ pub struct D3DKMT_PRESENT_STATS {
     pub SyncGPUTime: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS_DWM {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -4999,7 +4999,7 @@ pub struct D3DKMT_PRESENT_STATS_DWM {
     pub CustomPresentDuration: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PRESENT_STATS_DWM2 {
     pub cbSize: u32,
     pub PresentCount: u32,
@@ -5056,12 +5056,12 @@ impl Default for D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_PROCESS_VERIFIER_VIDMM_RESTRICT_BUDGET {
     pub LocalBudget: u64,
     pub NonLocalBudget: u64,
@@ -5088,7 +5088,7 @@ pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_A
 pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = 1;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYADAPTERINFO {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub Type: KMTQUERYADAPTERINFOTYPE,
@@ -5103,7 +5103,7 @@ impl Default for D3DKMT_QUERYADAPTERINFO {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYALLOCATIONRESIDENCY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -5160,13 +5160,13 @@ impl Default for D3DKMT_QUERYFSEBLOCKFLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROCESSOFFERINFO {
     pub cbSize: u32,
     pub hProcess: super::winnt::HANDLE,
@@ -5175,7 +5175,7 @@ pub struct D3DKMT_QUERYPROCESSOFFERINFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
     pub hNtHandle: super::winnt::HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -5191,14 +5191,14 @@ impl Default for D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYPROTECTEDSESSIONSTATUS {
     pub hHandle: super::d3dukmdt::D3DKMT_HANDLE,
     pub Status: D3DKMT_PROTECTED_SESSION_STATUS,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
     pub DeviceName: [u16; 32],
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -5211,7 +5211,7 @@ impl Default for D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYRESOURCEINFO {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hGlobalShare: super::d3dukmdt::D3DKMT_HANDLE,
@@ -5229,7 +5229,7 @@ impl Default for D3DKMT_QUERYRESOURCEINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hNtHandle: super::winnt::HANDLE,
@@ -5342,14 +5342,14 @@ impl Default for D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS_0_0 {
     pub _bitfield: u64,
 }
 pub type D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = i32;
 pub const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     pub TotalBytesEvictedFromProcess: u64,
     pub BytesBySegmentPreference: [u64; 5],
@@ -5360,13 +5360,13 @@ impl Default for D3DKMT_QUERYSTATISTICS_COMMITMENT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_COUNTER {
     pub Count: u32,
     pub Bytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
     pub Size: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub AllocationListBytes: u32,
@@ -5374,7 +5374,7 @@ pub struct D3DKMT_QUERYSTATISTICS_DMA_BUFFER {
 }
 pub type D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
@@ -5383,14 +5383,14 @@ pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION {
 }
 pub const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY {
     pub TotalBytesEvicted: u64,
     pub AllocsCommitted: u32,
     pub AllocsResident: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
     pub AllocatedBytes: u64,
     pub FreeBytes: u64,
@@ -5401,7 +5401,7 @@ pub struct D3DKMT_QUERYSTATISTICS_MEMORY_USAGE {
 pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = 5;
 pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION,
@@ -5414,7 +5414,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_NODE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
     pub QueuePacket: [D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION; 8],
     pub DmaPacket: [D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_INFORMATION; 4],
@@ -5426,14 +5426,14 @@ impl Default for D3DKMT_QUERYSTATISTICS_PACKET_INFORMATION {
 }
 pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER_INFORMATION {
     pub AdapterPerfData: D3DKMT_ADAPTER_PERFDATA,
     pub AdapterPerfDataCaps: D3DKMT_ADAPTER_PERFDATACAPS,
     pub GpuVersion: D3DKMT_GPUVERSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_POLICY {
     pub PreferApertureForRead: [u64; 5],
     pub PreferAperture: [u64; 5],
@@ -5447,7 +5447,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PREEMPTION_INFORMATION {
     pub PreemptionCounter: [u32; 16],
 }
@@ -5460,7 +5460,7 @@ pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = 1;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = 2;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub NbSegments: u32,
     pub NodeCount: u32,
@@ -5473,7 +5473,7 @@ pub struct D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER_INFORMATION {
     pub ClientHint: D3DKMT_CLIENTHINT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
     pub NodeCount: u32,
     pub VidPnSourceCount: u32,
@@ -5487,7 +5487,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INFORMATION {
 }
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
     pub InterferenceCount: [u64; 9],
 }
@@ -5499,7 +5499,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_COUNTERS {
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = 6;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_NODE_INFORMATION {
     pub RunningTime: i64,
     pub ContextSwitch: u32,
@@ -5517,7 +5517,7 @@ pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE =
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = 9;
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     pub Budget: u64,
     pub Requested: u64,
@@ -5530,7 +5530,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     pub BytesCommitted: u64,
     pub MaximumWorkingSet: u64,
@@ -5547,13 +5547,13 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_POLICY {
     pub UseMRU: u64,
 }
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     pub Frame: u32,
     pub CancelledFrame: u32,
@@ -5571,68 +5571,68 @@ impl Default for D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER2 {
     pub PhysicalAdapterIndex: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_ADAPTER_INFORMATION2 {
     pub PhysicalAdapterIndex: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE {
     pub NodeId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_NODE2 {
     pub PhysicalAdapterIndex: u16,
     pub NodeOrdinal: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PHYSICAL_ADAPTER {
     pub PhysicalAdapterIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_PROCESS_SEGMENT_GROUP2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT {
     pub SegmentId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT2 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_GROUP_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentGroup: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_SEGMENT_USAGE {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUERY_VIDPNSOURCE {
     pub VidPnSourceId: u32,
 }
 pub type D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_INFORMATION {
     pub PacketSubmited: u32,
     pub PacketCompleted: u32,
@@ -5664,7 +5664,7 @@ pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = 3;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = 12;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     pub CommitLimit: u64,
     pub BytesCommitted: u64,
@@ -5683,12 +5683,12 @@ impl Default for D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION_1 {
     pub _bitfield: u64,
 }
@@ -5699,7 +5699,7 @@ pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEG
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = 2;
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
     pub BytesAllocated: u64,
     pub BytesReserved: u64,
@@ -5715,7 +5715,7 @@ pub struct D3DKMT_QUERYSTATISTICS_SYSTEM_MEMORY {
 }
 pub type D3DKMT_QUERYSTATISTICS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
     pub AllocsCommitted: u32,
     pub AllocsResidentInP: [D3DKMT_QUERYSTATISTICS_COUNTER; 5],
@@ -5729,7 +5729,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_VIDEO_MEMORY {
 }
 pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     pub GlobalInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
     pub SystemInformation: D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE_INFORMATION,
@@ -5741,7 +5741,7 @@ impl Default for D3DKMT_QUERYSTATISTICS_VIDPNSOURCE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub Created: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub Destroyed: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -5752,7 +5752,7 @@ pub struct D3DKMT_QUERYSTATSTICS_ALLOCATIONS {
     pub MigratedAbandoned: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbLocks: u32,
     pub NbLocksWaitFlag: u32,
@@ -5763,7 +5763,7 @@ pub struct D3DKMT_QUERYSTATSTICS_LOCKS {
     pub NbComplexLocks: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub Faults: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub FaultsFirstTimeAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -5785,7 +5785,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_FAULT {
     pub EvictionsDueToSuspendCPUAccess: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesFilled: u64,
     pub BytesDiscarded: u64,
@@ -5797,7 +5797,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PAGING_TRANSFER {
     pub BytesTransferredFromMemoryToAperture: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub BroadcastStall: u32,
     pub NbDMAPrepared: u32,
@@ -5806,7 +5806,7 @@ pub struct D3DKMT_QUERYSTATSTICS_PREPRATION {
     pub AllocationsTrimmed: D3DKMT_QUERYSTATISTICS_COUNTER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbCall: u32,
     pub NbAllocationsReferenced: u32,
@@ -5824,7 +5824,7 @@ pub struct D3DKMT_QUERYSTATSTICS_REFERENCE_DMA_BUFFER {
     pub NbAllocationInsertedInMigrationTable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbAllocationsRenamed: u32,
     pub NbAllocationsShrinked: u32,
@@ -5837,13 +5837,13 @@ pub struct D3DKMT_QUERYSTATSTICS_RENAMING {
     pub NbFailuresDueToNonRetiredLimit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_SWIZZLING_RANGE {
     pub NbRangesAcquired: u32,
     pub NbRangesReleased: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
     pub TerminatedShared: D3DKMT_QUERYSTATISTICS_COUNTER,
     pub TerminatedNonShared: D3DKMT_QUERYSTATISTICS_COUNTER,
@@ -5852,7 +5852,7 @@ pub struct D3DKMT_QUERYSTATSTICS_TERMINATIONS {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
     pub hProcess: super::winnt::HANDLE,
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
@@ -5865,7 +5865,7 @@ pub struct D3DKMT_QUERYVIDEOMEMORYINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub hProcess: super::winnt::HANDLE,
     pub hWindow: super::windef::HWND,
@@ -5874,7 +5874,7 @@ pub struct D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP {
     pub OwnerType: D3DKMT_VIDPNSOURCEOWNER_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     pub AdapterUniqueGUID: [u16; 40],
 }
@@ -5884,7 +5884,7 @@ impl Default for D3DKMT_QUERY_ADAPTER_UNIQUE_GUID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_DEVICE_IDS {
     pub PhysicalAdapterIndex: u32,
     pub DeviceIds: D3DKMT_DEVICE_IDS,
@@ -5901,19 +5901,19 @@ impl Default for D3DKMT_QUERY_GPUMMU_CAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_MIRACAST_DRIVER_TYPE {
     pub MiracastDriverType: D3DKMT_MIRACAST_DRIVER_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER {
     pub PhysicalAdapterIndex: u32,
     pub NumExecutionNodes: u32,
     pub PagingNodeIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_1 {
     pub PhysicalAdapterIndex: u32,
     pub NumExecutionNodes: u32,
@@ -5921,7 +5921,7 @@ pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_1 {
     pub GdiNodeIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
     pub PhysicalAdapterIndex: u32,
     pub PnPKeyType: D3DKMT_PNP_KEY_TYPE,
@@ -5935,7 +5935,7 @@ impl Default for D3DKMT_QUERY_PHYSICAL_ADAPTER_PNP_KEY {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_QUERY_SCANOUT_CAPS {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub Caps: u32,
@@ -5944,7 +5944,7 @@ pub type D3DKMT_QUEUEDLIMIT_TYPE = i32;
 pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 8;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RECLAIMALLOCATIONS {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub pResources: *mut super::d3dukmdt::D3DKMT_HANDLE,
@@ -6021,7 +6021,7 @@ impl Default for D3DKMT_REGISTERTRIMNOTIFICATION {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX {
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
     pub Key: u64,
@@ -6029,7 +6029,7 @@ pub struct D3DKMT_RELEASEKEYEDMUTEX {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_RELEASEKEYEDMUTEX2 {
     pub hKeyedMutex: super::d3dukmdt::D3DKMT_HANDLE,
     pub Key: u64,
@@ -6087,13 +6087,13 @@ impl Default for D3DKMT_RENDER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_RENDERFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
     pub Param1: super::d3dukmdt::D3DKMT_ULONG_PTR,
     pub Param2: super::d3dukmdt::D3DKMT_ULONG_PTR,
@@ -6138,14 +6138,14 @@ impl Default for D3DKMT_RESIZERINGBUFFER_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_RESIZERINGBUFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SCATTERBLT {
     pub hLogicalSurfaceDestination: u64,
     pub hDestinationCompSurfDWM: i64,
@@ -6155,7 +6155,7 @@ pub struct D3DKMT_SCATTERBLT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SCATTERBLTS {
     pub NumBlts: u32,
     pub Blts: [D3DKMT_SCATTERBLT; 12],
@@ -6174,7 +6174,7 @@ pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = 
 pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = 2;
 pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub PhysicalAdapterIndex: u32,
     pub LegacyInfo: D3DKMT_SEGMENTSIZEINFO,
@@ -6183,14 +6183,14 @@ pub struct D3DKMT_SEGMENTGROUPSIZEINFO {
     pub NonBudgetMemory: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENTSIZEINFO {
     pub DedicatedVideoMemorySize: u64,
     pub DedicatedSystemMemorySize: u64,
     pub SharedSystemMemorySize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SEGMENT_CAPS {
     pub Size: u64,
     pub PageSize: u32,
@@ -6201,7 +6201,7 @@ pub struct D3DKMT_SEGMENT_CAPS {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETALLOCATIONPRIORITY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hResource: super::d3dukmdt::D3DKMT_HANDLE,
@@ -6217,14 +6217,14 @@ impl Default for D3DKMT_SETALLOCATIONPRIORITY {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub Priority: i32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub Priority: i32,
@@ -6232,7 +6232,7 @@ pub struct D3DKMT_SETCONTEXTSCHEDULINGPRIORITY {
 pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYMODE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hPrimaryAllocation: super::d3dukmdt::D3DKMT_HANDLE,
@@ -6242,14 +6242,14 @@ pub struct D3DKMT_SETDISPLAYMODE {
     pub Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYMODE_FLAGS {
     pub _bitfield1: bool,
     pub _bitfield2: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -6282,7 +6282,7 @@ impl Default for D3DKMT_SETFSEBLOCKFLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETFSEBLOCKFLAGS_0 {
     pub _bitfield: u32,
 }
@@ -6317,7 +6317,7 @@ impl Default for D3DKMT_SETGAMMARAMP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub Recovered: windows_core::BOOL,
@@ -6351,21 +6351,21 @@ impl Default for D3DKMT_SETQUEUEDLIMIT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETQUEUEDLIMIT_0_0 {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub QueuedPendingFlipLimit: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETSTABLEPOWERSTATE {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub Enabled: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -6374,7 +6374,7 @@ pub struct D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -6382,7 +6382,7 @@ pub struct D3DKMT_SETVIDPNSOURCEHWPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SETVIDPNSOURCEOWNER {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub pType: *const D3DKMT_VIDPNSOURCEOWNER_TYPE,
@@ -6452,7 +6452,7 @@ impl Default for D3DKMT_SET_COLORSPACE_TRANSFORM_0 {
 pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
     pub AdapterLuid: super::winnt::LUID,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -6460,14 +6460,14 @@ pub struct D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION {
     pub AdapterLuid: super::winnt::LUID,
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SHAREOBJECTWITHHOST {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hObject: super::d3dukmdt::D3DKMT_HANDLE,
@@ -6523,7 +6523,7 @@ impl Default for D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
@@ -6609,7 +6609,7 @@ pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALL
 pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = 3;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_STANDARDALLOCATION_EXISTINGHEAP {
     pub Size: super::d3dukmdt::D3DKMT_SIZE_T,
 }
@@ -6617,7 +6617,7 @@ pub const D3DKMT_SUBKEY_DX9: windows_core::PCWSTR = windows_core::w!("DX9");
 pub const D3DKMT_SUBKEY_OPENGL: windows_core::PCWSTR = windows_core::w!("OpenGL");
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMAND {
     pub Commands: super::d3dukmdt::D3DGPU_VIRTUAL_ADDRESS,
     pub CommandLength: u32,
@@ -6639,13 +6639,13 @@ impl Default for D3DKMT_SUBMITCOMMAND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMANDFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
     pub hHwQueue: super::d3dukmdt::D3DKMT_HANDLE,
     pub HwQueueProgressFenceId: u64,
@@ -6708,7 +6708,7 @@ impl Default for D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     pub hHwQueue: super::d3dukmdt::D3DKMT_HANDLE,
     pub ObjectCount: u32,
@@ -6722,7 +6722,7 @@ impl Default for D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_SURFACECOMPLETE_PRESENTHISTORYTOKEN {
     pub hLogicalSurface: u64,
 }
@@ -6804,12 +6804,12 @@ impl Default for D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UMDFILENAMEINFO {
     pub Version: KMTUMDVERSION,
     pub UmdFileName: [u16; 260],
@@ -6820,13 +6820,13 @@ impl Default for D3DKMT_UMDFILENAMEINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_UMD_DRIVER_VERSION {
     pub DriverVersion: i64,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNLOCK {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub NumAllocations: u32,
@@ -6840,7 +6840,7 @@ impl Default for D3DKMT_UNLOCK {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_UNLOCK2 {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hAllocation: super::d3dukmdt::D3DKMT_HANDLE,
@@ -6881,13 +6881,13 @@ impl Default for D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNPINDIRECTFLIPRESOURCES {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub ResourceCount: u32,
@@ -6900,7 +6900,7 @@ impl Default for D3DKMT_UNPINDIRECTFLIPRESOURCES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION {
     pub Handle: *mut core::ffi::c_void,
 }
@@ -6957,20 +6957,20 @@ impl Default for D3DKMT_UPDATEGPUVIRTUALADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_UPDATEGPUVIRTUALADDRESS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_UPDATEOVERLAY {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
     pub hOverlay: super::d3dukmdt::D3DKMT_HANDLE,
     pub OverlayInfo: super::d3dukmdt::D3DDDI_KERNELOVERLAYINFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VAD_DESC {
     pub VadIndex: u32,
     pub VadAddress: u64,
@@ -6988,7 +6988,7 @@ pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = 3;
 pub const D3DKMT_VAD_ESCAPE_GET_PTE_DATA: D3DKMT_VAD_ESCAPE_COMMAND = 6;
 pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VA_RANGE_DESC {
     pub VadAddress: u64,
     pub VaRangeIndex: u32,
@@ -7005,7 +7005,7 @@ pub type D3DKMT_VERIFIER_OPTION_MODE = i32;
 pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = 0;
 pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VGPUINTERFACEID {
     pub VirtualGpuIntefaceId: [u16; 260],
 }
@@ -7106,7 +7106,7 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     pub _bitfield: u32,
 }
@@ -7137,19 +7137,19 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_1_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub bFlush: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
     pub SegmentId: u32,
@@ -7160,7 +7160,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub hPagingQueue: super::d3dukmdt::D3DKMT_HANDLE,
     pub PhysicalAdapterIndex: u32,
@@ -7169,20 +7169,20 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_14 {
     pub TimerValue: i64,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_15 {
     pub UserBuffer: *mut core::ffi::c_void,
     pub Direction: D3DKMT_ESCAPE_COPY_CONTENT_DIRECTION,
@@ -7198,14 +7198,14 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_15 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_16 {
     pub hAllocation: super::d3dukmdt::D3DKMT_HANDLE,
     pub hSection: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub ResourceHandle: super::d3dukmdt::D3DKMT_HANDLE,
     pub AllocationHandle: super::d3dukmdt::D3DKMT_HANDLE,
@@ -7213,7 +7213,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub NtHandle: u64,
 }
@@ -7251,7 +7251,7 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_4_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4_0_0 {
     pub NumVads: u32,
 }
@@ -7269,33 +7269,33 @@ impl Default for D3DKMT_VIDMM_ESCAPE_0_4_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub hProcess: super::winnt::HANDLE,
     pub bAllowWakeOnSubmission: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub hProcess: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub MinTrimInterval: u32,
     pub MaxTrimInterval: u32,
@@ -7326,7 +7326,7 @@ impl Default for D3DKMT_VIDPNSOURCEOWNER_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -7394,18 +7394,18 @@ impl Default for D3DKMT_VIDSCH_ESCAPE_0_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDSCH_ESCAPE_0_1 {
     pub Count: u32,
     pub Time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIRTUALADDRESSFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIRTUALADDRESSINFO {
     pub VirtualAddressFlags: D3DKMT_VIRTUALADDRESSFLAGS,
 }
@@ -7414,13 +7414,13 @@ pub struct D3DKMT_VIRTUALADDRESSINFO {
 pub struct D3DKMT_VISTABLTMODEL_PRESENTHISTORYTOKEN(pub u64);
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORIDLE {
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT {
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub ObjectCount: u32,
@@ -7462,7 +7462,7 @@ impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2_0_0 {
     pub FenceValue: u64,
 }
@@ -7514,7 +7514,7 @@ impl Default for D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -7522,7 +7522,7 @@ pub struct D3DKMT_WAITFORVERTICALBLANKEVENT {
 }
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WAITFORVERTICALBLANKEVENT2 {
     pub hAdapter: super::d3dukmdt::D3DKMT_HANDLE,
     pub hDevice: super::d3dukmdt::D3DKMT_HANDLE,
@@ -7538,26 +7538,26 @@ impl Default for D3DKMT_WAITFORVERTICALBLANKEVENT2 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WAITSYNCFILE {
     pub hSyncFile: u64,
     pub hContext: super::d3dukmdt::D3DKMT_HANDLE,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WORKINGSETFLAGS {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WORKINGSETINFO {
     pub Flags: D3DKMT_WORKINGSETFLAGS,
     pub MinimumWorkingSetPercentile: u32,
     pub MaximumWorkingSetPercentile: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_WSAUMDIMAGENAME {
     pub WsaUmdImageName: [u16; 260],
 }
@@ -7568,7 +7568,7 @@ impl Default for D3DKMT_WSAUMDIMAGENAME {
 }
 pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_XBOX {
     pub IsXBOX: windows_core::BOOL,
 }
@@ -7589,7 +7589,7 @@ pub type DXGKMT_POWER_SHARED_TYPE = i32;
 pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = 0;
 pub const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGK_ESCAPE_GPUMMUCAPS {
     pub ReadOnlyMemorySupported: bool,
     pub NoExecuteMemorySupported: bool,
@@ -7777,7 +7777,7 @@ pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = 6;
 pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::winnt::HANDLE,
@@ -7794,7 +7794,7 @@ impl Default for OBJECT_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
     pub Status: OUTPUTDUPL_CONTEXT_DEBUG_STATUS,
     pub ProcessID: super::winnt::HANDLE,

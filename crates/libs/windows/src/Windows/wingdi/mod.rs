@@ -2318,7 +2318,7 @@ pub unsafe fn wglUseFontOutlinesW(param0: super::windef::HDC, param1: u32, param
     unsafe { wglUseFontOutlinesW(param0, param1, param2, param3, param4, param5, param6, param7 as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
@@ -2351,7 +2351,7 @@ pub const ASPECTY: u32 = 42;
 pub const ASPECT_FILTERING: u32 = 1;
 pub type AXESLIST = AXESLISTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AXESLISTA {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -2363,7 +2363,7 @@ impl Default for AXESLISTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -2376,7 +2376,7 @@ impl Default for AXESLISTW {
 }
 pub type AXISINFO = AXISINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AXISINFOA {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -2388,7 +2388,7 @@ impl Default for AXISINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -2406,7 +2406,7 @@ pub const BANDINFO: u32 = 24;
 pub struct BCHAR(pub u8);
 pub const BEGIN_PATH: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -2422,7 +2422,7 @@ impl Default for BITMAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -2431,7 +2431,7 @@ pub struct BITMAPCOREHEADER {
     pub bcBitCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
@@ -2451,7 +2451,7 @@ pub struct BITMAPFILEHEADER {
     pub bfOffBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
@@ -2462,7 +2462,7 @@ impl Default for BITMAPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -2477,7 +2477,7 @@ pub struct BITMAPINFOHEADER {
     pub biClrImportant: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -2501,7 +2501,7 @@ pub struct BITMAPV4HEADER {
     pub bV4GammaBlue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -2541,7 +2541,7 @@ pub const BLACKONWHITE: u32 = 1;
 pub const BLACK_BRUSH: u32 = 4;
 pub const BLACK_PEN: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
@@ -2577,7 +2577,7 @@ pub const CC_STYLED: u32 = 32;
 pub const CC_WIDE: u32 = 16;
 pub const CC_WIDESTYLED: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
@@ -2587,14 +2587,14 @@ pub const CHECKJPEGFORMAT: u32 = 4119;
 pub const CHECKPNGFORMAT: u32 = 4120;
 pub const CHINESEBIG5_CHARSET: u32 = 136;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CIEXYZ {
     pub ciexyzX: FXPT2DOT30,
     pub ciexyzY: FXPT2DOT30,
     pub ciexyzZ: FXPT2DOT30,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
@@ -2624,7 +2624,7 @@ pub const CM_OUT_OF_GAMUT: u32 = 255;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct COLOR16(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -2697,7 +2697,7 @@ pub const DEFAULT_PALETTE: u32 = 15;
 pub const DEFAULT_PITCH: u32 = 0;
 pub const DEFAULT_QUALITY: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DESIGNVECTOR {
     pub dvReserved: u32,
     pub dvNumAxes: u32,
@@ -2768,7 +2768,7 @@ impl Default for DEVMODEA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2781,7 +2781,7 @@ pub struct DEVMODEA_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::windef::POINTL,
     pub dmDisplayOrientation: u32,
@@ -2853,7 +2853,7 @@ impl Default for DEVMODEW_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2866,7 +2866,7 @@ pub struct DEVMODEW_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::windef::POINTL,
     pub dmDisplayOrientation: u32,
@@ -2887,7 +2887,7 @@ impl Default for DEVMODEW_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
     pub dsBmih: BITMAPINFOHEADER,
@@ -2904,14 +2904,14 @@ impl Default for DIBSECTION {
 pub const DIB_PAL_COLORS: u32 = 1;
 pub const DIB_RGB_COLORS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_2DREGION {
     pub cx: u32,
     pub cy: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_ADAPTER_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub adapterDevicePath: [u16; 128],
@@ -2935,7 +2935,7 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO {
     pub PathSourceSize: super::windef::POINTL,
     pub DesktopImageRegion: super::windef::RECTL,
@@ -2954,7 +2954,7 @@ pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_T
 pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_HEADER {
     pub r#type: DISPLAYCONFIG_DEVICE_INFO_TYPE,
     pub size: u32,
@@ -2999,7 +2999,7 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -3034,7 +3034,7 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0 {
     pub _bitfield: u32,
 }
@@ -3066,7 +3066,7 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
@@ -3176,7 +3176,7 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -3218,7 +3218,7 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
 }
@@ -3232,7 +3232,7 @@ pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = 1;
 pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT = -1;
 pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -3260,7 +3260,7 @@ pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_OR
 pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SDR_WHITE_LEVEL {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub SDRWhiteLevel: u32,
@@ -3293,7 +3293,7 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -3325,7 +3325,7 @@ impl Default for DISPLAYCONFIG_SET_HDR_STATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_HDR_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -3360,7 +3360,7 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
@@ -3392,7 +3392,7 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
@@ -3424,13 +3424,13 @@ impl Default for DISPLAYCONFIG_SET_WCG_STATE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_WCG_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SOURCE_DEVICE_NAME {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub viewGdiDeviceName: [u16; 32],
@@ -3444,7 +3444,7 @@ impl Default for DISPLAYCONFIG_SOURCE_DEVICE_NAME {
 pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SOURCE_MODE {
     pub width: u32,
     pub height: u32,
@@ -3479,13 +3479,13 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_BASE_TYPE {
     pub header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
     pub baseOutputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
@@ -3531,7 +3531,7 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -3601,13 +3601,13 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
 }
 pub type DISPLAY_DEVICE = DISPLAY_DEVICEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
     pub DeviceName: [i8; 32],
@@ -3622,7 +3622,7 @@ impl Default for DISPLAY_DEVICEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
@@ -3878,7 +3878,7 @@ pub const DM_TTOPTION: u32 = 16384;
 pub const DM_YRESOLUTION: u32 = 8192;
 pub type DOCINFO = DOCINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: windows_core::PCSTR,
@@ -3887,7 +3887,7 @@ pub struct DOCINFOA {
     pub fwType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: windows_core::PCWSTR,
@@ -3901,7 +3901,7 @@ pub const DRAFTMODE: u32 = 7;
 pub const DRAFT_QUALITY: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWPATRECT {
     pub ptPosition: super::windef::POINT,
     pub ptSize: super::windef::POINT,
@@ -3923,13 +3923,13 @@ pub const ELF_CULTURE_LATIN: u32 = 0;
 pub const ELF_VENDOR_SIZE: u32 = 4;
 pub const ELF_VERSION: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMR {
     pub iType: u32,
     pub nSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRABORTPATH {
     pub emr: EMR,
 }
@@ -3968,7 +3968,7 @@ pub struct EMRANGLEARC {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRARC {
     pub emr: EMR,
     pub rclBox: super::windef::RECTL,
@@ -4003,7 +4003,7 @@ pub struct EMRBITBLT {
 pub type EMRCHORD = EMRARC;
 pub type EMRCLOSEFIGURE = EMRABORTPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCOLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -4012,7 +4012,7 @@ pub struct EMRCOLORCORRECTPALETTE {
     pub nReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRCOLORMATCHTOTARGET {
     pub emr: EMR,
     pub dwAction: u32,
@@ -4028,21 +4028,21 @@ impl Default for EMRCOLORMATCHTOTARGET {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATECOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
     pub lcs: LOGCOLORSPACEA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRCREATECOLORSPACEW {
     pub emr: EMR,
     pub ihCS: u32,
@@ -4057,7 +4057,7 @@ impl Default for EMRCREATECOLORSPACEW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -4068,7 +4068,7 @@ pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -4079,7 +4079,7 @@ pub struct EMRCREATEMONOBRUSH {
     pub cbBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -4087,7 +4087,7 @@ pub struct EMRCREATEPALETTE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -4098,14 +4098,14 @@ pub type EMRDELETEOBJECT = EMRSELECTOBJECT;
 pub type EMRDRAWESCAPE = EMREXTESCAPE;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRELLIPSE {
     pub emr: EMR,
     pub rclBox: super::windef::RECTL,
 }
 pub type EMRENDPATH = EMRABORTPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
@@ -4114,13 +4114,13 @@ pub struct EMREOF {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
     pub rclClip: super::windef::RECTL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
@@ -4128,7 +4128,7 @@ pub struct EMREXTCREATEFONTINDIRECTW {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -4139,7 +4139,7 @@ pub struct EMREXTCREATEPEN {
     pub elp: EXTLOGPEN32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMREXTESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -4153,7 +4153,7 @@ impl Default for EMREXTESCAPE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
     pub ptlStart: super::windef::POINTL,
@@ -4161,7 +4161,7 @@ pub struct EMREXTFLOODFILL {
     pub iMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
@@ -4188,14 +4188,14 @@ pub struct EMREXTTEXTOUTA {
 pub type EMREXTTEXTOUTW = EMREXTTEXTOUTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRFILLPATH {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRFILLRGN {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4211,7 +4211,7 @@ impl Default for EMRFILLRGN {
 }
 pub type EMRFLATTENPATH = EMRABORTPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
@@ -4220,7 +4220,7 @@ pub struct EMRFORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4236,7 +4236,7 @@ impl Default for EMRFRAMERGN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
@@ -4249,7 +4249,7 @@ impl Default for EMRGDICOMMENT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4263,7 +4263,7 @@ impl Default for EMRGLSBOUNDEDRECORD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
@@ -4276,7 +4276,7 @@ impl Default for EMRGLSRECORD {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4295,7 +4295,7 @@ impl Default for EMRGRADIENTFILL {
 pub type EMRINTERSECTCLIPRECT = EMREXCLUDECLIPRECT;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4310,7 +4310,7 @@ impl Default for EMRINVERTRGN {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRLINETO {
     pub emr: EMR,
     pub ptl: super::windef::POINTL,
@@ -4353,7 +4353,7 @@ pub struct EMRMODIFYWORLDTRANSFORM {
 #[cfg(feature = "windef")]
 pub type EMRMOVETOEX = EMRLINETO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRNAMEDESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -4368,7 +4368,7 @@ impl Default for EMRNAMEDESCAPE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
     pub ptlOffset: super::windef::POINTL,
@@ -4378,7 +4378,7 @@ pub type EMRPAINTRGN = EMRINVERTRGN;
 #[cfg(feature = "windef")]
 pub type EMRPIE = EMRARC;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRPIXELFORMAT {
     pub emr: EMR,
     pub pfd: PIXELFORMATDESCRIPTOR,
@@ -4425,7 +4425,7 @@ pub type EMRPOLYBEZIERTO = EMRPOLYLINE;
 pub type EMRPOLYBEZIERTO16 = EMRPOLYLINE16;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4441,7 +4441,7 @@ impl Default for EMRPOLYDRAW {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4461,7 +4461,7 @@ pub type EMRPOLYGON = EMRPOLYLINE;
 pub type EMRPOLYGON16 = EMRPOLYLINE16;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4476,7 +4476,7 @@ impl Default for EMRPOLYLINE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4499,7 +4499,7 @@ pub type EMRPOLYPOLYGON = EMRPOLYPOLYLINE;
 pub type EMRPOLYPOLYGON16 = EMRPOLYPOLYLINE16;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4516,7 +4516,7 @@ impl Default for EMRPOLYPOLYLINE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4555,21 +4555,21 @@ pub type EMRREALIZEPALETTE = EMRABORTPATH;
 #[cfg(feature = "windef")]
 pub type EMRRECTANGLE = EMRELLIPSE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
     pub cEntries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
     pub rclBox: super::windef::RECTL,
@@ -4577,7 +4577,7 @@ pub struct EMRROUNDRECT {
 }
 pub type EMRSAVEDC = EMRABORTPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -4587,33 +4587,33 @@ pub struct EMRSCALEVIEWPORTEXTEX {
 }
 pub type EMRSCALEWINDOWEXTEX = EMRSCALEVIEWPORTEXTEX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
 }
 pub type EMRSELECTCOLORSPACE = EMRSETCOLORSPACE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETBKCOLOR {
     pub emr: EMR,
     pub crColor: super::windef::COLORREF,
@@ -4622,20 +4622,20 @@ pub type EMRSETBKMODE = EMRSELECTCLIPPATH;
 #[cfg(feature = "windef")]
 pub type EMRSETBRUSHORGEX = EMRSETVIEWPORTORGEX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4655,7 +4655,7 @@ pub struct EMRSETDIBITSTODEVICE {
 }
 pub type EMRSETICMMODE = EMRSELECTCLIPPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRSETICMPROFILE {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -4673,7 +4673,7 @@ pub type EMRSETICMPROFILEW = EMRSETICMPROFILE;
 pub type EMRSETLAYOUT = EMRSELECTCLIPPATH;
 pub type EMRSETMAPMODE = EMRSELECTCLIPPATH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -4686,7 +4686,7 @@ pub struct EMRSETMITERLIMIT {
     pub eMiterLimit: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EMRSETPALETTEENTRIES {
     pub emr: EMR,
     pub ihPal: u32,
@@ -4701,7 +4701,7 @@ impl Default for EMRSETPALETTEENTRIES {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
     pub ptlPixel: super::windef::POINTL,
@@ -4715,14 +4715,14 @@ pub type EMRSETTEXTALIGN = EMRSELECTCLIPPATH;
 pub type EMRSETTEXTCOLOR = EMRSETBKCOLOR;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
     pub szlExtent: super::windef::SIZEL,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
     pub ptlOrigin: super::windef::POINTL,
@@ -4762,7 +4762,7 @@ pub struct EMRSTRETCHBLT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
     pub rclBounds: super::windef::RECTL,
@@ -4787,7 +4787,7 @@ pub type EMRSTROKEANDFILLPATH = EMRFILLPATH;
 pub type EMRSTROKEPATH = EMRFILLPATH;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EMRTEXT {
     pub ptlReference: super::windef::POINTL,
     pub nChars: u32,
@@ -4951,7 +4951,7 @@ pub const ENDDOC: u32 = 11;
 pub const END_PATH: u32 = 4098;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENHMETAHEADER {
     pub iType: u32,
     pub nSize: u32,
@@ -4974,7 +4974,7 @@ pub struct ENHMETAHEADER {
     pub szlMicrometers: super::windef::SIZEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENHMETARECORD {
     pub iType: u32,
     pub nSize: u32,
@@ -4991,7 +4991,7 @@ pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648;
 pub type ENHMFENUMPROC = Option<unsafe extern "system" fn(hdc: super::windef::HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::minwindef::LPARAM) -> i32>;
 pub type ENUMLOGFONT = ENUMLOGFONTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -5004,7 +5004,7 @@ impl Default for ENUMLOGFONTA {
 }
 pub type ENUMLOGFONTEX = ENUMLOGFONTEXA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -5018,19 +5018,19 @@ impl Default for ENUMLOGFONTEXA {
 }
 pub type ENUMLOGFONTEXDV = ENUMLOGFONTEXDVA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
     pub elfDesignVector: DESIGNVECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMLOGFONTEXW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5043,7 +5043,7 @@ impl Default for ENUMLOGFONTEXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5058,13 +5058,13 @@ pub const ENUMPAPERBINS: u32 = 31;
 pub const ENUMPAPERMETRICS: u32 = 34;
 pub type ENUMTEXTMETRIC = ENUMTEXTMETRICA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
     pub etmAxesList: AXESLISTA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
     pub etmAxesList: AXESLISTW,
@@ -5083,7 +5083,7 @@ pub const ETO_REVERSE_INDEX_MAP: u32 = 65536;
 pub const ETO_RTLREADING: u32 = 128;
 pub type EXTLOGFONT = EXTLOGFONTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
     pub elfFullName: [u8; 64],
@@ -5102,7 +5102,7 @@ impl Default for EXTLOGFONTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5122,7 +5122,7 @@ impl Default for EXTLOGFONTW {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -5140,7 +5140,7 @@ impl Default for EXTLOGPEN {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -5174,7 +5174,7 @@ pub const FF_ROMAN: u32 = 16;
 pub const FF_SCRIPT: u32 = 64;
 pub const FF_SWISS: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
@@ -5193,7 +5193,7 @@ pub type FONTENUMPROCA = OLDFONTENUMPROCA;
 pub type FONTENUMPROCW = OLDFONTENUMPROCW;
 pub const FONTMAPPER_MAX: u32 = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
@@ -5276,7 +5276,7 @@ pub const GCP_NUMERICSLOCAL: u32 = 134217728;
 pub const GCP_REORDER: u32 = 2;
 pub type GCP_RESULTS = GCP_RESULTSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
     pub lpOutString: windows_core::PSTR,
@@ -5294,7 +5294,7 @@ impl Default for GCP_RESULTSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
     pub lpOutString: windows_core::PWSTR,
@@ -5358,7 +5358,7 @@ pub const GGO_NATIVE: u32 = 2;
 pub const GGO_UNHINTED: u32 = 256;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
     pub gmBlackBoxY: u32,
@@ -5376,7 +5376,7 @@ pub struct GLYPHMETRICSFLOAT {
     pub gmfCellIncY: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLYPHSET {
     pub cbThis: u32,
     pub flAccel: u32,
@@ -5399,13 +5399,13 @@ pub const GRADIENT_FILL_RECT_H: u32 = 0;
 pub const GRADIENT_FILL_RECT_V: u32 = 1;
 pub const GRADIENT_FILL_TRIANGLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
@@ -5417,7 +5417,7 @@ pub const GS_8BIT_INDICES: u32 = 1;
 pub const HALFTONE: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HANDLETABLE {
     pub objectHandle: [super::windef::HGDIOBJ; 1],
 }
@@ -5471,7 +5471,7 @@ pub const ILLUMINANT_NTSC: u32 = 3;
 pub const ILLUMINANT_TUNGSTEN: u32 = 1;
 pub const JOHAB_CHARSET: u32 = 130;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
@@ -5479,7 +5479,7 @@ pub struct KERNINGPAIR {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -5539,7 +5539,7 @@ pub const LINECAPS: u32 = 30;
 #[cfg(feature = "minwindef")]
 pub type LINEDDAPROC = Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::minwindef::LPARAM)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALESIGNATURE {
     pub lsUsb: [u32; 4],
     pub lsCsbDefault: [u32; 2],
@@ -5552,7 +5552,7 @@ impl Default for LOCALESIGNATURE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGBRUSH {
     pub lbStyle: u32,
     pub lbColor: super::windef::COLORREF,
@@ -5560,7 +5560,7 @@ pub struct LOGBRUSH {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGBRUSH32 {
     pub lbStyle: u32,
     pub lbColor: super::windef::COLORREF,
@@ -5568,7 +5568,7 @@ pub struct LOGBRUSH32 {
 }
 pub type LOGCOLORSPACE = LOGCOLORSPACEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -5587,7 +5587,7 @@ impl Default for LOGCOLORSPACEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
@@ -5607,7 +5607,7 @@ impl Default for LOGCOLORSPACEW {
 }
 pub type LOGFONT = LOGFONTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGFONTA {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -5630,7 +5630,7 @@ impl Default for LOGFONTA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGFONTW {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -5653,7 +5653,7 @@ impl Default for LOGFONTW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOGPALETTE {
     pub palVersion: u16,
     pub palNumEntries: u16,
@@ -5666,7 +5666,7 @@ impl Default for LOGPALETTE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOGPEN {
     pub lopnStyle: u32,
     pub lopnWidth: super::windef::POINT,
@@ -5823,7 +5823,7 @@ pub type LPXFORM = *mut XFORM;
 pub const LTGRAY_BRUSH: u32 = 1;
 pub const MAC_CHARSET: u32 = 77;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
@@ -5835,7 +5835,7 @@ pub const MERGECOPY: u32 = 12583114;
 pub const MERGEPAINT: u32 = 12255782;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct METAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -5855,7 +5855,7 @@ pub struct METAHEADER {
     pub mtNoParameters: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
@@ -5963,7 +5963,7 @@ pub const MWT_RIGHTMULTIPLY: u32 = 3;
 pub const NEWFRAME: u32 = 1;
 pub type NEWTEXTMETRIC = NEWTEXTMETRICA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -5992,19 +5992,19 @@ pub struct NEWTEXTMETRICA {
 }
 pub type NEWTEXTMETRICEX = NEWTEXTMETRICEXA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: NEWTEXTMETRICA,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: NEWTEXTMETRICW,
     pub ntmFontSig: FONTSIGNATURE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -6131,7 +6131,7 @@ pub const OPENCHANNEL: u32 = 4110;
 pub type OUTLINETEXTMETRIC = OUTLINETEXTMETRICA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICA,
@@ -6168,7 +6168,7 @@ pub struct OUTLINETEXTMETRICA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
     pub otmTextMetrics: TEXTMETRICW,
@@ -6217,7 +6217,7 @@ pub const OUT_TT_PRECIS: u32 = 4;
 pub type PABC = *mut ABC;
 pub type PABCFLOAT = *mut ABCFLOAT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
@@ -6225,7 +6225,7 @@ pub struct PALETTEENTRY {
     pub peFlags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PANOSE {
     pub bFamilyType: u8,
     pub bSerifStyle: u8,
@@ -6399,7 +6399,7 @@ pub type PDISPLAY_DEVICEW = *mut DISPLAY_DEVICEW;
 #[cfg(feature = "windef")]
 pub type PDRAWPATRECT = *mut DRAWPATRECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -6641,7 +6641,7 @@ pub const PHYSICALOFFSETX: u32 = 112;
 pub const PHYSICALOFFSETY: u32 = 113;
 pub const PHYSICALWIDTH: u32 = 110;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PIXELFORMATDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -6696,7 +6696,7 @@ pub struct POINTFLOAT {
     pub y: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
@@ -6707,7 +6707,7 @@ pub const POLYGONALCAPS: u32 = 32;
 pub type POLYTEXT = POLYTEXTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -6725,7 +6725,7 @@ impl Default for POLYTEXTA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -6781,7 +6781,7 @@ pub const PROFILE_LINKED: u32 = 1279872587;
 pub const PROOF_QUALITY: u32 = 2;
 pub const PR_JOBSTATUS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -6790,7 +6790,7 @@ pub struct PSFEATURE_CUSTPAPER {
     pub lHeightOffset: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: windows_core::BOOL,
     pub bSetPageDevice: windows_core::BOOL,
@@ -6798,7 +6798,7 @@ pub struct PSFEATURE_OUTPUT {
 pub const PSIDENT_GDICENTRIC: u32 = 0;
 pub const PSIDENT_PSCENTRIC: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: u16,
@@ -6904,7 +6904,7 @@ pub const R2_WHITE: u32 = 16;
 pub const R2_XORPEN: u32 = 7;
 pub const RASTERCAPS: u32 = 38;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
@@ -6935,7 +6935,7 @@ pub const REFERENCE_WHITE_MIN: u16 = 6000;
 pub const RELATIVE: u32 = 2;
 pub const RESTORE_CTM: u32 = 4100;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -6943,7 +6943,7 @@ pub struct RGBQUAD {
     pub rgbReserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
@@ -6953,7 +6953,7 @@ pub const RGB_GAMMA_MAX: u16 = 65000;
 pub const RGB_GAMMA_MIN: u16 = 1344;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
     pub Buffer: [i8; 1],
@@ -6966,7 +6966,7 @@ impl Default for RGNDATA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
     pub iType: u32,
@@ -7099,7 +7099,7 @@ pub const TECHNOLOGY: u32 = 2;
 pub const TEXTCAPS: u32 = 34;
 pub type TEXTMETRIC = TEXTMETRICA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -7123,7 +7123,7 @@ pub struct TEXTMETRICA {
     pub tmCharSet: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -7154,7 +7154,7 @@ pub const TMPF_VECTOR: u32 = 2;
 pub const TRANSFORM_CTM: u32 = 4107;
 pub const TRANSPARENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -7165,7 +7165,7 @@ pub struct TRIVERTEX {
 }
 pub const TRUETYPE_FONTTYPE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTPOLYCURVE {
     pub wType: u16,
     pub cpfx: u16,
@@ -7177,7 +7177,7 @@ impl Default for TTPOLYCURVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
@@ -7202,14 +7202,14 @@ pub const VTA_LEFT: u32 = 8;
 pub const VTA_RIGHT: u32 = 0;
 pub const VTA_TOP: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WGLSWAP {
     pub hdc: super::windef::HDC,
     pub uiFlags: u32,

@@ -2538,7 +2538,7 @@ pub unsafe fn UuidToStringW(uuid: *const windows_core::GUID, stringuuid: *mut RP
     unsafe { UuidToStringW(uuid, stringuuid as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARRAY_INFO {
     pub Dimension: i32,
     pub BufferConformanceMark: *mut u32,
@@ -2553,7 +2553,7 @@ impl Default for ARRAY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BinaryParam {
     pub Buffer: *mut core::ffi::c_void,
     pub Size: i16,
@@ -2575,7 +2575,7 @@ impl Default for CLIENT_CALL_RETURN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMM_FAULT_OFFSETS {
     pub CommOffset: i16,
     pub FaultOffset: i16,
@@ -2595,7 +2595,7 @@ pub const EEInfoUseFileTime: u32 = 4;
 pub type EXPR_EVAL = Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE)>;
 pub type ExtendedErrorParamTypes = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FULL_PTR_XLAT_TABLES {
     pub RefIdToPointer: *mut core::ffi::c_void,
     pub PointerToRefId: *mut core::ffi::c_void,
@@ -2672,7 +2672,7 @@ pub type I_RpcProxyUpdatePerfCounterBackendServerFn = Option<unsafe extern "syst
 pub type I_RpcProxyUpdatePerfCounterFn = Option<unsafe extern "system" fn(counter: RpcPerfCounters, modifytrend: i32, size: u32)>;
 pub type LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MALLOC_FREE_STRUCT {
     pub pfnAllocate: *mut u8,
     pub pfnFree: *mut u8,
@@ -2683,7 +2683,7 @@ impl Default for MALLOC_FREE_STRUCT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_FORMAT_STRING {
     pub Pad: i16,
     pub Format: [u8; 0],
@@ -2694,7 +2694,7 @@ impl Default for MIDL_FORMAT_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_INTERCEPTION_INFO {
     pub Version: u32,
     pub ProcString: PFORMAT_STRING,
@@ -2708,7 +2708,7 @@ impl Default for MIDL_INTERCEPTION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_INTERFACE_METHOD_PROPERTIES {
     pub MethodCount: u16,
     pub MethodProperties: *const *const MIDL_METHOD_PROPERTY_MAP,
@@ -2719,13 +2719,13 @@ impl Default for MIDL_INTERFACE_METHOD_PROPERTIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDL_METHOD_PROPERTY {
     pub Id: u32,
     pub Value: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_METHOD_PROPERTY_MAP {
     pub Count: u32,
     pub Properties: *const MIDL_METHOD_PROPERTY,
@@ -2737,7 +2737,7 @@ impl Default for MIDL_METHOD_PROPERTY_MAP {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_SERVER_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub DispatchTable: *const SERVER_ROUTINE,
@@ -2756,7 +2756,7 @@ impl Default for MIDL_SERVER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_STUBLESS_PROXY_INFO {
     pub pStubDesc: PMIDL_STUB_DESC,
     pub ProcFormatString: PFORMAT_STRING,
@@ -2818,7 +2818,7 @@ impl Default for MIDL_STUB_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MIDL_STUB_MESSAGE {
     pub RpcMsg: PRPC_MESSAGE,
     pub Buffer: *mut u8,
@@ -2887,7 +2887,7 @@ impl Default for MIDL_STUB_MESSAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIDL_SYNTAX_INFO {
     pub TransferSyntax: RPC_SYNTAX_IDENTIFIER,
     pub DispatchTable: *mut RPC_DISPATCH_TABLE,
@@ -2905,7 +2905,7 @@ impl Default for MIDL_SYNTAX_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIDL_WINRT_TYPE_SERIALIZATION_INFO {
     pub Version: u32,
     pub TypeFormatString: PFORMAT_STRING,
@@ -2920,7 +2920,7 @@ pub const MaxNumberOfEEInfoParams: u32 = 4;
 pub const MidlInterceptionInfoVersionOne: i32 = 1;
 pub const MidlWinrtTypeSerializationInfoVersionOne: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
 pub const NDR_ASCII_CHAR: u32 = 0;
 pub const NDR_BIG_ENDIAN: u32 = 0;
@@ -2934,7 +2934,7 @@ impl Default for NDR_CCONTEXT {
 }
 pub const NDR_CHAR_REP_MASK: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDR_CS_ROUTINES {
     pub pSizeConvertRoutines: *mut NDR_CS_SIZE_CONVERT_ROUTINES,
     pub pTagGettingRoutines: *mut CS_TAG_GETTING_ROUTINE,
@@ -2956,7 +2956,7 @@ pub const NDR_CUSTOM_OR_DEFAULT_ALLOCATOR: u32 = 268435456;
 pub const NDR_DEFAULT_ALLOCATOR: u32 = 536870912;
 pub const NDR_EBCDIC_CHAR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDR_EXPR_DESC {
     pub pOffset: *const u16,
     pub pFormatExpr: PFORMAT_STRING,
@@ -2976,7 +2976,7 @@ pub const NDR_LOCAL_ENDIAN: u32 = 16;
 pub type NDR_NOTIFY2_ROUTINE = Option<unsafe extern "system" fn(flag: boolean)>;
 pub type NDR_NOTIFY_ROUTINE = Option<unsafe extern "system" fn()>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDR_POINTER_QUEUE_STATE(pub u8);
 pub type NDR_RUNDOWN = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type NDR_SCONTEXT = *mut _NDR_SCONTEXT;
@@ -3017,7 +3017,7 @@ impl Default for NDR_USER_MARSHAL_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct NDR_USER_MARSHAL_INFO_LEVEL1 {
     pub Buffer: *mut core::ffi::c_void,
     pub BufferSize: u32,
@@ -3130,7 +3130,7 @@ pub type PSEC_WINNT_AUTH_IDENTITY_W = *mut SEC_WINNT_AUTH_IDENTITY_W;
 #[cfg(feature = "objidlbase")]
 pub type PXMIT_ROUTINE_QUINTUPLE = *mut XMIT_ROUTINE_QUINTUPLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RDR_CALLOUT_STATE {
     pub LastError: RPC_STATUS,
     pub LastEEInfo: *mut core::ffi::c_void,
@@ -3203,7 +3203,7 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::winnt::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
@@ -3212,7 +3212,7 @@ pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::windef::HWND,
     pub Msg: u32,
@@ -3262,7 +3262,7 @@ pub const RPC_BHO_NONCAUSAL: u32 = 1;
 pub const RPC_BHT_OBJECT_UUID_VALID: u32 = 1;
 pub type RPC_BINDING_HANDLE = I_RPC_HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub Version: u32,
     pub Flags: u32,
@@ -3270,7 +3270,7 @@ pub struct RPC_BINDING_HANDLE_OPTIONS_V1 {
     pub CallTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_A {
     pub Version: u32,
     pub ServerPrincName: *mut u8,
@@ -3285,7 +3285,7 @@ impl Default for RPC_BINDING_HANDLE_SECURITY_V1_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_BINDING_HANDLE_SECURITY_V1_W {
     pub Version: u32,
     pub ServerPrincName: *mut u16,
@@ -3352,7 +3352,7 @@ impl Default for RPC_BINDING_HANDLE_TEMPLATE_V1_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_BINDING_VECTOR {
     pub Count: u32,
     pub BindingH: [RPC_BINDING_HANDLE; 1],
@@ -3372,7 +3372,7 @@ pub type RPC_BUFPTR = *mut u8;
 #[cfg(feature = "winnt")]
 pub type RPC_CALL_ATTRIBUTES = RPC_CALL_ATTRIBUTES_V3_A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V1_A {
     pub Version: u32,
     pub Flags: u32,
@@ -3390,7 +3390,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V1_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V1_W {
     pub Version: u32,
     pub Flags: u32,
@@ -3409,7 +3409,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V1_W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_A {
     pub Version: u32,
     pub Flags: u32,
@@ -3438,7 +3438,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V2_A {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V2_W {
     pub Version: u32,
     pub Flags: u32,
@@ -3467,7 +3467,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V2_W {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_A {
     pub Version: u32,
     pub Flags: u32,
@@ -3498,7 +3498,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V3_A {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_ATTRIBUTES_V3_W {
     pub Version: u32,
     pub Flags: u32,
@@ -3529,7 +3529,7 @@ impl Default for RPC_CALL_ATTRIBUTES_V3_W {
 }
 pub const RPC_CALL_ATTRIBUTES_VERSION: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CALL_LOCAL_ADDRESS_V1 {
     pub Version: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -3546,7 +3546,7 @@ pub const RPC_CALL_STATUS_DISCONNECTED: u32 = 2;
 pub type RPC_CLIENT_ALLOC = Option<unsafe extern "system" fn(size: usize) -> *mut core::ffi::c_void>;
 pub type RPC_CLIENT_FREE = Option<unsafe extern "system" fn(ptr: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CLIENT_INFORMATION1 {
     pub UserName: *mut u8,
     pub ComputerName: *mut u8,
@@ -3559,7 +3559,7 @@ impl Default for RPC_CLIENT_INFORMATION1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_CLIENT_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -3659,7 +3659,7 @@ pub const RPC_C_OPT_BINDING_NONCAUSAL: u32 = 9;
 pub const RPC_C_OPT_CALL_TIMEOUT: u32 = 12;
 pub const RPC_C_OPT_COOKIE_AUTH: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_C_OPT_COOKIE_AUTH_DESCRIPTOR {
     pub BufferSize: u32,
     pub Buffer: *mut i8,
@@ -3727,7 +3727,7 @@ pub const RPC_C_VERS_MAJOR_ONLY: u32 = 4;
 pub const RPC_C_VERS_UPTO: u32 = 5;
 pub type RPC_DISPATCH_FUNCTION = Option<unsafe extern "system" fn(message: *mut RPC_MESSAGE)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_DISPATCH_TABLE {
     pub DispatchTableCount: u32,
     pub DispatchTable: *mut RPC_DISPATCH_FUNCTION,
@@ -3766,7 +3766,7 @@ impl Default for RPC_EE_INFO_PARAM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_ENDPOINT_TEMPLATEA {
     pub Version: u32,
     pub ProtSeq: RPC_CSTR,
@@ -3780,7 +3780,7 @@ impl Default for RPC_ENDPOINT_TEMPLATEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_ENDPOINT_TEMPLATEW {
     pub Version: u32,
     pub ProtSeq: RPC_WSTR,
@@ -3795,7 +3795,7 @@ impl Default for RPC_ENDPOINT_TEMPLATEW {
 }
 pub type RPC_EP_INQ_HANDLE = *mut I_RPC_HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_ERROR_ENUM_HANDLE {
     pub Signature: u32,
     pub CurrentPos: *mut core::ffi::c_void,
@@ -3846,7 +3846,7 @@ pub const RPC_FW_IF_FLAG_DCOM: u32 = 1;
 pub type RPC_HTTP_PROXY_FREE_STRING = Option<unsafe extern "system" fn(string: *const u16)>;
 pub type RPC_HTTP_REDIRECTOR_STAGE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: u32,
@@ -3861,7 +3861,7 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_A,
     pub Flags: u32,
@@ -3879,7 +3879,7 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: u32,
@@ -3897,7 +3897,7 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V2_W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
     pub Flags: u32,
@@ -3915,7 +3915,7 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     pub TransportCredentials: RPC_AUTH_IDENTITY_HANDLE,
     pub Flags: u32,
@@ -3933,7 +3933,7 @@ impl Default for RPC_HTTP_TRANSPORT_CREDENTIALS_V3_W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_HTTP_TRANSPORT_CREDENTIALS_W {
     pub TransportCredentials: *mut SEC_WINNT_AUTH_IDENTITY_W,
     pub Flags: u32,
@@ -3963,14 +3963,14 @@ impl Default for RPC_IF_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_IF_ID {
     pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
     pub VersMinor: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_IF_ID_VECTOR {
     pub Count: u32,
     pub IfId: [*mut RPC_IF_ID; 1],
@@ -3984,7 +3984,7 @@ pub const RPC_IF_OLE: u32 = 2;
 pub const RPC_IF_SEC_CACHE_PER_PROC: u32 = 128;
 pub const RPC_IF_SEC_NO_CACHE: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_IMPORT_CONTEXT_P {
     pub LookupContext: RPC_NS_HANDLE,
     pub ProposedHandle: RPC_BINDING_HANDLE,
@@ -4049,7 +4049,7 @@ impl Default for RPC_INTERFACE_TEMPLATEW {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RPC_LENGTH(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_MESSAGE {
     pub Handle: RPC_BINDING_HANDLE,
     pub DataRepresentation: u32,
@@ -4086,14 +4086,14 @@ impl Default for RPC_NS_HANDLE {
 }
 pub type RPC_OBJECT_INQ_FN = Option<unsafe extern "system" fn(objectuuid: *const windows_core::GUID, typeuuid: *mut windows_core::GUID, status: *mut RPC_STATUS)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_POLICY {
     pub Length: u32,
     pub EndpointFlags: u32,
     pub NICFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_PROTSEQ_ENDPOINT {
     pub RpcProtocolSequence: *mut u8,
     pub Endpoint: *mut u8,
@@ -4108,7 +4108,7 @@ pub const RPC_PROTSEQ_LRPC: u32 = 3;
 pub const RPC_PROTSEQ_NMP: u32 = 2;
 pub const RPC_PROTSEQ_TCP: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_PROTSEQ_VECTORA {
     pub Count: u32,
     pub Protseq: [*mut u8; 1],
@@ -4119,7 +4119,7 @@ impl Default for RPC_PROTSEQ_VECTORA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_PROTSEQ_VECTORW {
     pub Count: u32,
     pub Protseq: [*mut u16; 1],
@@ -4142,7 +4142,7 @@ pub const RPC_QUERY_NO_AUTH_REQUIRED: u32 = 64;
 pub const RPC_QUERY_SERVER_PRINCIPAL_NAME: u32 = 2;
 pub type RPC_SECURITY_CALLBACK_FN = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_SECURITY_QOS {
     pub Version: u32,
     pub Capabilities: u32,
@@ -4362,14 +4362,14 @@ impl Default for RPC_SECURITY_QOS_V5_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_SEC_CONTEXT_KEY_INFO {
     pub EncryptAlgorithm: u32,
     pub KeySize: u32,
     pub SignatureAlgorithm: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_SERVER_INTERFACE {
     pub Length: u32,
     pub InterfaceId: RPC_SYNTAX_IDENTIFIER,
@@ -4396,7 +4396,7 @@ impl Default for RPC_SS_THREAD_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPC_STATS_VECTOR {
     pub Count: u32,
     pub Stats: [u32; 1],
@@ -4410,7 +4410,7 @@ impl Default for RPC_STATS_VECTOR {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RPC_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_SYNTAX_IDENTIFIER {
     pub SyntaxGUID: windows_core::GUID,
     pub SyntaxVersion: RPC_VERSION,
@@ -4434,7 +4434,7 @@ pub const RPC_S_SERVER_OUT_OF_MEMORY: u32 = 1130;
 pub const RPC_S_TIMEOUT: u32 = 1460;
 pub const RPC_S_UNKNOWN_PRINCIPAL: u32 = 1332;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_TRANSFER_SYNTAX {
     pub Uuid: windows_core::GUID,
     pub VersMajor: u16,
@@ -4443,7 +4443,7 @@ pub struct RPC_TRANSFER_SYNTAX {
 pub const RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE: u32 = 2147483648;
 pub const RPC_TYPE_STRICT_CONTEXT_HANDLE: u32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RPC_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -4489,7 +4489,7 @@ pub const RpcReceiveComplete: RPC_ASYNC_EVENT = 2;
 pub const RpcRequestsPerSecond: RpcPerfCounters = 4;
 pub const RpcSendComplete: RPC_ASYNC_EVENT = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCONTEXT_QUEUE {
     pub NumberOfObjects: u32,
     pub ArrayOfObjects: *mut NDR_SCONTEXT,
@@ -4500,7 +4500,7 @@ impl Default for SCONTEXT_QUEUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_A {
     pub User: *mut u8,
     pub UserLength: u32,
@@ -4518,7 +4518,7 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_A {
 pub const SEC_WINNT_AUTH_IDENTITY_ANSI: u32 = 1;
 pub const SEC_WINNT_AUTH_IDENTITY_UNICODE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_W {
     pub User: *mut u16,
     pub UserLength: u32,
@@ -4575,7 +4575,7 @@ pub const USER_CALL_IS_ASYNC: u32 = 256;
 pub const USER_CALL_NEW_CORRELATION_DESC: u32 = 512;
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MARSHAL_CB {
     pub Flags: u32,
     pub pStubMsg: PMIDL_STUB_MESSAGE,
@@ -4616,7 +4616,7 @@ pub struct USER_MARSHAL_ROUTINE_QUADRUPLE {
 pub type USER_MARSHAL_SIZING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: u32, param2: *mut core::ffi::c_void) -> u32>;
 pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut u8, param2: *mut core::ffi::c_void) -> *mut u8>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UUID_VECTOR {
     pub Count: u32,
     pub Uuid: [*mut windows_core::GUID; 1],
@@ -4641,16 +4641,16 @@ pub struct XMIT_ROUTINE_QUINTUPLE {
     pub pfnFreeInst: XMIT_HELPER_ROUTINE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _NDR_ASYNC_MESSAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _NDR_CORRELATION_INFO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _NDR_PROC_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _NDR_SCONTEXT {
     pub pad: [*mut core::ffi::c_void; 2],
     pub userContext: *mut core::ffi::c_void,

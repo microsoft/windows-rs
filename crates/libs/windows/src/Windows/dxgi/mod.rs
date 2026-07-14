@@ -54,7 +54,7 @@ pub struct D3DCOLORVALUE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -74,7 +74,7 @@ impl Default for DXGI_ADAPTER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC1 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -95,7 +95,7 @@ impl Default for DXGI_ADAPTER_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC2 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -118,7 +118,7 @@ impl Default for DXGI_ADAPTER_DESC2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_ADAPTER_DESC3 {
     pub Description: [u16; 128],
     pub VendorId: u32,
@@ -212,7 +212,7 @@ pub type DXGI_DEBUG_RLO_FLAGS = i32;
 pub const DXGI_DEBUG_RLO_IGNORE_INTERNAL: DXGI_DEBUG_RLO_FLAGS = 4;
 pub const DXGI_DEBUG_RLO_SUMMARY: DXGI_DEBUG_RLO_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_DECODE_SWAP_CHAIN_DESC {
     pub Flags: u32,
 }
@@ -364,7 +364,7 @@ pub const DXGI_FRAME_PRESENTATION_MODE_COMPOSITION_FAILURE: DXGI_FRAME_PRESENTAT
 pub const DXGI_FRAME_PRESENTATION_MODE_NONE: DXGI_FRAME_PRESENTATION_MODE = 2;
 pub const DXGI_FRAME_PRESENTATION_MODE_OVERLAY: DXGI_FRAME_PRESENTATION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -373,7 +373,7 @@ pub struct DXGI_FRAME_STATISTICS {
     pub SyncGPUTime: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_FRAME_STATISTICS_MEDIA {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -424,7 +424,7 @@ pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_CURSOR_STRETCHED: DXGI_HARDWARE
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_FULLSCREEN: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 1;
 pub const DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAG_WINDOWED: DXGI_HARDWARE_COMPOSITION_SUPPORT_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -441,7 +441,7 @@ impl Default for DXGI_HDR_METADATA_HDR10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
 }
@@ -456,13 +456,13 @@ pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = 2;
 pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = 0;
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER {
     pub AllowList: DXGI_INFO_QUEUE_FILTER_DESC,
     pub DenyList: DXGI_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -477,7 +477,7 @@ impl Default for DXGI_INFO_QUEUE_FILTER_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_INFO_QUEUE_MESSAGE {
     pub Producer: DXGI_DEBUG_ID,
     pub Category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY,
@@ -514,7 +514,7 @@ pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_INFO: DXGI_INFO_QUEUE_MESSAGE_SEVERIT
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_MESSAGE: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 4;
 pub const DXGI_INFO_QUEUE_MESSAGE_SEVERITY_WARNING: DXGI_INFO_QUEUE_MESSAGE_SEVERITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_AC_HUFFMAN_TABLE {
     pub CodeCounts: [u8; 16],
     pub CodeValues: [u8; 162],
@@ -525,7 +525,7 @@ impl Default for DXGI_JPEG_AC_HUFFMAN_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_DC_HUFFMAN_TABLE {
     pub CodeCounts: [u8; 12],
     pub CodeValues: [u8; 12],
@@ -536,7 +536,7 @@ impl Default for DXGI_JPEG_DC_HUFFMAN_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_JPEG_QUANTIZATION_TABLE {
     pub Elements: [u8; 64],
 }
@@ -546,7 +546,7 @@ impl Default for DXGI_JPEG_QUANTIZATION_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_MAPPED_RECT {
     pub Pitch: i32,
     pub pBits: *mut u8,
@@ -574,7 +574,7 @@ pub type DXGI_MEMORY_SEGMENT_GROUP = i32;
 pub const DXGI_MEMORY_SEGMENT_GROUP_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 0;
 pub const DXGI_MEMORY_SEGMENT_GROUP_NON_LOCAL: DXGI_MEMORY_SEGMENT_GROUP = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -584,7 +584,7 @@ pub struct DXGI_MODE_DESC {
     pub Scaling: DXGI_MODE_SCALING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_MODE_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -625,7 +625,7 @@ pub const DXGI_OFFER_RESOURCE_PRIORITY_LOW: DXGI_OFFER_RESOURCE_PRIORITY = 1;
 pub const DXGI_OFFER_RESOURCE_PRIORITY_NORMAL: DXGI_OFFER_RESOURCE_PRIORITY = 2;
 pub const DXGI_OUTDUPL_COMPOSITED_UI_CAPTURE_ONLY: DXGI_OUTDUPL_FLAG = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_DESC {
     pub ModeDesc: DXGI_MODE_DESC,
     pub Rotation: DXGI_MODE_ROTATION,
@@ -634,7 +634,7 @@ pub struct DXGI_OUTDUPL_DESC {
 pub type DXGI_OUTDUPL_FLAG = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_FRAME_INFO {
     pub LastPresentTime: i64,
     pub LastMouseUpdateTime: i64,
@@ -647,21 +647,21 @@ pub struct DXGI_OUTDUPL_FRAME_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
     pub DestinationRect: super::windef::RECT,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_POSITION {
     pub Position: super::windef::POINT,
     pub Visible: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_OUTDUPL_POINTER_SHAPE_INFO {
     pub Type: u32,
     pub Width: u32,
@@ -675,7 +675,7 @@ pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: DXGI_OUTDUPL_POINTER_SHA
 pub const DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: DXGI_OUTDUPL_POINTER_SHAPE_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_OUTPUT_DESC {
     pub DeviceName: [u16; 32],
     pub DesktopCoordinates: super::windef::RECT,
@@ -724,7 +724,7 @@ pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2;
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGI_PRESENT_PARAMETERS {
     pub DirtyRectsCount: u32,
     pub pDirtyRects: *mut super::windef::RECT,
@@ -744,7 +744,7 @@ pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32;
 pub const DXGI_PRESENT_TEST: u32 = 1;
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
     pub Budget: u64,
     pub CurrentUsage: u64,
@@ -752,7 +752,7 @@ pub struct DXGI_QUERY_VIDEO_MEMORY_INFO {
     pub CurrentReservation: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -779,7 +779,7 @@ pub struct DXGI_RGB {
 }
 pub type DXGI_RGBA = D3DCOLORVALUE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SAMPLE_DESC {
     pub Count: u32,
     pub Quality: u32,
@@ -790,7 +790,7 @@ pub const DXGI_SCALING_NONE: DXGI_SCALING = 1;
 pub const DXGI_SCALING_STRETCH: DXGI_SCALING = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SHARED_RESOURCE {
     pub Handle: super::winnt::HANDLE,
 }
@@ -798,7 +798,7 @@ pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648;
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1;
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SURFACE_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -810,7 +810,7 @@ pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_OVERLAY_PRESENT: DXGI_SWAP_CH
 pub const DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT: DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC {
     pub BufferDesc: DXGI_MODE_DESC,
     pub SampleDesc: DXGI_SAMPLE_DESC,
@@ -822,7 +822,7 @@ pub struct DXGI_SWAP_CHAIN_DESC {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -852,7 +852,7 @@ pub const DXGI_SWAP_CHAIN_FLAG_RESTRICT_SHARED_RESOURCE_DRIVER: DXGI_SWAP_CHAIN_
 pub const DXGI_SWAP_CHAIN_FLAG_USE_DEFAULT_COLOR_SPACE: DXGI_SWAP_CHAIN_FLAG = 32768;
 pub const DXGI_SWAP_CHAIN_FLAG_YUV_VIDEO: DXGI_SWAP_CHAIN_FLAG = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: DXGI_RATIONAL,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,

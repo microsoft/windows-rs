@@ -574,7 +574,7 @@ impl IComputerInfoChangeNotify_Vtbl {
 }
 impl windows_core::RuntimeName for IComputerInfoChangeNotify {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IControlMarkup(pub u8);
 pub const IDD_WIZEXTN_FIRST: u32 = 20480;
 pub const IDD_WIZEXTN_LAST: u32 = 20736;
@@ -1439,7 +1439,7 @@ impl IInsertItem_Vtbl {
 #[cfg(feature = "shtypes")]
 impl windows_core::RuntimeName for IInsertItem {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMarkupCallback(pub u8);
 windows_core::imp::define_interface!(INameSpaceTreeAccessible, INameSpaceTreeAccessible_Vtbl, 0x71f312de_43ed_4190_8477_e9536b82350b);
 windows_core::imp::interface_hierarchy!(INameSpaceTreeAccessible, windows_core::IUnknown);
@@ -3784,7 +3784,7 @@ pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: core::mem::ManuallyDrop<Option<super::shobjidl_core::IShellItem>>,
     pub uItemState: u32,

@@ -242,25 +242,25 @@ pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *c
     unsafe { D3D10StateBlockMaskUnion(pa, pb, presult as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_BUFFER_DESC {
     pub Base: D3D10_BUFFER_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE1D_DESC {
     pub Base: D3D10_TEXTURE1D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE2D_DESC {
     pub Base: D3D10_TEXTURE2D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE3D_DESC {
     pub Base: D3D10_TEXTURE3D_DESC,
 }
@@ -306,7 +306,7 @@ pub const D3D10_BIND_VERTEX_BUFFER: D3D10_BIND_FLAG = 1;
 pub type D3D10_BLEND = i32;
 pub const D3D10_BLEND_BLEND_FACTOR: D3D10_BLEND = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub BlendEnable: [windows_core::BOOL; 8],
@@ -324,7 +324,7 @@ impl Default for D3D10_BLEND_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC1 {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub IndependentBlendEnable: windows_core::BOOL,
@@ -358,7 +358,7 @@ pub const D3D10_BLEND_SRC_ALPHA_SAT: D3D10_BLEND = 11;
 pub const D3D10_BLEND_SRC_COLOR: D3D10_BLEND = 3;
 pub const D3D10_BLEND_ZERO: D3D10_BLEND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BOX {
     pub left: u32,
     pub top: u32,
@@ -368,7 +368,7 @@ pub struct D3D10_BOX {
     pub back: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D10_USAGE,
@@ -504,7 +504,7 @@ pub const D3D10_COMPARISON_NEVER: D3D10_COMPARISON_FUNC = 1;
 pub const D3D10_COMPARISON_NOT_EQUAL: D3D10_COMPARISON_FUNC = 6;
 pub type D3D10_COUNTER = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER_DESC {
     pub Counter: D3D10_COUNTER,
     pub MiscFlags: u32,
@@ -517,7 +517,7 @@ pub const D3D10_COUNTER_GS_COMPUTATION_LIMITED: D3D10_COUNTER = 13;
 pub const D3D10_COUNTER_GS_MEMORY_LIMITED: D3D10_COUNTER = 12;
 pub const D3D10_COUNTER_HOST_ADAPTER_BANDWIDTH_UTILIZATION: D3D10_COUNTER = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D10_COUNTER,
     pub NumSimultaneousCounters: u32,
@@ -587,7 +587,7 @@ pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D10_STENCIL_OP,
     pub StencilDepthFailOp: D3D10_STENCIL_OP,
@@ -595,7 +595,7 @@ pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFunc: D3D10_COMPARISON_FUNC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
@@ -682,7 +682,7 @@ pub const D3D10_DSV_DIMENSION_UNKNOWN: D3D10_DSV_DIMENSION = 0;
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2;
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_DESC {
     pub IsChildEffect: windows_core::BOOL,
     pub ConstantBuffers: u32,
@@ -692,7 +692,7 @@ pub struct D3D10_EFFECT_DESC {
     pub Techniques: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const u8,
     pub IsInline: windows_core::BOOL,
@@ -710,7 +710,7 @@ impl Default for D3D10_EFFECT_SHADER_DESC {
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_TYPE_DESC {
     pub TypeName: windows_core::PCSTR,
     pub Class: D3D10_SHADER_VARIABLE_CLASS,
@@ -725,7 +725,7 @@ pub struct D3D10_EFFECT_TYPE_DESC {
 }
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub Semantic: windows_core::PCSTR,
@@ -840,13 +840,13 @@ pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16;
 pub struct D3D10_INCLUDE_TYPE(pub super::d3dcommon::D3D_INCLUDE_TYPE);
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER {
     pub AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -863,7 +863,7 @@ impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
 pub type D3D10_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -881,7 +881,7 @@ pub const D3D10_LINEAR_GAMMA: f32 = 1.0;
 pub const D3D10_MAG_FILTER_SHIFT: u32 = 2;
 pub type D3D10_MAP = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
@@ -892,7 +892,7 @@ impl Default for D3D10_MAPPED_TEXTURE2D {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
@@ -917,7 +917,7 @@ pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
@@ -1487,7 +1487,7 @@ impl Default for D3D10_PASS_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: core::mem::ManuallyDrop<Option<ID3D10EffectShaderVariable>>,
     pub ShaderIndex: u32,
@@ -1520,7 +1520,7 @@ pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D10_QUERY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -1532,19 +1532,19 @@ pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub PSInvocations: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DESC {
     pub Query: D3D10_QUERY,
     pub MiscFlags: u32,
@@ -1582,7 +1582,7 @@ pub type D3D10_RECT = super::windef::RECT;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D10_REGISTER_COMPONENT_TYPE(pub super::d3dcommon::D3D_REGISTER_COMPONENT_TYPE);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: windows_core::BOOL,
     pub SrcBlend: D3D10_BLEND,
@@ -1700,7 +1700,7 @@ pub const D3D10_SDK_VERSION: u32 = 29;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: D3D10_CBUFFER_TYPE,
@@ -1714,7 +1714,7 @@ pub struct D3D10_SHADER_BUFFER_DESC {
 pub struct D3D10_SHADER_CBUFFER_FLAGS(pub super::d3dcommon::D3D_SHADER_CBUFFER_FLAGS);
 pub const D3D10_SHADER_DEBUG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileName: u32,
     pub FileNameLen: u32,
@@ -1722,7 +1722,7 @@ pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileLen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INFO {
     pub Size: u32,
     pub Creator: u32,
@@ -1747,7 +1747,7 @@ pub struct D3D10_SHADER_DEBUG_INFO {
     pub StringOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub Var: u32,
     pub InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
@@ -1822,7 +1822,7 @@ pub const D3D10_SHADER_DEBUG_REG_UNUSED: D3D10_SHADER_DEBUG_REGTYPE = 10;
 pub type D3D10_SHADER_DEBUG_SCOPETYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     pub TokenId: u32,
     pub VarType: D3D10_SHADER_DEBUG_VARTYPE,
@@ -1843,7 +1843,7 @@ pub const D3D10_SHADER_DEBUG_SCOPE_FORLOOP: D3D10_SHADER_DEBUG_SCOPETYPE = 2;
 pub const D3D10_SHADER_DEBUG_SCOPE_FUNC_PARAMS: D3D10_SHADER_DEBUG_SCOPETYPE = 4;
 pub const D3D10_SHADER_DEBUG_SCOPE_GLOBAL: D3D10_SHADER_DEBUG_SCOPETYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
     pub ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
     pub Name: u32,
@@ -1855,7 +1855,7 @@ pub const D3D10_SHADER_DEBUG_SCOPE_NAMESPACE: D3D10_SHADER_DEBUG_SCOPETYPE = 6;
 pub const D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = 5;
 pub const D3D10_SHADER_DEBUG_SCOPE_STRUCT: D3D10_SHADER_DEBUG_SCOPETYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
     pub File: u32,
     pub Line: u32,
@@ -1868,7 +1868,7 @@ pub const D3D10_SHADER_DEBUG_VAR_FORCE_DWORD: D3D10_SHADER_DEBUG_VARTYPE = 21474
 pub const D3D10_SHADER_DEBUG_VAR_FUNCTION: D3D10_SHADER_DEBUG_VARTYPE = 1;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO {
     pub TokenId: u32,
     pub Type: D3D10_SHADER_VARIABLE_TYPE,
@@ -1880,7 +1880,7 @@ pub struct D3D10_SHADER_DEBUG_VAR_INFO {
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = 0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -1921,7 +1921,7 @@ pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64;
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: D3D10_SHADER_INPUT_TYPE,
@@ -2027,7 +2027,7 @@ pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4;
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_TYPE_DESC {
     pub Class: D3D10_SHADER_VARIABLE_CLASS,
     pub Type: D3D10_SHADER_VARIABLE_TYPE,
@@ -2042,7 +2042,7 @@ pub struct D3D10_SHADER_TYPE_DESC {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D10_SHADER_VARIABLE_CLASS(pub super::d3dcommon::D3D_SHADER_VARIABLE_CLASS);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -2068,7 +2068,7 @@ pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -2084,7 +2084,7 @@ pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256;
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4;
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SO_DECLARATION_ENTRY {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -2120,7 +2120,7 @@ pub const D3D10_STANDARD_VECTOR_SIZE: u32 = 4;
 pub const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16;
 pub const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_STATE_BLOCK_MASK {
     pub VS: u8,
     pub VSSamplers: [u8; 2],
@@ -2163,7 +2163,7 @@ pub const D3D10_STENCIL_OP_REPLACE: D3D10_STENCIL_OP = 3;
 pub const D3D10_STENCIL_OP_ZERO: D3D10_STENCIL_OP = 2;
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
@@ -2176,28 +2176,28 @@ impl Default for D3D10_SUBRESOURCE_DATA {
 }
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TECHNIQUE_DESC {
     pub Name: windows_core::PCSTR,
     pub Passes: u32,
     pub Annotations: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2205,70 +2205,70 @@ pub struct D3D10_TEX1D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2276,36 +2276,36 @@ pub struct D3D10_TEX2D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2313,7 +2313,7 @@ pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub NumCubes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2321,7 +2321,7 @@ pub struct D3D10_TEXCUBE_SRV {
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -2334,7 +2334,7 @@ pub struct D3D10_TEXTURE1D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -2349,7 +2349,7 @@ pub struct D3D10_TEXTURE2D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,

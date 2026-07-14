@@ -3088,5 +3088,5 @@ pub type PSC_STATE = i32;
 pub type PUSERIALIZEDPROPSTORAGE = *mut SERIALIZEDPROPSTORAGE;
 pub const PropertySystem: windows_core::GUID = windows_core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);

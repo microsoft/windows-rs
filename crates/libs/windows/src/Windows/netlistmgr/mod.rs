@@ -1427,7 +1427,7 @@ pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = 2;
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = 256;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_core::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -1470,7 +1470,7 @@ pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = 8;
 pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = 4;
 pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
     pub cost: NLM_CONNECTION_COST,
@@ -1483,7 +1483,7 @@ impl Default for NLM_SIMULATED_PROFILE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SOCKADDR {
     pub data: [u8; 128],
 }
@@ -1495,7 +1495,7 @@ impl Default for NLM_SOCKADDR {
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::minwindef::FILETIME,

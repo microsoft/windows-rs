@@ -25,13 +25,13 @@ pub const CDROM_CD_TEXT_PACK_TOC_INFO2: u32 = 137;
 pub const CDROM_CD_TEXT_PACK_UPC_EAN: u32 = 142;
 pub const CDROM_DISK_AUDIO_TRACK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_DISK_DATA {
     pub DiskData: u32,
 }
 pub const CDROM_DISK_DATA_TRACK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
     pub Lba: [u8; 4],
     pub Time: [u8; 2],
@@ -42,14 +42,14 @@ impl Default for CDROM_EXCEPTION_PERFORMANCE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_ACCESS {
     pub RequestType: EXCLUSIVE_ACCESS_REQUEST_TYPE,
     pub Flags: u32,
 }
 pub const CDROM_EXCLUSIVE_CALLER_LENGTH: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK {
     pub Access: CDROM_EXCLUSIVE_ACCESS,
     pub CallerName: [u8; 64],
@@ -60,7 +60,7 @@ impl Default for CDROM_EXCLUSIVE_LOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
     pub LockState: bool,
     pub CallerName: [u8; 64],
@@ -73,7 +73,7 @@ impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
 pub const CDROM_IN_EXCLUSIVE_MODE: u32 = 1;
 pub const CDROM_LOCK_IGNORE_VOLUME: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_NOMINAL_PERFORMANCE_DESCRIPTOR {
     pub StartLba: [u8; 4],
     pub StartPerformance: [u8; 4],
@@ -90,7 +90,7 @@ pub const CDROM_NO_MEDIA_NOTIFICATIONS: u32 = 2;
 pub type CDROM_OPC_INFO_TYPE = i32;
 pub type CDROM_PERFORMANCE_EXCEPTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_HEADER {
     pub DataLength: [u8; 4],
     pub _bitfield: u8,
@@ -103,7 +103,7 @@ impl Default for CDROM_PERFORMANCE_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PERFORMANCE_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
     pub PerformanceType: CDROM_PERFORMANCE_TYPE,
@@ -115,7 +115,7 @@ pub type CDROM_PERFORMANCE_REQUEST_TYPE = i32;
 pub type CDROM_PERFORMANCE_TOLERANCE_TYPE = i32;
 pub type CDROM_PERFORMANCE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_PLAY_AUDIO_MSF {
     pub StartingM: u8,
     pub StartingS: u8,
@@ -125,7 +125,7 @@ pub struct CDROM_PLAY_AUDIO_MSF {
     pub EndingF: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_READ_TOC_EX {
     pub _bitfield: u8,
     pub SessionTrack: u8,
@@ -139,14 +139,14 @@ pub const CDROM_READ_TOC_EX_FORMAT_PMA: u32 = 3;
 pub const CDROM_READ_TOC_EX_FORMAT_SESSION: u32 = 1;
 pub const CDROM_READ_TOC_EX_FORMAT_TOC: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SEEK_AUDIO_MSF {
     pub M: u8,
     pub S: u8,
     pub F: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SET_SPEED {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSpeed: u16,
@@ -154,7 +154,7 @@ pub struct CDROM_SET_SPEED {
     pub RotationControl: WRITE_ROTATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SET_STREAMING {
     pub RequestType: CDROM_SPEED_REQUEST,
     pub ReadSize: u32,
@@ -170,7 +170,7 @@ pub struct CDROM_SET_STREAMING {
     pub Persistent: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
     pub Exclude0: bool,
@@ -178,18 +178,18 @@ pub struct CDROM_SIMPLE_OPC_INFO {
 }
 pub type CDROM_SPEED_REQUEST = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_STREAMING_CONTROL {
     pub RequestType: STREAMING_CONTROL_REQUEST_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SUB_Q_DATA_FORMAT {
     pub Format: u8,
     pub Track: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC {
     pub Length: [u8; 2],
     pub FirstTrack: u8,
@@ -202,7 +202,7 @@ impl Default for CDROM_TOC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_ATIP_DATA {
     pub Length: [u8; 2],
     pub Reserved1: u8,
@@ -215,7 +215,7 @@ impl Default for CDROM_TOC_ATIP_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_ATIP_DATA_BLOCK {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
@@ -277,7 +277,7 @@ impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_FULL_TOC_DATA {
     pub Length: [u8; 2],
     pub FirstCompleteSession: u8,
@@ -290,7 +290,7 @@ impl Default for CDROM_TOC_FULL_TOC_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
     pub SessionNumber: u8,
     pub _bitfield: u8,
@@ -306,7 +306,7 @@ impl Default for CDROM_TOC_FULL_TOC_DATA_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_PMA_DATA {
     pub Length: [u8; 2],
     pub Reserved1: u8,
@@ -319,7 +319,7 @@ impl Default for CDROM_TOC_PMA_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_TOC_SESSION_DATA {
     pub Length: [u8; 2],
     pub FirstCompleteSession: u8,
@@ -332,7 +332,7 @@ impl Default for CDROM_TOC_SESSION_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_WRITE_SPEED_DESCRIPTOR {
     pub _bitfield: u8,
     pub Reserved3: [u8; 3],
@@ -346,7 +346,7 @@ impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_WRITE_SPEED_REQUEST {
     pub RequestType: CDROM_PERFORMANCE_REQUEST_TYPE,
 }
@@ -473,7 +473,7 @@ pub type PTRACK_MODE_TYPE = *mut TRACK_MODE_TYPE;
 pub type PVOLUME_CONTROL = *mut VOLUME_CONTROL;
 pub type PWRITE_ROTATION = *mut WRITE_ROTATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAW_READ_INFO {
     pub DiskOffset: i64,
     pub SectorCount: u32,
@@ -496,7 +496,7 @@ impl Default for SUB_Q_CHANNEL_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_CURRENT_POSITION {
     pub Header: SUB_Q_HEADER,
     pub FormatCode: u8,
@@ -512,7 +512,7 @@ impl Default for SUB_Q_CURRENT_POSITION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_HEADER {
     pub Reserved: u8,
     pub AudioStatus: u8,
@@ -524,7 +524,7 @@ impl Default for SUB_Q_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_MEDIA_CATALOG_NUMBER {
     pub Header: SUB_Q_HEADER,
     pub FormatCode: u8,
@@ -538,7 +538,7 @@ impl Default for SUB_Q_MEDIA_CATALOG_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUB_Q_TRACK_ISRC {
     pub Header: SUB_Q_HEADER,
     pub FormatCode: u8,
@@ -555,7 +555,7 @@ impl Default for SUB_Q_TRACK_ISRC {
 }
 pub const SimpleOpcInfo: CDROM_OPC_INFO_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRACK_DATA {
     pub Reserved: u8,
     pub _bitfield: u8,
@@ -571,7 +571,7 @@ impl Default for TRACK_DATA {
 pub type TRACK_MODE_TYPE = i32;
 pub const TWO_FOUR_CHANNEL_AUDIO: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_CONTROL {
     pub PortVolume: [u8; 4],
 }

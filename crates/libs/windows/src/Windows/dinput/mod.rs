@@ -14,7 +14,7 @@ pub const CLSID_DirectInput8: windows_core::GUID = windows_core::GUID::from_u128
 pub const CLSID_DirectInputDevice: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e1_b259_11cf_bfc7_444553540000);
 pub const CLSID_DirectInputDevice8: windows_core::GUID = windows_core::GUID::from_u128(0x25e609e5_b259_11cf_bfc7_444553540000);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPOINT {
     pub lP: i32,
     pub dwLog: u32,
@@ -126,7 +126,7 @@ impl Default for DIACTIONA_0 {
 pub type DIACTIONFORMAT = DIACTIONFORMATA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
     pub dwActionSize: u32,
@@ -151,7 +151,7 @@ impl Default for DIACTIONFORMATA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIACTIONFORMATW {
     pub dwSize: u32,
     pub dwActionSize: u32,
@@ -1044,7 +1044,7 @@ pub const DICD_DEFAULT: u32 = 0;
 pub const DICD_EDIT: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "dsound")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DICOLORSET {
     pub dwSize: u32,
     pub cTextFore: super::dsound::D3DCOLOR,
@@ -1057,7 +1057,7 @@ pub struct DICOLORSET {
     pub cAreaFill: super::dsound::D3DCOLOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DICONDITION {
     pub lOffset: i32,
     pub lPositiveCoefficient: i32,
@@ -1070,7 +1070,7 @@ pub struct DICONDITION {
 pub type DICONFIGUREDEVICESPARAMS = DICONFIGUREDEVICESPARAMSA;
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -1083,7 +1083,7 @@ pub struct DICONFIGUREDEVICESPARAMSA {
 }
 #[repr(C)]
 #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
     pub dwcUsers: u32,
@@ -1095,13 +1095,13 @@ pub struct DICONFIGUREDEVICESPARAMSW {
     pub lpUnkDDSTarget: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
     pub dwSamplePeriod: u32,
@@ -1115,7 +1115,7 @@ pub const DIDAL_MIDDLE: u32 = 0;
 pub const DIDAL_RIGHTALIGNED: u32 = 2;
 pub const DIDAL_TOPALIGNED: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDATAFORMAT {
     pub dwSize: u32,
     pub dwObjSize: u32,
@@ -1144,7 +1144,7 @@ pub const DIDC_POSNEGSATURATION: u32 = 8192;
 pub const DIDC_SATURATION: u32 = 2048;
 pub const DIDC_STARTDELAY: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1159,7 +1159,7 @@ pub struct DIDEVCAPS {
     pub dwFFDriverVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVCAPS_DX3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1172,7 +1172,7 @@ pub struct DIDEVCAPS_DX3 {
 pub type DIDEVICEIMAGEINFO = DIDEVICEIMAGEINFOA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOA {
     pub tszImagePath: [i8; 260],
     pub dwFlags: u32,
@@ -1194,7 +1194,7 @@ impl Default for DIDEVICEIMAGEINFOA {
 pub type DIDEVICEIMAGEINFOHEADER = DIDEVICEIMAGEINFOHEADERA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -1208,7 +1208,7 @@ pub struct DIDEVICEIMAGEINFOHEADERA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
     pub dwSizeImageInfo: u32,
@@ -1222,7 +1222,7 @@ pub struct DIDEVICEIMAGEINFOHEADERW {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEIMAGEINFOW {
     pub tszImagePath: [u16; 260],
     pub dwFlags: u32,
@@ -1242,7 +1242,7 @@ impl Default for DIDEVICEIMAGEINFOW {
 }
 pub type DIDEVICEINSTANCE = DIDEVICEINSTANCEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
     pub guidInstance: windows_core::GUID,
@@ -1260,7 +1260,7 @@ impl Default for DIDEVICEINSTANCEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEINSTANCEW {
     pub dwSize: u32,
     pub guidInstance: windows_core::GUID,
@@ -1279,7 +1279,7 @@ impl Default for DIDEVICEINSTANCEW {
 }
 pub type DIDEVICEINSTANCE_DX3 = DIDEVICEINSTANCE_DX3A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidInstance: windows_core::GUID,
@@ -1294,7 +1294,7 @@ impl Default for DIDEVICEINSTANCE_DX3A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidInstance: windows_core::GUID,
@@ -1309,7 +1309,7 @@ impl Default for DIDEVICEINSTANCE_DX3W {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTDATA {
     pub dwOfs: u32,
     pub dwData: u32,
@@ -1318,7 +1318,7 @@ pub struct DIDEVICEOBJECTDATA {
     pub uAppData: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwOfs: u32,
     pub dwData: u32,
@@ -1327,7 +1327,7 @@ pub struct DIDEVICEOBJECTDATA_DX3 {
 }
 pub type DIDEVICEOBJECTINSTANCE = DIDEVICEOBJECTINSTANCEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
     pub guidType: windows_core::GUID,
@@ -1351,7 +1351,7 @@ impl Default for DIDEVICEOBJECTINSTANCEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCEW {
     pub dwSize: u32,
     pub guidType: windows_core::GUID,
@@ -1376,7 +1376,7 @@ impl Default for DIDEVICEOBJECTINSTANCEW {
 }
 pub type DIDEVICEOBJECTINSTANCE_DX3 = DIDEVICEOBJECTINSTANCE_DX3A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
     pub guidType: windows_core::GUID,
@@ -1391,7 +1391,7 @@ impl Default for DIDEVICEOBJECTINSTANCE_DX3A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidType: windows_core::GUID,
@@ -1460,7 +1460,7 @@ pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1485,7 +1485,7 @@ impl Default for DIEFFECT {
 }
 pub type DIEFFECTINFO = DIEFFECTINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
     pub guid: windows_core::GUID,
@@ -1500,7 +1500,7 @@ impl Default for DIEFFECTINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECTINFOW {
     pub dwSize: u32,
     pub guid: windows_core::GUID,
@@ -1516,7 +1516,7 @@ impl Default for DIEFFECTINFOW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1541,7 +1541,7 @@ impl Default for DIEFFECT_DX5 {
 #[cfg(feature = "minwindef")]
 pub type DIEFFECT_DX6 = DIEFFECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
@@ -1579,7 +1579,7 @@ pub const DIEGES_PLAYING: u32 = 1;
 pub const DIENUM_CONTINUE: u32 = 1;
 pub const DIENUM_STOP: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIENVELOPE {
     pub dwSize: u32,
     pub dwAttackLevel: u32,
@@ -1641,7 +1641,7 @@ pub const DIFEF_INCLUDENONSTANDARD: u32 = 1;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
     pub GuidEffect: windows_core::GUID,
@@ -1737,7 +1737,7 @@ pub const DIJOFS_X: u32 = 0;
 pub const DIJOFS_Y: u32 = 4;
 pub const DIJOFS_Z: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIJOYSTATE {
     pub lX: i32,
     pub lY: i32,
@@ -1755,7 +1755,7 @@ impl Default for DIJOYSTATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIJOYSTATE2 {
     pub lX: i32,
     pub lY: i32,
@@ -2109,7 +2109,7 @@ pub const DIMOFS_X: u32 = 0;
 pub const DIMOFS_Y: u32 = 4;
 pub const DIMOFS_Z: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIMOUSESTATE {
     pub lX: i32,
     pub lY: i32,
@@ -2122,7 +2122,7 @@ impl Default for DIMOUSESTATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIMOUSESTATE2 {
     pub lX: i32,
     pub lY: i32,
@@ -2148,7 +2148,7 @@ pub const DIMOUSE_XAXISAB: i32 = -2113928704;
 pub const DIMOUSE_YAXIS: i32 = -2113928444;
 pub const DIMOUSE_YAXISAB: i32 = -2113928700;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *const windows_core::GUID,
     pub dwOfs: u32,
@@ -2161,7 +2161,7 @@ impl Default for DIOBJECTDATAFORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPERIODIC {
     pub dwMagnitude: u32,
     pub lOffset: i32,
@@ -2181,7 +2181,7 @@ pub const DIPROPAUTOCENTER_ON: u32 = 1;
 pub const DIPROPAXISMODE_ABS: u32 = 0;
 pub const DIPROPAXISMODE_REL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPROPCAL {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
@@ -2191,7 +2191,7 @@ pub struct DIPROPCAL {
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIPROPCALPOV {
     pub diph: DIPROPHEADER,
     pub lMin: [i32; 5],
@@ -2203,7 +2203,7 @@ impl Default for DIPROPCALPOV {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIPROPCPOINTS {
     pub diph: DIPROPHEADER,
     pub dwCPointsNum: u32,
@@ -2215,13 +2215,13 @@ impl Default for DIPROPCPOINTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
     pub dwData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
     pub guidClass: windows_core::GUID,
@@ -2233,7 +2233,7 @@ impl Default for DIPROPGUIDANDPATH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPROPHEADER {
     pub dwSize: u32,
     pub dwHeaderSize: u32,
@@ -2241,13 +2241,13 @@ pub struct DIPROPHEADER {
     pub dwHow: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
     pub uData: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIPROPRANGE {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
@@ -2256,7 +2256,7 @@ pub struct DIPROPRANGE {
 pub const DIPROPRANGE_NOMAX: i32 = 2147483647;
 pub const DIPROPRANGE_NOMIN: i32 = -2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
     pub wsz: [u16; 260],
@@ -2267,7 +2267,7 @@ impl Default for DIPROPSTRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DIRAMPFORCE {
     pub lStart: i32,
     pub lEnd: i32,

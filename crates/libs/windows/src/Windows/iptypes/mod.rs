@@ -2,7 +2,7 @@ pub const BROADCAST_NODETYPE: u32 = 1;
 pub const DEFAULT_MINIMUM_ENTITIES: u32 = 32;
 pub type FIXED_INFO = FIXED_INFO_W2KSP1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FIXED_INFO_W2KSP1 {
     pub HostName: [i8; 132],
     pub DomainName: [i8; 132],
@@ -96,7 +96,7 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: super::ifdef::IF_INDEX,
@@ -116,7 +116,7 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
@@ -165,7 +165,7 @@ impl Default for IP_ADAPTER_ADDRESSES_XP_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
@@ -203,7 +203,7 @@ impl Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -241,13 +241,13 @@ impl Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_DNS_SUFFIX {
     pub Next: *mut Self,
     pub String: [u16; 256],
@@ -288,14 +288,14 @@ impl Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
 #[cfg(feature = "corecrt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INFO {
     pub Next: *mut Self,
     pub ComboIndex: u32,
@@ -357,7 +357,7 @@ impl Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -396,7 +396,7 @@ impl Default for IP_ADAPTER_PREFIX_XP_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -441,7 +441,7 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "nldef", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -481,7 +481,7 @@ impl Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "nldef", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
@@ -517,14 +517,14 @@ impl Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
 pub type IP_ADDRESS_STRING = IP_MASK_STRING;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADDR_STRING {
     pub Next: *mut Self,
     pub IpAddress: IP_ADDRESS_STRING,
@@ -542,7 +542,7 @@ impl Default for IP_ADDR_STRING {
 pub struct IP_DAD_STATE(pub super::nldef::NL_DAD_STATE);
 pub type IP_INTERFACE_NAME_INFO = IP_INTERFACE_NAME_INFO_W2KSP1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub Index: u32,
     pub MediaType: u32,
@@ -552,7 +552,7 @@ pub struct IP_INTERFACE_NAME_INFO_W2KSP1 {
     pub InterfaceGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_MASK_STRING {
     pub String: [i8; 16],
 }
@@ -563,7 +563,7 @@ impl Default for IP_MASK_STRING {
 }
 pub type IP_PER_ADAPTER_INFO = IP_PER_ADAPTER_INFO_W2KSP1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_PER_ADAPTER_INFO_W2KSP1 {
     pub AutoconfigEnabled: u32,
     pub AutoconfigActive: u32,

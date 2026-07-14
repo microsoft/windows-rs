@@ -322,7 +322,7 @@ where
     unsafe { UpdateTraceW(traceid, instancename.param().abi(), properties as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLASSIC_EVENT_ID {
     pub EventGuid: windows_core::GUID,
     pub Type: u8,
@@ -341,7 +341,7 @@ pub const DIAG_LOGGER_NAMEW: windows_core::PCWSTR = windows_core::w!("DiagLog");
 pub const DefaultTraceSecurityGuid: windows_core::GUID = windows_core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[repr(C)]
 #[cfg(feature = "evntprov")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -352,7 +352,7 @@ pub struct ENABLE_TRACE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "evntprov")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -368,7 +368,7 @@ pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14;
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: PROCESSTRACE_HANDLE,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
@@ -403,7 +403,7 @@ impl Default for ETW_BUFFER_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_BUFFER_CONTEXT_0_0 {
     pub ProcessorNumber: u8,
     pub Alignment: u8,
@@ -458,14 +458,14 @@ impl Default for ETW_OPEN_TRACE_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
     pub OwnerTag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     pub ProcessorNumber: u32,
     pub NumberOfCounters: u32,
@@ -478,7 +478,7 @@ impl Default for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
 }
 pub type ETW_PMC_COUNTER_OWNER_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_PMC_SESSION_INFO {
     pub NextEntryOffset: u32,
     pub LoggerId: u16,
@@ -503,7 +503,7 @@ pub const ETW_SINGLE_TYPE_VALUE: u32 = 12;
 pub const ETW_SIZET_TYPE_VALUE: u32 = 106;
 pub const ETW_STRING_TYPE_VALUE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION {
     pub PartitionId: windows_core::GUID,
     pub ParentId: windows_core::GUID,
@@ -511,7 +511,7 @@ pub struct ETW_TRACE_PARTITION_INFORMATION {
     pub PartitionType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
     pub QpcOffsetFromRoot: i64,
     pub PartitionType: u32,
@@ -558,7 +558,7 @@ impl Default for EVENT_INSTANCE_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -575,7 +575,7 @@ impl Default for EVENT_INSTANCE_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -594,20 +594,20 @@ impl Default for EVENT_INSTANCE_HEADER_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INSTANCE_HEADER_2_1 {
     pub EventId: u32,
     pub Flags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::winnt::HANDLE,
     pub InstanceId: u32,
@@ -718,7 +718,7 @@ impl Default for EVENT_TRACE_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -735,7 +735,7 @@ impl Default for EVENT_TRACE_HEADER_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -765,13 +765,13 @@ impl Default for EVENT_TRACE_HEADER_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_HEADER_3_1 {
     pub ClientContext: u32,
     pub Flags: u32,
@@ -988,7 +988,7 @@ impl Default for EVENT_TRACE_PROPERTIES_V2_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
 }
@@ -1007,7 +1007,7 @@ impl Default for EVENT_TRACE_PROPERTIES_V2_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
 }
@@ -1157,7 +1157,7 @@ pub const KERNEL_LOGGER_NAMEW: windows_core::PCWSTR = windows_core::w!("NT Kerne
 pub const LastBranchRecordProviderGuid: windows_core::GUID = windows_core::GUID::from_u128(0x99134383_5248_43fc_834b_529454e75df3);
 pub const MAX_MOF_FIELDS: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOF_FIELD {
     pub DataPtr: u64,
     pub Length: u32,
@@ -1207,7 +1207,7 @@ pub type PPROFILE_SOURCE_INFO = *mut PROFILE_SOURCE_INFO;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PROCESSTRACE_HANDLE(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILE_SOURCE_INFO {
     pub NextEntryOffset: u32,
     pub Source: u32,
@@ -1371,13 +1371,13 @@ pub struct TRACEHANDLE(pub u64);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TRACELOGGER_HANDLE(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_CONTEXT_REGISTER_INFO {
     pub RegisterTypes: ETW_CONTEXT_REGISTER_TYPES,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_ENABLE_INFO {
     pub IsEnabled: u32,
     pub Level: u8,
@@ -1389,13 +1389,13 @@ pub struct TRACE_ENABLE_INFO {
     pub MatchAllKeyword: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_GUID_INFO {
     pub InstanceCount: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_GUID_PROPERTIES {
     pub Guid: windows_core::GUID,
     pub GuidType: u32,
@@ -1406,7 +1406,7 @@ pub struct TRACE_GUID_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: super::guiddef::LPCGUID,
     pub RegHandle: super::winnt::HANDLE,
@@ -1489,7 +1489,7 @@ impl Default for TRACE_LOGFILE_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -1511,7 +1511,7 @@ impl Default for TRACE_LOGFILE_HEADER_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -1562,7 +1562,7 @@ impl Default for TRACE_LOGFILE_HEADER32_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -1584,7 +1584,7 @@ impl Default for TRACE_LOGFILE_HEADER32_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -1635,7 +1635,7 @@ impl Default for TRACE_LOGFILE_HEADER64_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -1657,7 +1657,7 @@ impl Default for TRACE_LOGFILE_HEADER64_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
     pub PointerSize: u32,
@@ -1675,14 +1675,14 @@ pub const TRACE_MESSAGE_SEQUENCE: u32 = 1;
 pub const TRACE_MESSAGE_SYSTEMINFO: u32 = 32;
 pub const TRACE_MESSAGE_TIMESTAMP: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO {
     pub CaptureStateFrequencyInSeconds: u32,
     pub ProviderCount: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_PROFILE_INTERVAL {
     pub Source: u32,
     pub Interval: u32,
@@ -1690,7 +1690,7 @@ pub struct TRACE_PROFILE_INTERVAL {
 pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1;
 pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_PROVIDER_INSTANCE_INFO {
     pub NextOffset: u32,
     pub EnableCount: u32,
@@ -1699,14 +1699,14 @@ pub struct TRACE_PROVIDER_INSTANCE_INFO {
 }
 pub type TRACE_QUERY_INFO_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_STACK_CACHING_INFO {
     pub Enabled: bool,
     pub CacheSize: u32,
     pub BucketCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_VERSION_INFO {
     pub EtwTraceProcessingVersion: u32,
     pub Reserved: u32,

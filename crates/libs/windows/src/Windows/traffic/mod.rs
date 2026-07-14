@@ -134,7 +134,7 @@ pub unsafe fn TcSetInterface(ifchandle: super::winnt::HANDLE, pguidparam: *const
 }
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
     pub AddressList: super::ntddndis::NETWORK_ADDRESS_LIST,
@@ -142,7 +142,7 @@ pub struct ADDRESS_LIST_DESCRIPTOR {
 pub const CURRENT_TCI_VERSION: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMERATION_BUFFER {
     pub Length: u32,
     pub OwnerProcessId: u32,
@@ -159,13 +159,13 @@ impl Default for ENUMERATION_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
     pub Dest: IPX_PATTERN_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPX_PATTERN_0 {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
@@ -177,7 +177,7 @@ impl Default for IPX_PATTERN_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IPX_PATTERN_1 {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
@@ -217,13 +217,13 @@ impl Default for IP_PATTERN_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_PATTERN_0_0 {
     pub s_srcport: u16,
     pub s_dstport: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_PATTERN_0_1 {
     pub s_type: u8,
     pub s_code: u8,
@@ -263,7 +263,7 @@ pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflow
 #[cfg(feature = "winnt")]
 pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::winnt::HANDLE, clifcctx: super::winnt::HANDLE, event: u32, subcode: super::winnt::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
@@ -277,7 +277,7 @@ impl Default for TC_GEN_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TC_GEN_FLOW {
     pub SendingFlowspec: super::qos::FLOWSPEC,
     pub ReceivingFlowspec: super::qos::FLOWSPEC,
@@ -292,7 +292,7 @@ impl Default for TC_GEN_FLOW {
 }
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
     pub pInterfaceName: windows_core::PWSTR,
@@ -308,7 +308,7 @@ pub const TC_NOTIFY_IFC_UP: u32 = 1;
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TC_SUPPORTED_INFO_BUFFER {
     pub InstanceIDLength: u16,
     pub InstanceID: [u16; 256],

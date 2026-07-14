@@ -303,7 +303,7 @@ pub type LPMEMORYSTATUSEX = *mut MEMORYSTATUSEX;
 pub type LPSYSTEM_INFO = *mut SYSTEM_INFO;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORYSTATUSEX {
     pub dwLength: u32,
     pub dwMemoryLoad: u32,
@@ -347,7 +347,7 @@ impl Default for SYSTEM_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_INFO_0_0 {
     pub wProcessorArchitecture: u16,
     pub wReserved: u16,

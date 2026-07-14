@@ -55,7 +55,7 @@ pub const DEBUG_BREAKPOINT_GO_ONLY: u32 = 1;
 pub const DEBUG_BREAKPOINT_INLINE: u32 = 3;
 pub const DEBUG_BREAKPOINT_ONE_SHOT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -76,7 +76,7 @@ pub const DEBUG_BREAK_IO: u32 = 8;
 pub const DEBUG_BREAK_READ: u32 = 1;
 pub const DEBUG_BREAK_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
@@ -129,7 +129,7 @@ pub const DEBUG_CLASS_UNINITIALIZED: u32 = 0;
 pub const DEBUG_CLASS_USER_WINDOWS: u32 = 2;
 pub const DEBUG_CLIENT_CDB: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
@@ -150,7 +150,7 @@ pub const DEBUG_CONNECT_SESSION_NO_ANNOUNCE: u32 = 2;
 pub const DEBUG_CONNECT_SESSION_NO_VERSION: u32 = 1;
 pub const DEBUG_CREATE_PROCESS_NO_DEBUG_HEAP: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
@@ -360,7 +360,7 @@ pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024;
 pub const DEBUG_EVENT_CHANGE_ENGINE_STATE: u32 = 2048;
 pub const DEBUG_EVENT_CHANGE_SYMBOL_STATE: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
@@ -378,7 +378,7 @@ pub const DEBUG_EVENT_SESSION_STATUS: u32 = 512;
 pub const DEBUG_EVENT_SYSTEM_ERROR: u32 = 256;
 pub const DEBUG_EVENT_UNLOAD_MODULE: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -474,7 +474,7 @@ pub const DEBUG_GET_PROC_FULL_MATCH: u32 = 1;
 pub const DEBUG_GET_PROC_ONLY_MATCH: u32 = 2;
 pub const DEBUG_GET_PROC_SERVICE_NAME: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub Flags: u32,
     pub MatchCountLimit: u32,
@@ -492,7 +492,7 @@ pub const DEBUG_GET_TEXT_COMPLETIONS_NO_DOT_COMMANDS: u32 = 1;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_EXTENSION_COMMANDS: u32 = 2;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_SYMBOLS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Flags: u32,
     pub ReplaceIndex: u32,
@@ -512,7 +512,7 @@ pub const DEBUG_GSEL_INLINE_CALLSITE: u32 = 16;
 pub const DEBUG_GSEL_NEAREST_ONLY: u32 = 8;
 pub const DEBUG_GSEL_NO_SYMBOL_LOADS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -561,47 +561,47 @@ pub const DEBUG_KNOWN_STRUCT_GET_NAMES: u32 = 1;
 pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: u32 = 2;
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
@@ -626,7 +626,7 @@ pub const DEBUG_MODNAME_MAPPED_IMAGE: u32 = 4;
 pub const DEBUG_MODNAME_MODULE: u32 = 1;
 pub const DEBUG_MODNAME_SYMBOL_FILE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
@@ -635,7 +635,7 @@ pub const DEBUG_MODULE_EXE_MODULE: u32 = 4;
 pub const DEBUG_MODULE_EXPLICIT: u32 = 8;
 pub const DEBUG_MODULE_LOADED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_MODULE_PARAMETERS {
     pub Base: u64,
     pub Size: u32,
@@ -665,7 +665,7 @@ pub const DEBUG_NOTIFY_SESSION_ACTIVE: u32 = 0;
 pub const DEBUG_NOTIFY_SESSION_INACCESSIBLE: u32 = 3;
 pub const DEBUG_NOTIFY_SESSION_INACTIVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
@@ -752,13 +752,13 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
@@ -771,7 +771,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
@@ -783,7 +783,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
@@ -795,7 +795,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
@@ -809,7 +809,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
@@ -833,7 +833,7 @@ pub const DEBUG_PROC_DESC_NO_USER_NAME: u32 = 32;
 pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: u32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -853,7 +853,7 @@ pub const DEBUG_REGISTERS_FLOAT: u32 = 4;
 pub const DEBUG_REGISTERS_INT32: u32 = 1;
 pub const DEBUG_REGISTERS_INT64: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -925,7 +925,7 @@ pub const DEBUG_SESSION_HIBERNATE: u32 = 6;
 pub const DEBUG_SESSION_REBOOT: u32 = 5;
 pub const DEBUG_SOURCE_IS_STATEMENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -940,7 +940,7 @@ pub const DEBUG_STACK_ARGUMENTS: u32 = 1;
 pub const DEBUG_STACK_COLUMN_NAMES: u32 = 16;
 pub const DEBUG_STACK_DML: u32 = 2048;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -961,7 +961,7 @@ pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: u32 = 256;
 pub const DEBUG_STACK_FRAME_ARCH: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -1011,7 +1011,7 @@ pub const DEBUG_STATUS_TIMEOUT: u32 = 17;
 pub const DEBUG_STATUS_WAIT_INPUT: u32 = 16;
 pub const DEBUG_STATUS_WAIT_TIMEOUT: u64 = 8589934592;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -1033,7 +1033,7 @@ pub const DEBUG_SYMBOL_IS_ARRAY: u32 = 64;
 pub const DEBUG_SYMBOL_IS_FLOAT: u32 = 128;
 pub const DEBUG_SYMBOL_IS_LOCAL: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -1044,7 +1044,7 @@ pub struct DEBUG_SYMBOL_PARAMETERS {
 }
 pub const DEBUG_SYMBOL_READ_ONLY: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -1090,7 +1090,7 @@ pub const DEBUG_TBINFO_PRIORITY_CLASS: u32 = 2;
 pub const DEBUG_TBINFO_START_OFFSET: u32 = 16;
 pub const DEBUG_TBINFO_TIMES: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -1154,19 +1154,19 @@ impl Default for DEBUG_VALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u64,
     pub HighPart: i64,
@@ -44295,7 +44295,7 @@ impl Default for INLINE_FRAME_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
@@ -44360,7 +44360,7 @@ pub type PDEBUG_THREAD_BASIC_INFORMATION = *mut DEBUG_THREAD_BASIC_INFORMATION;
 pub type PDEBUG_VALUE = *mut DEBUG_VALUE;
 pub type PPROCESS_NAME_ENTRY = *mut PROCESS_NAME_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
@@ -44380,7 +44380,7 @@ pub const STACK_FRAME_TYPE_INLINE: u32 = 2;
 pub const STACK_FRAME_TYPE_RA: u32 = 128;
 pub const STACK_FRAME_TYPE_STACK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_core::PCWSTR,
     pub ModuleName: windows_core::PCWSTR,
@@ -44390,13 +44390,13 @@ pub struct STACK_SRC_INFO {
     pub Column: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_EX {
     pub SizeOfStruct: u32,
     pub TypeOfInfo: u32,

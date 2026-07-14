@@ -61,7 +61,7 @@ pub unsafe fn TerminateJobObject(hjob: super::winnt::HANDLE, uexitcode: u32) -> 
     unsafe { TerminateJobObject(hjob, uexitcode) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,

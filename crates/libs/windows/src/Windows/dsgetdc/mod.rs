@@ -200,7 +200,7 @@ where
     unsafe { DsValidateSubnetNameW(subnetname.param().abi()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOA {
     pub DomainControllerName: windows_core::PSTR,
     pub DomainControllerAddress: windows_core::PSTR,
@@ -213,7 +213,7 @@ pub struct DOMAIN_CONTROLLER_INFOA {
     pub ClientSiteName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONTROLLER_INFOW {
     pub DomainControllerName: windows_core::PWSTR,
     pub DomainControllerAddress: windows_core::PWSTR,
@@ -249,7 +249,7 @@ pub const DS_DOMAIN_PRIMARY: u32 = 8;
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSA {
     pub NetbiosDomainName: windows_core::PSTR,
     pub DnsDomainName: windows_core::PSTR,
@@ -262,7 +262,7 @@ pub struct DS_DOMAIN_TRUSTSA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DS_DOMAIN_TRUSTSW {
     pub NetbiosDomainName: windows_core::PWSTR,
     pub DnsDomainName: windows_core::PWSTR,

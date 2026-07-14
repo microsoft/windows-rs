@@ -219,6 +219,7 @@ impl CppStruct {
             .collect();
 
         let is_copyable = self.is_copyable(config.reader);
+        let is_eq = fields.iter().all(|(_, ty)| ty.is_eq(config.reader));
 
         let field_config = &config.with_self_ty(self.type_name(), &[]);
 
@@ -294,6 +295,10 @@ impl CppStruct {
 
             if !self.has_cpp_delegate(config.reader) {
                 derive.extend(["PartialEq"]);
+
+                if is_eq {
+                    derive.extend(["Eq"]);
+                }
             }
         }
 

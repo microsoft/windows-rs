@@ -1398,7 +1398,7 @@ pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_core::PCSTR = windows_core::s!("
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
 pub const TF_INVALIDMENUITEM: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_core::GUID,
     pub guidItem: windows_core::GUID,
@@ -1412,7 +1412,7 @@ impl Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,

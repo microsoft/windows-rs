@@ -91,7 +91,7 @@ where
     unsafe { SoftwareUpdateMessageBox(hwnd.unwrap_or(core::mem::zeroed()) as _, pszdistunit.param().abi(), dwflags, psdi.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AASHELLMENUFILENAME {
     pub cbTotal: i16,
     pub rgbReserved: [u8; 12],
@@ -103,7 +103,7 @@ impl Default for AASHELLMENUFILENAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
@@ -118,7 +118,7 @@ impl Default for AASHELLMENUITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
@@ -845,7 +845,7 @@ impl IDockingWindowFrame_Vtbl {
 #[cfg(all(feature = "oleidl", feature = "windef"))]
 impl windows_core::RuntimeName for IDockingWindowFrame {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEnumPrivacyRecords(pub u8);
 windows_core::imp::define_interface!(IInitializeObject, IInitializeObject_Vtbl, 0x4622ad16_ff23_11d0_8d34_00a0c90f2719);
 windows_core::imp::interface_hierarchy!(IInitializeObject, windows_core::IUnknown);
@@ -1283,14 +1283,14 @@ pub const SFVM_SETPOINTS: u32 = 23;
 pub const SFVM_UPDATEOBJECT: u32 = 7;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub pt: super::windef::POINT,
 }
 pub const SHCDF_UPDATEITEM: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNDATA {
     pub dwFlags: u32,
     pub dwFileAttributes: u32,
@@ -1322,7 +1322,7 @@ impl Default for SHCOLUMNINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNINIT {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -1357,7 +1357,7 @@ pub const TBIF_PREPEND: u32 = 1;
 pub const TBIF_REPLACE: u32 = 2;
 pub const TBIF_STANDARDTOOLBAR: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBINFO {
     pub cbuttons: u32,
     pub uFlags: u32,

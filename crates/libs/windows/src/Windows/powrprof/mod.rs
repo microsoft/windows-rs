@@ -478,7 +478,7 @@ pub const EnableVideoDimDisplay: u32 = 16;
 pub const EnableWakeOnRing: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub LidOpenWakeAc: super::winnt::SYSTEM_POWER_STATE,
@@ -487,14 +487,14 @@ pub struct GLOBAL_MACHINE_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_USER_POWER_POLICY {
     pub Revision: u32,
     pub PowerButtonAc: super::winnt::POWER_ACTION_POLICY,
@@ -514,7 +514,7 @@ impl Default for GLOBAL_USER_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub MinSleepAc: super::winnt::SYSTEM_POWER_STATE,
@@ -539,7 +539,7 @@ impl Default for MACHINE_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: super::winnt::PROCESSOR_POWER_POLICY,
@@ -573,7 +573,7 @@ pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
 pub type POWER_DATA_ACCESSOR = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
@@ -591,7 +591,7 @@ pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, na
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: *const POWER_POLICY, context: super::minwindef::LPARAM) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -603,7 +603,7 @@ pub struct THERMAL_EVENT {
 pub const THERMAL_EVENT_VERSION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_POWER_POLICY {
     pub Revision: u32,
     pub IdleAc: super::winnt::POWER_ACTION_POLICY,

@@ -98,14 +98,14 @@ pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = 1;
 pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = 0;
 pub type COMPOSITION_FRAME_ID_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_FRAME_STATS {
     pub startTime: u64,
     pub targetTime: u64,
     pub framePeriod: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_STATS {
     pub presentCount: u32,
     pub refreshCount: u32,
@@ -115,7 +115,7 @@ pub struct COMPOSITION_STATS {
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_TARGET_ID {
     pub displayAdapterLuid: super::winnt::LUID,
     pub renderAdapterLuid: super::winnt::LUID,
@@ -124,7 +124,7 @@ pub struct COMPOSITION_TARGET_ID {
     pub uniqueId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITION_TARGET_STATS {
     pub outstandingPresents: u32,
     pub presentTime: u64,
@@ -156,7 +156,7 @@ pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1;
 pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DCOMPOSITION_FRAME_STATISTICS {
     pub lastFrameTime: i64,
     pub currentCompositionRate: super::dxgi::DXGI_RATIONAL,

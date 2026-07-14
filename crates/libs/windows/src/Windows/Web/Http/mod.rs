@@ -1226,7 +1226,7 @@ impl IntoIterator for &HttpMultipartFormDataContent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
     pub BytesSent: u64,

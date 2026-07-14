@@ -21,7 +21,7 @@ impl Default for CPU_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPU_INFORMATION_0 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
@@ -183,7 +183,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_core::BOOL,
     pub Cancel: windows_core::BOOL,
@@ -207,7 +207,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
     pub VmReadBytesCompleted: u32,
@@ -261,7 +261,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: windows_core::BOOL,
     pub Cancel: windows_core::BOOL,
@@ -285,7 +285,7 @@ pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: windows_core::HRESULT,
     pub VmReadBytesCompleted: u32,
@@ -302,7 +302,7 @@ pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_FINISH_CALLBACK {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub MaxParallelism: u32,
     pub MaxTransferSize: u32,
@@ -322,7 +322,7 @@ pub struct MINIDUMP_COMPRESSED_MEMORY_STREAM_START_CALLBACK {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -346,7 +346,7 @@ impl Default for MINIDUMP_EXCEPTION {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
     pub ExceptionPointers: super::winnt::PEXCEPTION_POINTERS,
@@ -387,7 +387,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -397,7 +397,7 @@ pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfAlignPad: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -430,7 +430,7 @@ pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
 }
 pub type MINIDUMP_HANDLE_DESCRIPTOR_N = MINIDUMP_HANDLE_DESCRIPTOR_2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: RVA,
     pub InfoType: u32,
@@ -438,7 +438,7 @@ pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
 }
 pub type MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -478,7 +478,7 @@ pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
 }
@@ -498,7 +498,7 @@ impl Default for MINIDUMP_IO_CALLBACK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: RVA,
@@ -574,7 +574,7 @@ pub const MINIDUMP_MISC3_TIMEZONE: u32 = 64;
 pub const MINIDUMP_MISC4_BUILDSTRING: u32 = 256;
 pub const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -584,7 +584,7 @@ pub struct MINIDUMP_MISC_INFO {
     pub ProcessKernelTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -600,7 +600,7 @@ pub struct MINIDUMP_MISC_INFO_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -621,7 +621,7 @@ pub struct MINIDUMP_MISC_INFO_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "timezoneapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -787,7 +787,7 @@ pub type MINIDUMP_SECONDARY_FLAGS = i32;
 pub const MINIDUMP_SIGNATURE: u32 = 1347241037;
 pub type MINIDUMP_STREAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 0],
@@ -870,7 +870,7 @@ impl Default for MINIDUMP_SYSTEM_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
@@ -887,7 +887,7 @@ impl Default for MINIDUMP_SYSTEM_INFO_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
@@ -1257,7 +1257,7 @@ pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: u32 = 16;
 pub const MINIDUMP_THREAD_INFO_INVALID_INFO: u32 = 8;
 pub const MINIDUMP_THREAD_INFO_INVALID_TEB: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -1300,7 +1300,7 @@ pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenHandle: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
@@ -1318,21 +1318,21 @@ pub struct MINIDUMP_UNLOADED_MODULE {
     pub ModuleNameRva: RVA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
     pub NumberOfEntries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
@@ -1360,7 +1360,7 @@ impl Default for MINIDUMP_USER_STREAM {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: PMINIDUMP_USER_STREAM,

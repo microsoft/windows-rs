@@ -26,7 +26,7 @@ impl Default for VHFOPERATIONHANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "hidclass", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VHF_CONFIG {
     pub Size: u32,
     pub VhfClientContext: *mut core::ffi::c_void,

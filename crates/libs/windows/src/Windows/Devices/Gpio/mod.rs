@@ -1,7 +1,7 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
 pub mod Provider;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioChangeCount {
     pub Count: u64,
     pub RelativeTime: windows_time::TimeSpan,
@@ -215,7 +215,7 @@ impl windows_core::RuntimeName for GpioChangeReader {
 unsafe impl Send for GpioChangeReader {}
 unsafe impl Sync for GpioChangeReader {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GpioChangeRecord {
     pub RelativeTime: windows_time::TimeSpan,
     pub Edge: GpioPinEdge,

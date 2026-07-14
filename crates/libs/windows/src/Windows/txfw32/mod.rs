@@ -88,7 +88,7 @@ pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub FileNameByteOffsetInStructure: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: u16,

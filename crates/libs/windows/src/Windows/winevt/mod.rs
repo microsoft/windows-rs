@@ -266,7 +266,7 @@ pub const EVT_READ_ACCESS: u32 = 1;
 pub type EVT_RENDER_CONTEXT_FLAGS = i32;
 pub type EVT_RENDER_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVT_RPC_LOGIN {
     pub Server: windows_core::PWSTR,
     pub User: windows_core::PWSTR,

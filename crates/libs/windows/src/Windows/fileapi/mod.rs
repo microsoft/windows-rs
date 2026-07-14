@@ -779,7 +779,7 @@ pub unsafe fn WriteFileGather(hfile: super::winnt::HANDLE, asegmentarray: *const
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::minwindef::FILETIME,
@@ -794,7 +794,7 @@ pub struct BY_HANDLE_FILE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -805,7 +805,7 @@ pub struct CREATEFILE2_EXTENDED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATEFILE3_EXTENDED_PARAMETERS {
     pub dwSize: u32,
     pub dwFileAttributes: u32,
@@ -820,7 +820,7 @@ pub type DIRECTORY_FLAGS = u32;
 pub const DIRECTORY_FLAGS_DISALLOW_PATH_REDIRECTS: DIRECTORY_FLAGS = 1;
 pub const DIRECTORY_FLAGS_NONE: DIRECTORY_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -862,7 +862,7 @@ pub type STREAM_INFO_LEVELS = i32;
 pub const TRUNCATE_EXISTING: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::minwindef::FILETIME,
@@ -872,7 +872,7 @@ pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub nFileSizeLow: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],

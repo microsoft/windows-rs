@@ -69,14 +69,14 @@ impl Default for MCA_EXCEPTION_0_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION_0_1 {
     pub Address: u64,
     pub Type: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCA_EXCEPTION {
     pub Dummy: u32,
 }
@@ -100,7 +100,7 @@ impl Default for MCI_ADDR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_ADDR_0 {
     pub Address: u32,
     pub Reserved: u32,
@@ -120,7 +120,7 @@ impl Default for MCI_STATS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATS_0 {
     pub McaCod: u16,
     pub MsCod: u16,
@@ -141,7 +141,7 @@ impl Default for MCI_STATS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCI_STATS_0 {
     pub McaErrorCode: u16,
     pub ModelErrorCode: u16,

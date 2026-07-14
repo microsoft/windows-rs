@@ -294,7 +294,7 @@ pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METH
 pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = 4;
 pub type BLUETOOTH_AUTHENTICATION_REQUIREMENTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_COD_PAIRS {
     pub ulCODMask: u32,
     pub pcszDescription: windows_core::PCWSTR,
@@ -322,7 +322,7 @@ impl Default for BLUETOOTH_DEVICE_INFO_STRUCT {
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: u32,
     pub fReturnAuthenticated: windows_core::BOOL,
@@ -334,7 +334,7 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub hRadio: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_FIND_RADIO_PARAMS {
     pub dwSize: u32,
 }
@@ -372,12 +372,12 @@ pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQ
 pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 5;
 pub const BLUETOOTH_NULL_ADDRESS: u64 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_NUMERIC_COMPARISON_INFO {
     pub NumericValue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_OOB_DATA_INFO {
     pub C: [u8; 16],
     pub R: [u8; 16],
@@ -388,12 +388,12 @@ impl Default for BLUETOOTH_OOB_DATA_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_PASSKEY_INFO {
     pub passkey: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_PIN_INFO {
     pub pin: [u8; 16],
     pub pinLength: u8,
@@ -527,34 +527,34 @@ impl Default for SDP_ELEMENT_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: super::minwindef::LPBYTE,
     pub length: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: super::minwindef::LPBYTE,
     pub length: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: super::minwindef::LPBYTE,
     pub length: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: super::minwindef::LPBYTE,
     pub length: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_STRING_TYPE_DATA {
     pub encoding: u16,
     pub mibeNum: u16,

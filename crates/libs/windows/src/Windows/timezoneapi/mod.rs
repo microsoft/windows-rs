@@ -90,7 +90,7 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: Option<*c
 }
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],
@@ -117,7 +117,7 @@ pub type PTIME_ZONE_INFORMATION = *mut TIME_ZONE_INFORMATION;
 pub const TIME_ZONE_ID_INVALID: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
     pub StandardName: [u16; 32],

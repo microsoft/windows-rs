@@ -131,7 +131,7 @@ pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0;
 pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1;
 pub const ALLOC_CONSOLE_MODE_NO_WINDOW: ALLOC_CONSOLE_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALLOC_CONSOLE_OPTIONS {
     pub mode: ALLOC_CONSOLE_MODE,
     pub useShowWindow: windows_core::BOOL,
@@ -143,7 +143,7 @@ pub const ALLOC_CONSOLE_RESULT_NEW_CONSOLE: ALLOC_CONSOLE_RESULT = 1;
 pub const ALLOC_CONSOLE_RESULT_NO_CONSOLE: ALLOC_CONSOLE_RESULT = 0;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,

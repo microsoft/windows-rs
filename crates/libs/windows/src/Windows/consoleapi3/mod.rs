@@ -221,7 +221,7 @@ pub unsafe fn SetCurrentConsoleFontEx(hconsoleoutput: super::winnt::HANDLE, bmax
 }
 #[repr(C)]
 #[cfg(feature = "wincontypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFOEX {
     pub cbSize: u32,
     pub nFont: u32,
@@ -240,7 +240,7 @@ pub const CONSOLE_FULLSCREEN: u32 = 1;
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2;
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_HISTORY_INFO {
     pub cbSize: u32,
     pub HistoryBufferSize: u32,
@@ -252,7 +252,7 @@ pub const CONSOLE_MOUSE_SELECTION: u32 = 4;
 pub const CONSOLE_NO_SELECTION: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "wincontypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_SELECTION_INFO {
     pub dwFlags: u32,
     pub dwSelectionAnchor: super::wincontypes::COORD,

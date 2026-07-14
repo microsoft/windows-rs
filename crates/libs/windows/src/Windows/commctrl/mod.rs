@@ -546,7 +546,7 @@ pub const BTNS_SHOWTEXT: u32 = 64;
 pub const BTNS_WHOLEDROPDOWN: u32 = 128;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
     pub margin: super::windef::RECT,
@@ -559,7 +559,7 @@ pub const BUTTON_IMAGELIST_ALIGN_RIGHT: u32 = 1;
 pub const BUTTON_IMAGELIST_ALIGN_TOP: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
     pub himlGlyph: HIMAGELIST,
@@ -687,14 +687,14 @@ pub const CLR_NONE: u32 = 4294967295;
 pub const CMB_MASKED: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORMAP {
     pub from: super::windef::COLORREF,
     pub to: super::windef::COLORREF,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORSCHEME {
     pub dwSize: u32,
     pub clrBtnHighlight: super::windef::COLORREF,
@@ -702,7 +702,7 @@ pub struct COLORSCHEME {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOXEXITEMA {
     pub mask: u32,
     pub iItem: isize,
@@ -716,7 +716,7 @@ pub struct COMBOBOXEXITEMA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMBOBOXEXITEMW {
     pub mask: u32,
     pub iItem: isize,
@@ -731,7 +731,7 @@ pub struct COMBOBOXEXITEMW {
 pub const COMCTL32_VERSION: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: u32,
     pub rcCheck: super::windef::RECT,
@@ -754,7 +754,7 @@ pub const DL_MOVECURSOR: u32 = 3;
 pub const DL_STOPCURSOR: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGLISTINFO {
     pub uNotification: u32,
     pub hWnd: super::windef::HWND,
@@ -815,7 +815,7 @@ pub type EC_SEARCHWEB_ENTRYPOINT = i32;
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1;
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
     pub pszTitle: windows_core::PCWSTR,
@@ -888,7 +888,7 @@ pub const HDF_SPLITBUTTON: u32 = 16777216;
 pub const HDF_STRING: u32 = 16384;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HDHITTESTINFO {
     pub pt: super::windef::POINT,
     pub flags: u32,
@@ -897,7 +897,7 @@ pub struct HDHITTESTINFO {
 pub const HDIS_FOCUSED: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDITEMA {
     pub mask: u32,
     pub cxy: i32,
@@ -924,7 +924,7 @@ pub const HDITEMA_V1_SIZE: u32 = 28;
 pub const HDITEMA_V1_SIZE: u32 = 40;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDITEMW {
     pub mask: u32,
     pub cxy: i32,
@@ -966,7 +966,7 @@ pub const HDI_TEXT: u32 = 2;
 pub const HDI_WIDTH: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HDLAYOUT {
     pub prc: *mut super::windef::RECT,
     pub pwpos: *mut super::winuser::WINDOWPOS,
@@ -1063,13 +1063,13 @@ pub const HDS_HOTTRACK: u32 = 4;
 pub const HDS_NOSIZING: u32 = 2048;
 pub const HDS_OVERFLOW: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HD_TEXTFILTERA {
     pub pszText: windows_core::PSTR,
     pub cchTextMax: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HD_TEXTFILTERW {
     pub pszText: windows_core::PWSTR,
     pub cchTextMax: i32,
@@ -1191,7 +1191,7 @@ pub const ILS_SATURATE: u32 = 4;
 pub const ILS_SHADOW: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGEINFO {
     pub hbmImage: super::windef::HBITMAP,
     pub hbmMask: super::windef::HBITMAP,
@@ -1201,7 +1201,7 @@ pub struct IMAGEINFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
     pub himl: HIMAGELIST,
@@ -1227,7 +1227,7 @@ pub const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 56;
 pub const IMAGELISTDRAWPARAMS_V3_SIZE: u32 = 72;
 pub const INFOTIPSIZE: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: u32,
@@ -1252,7 +1252,7 @@ pub const I_IMAGENONE: i32 = -2;
 pub const I_INDENTCALLBACK: i32 = -1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LHITTESTINFO {
     pub pt: super::windef::POINT,
     pub item: LITEM,
@@ -1269,7 +1269,7 @@ pub const LIS_FOCUSED: u32 = 1;
 pub const LIS_HOTTRACK: u32 = 8;
 pub const LIS_VISITED: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LITEM {
     pub mask: u32,
     pub iLink: i32,
@@ -1571,7 +1571,7 @@ pub const LVBKIF_STYLE_TILE: u32 = 16;
 pub const LVBKIF_TYPE_WATERMARK: u32 = 268435456;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVBKIMAGEA {
     pub ulFlags: u32,
     pub hbm: super::windef::HBITMAP,
@@ -1582,7 +1582,7 @@ pub struct LVBKIMAGEA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVBKIMAGEW {
     pub ulFlags: u32,
     pub hbm: super::windef::HBITMAP,
@@ -1622,7 +1622,7 @@ pub const LVCF_SUBITEM: u32 = 8;
 pub const LVCF_TEXT: u32 = 4;
 pub const LVCF_WIDTH: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVCOLUMNA {
     pub mask: u32,
     pub fmt: i32,
@@ -1641,7 +1641,7 @@ pub const LVCOLUMNA_V1_SIZE: u32 = 24;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LVCOLUMNA_V1_SIZE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVCOLUMNW {
     pub mask: u32,
     pub fmt: i32,
@@ -1668,7 +1668,7 @@ pub const LVFIF_STATE: u32 = 2;
 pub const LVFIF_TEXT: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFINDINFOA {
     pub flags: u32,
     pub psz: windows_core::PCSTR,
@@ -1678,7 +1678,7 @@ pub struct LVFINDINFOA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFINDINFOW {
     pub flags: u32,
     pub psz: windows_core::PCWSTR,
@@ -1694,7 +1694,7 @@ pub const LVFI_STRING: u32 = 2;
 pub const LVFI_SUBSTRING: u32 = 4;
 pub const LVFI_WRAP: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFOOTERINFO {
     pub mask: u32,
     pub pszText: windows_core::PWSTR,
@@ -1702,7 +1702,7 @@ pub struct LVFOOTERINFO {
     pub cItems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVFOOTERITEM {
     pub mask: u32,
     pub iItem: i32,
@@ -1742,7 +1742,7 @@ pub const LVGMF_BORDERSIZE: u32 = 1;
 pub const LVGMF_NONE: u32 = 0;
 pub const LVGMF_TEXTCOLOR: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVGROUP {
     pub cbSize: u32,
     pub mask: u32,
@@ -1771,7 +1771,7 @@ pub struct LVGROUP {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -1801,7 +1801,7 @@ pub const LVGS_SUBSETED: u32 = 64;
 pub const LVGS_SUBSETLINKFOCUSED: u32 = 128;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVHITTESTINFO {
     pub pt: super::windef::POINT,
     pub flags: u32,
@@ -1852,7 +1852,7 @@ impl Default for LVINSERTGROUPSORTED {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -1873,7 +1873,7 @@ pub const LVIS_SELECTED: u32 = 2;
 pub const LVIS_STATEIMAGEMASK: u32 = 61440;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVITEMA {
     pub mask: u32,
     pub iItem: i32,
@@ -1906,14 +1906,14 @@ pub const LVITEMA_V5_SIZE: u32 = 52;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const LVITEMA_V5_SIZE: u32 = 72;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVITEMW {
     pub mask: u32,
     pub iItem: i32,
@@ -2175,7 +2175,7 @@ pub const LVN_SETDISPINFOW: i32 = -178;
 pub const LVSCW_AUTOSIZE: i32 = -1;
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2243,7 +2243,7 @@ pub const LVS_TYPEMASK: u32 = 3;
 pub const LVS_TYPESTYLEMASK: u32 = 64512;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LVTILEINFO {
     pub cbSize: u32,
     pub iItem: i32,
@@ -2263,7 +2263,7 @@ pub const LVTILEINFO_V5_SIZE: u32 = 16;
 pub const LVTILEINFO_V5_SIZE: u32 = 24;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -2308,7 +2308,7 @@ pub const MCGIP_NEXT: u32 = 1;
 pub const MCGIP_PREV: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCGRIDINFO {
     pub cbSize: u32,
     pub dwPart: u32,
@@ -2325,7 +2325,7 @@ pub struct MCGRIDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
     pub pt: super::windef::POINT,
@@ -2433,21 +2433,21 @@ pub const NFS_STATIC: u32 = 2;
 pub const NFS_USEFONTASSOC: u32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMBCDROPDOWN {
     pub hdr: super::winuser::NMHDR,
     pub rcButton: super::windef::RECT,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMBCHOTITEM {
     pub hdr: super::winuser::NMHDR,
     pub dwFlags: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCBEDRAGBEGINA {
     pub hdr: super::winuser::NMHDR,
     pub iItemid: i32,
@@ -2461,7 +2461,7 @@ impl Default for NMCBEDRAGBEGINA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: super::winuser::NMHDR,
     pub iItemid: i32,
@@ -2475,7 +2475,7 @@ impl Default for NMCBEDRAGBEGINW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCBEENDEDITA {
     pub hdr: super::winuser::NMHDR,
     pub fChanged: windows_core::BOOL,
@@ -2491,7 +2491,7 @@ impl Default for NMCBEENDEDITA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMCBEENDEDITW {
     pub hdr: super::winuser::NMHDR,
     pub fChanged: windows_core::BOOL,
@@ -2507,7 +2507,7 @@ impl Default for NMCBEENDEDITW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCHAR {
     pub hdr: super::winuser::NMHDR,
     pub ch: u32,
@@ -2518,21 +2518,21 @@ pub struct NMCHAR {
 pub type NMCLICK = NMMOUSE;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCOMBOBOXEXA {
     pub hdr: super::winuser::NMHDR,
     pub ceItem: COMBOBOXEXITEMA,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCOMBOBOXEXW {
     pub hdr: super::winuser::NMHDR,
     pub ceItem: COMBOBOXEXITEMW,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCUSTOMDRAW {
     pub hdr: super::winuser::NMHDR,
     pub dwDrawStage: u32,
@@ -2544,7 +2544,7 @@ pub struct NMCUSTOMDRAW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: super::winuser::NMHDR,
     pub rcClient: super::windef::RECT,
@@ -2553,7 +2553,7 @@ pub struct NMCUSTOMSPLITRECTINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMCUSTOMTEXT {
     pub hdr: super::winuser::NMHDR,
     pub hDC: super::windef::HDC,
@@ -2565,7 +2565,7 @@ pub struct NMCUSTOMTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: super::winuser::NMHDR,
     pub dwFlags: u32,
@@ -2573,7 +2573,7 @@ pub struct NMDATETIMECHANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: super::winuser::NMHDR,
     pub pszFormat: windows_core::PCSTR,
@@ -2589,7 +2589,7 @@ impl Default for NMDATETIMEFORMATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: super::winuser::NMHDR,
     pub pszFormat: windows_core::PCSTR,
@@ -2597,7 +2597,7 @@ pub struct NMDATETIMEFORMATQUERYA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: super::winuser::NMHDR,
     pub pszFormat: windows_core::PCWSTR,
@@ -2605,7 +2605,7 @@ pub struct NMDATETIMEFORMATQUERYW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: super::winuser::NMHDR,
     pub pszFormat: windows_core::PCWSTR,
@@ -2621,7 +2621,7 @@ impl Default for NMDATETIMEFORMATW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: super::winuser::NMHDR,
     pub pszUserString: windows_core::PCSTR,
@@ -2630,7 +2630,7 @@ pub struct NMDATETIMESTRINGA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: super::winuser::NMHDR,
     pub pszUserString: windows_core::PCWSTR,
@@ -2639,7 +2639,7 @@ pub struct NMDATETIMESTRINGW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: super::winuser::NMHDR,
     pub nVirtKey: i32,
@@ -2648,7 +2648,7 @@ pub struct NMDATETIMEWMKEYDOWNA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: super::winuser::NMHDR,
     pub nVirtKey: i32,
@@ -2657,7 +2657,7 @@ pub struct NMDATETIMEWMKEYDOWNW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMDAYSTATE {
     pub nmhdr: super::winuser::NMHDR,
     pub stStart: super::minwinbase::SYSTEMTIME,
@@ -2666,7 +2666,7 @@ pub struct NMDAYSTATE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMHDDISPINFOA {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2678,7 +2678,7 @@ pub struct NMHDDISPINFOA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMHDDISPINFOW {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2690,7 +2690,7 @@ pub struct NMHDDISPINFOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2698,7 +2698,7 @@ pub struct NMHDFILTERBTNCLICK {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMHEADERA {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2713,7 +2713,7 @@ impl Default for NMHEADERA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMHEADERW {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2728,7 +2728,7 @@ impl Default for NMHEADERW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMIPADDRESS {
     pub hdr: super::winuser::NMHDR,
     pub iField: i32,
@@ -2736,7 +2736,7 @@ pub struct NMIPADDRESS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMITEMACTIVATE {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2750,7 +2750,7 @@ pub struct NMITEMACTIVATE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMKEY {
     pub hdr: super::winuser::NMHDR,
     pub nVKey: u32,
@@ -2758,14 +2758,14 @@ pub struct NMKEY {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLINK {
     pub hdr: super::winuser::NMHDR,
     pub item: LITEM,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLISTVIEW {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2778,7 +2778,7 @@ pub struct NMLISTVIEW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVCACHEHINT {
     pub hdr: super::winuser::NMHDR,
     pub iFrom: i32,
@@ -2786,7 +2786,7 @@ pub struct NMLVCACHEHINT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::windef::COLORREF,
@@ -2807,21 +2807,21 @@ pub const NMLVCUSTOMDRAW_V3_SIZE: u32 = 56;
 pub const NMLVCUSTOMDRAW_V3_SIZE: u32 = 88;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVDISPINFOA {
     pub hdr: super::winuser::NMHDR,
     pub item: LVITEMA,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVDISPINFOW {
     pub hdr: super::winuser::NMHDR,
     pub item: LVITEMW,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMLVEMPTYMARKUP {
     pub hdr: super::winuser::NMHDR,
     pub dwFlags: u32,
@@ -2835,7 +2835,7 @@ impl Default for NMLVEMPTYMARKUP {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVFINDITEMA {
     pub hdr: super::winuser::NMHDR,
     pub iStart: i32,
@@ -2843,7 +2843,7 @@ pub struct NMLVFINDITEMA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVFINDITEMW {
     pub hdr: super::winuser::NMHDR,
     pub iStart: i32,
@@ -2851,7 +2851,7 @@ pub struct NMLVFINDITEMW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVGETINFOTIPA {
     pub hdr: super::winuser::NMHDR,
     pub dwFlags: u32,
@@ -2863,7 +2863,7 @@ pub struct NMLVGETINFOTIPA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVGETINFOTIPW {
     pub hdr: super::winuser::NMHDR,
     pub dwFlags: u32,
@@ -2883,7 +2883,7 @@ pub struct NMLVKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVLINK {
     pub hdr: super::winuser::NMHDR,
     pub link: LITEM,
@@ -2892,7 +2892,7 @@ pub struct NMLVLINK {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVODSTATECHANGE {
     pub hdr: super::winuser::NMHDR,
     pub iFrom: i32,
@@ -2902,7 +2902,7 @@ pub struct NMLVODSTATECHANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMLVSCROLL {
     pub hdr: super::winuser::NMHDR,
     pub dx: i32,
@@ -2910,7 +2910,7 @@ pub struct NMLVSCROLL {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMMOUSE {
     pub hdr: super::winuser::NMHDR,
     pub dwItemSpec: usize,
@@ -2920,7 +2920,7 @@ pub struct NMMOUSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMOBJECTNOTIFY {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -2937,7 +2937,7 @@ impl Default for NMOBJECTNOTIFY {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGCALCSIZE {
     pub hdr: super::winuser::NMHDR,
     pub dwFlag: u32,
@@ -2946,7 +2946,7 @@ pub struct NMPGCALCSIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMPGHOTITEM {
     pub hdr: super::winuser::NMHDR,
     pub idOld: i32,
@@ -2967,7 +2967,7 @@ pub struct NMPGSCROLL {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMRBAUTOSIZE {
     pub hdr: super::winuser::NMHDR,
     pub fChanged: windows_core::BOOL,
@@ -2976,7 +2976,7 @@ pub struct NMRBAUTOSIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBAR {
     pub hdr: super::winuser::NMHDR,
     pub dwMask: u32,
@@ -2987,7 +2987,7 @@ pub struct NMREBAR {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBARAUTOBREAK {
     pub hdr: super::winuser::NMHDR,
     pub uBand: u32,
@@ -2999,7 +2999,7 @@ pub struct NMREBARAUTOBREAK {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBARCHEVRON {
     pub hdr: super::winuser::NMHDR,
     pub uBand: u32,
@@ -3010,7 +3010,7 @@ pub struct NMREBARCHEVRON {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBARCHILDSIZE {
     pub hdr: super::winuser::NMHDR,
     pub uBand: u32,
@@ -3020,14 +3020,14 @@ pub struct NMREBARCHILDSIZE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMREBARSPLITTER {
     pub hdr: super::winuser::NMHDR,
     pub rcSizing: super::windef::RECT,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMSEARCHWEB {
     pub hdr: super::winuser::NMHDR,
     pub entrypoint: EC_SEARCHWEB_ENTRYPOINT,
@@ -3036,7 +3036,7 @@ pub struct NMSEARCHWEB {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMSELCHANGE {
     pub nmhdr: super::winuser::NMHDR,
     pub stSelStart: super::minwinbase::SYSTEMTIME,
@@ -3046,7 +3046,7 @@ pub struct NMSELCHANGE {
 pub type NMSELECT = NMSELCHANGE;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub hbrMonoDither: super::windef::HBRUSH,
@@ -3065,7 +3065,7 @@ pub struct NMTBCUSTOMDRAW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBDISPINFOA {
     pub hdr: super::winuser::NMHDR,
     pub dwMask: u32,
@@ -3077,7 +3077,7 @@ pub struct NMTBDISPINFOA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBDISPINFOW {
     pub hdr: super::winuser::NMHDR,
     pub dwMask: u32,
@@ -3089,7 +3089,7 @@ pub struct NMTBDISPINFOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBGETINFOTIPA {
     pub hdr: super::winuser::NMHDR,
     pub pszText: windows_core::PSTR,
@@ -3099,7 +3099,7 @@ pub struct NMTBGETINFOTIPA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBGETINFOTIPW {
     pub hdr: super::winuser::NMHDR,
     pub pszText: windows_core::PWSTR,
@@ -3109,7 +3109,7 @@ pub struct NMTBGETINFOTIPW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTBHOTITEM {
     pub hdr: super::winuser::NMHDR,
     pub idOld: i32,
@@ -3118,7 +3118,7 @@ pub struct NMTBHOTITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTBRESTORE {
     pub hdr: super::winuser::NMHDR,
     pub pData: *mut u32,
@@ -3137,7 +3137,7 @@ impl Default for NMTBRESTORE {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTBSAVE {
     pub hdr: super::winuser::NMHDR,
     pub pData: *mut u32,
@@ -3163,7 +3163,7 @@ pub struct NMTCKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTOOLBARA {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -3174,7 +3174,7 @@ pub struct NMTOOLBARA {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTOOLBARW {
     pub hdr: super::winuser::NMHDR,
     pub iItem: i32,
@@ -3185,14 +3185,14 @@ pub struct NMTOOLBARW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: super::winuser::NMHDR,
     pub hwndToolTips: super::windef::HWND,
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: super::winuser::NMHDR,
     pub dwPos: u32,
@@ -3200,7 +3200,7 @@ pub struct NMTRBTHUMBPOSCHANGING {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTREEVIEWA {
     pub hdr: super::winuser::NMHDR,
     pub action: u32,
@@ -3210,7 +3210,7 @@ pub struct NMTREEVIEWA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTREEVIEWW {
     pub hdr: super::winuser::NMHDR,
     pub action: u32,
@@ -3220,14 +3220,14 @@ pub struct NMTREEVIEWW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub uDrawFlags: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTTDISPINFOA {
     pub hdr: super::winuser::NMHDR,
     pub lpszText: windows_core::PSTR,
@@ -3248,7 +3248,7 @@ pub const NMTTDISPINFOA_V1_SIZE: u32 = 104;
 pub const NMTTDISPINFOA_V1_SIZE: u32 = 124;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTTDISPINFOW {
     pub hdr: super::winuser::NMHDR,
     pub lpszText: windows_core::PWSTR,
@@ -3273,7 +3273,7 @@ pub const NMTTDISPINFO_V1_SIZE: u32 = 104;
 pub const NMTTDISPINFO_V1_SIZE: u32 = 124;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NMTVASYNCDRAW {
     pub hdr: super::winuser::NMHDR,
     pub pimldp: *mut IMAGELISTDRAWPARAMS,
@@ -3291,7 +3291,7 @@ impl Default for NMTVASYNCDRAW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
     pub clrText: super::windef::COLORREF,
@@ -3304,35 +3304,35 @@ pub const NMTVCUSTOMDRAW_V3_SIZE: u32 = 56;
 pub const NMTVCUSTOMDRAW_V3_SIZE: u32 = 88;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVDISPINFOA {
     pub hdr: super::winuser::NMHDR,
     pub item: TVITEMA,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVDISPINFOEXA {
     pub hdr: super::winuser::NMHDR,
     pub item: TVITEMEXA,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVDISPINFOEXW {
     pub hdr: super::winuser::NMHDR,
     pub item: TVITEMEXW,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVDISPINFOW {
     pub hdr: super::winuser::NMHDR,
     pub item: TVITEMW,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVGETINFOTIPA {
     pub hdr: super::winuser::NMHDR,
     pub pszText: windows_core::PSTR,
@@ -3342,7 +3342,7 @@ pub struct NMTVGETINFOTIPA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVGETINFOTIPW {
     pub hdr: super::winuser::NMHDR,
     pub pszText: windows_core::PWSTR,
@@ -3352,7 +3352,7 @@ pub struct NMTVGETINFOTIPW {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVITEMCHANGE {
     pub hdr: super::winuser::NMHDR,
     pub uChanged: u32,
@@ -3371,7 +3371,7 @@ pub struct NMTVKEYDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: super::winuser::NMHDR,
     pub hti: HTREEITEM,
@@ -3380,7 +3380,7 @@ pub struct NMTVSTATEIMAGECHANGING {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMUPDOWN {
     pub hdr: super::winuser::NMHDR,
     pub iPos: i32,
@@ -3388,7 +3388,7 @@ pub struct NMUPDOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NMVIEWCHANGE {
     pub nmhdr: super::winuser::NMHDR,
     pub dwOldView: u32,
@@ -3439,7 +3439,7 @@ pub const PBM_SETSTATE: u32 = 1040;
 pub const PBM_SETSTEP: u32 = 1028;
 pub const PBM_STEPIT: u32 = 1029;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
@@ -3583,7 +3583,7 @@ pub const RBBS_USECHEVRON: u32 = 512;
 pub const RBBS_VARIABLEHEIGHT: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RBHITTESTINFO {
     pub pt: super::windef::POINT,
     pub flags: u32,
@@ -3673,7 +3673,7 @@ pub const RB_SHOWBAND: u32 = 1059;
 pub const RB_SIZETORECT: u32 = 1047;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3708,7 +3708,7 @@ pub const REBARBANDINFOA_V6_SIZE: u32 = 80;
 pub const REBARBANDINFOA_V6_SIZE: u32 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3752,7 +3752,7 @@ pub const REBARBANDINFO_V6_SIZE: u32 = 108;
 pub const REBARCLASSNAMEA: windows_core::PCSTR = windows_core::s!("ReBarWindow32");
 pub const REBARCLASSNAMEW: windows_core::PCWSTR = windows_core::w!("ReBarWindow32");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3891,7 +3891,7 @@ pub type TASKDIALOG_MESSAGES = i32;
 pub type TASKDIALOG_NOTIFICATIONS = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBADDBITMAP {
     pub hInst: super::minwindef::HINSTANCE,
     pub nID: usize,
@@ -3899,7 +3899,7 @@ pub struct TBADDBITMAP {
 pub const TBBF_LARGE: u32 = 1;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -3917,7 +3917,7 @@ impl Default for TBBUTTON {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -3934,7 +3934,7 @@ impl Default for TBBUTTON {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBBUTTONINFOA {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -3948,7 +3948,7 @@ pub struct TBBUTTONINFOA {
     pub cchText: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBBUTTONINFOW {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -3986,13 +3986,13 @@ pub const TBIF_TEXT: u32 = 2;
 pub const TBIMHT_AFTER: u32 = 1;
 pub const TBIMHT_BACKGROUND: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBMETRICS {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -4082,7 +4082,7 @@ pub const TBN_WRAPACCELERATOR: i32 = -726;
 pub const TBN_WRAPHOTITEM: i32 = -724;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::minwindef::HINSTANCE,
     pub nIDOld: usize,
@@ -4092,7 +4092,7 @@ pub struct TBREPLACEBITMAP {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::minwindef::HKEY,
     pub pszSubKey: windows_core::PCSTR,
@@ -4100,7 +4100,7 @@ pub struct TBSAVEPARAMSA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::minwindef::HKEY,
     pub pszSubKey: windows_core::PCWSTR,
@@ -4279,7 +4279,7 @@ pub const TB_THUMBTRACK: u32 = 5;
 pub const TB_TOP: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCHITTESTINFO {
     pub pt: super::windef::POINT,
     pub flags: u32,
@@ -4297,7 +4297,7 @@ pub const TCIS_BUTTONPRESSED: u32 = 1;
 pub const TCIS_HIGHLIGHTED: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCITEMA {
     pub mask: u32,
     pub dwState: u32,
@@ -4308,7 +4308,7 @@ pub struct TCITEMA {
     pub lParam: super::minwindef::LPARAM,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCITEMHEADERA {
     pub mask: u32,
     pub lpReserved1: u32,
@@ -4318,7 +4318,7 @@ pub struct TCITEMHEADERA {
     pub iImage: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCITEMHEADERW {
     pub mask: u32,
     pub lpReserved1: u32,
@@ -4329,7 +4329,7 @@ pub struct TCITEMHEADERW {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCITEMW {
     pub mask: u32,
     pub dwState: u32,
@@ -4487,7 +4487,7 @@ pub const TTF_SUBCLASS: u32 = 16;
 pub const TTF_TRACK: u32 = 32;
 pub const TTF_TRANSPARENT: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTGETTITLE {
     pub dwSize: u32,
     pub uTitleBitmap: u32,
@@ -4501,7 +4501,7 @@ impl Default for TTGETTITLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::windef::HWND,
     pub pt: super::windef::POINT,
@@ -4509,7 +4509,7 @@ pub struct TTHITTESTINFOA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::windef::HWND,
     pub pt: super::windef::POINT,
@@ -4598,7 +4598,7 @@ pub const TTS_NOPREFIX: u32 = 2;
 pub const TTS_USEVISUALSTYLE: u32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
     pub uFlags: u32,
@@ -4630,7 +4630,7 @@ pub const TTTOOLINFOA_V3_SIZE: u32 = 48;
 pub const TTTOOLINFOA_V3_SIZE: u32 = 72;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
     pub uFlags: u32,
@@ -4675,7 +4675,7 @@ pub const TVE_EXPANDPARTIAL: u32 = 16384;
 pub const TVE_TOGGLE: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
     pub prc: *mut super::windef::RECT,
@@ -4702,7 +4702,7 @@ pub const TVGN_PREVIOUSVISIBLE: u32 = 7;
 pub const TVGN_ROOT: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVHITTESTINFO {
     pub pt: super::windef::POINT,
     pub flags: u32,
@@ -4812,7 +4812,7 @@ pub const TVIS_STATEIMAGEMASK: u32 = 61440;
 pub const TVIS_USERMASK: u32 = 61440;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMA {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4829,7 +4829,7 @@ pub struct TVITEMA {
 pub type TVITEMEX = TVITEMEXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMEXA {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4849,7 +4849,7 @@ pub struct TVITEMEXA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMEXW {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -4870,7 +4870,7 @@ pub struct TVITEMEXW {
 pub type TVITEMPART = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TVITEMW {
     pub mask: u32,
     pub hItem: HTREEITEM,
@@ -5040,7 +5040,7 @@ pub const TVS_SINGLEEXPAND: u32 = 1024;
 pub const TVS_TRACKSELECT: u32 = 512;
 pub const TV_FIRST: u32 = 4352;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
@@ -5135,9 +5135,9 @@ pub const WSB_PROP_VBKGCOLOR: u32 = 64;
 pub const WSB_PROP_VSTYLE: u32 = 256;
 pub const WSB_PROP_WINSTYLE: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IMAGELIST(pub u8);
 pub type _LI_METRIC = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TREEITEM(pub u8);

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
     pub atAuthenticationType: AUTH_TYPE,
@@ -200,7 +200,7 @@ impl IEnumSearchScopeRules_Vtbl {
 impl windows_core::RuntimeName for IEnumSearchScopeRules {}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::minwindef::FILETIME,
@@ -3262,7 +3262,7 @@ impl windows_core::RuntimeName for ISearchViewChangedSink {}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ITEMID(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEM_INFO {
     pub dwSize: u32,
     pub pcwszFromEMail: windows_core::PCWSTR,
@@ -3727,7 +3727,7 @@ pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1;
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0;
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_INFO {
     pub dwSize: u32,
     pub pcwszUserAgent: windows_core::PCWSTR,
@@ -3778,7 +3778,7 @@ pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2;
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
@@ -3793,13 +3793,13 @@ impl Default for SEARCH_ITEM_CHANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: windows_core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub URL: windows_core::PWSTR,
@@ -3817,7 +3817,7 @@ pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0;
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1;
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,

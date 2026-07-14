@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACPI_REAL_TIME {
     pub Year: u16,
     pub Month: u8,
@@ -20,7 +20,7 @@ impl Default for ACPI_REAL_TIME {
 }
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
     pub AcWakeSupported: bool,
     pub DcWakeSupported: bool,
@@ -43,7 +43,7 @@ pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = 1;
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824;
 pub type BATTERY_CHARGER_ID = windows_core::GUID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub VaData: [u32; 1],
@@ -55,13 +55,13 @@ impl Default for BATTERY_CHARGER_STATUS {
 }
 pub const BATTERY_CHARGING: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub SourceOnline: bool,
@@ -70,7 +70,7 @@ pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
 pub const BATTERY_CRITICAL: u32 = 8;
 pub const BATTERY_DISCHARGING: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_INFORMATION {
     pub Capabilities: u32,
     pub Technology: u8,
@@ -90,7 +90,7 @@ impl Default for BATTERY_INFORMATION {
 }
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_MANUFACTURE_DATE {
     pub Day: u8,
     pub Month: u8,
@@ -98,7 +98,7 @@ pub struct BATTERY_MANUFACTURE_DATE {
 }
 pub const BATTERY_POWER_ON_LINE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_QUERY_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
@@ -111,7 +111,7 @@ pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_SET_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
@@ -124,7 +124,7 @@ impl Default for BATTERY_SET_INFORMATION {
 }
 pub type BATTERY_SET_INFORMATION_LEVEL = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
     pub Capacity: u32,
@@ -140,7 +140,7 @@ pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub Reserved: u32,
@@ -160,7 +160,7 @@ impl Default for BATTERY_USB_CHARGER_STATUS {
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_WAIT_STATUS {
     pub BatteryTag: u32,
     pub Timeout: u32,
@@ -188,20 +188,20 @@ pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = 8;
 pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = 2;
 pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_CAPABILITIES {
     pub SupportedInputs: u32,
     pub SupportedOutputs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_QUERY_INPUT_RETURN {
     pub FunctionId: u32,
     pub ErrorCode: u32,
     pub Value: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOMIZED_IO_SEND_OUTPUT_BUFFER {
     pub FunctionId: u32,
     pub Value: u32,
@@ -273,7 +273,7 @@ pub type PCUSTOMIZED_IO_CAPABILITIES = *mut CUSTOMIZED_IO_CAPABILITIES;
 pub type PCUSTOMIZED_IO_QUERY_INPUT_RETURN = *mut CUSTOMIZED_IO_QUERY_INPUT_RETURN;
 pub type PCUSTOMIZED_IO_SEND_OUTPUT_BUFFER = *mut CUSTOMIZED_IO_SEND_OUTPUT_BUFFER;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ADAPTER_CHARGE_REQUIREMENT {
     pub AcAdapterType: u32,
     pub MinimumPower: u32,
@@ -292,13 +292,13 @@ impl Default for POWER_ADAPTER_POWER_STATES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ADAPTER_POWER_STATES_0 {
     pub _bitfield: u32,
 }
 pub const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POWER_ADAPTER_SET_STATUS_BUFFER {
     pub Version: u8,
     pub RecOverride: bool,
@@ -335,14 +335,14 @@ pub type PPROCESSOR_OBJECT_INFO_EX = *mut PROCESSOR_OBJECT_INFO_EX;
 #[cfg(feature = "devpropdef")]
 pub const PROCESSOR_NUMBER_PKEY: super::devpropdef::DEVPROPKEY = super::devpropdef::DEVPROPKEY { fmtid: windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: super::devpropdef::DEVPROPID(1) };
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
@@ -366,7 +366,7 @@ pub const SYS_BUTTON_SLEEP: u32 = 2;
 pub const SYS_BUTTON_WAKE: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THERMAL_INFORMATION {
     pub ThermalStamp: u32,
     pub ThermalConstant1: u32,
@@ -386,7 +386,7 @@ impl Default for THERMAL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
     pub WaitForUpdate: bool,
@@ -401,7 +401,7 @@ pub struct THERMAL_POLICY {
 pub const THERMAL_POLICY_VERSION_1: u32 = 1;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_WAIT_READ {
     pub Timeout: u32,
     pub LowTemperature: u32,
@@ -420,7 +420,7 @@ pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0;
 pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2;
 pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,

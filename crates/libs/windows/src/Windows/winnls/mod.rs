@@ -829,7 +829,7 @@ pub type CODEPAGE_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_c
 pub type CODEPAGE_ENUMPROCW = Option<unsafe extern "system" fn(param0: windows_core::PCWSTR) -> windows_core::BOOL>;
 pub const COMPARE_STRING: SYSNLS_FUNCTION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPINFO {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -842,7 +842,7 @@ impl Default for CPINFO {
 }
 pub type CPINFOEX = CPINFOEXA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -857,7 +857,7 @@ impl Default for CPINFOEXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPINFOEXW {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -1000,7 +1000,7 @@ pub const CT_CTYPE2: u32 = 2;
 pub const CT_CTYPE3: u32 = 4;
 pub type CURRENCYFMT = CURRENCYFMTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -1012,7 +1012,7 @@ pub struct CURRENCYFMTA {
     pub lpCurrencySymbol: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -1039,7 +1039,7 @@ pub const DATE_USE_ALT_CALENDAR: u32 = 4;
 pub const DATE_YEARMONTH: u32 = 8;
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1401,7 +1401,7 @@ pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -1410,7 +1410,7 @@ pub struct NLSVERSIONINFO {
     pub guidCustomVersion: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -1430,7 +1430,7 @@ pub const NORM_IGNOREWIDTH: u32 = 131072;
 pub const NORM_LINGUISTIC_CASING: u32 = 134217728;
 pub type NUMBERFMT = NUMBERFMTA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
     pub LeadingZero: u32,
@@ -1440,7 +1440,7 @@ pub struct NUMBERFMTA {
     pub NegativeOrder: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
     pub LeadingZero: u32,

@@ -1,7 +1,7 @@
 pub type ACTIVATEFLAGS = i32;
 pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADWORD {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -12,7 +12,7 @@ impl Default for CADWORD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPOLESTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PWSTR,
@@ -23,7 +23,7 @@ impl Default for CALPOLESTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUUID {
     pub cElems: u32,
     pub pElems: *mut windows_core::GUID,
@@ -34,14 +34,14 @@ impl Default for CAUUID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDATA {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub dwCookie: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONTROLINFO {
     pub cb: u32,
     pub hAccel: super::windef::HACCEL,
@@ -53,7 +53,7 @@ pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = 2;
 pub const CTRLINFO_EATS_RETURN: CTRLINFO = 1;
 pub type DVASPECT2 = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVASPECTINFO {
     pub cb: u32,
     pub dwFlags: u32,
@@ -64,7 +64,7 @@ pub const DVASPECT_OPAQUE: DVASPECT2 = 16;
 pub const DVASPECT_TRANSPARENT: DVASPECT2 = 32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVEXTENTINFO {
     pub cb: u32,
     pub dwExtentMode: u32,
@@ -4411,7 +4411,7 @@ impl IViewObjectEx_Vtbl {
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef", feature = "wingdi"))]
 impl windows_core::RuntimeName for IViewObjectEx {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LICINFO {
     pub cbLicInfo: i32,
     pub fRuntimeKeyAvail: windows_core::BOOL,
@@ -4471,7 +4471,7 @@ pub struct POINTF {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPBAG2 {
     pub dwType: u32,
     pub vt: super::wtypes::VARTYPE,
@@ -4490,7 +4490,7 @@ pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = 0;
 pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPPAGEINFO {
     pub cb: u32,
     pub pszTitle: windows_core::PWSTR,
@@ -4505,7 +4505,7 @@ pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = 1;
 pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = 2;
 #[repr(C)]
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct QACONTAINER {
     pub cbSize: u32,
     pub pClientSite: core::mem::ManuallyDrop<Option<super::oleidl::IOleClientSite>>,
@@ -4534,7 +4534,7 @@ pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = 128;
 pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = 16;
 pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QACONTROL {
     pub cbSize: u32,
     pub dwMiscStatus: u32,

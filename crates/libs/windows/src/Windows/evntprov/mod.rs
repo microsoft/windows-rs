@@ -80,7 +80,7 @@ impl Default for EVENT_DATA_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Type: u8,
     pub Reserved1: u8,
@@ -92,7 +92,7 @@ pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: u32 = 4;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_DESCRIPTOR {
     pub Id: u16,
     pub Version: u8,
@@ -103,14 +103,14 @@ pub struct EVENT_DESCRIPTOR {
     pub Keyword: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
     pub Type: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: bool,
     pub Reserved: u8,
@@ -123,7 +123,7 @@ impl Default for EVENT_FILTER_EVENT_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -138,7 +138,7 @@ impl Default for EVENT_FILTER_EVENT_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_HEADER {
     pub Id: u16,
     pub Version: u8,
@@ -153,7 +153,7 @@ impl Default for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,

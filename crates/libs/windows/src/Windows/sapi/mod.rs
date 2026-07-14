@@ -15213,7 +15213,7 @@ pub const SPAS_PAUSE: SPAUDIOSTATE = 2;
 pub const SPAS_RUN: SPAUDIOSTATE = 3;
 pub const SPAS_STOP: SPAUDIOSTATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
@@ -15222,7 +15222,7 @@ pub struct SPAUDIOBUFFERINFO {
 pub type SPAUDIOOPTIONS = i32;
 pub type SPAUDIOSTATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -15233,7 +15233,7 @@ pub struct SPAUDIOSTATUS {
     pub dwReserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
 }
@@ -15279,7 +15279,7 @@ pub const SPDF_RULE: SPVALUETYPE = 4;
 pub const SPDICTATION: windows_core::PCWSTR = windows_core::w!("*");
 pub type SPDISPLAYATTRIBUTES = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
     pub pTokens: *mut SPDISPLAYTOKEN,
@@ -15290,7 +15290,7 @@ impl Default for SPDISPLAYPHRASE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: *const u16,
     pub pszDisplay: *const u16,
@@ -15367,7 +15367,7 @@ pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = 1;
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = 0;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENT {
     pub _bitfield: SPEVENTENUM,
     pub ulStreamNum: u32,
@@ -15378,7 +15378,7 @@ pub struct SPEVENT {
 pub type SPEVENTENUM = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTEX {
     pub _bitfield: SPEVENTENUM,
     pub ulStreamNum: u32,
@@ -15389,7 +15389,7 @@ pub struct SPEVENTEX {
 }
 pub type SPEVENTLPARAMTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
@@ -15463,7 +15463,7 @@ pub const SPMIN_VOLUME: SPVLIMITS = 0;
 pub const SPMMSYS_AUDIO_IN_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioInput\\TokenEnums\\MMAudioIn\\");
 pub const SPMMSYS_AUDIO_OUT_TOKEN_ID: windows_core::PCWSTR = windows_core::w!("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Speech\\AudioOutput\\TokenEnums\\MMAudioOut\\");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPNORMALIZATIONLIST {
     pub ulSize: u32,
     pub ppszzNormalizedList: *mut *mut u16,
@@ -15550,7 +15550,7 @@ impl Default for SPPHRASEPROPERTY_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: super::rpc::byte,
     pub bReserved: super::rpc::byte,
@@ -15558,7 +15558,7 @@ pub struct SPPHRASEPROPERTY_0_0 {
 }
 pub type SPPHRASEPROPERTYUNIONTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
     pub pszReplacementText: windows_core::PCWSTR,
@@ -15683,7 +15683,7 @@ pub const SPRAF_Root: SPCFGRULEATTRIBUTES = 64;
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = 1;
 pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
     pub szRequestTypeOfUI: [u16; 255],
@@ -15697,7 +15697,7 @@ impl Default for SPRECOCONTEXTSTATUS {
 }
 pub type SPRECOEVENTFLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
     pub ullRecognitionStreamPos: u64,
@@ -15715,7 +15715,7 @@ impl Default for SPRECOGNIZERSTATUS {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::minwindef::FILETIME,
     pub ullLength: u64,
@@ -15747,7 +15747,7 @@ pub const SPRS_DONE: SPRUNSTATE = 1;
 pub const SPRS_INACTIVE: SPRULESTATE = 0;
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPRULE {
     pub pszRuleName: windows_core::PCWSTR,
     pub ulRuleId: u32,
@@ -15756,7 +15756,7 @@ pub struct SPRULE {
 pub type SPRULESTATE = i32;
 pub type SPRUNSTATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
     pub pszScriptLine: windows_core::PWSTR,
@@ -15766,7 +15766,7 @@ pub struct SPSEMANTICERRORINFO {
 }
 pub type SPSEMANTICFORMAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: SPEVENTENUM,
     pub ulStreamNum: u32,
@@ -15775,7 +15775,7 @@ pub struct SPSERIALIZEDEVENT {
     pub SerializedlParam: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: SPEVENTENUM,
     pub ulStreamNum: u32,
@@ -15784,12 +15784,12 @@ pub struct SPSERIALIZEDEVENT64 {
     pub SerializedlParam: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
 }
@@ -15866,7 +15866,7 @@ pub const SPSF_Text: SPSTREAMFORMAT = 1;
 pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = 40;
 pub const SPSFunction: SpeechPartOfSpeech = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut Self,
     pub LangID: u16,
@@ -15880,7 +15880,7 @@ impl Default for SPSHORTCUTPAIR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -15920,7 +15920,7 @@ pub type SPSTREAMFORMATTYPE = i32;
 pub const SPSUnknown: SpeechPartOfSpeech = 0;
 pub const SPSVerb: SpeechPartOfSpeech = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
@@ -15946,7 +15946,7 @@ pub const SPVA_Silence: SPVACTIONS = 1;
 pub const SPVA_Speak: SPVACTIONS = 0;
 pub const SPVA_SpellOut: SPVACTIONS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVCONTEXT {
     pub pCategory: windows_core::PCWSTR,
     pub pBefore: windows_core::PCWSTR,
@@ -15959,7 +15959,7 @@ pub type SPVISEMES = i32;
 pub type SPVLIMITS = i32;
 pub const SPVOICECATEGORY_TTSRATE: windows_core::PCWSTR = windows_core::w!("DefaultTTSRate");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -15976,7 +15976,7 @@ pub struct SPVOICESTATUS {
     pub dwReserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
@@ -15986,7 +15986,7 @@ pub const SPVPRI_ALERT: SPVPRIORITY = 1;
 pub const SPVPRI_NORMAL: SPVPRIORITY = 0;
 pub const SPVPRI_OVER: SPVPRIORITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
     pub LangID: u16,
@@ -16009,7 +16009,7 @@ pub const SPWF_INPUT: SPSTREAMFORMATTYPE = 0;
 pub const SPWF_SRENGINE: SPSTREAMFORMATTYPE = 1;
 pub const SPWILDCARD: windows_core::PCWSTR = windows_core::w!("...");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORD {
     pub pNextWord: *mut Self,
     pub LangID: u16,
@@ -16024,7 +16024,7 @@ impl Default for SPWORD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -16037,7 +16037,7 @@ impl Default for SPWORDLIST {
 }
 pub type SPWORDPRONOUNCEABLE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut Self,
     pub eLexiconType: SPLEXICONTYPE,
@@ -16052,7 +16052,7 @@ impl Default for SPWORDPRONUNCIATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPWORDPRONUNCIATIONLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,

@@ -4,7 +4,7 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -79,7 +79,7 @@ pub type AUDIO_DUCKING_OPTIONS = u32;
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0;
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_core::GUID,
     pub canSetState: windows_core::BOOL,
@@ -89,13 +89,13 @@ pub type AUDIO_EFFECT_STATE = i32;
 pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = 0;
 pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "audiosessiontypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: windows_core::BOOL,

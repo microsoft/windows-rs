@@ -46,7 +46,7 @@ pub const WCM_API_VERSION: u32 = 1;
 pub const WCM_API_VERSION_1_0: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_BILLING_CYCLE_INFO {
     pub StartDate: super::minwindef::FILETIME,
     pub Duration: WCM_TIME_INTERVAL,
@@ -56,7 +56,7 @@ pub type WCM_CONNECTION_COST = i32;
 pub const WCM_CONNECTION_COST_APPROACHINGDATALIMIT: WCM_CONNECTION_COST = 524288;
 pub const WCM_CONNECTION_COST_CONGESTED: WCM_CONNECTION_COST = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_CONNECTION_COST_DATA {
     pub ConnectionCost: u32,
     pub CostSource: WCM_CONNECTION_COST_SOURCE,
@@ -74,7 +74,7 @@ pub const WCM_CONNECTION_COST_UNRESTRICTED: WCM_CONNECTION_COST = 1;
 pub const WCM_CONNECTION_COST_VARIABLE: WCM_CONNECTION_COST = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_DATAPLAN_STATUS {
     pub UsageData: WCM_USAGE_DATA,
     pub DataLimitInMegabytes: u32,
@@ -87,13 +87,13 @@ pub struct WCM_DATAPLAN_STATUS {
 pub const WCM_MAX_PROFILE_NAME: u32 = 256;
 pub type WCM_MEDIA_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_POLICY_VALUE {
     pub fValue: windows_core::BOOL,
     pub fIsGroupPolicy: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub AdapterGUID: windows_core::GUID,
@@ -105,7 +105,7 @@ impl Default for WCM_PROFILE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WCM_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub ProfileInfo: [WCM_PROFILE_INFO; 1],
@@ -117,7 +117,7 @@ impl Default for WCM_PROFILE_INFO_LIST {
 }
 pub type WCM_PROPERTY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_TIME_INTERVAL {
     pub wYear: u16,
     pub wMonth: u16,
@@ -130,7 +130,7 @@ pub struct WCM_TIME_INTERVAL {
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WCM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::minwindef::FILETIME,

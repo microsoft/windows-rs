@@ -343,7 +343,7 @@ pub const OCM_VSCROLL: u32 = 8469;
 pub const OCM__BASE: u32 = 8192;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: u32,
     pub hWndOwner: super::windef::HWND,
@@ -428,14 +428,14 @@ impl Default for PICTDESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::windef::HBITMAP,
     pub hpal: super::windef::HPALETTE,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::minwindef::HMETAFILE,
     pub xExt: i32,
@@ -443,13 +443,13 @@ pub struct PICTDESC_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_2 {
     pub hicon: super::windef::HICON,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::windef::HENHMETAFILE,
 }

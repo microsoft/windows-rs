@@ -8479,7 +8479,7 @@ pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_HALTCOND {
     pub pHaltRange: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
@@ -8492,7 +8492,7 @@ pub const TF_IAS_QUERYONLY: u32 = 2;
 pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: super::winnt::LANGID,
@@ -8527,7 +8527,7 @@ pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
     pub langid: super::winnt::LANGID,
@@ -8555,7 +8555,7 @@ pub const TF_MOD_RCONTROL: u32 = 16;
 pub const TF_MOD_RSHIFT: u32 = 32;
 pub const TF_MOD_SHIFT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_core::GUID,
     pub ichStart: i32,
@@ -8566,7 +8566,7 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
 }
 pub const TF_POPF_ALL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -8624,13 +8624,13 @@ pub const TF_SD_FORWARD: TfShiftDir = 1;
 pub const TF_SD_LOADING: u32 = 2;
 pub const TF_SD_READONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_SELECTION {
     pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,

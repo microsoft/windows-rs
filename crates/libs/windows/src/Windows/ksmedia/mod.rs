@@ -1,8 +1,8 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APO_CLASS_UUID(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOENDPOINT_CLASS_UUID(pub u8);
 pub const AUDIOLOOPBACK_TAPPOINT_CAPS_POSTVOLUMEMUTE: u32 = 2;
 pub const AUDIOLOOPBACK_TAPPOINT_CAPS_PREVOLUMEMUTE: u32 = 1;
@@ -17,7 +17,7 @@ pub const AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE: AUDIOPOSTU
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = 3;
 pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
     pub ResourceGroupAcquired: windows_core::BOOL,
     pub ResourceGroupName: [u16; 256],
@@ -31,96 +31,96 @@ pub type AUDIO_CURVE_TYPE = i32;
 pub const AUDIO_CURVE_TYPE_NONE: AUDIO_CURVE_TYPE = 0;
 pub const AUDIO_CURVE_TYPE_WINDOWS_FADE: AUDIO_CURVE_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_BASS_BOOST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_BASS_MANAGEMENT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_BEAMFORMING(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_EQUALIZER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_ROOM_CORRECTION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_SPEAKER_FILL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_DEFAULT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_MEDIA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_MOVIE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_RAW(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_SIGNALPROCESSINGMODE_SPEECH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTHLE_MIDI_SERVICE_UUID(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC(pub u8);
 pub type CAPTURE_MEMORY_ALLOCATION_FLAGS = i32;
 pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CC_BYTE_PAIR {
     pub Decoded: [u8; 2],
     pub Reserved: u16,
@@ -131,7 +131,7 @@ impl Default for CC_BYTE_PAIR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CC_HW_FIELD {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub fieldFlags: u32,
@@ -145,28 +145,28 @@ impl Default for CC_HW_FIELD {
 }
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLSID_KsIBasicAudioInterfaceHandler(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_ALLSETTINGS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_AUDIO_ENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_CHANGELISTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_CURRENTCHANGELIST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_SETALLDEFAULTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_SUPPORTSEVENTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODECAPI_VIDEO_ENCODER(pub u8);
 pub type CONSTRICTOR_OPTION = i32;
 pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = 0;
@@ -250,7 +250,7 @@ impl Default for DDPIXELFORMAT_4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDVIDEOPORTCONNECT {
     pub dwSize: u32,
     pub dwPortWidth: u32,
@@ -259,7 +259,7 @@ pub struct DDVIDEOPORTCONNECT {
     pub dwReserved1: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVCAPS {
     pub CanRecord: i32,
     pub CanRecordStrobe: i32,
@@ -340,13 +340,13 @@ impl Default for DS3DVECTOR_2 {
 pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = 0;
 pub type EDeviceControlUseType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCAPIPARAM_BITRATE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCAPIPARAM_BITRATE_MODE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCAPIPARAM_PEAK_BITRATE(pub u8);
 pub type EPcxConnectionType = i32;
 pub type EPcxGenLocation = i32;
@@ -355,21 +355,21 @@ pub type EPcxGeoLocation = i32;
 pub const EPcxGeoLocation_enum_count: EPcxGeoLocation = 16;
 pub type EPxcPortConnection = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSETID_CROSSBAR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSETID_TUNER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTSETID_VIDEODECODER(pub u8);
 pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 0;
 pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
     pub Size: u32,
     pub PrimaryChannelCount: u32,
@@ -382,7 +382,7 @@ pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
 pub const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: u32 = 2;
 pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_ALTERNATE_AUDIO {
     pub fStereo: windows_core::BOOL,
     pub DualMode: u32,
@@ -391,29 +391,29 @@ pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1;
 pub const KSAC3_ALTERNATE_AUDIO_2: u32 = 2;
 pub const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_BIT_STREAM_MODE {
     pub BitStreamMode: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_DIALOGUE_LEVEL {
     pub DialogueLevel: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_DOWNMIX {
     pub fDownMix: windows_core::BOOL,
     pub fDolbySurround: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_ERROR_CONCEALMENT {
     pub fRepeatPreviousBlock: windows_core::BOOL,
     pub fErrorInCurrentBlock: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAC3_ROOM_TYPE {
     pub fLargeRoom: windows_core::BOOL,
 }
@@ -426,36 +426,36 @@ pub const KSAC3_SERVICE_NO_DIALOG: u32 = 1;
 pub const KSAC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2;
 pub const KSAC3_SERVICE_VOICE_OVER: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSALGORITHMINSTANCE_SYSTEM_AGC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTEID_AUDIOLOOPBACK_TAPPOINT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTEID_VIDEOFORMAT_DX12(pub u8);
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTE_AUDIOLOOPBACK_TAPPOINT {
     pub AttributeHeader: super::ks::KSATTRIBUTE,
     pub TapPoint: AUDIOLOOPBACK_TAPPOINT_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
     pub AttributeHeader: super::ks::KSATTRIBUTE,
     pub SignalProcessingMode: windows_core::GUID,
@@ -464,187 +464,187 @@ pub const KSAUDDECOUTMODE_PCM_51: u32 = 2;
 pub const KSAUDDECOUTMODE_SPDIFF: u32 = 4;
 pub const KSAUDDECOUTMODE_STEREO_ANALOG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_3D_CENTER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_3D_DEPTH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_3D_STEREO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_ALTERNATE_MICROPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_AUX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_AUX_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_AUX_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_BASS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_CD_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_CD_IN_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_CD_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_CD_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_LINE_IN(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_LINE_IN_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_LINE_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_LINE_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MASTER_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MASTER_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MICROPHONE_BOOST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIC_IN_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIC_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIC_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIDI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIDI_IN_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIDI_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIDI_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MIDRANGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_MIX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_MIX_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_MIX_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_OUT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_OUT_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_MONO_OUT_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_PC_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_PC_SPEAKER_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_PC_SPEAKER_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_PEAKMETER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_RECORDING_CONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_RECORDING_SOURCE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_STEREO_MIX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_STEREO_MIX_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_STEREO_MIX_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_TREBLE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_VIDEO_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_VIDEO_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_VOLUME_CONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_WAVE_IN_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_WAVE_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_WAVE_OUT_MIX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDFNAME_WAVE_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
     pub MinBufferBytes: u32,
     pub MaxBufferBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOENGINE_DESCRIPTOR {
     pub nHostPinId: u32,
     pub nOffloadPinId: u32,
     pub nLoopbackPinId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOENGINE_DEVICECONTROLS {
     pub Volume: EDeviceControlUseType,
     pub Mute: EDeviceControlUseType,
     pub PeakMeter: EDeviceControlUseType,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOENGINE_VOLUMELEVEL {
     pub TargetVolume: i32,
     pub CurveType: AUDIO_CURVE_TYPE,
     pub CurveDuration: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSAUDIOMODULE_DESCRIPTOR {
     pub ClassId: windows_core::GUID,
     pub InstanceId: u32,
@@ -679,7 +679,7 @@ impl Default for KSAUDIOMODULE_NOTIFICATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIOMODULE_NOTIFICATION_0_0 {
     pub DeviceId: windows_core::GUID,
     pub ClassId: windows_core::GUID,
@@ -701,12 +701,12 @@ impl Default for KSAUDIOMODULE_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_CHANNEL_CONFIG {
     pub ActiveSpeakerPositions: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_COPY_PROTECTION {
     pub fCopyrighted: windows_core::BOOL,
     pub fOriginal: windows_core::BOOL,
@@ -714,13 +714,13 @@ pub struct KSAUDIO_COPY_PROTECTION {
 pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647;
 pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_DYNAMIC_RANGE {
     pub QuietCompression: u32,
     pub LoudCompression: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_MICROPHONE_COORDINATES {
     pub usType: u16,
     pub wXCoord: i16,
@@ -730,7 +730,7 @@ pub struct KSAUDIO_MICROPHONE_COORDINATES {
     pub wHorizontalAngle: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSAUDIO_MIC_ARRAY_GEOMETRY {
     pub usVersion: u16,
     pub usMicArrayType: u16,
@@ -761,7 +761,7 @@ impl Default for KSAUDIO_MIXCAP_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_MIXLEVEL {
     pub Mute: windows_core::BOOL,
     pub Level: i32,
@@ -791,7 +791,7 @@ impl Default for KSAUDIO_MIX_CAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS {
     pub MinPacketPeriodInHns: u32,
     pub PacketSizeFileAlignment: u32,
@@ -805,7 +805,7 @@ impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     pub MinPacketPeriodInHns: u32,
     pub PacketSizeFileAlignment: u32,
@@ -819,7 +819,7 @@ impl Default for KSAUDIO_PACKETSIZE_CONSTRAINTS2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
     pub ProcessingMode: windows_core::GUID,
     pub SamplesPerProcessingPacket: u32,
@@ -827,14 +827,14 @@ pub struct KSAUDIO_PACKETSIZE_PROCESSINGMODE_CONSTRAINT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_POSITION {
     pub PlayOffset: super::winnt::DWORDLONG,
     pub WriteOffset: super::winnt::DWORDLONG,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_POSITIONEX {
     pub TimerFrequency: i64,
     pub TimeStamp1: i64,
@@ -842,7 +842,7 @@ pub struct KSAUDIO_POSITIONEX {
     pub TimeStamp2: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSAUDIO_PRESENTATION_POSITION {
     pub u64PositionInBlocks: u64,
     pub u64QPCPosition: u64,
@@ -881,10 +881,10 @@ pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN: u32 = 5;
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: u32 = 10;
 pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_BalancedVideoAndPhoto(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_CompressedCamera(pub u8);
 pub const KSCAMERAPROFILE_FLAGS_FACEDETECTION: u32 = 8;
 pub const KSCAMERAPROFILE_FLAGS_PHOTOHDR: u32 = 4;
@@ -893,37 +893,37 @@ pub const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: u32 = 16;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u32 = 2;
 pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_FaceAuth_Mode(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_HDRWithWCGPhoto(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_HDRWithWCGVideo(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_HighFrameRate(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_HighQualityPhoto(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_Legacy(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_PhotoSequence(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_VariablePhotoSequence(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_VideoConferencing(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_VideoHDR8(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERAPROFILE_VideoRecording(pub u8);
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: u32 = 4;
@@ -933,7 +933,7 @@ pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: u32 = 8;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
     pub Resolution: super::windef::SIZE,
     pub MaxFrameRate: KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0,
@@ -942,7 +942,7 @@ pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
     pub Denominator: i32,
@@ -951,7 +951,7 @@ pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_SHALLOWFOCUS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
     pub PitchAngle: i32,
     pub YawAngle: i32,
@@ -964,7 +964,7 @@ pub const KSCAMERA_EXTENDEDPROP_CAPS_MASK: u64 = 18374686479671623680;
 pub const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680;
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     pub ResolutionX: i32,
     pub ResolutionY: i32,
@@ -978,7 +978,7 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
     pub Reserved: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
     pub Size: u32,
     pub Count: u32,
@@ -986,7 +986,7 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPSHEADER {
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MASK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     pub OriginX: i32,
     pub OriginY: i32,
@@ -994,7 +994,7 @@ pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
     pub Mode: u32,
     pub Min: i32,
@@ -1023,7 +1023,7 @@ pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW: u32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: u32 = 16;
 pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     pub NormalizedFocalLengthX: u32,
     pub NormalizedFocalLengthY: u32,
@@ -1031,7 +1031,7 @@ pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW2_CONFIGCAPS {
     pub DefaultDiagonalFieldOfViewInDegrees: u16,
     pub DiscreteFoVStopsCount: u16,
@@ -1087,7 +1087,7 @@ pub const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: u32 = 1024;
 pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_OFF: u32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_FRAMERATE_THROTTLE_ON: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_HEADER {
     pub Version: u32,
     pub PinId: u32,
@@ -1115,7 +1115,7 @@ pub const KSCAMERA_EXTENDEDPROP_ISO_800: u32 = 64;
 pub const KSCAMERA_EXTENDEDPROP_ISO_AUTO: u32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: u64 = 36028797018963968;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
     pub BufferAlignment: i32,
     pub MaxMetadataBufferSize: u32,
@@ -1148,7 +1148,7 @@ pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO: u32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: u32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
     pub RequestedHistoryFrames: u32,
     pub MaxHistoryFrames: u32,
@@ -1165,7 +1165,7 @@ pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X: u32 = 2;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X: u32 = 4;
 pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
     pub ProfileId: windows_core::GUID,
     pub Index: u32,
@@ -1179,14 +1179,14 @@ pub type KSCAMERA_EXTENDEDPROP_ROITYPE = i32;
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_FACE: KSCAMERA_EXTENDEDPROP_ROITYPE = 1;
 pub const KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN: KSCAMERA_EXTENDEDPROP_ROITYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPS {
     pub ControlId: u32,
     pub MaxNumberOfROIs: u32,
     pub Capability: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
     pub Size: u32,
     pub ConfigCapCount: u32,
@@ -1194,21 +1194,21 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_CONFIGCAPSHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_EXPOSURE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_FOCUS {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub Region: super::windef::RECT,
     pub Flags: u64,
@@ -1216,7 +1216,7 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_INFO {
     pub RegionOfInterestType: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     pub ControlId: u32,
     pub ROICount: u32,
@@ -1224,7 +1224,7 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROL {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
     pub Size: u32,
     pub ControlCount: u32,
@@ -1232,7 +1232,7 @@ pub struct KSCAMERA_EXTENDEDPROP_ROI_ISPCONTROLHEADER {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
     pub ROIInfo: KSCAMERA_EXTENDEDPROP_ROI_INFO,
     pub Reserved: u64,
@@ -1326,7 +1326,7 @@ pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u32 = 0;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u32 = 1;
 pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
     pub PhotoResWidth: u32,
     pub PhotoResHeight: u32,
@@ -1337,7 +1337,7 @@ pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub MaskCoverageBoundingBox: super::windef::RECT,
@@ -1352,7 +1352,7 @@ impl Default for KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_CAPTURESTATS {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Flags: u32,
@@ -1382,13 +1382,13 @@ pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE: u32 = 1024;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE: u32 = 32;
 pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_DIGITALWINDOW {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Window: KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub Flags: u32,
@@ -1396,13 +1396,13 @@ pub struct KSCAMERA_METADATA_FRAMEILLUMINATION {
 }
 pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_ITEMHEADER {
     pub MetadataId: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub PhotoConfirmationIndex: u32,
@@ -1411,28 +1411,28 @@ pub struct KSCAMERA_METADATA_PHOTOCONFIRMATION {
 pub type KSCAMERA_MetadataId = i32;
 pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
     pub Size: u32,
     pub ItemCount: u32,
     pub Flags: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_ITEM_HEADER {
     pub Size: u32,
     pub Type: u32,
     pub Flags: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_CUSTOM_ITEM {
     pub Size: u32,
     pub Reserved: u32,
     pub Id: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     pub Size: u32,
     pub Id: u32,
@@ -1440,7 +1440,7 @@ pub struct KSCAMERA_PERFRAMESETTING_FRAME_HEADER {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_HEADER {
     pub Size: u32,
     pub FrameCount: u32,
@@ -1455,7 +1455,7 @@ pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_TIME: KSCAMERA_PERFRAMESETTING_
 pub const KSCAMERA_PERFRAMESETTING_ITEM_FLASH: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 2;
 pub const KSCAMERA_PERFRAMESETTING_ITEM_FOCUS: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
     pub Size: u32,
     pub Type: u32,
@@ -1466,7 +1466,7 @@ pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETT
 pub type KSCAMERA_PERFRAMESETTING_ITEM_TYPE = i32;
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub ReferenceGuid: windows_core::GUID,
     pub Reserved: u32,
@@ -1474,7 +1474,7 @@ pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub Profiles: PKSCAMERA_PROFILE_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_INFO {
     pub ProfileId: windows_core::GUID,
     pub Index: u32,
@@ -1482,7 +1482,7 @@ pub struct KSCAMERA_PROFILE_INFO {
     pub Pins: PKSCAMERA_PROFILE_PININFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Resolution: KSCAMERA_PROFILE_MEDIAINFO_0,
     pub MaxFrameRate: KSCAMERA_PROFILE_MEDIAINFO_1,
@@ -1493,13 +1493,13 @@ pub struct KSCAMERA_PROFILE_MEDIAINFO {
     pub Data3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_0 {
     pub X: u32,
     pub Y: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_MEDIAINFO_1 {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -1529,67 +1529,67 @@ impl Default for KSCAMERA_PROFILE_PININFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCAMERA_PROFILE_PININFO_0_0 {
     pub PinIndex: u16,
     pub ProfileSensorType: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_ACOUSTIC_ECHO_CANCEL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_CROSSBAR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_ENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_ESCALANTE_PLATFORM_DRIVER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_MULTIPLEXER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_NETWORK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_REALTIME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_TEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_TOPOLOGY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_TVAUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_TVTUNER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_VBICODEC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_VIRTUAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_VPMUX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_WDMAUD_USE_PIN_NAME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCOMPONENTID_USBAUDIO(pub u8);
 pub const KSCameraProfileSensorType_Custom: u32 = 128;
 pub const KSCameraProfileSensorType_Depth: u32 = 4;
@@ -1611,373 +1611,373 @@ impl Default for KSDATAFORMAT_DSOUND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_AC3_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_ANALOGVIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_DSOUND(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_H264_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_IMAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_JPEG_IMAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_LPCM_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_VBI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_VC_ID(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_VIDEOINFO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_VIDEOINFO2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_WAVEFORMATEX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_AC3_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_ADPCM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_ALAW(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_ANALOG(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_CC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_D16(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_DRM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_DSS_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_DSS_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_DTS_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_AAC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21_PROFILE4(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_BL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL1_LC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_BL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL2_LC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_BL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL3_LC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_BL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL4_LC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_BL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_MPEGH_LEVEL5_LC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IMAGE_RGB32(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_JPEG(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L16(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L16_CUSTOM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L16_IR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L8(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L8_CUSTOM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_L8_IR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_LPCM_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_Line21_BytePair(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_Line21_GOPPacket(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MIDI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MIDI_BUS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MJPG_DEPTH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MJPG_IR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG1Packet(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG1Payload(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG1Video(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEGLAYER3(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MPEG_HEAAC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_MULAW(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_NABTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_NABTS_FEC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_OVERLAY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_RAW8(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_RIFF(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_RIFFMIDI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_RIFFWAVE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_SDDS_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_SUBPICTURE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_TELETEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_VPVBI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_VPVideo(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO3(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_ANALOGAUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_ANALOGVIDEO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_AUXLine21Data(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_IMAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_MIDI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_MPEG2_PES(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_MPEG2_PROGRAM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_MPEG2_TRANSPORT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_MUSIC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_NABTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_STANDARD_PES_PACKET(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_TEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_VBI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_VIDEO(pub u8);
 #[repr(C, packed(1))]
 #[cfg(all(feature = "ks", feature = "mmeapi"))]
@@ -2061,7 +2061,7 @@ impl Default for KSDEVICE_PROFILE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub Info: KSCAMERA_PROFILE_INFO,
     pub Reserved: u32,
@@ -2071,7 +2071,7 @@ pub struct KSDEVICE_PROFILE_INFO_0_0 {
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1;
 pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSDISPLAYCHANGE {
     pub PelsWidth: u32,
     pub PelsHeight: u32,
@@ -2102,7 +2102,7 @@ impl Default for KSDS3D_BUFFER_ALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_BUFFER_CONE_ANGLES {
     pub InsideConeAngle: u32,
     pub OutsideConeAngle: u32,
@@ -2112,7 +2112,7 @@ pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = 2;
 pub const KSDS3D_FILTER_QUALITY_COUNT: KSDS3D_HRTF_FILTER_QUALITY = 2;
 pub type KSDS3D_HRTF_COEFF_FORMAT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
     pub FilterMethod: KSDS3D_HRTF_FILTER_METHOD,
     pub CoeffFormat: KSDS3D_HRTF_COEFF_FORMAT,
@@ -2135,7 +2135,7 @@ pub struct KSDS3D_HRTF_INIT_MSG {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDS3D_HRTF_PARAMS_MSG {
     pub Size: u32,
     pub Enabled: u32,
@@ -2211,43 +2211,43 @@ pub const KSDSOUND_BUFFER_LOCSOFTWARE: u32 = 8;
 pub const KSDSOUND_BUFFER_PRIMARY: u32 = 1;
 pub const KSDSOUND_BUFFER_STATIC: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_AudioControlChange(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_CameraAsyncControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_CameraEvent(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_DynamicFormatChange(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_EXTDEV_Command(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_ExtendedCameraControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_LoopedStreaming(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_SoundDetector(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_Telephony(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_VIDCAPTOSTI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_VIDCAP_TVAUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_VPNotify(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_VPVBINotify(pub u8);
 pub type KSEVENT_AUDIO_CONTROL_CHANGE = i32;
 pub type KSEVENT_CAMERACONTROL = i32;
@@ -2305,7 +2305,7 @@ pub const KSEVENT_VPNOTIFY_FORMATCHANGE: KSEVENT_VPNOTIFY = 0;
 pub type KSEVENT_VPVBINOTIFY = i32;
 pub const KSEVENT_VPVBINOTIFY_FORMATCHANGE: KSEVENT_VPVBINOTIFY = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSGOP_USERDATA {
     pub sc: u32,
     pub reserved1: u32,
@@ -2318,14 +2318,14 @@ impl Default for KSGOP_USERDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACESETID_Media(pub u8);
 pub type KSINTERFACE_MEDIA = i32;
 pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = 0;
 pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = 1;
 pub const KSINTERFACE_MEDIA_WAVE_QUEUED: KSINTERFACE_MEDIA = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSJACK_DESCRIPTION {
     pub ChannelMapping: u32,
     pub Color: u32,
@@ -2336,13 +2336,13 @@ pub struct KSJACK_DESCRIPTION {
     pub IsConnected: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSJACK_DESCRIPTION2 {
     pub DeviceStateInfo: u32,
     pub JackCapabilities: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSJACK_DESCRIPTION3 {
     pub ConfigId: u32,
 }
@@ -2351,7 +2351,7 @@ pub const KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT: KSJACK_SINK_CONNECTIONTYPE = 1
 pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSJACK_SINK_INFORMATION {
     pub ConnType: KSJACK_SINK_CONNECTIONTYPE,
     pub ManufacturerId: u16,
@@ -2370,13 +2370,13 @@ impl Default for KSJACK_SINK_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEDIUMSETID_MidiBus(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEDIUMSETID_VPBus(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHODSETID_Wavetable(pub u8);
 pub type KSMETHOD_WAVETABLE = i32;
 pub const KSMETHOD_WAVETABLE_WAVE_ALLOC: KSMETHOD_WAVETABLE = 0;
@@ -2396,7 +2396,7 @@ pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = 1;
 pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSMIDILOOPED_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
@@ -2421,19 +2421,19 @@ impl Default for KSMIDILOOPED_BUFFER_PROPERTY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMIDILOOPED_EVENT {
     pub WriteEvent: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMIDILOOPED_EVENT2 {
     pub WriteEvent: super::winnt::HANDLE,
     pub ReadEvent: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSMIDILOOPED_REGISTERS {
     pub WritePosition: *mut core::ffi::c_void,
     pub ReadPosition: *mut core::ffi::c_void,
@@ -2447,7 +2447,7 @@ pub const KSMPEGVIDMODE_LTRBOX: u32 = 2;
 pub const KSMPEGVIDMODE_PANSCAN: u32 = 1;
 pub const KSMPEGVIDMODE_SCALE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMPEGVID_RECT {
     pub StartX: u32,
     pub StartY: u32,
@@ -2468,25 +2468,25 @@ impl Default for KSMULTIPLE_DATA_PROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSICFORMAT {
     pub TimeDeltaMs: u32,
     pub ByteCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSIC_TECHNOLOGY_FMSYNTH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSIC_TECHNOLOGY_PORT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSIC_TECHNOLOGY_SQSYNTH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSIC_TECHNOLOGY_SWSYNTH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMUSIC_TECHNOLOGY_WAVETABLE(pub u8);
 pub const KSNODEPIN_DEMUX_IN: u32 = 0;
 pub const KSNODEPIN_DEMUX_OUT: u32 = 1;
@@ -2602,319 +2602,319 @@ impl Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_1394_DA_STREAM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_1394_DV_STREAM_SOUNDTRACK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_3D_EFFECTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ADC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_AGC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ANALOG_CONNECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ANALOG_TAPE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_AUDIO_ENGINE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_AUDIO_KEYWORDDETECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_AUDIO_LOOPBACK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_AUDIO_MODULE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_BIDIRECTIONAL_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_CABLE_TUNER_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_CD_PLAYER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_CHORUS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_COMMUNICATION_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DAC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DELAY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DEMUX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DESKTOP_MICROPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DESKTOP_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DEV_SPECIFIC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DIGITAL_AUDIO_INTERFACE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DISPLAYPORT_INTERFACE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DOWN_LINE_PHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DRM_DESCRAMBLE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DSS_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DVD_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_DYN_RANGE_COMPRESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_EMBEDDED_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_EQUALIZATION_NOISE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_EQUALIZER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_EXTERNAL_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_FM_RX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_HANDSET(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_HDMI_INTERFACE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_HEADPHONES(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_HEADSET(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_INPUT_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_LEGACY_AUDIO_CONNECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_LINE_CONNECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_LOUDNESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MICROPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MICROPHONE_ARRAY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MIDI_ELEMENT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MIDI_JACK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MINIDISK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MULTITRACK_RECORDER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MUTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_MUX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_NOISE_SUPPRESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_OUTPUT_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PARAMETRIC_EQUALIZER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PEAKMETER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PERSONAL_MICROPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PHONE_LINE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PHONOGRAPH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PROCESSING_MICROPHONE_ARRAY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PROLOGIC_DECODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_PROLOGIC_ENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_RADIO_RECEIVER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_RADIO_TRANSMITTER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_REVERB(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_ROOM_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SATELLITE_RECEIVER_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SPDIF_INTERFACE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SPEAKER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SPEAKERS_STATIC_JACK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SRC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_STEREO_WIDE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SUPERMIX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_SYNTHESIZER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_TELEPHONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_TELEPHONY_BIDI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_TELEPHONY_UNDEFINED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_TONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_TV_TUNER_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_UPDOWN_MIX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VCR_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_CAMERA_TERMINAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_DISC_AUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_INPUT_MTT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_INPUT_TERMINAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_OUTPUT_MTT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_OUTPUT_TERMINAL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_PROCESSING(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_SELECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VIDEO_STREAMING(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODETYPE_VOLUME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNOTIFICATIONID_AudioModule(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNOTIFICATIONID_SoundDetector(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTYSETID_ExtendedCameraControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTYSETID_NetworkCameraControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTYSETID_PerFrameSettingControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTYSETID_WindowsCameraEffect(pub u8);
 pub type KSPROPERTY_AC3 = i32;
 pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = 2;
@@ -2927,20 +2927,20 @@ pub const KSPROPERTY_AC3_ROOM_TYPE: KSPROPERTY_AC3 = 7;
 pub type KSPROPERTY_ALLOCATOR_CONTROL = i32;
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS: KSPROPERTY_ALLOCATOR_CONTROL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS_S {
     pub InterleavedCapSupported: u32,
 }
 pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE_S {
     pub InterleavedCapPossible: u32,
 }
 pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = 0;
 pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     pub CX: u32,
     pub CY: u32,
@@ -3138,7 +3138,7 @@ pub const KSPROPERTY_CAMERACONTROL_FLASH_OFF: u32 = 0;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_ON: u32 = 1;
 pub const KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_FLASH = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH_S {
     pub Flash: u32,
     pub Capabilities: u32,
@@ -3165,7 +3165,7 @@ pub type KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = i32;
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: u32 = 1;
 pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
     pub Capabilities: u32,
     pub Reserved0: u32,
@@ -3313,7 +3313,7 @@ pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW: u32 = 3;
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: u32 = 2;
 pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     pub VideoStabilizationMode: u32,
     pub Capabilities: u32,
@@ -3528,7 +3528,7 @@ impl Default for KSPROPERTY_EXTXPORT_NODE_S_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub frame: u8,
     pub second: u8,
@@ -3537,7 +3537,7 @@ pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
@@ -3585,7 +3585,7 @@ impl Default for KSPROPERTY_EXTXPORT_S_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub frame: u8,
     pub second: u8,
@@ -3594,7 +3594,7 @@ pub struct KSPROPERTY_EXTXPORT_S_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
@@ -3643,7 +3643,7 @@ pub type KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = i32;
 pub const KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX: KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = 1;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
     pub Header: KSCAMERA_METADATA_ITEMHEADER,
     pub EventFilter: [u16; 1],
@@ -3655,7 +3655,7 @@ impl Default for KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO {
 }
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO {
     pub MetadataItems: u32,
     pub Size: u32,
@@ -3668,7 +3668,7 @@ pub type KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = i32;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = 0;
 pub const KSPROPERTY_NETWORKCAMERACONTROL_NTP: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
     pub Size: u32,
     pub Type: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE,
@@ -3746,7 +3746,7 @@ pub const KSPROPERTY_SOUNDDETECTOR_RESET: KSPROPERTY_SOUNDDETECTOR = 5;
 pub const KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT: KSPROPERTY_SOUNDDETECTOR = 6;
 pub const KSPROPERTY_SOUNDDETECTOR_SUPPORTEDPATTERNS: KSPROPERTY_SOUNDDETECTOR = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_SPHLI {
     pub HLISS: u16,
     pub Reserved: u16,
@@ -3759,7 +3759,7 @@ pub struct KSPROPERTY_SPHLI {
     pub ColCon: KS_COLCON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPROPERTY_SPPAL {
     pub sppal: [KS_DVD_YUV; 16],
 }
@@ -4482,130 +4482,130 @@ pub const KSPROPERTY_WAVE_PAN: KSPROPERTY_WAVE = 6;
 pub const KSPROPERTY_WAVE_VOLUME: KSPROPERTY_WAVE = 5;
 pub const KSPROPERYT_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AC3(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Audio(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioBufferDuration(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioDecoderOut(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioEngine(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioLoopback(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioModule(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioPosture(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioResourceManagement(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_AudioSignalProcessing(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Bibliographic(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_BtAudio(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_CopyProt(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Cyclic(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_DirectSound3DBuffer(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_DirectSound3DListener(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_DrmAudioStream(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_DvdSubPic(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_FMRXControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_FMRXTopology(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Hrtf3d(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_InterleavedAudio(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Itd3d(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Jack(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_MPEG4_MediaType_Attributes(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_MidiLoopedStreaming(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Mpeg2Vid(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_OverlayUpdate(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_RtAudio(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_SoundDetector(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_SoundDetector2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_TSRateChange(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_TelephonyControl(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_TelephonyTopology(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_TopologyNode(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_VBICAP_PROPERTIES(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_VBICodecFiltering(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_VPConfig(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_VPVBIConfig(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_VramCapture(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Wave(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: *mut core::ffi::c_void,
     pub ActualBufferSize: u32,
@@ -4617,7 +4617,7 @@ impl Default for KSRTAUDIO_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_BUFFER32 {
     pub BufferAddress: u32,
     pub ActualBufferSize: u32,
@@ -4682,7 +4682,7 @@ impl Default for KSRTAUDIO_BUFFER_PROPERTY_WITH_NOTIFICATION32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
@@ -4690,14 +4690,14 @@ pub struct KSRTAUDIO_GETREADPACKET_INFO {
     pub MoreData: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_HWLATENCY {
     pub FifoSize: u32,
     pub ChipsetDelay: u32,
     pub CodecDelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSRTAUDIO_HWREGISTER {
     pub Register: *mut core::ffi::c_void,
     pub Width: u32,
@@ -4711,7 +4711,7 @@ impl Default for KSRTAUDIO_HWREGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_HWREGISTER32 {
     pub Register: u32,
     pub Width: u32,
@@ -4773,7 +4773,7 @@ impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketCount: super::basetsd::PULONG64,
     pub CompletedPacketQPC: super::basetsd::PULONG64,
@@ -4793,7 +4793,7 @@ impl Default for KSRTAUDIO_PACKETVREGISTER_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRTAUDIO_SETWRITEPACKET_INFO {
     pub PacketNumber: u32,
     pub Flags: u32,
@@ -4813,25 +4813,25 @@ impl Default for KSSOUNDDETECTORPROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTELEPHONY_CALLCONTROL {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallControlOp: TELEPHONY_CALLCONTROLOP,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTELEPHONY_CALLINFO {
     pub CallType: TELEPHONY_CALLTYPE,
     pub CallState: TELEPHONY_CALLSTATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTELEPHONY_PROVIDERCHANGE {
     pub CallType: TELEPHONY_CALLTYPE,
     pub ProviderChangeOp: TELEPHONY_PROVIDERCHANGEOP,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSTOPOLOGY_ENDPOINTID {
     pub TopologyName: [u16; 260],
     pub PinId: u32,
@@ -4842,13 +4842,13 @@ impl Default for KSTOPOLOGY_ENDPOINTID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTOPOLOGY_ENDPOINTIDPAIR {
     pub RenderEndpoint: KSTOPOLOGY_ENDPOINTID,
     pub CaptureEndpoint: KSTOPOLOGY_ENDPOINTID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSVPMAXPIXELRATE {
     pub Size: KS_AMVPSIZE,
     pub MaxPixelsPerSecond: u32,
@@ -4868,7 +4868,7 @@ impl Default for KSVPSIZE_PROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSVPSURFACEPARAMS {
     pub dwPitch: u32,
     pub dwXOrigin: u32,
@@ -4892,7 +4892,7 @@ impl Default for KSWAVETABLE_WAVE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSWAVE_BUFFER {
     pub Attributes: u32,
     pub BufferSize: u32,
@@ -4906,14 +4906,14 @@ impl Default for KSWAVE_BUFFER {
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSWAVE_COMPATCAPS {
     pub ulDeviceType: u32,
 }
 pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0;
 pub const KSWAVE_COMPATCAPS_OUTPUT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSWAVE_INPUT_CAPABILITIES {
     pub MaximumChannelsPerConnection: u32,
     pub MinimumBitsPerSample: u32,
@@ -4924,7 +4924,7 @@ pub struct KSWAVE_INPUT_CAPABILITIES {
     pub ActiveConnections: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSWAVE_OUTPUT_CAPABILITIES {
     pub MaximumChannelsPerConnection: u32,
     pub MinimumBitsPerSample: u32,
@@ -4948,7 +4948,7 @@ pub struct KSWAVE_OUTPUT_CAPABILITIES {
     pub LargestFreeContiguousSampleMemory: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSWAVE_VOLUME {
     pub LeftAttenuation: i32,
     pub RightAttenuation: i32,
@@ -4960,7 +4960,7 @@ pub const KS_AMCONTROL_USED: u32 = 1;
 pub type KS_AMPixAspectRatio = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMVPDATAINFO {
     pub dwSize: u32,
     pub dwMicrosecondsPerField: u32,
@@ -4978,7 +4978,7 @@ pub struct KS_AMVPDATAINFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMVPDIMINFO {
     pub dwFieldWidth: u32,
     pub dwFieldHeight: u32,
@@ -4987,7 +4987,7 @@ pub struct KS_AMVPDIMINFO {
     pub rcValidRegion: super::windef::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AMVPSIZE {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -5004,7 +5004,7 @@ pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = 0;
 pub type KS_AMVP_SELECTFORMATBY = i32;
 #[repr(C)]
 #[cfg(feature = "mediaobj")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_ExactRateChange {
     pub OutputZeroTime: super::mediaobj::REFERENCE_TIME,
     pub Rate: i32,
@@ -5019,7 +5019,7 @@ pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = 1;
 pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = 4;
 #[repr(C)]
 #[cfg(feature = "mediaobj")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_AM_SimpleRateChange {
     pub StartTime: super::mediaobj::REFERENCE_TIME,
     pub Rate: i32,
@@ -5030,7 +5030,7 @@ pub struct KS_AM_Step(pub u32);
 pub const KS_AM_UseNewCSSKey: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_ANALOGVIDEOINFO {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -5064,7 +5064,7 @@ pub const KS_AnalogVideo_SECAM_L: KS_AnalogVideoStandard = 262144;
 pub const KS_AnalogVideo_SECAM_L1: KS_AnalogVideoStandard = 524288;
 pub const KS_AnalogVideo_SECAM_Mask: u32 = 1044480;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -5106,7 +5106,7 @@ pub const KS_CC_SUBSTREAM_SERVICE_T3: u32 = 1024;
 pub const KS_CC_SUBSTREAM_SERVICE_T4: u32 = 2048;
 pub const KS_CC_SUBSTREAM_SERVICE_XDS: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_COLCON {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
@@ -5115,7 +5115,7 @@ pub struct KS_COLCON {
 }
 pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_COPY_MACROVISION {
     pub MACROVISIONLevel: u32,
 }
@@ -5378,7 +5378,7 @@ pub const KS_DVDCOPYSTATE_DONE: KS_DVDCOPYSTATE = 4;
 pub const KS_DVDCOPYSTATE_INITIALIZE: KS_DVDCOPYSTATE = 0;
 pub const KS_DVDCOPYSTATE_INITIALIZE_TITLE: KS_DVDCOPYSTATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_DVDCOPY_BUSKEY {
     pub BusKey: [u8; 5],
     pub Reserved: [u8; 1],
@@ -5389,7 +5389,7 @@ impl Default for KS_DVDCOPY_BUSKEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_DVDCOPY_CHLGKEY {
     pub ChlgKey: [u8; 10],
     pub Reserved: [u8; 2],
@@ -5400,7 +5400,7 @@ impl Default for KS_DVDCOPY_CHLGKEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_DVDCOPY_DISCKEY {
     pub DiscKey: [u8; 2048],
 }
@@ -5410,7 +5410,7 @@ impl Default for KS_DVDCOPY_DISCKEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_DVDCOPY_REGION {
     pub Reserved: u8,
     pub RegionData: u8,
@@ -5422,12 +5422,12 @@ impl Default for KS_DVDCOPY_REGION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_DVDCOPY_SET_COPY_STATE {
     pub DVDCopyState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_DVDCOPY_TITLEKEY {
     pub KeyFlags: u32,
     pub ReservedNT: [u32; 2],
@@ -5451,7 +5451,7 @@ pub const KS_DVD_SECTOR_NOT_PROTECTED: u32 = 0;
 pub const KS_DVD_SECTOR_PROTECTED: u32 = 32;
 pub const KS_DVD_SECTOR_PROTECT_MASK: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_DVD_YCrCb {
     pub Reserved: u8,
     pub Y: u8,
@@ -5459,7 +5459,7 @@ pub struct KS_DVD_YCrCb {
     pub Cb: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_DVD_YUV {
     pub Reserved: u8,
     pub Y: u8,
@@ -5515,13 +5515,13 @@ impl Default for KS_FRAME_INFO_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_H264VIDEOINFO {
     pub wWidth: u16,
     pub wHeight: u16,
@@ -5582,7 +5582,7 @@ pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = 3;
 pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_MPEG1VIDEOINFO {
     pub hdr: KS_VIDEOINFOHEADER,
     pub dwStartTimeCode: u32,
@@ -5617,7 +5617,7 @@ pub const KS_MPEG2_LetterboxAnalogOut: u32 = 32;
 pub const KS_MPEG2_SourceIsLetterboxed: u32 = 8;
 pub const KS_MPEG2_WidescreenAnalogOut: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_MPEGAUDIOINFO {
     pub dwFlags: u32,
     pub dwReserved1: u32,
@@ -5688,7 +5688,7 @@ pub const KS_PixAspectRatio_NTSC4x3: KS_AMPixAspectRatio = 0;
 pub const KS_PixAspectRatio_PAL16x9: KS_AMPixAspectRatio = 3;
 pub const KS_PixAspectRatio_PAL4x3: KS_AMPixAspectRatio = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -5696,7 +5696,7 @@ pub struct KS_RGBQUAD {
     pub rgbReserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_SECURE_CAMERA_SCENARIO_ID(pub u8);
 pub const KS_SIZE_PREHEADER: u32 = 48;
 pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = 2048;
@@ -5705,7 +5705,7 @@ pub const KS_StreamingHint_FrameInterval: KS_VideoStreamingHints = 256;
 pub const KS_StreamingHint_KeyFrameRate: KS_VideoStreamingHints = 512;
 pub const KS_StreamingHint_PFrameRate: KS_VideoStreamingHints = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KS_TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [KS_RGBQUAD; 256],
@@ -5735,7 +5735,7 @@ pub const KS_TVAUDIO_PRESET_STEREO: u32 = 512;
 pub const KS_TVTUNER_CHANGE_BEGIN_TUNE: u32 = 1;
 pub const KS_TVTUNER_CHANGE_END_TUNE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_TVTUNER_CHANGE_INFO {
     pub dwFlags: u32,
     pub dwCountryCode: u32,
@@ -5748,7 +5748,7 @@ pub const KS_VBICAP_PROTECTION_MV_PRESENT: u32 = 1;
 pub const KS_VBIDATARATE_CC: u32 = 503493;
 pub const KS_VBIDATARATE_NABTS: u32 = 5727272;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VBIINFOHEADER {
     pub StartLine: u32,
     pub EndLine: u32,
@@ -5773,7 +5773,7 @@ pub const KS_VBI_FLAG_MV_PRESENT: u32 = 256;
 pub const KS_VBI_FLAG_TVTUNER_CHANGE: u32 = 16;
 pub const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VBI_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -5821,7 +5821,7 @@ impl Default for KS_VIDEOINFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -5891,7 +5891,7 @@ pub const KS_VIDEO_FLAG_REPEAT_FIELD: u32 = 64;
 pub const KS_VIDEO_FLAG_WEAVE: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_core::GUID,
     pub VideoStandard: u32,
@@ -5955,7 +5955,7 @@ pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256;
 pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32;
 pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEDIUM_INFO {
     pub MediaPresent: windows_core::BOOL,
     pub MediaType: u32,
@@ -5973,7 +5973,7 @@ pub const MetadataId_Standard_End: KSCAMERA_MetadataId = 8;
 pub const MetadataId_Standard_Start: KSCAMERA_MetadataId = 1;
 pub const MetadataId_UsbVideoHeader: KSCAMERA_MetadataId = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NABTSFEC_BUFFER {
     pub dataSize: u32,
     pub groupID: u16,
@@ -5998,7 +5998,7 @@ impl Default for NABTS_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NABTS_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 36],
@@ -6019,61 +6019,61 @@ pub type PCC_HW_FIELD = *mut CC_HW_FIELD;
 pub type PDEVCAPS = *mut DEVCAPS;
 pub type PDS3DVECTOR = *mut DS3DVECTOR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_DISPLAYPORT_OUT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_HDMI_OUT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_IMAGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_SPDIF_IN(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_SPDIF_OUT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_ANALOGVIDEOIN(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_CAPTURE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_CC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_CC_CAPTURE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_EDS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_NABTS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_NABTS_CAPTURE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_PREVIEW(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_STILL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_TELETEXT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_TIMECODE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_VBI(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_VIDEOPORT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PINNAME_VIDEO_VIDEOPORT_VBI(pub u8);
 pub type PKSAC3_ALTERNATE_AUDIO = *mut KSAC3_ALTERNATE_AUDIO;
 pub type PKSAC3_BIT_STREAM_MODE = *mut KSAC3_BIT_STREAM_MODE;
@@ -6477,61 +6477,61 @@ pub type PNABTSFEC_BUFFER = *mut NABTSFEC_BUFFER;
 pub type PNABTS_BUFFER = *mut NABTS_BUFFER;
 pub type PNABTS_BUFFER_LINE = *mut NABTS_BUFFER_LINE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_ALLOCATOR_CONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_EXT_DEVICE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_EXT_TRANSPORT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_TIMECODE_READER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_TUNER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CAMERACONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CAMERACONTROL_FLASH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_CROSSBAR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_DROPPEDFRAMES(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_SELECTOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_TVAUDIO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEOCOMPRESSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEOCONTROL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEODECODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEOENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSETID_VIDCAP_VIDEOPROCAMP(pub u8);
 pub type PSECURE_BUFFER_INFO = *mut SECURE_BUFFER_INFO;
 #[cfg(feature = "winnt")]
@@ -6570,7 +6570,7 @@ pub type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
 pub type PWST_BUFFER = *mut WST_BUFFER;
 pub type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURE_BUFFER_INFO {
     pub guidBufferIdentifier: windows_core::GUID,
     pub cbBufferSize: u32,
@@ -6584,7 +6584,7 @@ impl Default for SECURE_BUFFER_INFO {
 }
 pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOUNDDETECTOR_PATTERNHEADER {
     pub Size: u32,
     pub PatternType: windows_core::GUID,
@@ -6620,7 +6620,7 @@ impl Default for TIMECODE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -6642,7 +6642,7 @@ impl Default for TIMECODE_SAMPLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORTAUDIOPARMS {
     pub EnableOutput: i32,
     pub EnableRecord: i32,
@@ -6652,7 +6652,7 @@ pub struct TRANSPORTAUDIOPARMS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSPORTBASICPARMS {
     pub TimeFormat: i32,
     pub TimeReference: i32,
@@ -6692,7 +6692,7 @@ impl Default for TRANSPORTBASICPARMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORTSTATUS {
     pub Mode: i32,
     pub LastError: i32,
@@ -6709,19 +6709,19 @@ pub struct TRANSPORTSTATUS {
     pub NotifyOn: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORTVIDEOPARMS {
     pub OutputMode: i32,
     pub Input: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_STATE {
     pub Mode: u32,
     pub State: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TUNER_ANALOG_CAPS_S {
     pub Mode: u32,
     pub StandardsSupported: u32,
@@ -6737,7 +6737,7 @@ pub const Tuner_LockType_Locked: TunerLockType = 2;
 pub const Tuner_LockType_None: TunerLockType = 0;
 pub const Tuner_LockType_Within_Scan_Sensing_Range: TunerLockType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMPDATAFORMAT {
     pub Position: i64,
     pub ByteCount: u32,
@@ -6757,12 +6757,12 @@ impl Default for VBICAP_PROPERTIES_PROTECTION_S {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_CC_SUBSTREAMS {
     pub SubstreamMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBICODECFILTERING_NABTS_SUBSTREAMS {
     pub SubstreamMask: [u32; 128],
 }
@@ -6772,7 +6772,7 @@ impl Default for VBICODECFILTERING_NABTS_SUBSTREAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBICODECFILTERING_SCANLINES {
     pub DwordBitArray: [u32; 32],
 }
@@ -6782,17 +6782,17 @@ impl Default for VBICODECFILTERING_SCANLINES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_CC {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_CC_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON {
     pub InputSRBsProcessed: u32,
     pub OutputSRBsProcessed: u32,
@@ -6810,7 +6810,7 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON {
     pub BytesOutput: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
     pub SRBsProcessed: u32,
     pub SRBsIgnored: u32,
@@ -6822,7 +6822,7 @@ pub struct VBICODECFILTERING_STATISTICS_COMMON_PIN {
     pub BytesOutput: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
     pub FECBundleBadLines: u32,
@@ -6834,24 +6834,24 @@ pub struct VBICODECFILTERING_STATISTICS_NABTS {
     pub FilteredLines: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_NABTS_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VBICODECFILTERING_STATISTICS_TELETEXT_PIN {
     pub Common: VBICODECFILTERING_STATISTICS_COMMON_PIN,
 }
 pub type VIDEOENCODER_BITRATE_MODE = i32;
 #[repr(C)]
 #[cfg(feature = "ks")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEOFORMAT_DX12 {
     pub Header: super::ks::KSATTRIBUTE,
     pub resourceLayout: u32,
@@ -6859,7 +6859,7 @@ pub struct VIDEOFORMAT_DX12 {
     pub customLayout: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VRAM_SURFACE_INFO {
     pub hSurface: usize,
     pub VramPhysicalAddress: i64,
@@ -6906,7 +6906,7 @@ impl Default for WAVEFORMATEXTENSIBLE_IEC61937 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
     pub ProcessId: u32,
     pub SessionId: u32,
@@ -6914,7 +6914,7 @@ pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WST_BUFFER {
     pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
     pub WstLines: [WST_BUFFER_LINE; 17],
@@ -6925,7 +6925,7 @@ impl Default for WST_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WST_BUFFER_LINE {
     pub Confidence: u8,
     pub Bytes: [u8; 42],

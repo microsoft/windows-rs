@@ -8,7 +8,7 @@ pub type LPPROFILEINFOW = *mut PROFILEINFOW;
 pub type PROFILEINFO = PROFILEINFOA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILEINFOA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -21,7 +21,7 @@ pub struct PROFILEINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROFILEINFOW {
     pub dwSize: u32,
     pub dwFlags: u32,

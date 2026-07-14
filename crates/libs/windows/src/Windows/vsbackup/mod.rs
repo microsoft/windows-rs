@@ -2003,7 +2003,7 @@ impl IVssWriterComponentsExt {
 pub type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
 #[repr(C)]
 #[cfg(feature = "vswriter")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VSS_COMPONENTINFO {
     pub r#type: super::vswriter::VSS_COMPONENT_TYPE,
     pub bstrLogicalPath: core::mem::ManuallyDrop<windows_core::BSTR>,

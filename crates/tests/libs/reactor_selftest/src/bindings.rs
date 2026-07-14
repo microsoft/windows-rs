@@ -19229,7 +19229,7 @@ impl windows_core::RuntimeType for ListViewSelectionMode {
     );
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONITORINFO {
     pub cbSize: u32,
     pub rcMonitor: RECT,
@@ -19237,7 +19237,7 @@ pub struct MONITORINFO {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONITORINFOEXW {
     pub Base: MONITORINFO,
     pub szDevice: [u16; 32],
@@ -20103,7 +20103,7 @@ impl Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -20111,7 +20111,7 @@ pub struct PACKAGE_VERSION_0_0 {
     pub Major: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
@@ -20739,7 +20739,7 @@ impl windows_core::RuntimeName for ProgressRing {
 unsafe impl Send for ProgressRing {}
 unsafe impl Sync for ProgressRing {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,

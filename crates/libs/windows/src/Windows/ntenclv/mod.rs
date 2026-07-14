@@ -62,7 +62,7 @@ pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2;
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4;
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -109,7 +109,7 @@ pub type VBS_BASIC_ENCLAVE_EXCEPTION = VBS_BASIC_ENCLAVE_EXCEPTION_AMD64;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type VBS_BASIC_ENCLAVE_EXCEPTION = core::ffi::c_void;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -126,7 +126,7 @@ impl Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: *mut VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -152,7 +152,7 @@ pub type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPT
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR = VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -167,7 +167,7 @@ impl Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,

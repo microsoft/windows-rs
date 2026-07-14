@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLOWSPEC {
     pub TokenRate: u32,
     pub TokenBucketSize: u32,
@@ -21,7 +21,7 @@ pub const QOS_NOT_SPECIFIED: u32 = 4294967295;
 pub const QOS_OBJECT_DESTADDR: u32 = 2004;
 pub const QOS_OBJECT_END_OF_LIST: u32 = 2001;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_OBJECT_HDR {
     pub ObjectType: u32,
     pub ObjectLength: u32,
@@ -29,13 +29,13 @@ pub struct QOS_OBJECT_HDR {
 pub const QOS_OBJECT_SD_MODE: u32 = 2002;
 pub const QOS_OBJECT_SHAPING_RATE: u32 = 2003;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapeDiscardMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,

@@ -43,7 +43,7 @@ pub const DMOCATEGORY_VIDEO_ENCODER: windows_core::GUID = windows_core::GUID::fr
 pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = 1;
 pub type DMO_ENUM_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMO_PARTIAL_MEDIATYPE {
     pub r#type: windows_core::GUID,
     pub subtype: windows_core::GUID,

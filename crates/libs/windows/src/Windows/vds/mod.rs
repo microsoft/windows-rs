@@ -23,12 +23,12 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
     pub bootIndicator: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_1 {
     pub attributes: u64,
 }
@@ -55,12 +55,12 @@ impl Default for CHANGE_PARTITION_TYPE_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_0 {
     pub partitionType: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_PARTITION_TYPE_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
 }
@@ -89,13 +89,13 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
     pub bootIndicator: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_1 {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
@@ -6301,56 +6301,56 @@ impl Default for VDS_ASYNC_OUTPUT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_0 {
     pub ullOffset: u64,
     pub volumeId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_1 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_2 {
     pub pVolumeUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_3 {
     pub ullReclaimedBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_4 {
     pub pLunUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_5 {
     pub pTargetUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_6 {
     pub pPortalGroupUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ASYNC_OUTPUT_0_7 {
     pub pVDiskUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }
 pub type VDS_ASYNC_OUTPUT_TYPE = i32;
 pub const VDS_ATTACH_VIRTUAL_DISK_FLAG_USE_FILE_ACL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_NOTIFICATION {
     pub ulEvent: u32,
     pub controllerId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_CONTROLLER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -6361,7 +6361,7 @@ pub struct VDS_CONTROLLER_PROP {
 }
 pub type VDS_CONTROLLER_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_CREATE_VDISK_PARAMETERS {
     pub UniqueId: windows_core::GUID,
     pub MaximumSize: u64,
@@ -6403,7 +6403,7 @@ pub const VDS_DF_RESERVE_CAPABLE: VDS_DISK_FLAG = 4;
 pub const VDS_DF_STYLE_CONVERTIBLE: VDS_DISK_FLAG = 16;
 pub const VDS_DF_SYSTEM_DISK: VDS_DISK_FLAG = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_EXTENT {
     pub diskId: VDS_OBJECT_ID,
     pub r#type: VDS_DISK_EXTENT_TYPE,
@@ -6416,14 +6416,14 @@ pub struct VDS_DISK_EXTENT {
 pub type VDS_DISK_EXTENT_TYPE = i32;
 pub type VDS_DISK_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_FREE_EXTENT {
     pub diskId: VDS_OBJECT_ID,
     pub ullOffset: u64,
     pub ullSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DISK_NOTIFICATION {
     pub ulEvent: u32,
     pub diskId: VDS_OBJECT_ID,
@@ -6525,7 +6525,7 @@ pub const VDS_DRF_HOTSPARE_IN_USE: VDS_DRIVE_FLAG = 8;
 pub const VDS_DRF_HOTSPARE_STANDBY: VDS_DRIVE_FLAG = 16;
 pub const VDS_DRF_UNASSIGNED: VDS_DRIVE_FLAG = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_EXTENT {
     pub id: VDS_OBJECT_ID,
     pub LunId: VDS_OBJECT_ID,
@@ -6535,14 +6535,14 @@ pub struct VDS_DRIVE_EXTENT {
 pub type VDS_DRIVE_FLAG = i32;
 pub type VDS_DRIVE_LETTER_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_NOTIFICATION {
     pub ulEvent: u32,
     pub wcLetter: u16,
     pub volumeId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_LETTER_PROP {
     pub wcLetter: u16,
     pub volumeId: VDS_OBJECT_ID,
@@ -6550,13 +6550,13 @@ pub struct VDS_DRIVE_LETTER_PROP {
     pub bUsed: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_NOTIFICATION {
     pub ulEvent: u32,
     pub driveId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_PROP {
     pub id: VDS_OBJECT_ID,
     pub ullSize: u64,
@@ -6570,7 +6570,7 @@ pub struct VDS_DRIVE_PROP {
 }
 #[repr(C)]
 #[cfg(feature = "vdslun")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_DRIVE_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub ullSize: u64,
@@ -6602,7 +6602,7 @@ pub const VDS_DS_UNKNOWN: VDS_DISK_STATUS = 0;
 pub type VDS_FILE_SYSTEM_FLAG = i32;
 pub type VDS_FILE_SYSTEM_FORMAT_SUPPORT_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     pub ulFlags: u32,
     pub usRevision: u16,
@@ -6616,14 +6616,14 @@ impl Default for VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: VDS_OBJECT_ID,
     pub dwPercentCompleted: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub volumeId: VDS_OBJECT_ID,
@@ -6636,7 +6636,7 @@ pub struct VDS_FILE_SYSTEM_PROP {
 pub type VDS_FILE_SYSTEM_PROP_FLAG = i32;
 pub type VDS_FILE_SYSTEM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_FILE_SYSTEM_TYPE_PROP {
     pub r#type: VDS_FILE_SYSTEM_TYPE,
     pub wszName: [u16; 8],
@@ -6688,7 +6688,7 @@ pub const VDS_FST_REFS: VDS_FILE_SYSTEM_TYPE = 9;
 pub const VDS_FST_UDF: VDS_FILE_SYSTEM_TYPE = 6;
 pub const VDS_FST_UNKNOWN: VDS_FILE_SYSTEM_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HBAPORT_PROP {
     pub id: VDS_OBJECT_ID,
     pub wwnNode: VDS_WWN,
@@ -6703,7 +6703,7 @@ pub type VDS_HBAPORT_STATUS = i32;
 pub type VDS_HBAPORT_TYPE = i32;
 pub type VDS_HEALTH = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HINTS {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -6726,7 +6726,7 @@ pub struct VDS_HINTS {
 }
 #[repr(C)]
 #[cfg(feature = "vdslun")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_HINTS2 {
     pub ullHintMask: u64,
     pub ullExpectedMaximumSize: u64,
@@ -6836,7 +6836,7 @@ pub const VDS_ILT_BOOT: VDS_ISCSI_LOGIN_TYPE = 2;
 pub const VDS_ILT_MANUAL: VDS_ISCSI_LOGIN_TYPE = 0;
 pub const VDS_ILT_PERSISTENT: VDS_ISCSI_LOGIN_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_INPUT_DISK {
     pub diskId: VDS_OBJECT_ID,
     pub ullSize: u64,
@@ -6845,7 +6845,7 @@ pub struct VDS_INPUT_DISK {
 }
 pub type VDS_INTERCONNECT_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_IPADDRESS {
     pub r#type: VDS_IPADDRESS_TYPE,
     pub ipv4Address: u32,
@@ -6872,13 +6872,13 @@ pub const VDS_IPT_IPV6: VDS_IPADDRESS_TYPE = 2;
 pub const VDS_IPT_TEXT: VDS_IPADDRESS_TYPE = 0;
 pub type VDS_ISCSI_AUTH_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_ADAPTER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
     pub id: VDS_OBJECT_ID,
     pub address: VDS_IPADDRESS,
@@ -6886,7 +6886,7 @@ pub struct VDS_ISCSI_INITIATOR_PORTAL_PROP {
 }
 pub type VDS_ISCSI_IPSEC_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_IPSEC_KEY {
     pub pKey: *mut u8,
     pub ulKeySize: u32,
@@ -6899,7 +6899,7 @@ impl Default for VDS_ISCSI_IPSEC_KEY {
 pub type VDS_ISCSI_LOGIN_FLAG = i32;
 pub type VDS_ISCSI_LOGIN_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_PORTALGROUP_PROP {
     pub id: VDS_OBJECT_ID,
     pub tag: VDS_ISCSI_PORTALGROUP_TAG,
@@ -6908,7 +6908,7 @@ pub struct VDS_ISCSI_PORTALGROUP_PROP {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VDS_ISCSI_PORTALGROUP_TAG(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_PORTAL_PROP {
     pub id: VDS_OBJECT_ID,
     pub address: VDS_IPADDRESS,
@@ -6916,7 +6916,7 @@ pub struct VDS_ISCSI_PORTAL_PROP {
 }
 pub type VDS_ISCSI_PORTAL_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_ISCSI_SHARED_SECRET {
     pub pSharedSecret: *mut u8,
     pub ulSharedSecretSize: u32,
@@ -6927,7 +6927,7 @@ impl Default for VDS_ISCSI_SHARED_SECRET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_ISCSI_TARGET_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszIscsiName: windows_core::PWSTR,
@@ -7024,14 +7024,14 @@ pub const VDS_LT_STRIPE: VDS_LUN_TYPE = 12;
 pub const VDS_LT_UNKNOWN: VDS_LUN_TYPE = 0;
 pub type VDS_LUN_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_NOTIFICATION {
     pub ulEvent: u32,
     pub LunId: VDS_OBJECT_ID,
 }
 pub type VDS_LUN_PLEX_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PLEX_PROP {
     pub id: VDS_OBJECT_ID,
     pub ullSize: u64,
@@ -7046,7 +7046,7 @@ pub struct VDS_LUN_PLEX_PROP {
 pub type VDS_LUN_PLEX_STATUS = i32;
 pub type VDS_LUN_PLEX_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_LUN_PROP {
     pub id: VDS_OBJECT_ID,
     pub ullSize: u64,
@@ -7065,7 +7065,7 @@ pub type VDS_LUN_STATUS = i32;
 pub type VDS_LUN_TYPE = i32;
 pub type VDS_MAINTENANCE_OPERATION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_MOUNT_POINT_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: VDS_OBJECT_ID,
@@ -7202,13 +7202,13 @@ pub const VDS_OT_VOLUME: VDS_OBJECT_TYPE = 11;
 pub const VDS_OT_VOLUME_PLEX: VDS_OBJECT_TYPE = 12;
 pub type VDS_PACK_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PACK_NOTIFICATION {
     pub ulEvent: u32,
     pub packId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PACK_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_core::PWSTR,
@@ -7244,7 +7244,7 @@ impl Default for VDS_PARTITION_INFORMATION_EX_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_PARTITION_INFO_GPT {
     pub partitionType: windows_core::GUID,
     pub partitionId: windows_core::GUID,
@@ -7257,7 +7257,7 @@ impl Default for VDS_PARTITION_INFO_GPT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
     pub bootIndicator: bool,
@@ -7265,7 +7265,7 @@ pub struct VDS_PARTITION_INFO_MBR {
     pub hiddenSectors: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PARTITION_NOTIFICATION {
     pub ulEvent: u32,
     pub diskId: VDS_OBJECT_ID,
@@ -7302,7 +7302,7 @@ pub const VDS_PARTITION_STYLE_GPT: __VDS_PARTITION_STYLE = 1;
 pub const VDS_PARTITION_STYLE_MBR: __VDS_PARTITION_STYLE = 0;
 pub const VDS_PARTITION_STYLE_RAW: __VDS_PARTITION_STYLE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PATH_ID {
     pub ullSourceId: u64,
     pub ullPathId: u64,
@@ -7356,7 +7356,7 @@ impl Default for VDS_PATH_INFO_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PATH_POLICY {
     pub pathId: VDS_PATH_ID,
     pub bPrimaryPath: windows_core::BOOL,
@@ -7380,7 +7380,7 @@ pub const VDS_PKF_ONLINE_ERROR: VDS_PACK_FLAG = 16;
 pub const VDS_PKF_POLICY: VDS_PACK_FLAG = 4;
 #[repr(C)]
 #[cfg(feature = "vdslun")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_POOL_ATTRIBUTES {
     pub ullAttributeMask: u64,
     pub raidType: VDS_RAID_TYPE,
@@ -7456,31 +7456,31 @@ pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MAX: u32 = 4096;
 pub const VDS_POOL_ATTRIB_STRIPE_SIZE_MIN: u32 = 8192;
 pub const VDS_POOL_ATTRIB_THIN_PROVISION: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_POOL_CUSTOM_ATTRIBUTES {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PORTAL_GROUP_NOTIFICATION {
     pub ulEvent: u32,
     pub portalGroupId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PORTAL_NOTIFICATION {
     pub ulEvent: u32,
     pub portalId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PORT_NOTIFICATION {
     pub ulEvent: u32,
     pub portId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PORT_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7491,7 +7491,7 @@ pub type VDS_PORT_STATUS = i32;
 pub type VDS_PROVIDER_FLAG = i32;
 pub type VDS_PROVIDER_LBSUPPORT_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PROVIDER_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszName: windows_core::PWSTR,
@@ -7533,7 +7533,7 @@ pub const VDS_REBUILD_PRIORITY_MAX: u32 = 16;
 pub const VDS_REBUILD_PRIORITY_MIN: u32 = 0;
 pub type VDS_RECOVER_ACTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_REPARSE_POINT_PROP {
     pub SourceVolumeId: VDS_OBJECT_ID,
     pub pwszPath: windows_core::PWSTR,
@@ -7560,13 +7560,13 @@ pub const VDS_RT_UNKNOWN: VDS_RAID_TYPE = 0;
 pub type VDS_SAN_POLICY = i32;
 pub type VDS_SERVICE_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SERVICE_NOTIFICATION {
     pub ulEvent: u32,
     pub action: VDS_RECOVER_ACTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SERVICE_PROP {
     pub pwszVersion: windows_core::PWSTR,
     pub ulFlags: u32,
@@ -7631,14 +7631,14 @@ pub const VDS_SSS_ONLINE: VDS_SUB_SYSTEM_STATUS = 1;
 pub const VDS_SSS_PARTIALLY_MANAGED: VDS_SUB_SYSTEM_STATUS = 9;
 pub const VDS_SSS_UNKNOWN: VDS_SUB_SYSTEM_STATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_DRIVE_EXTENT {
     pub id: VDS_OBJECT_ID,
     pub ullSize: u64,
     pub bUsed: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_STORAGE_POOL_PROP {
     pub id: VDS_OBJECT_ID,
     pub status: VDS_STORAGE_POOL_STATUS,
@@ -7654,13 +7654,13 @@ pub type VDS_STORAGE_POOL_STATUS = i32;
 pub type VDS_STORAGE_POOL_TYPE = i32;
 pub type VDS_SUB_SYSTEM_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_NOTIFICATION {
     pub ulEvent: u32,
     pub subSystemId: VDS_OBJECT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7675,7 +7675,7 @@ pub struct VDS_SUB_SYSTEM_PROP {
     pub sRebuildPriority: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_SUB_SYSTEM_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub pwszFriendlyName: windows_core::PWSTR,
@@ -7705,7 +7705,7 @@ pub const VDS_SVF_SUPPORT_MIRROR: VDS_SERVICE_FLAG = 256;
 pub const VDS_SVF_SUPPORT_RAID5: VDS_SERVICE_FLAG = 512;
 pub const VDS_SVF_SUPPORT_REFS: VDS_SERVICE_FLAG = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_TARGET_NOTIFICATION {
     pub ulEvent: u32,
     pub targetId: VDS_OBJECT_ID,
@@ -7719,7 +7719,7 @@ pub const VDS_TS_STABLE: VDS_TRANSITION_STATE = 1;
 pub const VDS_TS_UNKNOWN: VDS_TRANSITION_STATE = 0;
 #[repr(C)]
 #[cfg(all(feature = "virtdisk", feature = "winioctl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VDISK_PROPERTIES {
     pub Id: VDS_OBJECT_ID,
     pub State: VDS_VDISK_STATE,
@@ -7762,7 +7762,7 @@ pub const VDS_VF_SHADOW_COPY: VDS_VOLUME_FLAG = 1048576;
 pub const VDS_VF_SYSTEM_VOLUME: VDS_VOLUME_FLAG = 1;
 pub type VDS_VOLUME_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_NOTIFICATION {
     pub ulEvent: u32,
     pub volumeId: VDS_OBJECT_ID,
@@ -7770,7 +7770,7 @@ pub struct VDS_VOLUME_NOTIFICATION {
     pub ulPercentCompleted: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PLEX_PROP {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_PLEX_TYPE,
@@ -7784,7 +7784,7 @@ pub struct VDS_VOLUME_PLEX_PROP {
 pub type VDS_VOLUME_PLEX_STATUS = i32;
 pub type VDS_VOLUME_PLEX_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -7797,7 +7797,7 @@ pub struct VDS_VOLUME_PROP {
     pub pwszName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_VOLUME_PROP2 {
     pub id: VDS_OBJECT_ID,
     pub r#type: VDS_VOLUME_TYPE,
@@ -7856,7 +7856,7 @@ pub const VDS_VT_SPAN: VDS_VOLUME_TYPE = 11;
 pub const VDS_VT_STRIPE: VDS_VOLUME_TYPE = 12;
 pub const VDS_VT_UNKNOWN: VDS_VOLUME_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_WWN {
     pub rguchWwn: [u8; 8],
 }

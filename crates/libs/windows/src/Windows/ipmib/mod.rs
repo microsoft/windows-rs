@@ -25,13 +25,13 @@ pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = 3;
 pub type ICMP6_TYPE = i32;
 pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = 143;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIBICMPINFO {
     pub icmpInStats: MIBICMPSTATS,
     pub icmpOutStats: MIBICMPSTATS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIBICMPSTATS {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -49,7 +49,7 @@ pub struct MIBICMPSTATS {
 }
 pub type MIBICMPSTATS_EX = MIBICMPSTATS_EX_XPSP1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIBICMPSTATS_EX_XPSP1 {
     pub dwMsgs: u32,
     pub dwErrors: u32,
@@ -61,13 +61,13 @@ impl Default for MIBICMPSTATS_EX_XPSP1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_ICMP {
     pub stats: MIBICMPINFO,
 }
 pub type MIB_ICMP_EX = MIB_ICMP_EX_XPSP1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_ICMP_EX_XPSP1 {
     pub icmpInStats: MIBICMPSTATS_EX,
     pub icmpOutStats: MIBICMPSTATS_EX,
@@ -75,7 +75,7 @@ pub struct MIB_ICMP_EX_XPSP1 {
 #[cfg(feature = "ifdef")]
 pub type MIB_IPADDRROW = MIB_IPADDRROW_XP;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_W2K {
     pub dwAddr: u32,
     pub dwIndex: u32,
@@ -87,7 +87,7 @@ pub struct MIB_IPADDRROW_W2K {
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPADDRROW_XP {
     pub dwAddr: u32,
     pub dwIndex: super::ifdef::IF_INDEX,
@@ -99,7 +99,7 @@ pub struct MIB_IPADDRROW_XP {
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPADDRTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPADDRROW; 1],
@@ -117,7 +117,7 @@ pub const MIB_IPADDR_DYNAMIC: u32 = 4;
 pub const MIB_IPADDR_PRIMARY: u32 = 1;
 pub const MIB_IPADDR_TRANSIENT: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPFORWARDNUMBER {
     pub dwValue: u32,
 }
@@ -191,12 +191,12 @@ impl Default for MIB_IPFORWARDTABLE {
 pub struct MIB_IPFORWARD_PROTO(pub super::nldef::NL_ROUTE_PROTOCOL);
 pub type MIB_IPFORWARD_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPMCAST_GLOBAL {
     pub dwEnable: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_ENTRY {
     pub dwIfIndex: u32,
     pub dwTtl: u32,
@@ -206,7 +206,7 @@ pub struct MIB_IPMCAST_IF_ENTRY {
     pub ulOutMcastOctets: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_IF_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_IF_ENTRY; 1],
@@ -217,7 +217,7 @@ impl Default for MIB_IPMCAST_IF_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -242,7 +242,7 @@ impl Default for MIB_IPMCAST_MFE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -269,7 +269,7 @@ impl Default for MIB_IPMCAST_MFE_STATS {
 }
 pub type MIB_IPMCAST_MFE_STATS_EX = MIB_IPMCAST_MFE_STATS_EX_XP;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_MFE_STATS_EX_XP {
     pub dwGroup: u32,
     pub dwSource: u32,
@@ -302,7 +302,7 @@ impl Default for MIB_IPMCAST_MFE_STATS_EX_XP {
 pub type MIB_IPMCAST_OIF = MIB_IPMCAST_OIF_XP;
 pub type MIB_IPMCAST_OIF_STATS = MIB_IPMCAST_OIF_STATS_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -313,7 +313,7 @@ pub struct MIB_IPMCAST_OIF_STATS_LH {
     pub ulOutDiscards: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_STATS_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -329,7 +329,7 @@ impl Default for MIB_IPMCAST_OIF_STATS_W2K {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_W2K {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -342,7 +342,7 @@ impl Default for MIB_IPMCAST_OIF_W2K {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPMCAST_OIF_XP {
     pub dwOutIfIndex: u32,
     pub dwNextHopAddr: u32,
@@ -382,7 +382,7 @@ impl Default for MIB_IPNETROW_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPNETROW_W2K {
     pub dwIndex: super::ifdef::IF_INDEX,
     pub dwPhysAddrLen: u32,
@@ -465,7 +465,7 @@ impl Default for MIB_IPSTATS_LH_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPSTATS_W2K {
     pub dwForwarding: u32,
     pub dwDefaultTTL: u32,
@@ -494,7 +494,7 @@ pub struct MIB_IPSTATS_W2K {
 pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = 1;
 pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE_STATS; 1],
@@ -506,7 +506,7 @@ impl Default for MIB_MFE_STATS_TABLE {
 }
 pub type MIB_MFE_STATS_TABLE_EX = MIB_MFE_STATS_TABLE_EX_XP;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_STATS_TABLE_EX_XP {
     pub dwNumEntries: u32,
     pub table: [PMIB_IPMCAST_MFE_STATS_EX_XP; 1],
@@ -517,7 +517,7 @@ impl Default for MIB_MFE_STATS_TABLE_EX_XP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_MFE_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_MFE; 1],

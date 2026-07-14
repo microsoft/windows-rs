@@ -174,12 +174,12 @@ where
     unsafe { NetShareSetInfo(servername.param().abi(), netname.param().abi(), level, buf as _, parm_err.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
     pub coni1_type: u32,
@@ -196,12 +196,12 @@ pub const CSC_CACHE_VDO: u32 = 32;
 pub const CSC_MASK: u32 = 48;
 pub const CSC_MASK_EXT: u32 = 8240;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
     pub fi3_permissions: u32,
@@ -261,7 +261,7 @@ pub type PSHARE_INFO_502 = *mut SHARE_INFO_502;
 #[cfg(feature = "winnt")]
 pub type PSHARE_INFO_503 = *mut SHARE_INFO_503;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_core::PWSTR,
     pub srvai0_target: windows_core::PWSTR,
@@ -271,12 +271,12 @@ pub struct SERVER_ALIAS_INFO_0 {
 pub const SESI1_NUM_ELEMENTS: u32 = 8;
 pub const SESI2_NUM_ELEMENTS: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: windows_core::PWSTR,
     pub sesi1_username: windows_core::PWSTR,
@@ -286,7 +286,7 @@ pub struct SESSION_INFO_1 {
     pub sesi1_user_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: windows_core::PWSTR,
     pub sesi10_username: windows_core::PWSTR,
@@ -294,7 +294,7 @@ pub struct SESSION_INFO_10 {
     pub sesi10_idle_time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: windows_core::PWSTR,
     pub sesi2_username: windows_core::PWSTR,
@@ -305,7 +305,7 @@ pub struct SESSION_INFO_2 {
     pub sesi2_cltype_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: windows_core::PWSTR,
     pub sesi502_username: windows_core::PWSTR,
@@ -322,46 +322,46 @@ pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7;
 pub const SHARE_FILE_SD_INFOLEVEL: u32 = 1501;
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: windows_core::PWSTR,
     pub shi1_type: u32,
     pub shi1_remark: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
     pub shi1501_security_descriptor: super::winnt::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: windows_core::PWSTR,
     pub shi2_type: u32,
@@ -373,7 +373,7 @@ pub struct SHARE_INFO_2 {
     pub shi2_passwd: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: windows_core::PWSTR,
     pub shi501_type: u32,
@@ -382,7 +382,7 @@ pub struct SHARE_INFO_501 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_core::PWSTR,
     pub shi502_type: u32,
@@ -397,7 +397,7 @@ pub struct SHARE_INFO_502 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_core::PWSTR,
     pub shi503_type: u32,

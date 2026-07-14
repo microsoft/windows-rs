@@ -288,26 +288,26 @@ impl Default for EVENT_PROPERTY_INFO_3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_3_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
     pub MapNameOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_1 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
     pub padding: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_PROPERTY_INFO_0_2 {
     pub InType: u16,
     pub OutType: u16,
@@ -337,7 +337,7 @@ pub const PAYLOADFIELD_MODULO: PAYLOAD_OPERATOR = 8;
 pub const PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1;
 pub const PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: windows_core::PWSTR,
     pub CompareOp: u16,
@@ -356,7 +356,7 @@ pub type PPROVIDER_FIELD_INFO = *mut PROVIDER_FIELD_INFO;
 pub type PPROVIDER_FIELD_INFOARRAY = *mut PROVIDER_FIELD_INFOARRAY;
 pub type PPROVIDER_FILTER_INFO = *mut PROVIDER_FILTER_INFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTY_DATA_DESCRIPTOR {
     pub PropertyName: u64,
     pub ArrayIndex: u32,
@@ -364,7 +364,7 @@ pub struct PROPERTY_DATA_DESCRIPTOR {
 }
 pub type PROPERTY_FLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDER_ENUMERATION_INFO {
     pub NumberOfProviders: u32,
     pub Reserved: u32,
@@ -377,7 +377,7 @@ impl Default for PROVIDER_ENUMERATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "evntprov")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDER_EVENT_INFO {
     pub NumberOfEvents: u32,
     pub Reserved: u32,
@@ -390,14 +390,14 @@ impl Default for PROVIDER_EVENT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROVIDER_FIELD_INFO {
     pub NameOffset: u32,
     pub DescriptionOffset: u32,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVIDER_FIELD_INFOARRAY {
     pub NumberOfElements: u32,
     pub FieldType: EVENT_FIELD_TYPE,
@@ -441,7 +441,7 @@ pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TDHSTATUS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TDH_CONTEXT {
     pub ParameterValue: u64,
     pub ParameterType: TDH_CONTEXT_TYPE,
@@ -611,12 +611,12 @@ impl Default for TRACE_EVENT_INFO_2 {
 }
 #[repr(C)]
 #[cfg(feature = "evntprov")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_EVENT_INFO_2_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_PROVIDER_INFO {
     pub ProviderGuid: windows_core::GUID,
     pub SchemaSource: u32,

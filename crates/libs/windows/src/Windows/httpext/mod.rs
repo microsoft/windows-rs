@@ -11,7 +11,7 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::wincrypt::CERT_CONTEXT,
     pub cbAllocated: u32,
@@ -19,7 +19,7 @@ pub struct CERT_CONTEXT_EX {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -58,7 +58,7 @@ pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1;
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: *mut i8,
     pub uHttpSubError: u16,
@@ -71,7 +71,7 @@ impl Default for HSE_CUSTOM_ERROR_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: windows_core::PWSTR,
     pub pszMethod: windows_core::PSTR,
@@ -82,7 +82,7 @@ pub struct HSE_EXEC_UNICODE_URL_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::winnt::HANDLE,
     pub pszCustomUserName: windows_core::PWSTR,
@@ -90,7 +90,7 @@ pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
 }
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut core::ffi::c_void,
@@ -105,7 +105,7 @@ pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4;
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: windows_core::PSTR,
     pub pszMethod: windows_core::PSTR,
@@ -117,7 +117,7 @@ pub struct HSE_EXEC_URL_INFO {
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2;
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
@@ -125,7 +125,7 @@ pub struct HSE_EXEC_URL_STATUS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::winnt::HANDLE,
     pub pszCustomUserName: windows_core::PSTR,
@@ -184,7 +184,7 @@ pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043;
 pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006;
 pub const HSE_REQ_VECTOR_SEND: u32 = 1037;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
     pub pszStatus: windows_core::PSTR,
@@ -193,7 +193,7 @@ pub struct HSE_RESPONSE_VECTOR {
     pub lpElementArray: LPHSE_VECTOR_ELEMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: windows_core::PCSTR,
     pub pszHeader: windows_core::PCSTR,
@@ -230,7 +230,7 @@ impl Default for HSE_TF_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: windows_core::BOOL,
     pub TraceContextId: [u8; 16],
@@ -243,7 +243,7 @@ impl Default for HSE_TRACE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub lpszPath: [u16; 260],
     pub dwFlags: u32,
@@ -267,7 +267,7 @@ pub const HSE_URL_FLAGS_SSL: u32 = 8;
 pub const HSE_URL_FLAGS_SSL128: u32 = 256;
 pub const HSE_URL_FLAGS_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_URL_MAPEX_INFO {
     pub lpszPath: [i8; 260],
     pub dwFlags: u32,
@@ -282,7 +282,7 @@ impl Default for HSE_URL_MAPEX_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut core::ffi::c_void,
@@ -298,7 +298,7 @@ pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0;
 pub const HSE_VERSION: u32 = 524288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
     pub lpszExtensionDesc: [i8; 256],

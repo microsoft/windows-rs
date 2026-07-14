@@ -117,7 +117,7 @@ impl Default for MAGCOLOREFFECT {
 }
 #[repr(C)]
 #[cfg(feature = "wincodec")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,

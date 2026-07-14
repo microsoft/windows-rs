@@ -1958,7 +1958,7 @@ impl<F: Fn(windows_core::Ref<SmsDevice>) -> windows_core::Result<()> + Send + 's
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,

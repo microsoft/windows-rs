@@ -111,7 +111,7 @@ pub const RM_INVALID_PROCESS: i32 = -1;
 pub const RM_INVALID_TS_SESSION: i32 = -1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -131,7 +131,7 @@ pub type RM_REBOOT_REASON = i32;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::minwindef::FILETIME,

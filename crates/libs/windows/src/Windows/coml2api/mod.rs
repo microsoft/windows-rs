@@ -238,7 +238,7 @@ pub const STGM_SIMPLE: u32 = 134217728;
 pub const STGM_TRANSACTED: u32 = 65536;
 pub const STGM_WRITE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STGOPTIONS {
     pub usVersion: u16,
     pub reserved: u16,

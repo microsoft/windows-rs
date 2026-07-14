@@ -41,7 +41,7 @@ impl windows_core::RuntimeName for GameControllerFactoryManager {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GameControllerFactoryManager";
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,

@@ -37,7 +37,7 @@ impl Default for MIB_TCP6ROW2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_MODULE {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -56,7 +56,7 @@ impl Default for MIB_TCP6ROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6ROW_OWNER_PID {
     pub ucLocalAddr: [u8; 16],
     pub dwLocalScopeId: u32,
@@ -99,7 +99,7 @@ impl Default for MIB_TCP6TABLE2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_MODULE; 1],
@@ -110,7 +110,7 @@ impl Default for MIB_TCP6TABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCP6TABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCP6ROW_OWNER_PID; 1],
@@ -122,7 +122,7 @@ impl Default for MIB_TCP6TABLE_OWNER_PID {
 }
 pub type MIB_TCPROW = MIB_TCPROW_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCPROW2 {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -158,7 +158,7 @@ impl Default for MIB_TCPROW_LH_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_MODULE {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -175,7 +175,7 @@ impl Default for MIB_TCPROW_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCPROW_OWNER_PID {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -185,7 +185,7 @@ pub struct MIB_TCPROW_OWNER_PID {
     pub dwOwningPid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCPROW_W2K {
     pub dwState: u32,
     pub dwLocalAddr: u32,
@@ -195,7 +195,7 @@ pub struct MIB_TCPROW_W2K {
 }
 pub type MIB_TCPSTATS = MIB_TCPSTATS_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCPSTATS2 {
     pub RtoAlgorithm: TCP_RTO_ALGORITHM,
     pub dwRtoMin: u32,
@@ -249,7 +249,7 @@ impl Default for MIB_TCPSTATS_LH_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_TCPSTATS_W2K {
     pub dwRtoAlgorithm: u32,
     pub dwRtoMin: u32,
@@ -279,7 +279,7 @@ impl Default for MIB_TCPTABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE2 {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW2; 1],
@@ -290,7 +290,7 @@ impl Default for MIB_TCPTABLE2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_MODULE {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_MODULE; 1],
@@ -301,7 +301,7 @@ impl Default for MIB_TCPTABLE_OWNER_MODULE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_TCPTABLE_OWNER_PID {
     pub dwNumEntries: u32,
     pub table: [MIB_TCPROW_OWNER_PID; 1],

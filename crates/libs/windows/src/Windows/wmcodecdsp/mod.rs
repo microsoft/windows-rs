@@ -2163,7 +2163,7 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
     pub wStreamNumber: u16,
@@ -2171,7 +2171,7 @@ pub struct TOC_DESCRIPTOR {
     pub wLanguageIndex: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,

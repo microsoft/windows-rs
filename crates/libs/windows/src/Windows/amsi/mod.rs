@@ -85,14 +85,14 @@ pub const AMSI_UAC_MSI_ACTION_MAX: AMSI_UAC_MSI_ACTION = 4;
 pub const AMSI_UAC_MSI_ACTION_UNINSTALL: AMSI_UAC_MSI_ACTION = 1;
 pub const AMSI_UAC_MSI_ACTION_UPDATE: AMSI_UAC_MSI_ACTION = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_AX_INFO {
     pub ulLength: u32,
     pub lpwszLocalInstallPath: windows_core::PWSTR,
     pub lpwszSourceURL: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_COM_INFO {
     pub ulLength: u32,
     pub lpwszServerBinary: windows_core::PWSTR,
@@ -129,7 +129,7 @@ impl Default for AMSI_UAC_REQUEST_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_EXE_INFO {
     pub ulLength: u32,
     pub lpwszApplicationName: windows_core::PWSTR,
@@ -137,7 +137,7 @@ pub struct AMSI_UAC_REQUEST_EXE_INFO {
     pub lpwszDLLParameter: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_MSI_INFO {
     pub ulLength: u32,
     pub MsiAction: AMSI_UAC_MSI_ACTION,
@@ -157,7 +157,7 @@ impl Default for AMSI_UAC_REQUEST_MSI_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMSI_UAC_REQUEST_PACKAGED_APP_INFO {
     pub ulLength: u32,
     pub lpwszApplicationName: windows_core::PWSTR,

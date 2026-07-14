@@ -217,7 +217,7 @@ pub unsafe fn RtlUniform(seed: *mut u32) -> u32 {
 pub type ANSI_STRING = super::ntsecapi::STRING;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLIENT_ID {
     pub UniqueProcess: super::winnt::HANDLE,
     pub UniqueThread: super::winnt::HANDLE,
@@ -305,7 +305,7 @@ impl Default for IO_STATUS_BLOCK_0 {
 pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: super::ntsecapi::PUNICODE_STRING,
     pub DataLength: u32,
@@ -414,7 +414,7 @@ impl Default for PEB {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PEB_LDR_DATA {
     pub Reserved1: [u8; 8],
     pub Reserved2: [*mut core::ffi::c_void; 3],
@@ -450,7 +450,7 @@ pub type PPUBLIC_OBJECT_TYPE_INFORMATION = *mut PUBLIC_OBJECT_TYPE_INFORMATION;
 pub type PROCESSINFOCLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_BASIC_INFORMATION {
     pub Reserved1: *mut core::ffi::c_void,
     pub PebBaseAddress: PPEB,
@@ -490,7 +490,7 @@ pub type PTEB = *mut TEB;
 pub type PTHREAD_NAME_INFORMATION = *mut THREAD_NAME_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
     pub Attributes: u32,
     pub GrantedAccess: super::winnt::ACCESS_MASK,
@@ -506,7 +506,7 @@ impl Default for PUBLIC_OBJECT_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PUBLIC_OBJECT_TYPE_INFORMATION {
     pub TypeName: super::ntsecapi::UNICODE_STRING,
     pub Reserved: [u32; 22],
@@ -527,7 +527,7 @@ pub const ProcessImageFileName: PROCESSINFOCLASS = 27;
 pub const ProcessWow64Information: PROCESSINFOCLASS = 26;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_USER_PROCESS_PARAMETERS {
     pub Reserved1: [u8; 16],
     pub Reserved2: [*mut core::ffi::c_void; 10],
@@ -542,7 +542,7 @@ impl Default for RTL_USER_PROCESS_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_BASICPROCESS_INFORMATION {
     pub NextEntryOffset: u32,
     pub UniqueProcessId: super::winnt::HANDLE,
@@ -552,7 +552,7 @@ pub struct SYSTEM_BASICPROCESS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BASIC_INFORMATION {
     pub Reserved1: [u8; 24],
     pub Reserved2: [*mut core::ffi::c_void; 4],
@@ -565,13 +565,13 @@ impl Default for SYSTEM_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_CODEINTEGRITY_INFORMATION {
     pub Length: u32,
     pub CodeIntegrityOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_EXCEPTION_INFORMATION {
     pub Reserved1: [u8; 16],
 }
@@ -581,7 +581,7 @@ impl Default for SYSTEM_EXCEPTION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_HANDLECOUNT_INFORMATION {
     pub ProcessCount: u32,
     pub ThreadCount: u32,
@@ -589,7 +589,7 @@ pub struct SYSTEM_HANDLECOUNT_INFORMATION {
 }
 pub type SYSTEM_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_INTERRUPT_INFORMATION {
     pub Reserved1: [u8; 24],
 }
@@ -599,7 +599,7 @@ impl Default for SYSTEM_INTERRUPT_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_LOOKASIDE_INFORMATION {
     pub Reserved1: [u8; 32],
 }
@@ -609,7 +609,7 @@ impl Default for SYSTEM_LOOKASIDE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PERFORMANCE_INFORMATION {
     pub Reserved1: [u8; 312],
 }
@@ -619,7 +619,7 @@ impl Default for SYSTEM_PERFORMANCE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POLICY_INFORMATION {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub Reserved2: [u32; 3],
@@ -630,7 +630,7 @@ impl Default for SYSTEM_POLICY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
     pub IdleTime: i64,
     pub KernelTime: i64,
@@ -645,7 +645,7 @@ impl Default for SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_INFORMATION {
     pub NextEntryOffset: u32,
     pub NumberOfThreads: u32,
@@ -678,7 +678,7 @@ impl Default for SYSTEM_PROCESS_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
     pub RegistryQuotaAllowed: u32,
     pub RegistryQuotaUsed: u32,
@@ -691,7 +691,7 @@ impl Default for SYSTEM_REGISTRY_QUOTA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_THREAD_INFORMATION {
     pub Reserved1: [i64; 3],
     pub Reserved2: u32,
@@ -710,7 +710,7 @@ impl Default for SYSTEM_THREAD_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_TIMEOFDAY_INFORMATION {
     pub Reserved1: [u8; 48],
 }
@@ -734,7 +734,7 @@ pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = 37;
 pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = 3;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEB {
     pub Reserved1: [*mut core::ffi::c_void; 12],
     pub ProcessEnvironmentBlock: PPEB,
@@ -756,7 +756,7 @@ impl Default for TEB {
 pub type THREADINFOCLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_NAME_INFORMATION {
     pub ThreadName: super::ntsecapi::UNICODE_STRING,
 }
@@ -764,7 +764,7 @@ pub const ThreadIsIoPending: THREADINFOCLASS = 16;
 pub const ThreadNameInformation: THREADINFOCLASS = 38;
 pub type WINSTATIONINFOCLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINSTATIONINFORMATIONW {
     pub Reserved2: [u8; 70],
     pub LogonId: u32,

@@ -64,12 +64,12 @@ pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2;
 pub const SERVICE_CTRL_UNINSTALL: u32 = 3;
 pub const SERVICE_DOS_ENCRYPTION: windows_core::PCWSTR = windows_core::w!("ENCRYPT");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_core::PWSTR,
     pub svci1_status: u32,
@@ -77,7 +77,7 @@ pub struct SERVICE_INFO_1 {
     pub svci1_pid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_core::PWSTR,
     pub svci2_status: u32,

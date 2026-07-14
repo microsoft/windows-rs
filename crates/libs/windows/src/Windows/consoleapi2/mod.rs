@@ -242,14 +242,14 @@ pub const COMMON_LVB_SBCSDBCS: u32 = 768;
 pub const COMMON_LVB_TRAILING_BYTE: u32 = 512;
 pub const COMMON_LVB_UNDERSCORE: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_CURSOR_INFO {
     pub dwSize: u32,
     pub bVisible: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "wincontypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: super::wincontypes::COORD,
     pub dwCursorPosition: super::wincontypes::COORD,
@@ -259,7 +259,7 @@ pub struct CONSOLE_SCREEN_BUFFER_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "wincontypes", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: super::wincontypes::COORD,

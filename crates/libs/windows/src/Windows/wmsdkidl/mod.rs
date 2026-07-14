@@ -99,14 +99,14 @@ pub unsafe fn WMIsContentProtected(pwszfilename: *const u16) -> windows_core::Re
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
     pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -115,7 +115,7 @@ pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wUncompressedDigitalAudio: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut windows_core::GUID,
@@ -127,20 +127,20 @@ impl Default for DRM_OPL_OUTPUT_IDS {
 }
 pub const DRM_OPL_TYPES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: windows_core::GUID,
     pub bConfigData: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
     pub vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
@@ -151,7 +151,7 @@ impl Default for DRM_VAL16 {
 }
 pub type DRM_VIDEO_OUTPUT_PROTECTION = DRM_OUTPUT_PROTECTION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
@@ -9674,7 +9674,7 @@ pub type LPCWSTR_WMSDK_TYPE_SAFE = windows_core::PCWSTR;
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -9690,7 +9690,7 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -9707,7 +9707,7 @@ impl Default for WMMPEG2VIDEOINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: windows_core::GUID,
 }
@@ -9722,7 +9722,7 @@ pub const WMT_BUFFERING_START: WMT_STATUS = 2;
 pub const WMT_BUFFERING_STOP: WMT_STATUS = 3;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::wmsbuffer::INSSBuffer>>,
     pub cbOffset: u32,
@@ -9740,7 +9740,7 @@ pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = -1;
 pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = 1;
 pub type WMT_CODEC_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -9766,7 +9766,7 @@ pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -9828,7 +9828,7 @@ pub const WMT_ON: WMT_STREAM_SELECTION = 2;
 pub const WMT_OPENED: WMT_STATUS = 1;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -9911,7 +9911,7 @@ pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: u32 = 65536;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -9992,7 +9992,7 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30;
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: windows_core::GUID,
@@ -10001,7 +10001,7 @@ pub struct WMT_WATERMARK_ENTRY {
 }
 pub type WMT_WATERMARK_ENTRY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -10009,7 +10009,7 @@ pub struct WMT_WEBSTREAM_FORMAT {
     pub wReserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -10026,7 +10026,7 @@ pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1;
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -10037,7 +10037,7 @@ pub struct WMVIDEOINFOHEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -10053,7 +10053,7 @@ pub struct WMVIDEOINFOHEADER2 {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -10063,13 +10063,13 @@ pub const WM_AETYPE_EXCLUDE: WM_AETYPE = 101;
 pub const WM_AETYPE_INCLUDE: WM_AETYPE = 105;
 pub const WM_BACKUP_OVERWRITE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
     pub pwszIPAddress: windows_core::PCWSTR,
@@ -10108,7 +10108,7 @@ pub struct WM_LEAKY_BUCKET_PAIR {
 pub const WM_MAX_STREAMS: u32 = 63;
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -10143,14 +10143,14 @@ pub const WM_PLAYBACK_DRC_HIGH: i32 = 0;
 pub const WM_PLAYBACK_DRC_LOW: i32 = 2;
 pub const WM_PLAYBACK_DRC_MEDIUM: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: *mut u16,
@@ -10169,7 +10169,7 @@ impl Default for WM_READER_CLIENTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -10230,7 +10230,7 @@ pub struct WM_USER_WEB_URL {
     pub pwszURL: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -10244,7 +10244,7 @@ pub struct WM_WRITER_STATISTICS {
     pub dwExpectedSampleRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,

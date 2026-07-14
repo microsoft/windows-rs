@@ -1,13 +1,13 @@
 pub const MAXLEN_IFDESCR: u32 = 256;
 pub const MAXLEN_PHYSADDR: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IFNUMBER {
     pub dwValue: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFROW {
     pub wszName: [u16; 256],
     pub dwIndex: super::ifdef::IF_INDEX,
@@ -42,7 +42,7 @@ impl Default for MIB_IFROW {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ipifcons"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFTABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IFROW; 1],

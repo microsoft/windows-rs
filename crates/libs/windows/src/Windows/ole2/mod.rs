@@ -628,13 +628,13 @@ pub const OLEIVERB_PRIMARY: u32 = 0;
 pub const OLEIVERB_SHOW: i32 = -1;
 pub const OLEIVERB_UIACTIVATE: i32 = -4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLESTREAM {
     pub lpstbl: LPOLESTREAMVTBL,
 }
 pub type OLESTREAMQUERYCONVERTOLELINKCALLBACK = Option<unsafe extern "system" fn(pclsid: *const windows_core::GUID, szclass: windows_core::PCWSTR, sztopicname: windows_core::PCWSTR, szitemname: windows_core::PCWSTR, szuncname: windows_core::PCWSTR, linkupdatingoption: u32, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLESTREAMVTBL {
     pub Get: *mut u8,
     pub Put: *mut u8,

@@ -552,7 +552,7 @@ pub struct APPBARDATA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::windef::HWND,
@@ -586,7 +586,7 @@ pub struct ASSOCIATIONELEMENT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::minwindef::HKEY,
@@ -608,7 +608,7 @@ pub struct DRAGINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::windef::POINT,
@@ -630,7 +630,7 @@ pub struct DRAGINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::windef::POINT,
@@ -697,7 +697,7 @@ pub const NCM_GETADDRESS: u32 = 1025;
 pub const NCM_GETALLOWTYPE: u32 = 1027;
 pub const NCM_SETALLOWTYPE: u32 = 1026;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut NET_ADDRESS_INFO_,
     pub PortNumber: u16,
@@ -709,7 +709,7 @@ impl Default for NC_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_ADDRESS_INFO_(pub u8);
 pub const NIF_GUID: u32 = 32;
 pub const NIF_ICON: u32 = 2;
@@ -967,7 +967,7 @@ pub struct NOTIFYICONIDENTIFIER {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::windef::HWND,
@@ -992,7 +992,7 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PSTR,
@@ -1012,7 +1012,7 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PWSTR,
@@ -1117,7 +1117,7 @@ pub struct SHCREATEPROCESSINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -1333,7 +1333,7 @@ impl Default for SHFILEINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOA {
     pub hIcon: super::windef::HICON,
     pub iIcon: i32,
@@ -1369,7 +1369,7 @@ impl Default for SHFILEINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOW {
     pub hIcon: super::windef::HICON,
     pub iIcon: i32,
@@ -1410,7 +1410,7 @@ impl Default for SHFILEOPSTRUCTA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::windef::HWND,
     pub wFunc: u32,
@@ -1452,7 +1452,7 @@ impl Default for SHFILEOPSTRUCTW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::windef::HWND,
     pub wFunc: u32,
@@ -1520,7 +1520,7 @@ pub struct SHNAMEMAPPINGA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_core::PSTR,
     pub pszNewPath: windows_core::PSTR,
@@ -1538,7 +1538,7 @@ pub struct SHNAMEMAPPINGW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_core::PWSTR,
     pub pszNewPath: windows_core::PWSTR,
@@ -1555,7 +1555,7 @@ pub struct SHQUERYRBINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
@@ -1583,7 +1583,7 @@ impl Default for SHSTOCKICONINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
     pub hIcon: super::windef::HICON,

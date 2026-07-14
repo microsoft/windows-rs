@@ -54,35 +54,35 @@ where
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct APP_DEPRECATED_HRESULT(pub windows_core::HRESULT);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_BLEND_DESC {
     pub Base: D3D11_BLEND_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_BLEND_DESC1 {
     pub Base: D3D11_BLEND_DESC1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_BOX {
     pub Base: D3D11_BOX,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_BUFFER_DESC {
     pub Base: D3D11_BUFFER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_COUNTER_DESC {
     pub Base: D3D11_COUNTER_DESC,
 }
 #[repr(C, align(1))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_DEFAULT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_DEPTH_STENCIL_DESC {
     pub Base: D3D11_DEPTH_STENCIL_DESC,
 }
@@ -99,12 +99,12 @@ impl Default for CD3D11_DEPTH_STENCIL_VIEW_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_QUERY_DESC {
     pub Base: D3D11_QUERY_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_QUERY_DESC1 {
     pub Base: D3D11_QUERY_DESC1,
 }
@@ -125,7 +125,7 @@ pub struct CD3D11_RASTERIZER_DESC2 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_RECT {
     pub Base: D3D11_RECT,
 }
@@ -184,31 +184,31 @@ impl Default for CD3D11_SHADER_RESOURCE_VIEW_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_TEXTURE1D_DESC {
     pub Base: D3D11_TEXTURE1D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_TEXTURE2D_DESC {
     pub Base: D3D11_TEXTURE2D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_TEXTURE2D_DESC1 {
     pub Base: D3D11_TEXTURE2D_DESC1,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_TEXTURE3D_DESC {
     pub Base: D3D11_TEXTURE3D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_TEXTURE3D_DESC1 {
     pub Base: D3D11_TEXTURE3D_DESC1,
 }
@@ -237,7 +237,7 @@ impl Default for CD3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     }
 }
 #[repr(C, align(1))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -254,7 +254,7 @@ pub const D3D11_4_VIDEO_DECODER_HISTOGRAM_OFFSET_ALIGNMENT: u32 = 256;
 pub const D3D11_4_VIDEO_DECODER_MAX_HISTOGRAM_COMPONENTS: u32 = 4;
 pub const D3D11_8BIT_INDEX_STRIP_CUT_VALUE: u32 = 255;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -270,7 +270,7 @@ pub const D3D11_AUTHENTICATED_CHANNEL_DRIVER_SOFTWARE: D3D11_AUTHENTICATED_CHANN
 pub type D3D11_AUTHENTICATED_CHANNEL_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub EncryptionGuid: windows_core::GUID,
@@ -278,7 +278,7 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT {
 pub const D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION: windows_core::GUID = windows_core::GUID::from_u128(0x6346cc54_2cfc_4ad4_8224_d15837de7700);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub DecoderHandle: super::winnt::HANDLE,
@@ -289,7 +289,7 @@ pub const D3D11_AUTHENTICATED_CONFIGURE_ENCRYPTION_WHEN_ACCESSIBLE: windows_core
 pub const D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE: windows_core::GUID = windows_core::GUID::from_u128(0x06114bdb_3523_470a_8dca_fbc2845154f0);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub StartSequenceQuery: u32,
@@ -297,7 +297,7 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_INPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -306,7 +306,7 @@ pub struct D3D11_AUTHENTICATED_CONFIGURE_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT {
     pub omac: D3D11_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -331,7 +331,7 @@ impl Default for D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT {
 pub const D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE: windows_core::GUID = windows_core::GUID::from_u128(0x0772d047_1b40_48e8_9ca6_b5f510de9f01);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT {
     pub Parameters: D3D11_AUTHENTICATED_CONFIGURE_INPUT,
     pub ProcessType: D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE,
@@ -351,28 +351,28 @@ impl Default for D3D11_AUTHENTICATED_PROTECTION_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
     pub _bitfield: u32,
 }
 pub const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: windows_core::GUID = windows_core::GUID::from_u128(0x6214d9d2_432c_4abb_9fce_216eea269e3b);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuidCount: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuidIndex: u32,
@@ -380,7 +380,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub BusType: D3D11_BUS_TYPE,
@@ -390,7 +390,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE: windows_core::GUID = windows_core::GUID::from_u128(0xbc1b18a5_b1fb_42ab_bd94_b5828b4bf7be);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ChannelType: D3D11_AUTHENTICATED_CHANNEL_TYPE,
@@ -398,14 +398,14 @@ pub struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION: windows_core::GUID = windows_core::GUID::from_u128(0x2634499e_d018_4d74_ac17_7f724059528d);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DecoderHandle: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DecoderHandle: super::winnt::HANDLE,
@@ -414,7 +414,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub EncryptionGuid: windows_core::GUID,
@@ -423,7 +423,7 @@ pub const D3D11_AUTHENTICATED_QUERY_CURRENT_ENCRYPTION_WHEN_ACCESSIBLE: windows_
 pub const D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE: windows_core::GUID = windows_core::GUID::from_u128(0xec1c539d_8cff_4e2a_bcc4_f5692f99f480);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -432,7 +432,7 @@ pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID: windows_cor
 pub const D3D11_AUTHENTICATED_QUERY_ENCRYPTION_WHEN_ACCESSIBLE_GUID_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0xb30f7066_203c_4b07_93fc_ceaafd61241e);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_INPUT {
     pub QueryType: windows_core::GUID,
     pub hChannel: super::winnt::HANDLE,
@@ -440,7 +440,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT {
     pub omac: D3D11_OMAC,
     pub QueryType: windows_core::GUID,
@@ -452,7 +452,7 @@ pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID: windows_core::GUID = windows_core
 pub const D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x2c042b5e_8c07_46d5_aabe_8f75cbad4c31);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -460,7 +460,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -469,7 +469,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -478,7 +478,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -504,21 +504,21 @@ pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS: windows_
 pub const D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x0db207b3_9450_46a6_82de_1b96d44f9cf2);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub RestrictedSharedResourceProcessCount: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT {
     pub Input: D3D11_AUTHENTICATED_QUERY_INPUT,
     pub ProcessIndex: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub ProcessIndex: u32,
@@ -528,7 +528,7 @@ pub struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT {
 pub const D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x012f0bd6_e662_4474_befd_aa53e5143c6d);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT {
     pub Output: D3D11_AUTHENTICATED_QUERY_OUTPUT,
     pub UnrestrictedProtectedSharedResourceCount: u32,
@@ -547,7 +547,7 @@ pub const D3D11_BIND_VIDEO_ENCODER: D3D11_BIND_FLAG = 1024;
 pub type D3D11_BLEND = i32;
 pub const D3D11_BLEND_BLEND_FACTOR: D3D11_BLEND = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BLEND_DESC {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub IndependentBlendEnable: windows_core::BOOL,
@@ -559,7 +559,7 @@ impl Default for D3D11_BLEND_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_BLEND_DESC1 {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub IndependentBlendEnable: windows_core::BOOL,
@@ -593,7 +593,7 @@ pub const D3D11_BLEND_SRC_ALPHA_SAT: D3D11_BLEND = 11;
 pub const D3D11_BLEND_SRC_COLOR: D3D11_BLEND = 3;
 pub const D3D11_BLEND_ZERO: D3D11_BLEND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_BOX {
     pub left: u32,
     pub top: u32,
@@ -603,7 +603,7 @@ pub struct D3D11_BOX {
     pub back: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_BUFFEREX_SRV {
     pub FirstElement: u32,
     pub NumElements: u32,
@@ -612,7 +612,7 @@ pub struct D3D11_BUFFEREX_SRV {
 pub type D3D11_BUFFEREX_SRV_FLAG = i32;
 pub const D3D11_BUFFEREX_SRV_FLAG_RAW: D3D11_BUFFEREX_SRV_FLAG = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D11_USAGE,
@@ -688,7 +688,7 @@ impl Default for D3D11_BUFFER_SRV_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_BUFFER_UAV {
     pub FirstElement: u32,
     pub NumElements: u32,
@@ -718,7 +718,7 @@ pub const D3D11_CENTER_MULTISAMPLE_PATTERN: D3D11_STANDARD_MULTISAMPLE_QUALITY_L
 pub type D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG = i32;
 pub const D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_TILED_RESOURCE: D3D11_CHECK_MULTISAMPLE_QUALITY_LEVELS_FLAG = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_CLASS_INSTANCE_DESC {
     pub InstanceId: u32,
     pub InstanceIndex: u32,
@@ -787,7 +787,7 @@ pub const D3D11_COMPARISON_NEVER: D3D11_COMPARISON_FUNC = 1;
 pub const D3D11_COMPARISON_NOT_EQUAL: D3D11_COMPARISON_FUNC = 6;
 pub const D3D11_COMPUTE_SHADER: D3D11_SHADER_TYPE = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_COMPUTE_SHADER_TRACE_DESC {
     pub Invocation: u64,
     pub ThreadIDInGroup: [u32; 3],
@@ -834,14 +834,14 @@ pub type D3D11_COPY_FLAGS = i32;
 pub const D3D11_COPY_NO_OVERWRITE: D3D11_COPY_FLAGS = 1;
 pub type D3D11_COUNTER = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_COUNTER_DESC {
     pub Counter: D3D11_COUNTER,
     pub MiscFlags: u32,
 }
 pub const D3D11_COUNTER_DEVICE_DEPENDENT_0: D3D11_COUNTER = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D11_COUNTER,
     pub NumSimultaneousCounters: u32,
@@ -1034,7 +1034,7 @@ pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D11_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D11_STENCIL_OP,
     pub StencilDepthFailOp: D3D11_STENCIL_OP,
@@ -1042,7 +1042,7 @@ pub struct D3D11_DEPTH_STENCILOP_DESC {
     pub StencilFunc: D3D11_COMPARISON_FUNC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D11_DEPTH_WRITE_MASK,
@@ -1093,12 +1093,12 @@ pub const D3D11_DEVICE_CONTEXT_IMMEDIATE: D3D11_DEVICE_CONTEXT_TYPE = 0;
 pub type D3D11_DEVICE_CONTEXT_TYPE = i32;
 pub const D3D11_DOMAIN_SHADER: D3D11_SHADER_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_DOMAIN_SHADER_TRACE_DESC {
     pub Invocation: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     pub IndexCountPerInstance: u32,
     pub InstanceCount: u32,
@@ -1107,7 +1107,7 @@ pub struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS {
     pub StartInstanceLocation: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS {
     pub VertexCountPerInstance: u32,
     pub InstanceCount: u32,
@@ -1150,7 +1150,7 @@ pub const D3D11_DS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
 pub const D3D11_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D11_DS_OUTPUT_REGISTER_COUNT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_ENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
@@ -1171,17 +1171,17 @@ pub const D3D11_FEATURE_D3D9_OPTIONS1: D3D11_FEATURE = 13;
 pub const D3D11_FEATURE_D3D9_SHADOW_SUPPORT: D3D11_FEATURE = 9;
 pub const D3D11_FEATURE_D3D9_SIMPLE_INSTANCING_SUPPORT: D3D11_FEATURE = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_ARCHITECTURE_INFO {
     pub TileBasedDeferredRenderer: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     pub ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS {
     pub OutputMergerLogicOp: windows_core::BOOL,
     pub UAVOnlyRenderingForcedSampleCount: windows_core::BOOL,
@@ -1199,7 +1199,7 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS {
     pub ExtendedResourceSharing: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     pub TiledResourcesTier: D3D11_TILED_RESOURCES_TIER,
     pub MinMaxFiltering: windows_core::BOOL,
@@ -1207,7 +1207,7 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS1 {
     pub MapOnDefaultBuffers: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     pub PSSpecifiedStencilRefSupported: windows_core::BOOL,
     pub TypedUAVLoadAdditionalFormats: windows_core::BOOL,
@@ -1219,32 +1219,32 @@ pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS2 {
     pub UnifiedMemoryArchitecture: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS3 {
     pub VPAndRTArrayIndexFromAnyShaderFeedingRasterizer: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS4 {
     pub ExtendedNV12SharedTextureSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS5 {
     pub SharedResourceTier: D3D11_SHARED_RESOURCE_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D11_OPTIONS6 {
     pub ShaderAccessRestrictedResourceTier: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS {
     pub FullNonPow2TextureSupport: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     pub FullNonPow2TextureSupported: windows_core::BOOL,
     pub DepthAsTextureWithLessEqualComparisonFilterSupported: windows_core::BOOL,
@@ -1252,71 +1252,71 @@ pub struct D3D11_FEATURE_DATA_D3D9_OPTIONS1 {
     pub TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT {
     pub SupportsDepthAsTextureWithLessEqualComparisonFilter: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT {
     pub SimpleInstancingSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_DISPLAYABLE {
     pub DisplayableTexture: windows_core::BOOL,
     pub SharedResourceTier: D3D11_SHARED_RESOURCE_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_DOUBLES {
     pub DoublePrecisionFloatShaderOps: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT {
     pub InFormat: super::dxgi::DXGI_FORMAT,
     pub OutFormatSupport: u32,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2 {
     pub InFormat: super::dxgi::DXGI_FORMAT,
     pub OutFormatSupport2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     pub MaxGPUVirtualAddressBitsPerResource: u32,
     pub MaxGPUVirtualAddressBitsPerProcess: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_MARKER_SUPPORT {
     pub Profile: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_SHADER_CACHE {
     pub SupportFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT {
     pub PixelShaderMinPrecision: u32,
     pub AllOtherShaderStagesMinPrecision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_THREADING {
     pub DriverConcurrentCreates: windows_core::BOOL,
     pub DriverCommandLists: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM {
     pub DecoderDesc: D3D11_VIDEO_DECODER_DESC,
     pub Components: D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS,
@@ -1450,7 +1450,7 @@ pub const D3D11_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D11_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_FUNCTION_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -1488,7 +1488,7 @@ pub struct D3D11_FUNCTION_DESC {
 }
 pub const D3D11_GEOMETRY_SHADER: D3D11_SHADER_TYPE = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_GEOMETRY_SHADER_TRACE_DESC {
     pub Invocation: u64,
 }
@@ -1553,7 +1553,7 @@ pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_READ_PORTS: u32 = 1;
 pub const D3D11_HS_OUTPUT_PATCH_CONSTANT_REGISTER_SCALAR_COMPONENTS: u32 = 128;
 pub const D3D11_HULL_SHADER: D3D11_SHADER_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_HULL_SHADER_TRACE_DESC {
     pub Invocation: u64,
 }
@@ -1571,13 +1571,13 @@ pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128;
 pub const D3D11_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32;
 pub const D3D11_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_INFO_QUEUE_FILTER {
     pub AllowList: D3D11_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D11_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D11_MESSAGE_CATEGORY,
@@ -1594,7 +1594,7 @@ impl Default for D3D11_INFO_QUEUE_FILTER_DESC {
 pub type D3D11_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -1612,7 +1612,7 @@ pub const D3D11_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295;
 pub const D3D11_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295;
 pub const D3D11_KEY_EXCHANGE_HW_PROTECTION: windows_core::GUID = windows_core::GUID::from_u128(0xb1170d8a_628d_4da3_ad3b_82ddb08b4970);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     pub HWProtectionFunctionID: u32,
     pub pInputData: *mut D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA,
@@ -1625,7 +1625,7 @@ impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     pub PrivateDataSize: u32,
     pub HWProtectionDataSize: u32,
@@ -1637,7 +1637,7 @@ impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
     pub PrivateDataSize: u32,
     pub MaxHWProtectionDataSize: u32,
@@ -1653,7 +1653,7 @@ impl Default for D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA {
 }
 pub const D3D11_KEY_EXCHANGE_RSAES_OAEP: windows_core::GUID = windows_core::GUID::from_u128(0xc1949895_d72a_4a1d_8e5d_ed857d171520);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_LIBRARY_DESC {
     pub Creator: windows_core::PCSTR,
     pub Flags: u32,
@@ -1681,7 +1681,7 @@ pub const D3D11_MAG_FILTER_SHIFT: u32 = 2;
 pub const D3D11_MAJOR_VERSION: u32 = 11;
 pub type D3D11_MAP = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_MAPPED_SUBRESOURCE {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
@@ -1706,7 +1706,7 @@ pub const D3D11_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
 pub const D3D11_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D11_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_MESSAGE {
     pub Category: D3D11_MESSAGE_CATEGORY,
     pub Severity: D3D11_MESSAGE_SEVERITY,
@@ -3088,7 +3088,7 @@ pub const D3D11_MIP_LOD_RANGE_BIT_COUNT: u32 = 8;
 pub const D3D11_MULTISAMPLE_ANTIALIAS_LINE_WIDTH: f32 = 1.4;
 pub const D3D11_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_OMAC {
     pub Omac: [u8; 16],
 }
@@ -3098,7 +3098,7 @@ impl Default for D3D11_OMAC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_PACKED_MIP_DESC {
     pub NumStandardMips: u8,
     pub NumPackedMips: u8,
@@ -3108,7 +3108,7 @@ pub struct D3D11_PACKED_MIP_DESC {
 pub const D3D11_PACKED_TILE: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_PARAMETER_DESC {
     pub Name: windows_core::PCSTR,
     pub SemanticName: windows_core::PCSTR,
@@ -3126,7 +3126,7 @@ pub struct D3D11_PARAMETER_DESC {
 pub const D3D11_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
 pub const D3D11_PIXEL_SHADER: D3D11_SHADER_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_PIXEL_SHADER_TRACE_DESC {
     pub Invocation: u64,
     pub X: i32,
@@ -3170,7 +3170,7 @@ pub const D3D11_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
 pub const D3D11_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D11_QUERY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -3185,25 +3185,25 @@ pub struct D3D11_QUERY_DATA_PIPELINE_STATISTICS {
     pub CSInvocations: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_QUERY_DESC {
     pub Query: D3D11_QUERY,
     pub MiscFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_QUERY_DESC1 {
     pub Query: D3D11_QUERY,
     pub MiscFlags: u32,
@@ -3278,7 +3278,7 @@ pub const D3D11_RAW_UAV_SRV_BYTE_ALIGNMENT: u32 = 16;
 #[cfg(feature = "windef")]
 pub type D3D11_RECT = super::windef::RECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub BlendEnable: windows_core::BOOL,
     pub SrcBlend: D3D11_BLEND,
@@ -3290,7 +3290,7 @@ pub struct D3D11_RENDER_TARGET_BLEND_DESC {
     pub RenderTargetWriteMask: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: windows_core::BOOL,
     pub LogicOpEnable: windows_core::BOOL,
@@ -3402,7 +3402,7 @@ pub const D3D11_RESOURCE_DIMENSION_TEXTURE2D: D3D11_RESOURCE_DIMENSION = 3;
 pub const D3D11_RESOURCE_DIMENSION_TEXTURE3D: D3D11_RESOURCE_DIMENSION = 4;
 pub const D3D11_RESOURCE_DIMENSION_UNKNOWN: D3D11_RESOURCE_DIMENSION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_RESOURCE_FLAGS {
     pub BindFlags: u32,
     pub MiscFlags: u32,
@@ -3474,7 +3474,7 @@ pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_0: D3D11_SHADER_ACCESS_RE
 pub const D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER_1: D3D11_SHADER_ACCESS_RESTRICTED_RESOURCE_TIER = 1;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::d3dcommon::D3D_CBUFFER_TYPE,
@@ -3488,7 +3488,7 @@ pub type D3D11_SHADER_CACHE_SUPPORT_FLAGS = i32;
 pub const D3D11_SHADER_CACHE_SUPPORT_NONE: D3D11_SHADER_CACHE_SUPPORT_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -3531,7 +3531,7 @@ pub struct D3D11_SHADER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::d3dcommon::D3D_SHADER_INPUT_TYPE,
@@ -3680,7 +3680,7 @@ pub const D3D11_SHADER_TRACKING_RESOURCE_TYPE_UAV_DEVICEMEMORY: D3D11_SHADER_TRA
 pub type D3D11_SHADER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SHADER_TYPE_DESC {
     pub Class: super::d3dcommon::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::d3dcommon::D3D_SHADER_VARIABLE_TYPE,
@@ -3692,7 +3692,7 @@ pub struct D3D11_SHADER_TYPE_DESC {
     pub Name: windows_core::PCSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -3726,7 +3726,7 @@ pub const D3D11_SHVER_RESERVED0: D3D11_SHADER_VERSION_TYPE = 65520;
 pub const D3D11_SHVER_VERTEX_SHADER: D3D11_SHADER_VERSION_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -3744,7 +3744,7 @@ pub const D3D11_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 512;
 pub const D3D11_SO_BUFFER_SLOT_COUNT: u32 = 4;
 pub const D3D11_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SO_DECLARATION_ENTRY {
     pub Stream: u32,
     pub SemanticName: windows_core::PCSTR,
@@ -3792,7 +3792,7 @@ pub const D3D11_STENCIL_OP_REPLACE: D3D11_STENCIL_OP = 3;
 pub const D3D11_STENCIL_OP_ZERO: D3D11_STENCIL_OP = 2;
 pub const D3D11_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
@@ -3804,7 +3804,7 @@ impl Default for D3D11_SUBRESOURCE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_SUBRESOURCE_TILING {
     pub WidthInTiles: u32,
     pub HeightInTiles: u16,
@@ -3832,21 +3832,21 @@ pub struct D3D11_TESSELLATOR_OUTPUT_PRIMITIVE(pub super::d3dcommon::D3D_TESSELLA
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D11_TESSELLATOR_PARTITIONING(pub super::d3dcommon::D3D_TESSELLATOR_PARTITIONING);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -3854,82 +3854,82 @@ pub struct D3D11_TEX1D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX1D_UAV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_RTV1 {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -3937,7 +3937,7 @@ pub struct D3D11_TEX2D_ARRAY_RTV1 {
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -3945,7 +3945,7 @@ pub struct D3D11_TEX2D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -3954,14 +3954,14 @@ pub struct D3D11_TEX2D_ARRAY_SRV1 {
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_UAV1 {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -3969,90 +3969,90 @@ pub struct D3D11_TEX2D_ARRAY_UAV1 {
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_ARRAY_VPOV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_RTV1 {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_UAV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_UAV1 {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VDOV {
     pub ArraySlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VPIV {
     pub MipSlice: u32,
     pub ArraySlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX2D_VPOV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEX3D_UAV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXCUBE_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4060,7 +4060,7 @@ pub struct D3D11_TEXCUBE_ARRAY_SRV {
     pub NumCubes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -4068,7 +4068,7 @@ pub struct D3D11_TEXCUBE_SRV {
 pub const D3D11_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -4081,7 +4081,7 @@ pub struct D3D11_TEXTURE1D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -4096,7 +4096,7 @@ pub struct D3D11_TEXTURE2D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXTURE2D_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -4112,7 +4112,7 @@ pub struct D3D11_TEXTURE2D_DESC1 {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -4126,7 +4126,7 @@ pub struct D3D11_TEXTURE3D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TEXTURE3D_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -4162,7 +4162,7 @@ pub const D3D11_TILED_RESOURCES_TIER_1: D3D11_TILED_RESOURCES_TIER = 1;
 pub const D3D11_TILED_RESOURCES_TIER_2: D3D11_TILED_RESOURCES_TIER = 2;
 pub const D3D11_TILED_RESOURCES_TIER_3: D3D11_TILED_RESOURCES_TIER = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TILED_RESOURCE_COORDINATE {
     pub X: u32,
     pub Y: u32,
@@ -4180,7 +4180,7 @@ pub const D3D11_TILE_RANGE_NULL: D3D11_TILE_RANGE_FLAG = 1;
 pub const D3D11_TILE_RANGE_REUSE_SINGLE_TILE: D3D11_TILE_RANGE_FLAG = 4;
 pub const D3D11_TILE_RANGE_SKIP: D3D11_TILE_RANGE_FLAG = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TILE_REGION_SIZE {
     pub NumTiles: u32,
     pub bUseBox: windows_core::BOOL,
@@ -4189,7 +4189,7 @@ pub struct D3D11_TILE_REGION_SIZE {
     pub Depth: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TILE_SHAPE {
     pub WidthInTexels: u32,
     pub HeightInTexels: u32,
@@ -4309,7 +4309,7 @@ impl Default for D3D11_TRACE_STATS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_TRACE_STEP {
     pub ID: u32,
     pub InstructionActive: windows_core::BOOL,
@@ -4325,7 +4325,7 @@ pub const D3D11_TRACE_THIS_POINTER: D3D11_TRACE_REGISTER_TYPE = 15;
 pub const D3D11_TRACE_THREAD_GROUP_SHARED_MEMORY: D3D11_TRACE_REGISTER_TYPE = 24;
 pub const D3D11_TRACE_UNORDERED_ACCESS_VIEW: D3D11_TRACE_REGISTER_TYPE = 23;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_TRACE_VALUE {
     pub Bits: [u32; 4],
     pub ValidMask: D3D11_TRACE_COMPONENT_MASK,
@@ -4416,7 +4416,7 @@ pub const D3D11_VDOV_DIMENSION_TEXTURE2D: D3D11_VDOV_DIMENSION = 1;
 pub const D3D11_VDOV_DIMENSION_UNKNOWN: D3D11_VDOV_DIMENSION = 0;
 pub const D3D11_VERTEX_SHADER: D3D11_SHADER_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VERTEX_SHADER_TRACE_DESC {
     pub Invocation: u64,
 }
@@ -4458,7 +4458,7 @@ pub struct D3D11_VIDEO_COLOR_YCbCrA {
     pub A: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     pub Caps: u32,
     pub KeyExchangeTypeCount: u32,
@@ -4466,7 +4466,7 @@ pub struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS {
     pub ProtectedMemorySize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     pub pCryptoSession: core::mem::ManuallyDrop<Option<ID3D11CryptoSession>>,
     pub BlobSize: u32,
@@ -4483,7 +4483,7 @@ impl Default for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
 pub const D3D11_VIDEO_DECODER_BUFFER_BITSTREAM: D3D11_VIDEO_DECODER_BUFFER_TYPE = 6;
 pub const D3D11_VIDEO_DECODER_BUFFER_DEBLOCKING_CONTROL: D3D11_VIDEO_DECODER_BUFFER_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub BufferIndex: u32,
@@ -4506,7 +4506,7 @@ impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -4522,7 +4522,7 @@ impl Default for D3D11_VIDEO_DECODER_BUFFER_DESC1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_BUFFER_DESC2 {
     pub BufferType: D3D11_VIDEO_DECODER_BUFFER_TYPE,
     pub DataOffset: u32,
@@ -4555,7 +4555,7 @@ pub const D3D11_VIDEO_DECODER_CAPS_DOWNSAMPLE_REQUIRED: D3D11_VIDEO_DECODER_CAPS
 pub const D3D11_VIDEO_DECODER_CAPS_NON_REAL_TIME: D3D11_VIDEO_DECODER_CAPS = 2;
 pub const D3D11_VIDEO_DECODER_CAPS_UNSUPPORTED: D3D11_VIDEO_DECODER_CAPS = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_CONFIG {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -4577,7 +4577,7 @@ pub struct D3D11_VIDEO_DECODER_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_DESC {
     pub Guid: windows_core::GUID,
     pub SampleWidth: u32,
@@ -4585,7 +4585,7 @@ pub struct D3D11_VIDEO_DECODER_DESC {
     pub OutputFormat: super::dxgi::DXGI_FORMAT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_EXTENSION {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -4640,7 +4640,7 @@ impl Default for D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK {
     pub ClearSize: u32,
     pub EncryptedSize: u32,
@@ -4669,7 +4669,7 @@ pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_RESIZE: D3D11_V
 pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_MULTIPLANE_OVERLAY_ROTATION: D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS = 1;
 pub const D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINT_TRIPLE_BUFFER_OUTPUT: D3D11_VIDEO_PROCESSOR_BEHAVIOR_HINTS = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CAPS {
     pub DeviceCaps: u32,
     pub FeatureCaps: u32,
@@ -4682,13 +4682,13 @@ pub struct D3D11_VIDEO_PROCESSOR_CAPS {
     pub MaxStreamStates: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
     pub InputFrameFormat: D3D11_VIDEO_FRAME_FORMAT,
     pub InputFrameRate: super::dxgi::DXGI_RATIONAL,
@@ -4701,7 +4701,7 @@ pub struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE {
     pub CustomRate: super::dxgi::DXGI_RATIONAL,
     pub OutputFrames: u32,
@@ -4832,7 +4832,7 @@ pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_DEINTERLACE_MOTION_COMPENSATION: 
 pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_FRAME_RATE_CONVERSION: D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS = 32;
 pub const D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS_INVERSE_TELECINE: D3D11_VIDEO_PROCESSOR_PROCESSOR_CAPS = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS {
     pub PastFrames: u32,
     pub FutureFrames: u32,
@@ -4865,7 +4865,7 @@ pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_ROW_INTERLEAVED: D3D11_VIDEO_PROCE
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_SEPARATE: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 3;
 pub const D3D11_VIDEO_PROCESSOR_STEREO_FORMAT_VERTICAL: D3D11_VIDEO_PROCESSOR_STEREO_FORMAT = 2;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM {
     pub Enable: windows_core::BOOL,
     pub OutputIndex: u32,
@@ -4886,7 +4886,7 @@ impl Default for D3D11_VIDEO_PROCESSOR_STREAM {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
     pub Enable: windows_core::BOOL,
     pub Width: u32,
@@ -4895,7 +4895,7 @@ pub struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D11_VIDEO_SAMPLE_DESC {
     pub Width: u32,
     pub Height: u32,

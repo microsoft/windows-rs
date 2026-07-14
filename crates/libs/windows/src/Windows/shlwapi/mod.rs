@@ -2908,7 +2908,7 @@ pub const CTF_WAIT_ALLOWCOM: i32 = 64;
 pub const CTF_WAIT_NO_REENTRANCY: i32 = 512;
 pub type DLLGETVERSIONPROC = Option<unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLLVERSIONINFO {
     pub cbSize: u32,
     pub dwMajorVersion: u32,
@@ -2917,7 +2917,7 @@ pub struct DLLVERSIONINFO {
     pub dwPlatformID: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DLLVERSIONINFO2 {
     pub info1: DLLVERSIONINFO,
     pub dwFlags: u32,
@@ -3184,7 +3184,7 @@ pub const OS_WOW6432: u32 = 30;
 pub const OS_XPORGREATER: u32 = 18;
 pub type PARSEDURL = PARSEDURLA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARSEDURLA {
     pub cbSize: u32,
     pub pszProtocol: windows_core::PCSTR,
@@ -3194,7 +3194,7 @@ pub struct PARSEDURLA {
     pub nScheme: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARSEDURLW {
     pub cbSize: u32,
     pub pszProtocol: windows_core::PCWSTR,
@@ -3216,7 +3216,7 @@ pub type PPARSEDURL = PPARSEDURLA;
 pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QITAB {
     pub piid: *const windows_core::GUID,
     pub dwOffset: u32,

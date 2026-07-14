@@ -539,5 +539,5 @@ pub const SuppressExceptions: RoErrorReportingFlags = 1;
 pub const SuppressSetErrorInfo: RoErrorReportingFlags = 8;
 pub const UseSetErrorInfo: RoErrorReportingFlags = 4;
 #[repr(C, align(1))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

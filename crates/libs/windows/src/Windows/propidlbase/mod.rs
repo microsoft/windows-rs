@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::VARIANT_BOOL,
@@ -12,7 +12,7 @@ impl Default for CABOOL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::BSTR,
@@ -24,7 +24,7 @@ impl Default for CABSTR {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::BSTRBLOB,
@@ -36,7 +36,7 @@ impl Default for CABSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAC {
     pub cElems: u32,
     pub pElems: *mut i8,
@@ -48,7 +48,7 @@ impl Default for CAC {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::CLIPDATA,
@@ -60,7 +60,7 @@ impl Default for CACLIPDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut windows_core::GUID,
@@ -72,7 +72,7 @@ impl Default for CACLSID {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::wtypes::CY,
@@ -84,7 +84,7 @@ impl Default for CACY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -95,7 +95,7 @@ impl Default for CADATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -107,7 +107,7 @@ impl Default for CADBL {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAFILETIME {
     pub cElems: u32,
     pub pElems: *mut super::minwindef::FILETIME,
@@ -119,7 +119,7 @@ impl Default for CAFILETIME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
@@ -130,7 +130,7 @@ impl Default for CAFLT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
@@ -141,7 +141,7 @@ impl Default for CAH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -152,7 +152,7 @@ impl Default for CAI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -163,7 +163,7 @@ impl Default for CAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PSTR,
@@ -174,7 +174,7 @@ impl Default for CALPSTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CALPWSTR {
     pub cElems: u32,
     pub pElems: *mut windows_core::PWSTR,
@@ -186,7 +186,7 @@ impl Default for CALPWSTR {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
     pub pElems: *mut PROPVARIANT,
@@ -199,7 +199,7 @@ impl Default for CAPROPVARIANT {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut super::wtypesbase::SCODE,
@@ -211,7 +211,7 @@ impl Default for CASCODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
@@ -222,7 +222,7 @@ impl Default for CAUB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
@@ -233,7 +233,7 @@ impl Default for CAUH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
@@ -244,7 +244,7 @@ impl Default for CAUI {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -958,7 +958,7 @@ pub const PRSPEC_LPWSTR: u32 = 0;
 pub const PRSPEC_PROPID: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATPROPSETSTG {
     pub fmtid: windows_core::GUID,
     pub clsid: windows_core::GUID,
@@ -970,7 +970,7 @@ pub struct STATPROPSETSTG {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATPROPSTG {
     pub lpwstrName: windows_core::PWSTR,
     pub propid: super::wtypes::PROPID,
@@ -978,7 +978,7 @@ pub struct STATPROPSTG {
 }
 #[repr(C)]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_core::GUID,
     pub pStream: core::mem::ManuallyDrop<Option<super::objidlbase::IStream>>,

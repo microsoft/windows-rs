@@ -160,7 +160,7 @@ pub const WKSTA_DORMANTFILELIMIT_PARMNUM: u32 = 46;
 pub const WKSTA_ERRLOGSZ_PARMNUM: u32 = 27;
 pub const WKSTA_FORCECORECREATEMODE_PARMNUM: u32 = 60;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_100 {
     pub wki100_platform_id: u32,
     pub wki100_computername: windows_core::PWSTR,
@@ -169,7 +169,7 @@ pub struct WKSTA_INFO_100 {
     pub wki100_ver_minor: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_101 {
     pub wki101_platform_id: u32,
     pub wki101_computername: windows_core::PWSTR,
@@ -179,32 +179,32 @@ pub struct WKSTA_INFO_101 {
     pub wki101_lanroot: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1010 {
     pub wki1010_char_wait: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1011 {
     pub wki1011_collection_time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1012 {
     pub wki1012_maximum_collection_count: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1013 {
     pub wki1013_keep_conn: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1018 {
     pub wki1018_sess_timeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_102 {
     pub wki102_platform_id: u32,
     pub wki102_computername: windows_core::PWSTR,
@@ -215,142 +215,142 @@ pub struct WKSTA_INFO_102 {
     pub wki102_logged_on_users: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1023 {
     pub wki1023_siz_char_buf: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1027 {
     pub wki1027_errlog_sz: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1028 {
     pub wki1028_print_buf_time: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1032 {
     pub wki1032_wrk_heuristics: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1033 {
     pub wki1033_max_threads: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1041 {
     pub wki1041_lock_quota: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1042 {
     pub wki1042_lock_increment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1043 {
     pub wki1043_lock_maximum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1044 {
     pub wki1044_pipe_increment: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1045 {
     pub wki1045_pipe_maximum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1046 {
     pub wki1046_dormant_file_limit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1047 {
     pub wki1047_cache_file_timeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1048 {
     pub wki1048_use_opportunistic_locking: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1049 {
     pub wki1049_use_unlock_behind: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1050 {
     pub wki1050_use_close_behind: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1051 {
     pub wki1051_buf_named_pipes: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1052 {
     pub wki1052_use_lock_read_unlock: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1053 {
     pub wki1053_utilize_nt_caching: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1054 {
     pub wki1054_use_raw_read: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1055 {
     pub wki1055_use_raw_write: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1056 {
     pub wki1056_use_write_raw_data: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1057 {
     pub wki1057_use_encryption: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1058 {
     pub wki1058_buf_files_deny_write: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1059 {
     pub wki1059_buf_read_only_files: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1060 {
     pub wki1060_force_core_create_mode: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1061 {
     pub wki1061_use_512_byte_max_transfer: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_1062 {
     pub wki1062_read_ahead_throughput: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_302 {
     pub wki302_char_wait: u32,
     pub wki302_collection_time: u32,
@@ -374,7 +374,7 @@ pub struct WKSTA_INFO_302 {
     pub wki302_num_dgram_buf: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_402 {
     pub wki402_char_wait: u32,
     pub wki402_collection_time: u32,
@@ -399,7 +399,7 @@ pub struct WKSTA_INFO_402 {
     pub wki402_max_threads: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_INFO_502 {
     pub wki502_char_wait: u32,
     pub wki502_collection_time: u32,
@@ -467,7 +467,7 @@ pub const WKSTA_SIZCHARBUF_PARMNUM: u32 = 23;
 pub const WKSTA_SIZERROR_PARMNUM: u32 = 19;
 pub const WKSTA_SIZWORKBUF_PARMNUM: u32 = 29;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_TRANSPORT_INFO_0 {
     pub wkti0_quality_of_service: u32,
     pub wkti0_number_of_vcs: u32,
@@ -483,12 +483,12 @@ pub const WKSTA_USEOPPORTUNISTICLOCKING_PARMNUM: u32 = 48;
 pub const WKSTA_USERAWREAD_PARMNUM: u32 = 54;
 pub const WKSTA_USERAWWRITE_PARMNUM: u32 = 55;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_USER_INFO_0 {
     pub wkui0_username: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_USER_INFO_1 {
     pub wkui1_username: windows_core::PWSTR,
     pub wkui1_logon_domain: windows_core::PWSTR,
@@ -496,7 +496,7 @@ pub struct WKSTA_USER_INFO_1 {
     pub wkui1_logon_server: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WKSTA_USER_INFO_1101 {
     pub wkui1101_oth_domains: windows_core::PWSTR,
 }

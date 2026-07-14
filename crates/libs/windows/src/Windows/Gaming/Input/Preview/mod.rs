@@ -110,7 +110,7 @@ impl windows_core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HeadsetGeqGains {
     pub band1Gain: i32,
     pub band2Gain: i32,

@@ -22,7 +22,7 @@ pub const DWRITE_BASELINE_MAXIMUM: DWRITE_BASELINE = 8;
 pub const DWRITE_BASELINE_MINIMUM: DWRITE_BASELINE = 7;
 pub const DWRITE_BASELINE_ROMAN: DWRITE_BASELINE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_BITMAP_DATA_BGRA32 {
     pub width: u32,
     pub height: u32,
@@ -39,7 +39,7 @@ pub const DWRITE_BREAK_CONDITION_MAY_NOT_BREAK: DWRITE_BREAK_CONDITION = 2;
 pub const DWRITE_BREAK_CONDITION_MUST_BREAK: DWRITE_BREAK_CONDITION = 3;
 pub const DWRITE_BREAK_CONDITION_NEUTRAL: DWRITE_BREAK_CONDITION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_CARET_METRICS {
     pub slopeRise: i16,
     pub slopeRun: i16,
@@ -117,7 +117,7 @@ pub type DWRITE_FACTORY_TYPE = i32;
 pub const DWRITE_FACTORY_TYPE_ISOLATED: DWRITE_FACTORY_TYPE = 1;
 pub const DWRITE_FACTORY_TYPE_SHARED: DWRITE_FACTORY_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FILE_FRAGMENT {
     pub fileOffset: u64,
     pub fragmentSize: u64,
@@ -164,7 +164,7 @@ pub type DWRITE_FONT_FAMILY_MODEL = i32;
 pub const DWRITE_FONT_FAMILY_MODEL_TYPOGRAPHIC: DWRITE_FONT_FAMILY_MODEL = 0;
 pub const DWRITE_FONT_FAMILY_MODEL_WEIGHT_STRETCH_STYLE: DWRITE_FONT_FAMILY_MODEL = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_FEATURE {
     pub nameTag: DWRITE_FONT_FEATURE_TAG,
     pub parameter: u32,
@@ -266,7 +266,7 @@ pub const DWRITE_FONT_LINE_GAP_USAGE_DEFAULT: DWRITE_FONT_LINE_GAP_USAGE = 0;
 pub const DWRITE_FONT_LINE_GAP_USAGE_DISABLED: DWRITE_FONT_LINE_GAP_USAGE = 1;
 pub const DWRITE_FONT_LINE_GAP_USAGE_ENABLED: DWRITE_FONT_LINE_GAP_USAGE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_METRICS {
     pub designUnitsPerEm: u16,
     pub ascent: u16,
@@ -280,7 +280,7 @@ pub struct DWRITE_FONT_METRICS {
     pub strikethroughThickness: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_FONT_METRICS1 {
     pub Base: DWRITE_FONT_METRICS,
     pub glyphBoxLeft: i16,
@@ -298,7 +298,7 @@ pub struct DWRITE_FONT_METRICS1 {
     pub hasTypographicMetrics: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_FONT_PROPERTY {
     pub propertyId: DWRITE_FONT_PROPERTY_ID,
     pub propertyValue: *const u16,
@@ -375,7 +375,7 @@ pub const DWRITE_FONT_WEIGHT_ULTRA_BOLD: DWRITE_FONT_WEIGHT = 800;
 pub const DWRITE_FONT_WEIGHT_ULTRA_LIGHT: DWRITE_FONT_WEIGHT = 200;
 #[repr(C)]
 #[cfg(all(feature = "dcommon", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_IMAGE_DATA {
     pub imageData: *const core::ffi::c_void,
     pub imageDataSize: u32,
@@ -394,7 +394,7 @@ impl Default for DWRITE_GLYPH_IMAGE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_METRICS {
     pub leftSideBearing: i32,
     pub advanceWidth: u32,
@@ -433,7 +433,7 @@ impl Default for DWRITE_GLYPH_RUN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub localeName: *const u16,
     pub string: *const u16,
@@ -506,7 +506,7 @@ pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_LINE_BREAKPOINT {
     pub _bitfield: u8,
 }
@@ -623,7 +623,7 @@ impl Default for DWRITE_PAINT_ELEMENT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_0 {
     pub childCount: u32,
 }
@@ -669,7 +669,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_4 {
     pub endAngle: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_5 {
     pub glyphIndex: u32,
 }
@@ -681,7 +681,7 @@ pub struct DWRITE_PAINT_ELEMENT_0_6 {
     pub clipBox: super::dcommon::D2D_RECT_F,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PAINT_ELEMENT_0_7 {
     pub mode: DWRITE_COLOR_COMPOSITE_MODE,
 }
@@ -717,7 +717,7 @@ impl Default for DWRITE_PANOSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_0 {
     pub familyKind: u8,
     pub serifStyle: u8,
@@ -731,7 +731,7 @@ pub struct DWRITE_PANOSE_0 {
     pub xHeight: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_1 {
     pub familyKind: u8,
     pub toolKind: u8,
@@ -745,7 +745,7 @@ pub struct DWRITE_PANOSE_1 {
     pub xAscent: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_2 {
     pub familyKind: u8,
     pub decorativeClass: u8,
@@ -759,7 +759,7 @@ pub struct DWRITE_PANOSE_2 {
     pub characterRange: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_PANOSE_3 {
     pub familyKind: u8,
     pub symbolKind: u8,
@@ -1117,13 +1117,13 @@ pub const DWRITE_RENDERING_MODE_NATURAL: DWRITE_RENDERING_MODE = 4;
 pub const DWRITE_RENDERING_MODE_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE = 5;
 pub const DWRITE_RENDERING_MODE_OUTLINE: DWRITE_RENDERING_MODE = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SCRIPT_ANALYSIS {
     pub script: u16,
     pub shapes: DWRITE_SCRIPT_SHAPES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SCRIPT_PROPERTIES {
     pub isoScriptCode: u32,
     pub isoScriptNumber: u32,
@@ -1135,12 +1135,12 @@ pub type DWRITE_SCRIPT_SHAPES = u32;
 pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = 0;
 pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SHAPING_GLYPH_PROPERTIES {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
     pub _bitfield: u16,
 }
@@ -1194,13 +1194,13 @@ pub struct DWRITE_TEXT_METRICS1 {
     pub heightIncludingTrailingWhitespace: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TEXT_RANGE {
     pub startPosition: u32,
     pub length: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_TRIMMING {
     pub granularity: DWRITE_TRIMMING_GRANULARITY,
     pub delimiter: u32,
@@ -1211,7 +1211,7 @@ pub const DWRITE_TRIMMING_GRANULARITY_CHARACTER: DWRITE_TRIMMING_GRANULARITY = 1
 pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = 0;
 pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_TYPOGRAPHIC_FEATURES {
     pub features: *mut DWRITE_FONT_FEATURE,
     pub featureCount: u32,
@@ -1241,7 +1241,7 @@ impl Default for DWRITE_UNDERLINE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_UNICODE_RANGE {
     pub first: u32,
     pub last: u32,

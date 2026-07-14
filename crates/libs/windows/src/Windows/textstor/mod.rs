@@ -2012,7 +2012,7 @@ pub const TS_RT_HIDDEN: TsRunType = 1;
 pub const TS_RT_OPAQUE: TsRunType = 2;
 pub const TS_RT_PLAIN: TsRunType = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -2031,20 +2031,20 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
     pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,
@@ -2063,7 +2063,7 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32;
 pub const TS_SS_TRANSITORY: u32 = 4;
 pub const TS_SS_UWPCONTROL: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -2072,7 +2072,7 @@ pub const TS_ST_CORRECTION: u32 = 1;
 pub const TS_S_ASYNC: u32 = 262912;
 pub const TS_TC_CORRECTION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,

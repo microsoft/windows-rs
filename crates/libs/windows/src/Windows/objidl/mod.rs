@@ -247,7 +247,7 @@ pub type BIND_FLAGS = i32;
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
@@ -256,7 +256,7 @@ pub struct BIND_OPTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -272,7 +272,7 @@ impl Default for BIND_OPTS2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::windef::HWND,
@@ -287,7 +287,7 @@ pub type DATADIR = i32;
 pub const DATADIR_GET: DATADIR = 1;
 pub const DATADIR_SET: DATADIR = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
     pub tdDriverNameOffset: u16,
@@ -322,7 +322,7 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORMATETC {
     pub cfFormat: super::wtypes::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
@@ -2536,7 +2536,7 @@ impl IMoniker_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IMoniker {}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACEINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub iid: windows_core::GUID,
@@ -3924,7 +3924,7 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -3938,7 +3938,7 @@ impl Default for RemSNB {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
     pub dwHandleType: u32,
@@ -3960,7 +3960,7 @@ pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
 pub type SNB = *mut windows_core::PWSTR;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
@@ -3973,7 +3973,7 @@ pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: *mut super::wtypesbase::OLECHAR,
@@ -4038,14 +4038,14 @@ impl Default for uSTGMEDIUM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct userSTGMEDIUM {
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }

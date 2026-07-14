@@ -280,7 +280,7 @@ pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::min
 pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCWSTR, lparam: isize) -> windows_core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
@@ -331,14 +331,14 @@ pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32,
 pub type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
 pub type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: PCREDIRECTION_FUNCTION_DESCRIPTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_core::PCSTR,
     pub FunctionName: windows_core::PCSTR,

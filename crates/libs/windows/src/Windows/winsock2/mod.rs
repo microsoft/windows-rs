@@ -635,7 +635,7 @@ pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
 }
 pub const ADDR_ANY: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AFPROTOCOLS {
     pub iAddressFamily: i32,
     pub iProtocol: i32,
@@ -895,7 +895,7 @@ pub type PWSASERVICECLASSINFOW = *mut WSASERVICECLASSINFOW;
 pub type PWSAVERSION = *mut WSAVERSION;
 #[repr(C)]
 #[cfg(all(feature = "qos", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS {
     pub SendingFlowspec: super::qos::FLOWSPEC,
     pub ReceivingFlowspec: super::qos::FLOWSPEC,
@@ -955,7 +955,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_IN: u32 = 1;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: u32 = 0;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCK_NOTIFY_REGISTRATION {
     pub socket: SOCKET,
     pub completionKey: *mut core::ffi::c_void,
@@ -1013,7 +1013,7 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::windef::HWND,
     pub uMsg: u32,
@@ -1021,7 +1021,7 @@ pub struct WSACOMPLETION_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: LPWSAOVERLAPPED,
 }
@@ -1034,7 +1034,7 @@ pub struct WSACOMPLETION_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: LPWSAOVERLAPPED,
     pub hPort: super::winnt::HANDLE,
@@ -1043,7 +1043,7 @@ pub struct WSACOMPLETION_0_3 {
 pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -1061,7 +1061,7 @@ impl Default for WSADATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -1082,7 +1082,7 @@ pub type WSAECOMPARATOR = i32;
 pub type WSAESETSERVICEOP = i32;
 pub type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOA {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1094,7 +1094,7 @@ pub struct WSANAMESPACE_INFOA {
 pub type WSANAMESPACE_INFOEX = WSANAMESPACE_INFOEXA;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOEXA {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1105,7 +1105,7 @@ pub struct WSANAMESPACE_INFOEXA {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOEXW {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1115,7 +1115,7 @@ pub struct WSANAMESPACE_INFOEXW {
     pub ProviderSpecific: super::wtypesbase::BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOW {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1124,7 +1124,7 @@ pub struct WSANAMESPACE_INFOW {
     pub lpszIdentifier: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANETWORKEVENTS {
     pub lNetworkEvents: i32,
     pub iErrorCode: [i32; 10],
@@ -1137,7 +1137,7 @@ impl Default for WSANETWORKEVENTS {
 pub const WSANO_ADDRESS: u32 = 11004;
 pub type WSANSCLASSINFO = WSANSCLASSINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANSCLASSINFOA {
     pub lpszName: windows_core::PSTR,
     pub dwNameSpace: u32,
@@ -1151,7 +1151,7 @@ impl Default for WSANSCLASSINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANSCLASSINFOW {
     pub lpszName: windows_core::PWSTR,
     pub dwNameSpace: u32,
@@ -1165,14 +1165,14 @@ impl Default for WSANSCLASSINFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
     pub events: i16,
     pub revents: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOLCHAIN {
     pub ChainLen: i32,
     pub ChainEntries: [u32; 7],
@@ -1184,7 +1184,7 @@ impl Default for WSAPROTOCOLCHAIN {
 }
 pub type WSAPROTOCOL_INFO = WSAPROTOCOL_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOL_INFOA {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -1213,7 +1213,7 @@ impl Default for WSAPROTOCOL_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOL_INFOW {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -1248,7 +1248,7 @@ pub type WSAQUERYSET = WSAQUERYSETA;
 pub type WSAQUERYSET2 = WSAQUERYSET2A;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PSTR,
@@ -1267,7 +1267,7 @@ pub struct WSAQUERYSET2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PWSTR,
@@ -1286,7 +1286,7 @@ pub struct WSAQUERYSET2W {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PSTR,
@@ -1306,7 +1306,7 @@ pub struct WSAQUERYSETA {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PWSTR,
@@ -1328,7 +1328,7 @@ pub struct WSAQUERYSETW {
 pub type WSASERVICECLASSINFO = WSASERVICECLASSINFOA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSASERVICECLASSINFOA {
     pub lpServiceClassId: super::guiddef::LPGUID,
     pub lpszServiceClassName: windows_core::PSTR,
@@ -1337,7 +1337,7 @@ pub struct WSASERVICECLASSINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSASERVICECLASSINFOW {
     pub lpServiceClassId: super::guiddef::LPGUID,
     pub lpszServiceClassName: windows_core::PWSTR,
@@ -1346,7 +1346,7 @@ pub struct WSASERVICECLASSINFOW {
 }
 pub const WSASYS_STATUS_LEN: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAVERSION {
     pub dwVersion: u32,
     pub ecHow: WSAECOMPARATOR,
@@ -1392,7 +1392,7 @@ pub const XP1_SUPPORT_MULTIPOINT: u32 = 1024;
 pub const XP1_UNI_RECV: u32 = 65536;
 pub const XP1_UNI_SEND: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct fd_set {
     pub fd_count: u_int,
     pub fd_array: [SOCKET; 64],
@@ -1403,7 +1403,7 @@ impl Default for fd_set {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct hostent {
     pub h_name: *mut i8,
     pub h_aliases: *mut *mut i8,
@@ -1417,13 +1417,13 @@ impl Default for hostent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct linger {
     pub l_onoff: u_short,
     pub l_linger: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct netent {
     pub n_name: *mut i8,
     pub n_aliases: *mut *mut i8,
@@ -1436,7 +1436,7 @@ impl Default for netent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct protoent {
     pub p_name: *mut i8,
     pub p_aliases: *mut *mut i8,
@@ -1449,7 +1449,7 @@ impl Default for protoent {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
@@ -1464,7 +1464,7 @@ impl Default for servent {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
@@ -1478,13 +1478,13 @@ impl Default for servent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct sockproto {
     pub sp_family: u_short,
     pub sp_protocol: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct timeval {
     pub tv_sec: i32,
     pub tv_usec: i32,

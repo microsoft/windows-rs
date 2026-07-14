@@ -134,7 +134,7 @@ pub type BG_AUTH_TARGET = i32;
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = 2;
 pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_BASIC_CREDENTIALS {
     pub UserName: windows_core::PWSTR,
     pub Password: windows_core::PWSTR,
@@ -294,20 +294,20 @@ pub const BG_E_VALIDATION_FAILED: u32 = 2149580883;
 pub const BG_E_VOLUME_CHANGED: u32 = 2149580814;
 pub const BG_E_WATCHDOG_TIMEOUT: u32 = 2149580905;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_INFO {
     pub RemoteName: windows_core::PWSTR,
     pub LocalName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
     pub Completed: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_RANGE {
     pub InitialOffset: u64,
     pub Length: u64,
@@ -327,7 +327,7 @@ pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = 1;
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = 3;
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -340,7 +340,7 @@ pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = 1;
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = 2;
 pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -357,7 +357,7 @@ pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::minwindef::FILETIME,
     pub ModificationTime: super::minwindef::FILETIME,

@@ -33,7 +33,7 @@ where
     unsafe { NetUseGetInfo(uncservername.param().abi(), usename.param().abi(), levelflags, bufptr as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLOCK_NTLM_INFO {
     pub BlockNTLM: bool,
     pub Reserved1: u8,
@@ -80,7 +80,7 @@ pub type PUSE_OPTION_TRANSPORT_PARAMETERS = *mut USE_OPTION_TRANSPORT_PARAMETERS
 pub const QuicPortSetFlag: TRANSPORT_INFO_FLAG = 2;
 pub const RdmaPortSetFlag: TRANSPORT_INFO_FLAG = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_COMPRESSION_INFO {
     pub Switch: bool,
     pub Reserved1: u8,
@@ -88,7 +88,7 @@ pub struct SMB_COMPRESSION_INFO {
     pub Reserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub EABufferOffset: u32,
     pub EABufferLen: u32,
@@ -96,14 +96,14 @@ pub struct SMB_TREE_CONNECT_PARAMETERS {
     pub TreeConnectAttributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_USE_OPTION_COMPRESSION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
     pub SkipCertificateCheck: bool,
@@ -126,13 +126,13 @@ pub const USE_DOMAINNAME_PARMNUM: u32 = 6;
 pub const USE_FLAGS_PARMNUM: u32 = 7;
 pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_0 {
     pub ui0_local: windows_core::PWSTR,
     pub ui0_remote: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_1 {
     pub ui1_local: windows_core::PWSTR,
     pub ui1_remote: windows_core::PWSTR,
@@ -143,7 +143,7 @@ pub struct USE_INFO_1 {
     pub ui1_usecount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_2 {
     pub ui2_local: windows_core::PWSTR,
     pub ui2_remote: windows_core::PWSTR,
@@ -156,14 +156,14 @@ pub struct USE_INFO_2 {
     pub ui2_domainname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_3 {
     pub ui3_ui2: USE_INFO_2,
     pub ui3_flags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
@@ -171,7 +171,7 @@ pub struct USE_INFO_4 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: u32,
@@ -187,7 +187,7 @@ pub const USE_NETERR: u32 = 3;
 pub const USE_OK: u32 = 0;
 pub const USE_OPTIONS_PARMNUM: u32 = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
@@ -195,7 +195,7 @@ pub struct USE_OPTION_BLOCK_NTLM_PARAMETERS {
 }
 pub const USE_OPTION_BLOCK_NTLM_PARAMS: u32 = 1315925058;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,
@@ -203,14 +203,14 @@ pub struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS {
 }
 pub const USE_OPTION_DEFERRED_CONNECTION_PARAMS: u32 = 1130784068;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_GENERIC {
     pub Tag: u32,
     pub Length: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: u32,
     pub pInfo: *mut core::ffi::c_void,
@@ -223,7 +223,7 @@ impl Default for USE_OPTION_PROPERTIES {
 }
 pub const USE_OPTION_SMB_COMPRESSION_PARAMS: u32 = 1349349187;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USE_OPTION_TRANSPORT_PARAMETERS {
     pub Tag: u32,
     pub Length: u16,

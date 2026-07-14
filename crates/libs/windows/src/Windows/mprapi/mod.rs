@@ -733,7 +733,7 @@ pub const ALLOW_NO_AUTH: u32 = 1;
 pub const ATADDRESSLEN: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTH_VALIDATION_EX {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub hRasConnection: super::winnt::HANDLE,
@@ -750,14 +750,14 @@ impl Default for AUTH_VALIDATION_EX {
 }
 pub const DO_NOT_ALLOW_NO_AUTH: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GRE_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEV2_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -765,7 +765,7 @@ pub struct IKEV2_CONFIG_PARAMS {
     pub TunnelConfigParams: IKEV2_TUNNEL_CONFIG_PARAMS4,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -789,7 +789,7 @@ impl Default for IKEV2_PROJECTION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -815,7 +815,7 @@ impl Default for IKEV2_PROJECTION_INFO2 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -836,7 +836,7 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS2 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS3 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -860,7 +860,7 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS3 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEV2_TUNNEL_CONFIG_PARAMS4 {
     pub dwIdleTimeout: u32,
     pub dwNetworkBlackoutTime: u32,
@@ -886,13 +886,13 @@ impl Default for IKEV2_TUNNEL_CONFIG_PARAMS4 {
 pub const IPADDRESSLEN: u32 = 15;
 pub const IPXADDRESSLEN: u32 = 22;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct L2TP_CONFIG_PARAMS0 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct L2TP_CONFIG_PARAMS1 {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -900,7 +900,7 @@ pub struct L2TP_CONFIG_PARAMS1 {
     pub TunnelConfigParams: L2TP_TUNNEL_CONFIG_PARAMS2,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -909,7 +909,7 @@ pub struct L2TP_TUNNEL_CONFIG_PARAMS1 {
     pub customPolicy: PROUTER_CUSTOM_L2TP_POLICY0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct L2TP_TUNNEL_CONFIG_PARAMS2 {
     pub dwIdleTimeout: u32,
     pub dwEncryptionType: u32,
@@ -962,7 +962,7 @@ pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_3: u32 = 3;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_4: u32 = 4;
 pub const MPRAPI_MPR_SERVER_SET_CONFIG_OBJECT_REVISION_5: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPRAPI_OBJECT_HEADER {
     pub revision: u8,
     pub r#type: u8,
@@ -985,7 +985,7 @@ pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_PPTP: u32 = 1;
 pub const MPRAPI_SET_CONFIG_PROTOCOL_FOR_SSTP: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -994,7 +994,7 @@ pub struct MPRAPI_TUNNEL_CONFIG_PARAMS0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPRAPI_TUNNEL_CONFIG_PARAMS1 {
     pub IkeConfigParams: IKEV2_CONFIG_PARAMS,
     pub PptpConfigParams: PPTP_CONFIG_PARAMS,
@@ -1036,7 +1036,7 @@ pub const MPRNP_Ip: u32 = 4;
 pub const MPRNP_Ipv6: u32 = 8;
 pub const MPRNP_Ipx: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_CERT_EKU {
     pub dwSize: u32,
     pub IsEKUOID: windows_core::BOOL,
@@ -1049,20 +1049,20 @@ impl Default for MPR_CERT_EKU {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_0 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: super::minwindef::LPBYTE,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_CREDENTIALSEX_1 {
     pub dwSize: u32,
     pub lpbCredentialsInfo: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_DEVICE_0 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
@@ -1074,7 +1074,7 @@ impl Default for MPR_DEVICE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_DEVICE_1 {
     pub szDeviceType: [u16; 17],
     pub szDeviceName: [u16; 129],
@@ -1094,13 +1094,13 @@ pub const MPR_ET_Optional: u32 = 3;
 pub const MPR_ET_Require: u32 = 1;
 pub const MPR_ET_RequireMax: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_FILTER_0 {
     pub fEnable: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IFTRANSPORT_0 {
     pub dwTransportId: u32,
     pub hIfTransport: super::winnt::HANDLE,
@@ -1114,7 +1114,7 @@ impl Default for MPR_IFTRANSPORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1122,7 +1122,7 @@ pub struct MPR_IF_CUSTOMINFOEX0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1130,7 +1130,7 @@ pub struct MPR_IF_CUSTOMINFOEX1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_IF_CUSTOMINFOEX2 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwFlags: u32,
@@ -1138,7 +1138,7 @@ pub struct MPR_IF_CUSTOMINFOEX2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_0 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::winnt::HANDLE,
@@ -1156,7 +1156,7 @@ impl Default for MPR_INTERFACE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_1 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::winnt::HANDLE,
@@ -1175,7 +1175,7 @@ impl Default for MPR_INTERFACE_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_INTERFACE_2 {
     pub wszInterfaceName: [u16; 257],
     pub hInterface: super::winnt::HANDLE,
@@ -1281,7 +1281,7 @@ pub const MPR_INTERFACE_NO_MEDIA_SENSE: u32 = 32;
 pub const MPR_INTERFACE_OUT_OF_RESOURCES: u32 = 1;
 pub const MPR_INTERFACE_SERVICE_PAUSED: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_IPINIP_INTERFACE_0 {
     pub wszFriendlyName: [u16; 257],
     pub Guid: windows_core::GUID,
@@ -1304,7 +1304,7 @@ pub const MPR_MaxPhoneNumber: u32 = 128;
 pub const MPR_MaxUserData: u32 = 200;
 pub const MPR_MaxX25Address: u32 = 200;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_0 {
     pub fLanOnlyMode: windows_core::BOOL,
     pub dwUpTime: u32,
@@ -1312,7 +1312,7 @@ pub struct MPR_SERVER_0 {
     pub dwPortsInUse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_1 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1320,7 +1320,7 @@ pub struct MPR_SERVER_1 {
     pub dwL2tpPortFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_2 {
     pub dwNumPptpPorts: u32,
     pub dwPptpPortFlags: u32,
@@ -1331,7 +1331,7 @@ pub struct MPR_SERVER_2 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1343,7 +1343,7 @@ pub struct MPR_SERVER_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub fLanOnlyMode: u32,
@@ -1357,7 +1357,7 @@ pub struct MPR_SERVER_EX1 {
 pub type MPR_SERVER_HANDLE = super::winnt::HANDLE;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_SET_CONFIG_EX0 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -1365,7 +1365,7 @@ pub struct MPR_SERVER_SET_CONFIG_EX0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_SERVER_SET_CONFIG_EX1 {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub setConfigForProtocols: u32,
@@ -1373,7 +1373,7 @@ pub struct MPR_SERVER_SET_CONFIG_EX1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPR_TRANSPORT_0 {
     pub dwTransportId: u32,
     pub hTransport: super::winnt::HANDLE,
@@ -1405,7 +1405,7 @@ impl Default for MPR_VPN_TRAFFIC_SELECTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPR_VPN_TRAFFIC_SELECTORS {
     pub numTsi: u32,
     pub numTsr: u32,
@@ -1532,7 +1532,7 @@ pub type PPPP_PROJECTION_INFO = *mut PPP_PROJECTION_INFO;
 pub type PPPP_PROJECTION_INFO2 = *mut PPP_PROJECTION_INFO2;
 pub type PPPTP_CONFIG_PARAMS = *mut PPTP_CONFIG_PARAMS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_ATCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 33],
@@ -1549,7 +1549,7 @@ pub const PPP_CCP_ENCRYPTION40BITOLD: u32 = 16;
 pub const PPP_CCP_ENCRYPTION56BIT: u32 = 128;
 pub const PPP_CCP_HISTORYLESS: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_CCP_INFO {
     pub dwError: u32,
     pub dwCompressionAlgorithm: u32,
@@ -1558,7 +1558,7 @@ pub struct PPP_CCP_INFO {
     pub dwRemoteOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_INFO {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO,
@@ -1566,7 +1566,7 @@ pub struct PPP_INFO {
     pub at: PPP_ATCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_INFO_2 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1576,7 +1576,7 @@ pub struct PPP_INFO_2 {
     pub lcp: PPP_LCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_INFO_3 {
     pub nbf: PPP_NBFCP_INFO,
     pub ip: PPP_IPCP_INFO2,
@@ -1585,7 +1585,7 @@ pub struct PPP_INFO_3 {
     pub lcp: PPP_LCP_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -1597,7 +1597,7 @@ impl Default for PPP_IPCP_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPCP_INFO2 {
     pub dwError: u32,
     pub wszAddress: [u16; 16],
@@ -1612,7 +1612,7 @@ impl Default for PPP_IPCP_INFO2 {
 }
 pub const PPP_IPCP_VJ: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPV6_CP_INFO {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -1630,7 +1630,7 @@ impl Default for PPP_IPV6_CP_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_IPXCP_INFO {
     pub dwError: u32,
     pub wszAddress: [u16; 23],
@@ -1655,7 +1655,7 @@ pub const PPP_LCP_GCM_AES_128: u32 = 512;
 pub const PPP_LCP_GCM_AES_192: u32 = 1024;
 pub const PPP_LCP_GCM_AES_256: u32 = 2048;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPP_LCP_INFO {
     pub dwError: u32,
     pub dwAuthenticationProtocol: u32,
@@ -1675,7 +1675,7 @@ pub const PPP_LCP_PFC: u32 = 2;
 pub const PPP_LCP_SPAP: u32 = 49191;
 pub const PPP_LCP_SSHF: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_NBFCP_INFO {
     pub dwError: u32,
     pub wszWksta: [u16; 17],
@@ -1686,7 +1686,7 @@ impl Default for PPP_NBFCP_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1723,7 +1723,7 @@ impl Default for PPP_PROJECTION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPP_PROJECTION_INFO2 {
     pub dwIPv4NegotiationError: u32,
     pub wszAddress: [u16; 16],
@@ -1763,7 +1763,7 @@ impl Default for PPP_PROJECTION_INFO2 {
 pub type PPROJECTION_INFO = *mut PROJECTION_INFO;
 pub type PPROJECTION_INFO2 = *mut PROJECTION_INFO2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,
@@ -1855,7 +1855,7 @@ pub const RASPRIV_DialinPrivilege: u32 = 8;
 pub const RASPRIV_NoCallback: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_0 {
     pub hConnection: super::winnt::HANDLE,
     pub hInterface: super::winnt::HANDLE,
@@ -1875,7 +1875,7 @@ impl Default for RAS_CONNECTION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_CONNECTION_1 {
     pub hConnection: super::winnt::HANDLE,
     pub hInterface: super::winnt::HANDLE,
@@ -1895,7 +1895,7 @@ pub struct RAS_CONNECTION_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_2 {
     pub hConnection: super::winnt::HANDLE,
     pub wszUserName: [u16; 257],
@@ -1911,7 +1911,7 @@ impl Default for RAS_CONNECTION_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_CONNECTION_3 {
     pub dwVersion: u32,
     pub dwSize: u32,
@@ -2019,7 +2019,7 @@ pub const RAS_HARDWARE_FAILURE: RAS_HARDWARE_CONDITION = 1;
 pub const RAS_HARDWARE_OPERATIONAL: RAS_HARDWARE_CONDITION = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_0 {
     pub hPort: super::winnt::HANDLE,
     pub hConnection: super::winnt::HANDLE,
@@ -2039,7 +2039,7 @@ impl Default for RAS_PORT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_PORT_1 {
     pub hPort: super::winnt::HANDLE,
     pub hConnection: super::winnt::HANDLE,
@@ -2060,7 +2060,7 @@ pub struct RAS_PORT_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_PORT_2 {
     pub hPort: super::winnt::HANDLE,
     pub hConnection: super::winnt::HANDLE,
@@ -2112,7 +2112,7 @@ pub const RAS_QUAR_STATE_QUARANTINE: RAS_QUARANTINE_STATE = 1;
 #[cfg(feature = "winnt")]
 pub type RAS_SERVER_HANDLE = super::winnt::HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_UPDATE_CONNECTION {
     pub Header: MPRAPI_OBJECT_HEADER,
     pub dwIfIndex: u32,
@@ -2125,7 +2125,7 @@ impl Default for RAS_UPDATE_CONNECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_USER_0 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
@@ -2136,7 +2136,7 @@ impl Default for RAS_USER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAS_USER_1 {
     pub bfPrivilege: u8,
     pub wszPhoneNumber: [u16; 129],
@@ -2149,7 +2149,7 @@ impl Default for RAS_USER_1 {
 }
 pub type ROUTER_CONNECTION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROUTER_CUSTOM_IKEv2_POLICY0 {
     pub dwIntegrityMethod: u32,
     pub dwEncryptionMethod: u32,
@@ -2174,7 +2174,7 @@ pub const ROUTER_IF_TYPE_MAX: ROUTER_INTERFACE_TYPE = 8;
 pub const ROUTER_IF_TYPE_TUNNEL1: ROUTER_INTERFACE_TYPE = 6;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2189,7 +2189,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG0 {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2205,7 +2205,7 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "in6addr", feature = "inaddr", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
     pub dwSaLifeTime: u32,
     pub dwSaDataSize: u32,
@@ -2224,14 +2224,14 @@ impl Default for ROUTER_IKEv2_IF_CUSTOM_CONFIG2 {
 pub type ROUTER_INTERFACE_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSTP_CERT_INFO {
     pub isDefault: windows_core::BOOL,
     pub certBlob: super::wincrypt::CRYPT_HASH_BLOB,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSTP_CONFIG_PARAMS {
     pub dwNumPorts: u32,
     pub dwPortFlags: u32,

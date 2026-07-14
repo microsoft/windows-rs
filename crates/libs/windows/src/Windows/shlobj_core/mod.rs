@@ -1375,7 +1375,7 @@ pub struct DATABLOCK_HEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::windef::HWND,
     pub pcmcb: core::mem::ManuallyDrop<Option<super::shobjidl_core::IContextMenuCB>>,
@@ -1411,7 +1411,7 @@ impl Default for DETAILSINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DFMICS {
     pub cbSize: u32,
     pub fMask: u32,
@@ -3638,7 +3638,7 @@ impl IShellIconOverlayManager_Vtbl {
 }
 impl windows_core::RuntimeName for IShellIconOverlayManager {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEMSPACING {
     pub cxSmall: i32,
     pub cySmall: i32,
@@ -3796,7 +3796,7 @@ pub const MM_DONTREMOVESEPS: u32 = 4;
 pub const MM_SUBMENUSHAVEIDS: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnetwk")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NRESARRAY {
     pub cItems: u32,
     pub nr: [super::winnetwk::NETRESOURCE; 1],
@@ -3860,7 +3860,7 @@ pub const OFASI_OPENDESKTOP: u32 = 2;
 pub const OI_ASYNC: u32 = 4294962926;
 pub const OI_DEFAULT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPENASINFO {
     pub pcszFile: windows_core::PCWSTR,
     pub pcszClass: windows_core::PCWSTR,
@@ -3974,7 +3974,7 @@ impl Default for PROPPRG {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QCMINFO {
     pub hmenu: super::windef::HMENU,
     pub indexMenu: u32,
@@ -3989,7 +3989,7 @@ impl Default for QCMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QCMINFO_IDMAP {
     pub nMaxIds: u32,
     pub pIdList: [QCMINFO_IDMAP_PLACEMENT; 1],
@@ -4000,7 +4000,7 @@ impl Default for QCMINFO_IDMAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QCMINFO_IDMAP_PLACEMENT {
     pub id: u32,
     pub fFlags: u32,
@@ -4203,7 +4203,7 @@ pub const SFVM_GETSORTDEFAULTS: u32 = 53;
 pub const SFVM_GETTOOLTIPTEXT: u32 = 4;
 pub const SFVM_GETZONE: u32 = 58;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SFVM_HELPTOPIC_DATA {
     pub wszHelpFile: [u16; 260],
     pub wszHelpTopic: [u16; 260],
@@ -4238,7 +4238,7 @@ pub const SFVS_SELECT_INVERT: u32 = 2;
 pub const SFVS_SELECT_NONE: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SFV_CREATE {
     pub cbSize: u32,
     pub pshf: core::mem::ManuallyDrop<Option<super::shobjidl_core::IShellFolder>>,
@@ -4352,7 +4352,7 @@ impl Default for SHChangeUpdateImageIDList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDESCRIPTIONID {
     pub dwDescriptionId: u32,
     pub clsid: windows_core::GUID,
@@ -4422,7 +4422,7 @@ pub const SHFMT_OPT_FULL: u32 = 1;
 pub const SHFMT_OPT_SYSONLY: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: u32,
     pub dwMask: u32,

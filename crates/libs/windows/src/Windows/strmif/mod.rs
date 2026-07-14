@@ -7,7 +7,7 @@ pub const ADVISE_NONE: i32 = 0;
 pub const ADVISE_PALETTE: i32 = 2;
 pub const ADVISE_POSITION: i32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALLOCATOR_PROPERTIES {
     pub cBuffers: i32,
     pub cbBuffer: i32,
@@ -21,7 +21,7 @@ pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = 32;
 pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = 8;
 pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPCommand {
     pub macKDI: windows_core::GUID,
     pub guidCommandID: windows_core::GUID,
@@ -35,7 +35,7 @@ impl Default for AMCOPPCommand {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPSignature {
     pub Signature: [u8; 256],
 }
@@ -45,7 +45,7 @@ impl Default for AMCOPPSignature {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPStatusInput {
     pub rApp: windows_core::GUID,
     pub guidStatusRequestID: windows_core::GUID,
@@ -59,7 +59,7 @@ impl Default for AMCOPPStatusInput {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMCOPPStatusOutput {
     pub macKDI: windows_core::GUID,
     pub cbSizeData: u32,
@@ -133,7 +133,7 @@ pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = 1;
 pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = 65535;
 pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_DVD_RENDERSTATUS {
     pub hrVPEStatus: windows_core::HRESULT,
     pub bDvdVolInvalid: windows_core::BOOL,
@@ -173,7 +173,7 @@ pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = 1;
 pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = 2;
 pub const AM_MEDIAEVENT_NONOTIFY: tagAM_MEDIAEVENT_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -207,7 +207,7 @@ pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "mediaobj")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
     pub dwTypeSpecificFlags: u32,
@@ -258,7 +258,7 @@ pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "mediaobj")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_STREAM_INFO {
     pub tStart: super::mediaobj::REFERENCE_TIME,
     pub tStop: super::mediaobj::REFERENCE_TIME,
@@ -273,7 +273,7 @@ pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = 2;
 pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = 16;
 pub const AM_STREAM_MEDIA: tagAM_SAMPLE_PROPERTY_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_STREAM_CONFIG_CAPS {
     pub guid: windows_core::GUID,
     pub MinimumChannels: u32,
@@ -328,7 +328,7 @@ pub const CK_NOCOLORKEY: i32 = 0;
 pub const CK_RGB: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COLORKEY {
     pub KeyType: u32,
     pub PaletteIndex: u32,
@@ -347,7 +347,7 @@ pub const CameraControl_Roll: CameraControlProperty = 2;
 pub const CameraControl_Tilt: CameraControlProperty = 1;
 pub const CameraControl_Zoom: CameraControlProperty = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CodecAPIEventData {
     pub guid: windows_core::GUID,
     pub dataLength: u32,
@@ -381,7 +381,7 @@ pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = 1001;
 pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = 1000;
 pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = 1003;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_ATR {
     pub ulCAT: u32,
     pub pbATRI: [u8; 768],
@@ -418,7 +418,7 @@ pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = 1;
 pub type DVD_AudioATR = [u8; 8];
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_AudioAttributes {
     pub AppMode: DVD_AUDIO_APPMODE,
     pub AppModeData: u8,
@@ -504,7 +504,7 @@ pub type DVD_FRAMERATE = i32;
 pub const DVD_General_Comments: DVD_TextStringType = 49;
 pub const DVD_General_Name: DVD_TextStringType = 48;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_HMSF_TIMECODE {
     pub bHours: u8,
     pub bMinutes: u8,
@@ -517,7 +517,7 @@ pub type DVD_KARAOKE_ASSIGNMENT = i32;
 pub type DVD_KARAOKE_CONTENTS = i32;
 pub type DVD_KARAOKE_DOWNMIX = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_KaraokeAttributes {
     pub bVersion: u8,
     pub fMasterOfCeremoniesInGuideVocal1: windows_core::BOOL,
@@ -552,7 +552,7 @@ pub struct DVD_MUA_Coeff {
     pub log2_beta: f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_MUA_MixingInfo {
     pub fMixTo0: windows_core::BOOL,
     pub fMixTo1: windows_core::BOOL,
@@ -563,7 +563,7 @@ pub struct DVD_MUA_MixingInfo {
 pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVD_MenuAttributes {
     pub fCompatibleRegion: [windows_core::BOOL; 8],
     pub VideoAttributes: DVD_VideoAttributes,
@@ -624,14 +624,14 @@ pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = 8192;
 pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = 16384;
 pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION {
     pub TitleNum: u32,
     pub ChapterNum: u32,
     pub TimeCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_PLAYBACK_LOCATION2 {
     pub TitleNum: u32,
     pub ChapterNum: u32,
@@ -686,7 +686,7 @@ pub const DVD_Struct_Volume: DVD_TextStringType = 1;
 pub type DVD_SubpictureATR = [u8; 6];
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_SubpictureAttributes {
     pub Type: DVD_SUBPICTURE_TYPE,
     pub CodingMode: DVD_SUBPICTURE_CODING,
@@ -698,7 +698,7 @@ pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = 2;
 pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = 4;
 pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_TIMECODE {
     pub _bitfield: u32,
 }
@@ -759,7 +759,7 @@ pub const DVD_Title_Video: DVD_TextStringType = 58;
 pub type DVD_VIDEO_COMPRESSION = i32;
 pub type DVD_VideoATR = [u8; 2];
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DVD_VideoAttributes {
     pub fPanscanPermitted: windows_core::BOOL,
     pub fLetterboxPermitted: windows_core::BOOL,
@@ -788,7 +788,7 @@ pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = 2015;
 pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = 2000;
 pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = 2001;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVINFO {
     pub dwDVAAuxSrc: u32,
     pub dwDVAAuxCtl: u32,
@@ -820,7 +820,7 @@ pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = 128;
 pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = 64;
 pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = 0;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct FILTER_INFO {
     pub achName: [u16; 128],
     pub pGraph: core::mem::ManuallyDrop<Option<IFilterGraph>>,
@@ -16131,7 +16131,7 @@ pub const PINDIR_OUTPUT: PIN_DIRECTION = 1;
 pub type PIN_DIRECTION = i32;
 #[repr(C)]
 #[cfg(feature = "objidl")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PIN_INFO {
     pub pFilter: core::mem::ManuallyDrop<Option<IBaseFilter>>,
     pub dir: PIN_DIRECTION,
@@ -16174,7 +16174,7 @@ pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
 #[cfg(feature = "mediaobj")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Quality {
     pub Type: QualityMessageType,
     pub Proportion: i32,
@@ -16183,7 +16183,7 @@ pub struct Quality {
 }
 pub type QualityMessageType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGFILTER {
     pub Clsid: windows_core::GUID,
     pub Name: windows_core::PWSTR,
@@ -16212,7 +16212,7 @@ impl Default for REGFILTER2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_0 {
     pub cPins: u32,
     pub rgPins: *const REGFILTERPINS,
@@ -16223,7 +16223,7 @@ impl Default for REGFILTER2_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
     pub rgPins2: *const REGFILTERPINS2,
@@ -16234,7 +16234,7 @@ impl Default for REGFILTER2_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS {
     pub strName: windows_core::PWSTR,
     pub bRendered: windows_core::BOOL,
@@ -16252,7 +16252,7 @@ impl Default for REGFILTERPINS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGFILTERPINS2 {
     pub dwFlags: u32,
     pub cInstances: u32,
@@ -16268,14 +16268,14 @@ impl Default for REGFILTERPINS2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGPINMEDIUM {
     pub clsMedium: windows_core::GUID,
     pub dw1: u32,
     pub dw2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REGPINTYPES {
     pub clsMajorType: *const windows_core::GUID,
     pub clsMinorType: *const windows_core::GUID,
@@ -16301,7 +16301,7 @@ pub const RenderPrefs_Reserved: VMRRenderPrefs = 16;
 pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = 0;
 pub type SPRMARRAY = [DVD_REGISTER; 24];
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAM_ID_MAP {
     pub stream_id: u32,
     pub dwMediaSampleContent: u32,
@@ -16347,7 +16347,7 @@ pub type VALID_UOP_FLAG = i32;
 pub struct VALID_UOP_SOMTHING_OR_OTHER(pub u32);
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEO_STREAM_CONFIG_CAPS {
     pub guid: windows_core::GUID,
     pub VideoStandard: u32,
@@ -16373,7 +16373,7 @@ pub struct VIDEO_STREAM_CONFIG_CAPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "ksmedia", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRALLOCATIONINFO {
     pub dwFlags: u32,
     pub lpHdr: super::wingdi::LPBITMAPINFOHEADER,
@@ -16402,7 +16402,7 @@ pub const VMRBITMAP_HDC: u32 = 2;
 pub const VMRBITMAP_SRCCOLORKEY: u32 = 8;
 pub const VMRBITMAP_SRCRECT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRDeinterlaceCaps {
     pub dwSize: u32,
     pub dwNumPreviousOutputFrames: u32,
@@ -16413,13 +16413,13 @@ pub struct VMRDeinterlaceCaps {
 pub type VMRDeinterlacePrefs = i32;
 pub type VMRDeinterlaceTech = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRFrequency {
     pub dwNumerator: u32,
     pub dwDenominator: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRGUID {
     pub pGUID: *mut windows_core::GUID,
     pub GUID: windows_core::GUID,
@@ -16431,7 +16431,7 @@ impl Default for VMRGUID {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VMRMONITORINFO {
     pub guid: VMRGUID,
     pub rcMonitor: super::windef::RECT,
@@ -16459,7 +16459,7 @@ pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
 #[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
     pub lpSurf: core::mem::ManuallyDrop<Option<super::ddraw::IDirectDrawSurface7>>,
@@ -16492,7 +16492,7 @@ pub struct VMRVIDEOSTREAMINFO {
     pub rNormal: NORMALIZEDRECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VMRVideoDesc {
     pub dwSize: u32,
     pub dwSampleWidth: u32,

@@ -19,7 +19,7 @@ pub const CARET_NULL: CARET_FLAGS = 64;
 pub const CARET_ROTATE90: CARET_FLAGS = 128;
 pub const CARET_RTL: CARET_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: u32,
     pub pvCookieData: *mut core::ffi::c_void,

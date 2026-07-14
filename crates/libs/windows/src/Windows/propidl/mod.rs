@@ -66,10 +66,10 @@ pub const PIDSI_THUMBNAIL: u32 = 17;
 pub const PIDSI_TITLE: u32 = 2;
 pub const PIDSI_WORDCOUNT: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],

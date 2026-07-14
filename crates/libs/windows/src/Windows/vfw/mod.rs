@@ -765,7 +765,7 @@ pub const AVICOMPRESSF_INTERLEAVE: u32 = 1;
 pub const AVICOMPRESSF_KEYFRAMES: u32 = 4;
 pub const AVICOMPRESSF_VALID: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -812,7 +812,7 @@ pub const AVIFILEHANDLER_CANACCEPTNONRGB: u32 = 4;
 pub const AVIFILEHANDLER_CANREAD: u32 = 1;
 pub const AVIFILEHANDLER_CANWRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -833,7 +833,7 @@ impl Default for AVIFILEINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIFILEINFOW {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -873,7 +873,7 @@ pub const AVIIF_MIDPART: u32 = 96;
 pub const AVIIF_NOTIME: u32 = 256;
 pub const AVIIF_TWOCC: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVIINDEXENTRY {
     pub ckid: u32,
     pub dwFlags: u32,
@@ -882,7 +882,7 @@ pub struct AVIINDEXENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVIPALCHANGE {
     pub bFirstEntry: u8,
     pub bNumEntries: u8,
@@ -900,7 +900,7 @@ pub const AVISF_DISABLED: u32 = 1;
 pub const AVISF_VIDEO_PALCHANGES: u32 = 65536;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -929,7 +929,7 @@ impl Default for AVISTREAMINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AVISTREAMINFOW {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -961,7 +961,7 @@ pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1;
 #[repr(C)]
 #[cfg(all(feature = "mmiscapi", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AVIStreamHeader {
     pub fccType: super::mmiscapi::FOURCC,
     pub fccHandler: super::mmiscapi::FOURCC,
@@ -986,7 +986,7 @@ pub const BI_1632: u32 = 842217009;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, nstate: i32) -> super::minwindef::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: u32,
     pub fHasOverlay: windows_core::BOOL,
@@ -1006,7 +1006,7 @@ pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::winde
 pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::minwindef::LRESULT>;
 #[repr(C)]
 #[cfg(feature = "mmiscapi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: super::mmiscapi::FOURCC,
     pub lpData: *mut core::ffi::c_void,
@@ -1020,7 +1020,7 @@ impl Default for CAPINFOCHUNK {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPSTATUS {
     pub uiImageWidth: u32,
     pub uiImageHeight: u32,
@@ -1046,7 +1046,7 @@ pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::wind
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPSTATUSCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::windef::HWND, nid: i32, lpsz: windows_core::PCWSTR) -> super::minwindef::LRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAPTUREPARMS {
     pub dwRequestMicroSecPerFrame: u32,
     pub fMakeUserHitOKToCapture: windows_core::BOOL,
@@ -1080,7 +1080,7 @@ pub type CAPWAVECALLBACK = Option<unsafe extern "system" fn(hwnd: super::windef:
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPYIELDCALLBACK = Option<unsafe extern "system" fn(hwnd: super::windef::HWND) -> super::minwindef::LRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANNEL_CAPS {
     pub dwFlags: u32,
     pub dwSrcRectXMod: u32,
@@ -1094,7 +1094,7 @@ pub struct CHANNEL_CAPS {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPVARS {
     pub cbSize: i32,
     pub dwFlags: u32,
@@ -1139,7 +1139,7 @@ pub const DDF_SAME_HDC: u32 = 4;
 pub const DDF_SAME_SIZE: u32 = 8;
 pub const DDF_UPDATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAWDIBTIME {
     pub timeCount: i32,
     pub timeDraw: i32,
@@ -1694,7 +1694,7 @@ impl IAVIStreaming_Vtbl {
 impl windows_core::RuntimeName for IAVIStreaming {}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESS {
     pub dwFlags: u32,
     pub lpbiOutput: super::wingdi::LPBITMAPINFOHEADER,
@@ -1717,7 +1717,7 @@ impl Default for ICCOMPRESS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICCOMPRESSFRAMES {
     pub dwFlags: u32,
     pub lpbiOutput: super::wingdi::LPBITMAPINFOHEADER,
@@ -1746,7 +1746,7 @@ pub const ICCOMPRESSFRAMES_PADDING: u32 = 1;
 pub const ICCOMPRESS_KEYFRAME: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESS {
     pub dwFlags: u32,
     pub lpbiInput: super::wingdi::LPBITMAPINFOHEADER,
@@ -1763,7 +1763,7 @@ impl Default for ICDECOMPRESS {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: u32,
     pub lpbiSrc: super::wingdi::LPBITMAPINFOHEADER,
@@ -1791,7 +1791,7 @@ pub const ICDECOMPRESS_NULLFRAME: u32 = 268435456;
 pub const ICDECOMPRESS_PREROLL: u32 = 536870912;
 pub const ICDECOMPRESS_UPDATE: u32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICDRAW {
     pub dwFlags: u32,
     pub lpFormat: *mut core::ffi::c_void,
@@ -1806,7 +1806,7 @@ impl Default for ICDRAW {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICDRAWBEGIN {
     pub dwFlags: u32,
     pub hpal: super::windef::HPALETTE,
@@ -1826,7 +1826,7 @@ pub struct ICDRAWBEGIN {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: super::wingdi::LPBITMAPINFOHEADER,
     pub lpbiSuggest: super::wingdi::LPBITMAPINFOHEADER,
@@ -1870,7 +1870,7 @@ pub const ICERR_OK: u32 = 0;
 pub const ICERR_STOPDRAWING: u32 = 4;
 pub const ICERR_UNSUPPORTED: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICINFO {
     pub dwSize: u32,
     pub fccType: u32,
@@ -1968,7 +1968,7 @@ pub const ICM_SET_STATUS_PROC: u32 = 16456;
 pub const ICM_USER: u32 = 16384;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICOPEN {
     pub dwSize: u32,
     pub fccType: u32,
@@ -1988,7 +1988,7 @@ impl Default for ICOPEN {
 }
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ICPALETTE {
     pub dwFlags: u32,
     pub iStart: i32,
@@ -2000,7 +2000,7 @@ pub const ICQUALITY_HIGH: u32 = 10000;
 pub const ICQUALITY_LOW: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICSETSTATUSPROC {
     pub dwFlags: u32,
     pub lParam: super::minwindef::LPARAM,
@@ -2275,7 +2275,7 @@ pub const MCIWNDOPENF_NEW: u32 = 1;
 pub const MCIWND_END: i32 = -2;
 pub const MCIWND_START: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MainAVIHeader {
     pub dwMicroSecPerFrame: u32,
     pub dwMaxBytesPerSec: u32,
@@ -2337,7 +2337,7 @@ pub const VIDCF_QUALITY: u32 = 1;
 pub const VIDCF_TEMPORAL: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOHDR {
     pub lpData: super::minwindef::LPBYTE,
     pub dwBufferLength: u32,

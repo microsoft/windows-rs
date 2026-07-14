@@ -46,7 +46,7 @@ pub const NET_IF_CURRENT_SESSION: u32 = 4294967295;
 pub type NL_ADDRESS_TYPE = i32;
 pub type NL_BANDWIDTH_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
@@ -55,7 +55,7 @@ pub struct NL_BANDWIDTH_INFORMATION {
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
     pub _bitfield: bool,
 }
@@ -65,7 +65,7 @@ pub type NL_NEIGHBOR_STATE = i32;
 pub type NL_NETWORK_CATEGORY = i32;
 pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
@@ -75,7 +75,7 @@ pub struct NL_NETWORK_CONNECTIVITY_HINT {
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,

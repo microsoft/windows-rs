@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFSETINSTANCEDATAANDLENGTH {
     pub OffsetInstanceData: u32,
     pub LengthInstanceData: u32,
@@ -238,7 +238,7 @@ impl Default for WNODE_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
     pub Linkage: u32,

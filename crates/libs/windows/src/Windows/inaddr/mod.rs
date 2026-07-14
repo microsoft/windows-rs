@@ -21,7 +21,7 @@ impl Default for IN_ADDR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IN_ADDR_0_0 {
     pub s_b1: u8,
     pub s_b2: u8,
@@ -29,7 +29,7 @@ pub struct IN_ADDR_0_0 {
     pub s_b4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IN_ADDR_0_1 {
     pub s_w1: u16,
     pub s_w2: u16,

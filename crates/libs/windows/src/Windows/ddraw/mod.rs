@@ -50,7 +50,7 @@ pub const CLSID_DirectDraw: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const CLSID_DirectDraw7: windows_core::GUID = windows_core::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
 pub const CLSID_DirectDrawClipper: windows_core::GUID = windows_core::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDARGB {
     pub blue: u8,
     pub green: u8,
@@ -66,7 +66,7 @@ pub const DDBD_4: u32 = 4096;
 pub const DDBD_8: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: super::windef::LPRECT,
     pub lpDDSSrc: core::mem::ManuallyDrop<Option<IDirectDrawSurface>>,
@@ -283,7 +283,7 @@ pub const DDCAPS_CANCLIPSTRETCHED: u32 = 1073741824;
 pub const DDCAPS_COLORKEY: u32 = 4194304;
 pub const DDCAPS_COLORKEYHWASSIST: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX1 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -328,7 +328,7 @@ impl Default for DDCAPS_DX1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX3 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -388,7 +388,7 @@ impl Default for DDCAPS_DX3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDCAPS_DX5 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -622,7 +622,7 @@ pub const DDCKEY_DESTOVERLAY: u32 = 4;
 pub const DDCKEY_SRCBLT: u32 = 8;
 pub const DDCKEY_SRCOVERLAY: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDCOLORCONTROL {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -636,7 +636,7 @@ pub struct DDCOLORCONTROL {
     pub dwReserved1: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDCOLORKEY {
     pub dwColorSpaceLowValue: u32,
     pub dwColorSpaceHighValue: u32,
@@ -651,7 +651,7 @@ pub const DDCOLOR_SHARPNESS: u32 = 16;
 pub const DDCREATE_EMULATIONONLY: u32 = 2;
 pub const DDCREATE_HARDWAREONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDDEVICEIDENTIFIER {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
@@ -668,7 +668,7 @@ impl Default for DDDEVICEIDENTIFIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDDEVICEIDENTIFIER2 {
     pub szDriver: [i8; 512],
     pub szDescription: [i8; 512],
@@ -871,7 +871,7 @@ pub const DDFXCAPS_OVERLAYSTRETCHXN: u32 = 16777216;
 pub const DDFXCAPS_OVERLAYSTRETCHY: u32 = 33554432;
 pub const DDFXCAPS_OVERLAYSTRETCHYN: u32 = 67108864;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -915,7 +915,7 @@ impl Default for DDOPTSURFACEDESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDOSCAPS {
     pub dwCaps: u32,
 }
@@ -1050,7 +1050,7 @@ pub const DDPF_YUV: u32 = 512;
 pub const DDPF_ZBUFFER: u32 = 1024;
 pub const DDPF_ZPIXELS: u32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDRGBA {
     pub red: u8,
     pub green: u8,
@@ -1058,7 +1058,7 @@ pub struct DDRGBA {
     pub alpha: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDSCAPS {
     pub dwCaps: u32,
 }
@@ -6676,5 +6676,5 @@ pub const REGSTR_KEY_DDHW_DESCRIPTION: windows_core::PCSTR = windows_core::s!("D
 pub const REGSTR_KEY_DDHW_DRIVERNAME: windows_core::PCSTR = windows_core::s!("DriverName");
 pub const REGSTR_PATH_DDHW: windows_core::PCSTR = windows_core::s!("Hardware\\DirectDrawDrivers");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DDFXROP(pub u8);

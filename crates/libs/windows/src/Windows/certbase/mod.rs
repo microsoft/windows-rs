@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTTRANSBLOB {
     pub cb: u32,
     pub pb: *mut u8,
@@ -10,7 +10,7 @@ impl Default for CERTTRANSBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERTVIEWRESTRICTION {
     pub ColumnIndex: u32,
     pub SeekOperator: i32,

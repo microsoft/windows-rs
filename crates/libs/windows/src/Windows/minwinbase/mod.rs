@@ -82,7 +82,7 @@ pub const EXCEPTION_DATATYPE_MISALIGNMENT: i32 = -2147483646;
 pub const EXCEPTION_DEBUG_EVENT: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD,
     pub dwFirstChance: u32,
@@ -108,13 +108,13 @@ pub const EXCEPTION_SINGLE_STEP: i32 = -2147483644;
 pub const EXCEPTION_STACK_OVERFLOW: i32 = -1073741571;
 pub const EXIT_PROCESS_DEBUG_EVENT: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
 }
 pub const EXIT_THREAD_DEBUG_EVENT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
@@ -179,7 +179,7 @@ pub const LMEM_ZEROINIT: u32 = 64;
 pub const LOAD_DLL_DEBUG_EVENT: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::winnt::HANDLE,
     pub lpBaseOfDll: *mut core::ffi::c_void,
@@ -243,7 +243,7 @@ pub const NONZEROLPTR: u32 = 0;
 pub const NUMA_NO_PREFERRED_NODE: u32 = 4294967295;
 pub const OUTPUT_DEBUG_STRING_EVENT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: windows_core::PSTR,
     pub fUnicode: u16,
@@ -279,14 +279,14 @@ impl Default for OVERLAPPED_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: usize,
     pub lpOverlapped: LPOVERLAPPED,
@@ -337,7 +337,7 @@ impl Default for PROCESS_HEAP_ENTRY_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::winnt::HANDLE,
     pub dwReserved: [u32; 3],
@@ -350,7 +350,7 @@ impl Default for PROCESS_HEAP_ENTRY_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
@@ -408,7 +408,7 @@ impl Default for REASON_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::minwindef::HMODULE,
     pub LocalizedReasonId: u32,
@@ -423,7 +423,7 @@ impl Default for REASON_CONTEXT_0_0 {
 }
 pub const RIP_EVENT: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: u32,
@@ -433,7 +433,7 @@ pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 1;
 pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: *mut core::ffi::c_void,
@@ -446,7 +446,7 @@ impl Default for SECURITY_ATTRIBUTES {
 }
 pub const STILL_ACTIVE: u32 = 259;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -459,7 +459,7 @@ pub struct SYSTEMTIME {
 }
 pub const UNLOAD_DLL_DEBUG_EVENT: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
 }
@@ -472,7 +472,7 @@ impl Default for UNLOAD_DLL_DEBUG_INFO {
 pub type WIN32_FIND_DATA = WIN32_FIND_DATAA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::minwindef::FILETIME,
@@ -493,7 +493,7 @@ impl Default for WIN32_FIND_DATAA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::minwindef::FILETIME,

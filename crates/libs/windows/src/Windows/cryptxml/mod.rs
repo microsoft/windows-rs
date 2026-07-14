@@ -142,14 +142,14 @@ pub unsafe fn CryptXmlVerifySignature(hsignature: HCRYPTXML, hkey: Option<super:
     unsafe { CryptXmlVerifySignature(hsignature, hkey.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM {
     pub cbSize: u32,
     pub wszAlgorithm: windows_core::PCWSTR,
     pub Encoded: CRYPT_XML_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_ALGORITHM_INFO {
     pub cbSize: u32,
     pub wszAlgorithmURI: *mut u16,
@@ -172,7 +172,7 @@ pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID: u32 = 4;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_BLOB {
     pub dwCharset: CRYPT_XML_CHARSET,
     pub cbData: u32,
@@ -204,7 +204,7 @@ pub struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE {
     pub fpCryptXmlGetAlgorithmInfo: CryptXmlDllGetAlgorithmInfo,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DATA_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -239,7 +239,7 @@ pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1;
 pub const CRYPT_XML_DIGEST_VALUE_MAX: u32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_DOC_CTXT {
     pub cbSize: u32,
     pub hDocCtxt: HCRYPTXML,
@@ -285,14 +285,14 @@ pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1;
 pub const CRYPT_XML_GROUP_ID_SIGN: u32 = 2;
 pub const CRYPT_XML_ID_MAX: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_ISSUER_SERIAL {
     pub wszIssuer: windows_core::PCWSTR,
     pub wszSerial: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEYINFO_PARAM {
     pub wszId: windows_core::PCWSTR,
     pub wszKeyName: windows_core::PCWSTR,
@@ -319,7 +319,7 @@ pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: u32 = 2;
 pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: u32 = 3;
 pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub P: CRYPT_XML_DATA_BLOB,
     pub Q: CRYPT_XML_DATA_BLOB,
@@ -330,7 +330,7 @@ pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
     pub Counter: CRYPT_XML_DATA_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
     pub wszNamedCurve: windows_core::PCWSTR,
     pub X: CRYPT_XML_DATA_BLOB,
@@ -339,7 +339,7 @@ pub struct CRYPT_XML_KEY_ECDSA_KEY_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -379,7 +379,7 @@ impl Default for CRYPT_XML_KEY_INFO_ITEM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_KEY_RSA_KEY_VALUE {
     pub Modulus: CRYPT_XML_DATA_BLOB,
     pub Exponent: CRYPT_XML_DATA_BLOB,
@@ -414,7 +414,7 @@ pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: u32 = 3;
 pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_OBJECT {
     pub cbSize: u32,
     pub hObject: HCRYPTXML,
@@ -426,7 +426,7 @@ pub struct CRYPT_XML_OBJECT {
 }
 pub const CRYPT_XML_OBJECTS_MAX: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_PROPERTY {
     pub dwPropId: CRYPT_XML_PROPERTY_ID,
     pub pvValue: *const core::ffi::c_void,
@@ -445,7 +445,7 @@ pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = 2;
 pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = 5;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCE {
     pub cbSize: u32,
     pub hReference: HCRYPTXML,
@@ -465,7 +465,7 @@ impl Default for CRYPT_XML_REFERENCE {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_REFERENCES {
     pub cReference: u32,
     pub rgpReference: *mut PCRYPT_XML_REFERENCE,
@@ -479,7 +479,7 @@ impl Default for CRYPT_XML_REFERENCES {
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNATURE {
     pub cbSize: u32,
     pub hSignature: HCRYPTXML,
@@ -500,7 +500,7 @@ pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16;
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_SIGNED_INFO {
     pub cbSize: u32,
     pub wszId: windows_core::PCWSTR,
@@ -518,7 +518,7 @@ impl Default for CRYPT_XML_SIGNED_INFO {
 }
 pub const CRYPT_XML_SIGN_ADD_KEYVALUE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_XML_STATUS {
     pub cbSize: u32,
     pub dwErrorStatus: u32,
@@ -538,7 +538,7 @@ pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0;
 pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: u32 = 2147483648;
 pub const CRYPT_XML_STATUS_SIGNATURE_VALID: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     pub cbSize: u32,
     pub cTransformInfo: u32,
@@ -564,7 +564,7 @@ pub const CRYPT_XML_TRANSFORM_ON_STREAM: u32 = 1;
 pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: u32 = 4;
 pub const CRYPT_XML_URI_MAX: u32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_XML_X509DATA {
     pub cX509Data: u32,
     pub rgX509Data: *mut CRYPT_XML_X509DATA_ITEM,

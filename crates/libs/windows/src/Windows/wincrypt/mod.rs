@@ -1736,20 +1736,20 @@ pub const ALG_TYPE_THIRDPARTY: u32 = 4096;
 pub const AT_KEYEXCHANGE: u32 = 1;
 pub const AT_SIGNATURE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
     pub pSignerInfo: PCMSG_SIGNER_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub fCommercial: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRegPolicySettings: u32,
@@ -1760,7 +1760,7 @@ pub const AUTHTYPE_SERVER: u32 = 2;
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648;
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG: u32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLOBHEADER {
     pub bType: u8,
     pub bVersion: u8,
@@ -1876,7 +1876,7 @@ impl Default for CERT_ALT_NAME_ENTRY_0 {
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: u32 = 255;
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: u32,
     pub rgAltEntry: PCERT_ALT_NAME_ENTRY,
@@ -1892,21 +1892,21 @@ pub const CERT_ALT_NAME_X400_ADDRESS: u32 = 4;
 pub const CERT_ARCHIVED_KEY_HASH_PROP_ID: u32 = 65;
 pub const CERT_ARCHIVED_PROP_ID: u32 = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: u32,
     pub rgAccDescr: PCERT_ACCESS_DESCRIPTION,
 }
 pub const CERT_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 68;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID2_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub AuthorityCertIssuer: CERT_ALT_NAME_INFO,
     pub AuthorityCertSerialNumber: CRYPT_INTEGER_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_AUTHORITY_KEY_ID_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub CertIssuer: CERT_NAME_BLOB,
@@ -1931,14 +1931,14 @@ pub const CERT_AUTO_UPDATE_ROOT_DIR_URL_VALUE_NAME: windows_core::PCWSTR = windo
 pub const CERT_AUTO_UPDATE_SYNC_FROM_DIR_URL_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("SyncFromDirUrl");
 pub const CERT_BACKED_UP_PROP_ID: u32 = 69;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS2_INFO {
     pub fCA: windows_core::BOOL,
     pub fPathLenConstraint: windows_core::BOOL,
     pub dwPathLenConstraint: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: windows_core::BOOL,
@@ -1975,7 +1975,7 @@ impl Default for CERT_BIOMETRIC_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: u32,
     pub rgBiometricData: PCERT_BIOMETRIC_DATA,
@@ -1993,7 +1993,7 @@ pub const CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 81;
 pub const CERT_CA_SUBJECT_FLAG: u32 = 128;
 pub const CERT_CEP_PROP_ID: u32 = 87;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CHAIN {
     pub cCerts: u32,
     pub certs: PCERT_BLOB,
@@ -2024,7 +2024,7 @@ pub const CERT_CHAIN_CACHE_RESYNC_FILETIME_VALUE_NAME: windows_core::PCWSTR = wi
 pub const CERT_CHAIN_CONFIG_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\OID\\EncodingType 0\\CertDllCreateCertificateChainEngine\\Config");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_CONTEXT {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -2077,7 +2077,7 @@ pub const CERT_CHAIN_DISABLE_UNSUPPORTED_CRITICAL_EXTENSIONS_VALUE_NAME: windows
 pub const CERT_CHAIN_DISABLE_WEAK_FLAGS: u32 = 215285776;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: u32,
     pub pCertContext: PCCERT_CONTEXT,
@@ -2105,7 +2105,7 @@ pub const CERT_CHAIN_ENABLE_WEAK_RSA_ROOT_FLAG: u32 = 2;
 pub const CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG: u32 = 2147483648;
 pub const CERT_CHAIN_ENABLE_WEAK_SIGNATURE_FLAGS_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("EnableWeakSignatureFlags");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: u32,
     pub hRestrictedRoot: HCERTSTORE,
@@ -2190,7 +2190,7 @@ pub const CERT_CHAIN_OPTION_ENABLE_SIA_URL_RETRIEVAL: u32 = 4;
 pub const CERT_CHAIN_OPT_IN_WEAK_FLAGS: u32 = 262144;
 pub const CERT_CHAIN_OPT_IN_WEAK_SIGNATURE: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CHAIN_PARA {
     pub cbSize: u32,
     pub RequestedUsage: CERT_USAGE_MATCH,
@@ -2252,7 +2252,7 @@ pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: u32 = 32;
 pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: windows_core::PCSTR = windows_core::PCSTR(7 as _);
 pub const CERT_CHAIN_POLICY_NT_AUTH: windows_core::PCSTR = windows_core::PCSTR(6 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2279,7 +2279,7 @@ pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_ERROR: i32 = -1;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: u32 = 1;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -2357,7 +2357,7 @@ pub const CERT_COMPARE_SUBJECT_CERT: u32 = 11;
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: u32 = 19;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCertEncoded: *mut u8,
@@ -2394,7 +2394,7 @@ pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: u32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_SIGN: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: PCCERT_CONTEXT,
     pub pCrlContext: PCCRL_CONTEXT,
@@ -2407,7 +2407,7 @@ pub const CERT_DATE_STAMP_PROP_ID: u32 = 27;
 pub const CERT_DECIPHER_ONLY_KEY_USAGE: u32 = 128;
 pub const CERT_DESCRIPTION_PROP_ID: u32 = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_DH_PARAMETERS {
     pub p: CRYPT_UINT_BLOB,
     pub g: CRYPT_UINT_BLOB,
@@ -2426,7 +2426,7 @@ pub const CERT_DISALLOWED_CERT_CTL_FILENAME_A: windows_core::PCSTR = windows_cor
 pub const CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID: u32 = 122;
 pub const CERT_DISALLOWED_FILETIME_PROP_ID: u32 = 104;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_DSS_PARAMETERS {
     pub p: CRYPT_UINT_BLOB,
     pub q: CRYPT_UINT_BLOB,
@@ -2436,7 +2436,7 @@ pub const CERT_DSS_R_LEN: u32 = 20;
 pub const CERT_DSS_SIGNATURE_LEN: u32 = 40;
 pub const CERT_DSS_S_LEN: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ECC_SIGNATURE {
     pub r: CRYPT_UINT_BLOB,
     pub s: CRYPT_UINT_BLOB,
@@ -2453,14 +2453,14 @@ pub const CERT_ENROLLMENT_PROP_ID: u32 = 26;
 pub const CERT_EXCLUDED_SUBTREE_BIT: u32 = 2147483648;
 pub const CERT_EXTENDED_ERROR_INFO_PROP_ID: u32 = 30;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_EXTENSION {
     pub pszObjId: windows_core::PSTR,
     pub fCritical: windows_core::BOOL,
     pub Value: CRYPT_OBJID_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
@@ -2514,7 +2514,7 @@ pub const CERT_FIND_VALID_ENHKEY_USAGE_FLAG: u32 = 32;
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 130;
 pub const CERT_FIRST_USER_PROP_ID: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_FORTEZZA_DATA_PROP {
     pub SerialNumber: [u8; 8],
     pub CertIndex: i32,
@@ -2542,7 +2542,7 @@ impl Default for CERT_GENERAL_SUBTREE {
 }
 pub const CERT_GROUP_POLICY_SYSTEM_STORE_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Policies\\Microsoft\\SystemCertificates");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_HASHED_URL {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_HASH_BLOB,
@@ -2581,7 +2581,7 @@ pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7;
 pub const CERT_IE_DIRTY_FLAGS_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\IEDirtyFlags");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_INFO {
     pub dwVersion: u32,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -2613,14 +2613,14 @@ pub const CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 95;
 pub const CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 24;
 pub const CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 94;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_ISSUER_SERIAL_NUMBER {
     pub Issuer: CERT_NAME_BLOB,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
 }
 pub const CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID: u32 = 28;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_KEYGEN_REQUEST_INFO {
     pub dwVersion: u32,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -2630,7 +2630,7 @@ pub const CERT_KEYGEN_REQUEST_V1: u32 = 0;
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
@@ -2673,7 +2673,7 @@ pub const CERT_KEY_PROV_INFO_PROP_ID: u32 = 2;
 pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: u32 = 103;
 pub const CERT_KEY_SPEC_PROP_ID: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: u32,
     pub rgCertPolicyId: PCERT_POLICY_ID,
@@ -2684,7 +2684,7 @@ pub const CERT_LAST_USER_PROP_ID: u32 = 65535;
 pub const CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG: u32 = 131072;
 pub const CERT_LDAP_STORE_OPENED_FLAG: u32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_core::PCWSTR,
@@ -2698,13 +2698,13 @@ pub const CERT_LDAP_STORE_SIGN_FLAG: u32 = 65536;
 pub const CERT_LDAP_STORE_UNBIND_FLAG: u32 = 524288;
 pub const CERT_LOCAL_MACHINE_SYSTEM_STORE_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\SystemCertificates");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: PCERT_LOGOTYPE_AUDIO_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO_INFO {
     pub dwFileSize: u32,
     pub dwPlayTime: u32,
@@ -2715,7 +2715,7 @@ pub struct CERT_LOGOTYPE_AUDIO_INFO {
 pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: u32 = 1;
 pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: u32,
     pub rgLogotypeImage: PCERT_LOGOTYPE_IMAGE,
@@ -2723,7 +2723,7 @@ pub struct CERT_LOGOTYPE_DATA {
     pub rgLogotypeAudio: PCERT_LOGOTYPE_AUDIO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_core::PWSTR,
     pub cHashedUrl: u32,
@@ -2731,7 +2731,7 @@ pub struct CERT_LOGOTYPE_DETAILS {
 }
 pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: u32,
     pub rgCommunityLogo: PCERT_LOGOTYPE_INFO,
@@ -2742,7 +2742,7 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
 }
 pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: PCERT_LOGOTYPE_IMAGE_INFO,
@@ -2799,7 +2799,7 @@ impl Default for CERT_LOGOTYPE_INFO_0 {
 }
 pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: u32,
     pub rgHashedUrl: PCERT_HASHED_URL,
@@ -2810,7 +2810,7 @@ pub const CERT_MD5_HASH_PROP_ID: u32 = 4;
 pub const CERT_NAME_ATTR_TYPE: u32 = 3;
 pub type CERT_NAME_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: u32,
     pub rgPermittedSubtree: PCERT_GENERAL_SUBTREE,
@@ -2822,7 +2822,7 @@ pub const CERT_NAME_DNS_TYPE: u32 = 6;
 pub const CERT_NAME_EMAIL_TYPE: u32 = 1;
 pub const CERT_NAME_FRIENDLY_DISPLAY_TYPE: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_NAME_INFO {
     pub cRDN: u32,
     pub rgRDN: PCERT_RDN,
@@ -2847,7 +2847,7 @@ pub const CERT_NAME_STR_SEMICOLON_FLAG: u32 = 1073741824;
 pub const CERT_NAME_UPN_TYPE: u32 = 8;
 pub const CERT_NAME_URL_TYPE: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_NAME_VALUE {
     pub dwValueType: u32,
     pub Value: CERT_RDN_VALUE_BLOB,
@@ -2871,7 +2871,7 @@ pub const CERT_OCSP_RESPONSE_PROP_ID: u32 = 70;
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: u32 = 2;
 pub const CERT_OID_NAME_STR: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: u32,
     pub cbEncoded: u32,
@@ -2883,7 +2883,7 @@ impl Default for CERT_OR_CRL_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: u32,
     pub rgItem: PCERT_OR_CRL_BLOB,
@@ -2900,13 +2900,13 @@ impl Default for CERT_OTHER_LOGOTYPE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_OTHER_NAME {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_PAIR {
     pub Forward: CERT_BLOB,
     pub Reverse: CERT_BLOB,
@@ -2918,7 +2918,7 @@ pub const CERT_PHYSICAL_STORE_DS_USER_CERTIFICATE_NAME: windows_core::PCWSTR = w
 pub const CERT_PHYSICAL_STORE_ENTERPRISE_NAME: windows_core::PCWSTR = windows_core::w!(".Enterprise");
 pub const CERT_PHYSICAL_STORE_GROUP_POLICY_NAME: windows_core::PCWSTR = windows_core::w!(".GroupPolicy");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_PHYSICAL_STORE_INFO {
     pub cbSize: u32,
     pub pszOpenStoreProvider: windows_core::PSTR,
@@ -2944,7 +2944,7 @@ pub const CERT_PIN_RULES_CTL_FILENAME: windows_core::PCWSTR = windows_core::w!("
 pub const CERT_PIN_RULES_CTL_FILENAME_A: windows_core::PCSTR = windows_core::s!("pinrules.stl");
 pub const CERT_PIN_SHA256_HASH_PROP_ID: u32 = 124;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: u32,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
@@ -2955,7 +2955,7 @@ impl Default for CERT_POLICIES_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_core::PWSTR,
     pub pszNoticeIdentifier: windows_core::PSTR,
@@ -2969,7 +2969,7 @@ impl Default for CERT_POLICY95_QUALIFIER1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub fRequireExplicitPolicy: windows_core::BOOL,
     pub dwRequireExplicitPolicySkipCerts: u32,
@@ -2977,7 +2977,7 @@ pub struct CERT_POLICY_CONSTRAINTS_INFO {
     pub dwInhibitPolicyMappingSkipCerts: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: u32,
     pub rgpszCertPolicyElementId: *mut windows_core::PSTR,
@@ -2988,7 +2988,7 @@ impl Default for CERT_POLICY_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_core::PSTR,
     pub cPolicyQualifier: u32,
@@ -3000,25 +3000,25 @@ impl Default for CERT_POLICY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPING {
     pub pszIssuerDomainPolicy: windows_core::PSTR,
     pub pszSubjectDomainPolicy: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: u32,
     pub rgPolicyMapping: PCERT_POLICY_MAPPING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_INFO {
     pub pszPolicyQualifierId: windows_core::PSTR,
     pub Qualifier: CRYPT_OBJID_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_core::PSTR,
     pub cNoticeNumbers: u32,
@@ -3030,7 +3030,7 @@ impl Default for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_core::PWSTR,
@@ -3042,7 +3042,7 @@ impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_PRIVATE_KEY_VALIDITY {
     pub NotBefore: super::minwindef::FILETIME,
     pub NotAfter: super::minwindef::FILETIME,
@@ -3061,7 +3061,7 @@ pub const CERT_PROT_ROOT_PEER_USAGES_VALUE_NAME_A: windows_core::PCSTR = windows
 pub const CERT_PUBKEY_ALG_PARA_PROP_ID: u32 = 22;
 pub const CERT_PUBKEY_HASH_RESERVED_PROP_ID: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_PUBLIC_KEY_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PublicKey: CRYPT_BIT_BLOB,
@@ -3069,13 +3069,13 @@ pub struct CERT_PUBLIC_KEY_INFO {
 pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 93;
 pub const CERT_PVK_FILE_PROP_ID: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENT {
     pub pszStatementId: windows_core::PSTR,
     pub StatementInfo: CRYPT_OBJID_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: u32,
     pub rgStatement: PCERT_QC_STATEMENT,
@@ -3120,14 +3120,14 @@ pub const CERT_QUERY_FORMAT_FLAG_BINARY: u32 = 2;
 pub const CERT_QUERY_OBJECT_BLOB: u32 = 2;
 pub const CERT_QUERY_OBJECT_FILE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_RDN {
     pub cRDNAttr: u32,
     pub rgRDNAttr: PCERT_RDN_ATTR,
 }
 pub const CERT_RDN_ANY_TYPE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_RDN_ATTR {
     pub pszObjId: windows_core::PSTR,
     pub dwValueType: u32,
@@ -3162,7 +3162,7 @@ pub const CERT_RDN_VISIBLE_STRING: u32 = 9;
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::minwindef::HKEY,
     pub pwszRegPath: windows_core::PWSTR,
@@ -3174,7 +3174,7 @@ pub const CERT_REGISTRY_STORE_REMOTE_FLAG: u32 = 65536;
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: u32 = 262144;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::minwindef::HKEY,
     pub pwszStoreDirectory: windows_core::PWSTR,
@@ -3182,7 +3182,7 @@ pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: u32 = 131072;
 pub const CERT_RENEWAL_PROP_ID: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: u32,
     pub Subject: CERT_NAME_BLOB,
@@ -3202,7 +3202,7 @@ pub const CERT_RETR_BEHAVIOR_INET_STATUS_VALUE_NAME: windows_core::PCWSTR = wind
 pub const CERT_RETR_BEHAVIOR_LDAP_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("DisableLDAPSignAndEncrypt");
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: u32,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -3215,7 +3215,7 @@ pub struct CERT_REVOCATION_CHAIN_PARA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: u32,
     pub pBaseCrlContext: PCCRL_CONTEXT,
@@ -3225,7 +3225,7 @@ pub struct CERT_REVOCATION_CRL_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: u32,
     pub dwRevocationResult: u32,
@@ -3243,7 +3243,7 @@ impl Default for CERT_REVOCATION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: u32,
     pub pIssuerCert: PCCERT_CONTEXT,
@@ -3259,7 +3259,7 @@ impl Default for CERT_REVOCATION_PARA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_REVOCATION_STATUS {
     pub cbSize: u32,
     pub dwIndex: u32,
@@ -3305,7 +3305,7 @@ pub const CERT_SELECT_BY_THUMBPRINT: u32 = 14;
 pub const CERT_SELECT_BY_TLS_SIGNATURES: u32 = 11;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: super::minwindef::PFILETIME,
@@ -3314,7 +3314,7 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: u32,
     pub cPara: u32,
@@ -3340,7 +3340,7 @@ pub const CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID: u32 = 117;
 pub const CERT_SERIAL_CHAIN_PROP_ID: u32 = 119;
 pub const CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: u32,
     pub pbEncodedOcspResponse: *mut u8,
@@ -3379,7 +3379,7 @@ pub const CERT_SHA1_SHA256_HASH_PROP_ID: u32 = 129;
 pub const CERT_SHA256_HASH_PROP_ID: u32 = 107;
 pub const CERT_SIGNATURE_HASH_PROP_ID: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SIGNED_CONTENT_INFO {
     pub ToBeSigned: CRYPT_DER_BLOB,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -3388,7 +3388,7 @@ pub struct CERT_SIGNED_CONTENT_INFO {
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: u32,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -3476,7 +3476,7 @@ pub const CERT_STORE_PROV_FIND_CERT_FUNC: u32 = 14;
 pub const CERT_STORE_PROV_FIND_CRL_FUNC: u32 = 17;
 pub const CERT_STORE_PROV_FIND_CTL_FUNC: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -3497,7 +3497,7 @@ pub const CERT_STORE_PROV_GET_CRL_PROPERTY_FUNC: u32 = 19;
 pub const CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC: u32 = 22;
 pub const CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: u32,
     pub cStoreProvFunc: u32,
@@ -3584,7 +3584,7 @@ impl Default for CERT_STRONG_SIGN_PARA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_STRONG_SIGN_SERIALIZED_INFO {
     pub dwFlags: u32,
     pub pwszCNGSignHashAlgids: windows_core::PWSTR,
@@ -3599,7 +3599,7 @@ pub const CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID: u32 = 85;
 pub const CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID: u32 = 25;
 pub const CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID: u32 = 92;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SUPPORTED_ALGORITHM_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
@@ -3613,7 +3613,7 @@ pub const CERT_SYSTEM_STORE_CURRENT_USER_GROUP_POLICY_ID: u32 = 7;
 pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1;
 pub const CERT_SYSTEM_STORE_DEFER_READ_FLAG: u32 = 536870912;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_SYSTEM_STORE_INFO {
     pub cbSize: u32,
 }
@@ -3675,7 +3675,7 @@ pub const CERT_SYSTEM_STORE_UNPROTECTED_FLAG: u32 = 1073741824;
 pub const CERT_SYSTEM_STORE_USERS: u32 = 393216;
 pub const CERT_SYSTEM_STORE_USERS_ID: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_TEMPLATE_EXT {
     pub pszObjId: windows_core::PSTR,
     pub dwMajorVersion: u32,
@@ -3684,7 +3684,7 @@ pub struct CERT_TEMPLATE_EXT {
 }
 pub const CERT_TIMESTAMP_HASH_USE_TYPE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_TPM_SPECIFICATION_INFO {
     pub pwszFamily: windows_core::PWSTR,
     pub dwLevel: u32,
@@ -3736,7 +3736,7 @@ pub const CERT_TRUST_IS_SELF_SIGNED: u32 = 8;
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: u32,
     pub pCtlEntry: PCTL_ENTRY,
@@ -3759,7 +3759,7 @@ pub const CERT_TRUST_SSL_RECONNECT_OCSP: u32 = 1048576;
 pub const CERT_TRUST_SSL_TIME_VALID: u32 = 16777216;
 pub const CERT_TRUST_SSL_TIME_VALID_OCSP: u32 = 524288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_TRUST_STATUS {
     pub dwErrorStatus: u32,
     pub dwInfoStatus: u32,
@@ -3772,7 +3772,7 @@ pub const CERT_UNICODE_RDN_ERR_INDEX_SHIFT: u32 = 22;
 pub const CERT_UNICODE_VALUE_ERR_INDEX_MASK: u32 = 65535;
 pub const CERT_UNICODE_VALUE_ERR_INDEX_SHIFT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CERT_ENHKEY_USAGE,
@@ -3793,7 +3793,7 @@ pub const CERT_VERIFY_TRUSTED_SIGNERS_FLAG: u32 = 2;
 pub const CERT_VERIFY_UPDATED_CTL_FLAG: u32 = 1;
 pub const CERT_X500_NAME_STR: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_UINT_BLOB,
     pub g: CRYPT_UINT_BLOB,
@@ -3802,7 +3802,7 @@ pub struct CERT_X942_DH_PARAMETERS {
     pub pValidationParams: PCERT_X942_DH_VALIDATION_PARAMS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CERT_X942_DH_VALIDATION_PARAMS {
     pub seed: CRYPT_BIT_BLOB,
     pub pgenCounter: u32,
@@ -3810,7 +3810,7 @@ pub struct CERT_X942_DH_VALIDATION_PARAMS {
 pub const CERT_XML_NAME_STR: u32 = 4;
 pub const CMC_ADD_ATTRIBUTES: windows_core::PCSTR = windows_core::PCSTR(63 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -3825,7 +3825,7 @@ impl Default for CMC_ADD_ATTRIBUTES_INFO {
 }
 pub const CMC_ADD_EXTENSIONS: windows_core::PCSTR = windows_core::PCSTR(62 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: u32,
     pub cCertReference: u32,
@@ -3840,7 +3840,7 @@ impl Default for CMC_ADD_EXTENSIONS_INFO {
 }
 pub const CMC_DATA: windows_core::PCSTR = windows_core::PCSTR(59 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -3869,14 +3869,14 @@ pub const CMC_OTHER_INFO_NO_CHOICE: u32 = 0;
 pub const CMC_OTHER_INFO_PEND_CHOICE: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_PEND_INFO {
     pub PendToken: CRYPT_DATA_BLOB,
     pub PendTime: super::minwindef::FILETIME,
 }
 pub const CMC_RESPONSE: windows_core::PCSTR = windows_core::PCSTR(60 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: u32,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -3922,26 +3922,26 @@ pub const CMC_STATUS_NO_SUPPORT: u32 = 4;
 pub const CMC_STATUS_PENDING: u32 = 3;
 pub const CMC_STATUS_SUCCESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_TAGGED_ATTRIBUTE {
     pub dwBodyPartID: u32,
     pub Attribute: CRYPT_ATTRIBUTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_TAGGED_CERT_REQUEST {
     pub dwBodyPartID: u32,
     pub SignedCertRequest: CRYPT_DER_BLOB,
 }
 pub const CMC_TAGGED_CERT_REQUEST_CHOICE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_TAGGED_CONTENT_INFO {
     pub dwBodyPartID: u32,
     pub EncodedContentInfo: CRYPT_DER_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMC_TAGGED_OTHER_MSG {
     pub dwBodyPartID: u32,
     pub pszObjId: windows_core::PSTR,
@@ -4103,7 +4103,7 @@ pub const CMSG_CTRL_ADD_CRL: u32 = 12;
 pub const CMSG_CTRL_ADD_SIGNER: u32 = 6;
 pub const CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
@@ -4144,7 +4144,7 @@ pub const CMSG_CTRL_DEL_CRL: u32 = 13;
 pub const CMSG_CTRL_DEL_SIGNER: u32 = 7;
 pub const CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA {
     pub cbSize: u32,
     pub dwSignerIndex: u32,
@@ -4248,7 +4248,7 @@ pub const CMSG_CTRL_VERIFY_HASH: u32 = 5;
 pub const CMSG_CTRL_VERIFY_SIGNATURE: u32 = 1;
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: u32 = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -4273,7 +4273,7 @@ pub const CMSG_ENCODING_TYPE_MASK: u32 = 4294901760;
 pub const CMSG_ENCRYPTED: u32 = 6;
 pub const CMSG_ENCRYPTED_DIGEST: u32 = 27;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: u32,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -4293,7 +4293,7 @@ pub const CMSG_ENVELOPED_DATA_V0: u32 = 0;
 pub const CMSG_ENVELOPED_DATA_V2: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -4320,7 +4320,7 @@ pub const CMSG_HASHED_DATA_PKCS_1_5_VERSION: u32 = 0;
 pub const CMSG_HASHED_DATA_V0: u32 = 0;
 pub const CMSG_HASHED_DATA_V2: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: u32,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -4374,7 +4374,7 @@ impl Default for CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
 }
 pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     pub cbSize: u32,
     pub EncryptedKey: CRYPT_DATA_BLOB,
@@ -4455,7 +4455,7 @@ pub const CMSG_KEY_TRANS_CMS_VERSION: u32 = 2;
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_OBJID_FLAG: u32 = 2;
 pub const CMSG_KEY_TRANS_ENCRYPT_FREE_PARA_FLAG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_KEY_TRANS_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -4497,7 +4497,7 @@ pub const CMSG_LENGTH_ONLY_FLAG: u32 = 2;
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_OBJID_FLAG: u32 = 2;
 pub const CMSG_MAIL_LIST_ENCRYPT_FREE_PARA_FLAG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_ENCRYPT_INFO {
     pub cbSize: u32,
     pub dwRecipientIndex: u32,
@@ -4542,7 +4542,7 @@ impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: u32,
     pub KeyId: CRYPT_DATA_BLOB,
@@ -4570,13 +4570,13 @@ pub const CMSG_OID_IMPORT_KEY_AGREE_FUNC: windows_core::PCSTR = windows_core::s!
 pub const CMSG_OID_IMPORT_KEY_TRANS_FUNC: windows_core::PCSTR = windows_core::s!("CryptMsgDllImportKeyTrans");
 pub const CMSG_OID_IMPORT_MAIL_LIST_FUNC: windows_core::PCSTR = windows_core::s!("CryptMsgDllImportMailList");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_RC2_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_RC4_AUX_INFO {
     pub cbSize: u32,
     pub dwBitLen: u32,
@@ -4647,7 +4647,7 @@ pub const CMSG_SIGNED: u32 = 2;
 pub const CMSG_SIGNED_AND_ENVELOPED: u32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO {
     pub cbSize: u32,
     pub SignedInfo: CMSG_SIGNED_ENCODE_INFO,
@@ -4661,7 +4661,7 @@ pub const CMSG_SIGNED_DATA_V1: u32 = 1;
 pub const CMSG_SIGNED_DATA_V3: u32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ncrypt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: u32,
     pub cSigners: u32,
@@ -4712,7 +4712,7 @@ impl Default for CMSG_SIGNER_ENCODE_INFO_0 {
 }
 pub const CMSG_SIGNER_HASH_ALGORITHM_PARAM: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_SIGNER_INFO {
     pub dwVersion: u32,
     pub Issuer: CERT_NAME_BLOB,
@@ -4731,7 +4731,7 @@ pub const CMSG_SIGNER_INFO_V3: u32 = 3;
 pub const CMSG_SIGNER_ONLY_FLAG: u32 = 2;
 pub const CMSG_SIGNER_UNAUTH_ATTR_PARAM: u32 = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -4760,7 +4760,7 @@ pub const CMSG_VERIFY_SIGNER_NULL: u32 = 4;
 pub const CMSG_VERIFY_SIGNER_PUBKEY: u32 = 1;
 pub const CMSG_VERSION_PARAM: u32 = 30;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -4774,7 +4774,7 @@ impl Default for CMS_DH_KEY_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: u32,
     pub Algid: ALG_ID,
@@ -4797,7 +4797,7 @@ pub const CONTEXT_OID_CTL: windows_core::PCSTR = windows_core::PCSTR(3 as _);
 pub const CONTEXT_OID_OCSP_RESP: windows_core::PCSTR = windows_core::PCSTR(6 as _);
 pub const CONTEXT_OID_PKCS7: windows_core::PCSTR = windows_core::PCSTR(4 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPS_URLS {
     pub pszURL: windows_core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
@@ -4813,7 +4813,7 @@ pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: windows_core::PCSTR = windows_c
 pub type CRL_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: u32,
     pub pbCrlEncoded: *mut u8,
@@ -4840,7 +4840,7 @@ impl Default for CRL_DIST_POINT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: u32,
     pub rgDistPoint: PCRL_DIST_POINT,
@@ -4874,7 +4874,7 @@ impl Default for CRL_DIST_POINT_NAME_0 {
 pub const CRL_DIST_POINT_NO_NAME: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::minwindef::FILETIME,
@@ -4891,7 +4891,7 @@ pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: u32 = 2;
 pub const CRL_FIND_ISSUED_FOR: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: PCCERT_CONTEXT,
     pub pIssuerCert: PCCERT_CONTEXT,
@@ -4899,7 +4899,7 @@ pub struct CRL_FIND_ISSUED_FOR_PARA {
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRL_INFO {
     pub dwVersion: u32,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -4946,7 +4946,7 @@ pub const CRL_REASON_UNSPECIFIED: u32 = 0;
 pub const CRL_REASON_UNUSED_FLAG: u32 = 128;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub pCrlContext: PCCRL_CONTEXT,
@@ -4955,7 +4955,7 @@ pub struct CRL_REVOCATION_INFO {
 pub const CRL_V1: u32 = 0;
 pub const CRL_V2: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: u32,
     pub cDistPoint: u32,
@@ -5019,7 +5019,7 @@ pub const CRYPTNET_URL_CACHE_DEFAULT_FLUSH_EXEMPT_SECONDS_VALUE_NAME: windows_co
 pub const CRYPTNET_URL_CACHE_DISABLE_FLUSH: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_FLUSH_INFO {
     pub cbSize: u32,
     pub dwExemptSeconds: u32,
@@ -5031,7 +5031,7 @@ pub const CRYPTNET_URL_CACHE_PRE_FETCH_CRL: u32 = 2;
 pub const CRYPTNET_URL_CACHE_PRE_FETCH_DISALLOWED_CERT_CAB: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO {
     pub cbSize: u32,
     pub dwObjectType: u32,
@@ -5047,7 +5047,7 @@ pub const CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB: u32 = 7;
 pub const CRYPTNET_URL_CACHE_RESPONSE_HTTP: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
     pub cbSize: u32,
     pub wResponseType: u16,
@@ -5060,7 +5060,7 @@ pub struct CRYPTNET_URL_CACHE_RESPONSE_INFO {
 pub const CRYPTNET_URL_CACHE_RESPONSE_NONE: u32 = 0;
 pub const CRYPTNET_URL_CACHE_RESPONSE_VALIDATED: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_3DES_KEY_STATE {
     pub Key: [u8; 24],
     pub IV: [u8; 8],
@@ -5083,7 +5083,7 @@ pub const CRYPT_ACQUIRE_SILENT_FLAG: u32 = 64;
 pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: u32 = 2;
 pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_128_KEY_STATE {
     pub Key: [u8; 16],
     pub IV: [u8; 16],
@@ -5097,7 +5097,7 @@ impl Default for CRYPT_AES_128_KEY_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_AES_256_KEY_STATE {
     pub Key: [u8; 32],
     pub IV: [u8; 16],
@@ -5112,7 +5112,7 @@ impl Default for CRYPT_AES_256_KEY_STATE {
 }
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ALGORITHM_IDENTIFIER {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_OBJID_BLOB,
@@ -5133,27 +5133,27 @@ impl Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
     pub rgValue: PCRYPT_ATTR_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: u32,
     pub rgAttr: PCRYPT_ATTRIBUTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
 }
 pub type CRYPT_ATTR_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -5165,7 +5165,7 @@ impl Default for CRYPT_BIT_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: u32,
     pub rgBlob: PCRYPT_DATA_BLOB,
@@ -5174,13 +5174,13 @@ pub const CRYPT_BLOB_VER3: u32 = 128;
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: u32 = 2;
 pub const CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO {
     pub pszObjId: windows_core::PSTR,
     pub Content: CRYPT_DER_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_core::PSTR,
     pub cValue: u32,
@@ -5190,7 +5190,7 @@ pub const CRYPT_CREATE_IV: u32 = 512;
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: u32 = 268435456;
 pub const CRYPT_CREATE_SALT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: u32,
     pub pszCredentialsOid: windows_core::PCSTR,
@@ -5202,7 +5202,7 @@ impl Default for CRYPT_CREDENTIALS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CSP_PROVIDER {
     pub dwKeySpec: u32,
     pub pwszProviderName: windows_core::PWSTR,
@@ -5227,7 +5227,7 @@ pub const CRYPT_DECODE_SHARE_OID_STRING_FLAG: u32 = 4;
 pub const CRYPT_DECODE_TO_BE_SIGNED_FLAG: u32 = 2;
 pub const CRYPT_DECRYPT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgAndCertEncodingType: u32,
@@ -5245,7 +5245,7 @@ pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: u32 = 1;
 pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: u32 = 1;
 pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: u32,
     pub rgpszOID: *mut windows_core::PSTR,
@@ -5263,7 +5263,7 @@ pub const CRYPT_DELETE_KEYSET: u32 = 16;
 pub type CRYPT_DER_BLOB = CRYPT_INTEGER_BLOB;
 pub const CRYPT_DESTROYKEY: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DES_KEY_STATE {
     pub Key: [u8; 8],
     pub IV: [u8; 8],
@@ -5279,7 +5279,7 @@ pub const CRYPT_DONT_CACHE_RESULT: u32 = 8;
 pub const CRYPT_DONT_CHECK_TIME_VALIDITY: u32 = 512;
 pub const CRYPT_DONT_VERIFY_SIGNATURE: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ECC_CMS_SHARED_INFO {
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EntityUInfo: CRYPT_DATA_BLOB,
@@ -5292,7 +5292,7 @@ impl Default for CRYPT_ECC_CMS_SHARED_INFO {
 }
 pub const CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ECC_PRIVATE_KEY_INFO {
     pub dwVersion: u32,
     pub PrivateKey: CRYPT_DER_BLOB,
@@ -5317,14 +5317,14 @@ pub struct CRYPT_ENCODE_PARA {
 }
 pub const CRYPT_ENCRYPT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
     pub EncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub EncryptedPrivateKey: CRYPT_DATA_BLOB,
 }
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -5341,7 +5341,7 @@ impl Default for CRYPT_ENCRYPT_MESSAGE_PARA {
 }
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -5379,7 +5379,7 @@ pub const CRYPT_FORMAT_X509: u32 = 2;
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: u32,
     pub iDeltaCrlIndicator: i32,
@@ -5396,13 +5396,13 @@ pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: u32 = 4;
 pub const CRYPT_HASH_ALG_OID_GROUP_ID: u32 = 1;
 pub type CRYPT_HASH_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_HASH_INFO {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Hash: CRYPT_HASH_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -5426,7 +5426,7 @@ pub const CRYPT_INITIATOR: u32 = 64;
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: u32 = 1;
 pub const CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTEGER_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -5445,7 +5445,7 @@ pub const CRYPT_KEYID_DELETE_FLAG: u32 = 16;
 pub const CRYPT_KEYID_MACHINE_FLAG: u32 = 32;
 pub const CRYPT_KEYID_SET_NEW_FLAG: u32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_core::PWSTR,
     pub pwszProvName: windows_core::PWSTR,
@@ -5456,7 +5456,7 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub dwKeySpec: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: u32,
     pub pbData: *mut u8,
@@ -5500,7 +5500,7 @@ impl Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_KEY_VERIFY_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -5519,7 +5519,7 @@ pub const CRYPT_MAC: u32 = 32;
 pub const CRYPT_MACHINE_DEFAULT: u32 = 1;
 pub const CRYPT_MACHINE_KEYSET: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_MASK_GEN_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5570,7 +5570,7 @@ pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: u32 = 1;
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: u32 = 1;
 pub type CRYPT_OBJID_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_OBJID_TABLE {
     pub dwAlgId: u32,
     pub pszObjId: windows_core::PCSTR,
@@ -5594,7 +5594,7 @@ pub const CRYPT_OID_FIND_LOCALIZED_NAME_FUNC: windows_core::PCSTR = windows_core
 pub const CRYPT_OID_FIND_OID_INFO_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllFindOIDInfo");
 pub const CRYPT_OID_FORMAT_OBJECT_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllFormatObject");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
@@ -5696,21 +5696,21 @@ pub const CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: windows_core::PCSTR = windows_
 pub const CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: windows_core::PCSTR = windows_core::PCSTR(2 as _);
 pub type CRYPT_PASSWORD_CREDENTIALS = CRYPT_PASSWORD_CREDENTIALSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSA {
     pub cbSize: u32,
     pub pszUsername: windows_core::PSTR,
     pub pszPassword: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PASSWORD_CREDENTIALSW {
     pub cbSize: u32,
     pub pszUsername: windows_core::PWSTR,
     pub pszPassword: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PKCS12_PBE_PARAMS {
     pub iIterations: i32,
     pub cbSalt: u32,
@@ -5747,7 +5747,7 @@ pub const CRYPT_POLICY_OID_GROUP_ID: u32 = 8;
 pub const CRYPT_PREGEN: u32 = 64;
 pub type CRYPT_PRIVATE_KEY_BLOB_AND_PARAMS = CRYPT_PKCS8_IMPORT_PARAMS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: u32,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5756,7 +5756,7 @@ pub struct CRYPT_PRIVATE_KEY_INFO {
 }
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: u32 = 2097152;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PSOURCE_ALGORITHM {
     pub pszObjId: windows_core::PSTR,
     pub EncodingParameters: CRYPT_DATA_BLOB,
@@ -5769,7 +5769,7 @@ pub const CRYPT_RC2_40BIT_VERSION: u32 = 160;
 pub const CRYPT_RC2_56BIT_VERSION: u32 = 52;
 pub const CRYPT_RC2_64BIT_VERSION: u32 = 120;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC2_CBC_PARAMETERS {
     pub dwVersion: u32,
     pub fIV: windows_core::BOOL,
@@ -5781,7 +5781,7 @@ impl Default for CRYPT_RC2_CBC_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RC4_KEY_STATE {
     pub Key: [u8; 16],
     pub SBox: [u8; 256],
@@ -5800,7 +5800,7 @@ pub const CRYPT_REGISTER_FIRST_INDEX: u32 = 0;
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: u32,
     pub pLastSyncTime: *mut super::minwindef::FILETIME,
@@ -5824,14 +5824,14 @@ impl Default for CRYPT_RETRIEVE_AUX_INFO {
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: u32 = 4096;
 pub const CRYPT_RETRIEVE_MULTIPLE_OBJECTS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_RSAES_OAEP_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
     pub PSourceAlgorithm: CRYPT_PSOURCE_ALGORITHM,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub MaskGenAlgorithm: CRYPT_MASK_GEN_ALGORITHM,
@@ -5841,7 +5841,7 @@ pub struct CRYPT_RSA_SSA_PSS_PARAMETERS {
 pub const CRYPT_SECRETDIGEST: u32 = 1;
 pub const CRYPT_SEC_DESCR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: u32,
     pub rgValue: PCRYPT_DER_BLOB,
@@ -5854,7 +5854,7 @@ pub const CRYPT_SGC_ENUM: u32 = 4;
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: u32,
     pub dwMsgEncodingType: u32,
@@ -5880,7 +5880,7 @@ impl Default for CRYPT_SIGN_MESSAGE_PARA {
 }
 pub const CRYPT_SILENT: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMART_CARD_ROOT_INFO {
     pub rgbCardID: [u8; 16],
     pub luid: ROOT_INFO_LUID,
@@ -5891,13 +5891,13 @@ impl Default for CRYPT_SMART_CARD_ROOT_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: u32,
     pub rgCapability: PCRYPT_SMIME_CAPABILITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITY {
     pub pszObjId: windows_core::PSTR,
     pub Parameters: CRYPT_OBJID_BLOB,
@@ -5930,7 +5930,7 @@ pub const CRYPT_STRING_STRICT: u32 = 536870912;
 pub const CRYPT_SUCCEED: u32 = 1;
 pub const CRYPT_TEMPLATE_OID_GROUP_ID: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_ACCURACY {
     pub dwSeconds: u32,
     pub dwMillis: u32,
@@ -5938,7 +5938,7 @@ pub struct CRYPT_TIMESTAMP_ACCURACY {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: u32,
     pub pbEncoded: *mut u8,
@@ -5952,7 +5952,7 @@ impl Default for CRYPT_TIMESTAMP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: u32,
     pub pszTSAPolicyId: windows_core::PSTR,
@@ -5968,7 +5968,7 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub rgExtension: PCERT_EXTENSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_core::PCSTR,
     pub fRequestCerts: windows_core::BOOL,
@@ -5977,7 +5977,7 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub rgExtension: PCERT_EXTENSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: u32,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5989,7 +5989,7 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub rgExtension: PCERT_EXTENSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: u32,
     pub cFreeText: u32,
@@ -6003,7 +6003,7 @@ impl Default for CRYPT_TIMESTAMP_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_core::PSTR,
     pub pszContentType: windows_core::PSTR,
@@ -6021,7 +6021,7 @@ pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: u32 = 536870912;
 pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456;
 pub const CRYPT_UPDATE_KEY: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: u32,
     pub rgwszUrl: *mut windows_core::PWSTR,
@@ -6032,7 +6032,7 @@ impl Default for CRYPT_URL_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: u32,
     pub dwSyncDeltaTime: u32,
@@ -6059,7 +6059,7 @@ pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY: u32 = 1;
 pub const CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: u32 = 4;
 pub const CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO {
     pub CertSignHashCNGAlgPropData: CRYPT_DATA_BLOB,
     pub CertIssuerPubKeyBitLengthPropData: CRYPT_DATA_BLOB,
@@ -6069,7 +6069,7 @@ pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CERT: u32 = 2;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL: u32 = 3;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: u32,
     pub rgpwszCNGHashAlgid: *mut windows_core::PCWSTR,
@@ -6105,7 +6105,7 @@ pub const CRYPT_X931_FORMAT: u32 = 4;
 pub const CRYPT_X942_COUNTER_BYTE_LENGTH: u32 = 4;
 pub const CRYPT_X942_KEY_LENGTH_BYTE_LENGTH: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_X942_OTHER_INFO {
     pub pszContentEncryptionObjId: windows_core::PSTR,
     pub rgbCounter: [u8; 4],
@@ -6120,7 +6120,7 @@ impl Default for CRYPT_X942_OTHER_INFO {
 pub const CRYPT_X942_PUB_INFO_BYTE_LENGTH: u32 = 64;
 pub const CRYPT_Y_ONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_ANY_SUBJECT_INFO {
     pub SubjectAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub SubjectIdentifier: CRYPT_DATA_BLOB,
@@ -6129,7 +6129,7 @@ pub const CTL_ANY_SUBJECT_TYPE: u32 = 1;
 pub const CTL_CERT_SUBJECT_TYPE: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: u32,
     pub pbCtlEncoded: *mut u8,
@@ -6147,7 +6147,7 @@ impl Default for CTL_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_DATA_BLOB,
     pub cAttribute: u32,
@@ -6165,7 +6165,7 @@ pub const CTL_FIND_SHA1_HASH: u32 = 1;
 pub const CTL_FIND_SUBJECT: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: u32,
     pub pUsagePara: PCTL_FIND_USAGE_PARA,
@@ -6181,7 +6181,7 @@ impl Default for CTL_FIND_SUBJECT_PARA {
 pub const CTL_FIND_USAGE: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -6190,7 +6190,7 @@ pub struct CTL_FIND_USAGE_PARA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_INFO {
     pub dwVersion: u32,
     pub SubjectUsage: CTL_USAGE,
@@ -6205,7 +6205,7 @@ pub struct CTL_INFO {
     pub rgExtension: PCERT_EXTENSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_USAGE {
     pub cUsageIdentifier: u32,
     pub rgpszUsageIdentifier: *mut windows_core::PSTR,
@@ -6216,14 +6216,14 @@ impl Default for CTL_USAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CTL_USAGE_MATCH {
     pub dwType: u32,
     pub Usage: CTL_USAGE,
 }
 pub const CTL_V1: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: u32,
     pub ListIdentifier: CRYPT_DATA_BLOB,
@@ -6239,7 +6239,7 @@ impl Default for CTL_VERIFY_USAGE_PARA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: u32,
     pub dwError: u32,
@@ -6256,7 +6256,7 @@ impl Default for CTL_VERIFY_USAGE_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CT_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lErrorStatus: i32,
@@ -6268,7 +6268,7 @@ pub const CUR_BLOB_VERSION: u32 = 2;
 pub type CertKeyType = i32;
 pub type DATA_BLOB = CRYPT_INTEGER_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHPRIVKEY_VER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -6278,13 +6278,13 @@ pub struct DHPRIVKEY_VER3 {
     pub DSSSeed: DSSSEED,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHPUBKEY_VER3 {
     pub magic: u32,
     pub bitlenP: u32,
@@ -6296,7 +6296,7 @@ pub type DSSPRIVKEY_VER3 = DHPRIVKEY_VER3;
 pub type DSSPUBKEY = DHPUBKEY;
 pub type DSSPUBKEY_VER3 = DHPUBKEY_VER3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSSSEED {
     pub counter: u32,
     pub seed: [u8; 20],
@@ -6308,13 +6308,13 @@ impl Default for DSSSEED {
 }
 pub const ECC_CMS_SHARED_INFO: windows_core::PCSTR = windows_core::PCSTR(77 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwRootProgramQualifierFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwQualifiers: u32,
@@ -6403,7 +6403,7 @@ pub struct HCRYPTPROV_LEGACY(pub usize);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct HCRYPTPROV_OR_NCRYPT_KEY_HANDLE(pub usize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HMAC_INFO {
     pub HashAlgid: ALG_ID,
     pub pbInnerString: *mut u8,
@@ -6451,7 +6451,7 @@ pub type KEAPUBKEY = DHPUBKEY;
 pub const KEYSTATEBLOB: u32 = 12;
 pub const KEY_LENGTH_MASK: u32 = 4294901760;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_TYPE_SUBTYPE {
     pub dwKeySpec: u32,
     pub Type: windows_core::GUID,
@@ -6615,21 +6615,21 @@ pub const OCSP_BASIC_RESPONSE_V1: u32 = 0;
 pub const OCSP_BASIC_REVOKED_CERT_STATUS: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_BASIC_REVOKED_INFO {
     pub RevocationDate: super::minwindef::FILETIME,
     pub dwCrlReasonCode: u32,
 }
 pub const OCSP_BASIC_SIGNED_RESPONSE: windows_core::PCSTR = windows_core::PCSTR(68 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_BASIC_SIGNED_RESPONSE_INFO {
     pub ToBeSigned: CRYPT_DER_BLOB,
     pub SignatureInfo: OCSP_SIGNATURE_INFO,
 }
 pub const OCSP_BASIC_UNKNOWN_CERT_STATUS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_CERT_ID {
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub IssuerNameHash: CRYPT_HASH_BLOB,
@@ -6640,14 +6640,14 @@ pub const OCSP_INTERNAL_ERROR_RESPONSE: u32 = 2;
 pub const OCSP_MALFORMED_REQUEST_RESPONSE: u32 = 1;
 pub const OCSP_REQUEST: windows_core::PCSTR = windows_core::PCSTR(66 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: u32,
     pub rgExtension: PCERT_EXTENSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: u32,
     pub pRequestorName: PCERT_ALT_NAME_ENTRY,
@@ -6659,14 +6659,14 @@ pub struct OCSP_REQUEST_INFO {
 pub const OCSP_REQUEST_V1: u32 = 0;
 pub const OCSP_RESPONSE: windows_core::PCSTR = windows_core::PCSTR(67 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_RESPONSE_INFO {
     pub dwStatus: u32,
     pub pszObjId: windows_core::PSTR,
     pub Value: CRYPT_OBJID_BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
@@ -6675,7 +6675,7 @@ pub struct OCSP_SIGNATURE_INFO {
 }
 pub const OCSP_SIGNED_REQUEST: windows_core::PCSTR = windows_core::PCSTR(65 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_DER_BLOB,
     pub pOptionalSignatureInfo: POCSP_SIGNATURE_INFO,
@@ -7178,7 +7178,7 @@ pub const PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE: u32 = 0;
 pub const PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: u32 = 2048;
 pub const PKCS12_PBES2_ALG_AES256_SHA256: windows_core::PCWSTR = windows_core::w!("AES256-SHA256");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: u32,
     pub hNcryptDescriptor: *mut core::ffi::c_void,
@@ -7290,7 +7290,7 @@ pub const PROV_EC_ECDSA_SIG: u32 = 14;
 pub const PROV_EC_ECNRA_FULL: u32 = 17;
 pub const PROV_EC_ECNRA_SIG: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS {
     pub aiAlgid: ALG_ID,
     pub dwBitLen: u32,
@@ -7303,7 +7303,7 @@ impl Default for PROV_ENUMALGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROV_ENUMALGS_EX {
     pub aiAlgid: ALG_ID,
     pub dwDefaultLen: u32,
@@ -7345,14 +7345,14 @@ pub const REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: u32 = 2;
 pub const REPORT_NO_PRIVATE_KEY: u32 = 1;
 pub const REVOCATION_OID_CRL_REVOCATION: windows_core::PCSTR = windows_core::PCSTR(1 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROOT_INFO_LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
 pub const RSA1024BIT_KEY: u32 = 67108864;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RSAPUBKEY {
     pub magic: u32,
     pub bitlen: u32,
@@ -7360,7 +7360,7 @@ pub struct RSAPUBKEY {
 }
 pub const RSA_CSP_PUBLICKEYBLOB: windows_core::PCSTR = windows_core::PCSTR(19 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_ALG {
     pub dwUse: u32,
     pub Algid: ALG_ID,
@@ -7382,7 +7382,7 @@ pub const SORTED_CTL_EXT_MAX_COLLISION_OFFSET: u32 = 8;
 pub type SSL_EXTRA_CERT_CHAIN_POLICY_PARA = HTTPSPolicyCallbackData;
 pub const SSL_F12_ERROR_TEXT_LENGTH: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub dwErrorLevel: u32,
@@ -7397,7 +7397,7 @@ impl Default for SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS {
 }
 pub const SSL_HPKP_HEADER_COUNT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
@@ -7413,14 +7413,14 @@ pub const SSL_HPKP_PKP_HEADER_INDEX: u32 = 0;
 pub const SSL_HPKP_PKP_RO_HEADER_INDEX: u32 = 1;
 pub const SSL_KEY_PIN_ERROR_TEXT_LENGTH: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: u32,
     pub dwReserved: u32,
     pub pwszServerName: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS {
     pub cbSize: u32,
     pub lError: i32,

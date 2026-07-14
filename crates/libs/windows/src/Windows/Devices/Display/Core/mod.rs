@@ -1139,7 +1139,7 @@ impl windows_core::RuntimeType for DisplayPresentStatus {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Display.Core.DisplayPresentStatus");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
     pub VerticalSyncsPerPresentation: i32,

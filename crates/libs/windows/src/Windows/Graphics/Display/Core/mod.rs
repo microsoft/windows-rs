@@ -15,7 +15,7 @@ impl windows_core::RuntimeType for HdmiDisplayColorSpace {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Display.Core.HdmiDisplayColorSpace");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,

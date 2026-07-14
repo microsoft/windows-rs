@@ -12,7 +12,7 @@ pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = 4;
 pub const CompoundCondition: windows_core::GUID = windows_core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: windows_core::GUID = windows_core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,

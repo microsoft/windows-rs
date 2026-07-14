@@ -699,7 +699,7 @@ pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2;
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -960,7 +960,7 @@ pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_core::PWSTR,
@@ -970,7 +970,7 @@ pub struct CODEBASEHOLD {
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_core::GUID,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -978,7 +978,7 @@ pub struct CONFIRMSAFETY {
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
@@ -1037,7 +1037,7 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_core::PSTR,
@@ -5529,7 +5529,7 @@ pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
@@ -5542,7 +5542,7 @@ impl Default for PROTOCOLDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: core::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
@@ -5552,7 +5552,7 @@ pub struct PROTOCOLFILTERDATA {
 }
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_core::PCWSTR,
     pub szTargetUrl: windows_core::PCWSTR,
@@ -5603,14 +5603,14 @@ pub const QUERY_USES_CACHE: QUERYOPTION = 12;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -5627,7 +5627,7 @@ pub struct RemBINDINFO {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
@@ -5646,7 +5646,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5676,7 +5676,7 @@ pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: u32 = 262632;
 #[repr(C)]
 #[cfg(feature = "objidl")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,
     pub pIBindCtx: core::mem::ManuallyDrop<Option<super::objidl::IBindCtx>>,
@@ -5988,7 +5988,7 @@ pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ZONEATTRIBUTES {
     pub cbSize: u32,
     pub szDisplayName: [u16; 260],

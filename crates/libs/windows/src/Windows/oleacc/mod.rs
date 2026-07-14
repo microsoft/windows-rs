@@ -1186,7 +1186,7 @@ pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const w
 pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::minwindef::LRESULT, riid: *const windows_core::GUID, wparam: super::minwindef::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPMSAAMENUINFO = *mut MSAAMENUINFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: u32,
     pub cchWText: u32,

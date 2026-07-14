@@ -280,7 +280,7 @@ impl Default for USBD_INTERFACE_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USBD_INTERFACE_INFORMATION {
     pub Length: u16,
     pub InterfaceNumber: u8,
@@ -299,7 +299,7 @@ impl Default for USBD_INTERFACE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_ISO_PACKET_DESCRIPTOR {
     pub Offset: u32,
     pub Length: u32,
@@ -326,7 +326,7 @@ impl Default for USBD_PIPE_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -406,7 +406,7 @@ pub const USBD_STATUS_TIMEOUT: USBD_STATUS = USBD_STATUS(0xC0006000_u32 as _);
 pub const USBD_STATUS_UNEXPECTED_PID: USBD_STATUS = USBD_STATUS(0xC0000007_u32 as _);
 pub const USBD_STATUS_XACT_ERROR: USBD_STATUS = USBD_STATUS(0xC0000011_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: USBD_PIPE_HANDLE,
     pub StreamID: u32,
@@ -417,7 +417,7 @@ pub const USBD_TRANSFER_DIRECTION: u32 = 1;
 pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1;
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USBD_VERSION_INFORMATION {
     pub USBDI_Version: u32,
     pub Supported_USB_Version: u32,
@@ -443,7 +443,7 @@ pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1;
 pub const VALID_TRANSFER_FLAGS_MASK: u32 = 15;
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -462,7 +462,7 @@ impl Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -486,7 +486,7 @@ impl Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -509,7 +509,7 @@ impl Default for _URB_CONTROL_FEATURE_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -529,7 +529,7 @@ impl Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -551,7 +551,7 @@ impl Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -573,7 +573,7 @@ impl Default for _URB_CONTROL_GET_STATUS_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -592,7 +592,7 @@ impl Default for _URB_CONTROL_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_TRANSFER_EX {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -611,7 +611,7 @@ impl Default for _URB_CONTROL_TRANSFER_EX {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -634,25 +634,25 @@ impl Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_FRAME_LENGTH_CONTROL {
     pub Hdr: _URB_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_GET_CURRENT_FRAME_NUMBER {
     pub Hdr: _URB_HEADER,
     pub FrameNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_GET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLength: u32,
     pub FrameNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -660,7 +660,7 @@ pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub MaximumCompletionPathDelayInMilliSeconds: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_HCD_AREA {
     pub Reserved8: [*mut core::ffi::c_void; 8],
 }
@@ -670,7 +670,7 @@ impl Default for _URB_HCD_AREA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
@@ -685,7 +685,7 @@ impl Default for _URB_HEADER {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -707,7 +707,7 @@ impl Default for _URB_ISOCH_TRANSFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -718,7 +718,7 @@ pub struct _URB_OPEN_STATIC_STREAMS {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut core::ffi::c_void,
@@ -742,7 +742,7 @@ impl Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: USBD_PIPE_HANDLE,
@@ -750,7 +750,7 @@ pub struct _URB_PIPE_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "usbspec")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
     pub ConfigurationDescriptor: super::usbspec::PUSB_CONFIGURATION_DESCRIPTOR,
@@ -758,14 +758,14 @@ pub struct _URB_SELECT_CONFIGURATION {
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
     pub ConfigurationHandle: USBD_CONFIGURATION_HANDLE,
     pub Interface: USBD_INTERFACE_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLengthDelta: i32,

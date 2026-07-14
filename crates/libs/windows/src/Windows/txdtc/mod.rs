@@ -2448,7 +2448,7 @@ impl IXATransLookup2_Vtbl {
 #[cfg(feature = "transact")]
 impl windows_core::RuntimeName for IXATransLookup2 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
@@ -2476,7 +2476,7 @@ pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = -2147167999;
 pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = 315649;
 pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = 315648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
@@ -2490,7 +2490,7 @@ impl Default for XID {
 }
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,

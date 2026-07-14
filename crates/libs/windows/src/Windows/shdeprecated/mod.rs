@@ -2,7 +2,7 @@
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::windef::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -34,7 +34,7 @@ pub struct BASEBROWSERDATALH {
 }
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::windef::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -153,7 +153,7 @@ impl CIE4ConnectionPoint_Vtbl {
 impl windows_core::RuntimeName for CIE4ConnectionPoint {}
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERSETDATA {
     pub _fs: super::shobjidl_core::FOLDERSETTINGS,
     pub _vidRestore: super::shobjidl_core::SHELLVIEWID,
@@ -2489,7 +2489,7 @@ pub const TLOG_CURRENT: u32 = 0;
 pub const TLOG_FORE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TOOLBARITEM {
     pub ptbar: core::mem::ManuallyDrop<Option<super::shobjidl_core::IDockingWindow>>,
     pub rcBorderTool: super::oleidl::BORDERWIDTHS,

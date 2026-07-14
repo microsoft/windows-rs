@@ -451,25 +451,25 @@ pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0;
 pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH {
     pub Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
     pub Bandwidth: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_LATENCY {
     pub Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
     pub Latency: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
     pub Flags: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0,
     pub MinTransferSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0 {
     pub _bitfield: u8,
 }
@@ -482,7 +482,7 @@ pub const VmOfferPriorityNormal: OFFER_PRIORITY = 4;
 pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = 1;
 pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -509,7 +509,7 @@ impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
 }
 pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -545,7 +545,7 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

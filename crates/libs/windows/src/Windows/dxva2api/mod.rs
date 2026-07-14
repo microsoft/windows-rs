@@ -15,13 +15,13 @@ where
     unsafe { DXVA2CreateVideoService(pdd.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_AYUVSample16 {
     pub Cr: u16,
     pub Cb: u16,
@@ -29,7 +29,7 @@ pub struct DXVA2_AYUVSample16 {
     pub Alpha: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_AYUVSample8 {
     pub Cr: u8,
     pub Cb: u8,
@@ -38,7 +38,7 @@ pub struct DXVA2_AYUVSample8 {
 }
 pub const DXVA2_BitStreamDateBufferType: i32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: windows_core::GUID,
     pub guidConfigMBcontrolEncryption: windows_core::GUID,
@@ -62,7 +62,7 @@ pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828;
 pub const DXVA2_DeblockingControlBufferType: i32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: u32,
     pub BufferIndex: u32,
@@ -82,7 +82,7 @@ impl Default for DXVA2_DecodeBufferDesc {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: u32,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
@@ -94,7 +94,7 @@ impl Default for DXVA2_DecodeExecuteParams {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: u32,
     pub pPrivateInputData: *mut core::ffi::c_void,
@@ -159,7 +159,7 @@ impl Default for DXVA2_ExtendedFormat_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
 }
@@ -198,13 +198,13 @@ impl Default for DXVA2_Fixed32_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_Fixed32_0_0 {
     pub Fraction: u16,
     pub Value: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -419,7 +419,7 @@ pub const DXVA2_VideoProcess_YUV2RGB: i32 = 1;
 pub const DXVA2_VideoProcess_YUV2RGBExtended: i32 = 128;
 #[repr(C)]
 #[cfg(feature = "d3d9")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
     pub InputPool: super::d3d9::D3DPOOL,

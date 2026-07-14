@@ -185,7 +185,7 @@ pub const CBF_SKIP_UNREGISTRATIONS: u32 = 1048576;
 pub const CBR_BLOCK: HDDEDATA = HDDEDATA(-1 as _);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVCONTEXT {
     pub cb: u32,
     pub wFlags: u32,
@@ -197,7 +197,7 @@ pub struct CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONVINFO {
     pub cb: u32,
     pub hUser: usize,
@@ -220,7 +220,7 @@ pub const CP_WINANSI: u32 = 1004;
 pub const CP_WINNEUTRAL: u32 = 1004;
 pub const CP_WINUNICODE: u32 = 1200;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEML_MSG_HOOK_DATA {
     pub uiLo: usize,
     pub uiHi: usize,
@@ -308,7 +308,7 @@ impl Default for HSZ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
@@ -328,7 +328,7 @@ pub const MH_DELETE: u32 = 3;
 pub const MH_KEEP: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONCBSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -354,7 +354,7 @@ impl Default for MONCBSTRUCT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: u32,
     pub fConnect: windows_core::BOOL,
@@ -367,7 +367,7 @@ pub struct MONCONVSTRUCT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: u32,
     pub wLastError: u32,
@@ -378,7 +378,7 @@ pub struct MONERRSTRUCT {
 pub type MONHSZSTRUCT = MONHSZSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTA {
     pub cb: u32,
     pub fsAction: windows_core::BOOL,
@@ -395,7 +395,7 @@ impl Default for MONHSZSTRUCTA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONHSZSTRUCTW {
     pub cb: u32,
     pub fsAction: windows_core::BOOL,
@@ -412,7 +412,7 @@ impl Default for MONHSZSTRUCTW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: u32,
     pub dwTime: u32,
@@ -429,7 +429,7 @@ pub struct MONLINKSTRUCT {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: u32,
     pub hwndTo: super::windef::HWND,

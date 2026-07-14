@@ -471,7 +471,7 @@ pub const RECO_DROP: u32 = 1;
 pub const RECO_PASTE: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct REOBJECT {
     pub cbStruct: u32,
     pub cp: i32,

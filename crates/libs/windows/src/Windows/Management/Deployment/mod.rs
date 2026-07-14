@@ -659,7 +659,7 @@ impl core::ops::Not for DeploymentOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,

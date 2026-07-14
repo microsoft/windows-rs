@@ -316,7 +316,7 @@ pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUE
 pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COSERVERINFO {
     pub dwReserved1: u32,
     pub pwszName: windows_core::PWSTR,
@@ -1081,10 +1081,10 @@ impl IComThreadingInfo_Vtbl {
 }
 impl windows_core::RuntimeName for IComThreadingInfo {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IContext(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEnumContextProps(pub u8);
 windows_core::imp::define_interface!(IEnumString, IEnumString_Vtbl, 0x00000101_0000_0000_c000_000000000046);
 windows_core::imp::interface_hierarchy!(IEnumString, windows_core::IUnknown);
@@ -1885,7 +1885,7 @@ impl INoMarshal_Vtbl {
 }
 impl windows_core::RuntimeName for INoMarshal {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IObjContext(pub u8);
 windows_core::imp::define_interface!(IPSFactoryBuffer, IPSFactoryBuffer_Vtbl, 0xd5f569d0_593b_101a_b569_08002b2dbf7a);
 windows_core::imp::interface_hierarchy!(IPSFactoryBuffer, windows_core::IUnknown);
@@ -3555,7 +3555,7 @@ pub const LOCK_EXCLUSIVE: LOCKTYPE = 2;
 pub const LOCK_ONLYONCE: LOCKTYPE = 4;
 pub const LOCK_WRITE: LOCKTYPE = 1;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct MULTI_QI {
     pub pIID: *const windows_core::GUID,
     pub pItf: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -3583,7 +3583,7 @@ pub type PSOLE_AUTHENTICATION_SERVICE = *mut SOLE_AUTHENTICATION_SERVICE;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct RPCOLEDATAREP(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RPCOLEMESSAGE {
     pub reserved1: *mut core::ffi::c_void,
     pub dataRepresentation: RPCOLEDATAREP,
@@ -3601,7 +3601,7 @@ impl Default for RPCOLEMESSAGE {
 pub type RPCOPT_PROPERTIES = i32;
 pub type RPCOPT_SERVER_LOCALITY_VALUES = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SChannelHookCallInfo {
     pub iid: windows_core::GUID,
     pub cbSize: u32,
@@ -3619,7 +3619,7 @@ pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 1;
 pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = 0;
 pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOLE_AUTHENTICATION_INFO {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -3631,7 +3631,7 @@ impl Default for SOLE_AUTHENTICATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOLE_AUTHENTICATION_LIST {
     pub cAuthInfo: u32,
     pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
@@ -3643,7 +3643,7 @@ impl Default for SOLE_AUTHENTICATION_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOLE_AUTHENTICATION_SERVICE {
     pub dwAuthnSvc: u32,
     pub dwAuthzSvc: u32,
@@ -3658,7 +3658,7 @@ impl Default for SOLE_AUTHENTICATION_SERVICE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STATSTG {
     pub pwcsName: windows_core::PWSTR,
     pub r#type: u32,

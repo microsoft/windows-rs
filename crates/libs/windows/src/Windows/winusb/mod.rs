@@ -239,7 +239,7 @@ impl Default for WINUSB_ISOCH_BUFFER_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINUSB_PIPE_INFORMATION {
     pub PipeType: super::usb::USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -248,7 +248,7 @@ pub struct WINUSB_PIPE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINUSB_PIPE_INFORMATION_EX {
     pub PipeType: super::usb::USBD_PIPE_TYPE,
     pub PipeId: u8,

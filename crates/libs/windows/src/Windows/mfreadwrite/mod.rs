@@ -979,7 +979,7 @@ pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;
 pub const MF_SINK_WRITER_MEDIASINK: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,

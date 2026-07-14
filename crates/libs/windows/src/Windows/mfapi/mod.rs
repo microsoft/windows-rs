@@ -1072,7 +1072,7 @@ pub const CODEC_API_QP_MAP_UINT16: eAVEncVideoQPMapElementDataType = -2147483647
 pub const CODEC_API_QP_MAP_UINT32: eAVEncVideoQPMapElementDataType = -2147483646;
 pub const CODEC_API_QP_MAP_UINT8: eAVEncVideoQPMapElementDataType = -2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
@@ -1103,7 +1103,7 @@ pub const D3DFMT_X1R5G5B5: u32 = 24;
 pub const D3DFMT_X8R8G8B8: u32 = 22;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DIRTYRECT_INFO {
     pub FrameNumber: u32,
     pub NumDirtyRects: u32,
@@ -1127,7 +1127,7 @@ pub const DistanceToOpticalCenter: MFDepthMeasurement = 1;
 pub type EAllocationType = i32;
 pub const FORMAT_MFVideoFormat: windows_core::GUID = windows_core::GUID::from_u128(0xaed4ab2d_7326_43cb_9464_c879cab9c43d);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
@@ -1135,32 +1135,32 @@ pub struct FaceCharacterization {
     pub FacialExpressionScore: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FaceRectInfo {
     pub Region: super::windef::RECT,
     pub confidenceLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
@@ -1168,7 +1168,7 @@ pub struct HistogramDataHeader {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HistogramGrid {
     pub Width: u32,
     pub Height: u32,
@@ -1176,7 +1176,7 @@ pub struct HistogramGrid {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HistogramHeader {
     pub Size: u32,
     pub Bins: u32,
@@ -1185,7 +1185,7 @@ pub struct HistogramHeader {
     pub Grid: HistogramGrid,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InputQPSettings {
     pub minBlockSize: u32,
     pub maxBlockSize: u32,
@@ -1197,7 +1197,7 @@ pub struct InputQPSettings {
 }
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACROBLOCK_DATA {
     pub flags: u32,
     pub motionVectorX: i16,
@@ -1294,7 +1294,7 @@ pub struct MFCameraIntrinsic_PinholeCameraModel {
 }
 pub type MFDepthMeasurement = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MFFOLDDOWN_MATRIX {
     pub cbSize: u32,
     pub cSrcChannels: u32,
@@ -1775,7 +1775,7 @@ pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: windows_core::GUID = window
 pub const MF_WINDOW_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MOVEREGION_INFO {
     pub FrameNumber: u32,
     pub NumMoveRegions: u32,
@@ -1789,16 +1789,16 @@ impl Default for MOVEREGION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
     pub DestRect: super::windef::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG2VIDEOINFO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -1820,7 +1820,7 @@ pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fWy: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,
@@ -1830,13 +1830,13 @@ pub struct MetadataTimeStamps {
 pub type PROI_AREA = *mut ROI_AREA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ROI_AREA {
     pub rect: super::windef::RECT,
     pub QPDelta: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEOINFOHEADER2(pub u8);
 pub type _MFT_ENUM_FLAG = i32;
 pub type eAVEncVideoQPMapElementDataType = i32;

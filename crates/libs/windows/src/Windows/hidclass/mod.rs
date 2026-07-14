@@ -18,7 +18,7 @@ pub const GUID_DEVINTERFACE_HID: windows_core::GUID = windows_core::GUID::from_u
 pub const GUID_HID_INTERFACE_HIDPARSE: windows_core::GUID = windows_core::GUID::from_u128(0xf5c315a5_69ac_4bc2_9279_d0b64576f44b);
 pub const GUID_HID_INTERFACE_NOTIFY: windows_core::GUID = windows_core::GUID::from_u128(0x2c4e2e88_25e6_4c33_882f_3d82e6073681);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HID_COLLECTION_INFORMATION {
     pub DescriptorSize: u32,
     pub Polled: bool,
@@ -33,7 +33,7 @@ impl Default for HID_COLLECTION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HID_DRIVER_CONFIG {
     pub Size: u32,
     pub RingBufferSize: u32,
@@ -41,7 +41,7 @@ pub struct HID_DRIVER_CONFIG {
 pub const HID_REVISION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: super::minwindef::PUCHAR,
     pub reportBufferLen: u32,

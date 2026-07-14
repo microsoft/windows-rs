@@ -95,7 +95,7 @@ pub unsafe fn HeapWalk(hheap: super::winnt::HANDLE, lpentry: *mut super::minwinb
     unsafe { HeapWalk(hheap, lpentry as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_SUMMARY {
     pub cb: u32,
     pub cbAllocated: usize,

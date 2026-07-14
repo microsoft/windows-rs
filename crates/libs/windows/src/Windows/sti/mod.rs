@@ -282,7 +282,7 @@ impl IStiDevice_Vtbl {
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
 impl windows_core::RuntimeName for IStiDevice {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IStiDeviceW(pub u8);
 windows_core::imp::define_interface!(IStillImageW, IStillImageW_Vtbl, 0x641bd880_2dc8_11d0_90ea_00aa0060f86c);
 windows_core::imp::interface_hierarchy!(IStillImageW, windows_core::IUnknown);
@@ -498,7 +498,7 @@ pub type PSTI_WIA_DEVICE_INFORMATIONW = *mut STI_WIA_DEVICE_INFORMATIONW;
 pub const STIEDFL_ALLDEVICES: u32 = 0;
 pub const STIEDFL_ATTACHEDONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STINOTIFY {
     pub dwSize: u32,
     pub guidNotificationCode: windows_core::GUID,
@@ -511,7 +511,7 @@ impl Default for STINOTIFY {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STISUBSCRIBE {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -527,7 +527,7 @@ pub const STI_DEVICE_CREATE_MASK: u32 = 65535;
 pub const STI_DEVICE_CREATE_STATUS: u32 = 1;
 pub type STI_DEVICE_INFORMATION = STI_DEVICE_INFORMATIONW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,
@@ -547,7 +547,7 @@ impl Default for STI_DEVICE_INFORMATIONW {
 }
 pub type STI_DEVICE_MJ_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEVICE_STATUS {
     pub dwSize: u32,
     pub StatusMask: u32,
@@ -562,12 +562,12 @@ pub struct STI_DEVICE_TYPE(pub u32);
 pub const STI_DEVSTATUS_EVENTS_STATE: u32 = 2;
 pub const STI_DEVSTATUS_ONLINE_STATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DEV_CAPS {
     pub dwGeneric: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STI_DIAG {
     pub dwSize: u32,
     pub dwBasicDiagCode: u32,
@@ -578,7 +578,7 @@ pub struct STI_DIAG {
 pub const STI_DIAGCODE_HWPRESENCE: u32 = 1;
 pub type STI_ERROR_INFO = STI_ERROR_INFOW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_ERROR_INFOW {
     pub dwSize: u32,
     pub dwGenericError: u32,
@@ -639,7 +639,7 @@ pub const STI_VERSION_MIN_ALLOWED: u32 = 2;
 pub const STI_VERSION_REAL: u32 = 2;
 pub type STI_WIA_DEVICE_INFORMATION = STI_WIA_DEVICE_INFORMATIONW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STI_WIA_DEVICE_INFORMATIONW {
     pub dwSize: u32,
     pub DeviceType: STI_DEVICE_TYPE,

@@ -221,13 +221,13 @@ pub const ERROR_PATCH_RETAIN_RANGES_DIFFER: u32 = 3222155524;
 pub const ERROR_PATCH_SAME_FILE: u32 = 3222155523;
 pub const ERROR_PATCH_WRONG_FILE: u32 = 3222159620;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_IGNORE_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP {
     pub CountRanges: u32,
     pub Range: [PATCH_INTERLEAVE_MAP_0; 1],
@@ -238,7 +238,7 @@ impl Default for PATCH_INTERLEAVE_MAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_INTERLEAVE_MAP_0 {
     pub OldOffset: u32,
     pub OldLength: u32,
@@ -276,7 +276,7 @@ impl Default for PATCH_OLD_FILE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_core::PCSTR,
@@ -287,7 +287,7 @@ pub struct PATCH_OLD_FILE_INFO_A {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: u32,
     pub OldFileHandle: super::winnt::HANDLE,
@@ -297,7 +297,7 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: u32,
     pub OldFileName: windows_core::PCWSTR,
@@ -343,7 +343,7 @@ pub const PATCH_OPTION_USE_LZX_LARGE: u32 = 4;
 pub const PATCH_OPTION_VALID_FLAGS: u32 = 3237937159;
 pub type PATCH_PROGRESS_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: *mut core::ffi::c_void, currentposition: u32, maximumposition: u32) -> windows_core::BOOL>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PATCH_RETAIN_RANGE {
     pub OffsetInOldFile: u32,
     pub LengthInBytes: u32,

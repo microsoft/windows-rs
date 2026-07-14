@@ -1614,14 +1614,14 @@ pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0;
 pub const COMMUNICATION_INT: FSM_STATE = 4;
 pub const CONFLICT_DONE: FSM_STATE = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATE_TIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,
 }
 pub const DEFAULTQUARSETTING: QuarantineStatus = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPDS_SERVER {
     pub Version: u32,
     pub ServerName: windows_core::PWSTR,
@@ -1632,14 +1632,14 @@ pub struct DHCPDS_SERVER {
     pub DsLocType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPDS_SERVERS {
     pub Flags: u32,
     pub NumElements: u32,
     pub Servers: LPDHCPDS_SERVER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1664,7 +1664,7 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO {
     pub Flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut LPDHCPV4_FAILOVER_CLIENT_INFO,
@@ -1675,7 +1675,7 @@ impl Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1702,7 +1702,7 @@ pub struct DHCPV4_FAILOVER_CLIENT_INFO_EX {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: windows_core::BOOL,
@@ -1715,39 +1715,39 @@ pub struct DHCPV6_BIND_ELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCPV6_BIND_ELEMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_IPV6_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_STATELESS_PARAMS {
     pub Status: windows_core::BOOL,
     pub PurgeInterval: u32,
 }
 pub type DHCPV6_STATELESS_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_STATELESS_SCOPE_STATS {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub NumStatelessClientsAdded: u64,
     pub NumStatelessClientsRemoved: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCPV6_STATELESS_STATS {
     pub NumScopes: u32,
     pub ScopeStats: LPDHCPV6_STATELESS_SCOPE_STATS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_ADDR_PATTERN {
     pub MatchHWType: windows_core::BOOL,
     pub HWType: u8,
@@ -1761,7 +1761,7 @@ impl Default for DHCP_ADDR_PATTERN {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTIONS {
     pub Flags: u32,
     pub NonVendorOptions: LPDHCP_OPTION_ARRAY,
@@ -1774,14 +1774,14 @@ impl Default for DHCP_ALL_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTIONS_0 {
     pub Option: DHCP_OPTION,
     pub VendorName: windows_core::PWSTR,
     pub ClassName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES {
     pub Flags: u32,
     pub NumElements: u32,
@@ -1793,7 +1793,7 @@ impl Default for DHCP_ALL_OPTION_VALUES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
@@ -1801,7 +1801,7 @@ pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub OptionsArray: LPDHCP_OPTION_VALUE_ARRAY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_PB {
     pub Flags: u32,
     pub NumElements: u32,
@@ -1813,7 +1813,7 @@ impl Default for DHCP_ALL_OPTION_VALUES_PB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: windows_core::PWSTR,
     pub VendorName: windows_core::PWSTR,
@@ -1844,7 +1844,7 @@ impl Default for DHCP_ATTRIB_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_ATTRIB_ARRAY {
     pub NumElements: u32,
     pub DhcpAttribs: LPDHCP_ATTRIB,
@@ -1861,7 +1861,7 @@ pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1;
 pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2;
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_BINARY_DATA {
     pub DataLength: u32,
     pub Data: *mut u8,
@@ -1873,7 +1873,7 @@ impl Default for DHCP_BINARY_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_BIND_ELEMENT {
     pub Flags: u32,
     pub fBoundToDHCPServer: windows_core::BOOL,
@@ -1885,13 +1885,13 @@ pub struct DHCP_BIND_ELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_BIND_ELEMENT_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_BIND_ELEMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_BOOTP_IP_RANGE {
     pub StartAddress: DHCP_IP_ADDRESS,
     pub EndAddress: DHCP_IP_ADDRESS,
@@ -1900,7 +1900,7 @@ pub struct DHCP_BOOTP_IP_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLASS_INFO {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
@@ -1911,21 +1911,21 @@ pub struct DHCP_CLASS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY {
     pub NumElements: u32,
     pub Classes: LPDHCP_CLASS_INFO,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLASS_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Classes: LPDHCP_CLASS_INFO_V6,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLASS_INFO_V6 {
     pub ClassName: windows_core::PWSTR,
     pub ClassComment: windows_core::PWSTR,
@@ -1936,7 +1936,7 @@ pub struct DHCP_CLASS_INFO_V6 {
     pub ClassData: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1953,7 +1953,7 @@ pub struct DHCP_CLIENT_FILTER_STATUS_INFO {
     pub FilterStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_FILTER_STATUS_INFO,
@@ -1964,7 +1964,7 @@ impl Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -1975,7 +1975,7 @@ pub struct DHCP_CLIENT_INFO {
     pub OwnerHost: DHCP_HOST_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO,
@@ -1986,7 +1986,7 @@ impl Default for DHCP_CLIENT_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V4,
@@ -1997,7 +1997,7 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V5,
@@ -2008,7 +2008,7 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V5 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_V6,
@@ -2019,7 +2019,7 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_V6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_ARRAY_VQ {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_VQ,
@@ -2030,7 +2030,7 @@ impl Default for DHCP_CLIENT_INFO_ARRAY_VQ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_EX {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2049,7 +2049,7 @@ pub struct DHCP_CLIENT_INFO_EX {
     pub Properties: LPDHCP_PROPERTY_ARRAY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_EX_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_EX,
@@ -2060,7 +2060,7 @@ impl Default for DHCP_CLIENT_INFO_EX_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_PB {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2078,7 +2078,7 @@ pub struct DHCP_CLIENT_INFO_PB {
     pub PolicyName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_PB_ARRAY {
     pub NumElements: u32,
     pub Clients: *mut LPDHCP_CLIENT_INFO_PB,
@@ -2089,7 +2089,7 @@ impl Default for DHCP_CLIENT_INFO_PB_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V4 {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2101,7 +2101,7 @@ pub struct DHCP_CLIENT_INFO_V4 {
     pub bClientType: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V5 {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2114,7 +2114,7 @@ pub struct DHCP_CLIENT_INFO_V5 {
     pub AddressState: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_V6 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_CLIENT_UID,
@@ -2127,7 +2127,7 @@ pub struct DHCP_CLIENT_INFO_V6 {
     pub OwnerHost: DHCP_HOST_INFO_V6,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_CLIENT_INFO_VQ {
     pub ClientIpAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2150,7 +2150,7 @@ pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31;
 pub type DHCP_FAILOVER_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub PrimaryServer: DHCP_IP_ADDRESS,
     pub SecondaryServer: DHCP_IP_ADDRESS,
@@ -2168,14 +2168,14 @@ pub struct DHCP_FAILOVER_RELATIONSHIP {
     pub SharedSecret: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     pub NumElements: u32,
     pub pRelationships: LPDHCP_FAILOVER_RELATIONSHIP,
 }
 pub type DHCP_FAILOVER_SERVER = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FAILOVER_STATISTICS {
     pub NumAddr: u32,
     pub AddrFree: u32,
@@ -2186,27 +2186,27 @@ pub struct DHCP_FAILOVER_STATISTICS {
     pub ThisAddrInUse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FILTER_ADD_INFO {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_core::PWSTR,
     pub ListType: DHCP_FILTER_LIST_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FILTER_ENUM_INFO {
     pub NumElements: u32,
     pub pEnumRecords: LPDHCP_FILTER_RECORD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FILTER_GLOBAL_INFO {
     pub EnforceAllowList: windows_core::BOOL,
     pub EnforceDenyList: windows_core::BOOL,
 }
 pub type DHCP_FILTER_LIST_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_FILTER_RECORD {
     pub AddrPatt: DHCP_ADDR_PATTERN,
     pub Comment: windows_core::PWSTR,
@@ -2216,21 +2216,21 @@ pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3;
 pub type DHCP_FORCE_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_HOST_INFO {
     pub IpAddress: DHCP_IP_ADDRESS,
     pub NetBiosName: windows_core::PWSTR,
     pub HostName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_HOST_INFO_V6 {
     pub IpAddress: DHCP_IPV6_ADDRESS,
     pub NetBiosName: windows_core::PWSTR,
     pub HostName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IPV6_ADDRESS {
     pub HighOrderBits: u64,
     pub LowOrderBits: u64,
@@ -2239,13 +2239,13 @@ pub struct DHCP_IPV6_ADDRESS {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DHCP_IP_ADDRESS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_IP_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_CLUSTER {
     pub ClusterAddress: DHCP_IP_ADDRESS,
     pub ClusterMask: u32,
@@ -2254,25 +2254,25 @@ pub struct DHCP_IP_CLUSTER {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DHCP_IP_MASK(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_RANGE {
     pub StartAddress: DHCP_IP_ADDRESS,
     pub EndAddress: DHCP_IP_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_RANGE_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_IP_RANGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_RANGE_V6 {
     pub StartAddress: DHCP_IPV6_ADDRESS,
     pub EndAddress: DHCP_IPV6_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_IP_RESERVATION {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
@@ -2283,7 +2283,7 @@ impl Default for DHCP_IP_RESERVATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_IP_RESERVATION_INFO {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: DHCP_CLIENT_UID,
@@ -2293,7 +2293,7 @@ pub struct DHCP_IP_RESERVATION_INFO {
     pub fOptionsPresent: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V4 {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
@@ -2305,7 +2305,7 @@ impl Default for DHCP_IP_RESERVATION_V4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_IP_RESERVATION_V6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedForClient: *mut DHCP_CLIENT_UID,
@@ -2318,7 +2318,7 @@ impl Default for DHCP_IP_RESERVATION_V6 {
 }
 pub const DHCP_MAX_DELAY: u32 = 1000;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_MIB_INFO {
     pub Discovers: u32,
     pub Offers: u32,
@@ -2332,7 +2332,7 @@ pub struct DHCP_MIB_INFO {
     pub ScopeInfo: LPSCOPE_MIB_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_MIB_INFO_V5 {
     pub Discovers: u32,
     pub Offers: u32,
@@ -2355,7 +2355,7 @@ pub struct DHCP_MIB_INFO_V5 {
     pub ScopeInfo: LPSCOPE_MIB_INFO_V5,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_MIB_INFO_V6 {
     pub Solicits: u32,
     pub Advertises: u32,
@@ -2372,7 +2372,7 @@ pub struct DHCP_MIB_INFO_V6 {
     pub ScopeInfo: LPSCOPE_MIB_INFO_V6,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_MIB_INFO_VQ {
     pub Discovers: u32,
     pub Offers: u32,
@@ -2394,7 +2394,7 @@ pub struct DHCP_MIB_INFO_VQ {
 }
 pub const DHCP_MIN_DELAY: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION {
     pub OptionID: DHCP_OPTION_ID,
     pub OptionName: windows_core::PWSTR,
@@ -2403,13 +2403,13 @@ pub struct DHCP_OPTION {
     pub OptionType: DHCP_OPTION_TYPE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_ARRAY {
     pub NumElements: u32,
     pub Options: LPDHCP_OPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_DATA {
     pub NumElements: u32,
     pub Elements: LPDHCP_OPTION_DATA_ELEMENT,
@@ -2449,7 +2449,7 @@ pub type DHCP_OPTION_ELEMENT_UNION = DHCP_OPTION_DATA_ELEMENT_0;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DHCP_OPTION_ID(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_OPTION_LIST {
     pub NumOptions: u32,
     pub Options: *mut DHCP_OPTION_VALUE,
@@ -2512,13 +2512,13 @@ pub type DHCP_OPTION_SCOPE_TYPE6 = i32;
 pub type DHCP_OPTION_SCOPE_UNION6 = DHCP_OPTION_SCOPE_INFO6_0;
 pub type DHCP_OPTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_VALUE {
     pub OptionID: DHCP_OPTION_ID,
     pub Value: DHCP_OPTION_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_OPTION_VALUE_ARRAY {
     pub NumElements: u32,
     pub Values: LPDHCP_OPTION_VALUE,
@@ -2526,7 +2526,7 @@ pub struct DHCP_OPTION_VALUE_ARRAY {
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1;
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_PERF_STATS {
     pub dwNumPacketsReceived: u32,
     pub dwNumPacketsDuplicate: u32,
@@ -2550,7 +2550,7 @@ pub struct DHCP_PERF_STATS {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POLICY {
     pub PolicyName: windows_core::PWSTR,
     pub IsGlobalPolicy: windows_core::BOOL,
@@ -2564,14 +2564,14 @@ pub struct DHCP_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POLICY_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_POLICY,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POLICY_EX {
     pub PolicyName: windows_core::PWSTR,
     pub IsGlobalPolicy: windows_core::BOOL,
@@ -2586,7 +2586,7 @@ pub struct DHCP_POLICY_EX {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POLICY_EX_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_POLICY_EX,
@@ -2596,7 +2596,7 @@ pub type DHCP_POL_ATTR_TYPE = i32;
 pub type DHCP_POL_COMPARATOR = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_COND {
     pub ParentExpr: u32,
     pub Type: DHCP_POL_ATTR_TYPE,
@@ -2609,19 +2609,19 @@ pub struct DHCP_POL_COND {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_COND_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_POL_COND,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_EXPR {
     pub ParentExpr: u32,
     pub Operator: DHCP_POL_LOGIC_OPER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_POL_EXPR_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_POL_EXPR,
@@ -2654,7 +2654,7 @@ impl Default for DHCP_PROPERTY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_PROPERTY_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_PROPERTY,
@@ -2662,7 +2662,7 @@ pub struct DHCP_PROPERTY_ARRAY {
 pub type DHCP_PROPERTY_ID = i32;
 pub type DHCP_PROPERTY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_RESERVATION_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: *mut LPDHCP_IP_RESERVATION_INFO,
@@ -2673,13 +2673,13 @@ impl Default for DHCP_RESERVATION_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE {
     pub ReservedIpAddress: DHCP_IP_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IP_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_RESERVED_SCOPE6 {
     pub ReservedIpAddress: DHCP_IPV6_ADDRESS,
     pub ReservedIpSubnetAddress: DHCP_IPV6_ADDRESS,
@@ -2690,13 +2690,13 @@ pub struct DHCP_RESUME_HANDLE(pub u32);
 pub type DHCP_RESUME_IPV6_HANDLE = DHCP_IPV6_ADDRESS;
 pub type DHCP_SCAN_FLAG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SCAN_ITEM {
     pub IpAddress: DHCP_IP_ADDRESS,
     pub ScanFlag: DHCP_SCAN_FLAG,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_SCAN_LIST {
     pub NumScanItems: u32,
     pub ScanItems: *mut DHCP_SCAN_ITEM,
@@ -2755,7 +2755,7 @@ impl Default for DHCP_SEARCH_INFO_V6_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -2768,7 +2768,7 @@ pub struct DHCP_SERVER_CONFIG_INFO {
     pub DebugFlag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V4 {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -2790,7 +2790,7 @@ impl Default for DHCP_SERVER_CONFIG_INFO_V4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub UnicastFlag: windows_core::BOOL,
     pub RapidCommitFlag: windows_core::BOOL,
@@ -2803,7 +2803,7 @@ pub struct DHCP_SERVER_CONFIG_INFO_V6 {
     pub fAuditLog: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_SERVER_CONFIG_INFO_VQ {
     pub APIProtocolSupport: u32,
     pub DatabaseName: windows_core::PWSTR,
@@ -2830,7 +2830,7 @@ impl Default for DHCP_SERVER_CONFIG_INFO_VQ {
 pub type DHCP_SERVER_INFO = DHCPDS_SERVER;
 pub type DHCP_SERVER_INFO_ARRAY = DHCPDS_SERVERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SERVER_SPECIFIC_STRINGS {
     pub DefaultVendorClassName: windows_core::PWSTR,
     pub DefaultUserClassName: windows_core::PWSTR,
@@ -2934,25 +2934,25 @@ impl Default for DHCP_SUBNET_ELEMENT_DATA_V6_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     pub NumElements: u32,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     pub NumElements: u32,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V4,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     pub NumElements: u32,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V5,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     pub NumElements: u32,
     pub Elements: LPDHCP_SUBNET_ELEMENT_DATA_V6,
@@ -2963,7 +2963,7 @@ pub type DHCP_SUBNET_ELEMENT_UNION = DHCP_SUBNET_ELEMENT_DATA_0;
 pub type DHCP_SUBNET_ELEMENT_UNION_V4 = DHCP_SUBNET_ELEMENT_DATA_V4_0;
 pub type DHCP_SUBNET_ELEMENT_UNION_V6 = DHCP_SUBNET_ELEMENT_DATA_V6_0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_INFO {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -2973,7 +2973,7 @@ pub struct DHCP_SUBNET_INFO {
     pub SubnetState: DHCP_SUBNET_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_INFO_V6 {
     pub SubnetAddress: DHCP_IPV6_ADDRESS,
     pub Prefix: u32,
@@ -2984,7 +2984,7 @@ pub struct DHCP_SUBNET_INFO_V6 {
     pub ScopeId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUBNET_INFO_VQ {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SubnetMask: DHCP_IP_MASK,
@@ -3001,7 +3001,7 @@ pub struct DHCP_SUBNET_INFO_VQ {
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1;
 pub type DHCP_SUBNET_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE {
     pub cEntries: u32,
     pub pEntries: *mut DHCP_SUPER_SCOPE_TABLE_ENTRY,
@@ -3012,7 +3012,7 @@ impl Default for DHCP_SUPER_SCOPE_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DHCP_SUPER_SCOPE_TABLE_ENTRY {
     pub SubnetAddress: DHCP_IP_ADDRESS,
     pub SuperScopeNumber: u32,
@@ -3028,7 +3028,7 @@ pub const DNS_FLAG_UPDATE_DHCID: u32 = 32;
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2;
 pub const DROPPACKET: QuarantineStatus = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWORD_DWORD {
     pub DWord1: u32,
     pub DWord2: u32,
@@ -3449,7 +3449,7 @@ pub const RESOLUTION_INT: FSM_STATE = 8;
 pub const RESTRICTEDACCESS: QuarantineStatus = 1;
 pub const SAFEPERIOD: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_MIB_INFO {
     pub Subnet: DHCP_IP_ADDRESS,
     pub NumAddressesInuse: u32,
@@ -3457,7 +3457,7 @@ pub struct SCOPE_MIB_INFO {
     pub NumPendingOffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_MIB_INFO_V5 {
     pub Subnet: DHCP_IP_ADDRESS,
     pub NumAddressesInuse: u32,
@@ -3465,7 +3465,7 @@ pub struct SCOPE_MIB_INFO_V5 {
     pub NumPendingOffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_MIB_INFO_V6 {
     pub Subnet: DHCP_IPV6_ADDRESS,
     pub NumAddressesInuse: u64,
@@ -3473,7 +3473,7 @@ pub struct SCOPE_MIB_INFO_V6 {
     pub NumPendingAdvertises: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_MIB_INFO_VQ {
     pub Subnet: DHCP_IP_ADDRESS,
     pub NumAddressesInuse: u32,

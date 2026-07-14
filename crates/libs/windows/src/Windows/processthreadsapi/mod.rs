@@ -583,7 +583,7 @@ pub unsafe fn UpdateProcThreadAttribute(lpattributelist: *mut _PROC_THREAD_ATTRI
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APC_CALLBACK_DATA {
     pub Parameter: usize,
     pub ContextRecord: super::winnt::PCONTEXT,
@@ -591,7 +591,7 @@ pub struct APC_CALLBACK_DATA {
     pub Reserved1: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APP_MEMORY_INFORMATION {
     pub AvailableCommit: u64,
     pub PrivateCommitUsage: u64,
@@ -610,7 +610,7 @@ pub type LPSTARTUPINFOA = *mut STARTUPINFOA;
 pub type LPSTARTUPINFOW = *mut STARTUPINFOW;
 pub type MACHINE_ATTRIBUTES = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: u32,
 }
@@ -636,7 +636,7 @@ pub type PPROC_THREAD_ATTRIBUTE_LIST = *mut _PROC_THREAD_ATTRIBUTE_LIST;
 pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_INFORMATION {
     pub hProcess: super::winnt::HANDLE,
     pub hThread: super::winnt::HANDLE,
@@ -645,7 +645,7 @@ pub struct PROCESS_INFORMATION {
 }
 pub type PROCESS_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
     pub Reserved: u32,
@@ -653,14 +653,14 @@ pub struct PROCESS_LEAP_SECOND_INFO {
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MACHINE_INFORMATION {
     pub ProcessMachine: u16,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Version: u16,
     pub Reserved: u16,
@@ -672,7 +672,7 @@ pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -680,7 +680,7 @@ pub struct PROCESS_POWER_THROTTLING_STATE {
 }
 pub const PROCESS_POWER_THROTTLING_VALID_FLAGS: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: u32,
 }
@@ -706,7 +706,7 @@ pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1;
 pub type STARTUPINFO = STARTUPINFOA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTUPINFOA {
     pub cb: u32,
     pub lpReserved: windows_core::PSTR,
@@ -729,7 +729,7 @@ pub struct STARTUPINFOA {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STARTUPINFOW {
     pub cb: u32,
     pub lpReserved: windows_core::PWSTR,
@@ -754,7 +754,7 @@ pub type THREAD_INFORMATION_CLASS = i32;
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1;
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
@@ -770,5 +770,5 @@ pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3;
 pub const UserEnabled: MACHINE_ATTRIBUTES = 1;
 pub const Wow64Container: MACHINE_ATTRIBUTES = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PROC_THREAD_ATTRIBUTE_LIST(pub u8);

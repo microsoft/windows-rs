@@ -10,7 +10,7 @@ pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0;
 pub const CHUNK_TEXT: CHUNKSTATE = 1;
 pub const CHUNK_VALUE: CHUNKSTATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -154,7 +154,7 @@ impl IFilter_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFilter {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_INFO {
     pub Width: u32,
     pub Height: u32,

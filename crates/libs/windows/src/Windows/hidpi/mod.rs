@@ -155,7 +155,7 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
 }
 pub const FACILITY_HID_ERROR_CODE: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
     pub On: bool,
@@ -201,7 +201,7 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: super::hidusage::USAGE,
     pub UsageMax: super::hidusage::USAGE,
@@ -214,7 +214,7 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: super::hidusage::USAGE,
     pub Reserved1: super::hidusage::USAGE,
@@ -227,7 +227,7 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_CAPS {
     pub Usage: super::hidusage::USAGE,
     pub UsagePage: super::hidusage::USAGE,
@@ -277,7 +277,7 @@ impl Default for HIDP_DATA_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
     pub Reserved: [u8; 3],
@@ -328,14 +328,14 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::hidusage::USAGE,
     pub LinkUsagePage: super::hidusage::USAGE,
@@ -399,7 +399,7 @@ pub const HIDP_STATUS_SUCCESS: u32 = 1114112;
 pub const HIDP_STATUS_USAGE_NOT_FOUND: i32 = -1072627708;
 pub const HIDP_STATUS_VALUE_OUT_OF_RANGE: i32 = -1072627707;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
     pub Reserved: [u8; 3],
@@ -459,7 +459,7 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: super::hidusage::USAGE,
     pub UsageMax: super::hidusage::USAGE,
@@ -472,7 +472,7 @@ pub struct HIDP_VALUE_CAPS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: super::hidusage::USAGE,
     pub Reserved1: super::hidusage::USAGE,
@@ -511,11 +511,11 @@ pub type PHIDP_VALUE_CAPS = *mut HIDP_VALUE_CAPS;
 pub type PUSAGE_AND_PAGE = *mut USAGE_AND_PAGE;
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USAGE_AND_PAGE {
     pub Usage: super::hidusage::USAGE,
     pub UsagePage: super::hidusage::USAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);

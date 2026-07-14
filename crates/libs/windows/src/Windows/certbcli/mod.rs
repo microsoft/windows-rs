@@ -120,7 +120,7 @@ pub const CSCONTROL_RESTART: u32 = 3;
 pub const CSCONTROL_SHUTDOWN: u32 = 1;
 pub const CSCONTROL_SUSPEND: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSEDB_RSTMAPW {
     pub pwszDatabaseName: *mut u16,
     pub pwszNewDatabaseName: *mut u16,

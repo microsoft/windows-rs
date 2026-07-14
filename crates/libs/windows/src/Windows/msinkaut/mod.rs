@@ -9966,7 +9966,7 @@ pub const IMP_SizeWE: InkMousePointer = 7;
 pub const IMP_UpArrow: InkMousePointer = 8;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -10148,7 +10148,7 @@ pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::windef::RECT,
     pub rectDrawnBox: super::windef::RECT,

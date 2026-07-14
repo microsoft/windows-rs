@@ -53,7 +53,7 @@ pub const CHANGEKIND_MAX: CHANGEKIND = 7;
 pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = 3;
 pub const CHANGEKIND_SETNAMES: CHANGEKIND = 2;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CLEANLOCALSTORAGE {
     pub pInterface: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub pStorage: *mut core::ffi::c_void,
@@ -68,7 +68,7 @@ impl Default for CLEANLOCALSTORAGE {
 pub type CURRENCY = super::wtypes::CY;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTDATA {
     pub cCustData: u32,
     pub prgCustData: LPCUSTDATAITEM,
@@ -111,7 +111,7 @@ pub const DISPID_UNKNOWN: i32 = -1;
 pub const DISPID_VALUE: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DISPPARAMS {
     pub rgvarg: *mut VARIANTARG,
     pub rgdispidNamedArgs: *mut DISPID,
@@ -152,7 +152,7 @@ impl Default for ELEMDESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct EXCEPINFO {
     pub wCode: u16,
     pub wReserved: u16,
@@ -1148,7 +1148,7 @@ impl ICreateTypeLib2_Vtbl {
 #[cfg(all(feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for ICreateTypeLib2 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDLDESC {
     pub dwReserved: usize,
     pub wIDLFlags: u16,
@@ -3494,7 +3494,7 @@ pub type LPVARIANTARG = *mut VARIANT;
 pub type MEMBERID = DISPID;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PARAMDESC {
     pub pparamdescex: LPPARAMDESCEX,
     pub wParamFlags: u16,
@@ -3526,7 +3526,7 @@ pub const PARAMFLAG_FOUT: u32 = 2;
 pub const PARAMFLAG_FRETVAL: u32 = 8;
 pub const PARAMFLAG_NONE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARRAY {
     pub cDims: u16,
     pub fFeatures: u16,
@@ -3541,7 +3541,7 @@ impl Default for SAFEARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAFEARRAYBOUND {
     pub cElements: u32,
     pub lLbound: i32,
@@ -3582,7 +3582,7 @@ impl Default for SAFEARRAYUNION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_BRECORD {
     pub Size: u32,
     pub aRecord: *mut wireBRECORD,
@@ -3595,7 +3595,7 @@ impl Default for SAFEARR_BRECORD {
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_BSTR {
     pub Size: u32,
     pub aBstr: *mut super::wtypes::wireBSTR,
@@ -3607,7 +3607,7 @@ impl Default for SAFEARR_BSTR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_DISPATCH {
     pub Size: u32,
     pub apDispatch: *mut Option<IDispatch>,
@@ -3618,7 +3618,7 @@ impl Default for SAFEARR_DISPATCH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_HAVEIID {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
@@ -3630,7 +3630,7 @@ impl Default for SAFEARR_HAVEIID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_UNKNOWN {
     pub Size: u32,
     pub apUnknown: *mut Option<windows_core::IUnknown>,
@@ -3642,7 +3642,7 @@ impl Default for SAFEARR_UNKNOWN {
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAFEARR_VARIANT {
     pub Size: u32,
     pub aVariant: *mut wireVARIANT,
@@ -3681,7 +3681,7 @@ pub const TKIND_RECORD: TYPEKIND = 1;
 pub const TKIND_UNION: TYPEKIND = 7;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TLIBATTR {
     pub guid: windows_core::GUID,
     pub lcid: super::winnt::LCID,
@@ -3927,7 +3927,7 @@ impl Default for VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut core::ffi::c_void,
     pub pRecInfo: core::mem::ManuallyDrop<Option<IRecordInfo>>,
@@ -3947,7 +3947,7 @@ pub const VAR_PERINSTANCE: VARKIND = 0;
 pub const VAR_STATIC: VARKIND = 1;
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct _wireBRECORD {
     pub fFlags: u32,
     pub clSize: u32,

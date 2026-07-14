@@ -3139,7 +3139,7 @@ pub const DISPATCH_PROPERTYPUTREF: u32 = 8;
 pub const ID_DEFAULTINST: i32 = -2;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERFACEDATA {
     pub pmethdata: *mut METHODDATA,
     pub cMembers: u32,
@@ -3163,7 +3163,7 @@ pub const MASK_TO_RESET_TLB_BITS: i32 = -97;
 pub const MEMBERID_NIL: i32 = -1;
 #[repr(C)]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METHODDATA {
     pub szName: *mut super::wtypesbase::OLECHAR,
     pub ppdata: *mut PARAMDATA,
@@ -3181,7 +3181,7 @@ impl Default for METHODDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMPARSE {
     pub cDig: i32,
     pub dwInFlags: u32,
@@ -3208,7 +3208,7 @@ pub const NUMPRS_TRAILING_WHITE: u32 = 2;
 pub const NUMPRS_USE_ALL: u32 = 4096;
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PARAMDATA {
     pub szName: *mut super::wtypesbase::OLECHAR,
     pub vt: super::wtypes::VARTYPE,
@@ -3231,7 +3231,7 @@ pub const STDOLE_MAJORVERNUM: u32 = 1;
 pub const STDOLE_MINORVERNUM: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDATE {
     pub st: super::minwinbase::SYSTEMTIME,
     pub wDayOfYear: u16,

@@ -246,7 +246,7 @@ where
     unsafe { IsCatalogFile(hfile, pwszfilename.param().abi()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
@@ -257,7 +257,7 @@ impl Default for CATALOG_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -273,7 +273,7 @@ impl Default for CRYPTCATATTRIBUTE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::winnt::HANDLE,
@@ -285,7 +285,7 @@ pub struct CRYPTCATCDF {
 }
 #[repr(C)]
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -307,7 +307,7 @@ impl Default for CRYPTCATMEMBER {
 }
 #[repr(C)]
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,

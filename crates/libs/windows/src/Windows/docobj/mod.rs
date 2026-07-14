@@ -854,7 +854,7 @@ pub const MSOCMDTEXTF_NAME: u32 = 1;
 pub const MSOCMDTEXTF_NONE: u32 = 0;
 pub const MSOCMDTEXTF_STATUS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
@@ -1051,7 +1051,7 @@ pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = 65;
 pub type OLECMDID_WINDOWSTATE_FLAG = i32;
 pub const OLECMDID_ZOOM: OLECMDID = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
     pub cwActual: u32,
@@ -1074,13 +1074,13 @@ pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = 1;
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2;
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGESET {
     pub cbStruct: u32,
     pub fOddPages: windows_core::BOOL,

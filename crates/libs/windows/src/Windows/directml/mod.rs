@@ -43,7 +43,7 @@ impl Default for DML_ACTIVATION_ELU_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_HARDMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -67,7 +67,7 @@ impl Default for DML_ACTIVATION_HARD_SIGMOID_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -103,7 +103,7 @@ impl Default for DML_ACTIVATION_LINEAR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -114,7 +114,7 @@ impl Default for DML_ACTIVATION_LOG_SOFTMAX_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_PARAMETERIZED_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub SlopeTensor: *const DML_TENSOR_DESC,
@@ -139,7 +139,7 @@ impl Default for DML_ACTIVATION_PARAMETRIC_SOFTPLUS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -151,7 +151,7 @@ impl Default for DML_ACTIVATION_RELU_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_RELU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -201,7 +201,7 @@ impl Default for DML_ACTIVATION_SHRINK_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -212,7 +212,7 @@ impl Default for DML_ACTIVATION_SIGMOID_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SOFTMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -235,7 +235,7 @@ impl Default for DML_ACTIVATION_SOFTPLUS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -246,7 +246,7 @@ impl Default for DML_ACTIVATION_SOFTSIGN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ACTIVATION_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -290,7 +290,7 @@ impl Default for DML_ADAM_OPTIMIZER_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ARGMAX_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -304,7 +304,7 @@ impl Default for DML_ARGMAX_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ARGMIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -318,7 +318,7 @@ impl Default for DML_ARGMIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -335,7 +335,7 @@ impl Default for DML_AVERAGE_POOLING_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_AVERAGE_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -427,7 +427,7 @@ impl Default for DML_BATCH_NORMALIZATION_TRAINING_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BINDING_DESC {
     pub Type: DML_BINDING_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -438,7 +438,7 @@ impl Default for DML_BINDING_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_BINDING_PROPERTIES {
     pub RequiredDescriptorCount: u32,
     pub TemporaryResourceSize: u64,
@@ -446,7 +446,7 @@ pub struct DML_BINDING_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "d3d12")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DML_BINDING_TABLE_DESC {
     pub Dispatchable: core::mem::ManuallyDrop<Option<IDMLDispatchable>>,
     pub CPUDescriptorHandle: super::d3d12::D3D12_CPU_DESCRIPTOR_HANDLE,
@@ -459,7 +459,7 @@ pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = 2;
 pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "d3d12")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_ARRAY_BINDING {
     pub BindingCount: u32,
     pub Bindings: *const DML_BUFFER_BINDING,
@@ -472,14 +472,14 @@ impl Default for DML_BUFFER_ARRAY_BINDING {
 }
 #[repr(C)]
 #[cfg(feature = "d3d12")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DML_BUFFER_BINDING {
     pub Buffer: core::mem::ManuallyDrop<Option<super::d3d12::ID3D12Resource>>,
     pub Offset: u64,
     pub SizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_BUFFER_TENSOR_DESC {
     pub DataType: DML_TENSOR_DATA_TYPE,
     pub Flags: DML_TENSOR_FLAGS,
@@ -495,7 +495,7 @@ impl Default for DML_BUFFER_TENSOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CAST_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -509,7 +509,7 @@ pub type DML_CONVOLUTION_DIRECTION = i32;
 pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = 1;
 pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_INTEGER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputZeroPointTensor: *const DML_TENSOR_DESC,
@@ -532,7 +532,7 @@ pub type DML_CONVOLUTION_MODE = i32;
 pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = 0;
 pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub FilterTensor: *const DML_TENSOR_DESC,
@@ -558,7 +558,7 @@ pub type DML_CREATE_DEVICE_FLAGS = u32;
 pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = 1;
 pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -572,7 +572,7 @@ impl Default for DML_CUMULATIVE_PRODUCT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_CUMULATIVE_SUMMATION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -589,7 +589,7 @@ pub type DML_DEPTH_SPACE_ORDER = i32;
 pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = 1;
 pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -602,7 +602,7 @@ impl Default for DML_DEPTH_TO_SPACE1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DEPTH_TO_SPACE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -626,7 +626,7 @@ impl Default for DML_DIAGONAL_MATRIX_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -639,7 +639,7 @@ impl Default for DML_DYNAMIC_QUANTIZE_LINEAR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -651,7 +651,7 @@ impl Default for DML_ELEMENT_WISE_ABS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -663,7 +663,7 @@ impl Default for DML_ELEMENT_WISE_ACOSH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -675,7 +675,7 @@ impl Default for DML_ELEMENT_WISE_ACOS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -688,7 +688,7 @@ impl Default for DML_ELEMENT_WISE_ADD1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -700,7 +700,7 @@ impl Default for DML_ELEMENT_WISE_ADD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -712,7 +712,7 @@ impl Default for DML_ELEMENT_WISE_ASINH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -724,7 +724,7 @@ impl Default for DML_ELEMENT_WISE_ASIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -736,7 +736,7 @@ impl Default for DML_ELEMENT_WISE_ATANH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -748,7 +748,7 @@ impl Default for DML_ELEMENT_WISE_ATAN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -760,7 +760,7 @@ impl Default for DML_ELEMENT_WISE_ATAN_YX_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -772,7 +772,7 @@ impl Default for DML_ELEMENT_WISE_BIT_AND_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -783,7 +783,7 @@ impl Default for DML_ELEMENT_WISE_BIT_COUNT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -794,7 +794,7 @@ impl Default for DML_ELEMENT_WISE_BIT_NOT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -806,7 +806,7 @@ impl Default for DML_ELEMENT_WISE_BIT_OR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -818,7 +818,7 @@ impl Default for DML_ELEMENT_WISE_BIT_SHIFT_LEFT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -830,7 +830,7 @@ impl Default for DML_ELEMENT_WISE_BIT_SHIFT_RIGHT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -842,7 +842,7 @@ impl Default for DML_ELEMENT_WISE_BIT_XOR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_CEIL_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -925,7 +925,7 @@ impl Default for DML_ELEMENT_WISE_CONSTANT_POW_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -937,7 +937,7 @@ impl Default for DML_ELEMENT_WISE_COSH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -949,7 +949,7 @@ impl Default for DML_ELEMENT_WISE_COS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
@@ -962,7 +962,7 @@ impl Default for DML_ELEMENT_WISE_DEQUANTIZE_LINEAR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -974,7 +974,7 @@ impl Default for DML_ELEMENT_WISE_DIFFERENCE_SQUARE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -986,7 +986,7 @@ impl Default for DML_ELEMENT_WISE_DIVIDE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -998,7 +998,7 @@ impl Default for DML_ELEMENT_WISE_ERF_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1010,7 +1010,7 @@ impl Default for DML_ELEMENT_WISE_EXP_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1022,7 +1022,7 @@ impl Default for DML_ELEMENT_WISE_FLOOR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1034,7 +1034,7 @@ impl Default for DML_ELEMENT_WISE_IDENTITY_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     pub ConditionTensor: *const DML_TENSOR_DESC,
     pub ATensor: *const DML_TENSOR_DESC,
@@ -1047,7 +1047,7 @@ impl Default for DML_ELEMENT_WISE_IF_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1059,7 +1059,7 @@ impl Default for DML_ELEMENT_WISE_IS_INFINITY_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1070,7 +1070,7 @@ impl Default for DML_ELEMENT_WISE_IS_NAN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1082,7 +1082,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_AND_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1094,7 +1094,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_EQUALS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1106,7 +1106,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1118,7 +1118,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1130,7 +1130,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1142,7 +1142,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1153,7 +1153,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_NOT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1165,7 +1165,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_OR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1177,7 +1177,7 @@ impl Default for DML_ELEMENT_WISE_LOGICAL_XOR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1189,7 +1189,7 @@ impl Default for DML_ELEMENT_WISE_LOG_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1201,7 +1201,7 @@ impl Default for DML_ELEMENT_WISE_MAX_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1213,7 +1213,7 @@ impl Default for DML_ELEMENT_WISE_MEAN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1225,7 +1225,7 @@ impl Default for DML_ELEMENT_WISE_MIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1237,7 +1237,7 @@ impl Default for DML_ELEMENT_WISE_MODULUS_FLOOR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1249,7 +1249,7 @@ impl Default for DML_ELEMENT_WISE_MODULUS_TRUNCATE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1261,7 +1261,7 @@ impl Default for DML_ELEMENT_WISE_MULTIPLY_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1272,7 +1272,7 @@ impl Default for DML_ELEMENT_WISE_NEGATE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ExponentTensor: *const DML_TENSOR_DESC,
@@ -1285,7 +1285,7 @@ impl Default for DML_ELEMENT_WISE_POW_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AScaleTensor: *const DML_TENSOR_DESC,
@@ -1303,7 +1303,7 @@ impl Default for DML_ELEMENT_WISE_QUANTIZED_LINEAR_ADD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub ScaleTensor: *const DML_TENSOR_DESC,
@@ -1316,7 +1316,7 @@ impl Default for DML_ELEMENT_WISE_QUANTIZE_LINEAR_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1328,7 +1328,7 @@ impl Default for DML_ELEMENT_WISE_RECIP_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1340,7 +1340,7 @@ impl Default for DML_ELEMENT_WISE_ROUND_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1351,7 +1351,7 @@ impl Default for DML_ELEMENT_WISE_SIGN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1363,7 +1363,7 @@ impl Default for DML_ELEMENT_WISE_SINH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1375,7 +1375,7 @@ impl Default for DML_ELEMENT_WISE_SIN_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1387,7 +1387,7 @@ impl Default for DML_ELEMENT_WISE_SQRT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub BTensor: *const DML_TENSOR_DESC,
@@ -1399,7 +1399,7 @@ impl Default for DML_ELEMENT_WISE_SUBTRACT_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1411,7 +1411,7 @@ impl Default for DML_ELEMENT_WISE_TANH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ELEMENT_WISE_TAN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1442,12 +1442,12 @@ pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = 2;
 pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = 0;
 pub type DML_FEATURE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_FEATURE_DATA_FEATURE_LEVELS {
     pub MaxSupportedFeatureLevel: DML_FEATURE_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_FEATURE_DATA_TENSOR_DATA_TYPE_SUPPORT {
     pub IsSupported: windows_core::BOOL,
 }
@@ -1469,7 +1469,7 @@ pub const DML_FEATURE_LEVEL_6_2: DML_FEATURE_LEVEL = 25088;
 pub const DML_FEATURE_LEVEL_6_3: DML_FEATURE_LEVEL = 25344;
 pub const DML_FEATURE_LEVEL_6_4: DML_FEATURE_LEVEL = 25600;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_FEATURE_QUERY_FEATURE_LEVELS {
     pub RequestedFeatureLevelCount: u32,
     pub RequestedFeatureLevels: *const DML_FEATURE_LEVEL,
@@ -1480,7 +1480,7 @@ impl Default for DML_FEATURE_QUERY_FEATURE_LEVELS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_FEATURE_QUERY_TENSOR_DATA_TYPE_SUPPORT {
     pub DataType: DML_TENSOR_DATA_TYPE,
 }
@@ -1511,7 +1511,7 @@ impl Default for DML_FILL_VALUE_SEQUENCE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ELEMENTS_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -1524,7 +1524,7 @@ impl Default for DML_GATHER_ELEMENTS_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ND1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -1539,7 +1539,7 @@ impl Default for DML_GATHER_ND1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -1553,7 +1553,7 @@ impl Default for DML_GATHER_ND_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GATHER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -1585,7 +1585,7 @@ impl Default for DML_GEMM_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_DESC {
     pub InputCount: u32,
     pub OutputCount: u32,
@@ -1604,7 +1604,7 @@ impl Default for DML_GRAPH_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_EDGE_DESC {
     pub Type: DML_GRAPH_EDGE_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -1620,7 +1620,7 @@ pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = 3;
 pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = 0;
 pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRAPH_NODE_DESC {
     pub Type: DML_GRAPH_NODE_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -1634,7 +1634,7 @@ pub type DML_GRAPH_NODE_TYPE = i32;
 pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = 0;
 pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_GRU_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub WeightTensor: *const DML_TENSOR_DESC,
@@ -1655,7 +1655,7 @@ impl Default for DML_GRU_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_INPUT_GRAPH_EDGE_DESC {
     pub GraphInputIndex: u32,
     pub ToNodeIndex: u32,
@@ -1668,7 +1668,7 @@ impl Default for DML_INPUT_GRAPH_EDGE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_INTERMEDIATE_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
@@ -1689,7 +1689,7 @@ pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = 0;
 pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = 2;
 pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_JOIN_OPERATOR_DESC {
     pub InputCount: u32,
     pub InputTensors: *const DML_TENSOR_DESC,
@@ -1749,7 +1749,7 @@ impl Default for DML_LP_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_LP_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1792,7 +1792,7 @@ impl Default for DML_LSTM_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MATRIX_MULTIPLY_INTEGER_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AZeroPointTensor: *const DML_TENSOR_DESC,
@@ -1809,7 +1809,7 @@ pub type DML_MATRIX_TRANSFORM = i32;
 pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = 0;
 pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1826,7 +1826,7 @@ impl Default for DML_MAX_POOLING1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING2_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1844,7 +1844,7 @@ impl Default for DML_MAX_POOLING2_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputGradientTensor: *const DML_TENSOR_DESC,
@@ -1862,7 +1862,7 @@ impl Default for DML_MAX_POOLING_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_POOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -1878,7 +1878,7 @@ impl Default for DML_MAX_POOLING_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_MAX_UNPOOLING_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -1925,7 +1925,7 @@ impl Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_NONZERO_COORDINATES_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputCountTensor: *const DML_TENSOR_DESC,
@@ -1937,7 +1937,7 @@ impl Default for DML_NONZERO_COORDINATES_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_ONE_HOT_OPERATOR_DESC {
     pub IndicesTensor: *const DML_TENSOR_DESC,
     pub ValuesTensor: *const DML_TENSOR_DESC,
@@ -1987,7 +1987,7 @@ pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = 105;
 pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = 69;
 pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = 113;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_OPERATOR_DESC {
     pub Type: DML_OPERATOR_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -2072,7 +2072,7 @@ pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = 108;
 pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = 140;
 pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = 54;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DML_OPERATOR_GRAPH_NODE_DESC {
     pub Operator: core::mem::ManuallyDrop<Option<IDMLOperator>>,
     pub Name: *const i8,
@@ -2131,7 +2131,7 @@ pub type DML_OPERATOR_TYPE = i32;
 pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = 66;
 pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = 65;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_OUTPUT_GRAPH_EDGE_DESC {
     pub FromNodeIndex: u32,
     pub FromNodeOutputIndex: u32,
@@ -2182,7 +2182,7 @@ impl Default for DML_PADDING_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub InputScaleTensor: *const DML_TENSOR_DESC,
@@ -2207,7 +2207,7 @@ impl Default for DML_QUANTIZED_LINEAR_CONVOLUTION_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     pub ATensor: *const DML_TENSOR_DESC,
     pub AScaleTensor: *const DML_TENSOR_DESC,
@@ -2225,7 +2225,7 @@ impl Default for DML_QUANTIZED_LINEAR_MATRIX_MULTIPLY_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RANDOM_GENERATOR_OPERATOR_DESC {
     pub InputStateTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2257,7 +2257,7 @@ pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = 9;
 pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = 10;
 pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_REDUCE_OPERATOR_DESC {
     pub Function: DML_REDUCE_FUNCTION,
     pub InputTensor: *const DML_TENSOR_DESC,
@@ -2271,7 +2271,7 @@ impl Default for DML_REDUCE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2287,7 +2287,7 @@ impl Default for DML_RESAMPLE1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -2303,7 +2303,7 @@ impl Default for DML_RESAMPLE_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RESAMPLE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2317,7 +2317,7 @@ impl Default for DML_RESAMPLE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub SequenceLengthsTensor: *const DML_TENSOR_DESC,
@@ -2330,7 +2330,7 @@ impl Default for DML_REVERSE_SUBSEQUENCES_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_RNN_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub WeightTensor: *const DML_TENSOR_DESC,
@@ -2461,7 +2461,7 @@ pub struct DML_SCALE_BIAS {
     pub Bias: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SCATTER_ND_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -2476,7 +2476,7 @@ impl Default for DML_SCATTER_ND_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SCATTER_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub IndicesTensor: *const DML_TENSOR_DESC,
@@ -2490,13 +2490,13 @@ impl Default for DML_SCATTER_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DML_SIZE_2D {
     pub Width: u32,
     pub Height: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2511,7 +2511,7 @@ impl Default for DML_SLICE1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE_GRAD_OPERATOR_DESC {
     pub InputGradientTensor: *const DML_TENSOR_DESC,
     pub OutputGradientTensor: *const DML_TENSOR_DESC,
@@ -2526,7 +2526,7 @@ impl Default for DML_SLICE_GRAD_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SLICE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2541,7 +2541,7 @@ impl Default for DML_SLICE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2554,7 +2554,7 @@ impl Default for DML_SPACE_TO_DEPTH1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2566,7 +2566,7 @@ impl Default for DML_SPACE_TO_DEPTH_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_SPLIT_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputCount: u32,
@@ -2593,7 +2593,7 @@ pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = 10;
 pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = 5;
 pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TENSOR_DESC {
     pub Type: DML_TENSOR_TYPE,
     pub Desc: *const core::ffi::c_void,
@@ -2610,7 +2610,7 @@ pub type DML_TENSOR_TYPE = i32;
 pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = 1;
 pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TILE_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,
@@ -2623,7 +2623,7 @@ impl Default for DML_TILE_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TOP_K1_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
@@ -2638,7 +2638,7 @@ impl Default for DML_TOP_K1_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_TOP_K_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputValueTensor: *const DML_TENSOR_DESC,
@@ -2652,7 +2652,7 @@ impl Default for DML_TOP_K_OPERATOR_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DML_UPSAMPLE_2D_OPERATOR_DESC {
     pub InputTensor: *const DML_TENSOR_DESC,
     pub OutputTensor: *const DML_TENSOR_DESC,

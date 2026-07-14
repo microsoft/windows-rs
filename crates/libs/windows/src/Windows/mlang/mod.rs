@@ -4,7 +4,7 @@ pub const CMultiLanguage: windows_core::GUID = windows_core::GUID::from_u128(0x2
 pub const CPIOD_FORCE_PROMPT: u32 = 2147483648;
 pub const CPIOD_PEEK: u32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
@@ -2111,7 +2111,7 @@ pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256;
 pub const MIMECONTF_VALID: MIMECONTF = 131072;
 pub const MIMECONTF_VALID_NLS: MIMECONTF = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
     pub uiCodePage: u32,
@@ -2130,7 +2130,7 @@ impl Default for MIMECPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
@@ -2176,7 +2176,7 @@ pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
 pub type PSCRIPTINFO = *mut SCRIPTINFO;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RFC1766INFO {
     pub lcid: super::winnt::LCID,
     pub wszRfc1766: [u16; 6],
@@ -2196,7 +2196,7 @@ pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144;
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536;
 pub type SCRIPTFONTCONTF = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPTFONTINFO {
     pub scripts: SCRIPT_IDS,
     pub wszFont: [u16; 32],
@@ -2207,7 +2207,7 @@ impl Default for SCRIPTFONTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPTINFO {
     pub ScriptId: SCRIPT_ID,
     pub uiCodePage: u32,
@@ -2227,7 +2227,7 @@ pub struct SCRIPT_ID(pub u8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCRIPT_IDS(pub i64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,

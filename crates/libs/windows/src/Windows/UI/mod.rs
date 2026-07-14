@@ -27,7 +27,7 @@ pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -1202,7 +1202,7 @@ impl windows_core::RuntimeName for UIContext {
 unsafe impl Send for UIContext {}
 unsafe impl Sync for UIContext {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WindowId {
     pub Value: u64,
 }

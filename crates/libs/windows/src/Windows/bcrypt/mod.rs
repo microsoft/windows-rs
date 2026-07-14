@@ -402,7 +402,7 @@ pub const BCRYPT_AES_GMAC_ALGORITHM: windows_core::PCWSTR = windows_core::w!("AE
 pub const BCRYPT_AES_GMAC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(273 as _);
 pub const BCRYPT_AES_WRAP_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("Rfc3565KeyWrapBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_ALGORITHM_IDENTIFIER {
     pub pszName: windows_core::PWSTR,
     pub dwClass: u32,
@@ -422,7 +422,7 @@ pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: u32 = 3;
 pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO {
     pub cbSize: u32,
     pub dwInfoVersion: u32,
@@ -477,7 +477,7 @@ pub const BCRYPT_DES_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(513 a
 pub const BCRYPT_DH_ALGORITHM: windows_core::PCWSTR = windows_core::w!("DH");
 pub const BCRYPT_DH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(641 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_DH_KEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -485,7 +485,7 @@ pub struct BCRYPT_DH_KEY_BLOB {
 pub const BCRYPT_DH_PARAMETERS: windows_core::PCWSTR = windows_core::w!("DHParameters");
 pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_DH_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -498,7 +498,7 @@ pub const BCRYPT_DH_PUBLIC_MAGIC: u32 = 1112557636;
 pub const BCRYPT_DSA_ALGORITHM: windows_core::PCWSTR = windows_core::w!("DSA");
 pub const BCRYPT_DSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(721 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -512,7 +512,7 @@ impl Default for BCRYPT_DSA_KEY_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_KEY_BLOB_V2 {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -531,7 +531,7 @@ pub const BCRYPT_DSA_PARAMETERS: windows_core::PCWSTR = windows_core::w!("DSAPar
 pub const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828;
 pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -546,7 +546,7 @@ impl Default for BCRYPT_DSA_PARAMETER_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_DSA_PARAMETER_HEADER_V2 {
     pub cbLength: u32,
     pub dwMagic: u32,
@@ -569,7 +569,7 @@ pub const BCRYPT_DSA_PUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("DSAPU
 pub const BCRYPT_DSA_PUBLIC_MAGIC: u32 = 1112560452;
 pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_ECCFULLKEY_BLOB {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -583,7 +583,7 @@ pub struct BCRYPT_ECCFULLKEY_BLOB {
 pub const BCRYPT_ECCFULLPRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("ECCFULLPRIVATEBLOB");
 pub const BCRYPT_ECCFULLPUBLIC_BLOB: windows_core::PCWSTR = windows_core::w!("ECCFULLPUBLICBLOB");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_ECCKEY_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -608,7 +608,7 @@ pub const BCRYPT_ECC_CURVE_BRAINPOOLP512T1: windows_core::PCWSTR = windows_core:
 pub const BCRYPT_ECC_CURVE_EC192WAPI: windows_core::PCWSTR = windows_core::w!("ec192wapi");
 pub const BCRYPT_ECC_CURVE_NAME: windows_core::PCWSTR = windows_core::w!("ECCCurveName");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_ECC_CURVE_NAMES {
     pub dwEccCurveNames: u32,
     pub pEccCurveNames: *mut windows_core::PWSTR,
@@ -736,7 +736,7 @@ pub const BCRYPT_HMAC_SHA3_512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE
 pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(209 as _);
 pub const BCRYPT_INITIALIZATION_VECTOR: windows_core::PCWSTR = windows_core::w!("IV");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -753,13 +753,13 @@ pub const BCRYPT_KDF_TLS_PRF: windows_core::PCWSTR = windows_core::w!("TLS_PRF")
 pub const BCRYPT_KEM_CIPHERTEXT_LENGTH: windows_core::PCWSTR = windows_core::w!("KEMCiphertextLength");
 pub const BCRYPT_KEM_SHARED_SECRET_LENGTH: windows_core::PCWSTR = windows_core::w!("KEMSharedSecretLength");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_KEY_BLOB {
     pub Magic: u32,
 }
 pub const BCRYPT_KEY_DATA_BLOB: windows_core::PCWSTR = windows_core::w!("KeyDataBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_KEY_DATA_BLOB_HEADER {
     pub dwMagic: u32,
     pub dwVersion: u32,
@@ -782,7 +782,7 @@ impl Default for BCRYPT_KEY_HANDLE {
 pub const BCRYPT_KEY_LENGTH: windows_core::PCWSTR = windows_core::w!("KeyLength");
 pub const BCRYPT_KEY_LENGTHS: windows_core::PCWSTR = windows_core::w!("KeyLengths");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_KEY_LENGTHS_STRUCT {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
@@ -818,7 +818,7 @@ pub const BCRYPT_MLDSA_PUBLIC_MAGIC: u32 = 1263555396;
 pub const BCRYPT_MLKEM_ALGORITHM: windows_core::PCWSTR = windows_core::w!("ML-KEM");
 pub const BCRYPT_MLKEM_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1153 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_MLKEM_KEY_BLOB {
     pub dwMagic: u32,
     pub cbParameterSet: u32,
@@ -836,7 +836,7 @@ pub const BCRYPT_MLKEM_PUBLIC_MAGIC: u32 = 1347112013;
 pub const BCRYPT_MULTI_FLAG: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_HASH_OPERATION {
     pub iHash: u32,
     pub hashOperation: BCRYPT_HASH_OPERATION_TYPE,
@@ -845,7 +845,7 @@ pub struct BCRYPT_MULTI_HASH_OPERATION {
 }
 pub const BCRYPT_MULTI_OBJECT_LENGTH: windows_core::PCWSTR = windows_core::w!("MultiObjectLength");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     pub cbPerObject: u32,
     pub cbPerElement: u32,
@@ -855,7 +855,7 @@ pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0;
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_OAEP_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub pbLabel: super::minwindef::PUCHAR,
@@ -865,14 +865,14 @@ pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16;
 pub const BCRYPT_OBJECT_LENGTH: windows_core::PCWSTR = windows_core::w!("ObjectLength");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_OID {
     pub cbOID: u32,
     pub pbOID: super::minwindef::PUCHAR,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCRYPT_OID_LIST {
     pub dwOIDCount: u32,
     pub pOIDs: *mut BCRYPT_OID,
@@ -898,7 +898,7 @@ pub const BCRYPT_PBKDF2_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(817 as
 pub const BCRYPT_PCP_PLATFORM_TYPE_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_PLATFORM_TYPE");
 pub const BCRYPT_PCP_PROVIDER_VERSION_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_PROVIDER_VERSION");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
     pub dwMagic: u32,
     pub cbKey: u32,
@@ -908,12 +908,12 @@ pub struct BCRYPT_PKCS11_RSA_AES_WRAP_BLOB {
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_BLOB_MAGIC: u32 = 1464877394;
 pub const BCRYPT_PKCS11_RSA_AES_WRAP_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PKCS11RsaAesWrapBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PKCS1_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PQDSA_KEY_BLOB {
     pub dwMagic: u32,
     pub cbParameterSet: u32,
@@ -921,7 +921,7 @@ pub struct BCRYPT_PQDSA_KEY_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PQDSA_PADDING_INFO {
     pub pbCtx: super::minwindef::PUCHAR,
     pub cbCtx: u32,
@@ -936,13 +936,13 @@ pub const BCRYPT_PRIVATE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PRIV
 pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2;
 pub const BCRYPT_PROVIDER_HANDLE: windows_core::PCWSTR = windows_core::w!("ProviderHandle");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PROVIDER_NAME {
     pub pszProviderName: windows_core::PWSTR,
 }
 pub const BCRYPT_PROV_DISPATCH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_PSS_PADDING_INFO {
     pub pszAlgId: windows_core::PCWSTR,
     pub cbSalt: u32,
@@ -966,7 +966,7 @@ pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: u32 = 1;
 pub const BCRYPT_RSAFULLPRIVATE_BLOB: windows_core::PCWSTR = windows_core::w!("RSAFULLPRIVATEBLOB");
 pub const BCRYPT_RSAFULLPRIVATE_MAGIC: u32 = 859919186;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCRYPT_RSAKEY_BLOB {
     pub Magic: u32,
     pub BitLength: u32,
@@ -1049,7 +1049,7 @@ pub const BCRYPT_XMSS_PUBLIC_MAGIC: u32 = 1263553880;
 pub const BCRYPT_XTS_AES_ALGORITHM: windows_core::PCWSTR = windows_core::w!("XTS-AES");
 pub const BCRYPT_XTS_AES_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(897 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BCryptBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
@@ -1061,7 +1061,7 @@ impl Default for BCryptBuffer {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BCryptBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
@@ -1071,7 +1071,7 @@ pub const CRYPT_ALL_FUNCTIONS: u32 = 1;
 pub const CRYPT_ALL_PROVIDERS: u32 = 2;
 pub const CRYPT_ANY: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXTS {
     pub cContexts: u32,
     pub rgpszContexts: *mut windows_core::PWSTR,
@@ -1082,13 +1082,13 @@ impl Default for CRYPT_CONTEXTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTIONS {
     pub cFunctions: u32,
     pub rgpszFunctions: *mut windows_core::PWSTR,
@@ -1099,13 +1099,13 @@ impl Default for CRYPT_CONTEXT_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_CONFIG {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTEXT_FUNCTION_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
@@ -1119,13 +1119,13 @@ pub const CRYPT_DEFAULT_CONTEXT: windows_core::PCWSTR = windows_core::w!("Defaul
 pub const CRYPT_DOMAIN: u32 = 2;
 pub const CRYPT_EXCLUSIVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REF {
     pub pszImage: windows_core::PWSTR,
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_IMAGE_REG {
     pub pszImage: windows_core::PWSTR,
     pub cInterfaces: u32,
@@ -1137,7 +1137,7 @@ impl Default for CRYPT_IMAGE_REG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_INTERFACE_REG {
     pub dwInterface: u32,
     pub dwFlags: u32,
@@ -1160,14 +1160,14 @@ pub const CRYPT_PRIORITY_TOP: u32 = 0;
 pub const CRYPT_PROCESS_ISOLATE: u32 = 65536;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_PROPERTY_REF {
     pub pszProperty: windows_core::PWSTR,
     pub cbValue: u32,
     pub pbValue: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDERS {
     pub cProviders: u32,
     pub rgpszProviders: *mut windows_core::PWSTR,
@@ -1179,7 +1179,7 @@ impl Default for CRYPT_PROVIDERS {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REF {
     pub dwInterface: u32,
     pub pszFunction: windows_core::PWSTR,
@@ -1197,7 +1197,7 @@ impl Default for CRYPT_PROVIDER_REF {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REFS {
     pub cProviders: u32,
     pub rgpProviders: *mut PCRYPT_PROVIDER_REF,
@@ -1209,7 +1209,7 @@ impl Default for CRYPT_PROVIDER_REFS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REG {
     pub cAliases: u32,
     pub rgpszAliases: *mut windows_core::PWSTR,
@@ -1303,7 +1303,7 @@ pub type PSSL_ECCKEY_BLOB = *mut SSL_ECCKEY_BLOB;
 pub type PTLS_HYBRID_KEYEXCHANGE_BLOB = *mut TLS_HYBRID_KEYEXCHANGE_BLOB;
 pub type PTLS_KEM_CIPHERTEXT_BLOB = *mut TLS_KEM_CIPHERTEXT_BLOB;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSL_ECCKEY_BLOB {
     pub dwCurveType: u32,
     pub cbKey: u32,
@@ -1313,7 +1313,7 @@ pub const TLS_13_PRE_SHARED_KEY: windows_core::PCWSTR = windows_core::w!("TLS13P
 pub const TLS_HYBRID_KEYEXCHANGE: windows_core::PCWSTR = windows_core::w!("TLS_HYBRID_KEYEXCHANGE");
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TLS_HYBRID_KEYEXCHANGE_BLOB {
     pub dwMagic: u32,
     pub dwKeyType: u32,
@@ -1330,7 +1330,7 @@ impl Default for TLS_HYBRID_KEYEXCHANGE_BLOB {
 pub const TLS_HYBRID_KEYEXCHANGE_MAGIC: u32 = 1213418580;
 pub const TLS_KEM_CIPHERTEXT: windows_core::PCWSTR = windows_core::w!("TLS_KEM_CIPHER_TEXT");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TLS_KEM_CIPHERTEXT_BLOB {
     pub dwMagic: u32,
     pub cbLength: u32,

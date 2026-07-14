@@ -698,7 +698,7 @@ impl IWbemQuery_Vtbl {
 }
 impl windows_core::RuntimeName for IWbemQuery {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrix {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -714,7 +714,7 @@ impl Default for SWbemAnalysisMatrix {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemAnalysisMatrixList {
     pub m_uVersion: u32,
     pub m_uMatrixType: u32,
@@ -727,7 +727,7 @@ impl Default for SWbemAnalysisMatrixList {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SWbemAssocQueryInf {
     pub m_uVersion: u32,
     pub m_uAnalysisType: u32,
@@ -743,7 +743,7 @@ pub struct SWbemAssocQueryInf {
     pub m_pszRequiredAssocQualifier: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SWbemQueryQualifiedName {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,
@@ -823,7 +823,7 @@ impl Default for SWbemRpnQueryToken {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SWbemRpnTokenList {
     pub m_uVersion: u32,
     pub m_uTokenType: u32,

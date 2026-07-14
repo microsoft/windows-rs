@@ -58,7 +58,7 @@ pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,

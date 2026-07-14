@@ -78,7 +78,7 @@ impl Interface {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Struct {
     pub x: i32,
     pub y: i32,

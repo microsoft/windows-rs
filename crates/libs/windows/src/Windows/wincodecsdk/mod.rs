@@ -1338,7 +1338,7 @@ pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536;
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536;
 pub type WICMetadataCreationOptions = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICMetadataHeader {
     pub Position: u64,
     pub Length: u32,
@@ -1351,7 +1351,7 @@ impl Default for WICMetadataHeader {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICMetadataPattern {
     pub Position: u64,
     pub Length: u32,

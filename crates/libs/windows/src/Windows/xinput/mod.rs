@@ -83,13 +83,13 @@ pub const VK_PAD_START: u32 = 22548;
 pub const VK_PAD_X: u32 = 22530;
 pub const VK_PAD_Y: u32 = 22531;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: u8,
     pub BatteryLevel: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_CAPABILITIES {
     pub Type: u8,
     pub SubType: u8,
@@ -118,7 +118,7 @@ pub const XINPUT_DLL_A: windows_core::PCSTR = windows_core::s!("xinput1_4.dll");
 pub const XINPUT_DLL_W: windows_core::PCWSTR = windows_core::w!("xinput1_4.dll");
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: u16,
     pub bLeftTrigger: u8,
@@ -146,7 +146,7 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30;
 pub const XINPUT_GAMEPAD_X: u32 = 16384;
 pub const XINPUT_GAMEPAD_Y: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: u16,
     pub Unicode: u16,
@@ -158,13 +158,13 @@ pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1;
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2;
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,

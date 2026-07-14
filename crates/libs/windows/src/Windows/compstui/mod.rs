@@ -144,7 +144,7 @@ pub const CPSUICB_REASON_SETACTIVE: u32 = 10;
 pub const CPSUICB_REASON_UNDO_CHANGES: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CPSUIDATABLOCK {
     pub cbData: u32,
     pub pbData: super::minwindef::LPBYTE,
@@ -293,7 +293,7 @@ pub const ERR_CPSUI_TOO_MANY_PROPSHEETPAGES: i32 = -9;
 pub const ERR_CPSUI_ZERO_OPTITEM: i32 = -44;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTCHKBOX {
     pub cbSize: u16,
     pub Flags: u16,
@@ -666,7 +666,7 @@ pub const IDS_CPSUI_WARNING: u32 = 64847;
 pub const IDS_CPSUI_WATERMARK: u32 = 64797;
 pub const IDS_CPSUI_YES: u32 = 64729;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INSERTPSUIPAGE_INFO {
     pub cbSize: u16,
     pub Type: u8,
@@ -687,7 +687,7 @@ pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5;
 pub const MAX_RES_STR_CHARS: u32 = 160;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
@@ -706,7 +706,7 @@ pub const OPTCF_HIDE: u32 = 1;
 pub const OPTCF_MASK: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTCOMBO {
     pub cbSize: u16,
     pub Flags: u8,
@@ -793,7 +793,7 @@ impl Default for OPTITEM_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTPARAM {
     pub cbSize: u16,
     pub Flags: u8,
@@ -822,7 +822,7 @@ pub const OPTTF_NOSPACE_BEFORE_POSTFIX: u32 = 2;
 pub const OPTTF_TYPE_DISABLED: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPTTYPE {
     pub cbSize: u16,
     pub Type: u8,
@@ -886,7 +886,7 @@ pub type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
 pub type PPSPINFO = *mut PSPINFO;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: u16,
     pub Flags: u16,
@@ -976,7 +976,7 @@ pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2;
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SETRESULT_INFO {
     pub cbSize: u16,
     pub wReserved: u16,

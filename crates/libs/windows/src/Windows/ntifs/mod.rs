@@ -1084,7 +1084,7 @@ pub const ANSI_DOS_QM: u32 = 62;
 pub const ANSI_DOS_STAR: u32 = 60;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub Size: u16,
     pub InFlags: u16,
@@ -1151,7 +1151,7 @@ pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4;
 pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0;
 pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BASE_MCB {
     pub MaximumPairCount: u32,
     pub PairCount: u32,
@@ -1223,7 +1223,7 @@ impl Default for CC_ASYNC_READ_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_DIRTY_PAGES_INFO {
     pub Version: u32,
     pub DirtyPageThreshold: i64,
@@ -1243,13 +1243,13 @@ pub const CC_ENABLE_CPU_CACHE: u32 = 268435456;
 pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "ntdef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_ERROR_CALLBACK_CONTEXT {
     pub NodeByteSize: super::ntdef::CSHORT,
     pub ErrorCode: super::bcrypt::NTSTATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_FILE_SIZES {
     pub AllocationSize: i64,
     pub FileSize: i64,
@@ -1259,7 +1259,7 @@ pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2;
 pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1;
 pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPRESSED_DATA_INFO {
     pub CompressionFormatAndEngine: u16,
     pub CompressionUnitShift: u8,
@@ -1282,14 +1282,14 @@ pub const COMPRESSION_FORMAT_MAX: u32 = 8;
 pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: super::wdm::PFILE_OBJECT,
     pub SourceFileOffset: i64,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub Size: u16,
     pub Flags: u16,
@@ -1303,7 +1303,7 @@ pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16;
 pub type CSV_DOWN_LEVEL_FILE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub Version: u32,
     pub IsResume: bool,
@@ -1313,7 +1313,7 @@ pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
 }
 pub const CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
     pub FileId: i64,
     pub FileRevision: [i64; 3],
@@ -1325,7 +1325,7 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
     pub FileId: super::winnt::FILE_ID_128,
     pub FileRevision: [i64; 3],
@@ -1337,7 +1337,7 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub Size: usize,
     pub PauseTimeoutInSeconds: u32,
@@ -1362,7 +1362,7 @@ pub const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::wdm::DEVICE_OBJECT, fsactive: bool)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
     pub ParentOplockKey: windows_core::GUID,
     pub TargetOplockKey: windows_core::GUID,
@@ -1370,7 +1370,7 @@ pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
     pub TargetOplockKeySet: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUPLICATE_CLUSTER_DATA {
     pub SourceLcn: i64,
     pub TargetLcn: i64,
@@ -1384,10 +1384,10 @@ pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_core::PCWSTR = windows_c
 pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_core::PCSTR = windows_core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_core::PCWSTR = windows_core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECP_HEADER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECP_OPEN_PARAMETERS {
     pub Size: u16,
     pub Reserved: u16,
@@ -1415,7 +1415,7 @@ impl Default for EOF_WAIT_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENT_READ_CACHE_INFO_BUFFER {
     pub AllocatedCache: i64,
     pub PopulatedCache: i64,
@@ -1425,7 +1425,7 @@ pub const EqualTo: FSRTL_COMPARISON_RESULT = 0;
 pub type FAST_IO_POSSIBLE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ACCESS_INFORMATION {
     pub AccessFlags: super::winnt::ACCESS_MASK,
 }
@@ -1436,13 +1436,13 @@ pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9;
 pub const FILE_ACTION_REMOVED_STREAM: u32 = 7;
 pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ALLOCATION_INFORMATION {
     pub AllocationSize: i64,
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ALL_INFORMATION {
     pub BasicInformation: super::wdm::FILE_BASIC_INFORMATION,
     pub StandardInformation: super::wdm::FILE_STANDARD_INFORMATION,
@@ -1456,7 +1456,7 @@ pub struct FILE_ALL_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1488,7 +1488,7 @@ pub const FILE_CLEANUP_UNKNOWN: u32 = 0;
 pub const FILE_CLEANUP_WRONG_DEVICE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPLETION_INFORMATION {
     pub Port: super::winnt::HANDLE,
     pub Key: *mut core::ffi::c_void,
@@ -1500,7 +1500,7 @@ impl Default for FILE_COMPLETION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_INFORMATION {
     pub CompressedFileSize: i64,
     pub CompressionFormat: u16,
@@ -1515,7 +1515,7 @@ impl Default for FILE_COMPRESSION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_DIRECTORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1535,7 +1535,7 @@ impl Default for FILE_DIRECTORY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
 }
@@ -1550,7 +1550,7 @@ pub const FILE_EA_TYPE_METAFILE: u32 = 65530;
 pub const FILE_EA_TYPE_MVMT: u32 = 65503;
 pub const FILE_EA_TYPE_MVST: u32 = 65502;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub EndOfFile: i64,
     pub PagingFileSizeInMM: i64,
@@ -1558,7 +1558,7 @@ pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_ATTRIBUTE_INFORMATION {
     pub FileSystemAttributes: u32,
     pub MaximumComponentNameLength: i32,
@@ -1571,7 +1571,7 @@ impl Default for FILE_FS_ATTRIBUTE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_CONTROL_INFORMATION {
     pub FreeSpaceStartFiltering: i64,
     pub FreeSpaceThreshold: i64,
@@ -1581,12 +1581,12 @@ pub struct FILE_FS_CONTROL_INFORMATION {
     pub FileSystemControlFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_DATA_COPY_INFORMATION {
     pub NumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_DRIVER_PATH_INFORMATION {
     pub DriverInPath: bool,
     pub DriverNameLength: u32,
@@ -1598,17 +1598,17 @@ impl Default for FILE_FS_DRIVER_PATH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_GUID_INFORMATION {
     pub FsGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_VOLUME_FLAGS_INFORMATION {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1629,7 +1629,7 @@ impl Default for FILE_FULL_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_GET_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub EaNameLength: u8,
@@ -1642,7 +1642,7 @@ impl Default for FILE_GET_EA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_GET_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
@@ -1650,7 +1650,7 @@ pub struct FILE_GET_QUOTA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1676,7 +1676,7 @@ impl Default for FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_64_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1700,7 +1700,7 @@ impl Default for FILE_ID_64_EXTD_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1728,7 +1728,7 @@ impl Default for FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_ALL_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1754,7 +1754,7 @@ impl Default for FILE_ID_ALL_EXTD_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1780,7 +1780,7 @@ impl Default for FILE_ID_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1807,7 +1807,7 @@ impl Default for FILE_ID_EXTD_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1831,7 +1831,7 @@ impl Default for FILE_ID_EXTD_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1853,7 +1853,7 @@ impl Default for FILE_ID_FULL_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1880,14 +1880,14 @@ pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2;
 pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ID_INFORMATION {
     pub VolumeSerialNumber: u64,
     pub FileId: super::winnt::FILE_ID_128,
 }
 #[repr(C)]
 #[cfg(feature = "winternl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFORMATION_DEFINITION {
     pub Class: super::winternl::FILE_INFORMATION_CLASS,
     pub NextEntryOffset: u32,
@@ -1895,26 +1895,26 @@ pub struct FILE_INFORMATION_DEFINITION {
     pub FileNameLengthOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INTERNAL_INFORMATION {
     pub IndexNumber: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_INFORMATION {
     pub Type: FILE_KNOWN_FOLDER_TYPE,
 }
 pub type FILE_KNOWN_FOLDER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LINKS_FULL_ID_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_FULL_ID_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LINKS_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
@@ -1922,7 +1922,7 @@ pub struct FILE_LINKS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     pub NextEntryOffset: u32,
     pub ParentFileId: super::winnt::FILE_ID_128,
@@ -1936,7 +1936,7 @@ impl Default for FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_INFORMATION {
     pub NextEntryOffset: u32,
     pub ParentFileId: i64,
@@ -2007,7 +2007,7 @@ impl Default for FILE_LOCK {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
     pub Length: i64,
@@ -2024,7 +2024,7 @@ impl Default for FILE_LOCK_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_QUERY_INFORMATION {
     pub MaximumMessageSize: u32,
     pub MailslotQuota: u32,
@@ -2034,18 +2034,18 @@ pub struct FILE_MAILSLOT_QUERY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_SET_INFORMATION {
     pub ReadTimeout: super::winnt::PLARGE_INTEGER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MODE_INFORMATION {
     pub Mode: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MOVE_CLUSTER_INFORMATION {
     pub ClusterCount: u32,
     pub RootDirectory: super::winnt::HANDLE,
@@ -2059,7 +2059,7 @@ impl Default for FILE_MOVE_CLUSTER_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NAMES_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -2073,7 +2073,7 @@ impl Default for FILE_NAMES_INFORMATION {
 }
 pub const FILE_NEED_EA: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -2113,7 +2113,7 @@ impl Default for FILE_OBJECTID_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_OBJECTID_INFORMATION_0_0 {
     pub BirthVolumeId: [u8; 16],
     pub BirthObjectId: [u8; 16],
@@ -2130,7 +2130,7 @@ pub const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8;
 pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
     pub EventHandle: super::winnt::HANDLE,
     pub KeyValue: u32,
@@ -2139,7 +2139,7 @@ pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0;
 pub const FILE_PIPE_CLIENT_END: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -2150,7 +2150,7 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -2163,7 +2163,7 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -2178,7 +2178,7 @@ pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1;
 pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15;
 pub const FILE_PIPE_CONNECTED_STATE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
@@ -2187,14 +2187,14 @@ pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
 }
 pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_EVENT_BUFFER {
     pub NamedPipeState: u32,
     pub EntryType: u32,
@@ -2205,14 +2205,14 @@ pub struct FILE_PIPE_EVENT_BUFFER {
 pub const FILE_PIPE_FULL_DUPLEX: u32 = 2;
 pub const FILE_PIPE_INBOUND: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
 }
 pub const FILE_PIPE_LISTENING_STATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeType: u32,
     pub NamedPipeConfiguration: u32,
@@ -2229,7 +2229,7 @@ pub const FILE_PIPE_MESSAGE_MODE: u32 = 1;
 pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1;
 pub const FILE_PIPE_OUTBOUND: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_PEEK_BUFFER {
     pub NamedPipeState: u32,
     pub ReadDataAvailable: u32,
@@ -2246,7 +2246,7 @@ pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0;
 pub const FILE_PIPE_READ_DATA: u32 = 0;
 pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
@@ -2254,7 +2254,7 @@ pub struct FILE_PIPE_REMOTE_INFORMATION {
 pub const FILE_PIPE_SERVER_END: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
     pub JobHandle: super::winnt::HANDLE,
 }
@@ -2263,7 +2263,7 @@ pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2;
 pub const FILE_PIPE_SYMLINK_VALID_FLAGS: u32 = 3;
 pub const FILE_PIPE_TYPE_VALID_MASK: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_WAIT_FOR_BUFFER {
     pub Timeout: i64,
     pub NameLength: u32,
@@ -2278,7 +2278,7 @@ impl Default for FILE_PIPE_WAIT_FOR_BUFFER {
 pub const FILE_PIPE_WRITE_SPACE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
@@ -2308,7 +2308,7 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_0 {
     pub Reserved: [u32; 8],
 }
@@ -2329,18 +2329,18 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
     pub Capabilities: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
@@ -2393,13 +2393,13 @@ pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1;
 pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4;
 pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
     pub FileReference: i64,
     pub Tag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STANDARD_LINK_INFORMATION {
     pub NumberOfAccessibleLinks: u32,
     pub TotalNumberOfLinks: u32,
@@ -2408,12 +2408,12 @@ pub struct FILE_STANDARD_LINK_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_RESERVE_ID_INFORMATION {
     pub StorageReserveId: super::winioctl::STORAGE_RESERVE_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STREAM_INFORMATION {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -2427,13 +2427,13 @@ impl Default for FILE_STREAM_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STREAM_RESERVATION_INFORMATION {
     pub TrackedReservation: i64,
     pub EnforcedReservation: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_TIMESTAMPS {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -2442,7 +2442,7 @@ pub struct FILE_TIMESTAMPS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TRACKING_INFORMATION {
     pub DestinationFile: super::winnt::HANDLE,
     pub ObjectInformationLength: u32,
@@ -2467,7 +2467,7 @@ pub const FILE_VC_QUOTA_NONE: u32 = 0;
 pub const FILE_VC_QUOTA_TRACK: u32 = 1;
 pub const FILE_VC_VALID_MASK: u32 = 1023;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_VOLUME_NAME_INFORMATION {
     pub DeviceNameLength: u32,
     pub DeviceName: [u16; 1],
@@ -2485,7 +2485,7 @@ pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4;
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::winnt::HANDLE, processhandle: super::winnt::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     pub FileOffset: i64,
     pub ByteCount: i64,
@@ -2528,13 +2528,13 @@ pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952;
 pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287;
 pub const FSCTL_PIPE_WAIT: u32 = 1114136;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
     pub FileOffset: i64,
     pub ByteCount: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     pub ExtentCount: u32,
     pub TotalExtentCount: u32,
@@ -2546,17 +2546,17 @@ impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
     pub NumaNode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
     pub BytesToUnmap: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
 }
@@ -2607,7 +2607,7 @@ pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: *mut core::ffi::c_void,
     pub Length: u32,
@@ -2627,7 +2627,7 @@ pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2;
 pub type FSRTL_CHANGE_BACKING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_COMMON_FCB_HEADER {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NodeByteSize: super::ntdef::CSHORT,
@@ -2675,13 +2675,13 @@ pub const FSRTL_HPFS_LEGAL: u32 = 2;
 pub const FSRTL_MAX_TOP_LEVEL_IRP_FLAG: isize = 65535;
 pub const FSRTL_MOD_WRITE_TOP_LEVEL_IRP: isize = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
     pub ProviderName: super::ntsecapi::UNICODE_STRING,
@@ -2693,7 +2693,7 @@ pub const FSRTL_NTFS_STREAM_LEGAL: u32 = 20;
 pub const FSRTL_OLE_LEGAL: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
     pub Links: super::winnt::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -2707,7 +2707,7 @@ impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILE_CONTEXT {
     pub Links: super::winnt::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -2722,7 +2722,7 @@ impl Default for FSRTL_PER_FILE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
     pub Links: super::winnt::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
@@ -2773,7 +2773,7 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     pub _bitfield: u32,
 }
@@ -2789,7 +2789,7 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
 }
@@ -2873,7 +2873,7 @@ impl Default for FS_FILTER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_0 {
     pub EndingOffset: super::winnt::PLARGE_INTEGER,
     pub ResourceToRelease: *mut super::wdm::PERESOURCE,
@@ -2886,13 +2886,13 @@ impl Default for FS_FILTER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: super::wdm::PERESOURCE,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
@@ -2902,7 +2902,7 @@ pub struct FS_FILTER_PARAMETERS_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_3 {
     pub Irp: super::usb::PIRP,
     pub FileInformation: *mut core::ffi::c_void,
@@ -2918,7 +2918,7 @@ impl Default for FS_FILTER_PARAMETERS_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -2940,7 +2940,7 @@ pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub StructureSize: u32,
     pub SizeReturned: u32,
@@ -2966,7 +2966,7 @@ pub const GCR_USE_OWF_PASSWORD: u32 = 2048;
 pub const GCR_VSM_PROTECTED_PASSWORD: u32 = 16384;
 pub const GENERATE_CLIENT_CHALLENGE: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERATE_NAME_CONTEXT {
     pub Checksum: u16,
     pub ChecksumInserted: bool,
@@ -2982,7 +2982,7 @@ impl Default for GENERATE_NAME_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GHOSTED_FILE_EXTENT {
     pub FileOffset: i64,
     pub ByteCount: i64,
@@ -3044,7 +3044,7 @@ pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: u32 = 5488640;
 pub const IO_CREATE_STREAM_FILE_LITE: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: u16,
     pub Flags: u16,
@@ -3053,7 +3053,7 @@ pub struct IO_CREATE_STREAM_FILE_OPTIONS {
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::wdm::PDEVICE_OBJECT,
     pub RemainingName: super::ntsecapi::UNICODE_STRING,
@@ -3066,7 +3066,7 @@ pub const IO_OPEN_PAGING_FILE: u32 = 2;
 pub const IO_OPEN_TARGET_DIRECTORY: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_PRIORITY_INFO {
     pub Size: u32,
     pub ThreadPriority: u32,
@@ -3182,12 +3182,12 @@ pub const IO_REPARSE_TAG_WISDATA_HSM: u32 = 35;
 pub const IO_REPARSE_TAG_ZLTI_HSM: u32 = 56;
 pub const IO_STOP_ON_SYMLINK: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
     pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     pub ReparseCount: u32,
     pub RemainingPathLength: u32,
@@ -3223,7 +3223,7 @@ impl Default for KAPC_STATE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: bool,
 }
@@ -3242,7 +3242,7 @@ impl Default for KAPC_STATE_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: bool,
 }
@@ -3276,7 +3276,7 @@ pub const KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5;
 pub const KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LARGE_MCB {
     pub GuardedMutex: super::wdm::PKGUARDED_MUTEX,
     pub BaseMcb: BASE_MCB,
@@ -3290,7 +3290,7 @@ pub const LCN_IS_STREAM_RESERVED: LCN_WEAK_REFERENCE_STATE = 16;
 pub const LCN_IS_VALID: LCN_WEAK_REFERENCE_STATE = 8;
 pub const LCN_WEAK_REFERENCE_BROKEN: LCN_WEAK_REFERENCE_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub Lcn: i64,
     pub LengthInClusters: i64,
@@ -3298,7 +3298,7 @@ pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub State: LCN_WEAK_REFERENCE_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER {
     pub RangeCount: u32,
     pub Ranges: [LCN_WEAK_REFERENCE_RANGE; 1],
@@ -3312,7 +3312,7 @@ impl Default for LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct LCN_WEAK_REFERENCE_CREATE_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Offset: i64,
     pub Length: i64,
@@ -3320,7 +3320,7 @@ pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER {
     pub MappingCount: u32,
     pub VcnLcnMappings: [LCN_WEAK_REFERENCE_VCN_MAPPING; 1],
@@ -3331,7 +3331,7 @@ impl Default for LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_RANGE {
     pub StartOfRange: i64,
     pub CountOfRange: i64,
@@ -3339,14 +3339,14 @@ pub struct LCN_WEAK_REFERENCE_RANGE {
 pub type LCN_WEAK_REFERENCE_STATE = u32;
 pub const LCN_WEAK_REFERENCE_VALID: LCN_WEAK_REFERENCE_STATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_VCN_MAPPING {
     pub Vcn: i64,
     pub Lcn: i64,
     pub CountOfRange: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINK_TRACKING_INFORMATION {
     pub Type: LINK_TRACKING_INFORMATION_TYPE,
     pub VolumeId: [u8; 16],
@@ -3369,14 +3369,14 @@ pub const MAP_WAIT: u32 = 1;
 pub const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCB {
     pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
 }
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -3405,20 +3405,20 @@ impl Default for MM_PREFETCH_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PREFETCH_FLAGS_0 {
     pub _bitfield: u32,
 }
 pub const MM_PREFETCH_FLAGS_MASK: u32 = 127;
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_REQUEST {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_RESPONSE {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub NumberOfLoggedOnUsers: u32,
@@ -3427,7 +3427,7 @@ pub struct MSV1_0_ENUMUSERS_RESPONSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
@@ -3446,7 +3446,7 @@ impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
@@ -3462,7 +3462,7 @@ impl Default for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub CaseSensitiveChallengeResponse: super::ntsecapi::STRING,
@@ -3480,14 +3480,14 @@ impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_REQUEST {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub UserSid: super::winnt::PSID,
@@ -3498,13 +3498,13 @@ pub struct MSV1_0_GETUSERINFO_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_RESPONSE {
     pub MessageType: super::ntsecapi::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ChallengeToClient: [u8; 8],
@@ -3517,7 +3517,7 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MUP_PROVIDER_INFORMATION {
     pub Level: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -3540,14 +3540,14 @@ pub const MemoryTypePaged: RTL_MEMORY_TYPE = 0;
 pub const MmFlushForDelete: MMFLUSH_TYPE = 0;
 pub const MmFlushForWrite: MMFLUSH_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub AppInstanceID: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
@@ -3555,53 +3555,53 @@ pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub VersionLow: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: NETWORK_OPEN_IN_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: NETWORK_OPEN_OUT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
@@ -3623,7 +3623,7 @@ pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
 pub struct NETWORK_OPEN_OUT_FLAGS(pub u32);
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFS_OPEN_ECP_CONTEXT {
     pub ExportAlias: super::ntsecapi::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
@@ -3642,13 +3642,13 @@ pub const NotifyTypeRetired: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 1;
 pub const NtfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST {
     pub OpenReparseList: super::winnt::LIST_ENTRY,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST_ENTRY {
     pub OpenReparseListEntry: super::winnt::LIST_ENTRY,
     pub ReparseTag: u32,
@@ -3692,7 +3692,7 @@ pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64;
 pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1;
 pub const OPLOCK_FS_FILTER_FLAGS_MASK: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPLOCK_KEY_ECP_CONTEXT {
     pub OplockKey: windows_core::GUID,
     pub Reserved: u32,
@@ -3701,7 +3701,7 @@ pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "usb"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: *mut core::ffi::c_void,
@@ -3916,7 +3916,7 @@ pub const PHCM_EXPOSE_PLACEHOLDERS: i8 = 2;
 pub const PHCM_MAX: i8 = 2;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_EXTENTS_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfValidRuns: u32,
@@ -3930,7 +3930,7 @@ impl Default for PHYSICAL_EXTENTS_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfPages: super::wdm::PFN_NUMBER,
@@ -3944,7 +3944,7 @@ impl Default for PHYSICAL_MEMORY_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN {
     pub BasePage: super::wdm::PFN_NUMBER,
     pub PageCount: super::wdm::PFN_NUMBER,
@@ -4071,7 +4071,7 @@ pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: *mut core::ffi::c_void,
 }
@@ -4082,7 +4082,7 @@ impl Default for PREFETCH_OPEN_ECP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NameLength: super::ntdef::CSHORT,
@@ -4090,7 +4090,7 @@ pub struct PREFIX_TABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NameLength: super::ntdef::CSHORT,
@@ -4185,7 +4185,7 @@ pub type PSRV_OPEN_ECP_CONTEXT = *mut SRV_OPEN_ECP_CONTEXT;
 pub type PTUNNEL = *mut TUNNEL;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUBLIC_BCB {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NodeByteSize: super::ntdef::CSHORT,
@@ -4205,7 +4205,7 @@ pub type PVETO_BINDING_ECP_CONTEXT = *mut VETO_BINDING_ECP_CONTEXT;
 pub type PVOLUME_REFS_INFO_BUFFER = *mut VOLUME_REFS_INFO_BUFFER;
 pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_DIRECT_ACCESS_EXTENTS {
     pub FileOffset: i64,
     pub Length: i64,
@@ -4215,14 +4215,14 @@ pub struct QUERY_DIRECT_ACCESS_EXTENTS {
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_EA_INFORMATION {
     pub EaBufferSize: u32,
     pub EaBuffer: super::wdm::PFILE_FULL_EA_INFORMATION,
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -4264,7 +4264,7 @@ pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 160;
 pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 176;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub EffectiveAccess: super::winnt::ACCESS_MASK,
     pub LxFlags: u32,
@@ -4275,7 +4275,7 @@ pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub LxDeviceIdMinor: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -4290,7 +4290,7 @@ pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
     pub Reserved: u32,
     pub SecurityDescriptorSize: u32,
@@ -4298,14 +4298,14 @@ pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_USN_INFORMATION {
     pub Usn: super::winnt::USN,
     pub FileReferenceNumber: super::winnt::FILE_ID_128,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST {
     pub PathNameLength: u32,
     pub SecurityContext: super::wdm::PIO_SECURITY_CONTEXT,
@@ -4319,7 +4319,7 @@ impl Default for QUERY_PATH_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::wdm::PIO_SECURITY_CONTEXT,
     pub EaLength: u32,
@@ -4337,7 +4337,7 @@ impl Default for QUERY_PATH_REQUEST_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_PATH_RESPONSE {
     pub LengthAccepted: u32,
 }
@@ -4350,7 +4350,7 @@ pub const QoCFileStatInformation: u32 = 1;
 pub const QoCFileUsnInformation: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_AHEAD_PARAMETERS {
     pub NodeByteSize: super::ntdef::CSHORT,
     pub Granularity: u32,
@@ -4384,7 +4384,7 @@ pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA: REFS_DEALLOCATE_RANGES_ALLOCATOR
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE: REFS_DEALLOCATE_RANGES_ALLOCATOR = 0;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     pub RangeCount: u32,
     pub Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
@@ -4395,7 +4395,7 @@ impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     pub RangeCount: u32,
     pub Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
@@ -4410,13 +4410,13 @@ impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_RANGE {
     pub StartOfRange: u64,
     pub CountOfRange: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER {
     pub Version: u32,
     pub VolumeGuid: windows_core::GUID,
@@ -4436,7 +4436,7 @@ pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_RUNNING: REFS_QUERY_VOLUME_CO
 pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_STOPPED: REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = 2;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     pub Version: u32,
     pub DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
@@ -4488,7 +4488,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_0 {
     pub Reserved: [u32; 6],
 }
@@ -4498,7 +4498,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_1 {
     pub ResumeKeyBlob: [u64; 2],
     pub Reserved: [u32; 6],
@@ -4535,7 +4535,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_0 {
     pub GlobalSecondsToTrack: u32,
     pub MetricsPeriodicitySeconds: u32,
@@ -4548,7 +4548,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_1 {
     pub EntryCount: u32,
     pub ResumeKeyBlob: [u64; 2],
@@ -4565,19 +4565,19 @@ pub type REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = i32;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_METRICS_DATA: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 2;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_PARAMETERS: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA {
     pub PlaceHolder: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER {
     pub Version: u32,
     pub TotalSharedLcns: u64,
 }
 pub const REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
     pub ParentDirectory: u64,
     pub Reserved: u64,
@@ -4589,7 +4589,7 @@ impl Default for REFS_REMOVE_HARDLINK_BACKPOINTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub FailMountOnMismatch: bool,
@@ -4607,7 +4607,7 @@ pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX: REFS_SET_VOLUME_COMPRESSION
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_START_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_STOP_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub CompressionFormat: REFS_COMPRESSION_FORMATS,
@@ -4626,7 +4626,7 @@ impl Default for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
 }
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub GlobalSecondsToTrack: u32,
@@ -4641,7 +4641,7 @@ impl Default for REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
 }
 pub const REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_EXTENT {
     pub Vcn: i64,
     pub Lcn: i64,
@@ -4657,7 +4657,7 @@ pub const REFS_STREAM_EXTENT_PROPERTY_SPARSE: REFS_STREAM_EXTENT_PROPERTIES = 8;
 pub const REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED: REFS_STREAM_EXTENT_PROPERTIES = 32;
 pub const REFS_STREAM_EXTENT_PROPERTY_VALID: REFS_STREAM_EXTENT_PROPERTIES = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     pub EntryCount: u32,
     pub BufferSizeRequiredForQuery: u32,
@@ -4670,7 +4670,7 @@ impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     pub NextEntryOffset: u32,
     pub SnapshotNameLength: u16,
@@ -4686,7 +4686,7 @@ impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
     pub Operation: REFS_STREAM_SNAPSHOT_OPERATION,
     pub SnapshotNameLength: u16,
@@ -4709,14 +4709,14 @@ pub const REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: REFS_STREAM_SNAPSHOT_OPER
 pub const REFS_STREAM_SNAPSHOT_OPERATION_REVERT: REFS_STREAM_SNAPSHOT_OPERATION = 4;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub Flags: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     pub ExtentCount: u32,
     pub Reserved: [u32; 2],
@@ -4728,12 +4728,12 @@ impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
     pub ResetCounters: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub SetDedupState: bool,
@@ -4748,7 +4748,7 @@ pub struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
 pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION: u32 = 2;
 pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub Version: u32,
     pub Enabled: bool,
@@ -4763,7 +4763,7 @@ pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
 pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION: u32 = 2;
 pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_LINK_TRACKING_INFORMATION {
     pub TargetFileObject: *mut core::ffi::c_void,
     pub TargetLinkTrackingInformationLength: u32,
@@ -4807,7 +4807,7 @@ impl Default for REPARSE_DATA_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -4822,7 +4822,7 @@ impl Default for REPARSE_DATA_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_1 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -4836,7 +4836,7 @@ impl Default for REPARSE_DATA_BUFFER_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
 }
@@ -4889,7 +4889,7 @@ pub const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4;
 pub const RETURN_PRIMARY_USERNAME: u32 = 2;
 pub const RETURN_RESERVED_PARAMETER: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RKF_BYPASS_ECP_CONTEXT {
     pub Reserved: i32,
     pub Version: i32,
@@ -4922,7 +4922,7 @@ pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *con
 pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> super::bcrypt::NTSTATUS>;
 pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub CommitLimitBytes: usize,
     pub CommitLimitFailureCode: usize,
@@ -4930,7 +4930,7 @@ pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub AllocationLimitFailureCode: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
     pub Version: u32,
     pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
@@ -5007,7 +5007,7 @@ impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
     pub CallbackContext: super::winnt::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
@@ -5017,7 +5017,7 @@ pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
 pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_core::PCWSTR = windows_core::w!("System Volume Information");
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_CLIENT_CONTEXT {
     pub SecurityQos: super::winnt::SECURITY_QUALITY_OF_SERVICE,
     pub ClientToken: super::winnt::PACCESS_TOKEN,
@@ -5032,13 +5032,13 @@ pub const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: u32 = 1;
 pub const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3;
 pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: bool,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
     pub AuditType: super::winnt::AUDIT_EVENT_TYPE,
@@ -5064,7 +5064,7 @@ pub const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256;
 pub const SE_DACL_UNTRUSTED: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_EXPORTS {
     pub SeCreateTokenPrivilege: super::winnt::LUID,
     pub SeAssignPrimaryTokenPrivilege: super::winnt::LUID,
@@ -5148,7 +5148,7 @@ pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(
 pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::winnt::LUID, pserversilo: *const super::ntddk::_EJOB, context: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 pub const SE_SERVER_SECURITY: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOV_RANGE_CHECK_DATA {
     pub RemoveZone: bool,
     pub InRange: [u64; 2],
@@ -5165,7 +5165,7 @@ pub const SPECIAL_ENCRYPTED_OPEN: u32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SRV_OPEN_ECP_CONTEXT {
     pub ShareName: super::ntsecapi::PUNICODE_STRING,
     pub SocketAddress: PSOCKADDR_STORAGE_NFS,
@@ -5196,7 +5196,7 @@ pub const SrvInstanceTypeUndefined: SRV_INSTANCE_TYPE = 0;
 pub const SrvInstanceTypeVMLM: SRV_INSTANCE_TYPE = 7;
 pub const SrvInstanceTypeVSMB: SRV_INSTANCE_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SspiAsyncContext(pub u8);
 pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const SspiAsyncContext, callbackdata: *const core::ffi::c_void)>;
 pub const SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1;
@@ -5245,7 +5245,7 @@ impl Default for TUNNEL {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NameLength: super::ntdef::CSHORT,
@@ -5254,7 +5254,7 @@ pub struct UNICODE_PREFIX_TABLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::ntdef::CSHORT,
     pub NameLength: super::ntdef::CSHORT,
@@ -5278,20 +5278,20 @@ pub const VALID_COPY_FILE_CHUNK_FLAGS: u32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct VBN(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VCN_RANGE_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub ClusterCount: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VETO_BINDING_ECP_CONTEXT {
     pub ShouldVetoBinding: bool,
 }
 pub type VIRTUAL_MEMORY_INFORMATION_CLASS = i32;
 pub const VOLSNAPCONTROLTYPE: u32 = 83;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_REFS_INFO_BUFFER {
     pub CacheSizeInBytes: i64,
     pub AllocatedCacheInBytes: i64,
@@ -5395,8 +5395,8 @@ pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REAL_NOTIFY_SYNC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct sockaddr_storage(pub u8);

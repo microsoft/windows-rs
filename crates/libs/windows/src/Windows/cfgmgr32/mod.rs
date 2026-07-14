@@ -1642,7 +1642,7 @@ impl Default for CM_NOTIFY_EVENT_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub ClassGuid: windows_core::GUID,
     pub SymbolicLink: [u16; 1],
@@ -1653,7 +1653,7 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub EventGuid: windows_core::GUID,
     pub NameOffset: i32,
@@ -1666,7 +1666,7 @@ impl Default for CM_NOTIFY_EVENT_DATA_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub InstanceId: [u16; 1],
 }
@@ -1707,19 +1707,19 @@ impl Default for CM_NOTIFY_FILTER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub ClassGuid: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub hTarget: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub InstanceId: [u16; 200],
 }
@@ -1800,7 +1800,7 @@ pub const CONFIGMG_VERSION: u32 = 1024;
 pub type CONFIGRET = RETURN_TYPE;
 pub type CONFLICT_DETAILS = CONFLICT_DETAILS_A;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_A {
     pub CD_ulSize: u32,
     pub CD_ulMask: u32,
@@ -1815,7 +1815,7 @@ impl Default for CONFLICT_DETAILS_A {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
     pub CD_ulMask: u32,

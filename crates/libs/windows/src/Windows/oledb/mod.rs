@@ -88,7 +88,7 @@ impl Default for DBBINDEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: DBCOUNTITEM,
@@ -134,7 +134,7 @@ impl Default for DBBINDING {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -488,7 +488,7 @@ impl Default for DBCONSTRAINTDESC {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -548,7 +548,7 @@ pub struct DBCOUNTITEM(pub u32);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DBCOUNTITEM(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
@@ -585,7 +585,7 @@ pub struct DBFAILUREINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBFAILUREINFO {
     pub hRow: HROW,
     pub iColumn: DBORDINAL,
@@ -693,7 +693,7 @@ impl Default for DBIMPLICITSESSION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
@@ -720,7 +720,7 @@ impl Default for DBINDEXCOLUMNDESC {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
@@ -775,7 +775,7 @@ pub struct DBLITERALINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -849,7 +849,7 @@ pub struct DBOBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
@@ -875,7 +875,7 @@ pub struct DBPARAMBINDINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -912,7 +912,7 @@ pub struct DBPARAMINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub iOrdinal: DBORDINAL,
@@ -946,7 +946,7 @@ impl Default for DBPARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
@@ -1088,7 +1088,7 @@ impl Default for DBPROPIDSET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: u32,
@@ -1160,7 +1160,7 @@ pub struct DBPROPINFOSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
     pub cPropertyInfos: u32,
@@ -1192,7 +1192,7 @@ impl Default for DBPROPSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
@@ -1804,7 +1804,7 @@ pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1;
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4;
 pub type DBTABLESTATISTICSTYPE26 = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
@@ -1824,7 +1824,7 @@ pub struct DBTIMESTAMP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -1913,7 +1913,7 @@ impl Default for DBVECTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
@@ -1989,7 +1989,7 @@ pub const DB_NULL_HACCESSOR: u32 = 0;
 pub const DB_NULL_HCHAPTER: u32 = 0;
 pub const DB_NULL_HROW: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_NUMERIC {
     pub precision: u8,
     pub scale: u8,
@@ -2030,7 +2030,7 @@ pub struct DB_URESERVE(pub u32);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DB_URESERVE(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_VARNUMERIC {
     pub precision: u8,
     pub scale: SBYTE,
@@ -2056,7 +2056,7 @@ pub struct ERRORINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
@@ -5076,7 +5076,7 @@ impl IRowsetCurrentIndex_Vtbl {
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetCurrentIndex {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRowsetExactScroll(pub u8);
 windows_core::imp::define_interface!(IRowsetFind, IRowsetFind_Vtbl, 0x0c733a9d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetFind, windows_core::IUnknown);
@@ -6913,7 +6913,7 @@ impl Default for MDAXISINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -7147,7 +7147,7 @@ impl Default for RMTPACK {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::objidlbase::ISequentialStream>>,
     pub cbData: u32,
@@ -7189,7 +7189,7 @@ impl Default for SEC_OBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,

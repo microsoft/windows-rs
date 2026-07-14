@@ -76,7 +76,7 @@ where
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: super::wincrypt::HCERTSTORE,
     pub prgpChain: *mut super::wincrypt::PCCERT_CHAIN_CONTEXT,
@@ -94,7 +94,7 @@ pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4;
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
     pub hwndParent: super::windef::HWND,
@@ -120,7 +120,7 @@ pub const CRYPTUI_HIDE_HIERARCHYPAGE: u32 = 1;
 pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: u32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::minwindef::LPARAM,
     pub pCertContext: super::wincrypt::PCCERT_CONTEXT,
@@ -221,7 +221,7 @@ pub const CRYPTUI_WARN_UNTRUSTED_ROOT: u32 = 1024;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: u32 = 1;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
     pub pGuidSubject: *mut windows_core::GUID,
@@ -265,7 +265,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: u32,
     pub cbBlob: u32,
@@ -279,7 +279,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
     pub dwAttrFlags: u32,
@@ -342,7 +342,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: u32 = 3;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
     pub pwszPvkFileName: windows_core::PWSTR,
@@ -370,7 +370,7 @@ impl Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: u32 = 2;
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: u32,
     pub dwExportFormat: u32,

@@ -1559,7 +1559,7 @@ pub type MSICODE = i32;
 pub const MSICODE_PATCH: MSICODE = 1073741824;
 pub const MSICODE_PRODUCT: MSICODE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSIFILEHASHINFO {
     pub dwFileHashInfoSize: u32,
     pub dwData: [u32; 4],
@@ -1585,7 +1585,7 @@ pub const MSIOPENPACKAGEFLAGS_IGNOREMACHINESTATE: MSIOPENPACKAGEFLAGS = 1;
 pub type MSIPATCHDATATYPE = i32;
 pub type MSIPATCHSEQUENCEINFO = MSIPATCHSEQUENCEINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
@@ -1593,7 +1593,7 @@ pub struct MSIPATCHSEQUENCEINFOA {
     pub uStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,

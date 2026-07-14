@@ -82,7 +82,7 @@ impl Default for MMTIME_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MMTIME_0_0 {
     pub hour: u8,
     pub min: u8,

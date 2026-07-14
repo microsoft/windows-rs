@@ -744,7 +744,7 @@ impl windows_core::RuntimeName for TextReverseConversionGenerator {
 unsafe impl Send for TextReverseConversionGenerator {}
 unsafe impl Sync for TextReverseConversionGenerator {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,

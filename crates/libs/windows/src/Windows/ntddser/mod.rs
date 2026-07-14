@@ -67,7 +67,7 @@ pub type PSERIAL_TIMEOUTS = *mut SERIAL_TIMEOUTS;
 pub type PSERIAL_XOFF_COUNTER = *mut SERIAL_XOFF_COUNTER;
 pub type SERENUM_PORTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERENUM_PORT_DESC {
     pub Size: u32,
     pub PortHandle: *mut core::ffi::c_void,
@@ -97,7 +97,7 @@ impl Default for SERENUM_PORT_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIALCONFIG {
     pub Size: u32,
     pub Version: u16,
@@ -112,7 +112,7 @@ impl Default for SERIALCONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIALPERF_STATS {
     pub ReceivedCount: u32,
     pub TransmittedCount: u32,
@@ -124,7 +124,7 @@ pub struct SERIALPERF_STATS {
 pub const SERIAL_AUTO_RECEIVE: u32 = 2;
 pub const SERIAL_AUTO_TRANSMIT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_BASIC_SETTINGS {
     pub Timeouts: SERIAL_TIMEOUTS,
     pub HandFlow: SERIAL_HANDFLOW,
@@ -151,14 +151,14 @@ pub const SERIAL_BAUD_600: u32 = 32;
 pub const SERIAL_BAUD_7200: u32 = 1024;
 pub const SERIAL_BAUD_9600: u32 = 2048;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_BAUD_RATE {
     pub BaudRate: u32,
 }
 pub const SERIAL_BAUD_USER: u32 = 268435456;
 pub const SERIAL_BREAK_CHAR: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_CHARS {
     pub EofChar: u8,
     pub ErrorChar: u8,
@@ -168,7 +168,7 @@ pub struct SERIAL_CHARS {
     pub XoffChar: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERIAL_COMMPROP {
     pub PacketLength: u16,
     pub PacketVersion: u16,
@@ -234,7 +234,7 @@ pub const SERIAL_EV_RXFLAG: u32 = 2;
 pub const SERIAL_EV_TXEMPTY: u32 = 4;
 pub const SERIAL_FLOW_INVALID: u32 = 2147483424;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_HANDFLOW {
     pub ControlHandShake: u32,
     pub FlowReplace: u32,
@@ -242,7 +242,7 @@ pub struct SERIAL_HANDFLOW {
     pub XoffLimit: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_LINE_CONTROL {
     pub StopBits: u8,
     pub Parity: u8,
@@ -270,7 +270,7 @@ pub const SERIAL_PURGE_RXCLEAR: u32 = 8;
 pub const SERIAL_PURGE_TXABORT: u32 = 1;
 pub const SERIAL_PURGE_TXCLEAR: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_QUEUE_SIZE {
     pub InSize: u32,
     pub OutSize: u32,
@@ -303,7 +303,7 @@ pub const SERIAL_SP_TELNET: u32 = 258;
 pub const SERIAL_SP_UNSPECIFIED: u32 = 0;
 pub const SERIAL_SP_X25: u32 = 259;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_STATUS {
     pub Errors: u32,
     pub HoldReasons: u32,
@@ -316,7 +316,7 @@ pub const SERIAL_STOPBITS_10: u16 = 1;
 pub const SERIAL_STOPBITS_15: u16 = 2;
 pub const SERIAL_STOPBITS_20: u16 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_TIMEOUTS {
     pub ReadIntervalTimeout: u32,
     pub ReadTotalTimeoutMultiplier: u32,
@@ -333,7 +333,7 @@ pub const SERIAL_TX_WAITING_ON_BREAK: u32 = 32;
 pub const SERIAL_TX_WAITING_XOFF_SENT: u32 = 16;
 pub const SERIAL_XOFF_CONTINUE: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERIAL_XOFF_COUNTER {
     pub Timeout: u32,
     pub Counter: i32,

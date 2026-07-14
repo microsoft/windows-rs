@@ -165,7 +165,7 @@ pub const LICENSE_PREVIEWPRINT: u32 = 4;
 pub type READEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
@@ -187,7 +187,7 @@ pub const TTEMBED_VARIATIONSIMULATED: u32 = 1;
 pub const TTEMBED_WEBOBJECT: u32 = 128;
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
@@ -204,7 +204,7 @@ pub const TTLOAD_FONT_IN_SYSSTARTUP: u32 = 2;
 pub const TTLOAD_FONT_SUBSETTED: u32 = 1;
 pub const TTLOAD_PRIVATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -220,7 +220,7 @@ impl Default for TTVALIDATIONTESTSPARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,

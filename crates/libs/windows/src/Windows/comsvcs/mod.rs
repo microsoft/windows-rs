@@ -55,7 +55,7 @@ where
     unsafe { SafeRef(rid, punk.param().abi()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPDATA {
     pub m_idApp: u32,
     pub m_szAppGuid: [u16; 40],
@@ -68,7 +68,7 @@ impl Default for APPDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPSTATISTICS {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
@@ -82,7 +82,7 @@ pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = -1;
 pub const AppDomainHelper: windows_core::GUID = windows_core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: windows_core::BOOL,
     pub IsRecycled: windows_core::BOOL,
@@ -100,7 +100,7 @@ pub struct ApplicationProcessRecycleInfo {
     pub NumCallsLastReported: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -112,7 +112,7 @@ pub struct ApplicationProcessStatistics {
     pub Reserved4: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: windows_core::GUID,
     pub ApplicationIdPrimaryApplication: windows_core::GUID,
@@ -125,7 +125,7 @@ pub struct ApplicationProcessSummary {
     pub IsRecycled: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -137,7 +137,7 @@ pub struct ApplicationSummary {
 }
 pub const ByotServerEx: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLSIDDATA {
     pub m_clsid: windows_core::GUID,
     pub m_cReferences: u32,
@@ -149,7 +149,7 @@ pub struct CLSIDDATA {
     pub m_cCallsFailed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLSIDDATA2 {
     pub m_clsid: windows_core::GUID,
     pub m_appid: windows_core::GUID,
@@ -173,7 +173,7 @@ impl Default for CLSIDDATA2 {
 pub const COMEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -249,14 +249,14 @@ pub const CoMTSLocator: windows_core::GUID = windows_core::GUID::from_u128(0xeca
 pub const ComServiceEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: windows_core::BOOL,
     pub TerminateOnHang: windows_core::BOOL,
     pub AvgCallThresholdInMs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -273,7 +273,7 @@ pub struct ComponentStatistics {
     pub Reserved4: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: windows_core::GUID,
     pub PartitionId: windows_core::GUID,
@@ -528,7 +528,7 @@ impl ContextInfo2_Vtbl {
 impl windows_core::RuntimeName for ContextInfo2 {}
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
     pub dwSequenceNumber: u32,
@@ -553,7 +553,7 @@ pub const GUID_STRING_SIZE: u32 = 40;
 pub type GetAppTrackerDataFlags = i32;
 pub const GetSecurityCallContextAppObject: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: windows_core::BOOL,
     pub fTerminateOnHang: windows_core::BOOL,
@@ -10465,7 +10465,7 @@ impl windows_core::RuntimeName for ObjectControl {}
 pub const PoolMgr: windows_core::GUID = windows_core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 pub const Process: ReleaseModes = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: windows_core::GUID,
     pub ProcessStartTime: i64,

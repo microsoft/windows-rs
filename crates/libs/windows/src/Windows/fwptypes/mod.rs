@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: *mut u16,
     pub description: *mut u16,
@@ -31,7 +31,7 @@ pub const FWP_AF_INET6: FWP_AF = 1;
 pub const FWP_AF_NONE: FWP_AF = 3;
 pub const FWP_BYTEMAP_ARRAY64_SIZE: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_BYTE_ARRAY16 {
     pub byteArray16: [u8; 16],
 }
@@ -42,7 +42,7 @@ impl Default for FWP_BYTE_ARRAY16 {
 }
 pub const FWP_BYTE_ARRAY16_TYPE: FWP_DATA_TYPE = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_BYTE_ARRAY6 {
     pub byteArray6: [u8; 6],
 }
@@ -54,7 +54,7 @@ impl Default for FWP_BYTE_ARRAY6 {
 pub const FWP_BYTE_ARRAY6_SIZE: u32 = 6;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_BYTE_BLOB {
     pub size: u32,
     pub data: *mut u8,
@@ -257,7 +257,7 @@ pub const FWP_SINGLE_DATA_TYPE_MAX: FWP_DATA_TYPE = 255;
 pub const FWP_TOKEN_ACCESS_INFORMATION_TYPE: FWP_DATA_TYPE = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: u32,
     pub sids: super::winnt::PSID_AND_ATTRIBUTES,
@@ -271,14 +271,14 @@ pub const FWP_UINT64: FWP_DATA_TYPE = 4;
 pub const FWP_UINT8: FWP_DATA_TYPE = 1;
 pub const FWP_UNICODE_STRING_TYPE: FWP_DATA_TYPE = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWP_V4_ADDR_AND_MASK {
     pub addr: u32,
     pub mask: u32,
 }
 pub const FWP_V4_ADDR_MASK: FWP_DATA_TYPE = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_V6_ADDR_AND_MASK {
     pub addr: [u8; 16],
     pub prefixLength: u8,
@@ -338,7 +338,7 @@ pub const FWP_VSWITCH_NETWORK_TYPE_INTERNAL: FWP_VSWITCH_NETWORK_TYPE = 2;
 pub const FWP_VSWITCH_NETWORK_TYPE_PRIVATE: FWP_VSWITCH_NETWORK_TYPE = 1;
 pub const FWP_VSWITCH_NETWORK_TYPE_UNKNOWN: FWP_VSWITCH_NETWORK_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IPSEC_VIRTUAL_IF_TUNNEL_INFO0 {
     pub virtualIfTunnelId: u64,
     pub trafficSelectorId: u64,

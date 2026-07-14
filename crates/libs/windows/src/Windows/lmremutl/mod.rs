@@ -30,7 +30,7 @@ pub const SUPPORTS_RPC: u32 = 4;
 pub const SUPPORTS_SAM_PROTOCOL: u32 = 8;
 pub const SUPPORTS_UNICODE: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIME_OF_DAY_INFO {
     pub tod_elapsedt: u32,
     pub tod_msecs: u32,

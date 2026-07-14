@@ -554,14 +554,14 @@ impl Default for HIFTIMESTAMPCHANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_CROSSTIMESTAMP {
     pub SystemTimestamp1: u64,
     pub HardwareClockTimestamp: u64,
     pub SystemTimestamp2: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub PtpV2OverUdpIPv4EventMessageReceive: bool,
     pub PtpV2OverUdpIPv4AllMessageReceive: bool,
@@ -576,14 +576,14 @@ pub struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES {
     pub TaggedTransmit: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES {
     pub AllReceive: bool,
     pub AllTransmit: bool,
     pub TaggedTransmit: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_TIMESTAMP_CAPABILITIES {
     pub HardwareClockFrequencyHz: u64,
     pub SupportsCrossTimestamp: bool,

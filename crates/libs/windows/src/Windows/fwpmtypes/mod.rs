@@ -34,7 +34,7 @@ pub const FWPM_APPC_NETWORK_CAPABILITY_INTERNET_PRIVATE_NETWORK: FWPM_APPC_NETWO
 pub type FWPM_APPC_NETWORK_CAPABILITY_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CALLOUT0 {
     pub calloutKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -51,14 +51,14 @@ impl Default for FWPM_CALLOUT0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_CALLOUT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub calloutKey: windows_core::GUID,
     pub calloutId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CALLOUT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_core::GUID,
     pub layerKey: windows_core::GUID,
@@ -72,7 +72,7 @@ pub const FWPM_CALLOUT_FLAG_PERSISTENT: u32 = 65536;
 pub const FWPM_CALLOUT_FLAG_REGISTERED: u32 = 262144;
 pub const FWPM_CALLOUT_FLAG_USES_PROVIDER_CONTEXT: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CALLOUT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CALLOUT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -102,7 +102,7 @@ impl Default for FWPM_CLASSIFY_OPTION0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CLASSIFY_OPTIONS0 {
     pub numOptions: u32,
     pub options: *mut FWPM_CLASSIFY_OPTION0,
@@ -167,7 +167,7 @@ impl Default for FWPM_CONNECTION0_1 {
 }
 pub const FWPM_CONNECTION_ENUM_FLAG_QUERY_BYTES_TRANSFERRED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_CONNECTION_ENUM_TEMPLATE0 {
     pub connectionId: u64,
     pub flags: u32,
@@ -177,7 +177,7 @@ pub const FWPM_CONNECTION_EVENT_DELETE: FWPM_CONNECTION_EVENT_TYPE = 1;
 pub const FWPM_CONNECTION_EVENT_MAX: FWPM_CONNECTION_EVENT_TYPE = 2;
 pub type FWPM_CONNECTION_EVENT_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_CONNECTION_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_CONNECTION_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -202,7 +202,7 @@ pub const FWPM_ENGINE_PACKET_QUEUING: FWPM_ENGINE_OPTION = 4;
 pub const FWPM_ENGINE_TXN_WATCHDOG_TIMEOUT_IN_MSEC: FWPM_ENGINE_OPTION = 5;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_FIELD0 {
     pub fieldKey: *mut windows_core::GUID,
     pub r#type: FWPM_FIELD_TYPE,
@@ -259,7 +259,7 @@ impl Default for FWPM_FILTER0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_FILTER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub filterKey: windows_core::GUID,
@@ -281,7 +281,7 @@ impl Default for FWPM_FILTER_CONDITION0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_FILTER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_core::GUID,
     pub layerKey: windows_core::GUID,
@@ -317,7 +317,7 @@ pub const FWPM_FILTER_FLAG_SILENT_MODE: u32 = 1024;
 pub const FWPM_FILTER_FLAG_SYSTEMOS_ONLY: u32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_FILTER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_FILTER_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -343,7 +343,7 @@ pub const FWPM_IPSEC_IKE_QM_TUNNEL_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 2;
 pub const FWPM_IPSEC_KEYING_CONTEXT: FWPM_PROVIDER_CONTEXT_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_LAYER0 {
     pub layerKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -360,7 +360,7 @@ impl Default for FWPM_LAYER0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_LAYER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
@@ -369,7 +369,7 @@ pub const FWPM_LAYER_FLAG_BUILTIN: u32 = 2;
 pub const FWPM_LAYER_FLAG_CLASSIFY_MOSTLY: u32 = 4;
 pub const FWPM_LAYER_FLAG_KERNEL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_LAYER_STATISTICS1 {
     pub layerId: windows_core::GUID,
     pub classifyPermitCount: u32,
@@ -395,7 +395,7 @@ impl Default for FWPM_NETWORK_CONNECTION_POLICY_SETTING0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0 {
     pub numSettings: u32,
     pub settings: *mut FWPM_NETWORK_CONNECTION_POLICY_SETTING0,
@@ -610,21 +610,21 @@ impl Default for FWPM_NET_EVENT5_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CAPABILITY_ALLOW0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CAPABILITY_DROP0 {
     pub networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE,
     pub filterId: u64,
     pub isLoopback: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub filterId: u64,
     pub layerId: u16,
@@ -635,13 +635,13 @@ pub struct FWPM_NET_EVENT_CLASSIFY_ALLOW0 {
     pub isLoopback: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP0 {
     pub filterId: u64,
     pub layerId: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
     pub filterId: u64,
     pub layerId: u16,
@@ -653,7 +653,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
     pub filterId: u64,
     pub layerId: u16,
@@ -668,7 +668,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP2 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
     pub localMacAddr: super::fwptypes::FWP_BYTE_ARRAY6,
     pub remoteMacAddr: super::fwptypes::FWP_BYTE_ARRAY6,
@@ -692,7 +692,7 @@ pub struct FWPM_NET_EVENT_CLASSIFY_DROP_MAC0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_ENUM_TEMPLATE0 {
     pub startTime: super::minwindef::FILETIME,
     pub endTime: super::minwindef::FILETIME,
@@ -855,7 +855,7 @@ impl Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: super::fwptypes::FWP_BYTE_ARRAY6,
     pub reserved3: super::fwptypes::FWP_BYTE_ARRAY6,
@@ -972,7 +972,7 @@ impl Default for FWPM_NET_EVENT_HEADER3_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: super::ipsectypes::IPSEC_FAILURE_POINT,
@@ -992,7 +992,7 @@ impl Default for FWPM_NET_EVENT_IKEEXT_EM_FAILURE0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IKEEXT_EM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: super::ipsectypes::IPSEC_FAILURE_POINT,
@@ -1021,7 +1021,7 @@ pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_BENIGN: u32 = 2;
 pub const FWPM_NET_EVENT_IKEEXT_EM_FAILURE_FLAG_MULTIPLE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
     pub failureErrorCode: u32,
     pub failurePoint: super::ipsectypes::IPSEC_FAILURE_POINT,
@@ -1042,7 +1042,7 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
     pub failureErrorCode: u32,
     pub failurePoint: super::ipsectypes::IPSEC_FAILURE_POINT,
@@ -1069,7 +1069,7 @@ impl Default for FWPM_NET_EVENT_IKEEXT_MM_FAILURE1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "iketypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IKEEXT_MM_FAILURE2 {
     pub failureErrorCode: u32,
     pub failurePoint: super::ipsectypes::IPSEC_FAILURE_POINT,
@@ -1231,7 +1231,7 @@ impl Default for FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "ipsectypes"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_IPSEC_KERNEL_DROP0 {
     pub failureStatus: i32,
     pub direction: super::fwptypes::FWP_DIRECTION,
@@ -1247,13 +1247,13 @@ pub const FWPM_NET_EVENT_KEYWORD_INBOUND_MCAST: u32 = 1;
 pub const FWPM_NET_EVENT_KEYWORD_PORT_SCANNING_DROP: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "ipsectypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0 {
     pub spi: super::ipsectypes::IPSEC_SA_SPI,
 }
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_NET_EVENT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_NET_EVENT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1280,7 +1280,7 @@ pub const FWPM_NET_EVENT_TYPE_LPM_PACKET_ARRIVAL: FWPM_NET_EVENT_TYPE = 10;
 pub const FWPM_NET_EVENT_TYPE_MAX: FWPM_NET_EVENT_TYPE = 11;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER0 {
     pub providerKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -1295,7 +1295,7 @@ impl Default for FWPM_PROVIDER0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerKey: windows_core::GUID,
@@ -1469,14 +1469,14 @@ impl Default for FWPM_PROVIDER_CONTEXT3_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub providerContextKey: windows_core::GUID,
     pub providerContextId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_core::GUID,
     pub providerContextType: FWPM_PROVIDER_CONTEXT_TYPE,
@@ -1489,7 +1489,7 @@ impl Default for FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0 {
 pub const FWPM_PROVIDER_CONTEXT_FLAG_DOWNLEVEL: u32 = 2;
 pub const FWPM_PROVIDER_CONTEXT_FLAG_PERSISTENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1503,14 +1503,14 @@ impl Default for FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0 {
 pub type FWPM_PROVIDER_CONTEXT_TYPE = i32;
 pub const FWPM_PROVIDER_CONTEXT_TYPE_MAX: FWPM_PROVIDER_CONTEXT_TYPE = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
 pub const FWPM_PROVIDER_FLAG_DISABLED: u32 = 16;
 pub const FWPM_PROVIDER_FLAG_PERSISTENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_PROVIDER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_PROVIDER_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1529,7 +1529,7 @@ pub const FWPM_SERVICE_STOPPED: FWPM_SERVICE_STATE = 0;
 pub const FWPM_SERVICE_STOP_PENDING: FWPM_SERVICE_STATE = 2;
 #[repr(C)]
 #[cfg(all(feature = "fwptypes", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SESSION0 {
     pub sessionKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -1547,14 +1547,14 @@ impl Default for FWPM_SESSION0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_SESSION_ENUM_TEMPLATE0 {
     pub reserved: u64,
 }
 pub const FWPM_SESSION_FLAG_DYNAMIC: u32 = 1;
 pub const FWPM_SESSION_FLAG_RESERVED: u32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_STATISTICS1 {
     pub numLayerStatistics: u32,
     pub layerStatistics: *mut FWPM_LAYER_STATISTICS1,
@@ -1600,7 +1600,7 @@ impl Default for FWPM_STATISTICS1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SUBLAYER0 {
     pub subLayerKey: windows_core::GUID,
     pub displayData: super::fwptypes::FWPM_DISPLAY_DATA0,
@@ -1616,13 +1616,13 @@ impl Default for FWPM_SUBLAYER0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_SUBLAYER_CHANGE0 {
     pub changeType: FWPM_CHANGE_TYPE,
     pub subLayerKey: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SUBLAYER_ENUM_TEMPLATE0 {
     pub providerKey: *mut windows_core::GUID,
 }
@@ -1633,7 +1633,7 @@ impl Default for FWPM_SUBLAYER_ENUM_TEMPLATE0 {
 }
 pub const FWPM_SUBLAYER_FLAG_PERSISTENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SUBLAYER_SUBSCRIPTION0 {
     pub enumTemplate: *mut FWPM_SUBLAYER_ENUM_TEMPLATE0,
     pub flags: u32,
@@ -1647,7 +1647,7 @@ impl Default for FWPM_SUBLAYER_SUBSCRIPTION0 {
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_ADD: u32 = 1;
 pub const FWPM_SUBSCRIPTION_FLAG_NOTIFY_ON_DELETE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SYSTEM_PORTS0 {
     pub numTypes: u32,
     pub types: *mut FWPM_SYSTEM_PORTS_BY_TYPE0,
@@ -1658,7 +1658,7 @@ impl Default for FWPM_SYSTEM_PORTS0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_SYSTEM_PORTS_BY_TYPE0 {
     pub r#type: FWPM_SYSTEM_PORT_TYPE,
     pub numPorts: u32,
@@ -1699,7 +1699,7 @@ impl Default for FWPM_VSWITCH_EVENT0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut windows_core::PWSTR,
@@ -1710,7 +1710,7 @@ impl Default for FWPM_VSWITCH_EVENT0_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: windows_core::BOOL,
     pub numvSwitchFilterExtensions: u32,
@@ -1728,7 +1728,7 @@ pub const FWPM_VSWITCH_EVENT_FILTER_ENGINE_NOT_IN_REQUIRED_POSITION: FWPM_VSWITC
 pub const FWPM_VSWITCH_EVENT_FILTER_ENGINE_REORDER: FWPM_VSWITCH_EVENT_TYPE = 4;
 pub const FWPM_VSWITCH_EVENT_MAX: FWPM_VSWITCH_EVENT_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FWPM_VSWITCH_EVENT_SUBSCRIPTION0 {
     pub flags: u32,
     pub sessionKey: windows_core::GUID,

@@ -498,7 +498,7 @@ pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::winnt::PSID,
     pub ScopeIsSystem: windows_core::BOOL,
@@ -627,7 +627,7 @@ impl Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -672,7 +672,7 @@ pub const PackagePathType_MachineExternal: PackagePathType = 3;
 pub const PackagePathType_Mutable: PackagePathType = 1;
 pub const PackagePathType_UserExternal: PackagePathType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
 }

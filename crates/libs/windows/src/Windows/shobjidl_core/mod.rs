@@ -364,14 +364,14 @@ pub const ApplicationDesignModeSettings: windows_core::GUID = windows_core::GUID
 pub const ApplicationDestinations: windows_core::GUID = windows_core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
 pub const ApplicationDocumentLists: windows_core::GUID = windows_core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANDSITEINFO {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
     pub providerIdentity: windows_core::PCWSTR,
@@ -427,7 +427,7 @@ pub const BSSF_UNDELETEABLE: u32 = 4096;
 pub const BSSF_VISIBLE: u32 = 1;
 pub type CATEGORYINFO_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
     pub wszName: [u16; 260],
@@ -503,7 +503,7 @@ pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
 pub const CMIC_MASK_UNICODE: u32 = 16384;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -517,7 +517,7 @@ pub struct CMINVOKECOMMANDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
@@ -537,7 +537,7 @@ pub struct CMINVOKECOMMANDINFOEX {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
@@ -557,7 +557,7 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub lpVerbWInt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_COLUMNINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -656,7 +656,7 @@ impl Default for DELEGATEITEMID {
 pub struct DEPRECATED_HRESULT(pub windows_core::HRESULT);
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DESKBANDINFO {
     pub dwMask: u32,
     pub ptMinSize: super::windef::POINTL,
@@ -766,7 +766,7 @@ pub type EXPLORER_BROWSER_OPTIONS = u32;
 pub type EXPPS = u32;
 pub const EXPPS_FILETYPES: EXPPS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTRASEARCH {
     pub guidSearch: windows_core::GUID,
     pub wszFriendlyName: [u16; 80],
@@ -840,7 +840,7 @@ pub const FOFX_SHOWELEVATIONPROMPT: u32 = 262144;
 pub type FOLDERFLAGS = u32;
 pub type FOLDERLOGICALVIEWMODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERSETTINGS {
     pub ViewMode: u32,
     pub fFlags: u32,
@@ -20105,7 +20105,7 @@ pub const KF_REDIRECT_WITH_UI: KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
     pub pszName: windows_core::PWSTR,
@@ -20325,7 +20325,7 @@ pub const PDOPS_RUNNING: PDOPSTATUS = 1;
 pub const PDOPS_STOPPED: PDOPSTATUS = 4;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: super::shtypes::LPITEMIDLIST,
     pub szTargetParsingName: [u16; 260],
@@ -20348,7 +20348,7 @@ pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = u32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::windef::HACCEL,
     pub cAccelEntries: u32,
@@ -20474,7 +20474,7 @@ pub const SHCONTF_SHAREABLE: SHCONTF = 1024;
 pub const SHCONTF_STORAGE: SHCONTF = 2048;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::windef::SIZE,
     pub ptOffset: super::windef::POINT,
@@ -20483,7 +20483,7 @@ pub struct SHDRAGIMAGE {
 }
 pub type SHELLVIEWID = windows_core::GUID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHELL_ITEM_RESOURCE {
     pub guidType: windows_core::GUID,
     pub szName: [u16; 260],
@@ -20564,7 +20564,7 @@ pub const SMAE_USER: u32 = 4;
 pub const SMAE_VALID: u32 = 7;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::shtypes::LPCITEMIDLIST,
@@ -20598,7 +20598,7 @@ pub const SMC_SFSELECTITEM: u32 = 10;
 pub const SMC_SHCHANGENOTIFY: u32 = 46;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -20639,7 +20639,7 @@ pub const SMIM_FLAGS: tagSMINFOMASK = 2;
 pub const SMIM_ICON: tagSMINFOMASK = 4;
 pub const SMIM_TYPE: tagSMINFOMASK = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMINFO {
     pub dwMask: u32,
     pub dwType: u32,
@@ -20664,7 +20664,7 @@ pub const SMSET_DONTOWN: u32 = 1;
 pub const SMSET_TOP: u32 = 268435456;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SORTCOLUMN {
     pub propkey: super::wtypes::PROPERTYKEY,
     pub direction: SORTDIRECTION,
@@ -20778,7 +20778,7 @@ pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: core::mem::ManuallyDrop<Option<IShellView>>,
@@ -20853,7 +20853,7 @@ pub const THB_ICON: THUMBBUTTONMASK = 2;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
     pub iId: u32,

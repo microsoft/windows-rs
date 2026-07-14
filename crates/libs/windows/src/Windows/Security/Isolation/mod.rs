@@ -771,7 +771,7 @@ impl core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,

@@ -10,7 +10,7 @@ windows_core::link!("user32.dll" "system" fn TranslateMessage(lpmsg : *const MSG
 pub type COINIT = i32;
 pub const COINIT_APARTMENTTHREADED: COINIT = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_COLOR {
     pub A: u8,
     pub R: u8,
@@ -6587,7 +6587,7 @@ pub type LPARAM = isize;
 pub type LPWSTR = *mut u16;
 pub type LRESULT = isize;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG {
     pub hwnd: HWND,
     pub message: u32,
@@ -6597,13 +6597,13 @@ pub struct MSG {
     pub pt: POINT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,

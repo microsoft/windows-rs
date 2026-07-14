@@ -707,7 +707,7 @@ pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: i32 = -2004287221;
 pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: i32 = -2004287225;
 pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: i32 = -2004287222;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_core::GUID,
     pub appId: windows_core::GUID,

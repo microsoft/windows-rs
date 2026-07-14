@@ -747,7 +747,7 @@ pub const RASCS_SubEntryDisconnected: tagRASCONNSTATE = 23;
 pub const RASCS_WaitForCallback: tagRASCONNSTATE = 17;
 pub const RASCS_WaitForModemReset: tagRASCONNSTATE = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASCTRYINFO {
     pub dwSize: u32,
     pub dwCountryID: u32,
@@ -757,7 +757,7 @@ pub struct RASCTRYINFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
@@ -925,7 +925,7 @@ pub const RASIKEv2_FLAGS_BEHIND_NAT: u32 = 2;
 pub const RASIKEv2_FLAGS_MOBIKESUPPORTED: u32 = 1;
 pub const RASIKEv2_FLAGS_SERVERBEHIND_NAT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RASIPADDR {
     pub a: u8,
     pub b: u8,
@@ -1047,7 +1047,7 @@ impl Default for RAS_PROJECTION_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RAS_STATS {
     pub dwSize: u32,
     pub dwBytesXmited: u32,
@@ -1111,7 +1111,7 @@ pub const WM_RASDIALEVENT: u32 = 52429;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASADPARAMS {
     pub dwSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -1131,7 +1131,7 @@ pub struct tagRASADPARAMS {
     pub yDlg: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAMBA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1144,7 +1144,7 @@ impl Default for tagRASAMBA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAMBW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1157,7 +1157,7 @@ impl Default for tagRASAMBW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAUTODIALENTRYA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1170,7 +1170,7 @@ impl Default for tagRASAUTODIALENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASAUTODIALENTRYW {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1183,7 +1183,7 @@ impl Default for tagRASAUTODIALENTRYW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASCOMMSETTINGS {
     pub dwSize: u32,
     pub bParity: u8,
@@ -1194,7 +1194,7 @@ pub struct tagRASCOMMSETTINGS {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCONNA {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -1284,7 +1284,7 @@ pub type tagRASCONNSUBSTATE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCONNW {
     pub dwSize: u32,
     pub hrasconn: HRASCONN,
@@ -1330,7 +1330,7 @@ impl Default for tagRASCONNW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCREDENTIALSA {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -1344,7 +1344,7 @@ impl Default for tagRASCREDENTIALSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASCREDENTIALSW {
     pub dwSize: u32,
     pub dwMask: u32,
@@ -1374,7 +1374,7 @@ pub struct tagRASCUSTOMSCRIPTEXTENSIONS {
     pub pfnRasSetCommSettings: PFNRASSETCOMMSETTINGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDEVINFOA {
     pub dwSize: u32,
     pub szDeviceType: [i8; 17],
@@ -1386,7 +1386,7 @@ impl Default for tagRASDEVINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDEVINFOW {
     pub dwSize: u32,
     pub szDeviceType: [u16; 17],
@@ -1427,7 +1427,7 @@ pub struct tagRASDIALEXTENSIONS {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -1471,7 +1471,7 @@ impl Default for tagRASDIALPARAMSA {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -1515,7 +1515,7 @@ impl Default for tagRASDIALPARAMSW {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASEAPINFO {
     pub dwSizeofEapInfo: u32,
     pub pbEapInfo: *mut u8,
@@ -1540,7 +1540,7 @@ impl Default for tagRASEAPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASEAPUSERIDENTITYA {
     pub szUserName: [i8; 257],
     pub dwSizeofEapInfo: u32,
@@ -1552,7 +1552,7 @@ impl Default for tagRASEAPUSERIDENTITYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASEAPUSERIDENTITYW {
     pub szUserName: [u16; 257],
     pub dwSizeofEapInfo: u32,
@@ -1636,7 +1636,7 @@ impl Default for tagRASENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYNAMEA {
     pub dwSize: u32,
     pub szEntryName: [i8; 257],
@@ -1649,7 +1649,7 @@ impl Default for tagRASENTRYNAMEA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYNAMEW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -1734,7 +1734,7 @@ impl Default for tagRASENTRYW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASIPXW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1746,7 +1746,7 @@ impl Default for tagRASIPXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASPPPCCP {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1756,7 +1756,7 @@ pub struct tagRASPPPCCP {
     pub dwServerOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1771,7 +1771,7 @@ impl Default for tagRASPPPIPA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPV6 {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1786,7 +1786,7 @@ impl Default for tagRASPPPIPV6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1801,7 +1801,7 @@ impl Default for tagRASPPPIPW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPIPXA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1813,7 +1813,7 @@ impl Default for tagRASPPPIPXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPLCPA {
     pub dwSize: u32,
     pub fBundled: windows_core::BOOL,
@@ -1837,7 +1837,7 @@ impl Default for tagRASPPPLCPA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPLCPW {
     pub dwSize: u32,
     pub fBundled: windows_core::BOOL,
@@ -1861,7 +1861,7 @@ impl Default for tagRASPPPLCPW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPNBFA {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1876,7 +1876,7 @@ impl Default for tagRASPPPNBFA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASPPPNBFW {
     pub dwSize: u32,
     pub dwError: u32,
@@ -1892,7 +1892,7 @@ impl Default for tagRASPPPNBFW {
 }
 pub type tagRASPROJECTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASSUBENTRYA {
     pub dwSize: u32,
     pub dwfFlags: u32,
@@ -1907,7 +1907,7 @@ impl Default for tagRASSUBENTRYA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASSUBENTRYW {
     pub dwSize: u32,
     pub dwfFlags: u32,

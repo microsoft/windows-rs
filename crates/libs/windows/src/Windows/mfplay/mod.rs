@@ -1058,7 +1058,7 @@ impl IMFPMediaPlayerCallback_Vtbl {
 impl windows_core::RuntimeName for IMFPMediaPlayerCallback {}
 #[repr(C)]
 #[cfg(all(feature = "mfidl", feature = "propsys"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub dwUserData: usize,
@@ -1082,13 +1082,13 @@ pub const MFP_CREDENTIAL_PROXY: MFP_CREDENTIAL_FLAGS = 16;
 pub const MFP_CREDENTIAL_SAVE: MFP_CREDENTIAL_FLAGS = 2;
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
     pub hrEvent: windows_core::HRESULT,
@@ -1112,7 +1112,7 @@ pub const MFP_EVENT_TYPE_RATE_SET: MFP_EVENT_TYPE = 4;
 pub const MFP_EVENT_TYPE_STOP: MFP_EVENT_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -1122,14 +1122,14 @@ pub const MFP_MEDIAITEM_CAN_SEEK: MFP_MEDIAITEM_CHARACTERISTICS = 2;
 pub type MFP_MEDIAITEM_CHARACTERISTICS = u32;
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -1139,7 +1139,7 @@ pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: MFP_MEDIAITEM_CHARACTERISTICS = 8;
 pub const MFP_MEDIAITEM_IS_LIVE: MFP_MEDIAITEM_CHARACTERISTICS = 1;
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -1152,7 +1152,7 @@ pub const MFP_MEDIAPLAYER_STATE_SHUTDOWN: MFP_MEDIAPLAYER_STATE = 4;
 pub const MFP_MEDIAPLAYER_STATE_STOPPED: MFP_MEDIAPLAYER_STATE = 1;
 #[repr(C)]
 #[cfg(all(feature = "mfobjects", feature = "propsys"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub MFEventType: super::mfobjects::MediaEventType,
@@ -1165,28 +1165,28 @@ pub const MFP_OPTION_NO_MMCSS: MFP_CREATION_OPTIONS = 2;
 pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: MFP_CREATION_OPTIONS = 4;
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,
@@ -1201,7 +1201,7 @@ pub struct MFP_RATE_SET_EVENT {
 }
 #[repr(C)]
 #[cfg(feature = "propsys")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
     pub pMediaItem: core::mem::ManuallyDrop<Option<IMFPMediaItem>>,

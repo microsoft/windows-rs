@@ -43,18 +43,18 @@ pub unsafe fn UnpackDDElParam(msg: u32, lparam: super::minwindef::LPARAM, puilo:
     unsafe { UnpackDDElParam(msg, lparam, puilo as _, puihi as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDEACK {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDEADVISE {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEDATA {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -66,13 +66,13 @@ impl Default for DDEDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DDELN {
     pub _bitfield: u16,
     pub cfFormat: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEPOKE {
     pub _bitfield: u16,
     pub cfFormat: i16,
@@ -84,7 +84,7 @@ impl Default for DDEPOKE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DDEUP {
     pub _bitfield: u16,
     pub cfFormat: i16,

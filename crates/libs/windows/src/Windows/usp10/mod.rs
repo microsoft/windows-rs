@@ -231,13 +231,13 @@ pub unsafe fn ScriptXtoCP(ix: i32, cglyphs: i32, pwlogclust: &[u16], psva: *cons
     unsafe { ScriptXtoCP(ix, pwlogclust.len().try_into().unwrap(), cglyphs, pwlogclust.as_ptr(), psva, piadvance, psa.as_ptr(), picp.as_mut_ptr(), pitrailing.as_mut_ptr()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPENTYPE_FEATURE_RECORD {
     pub tagFeature: OPENTYPE_TAG,
     pub lParameter: i32,
@@ -246,7 +246,7 @@ pub struct OPENTYPE_FEATURE_RECORD {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct OPENTYPE_TAG(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
@@ -260,17 +260,17 @@ impl Default for SCRIPT_CACHE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
@@ -281,7 +281,7 @@ pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -291,13 +291,13 @@ pub struct SCRIPT_FONTPROPERTIES {
     pub iKashidaWidth: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_GLYPHPROP {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
@@ -320,18 +320,18 @@ pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3;
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5;
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
@@ -344,7 +344,7 @@ impl Default for SCRIPT_STRING_ANALYSIS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
@@ -359,7 +359,7 @@ impl Default for SCRIPT_TABDEF {
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0;
 pub const SCRIPT_UNDEFINED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
@@ -389,7 +389,7 @@ pub const SSA_PIDX: u32 = 268435456;
 pub const SSA_RTL: u32 = 256;
 pub const SSA_TAB: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TEXTRANGE_PROPERTIES {
     pub potfRecords: *mut OPENTYPE_FEATURE_RECORD,
     pub cotfRecords: i32,

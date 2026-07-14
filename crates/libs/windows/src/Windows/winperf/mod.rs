@@ -9,7 +9,7 @@ pub const PERF_AVERAGE_TIMER: u32 = 805438464;
 pub const PERF_COUNTER_100NS_QUEUELEN_TYPE: u32 = 5571840;
 pub const PERF_COUNTER_BASE: u32 = 196608;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
 }
@@ -17,7 +17,7 @@ pub const PERF_COUNTER_BULK_COUNT: u32 = 272696576;
 pub const PERF_COUNTER_COUNTER: u32 = 272696320;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -32,7 +32,7 @@ pub struct PERF_COUNTER_DEFINITION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -71,7 +71,7 @@ pub const PERF_COUNTER_TIMER_INV: u32 = 557909248;
 pub const PERF_COUNTER_VALUE: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
     pub LittleEndian: u32,
@@ -109,7 +109,7 @@ pub const PERF_DISPLAY_PER_SEC: u32 = 268435456;
 pub const PERF_DISPLAY_SECONDS: u32 = 805306368;
 pub const PERF_ELAPSED_TIME: u32 = 807666944;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -132,7 +132,7 @@ pub const PERF_NUMBER_HEX: u32 = 0;
 pub const PERF_OBJECT_TIMER: u32 = 2097152;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -151,7 +151,7 @@ pub struct PERF_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,

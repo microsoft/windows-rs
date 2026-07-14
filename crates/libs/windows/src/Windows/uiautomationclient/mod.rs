@@ -10,7 +10,7 @@ pub type ConnectionRecoveryBehaviorOptions = i32;
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = 0;
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: core::mem::ManuallyDrop<windows_core::BSTR>,

@@ -213,7 +213,7 @@ impl Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
     pub GrantedAccessMask: super::winnt::PACCESS_MASK,
@@ -222,7 +222,7 @@ pub struct AUTHZ_ACCESS_REPLY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::winnt::ACCESS_MASK,
     pub PrincipalSelfSid: super::winnt::PSID,
@@ -291,7 +291,7 @@ pub const AUTHZ_NO_ALLOC_STRINGS: u32 = 4;
 pub const AUTHZ_NO_FAILURE_AUDIT: u32 = 2;
 pub const AUTHZ_NO_SUCCESS_AUDIT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_core::PWSTR,
     pub dwOffset: u32,
@@ -309,7 +309,7 @@ pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: u32 = 2;
 pub const AUTHZ_RM_FLAG_NO_AUDIT: u32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: u16,
     pub ObjectUuid: windows_core::PWSTR,
@@ -350,14 +350,14 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_core::PWSTR,
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
@@ -10,7 +10,7 @@ impl Default for BSTRBLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
@@ -25,7 +25,7 @@ impl Default for CLIPDATA {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CLIPFORMAT(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSPLATFORM {
     pub dwPlatformId: u32,
     pub dwVersionHi: u32,
@@ -44,7 +44,7 @@ impl Default for CY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CY_0 {
     pub Lo: u32,
     pub Hi: i32,
@@ -74,7 +74,7 @@ impl Default for DECIMAL_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECIMAL_0_0 {
     pub scale: u8,
     pub sign: u8,
@@ -91,7 +91,7 @@ impl Default for DECIMAL_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DECIMAL_1_0 {
     pub Lo32: u32,
     pub Mid32: u32,
@@ -149,7 +149,7 @@ pub type LPBSTRBLOB = *mut BSTRBLOB;
 pub type LPCY = *mut CY;
 pub type LPDECIMAL = *mut DECIMAL;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,
@@ -159,7 +159,7 @@ pub struct PROPERTYKEY {
 pub struct PROPID(pub u32);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERYCONTEXT {
     pub dwContext: u32,
     pub Platform: CSPLATFORM,
@@ -172,7 +172,7 @@ pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: u32 = 1;
 pub const ROT_COMPARE_MAX: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHBITMAP {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
@@ -185,7 +185,7 @@ impl Default for RemHBITMAP {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHBRUSH {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
@@ -198,7 +198,7 @@ impl Default for RemHBRUSH {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHENHMETAFILE {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
@@ -211,7 +211,7 @@ impl Default for RemHENHMETAFILE {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHGLOBAL {
     pub fNullHGlobal: i32,
     pub cbData: u32,
@@ -225,7 +225,7 @@ impl Default for RemHGLOBAL {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -241,7 +241,7 @@ impl Default for RemHMETAFILEPICT {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemHPALETTE {
     pub cbData: u32,
     pub data: [super::rpc::byte; 1],
@@ -362,7 +362,7 @@ pub const WDT_INPROC_CALL: u32 = 1215587415;
 pub const WDT_REMOTE_CALL: u32 = 1383359575;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct remoteMETAFILEPICT {
     pub mm: i32,
     pub xExt: i32,
@@ -403,20 +403,20 @@ impl Default for uCLSSPEC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: windows_core::PWSTR,
     pub PolicyId: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: windows_core::GUID,
     pub PolicyId: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct userBITMAP {
     pub bmType: i32,
     pub bmWidth: i32,

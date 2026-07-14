@@ -1523,7 +1523,7 @@ impl windows_core::RuntimeName for QueryOptions {
 unsafe impl Send for QueryOptions {}
 unsafe impl Sync for QueryOptions {}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct SortEntry {
     pub PropertyName: windows_core::HSTRING,
     pub AscendingOrder: bool,
